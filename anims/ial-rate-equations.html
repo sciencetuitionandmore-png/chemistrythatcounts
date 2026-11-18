@@ -1,0 +1,281 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rate Equations</title>
+<meta name="description" content="Interactive animation: Rate Equations. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-rate-equations.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--warn:#b25e00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;outline:none;position:relative}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.6em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:8px 12px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.pbtns,.spd{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.dots{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:#fff;cursor:pointer;padding:0;font:700 .7rem var(--display);color:var(--muted)}
+.dot[aria-current="step"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.dot.seen{border-color:var(--accent)}
+.ind{font:600 .9rem var(--display);color:var(--muted);white-space:nowrap}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.dot:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.84rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.say{min-height:2.8em;border-radius:10px;padding:8px 12px;background:#fff;border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.say.mid{border-color:var(--warn);background:#fff6e8}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.lbl{font-size:.88rem;color:var(--muted);font-weight:700}
+.panel{background:var(--paper);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:78ch}
+.mcq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:minmax(0,1fr)}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer;font-size:.95rem}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.ex{font-size:.9rem;margin-top:6px;padding:6px 10px;border-radius:8px}
+.ex.good{background:#eef8f2;color:#14532f}.ex.bad{background:#fdf1f0;color:#7d1a14}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:14px 18px}
+.tip h2{color:#7a4a00;font-size:1.1rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font:600 .92rem var(--display);color:var(--muted);text-align:center;padding:6px 0}
+.at{font-family:var(--body);fill:var(--ink);font-weight:700}
+.sm{font-family:var(--body);fill:var(--muted);font-size:14px}
+.lab{font-family:var(--display);fill:var(--ink);font-size:15px;font-weight:600}
+.dl{fill:var(--accent);font-family:var(--body);font-weight:700}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ca{stroke:#c0392b;stroke-width:2.4;fill:none;stroke-linecap:round}
+.dr{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gd{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.pick{cursor:pointer}
+@media(max-width:520px){body{font-size:16px}.dot{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Rate equations and orders of reaction</h1><p class="meta">IAL Chemistry · Unit 4 · Kinetics</p><p><b>In this animation</b>: see how the orders in a rate equation show up on graphs, how to find them from initial rates, and how they tell you which species are in the rate-determining step.</p></header>
+<section class="sheet" aria-labelledby="hw"><h2 id="hw"><span class="step">Watch it</span>From rate equation to mechanism</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step, space to play or pause."><svg viewBox="0 0 800 400" role="img" aria-label="Rate Equations animation"><g id="defs"></g><g id="scene"></g></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><div class="pbtns"><button class="btn ghost" type="button" id="bRestart">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay" aria-pressed="false">Play</button><button class="btn ghost" type="button" id="bNext">Next</button></div>
+<span class="ind" id="ind" aria-live="polite"></span><div class="dots" id="dots"></div>
+<div class="spd" id="spd" role="group" aria-label="Speed"><span class="lbl">Speed</span><button type="button" class="mini" data-s="slow" aria-pressed="false">Slow</button><button type="button" class="mini" data-s="normal" aria-pressed="true">Normal</button></div></div>
+</section>
+<section class="sheet" aria-labelledby="ht"><h2 id="ht"><span class="step">Try it</span>Find the rate equation yourself</h2>
+<p>The reaction A + B → products has a hidden rate equation, rate = <i>k</i>[A]<sup><i>m</i></sup>[B]<sup><i>n</i></sup>. Choose starting concentrations and run experiments (up to 6). Then deduce the orders and <i>k</i>.</p>
+<p class="hint">Tip: change only one concentration at a time compared with experiment 1.</p>
+<div class="row"><label class="lbl">[A] / mol dm<sup>−3</sup> <select id="sa"></select></label><label class="lbl">[B] / mol dm<sup>−3</sup> <select id="sb"></select></label><button class="btn" type="button" id="run">Run experiment</button><button class="btn ghost" type="button" id="newR">New reaction</button></div>
+<div class="tbl-wrap"><table><thead><tr><th>Experiment</th><th>[A] / mol dm<sup>−3</sup></th><th>[B] / mol dm<sup>−3</sup></th><th>Initial rate / mol dm<sup>−3</sup> s<sup>−1</sup></th></tr></thead><tbody id="tb"><tr><td colspan="4" class="hint">No experiments yet.</td></tr></tbody></table></div>
+<div class="panel"><div class="row"><label class="lbl">Order in A <select id="oa"><option value="">?</option><option>0</option><option>1</option><option>2</option></select></label><label class="lbl">Order in B <select id="ob"><option value="">?</option><option>0</option><option>1</option><option>2</option></select></label><label class="lbl"><i>k</i> = <input type="text" inputmode="decimal" id="kv" placeholder="e.g. 2.5e-3" aria-label="value of k"></label><label class="lbl">units <select id="ku"><option value="">?</option><option value="0">mol dm⁻³ s⁻¹</option><option value="1">s⁻¹</option><option value="2">dm³ mol⁻¹ s⁻¹</option><option value="3">dm⁶ mol⁻² s⁻¹</option><option value="4">mol⁻¹ dm⁻³ s⁻¹</option></select></label></div>
+<div class="toolbar"><button class="btn" type="button" id="chkT">Check</button><button class="btn ghost" type="button" id="ansT">Show answer</button></div></div>
+<div class="say" id="sayT" aria-live="polite">Run at least three experiments.</div>
+</section>
+<section class="sheet" aria-labelledby="hc"><h2 id="hc"><span class="step">Check it</span>Four quick questions</h2>
+<ol class="qs" id="qs"></ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><button class="btn ghost" type="button" id="rstQs">Clear</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<aside class="tip" aria-labelledby="hx"><h2 id="hx">Exam tip</h2><ul><li>Orders come from <b>experimental data</b>, never from the numbers in the balanced equation.</li>
+<li>For units of <i>k</i>, rearrange the rate equation, write in the units and cancel. Overall order 2 gives dm<sup>3</sup> mol<sup>−1</sup> s<sup>−1</sup>.</li>
+<li>A species that is <b>zero order</b> does not take part in the rate-determining step (or any step before it).</li>
+<li>A constant half-life on a concentration–time graph means <b>first order</b>. Show at least two half-lives on the graph.</li></ul></aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 13 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "For the reaction 2NO(g) + O<sub>2<\/sub>(g) → 2NO<sub>2<\/sub>(g), rate = <i>k<\/i>[NO]<sup>2<\/sup>[O<sub>2<\/sub>]. Both [NO] and [O<sub>2<\/sub>] are doubled. By what factor does the rate increase?", "m": 1, "o": ["2", "4", "6", "8"], "a": 3, "why": "D is correct because doubling [NO] multiplies the rate by 2<sup>2<\/sup> = 4 and doubling [O<sub>2<\/sub>] multiplies it by 2, giving 4 × 2 = 8."}, {"t": "mc", "q": "2-Bromo-2-methylpropane, (CH<sub>3<\/sub>)<sub>3<\/sub>CBr, is hydrolysed by OH<sup>−<\/sup>(aq). Which statement is correct?", "m": 1, "o": ["rate = <i>k<\/i>[(CH<sub>3<\/sub>)<sub>3<\/sub>CBr][OH<sup>−<\/sup>]", "rate = <i>k<\/i>[(CH<sub>3<\/sub>)<sub>3<\/sub>CBr]", "OH<sup>−<\/sup> takes part in the rate-determining step.", "The reaction occurs in one step through a transition state."], "a": 1, "why": "B is correct because this tertiary halogenoalkane reacts by S<sub>N<\/sub>1: the slow step is only the C–Br bond breaking to form a carbocation."}, {"t": "w", "q": "Nitrogen monoxide reacts with hydrogen: 2NO(g) + 2H<sub>2<\/sub>(g) → N<sub>2<\/sub>(g) + 2H<sub>2<\/sub>O(g).<br>Exp 1: [NO] = 0.0050, [H<sub>2<\/sub>] = 0.0020 mol dm<sup>−3<\/sup>, initial rate = 1.25 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup> s<sup>−1<\/sup><br>Exp 2: [NO] = 0.010, [H<sub>2<\/sub>] = 0.0020 mol dm<sup>−3<\/sup>, initial rate = 5.00 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup> s<sup>−1<\/sup><br>Exp 3: [NO] = 0.0050, [H<sub>2<\/sub>] = 0.0040 mol dm<sup>−3<\/sup>, initial rate = 2.50 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup> s<sup>−1<\/sup><br>Deduce the order with respect to each reactant and write the rate equation.", "m": 3, "ms": ["second order in NO: Exp 1 → 2, [NO] doubles and rate × 4 (1)", "first order in H<sub>2<\/sub>: Exp 1 → 3, [H<sub>2<\/sub>] doubles and rate × 2 (1)", "rate = <i>k<\/i>[NO]<sup>2<\/sup>[H<sub>2<\/sub>] (1)"], "note": "Orders must be supported by reference to the data. Third mark: allow consequential on orders given."}, {"t": "w", "q": "Use Experiment 1 to calculate the value of the rate constant, <i>k<\/i>, and give its units.", "m": 3, "ms": ["<i>k<\/i> = rate ÷ ([NO]<sup>2<\/sup>[H<sub>2<\/sub>]) = 1.25 × 10<sup>−5<\/sup> ÷ (0.0050<sup>2<\/sup> × 0.0020) (1)", "<i>k<\/i> = 250 / 2.50 × 10<sup>2<\/sup> (1)", "dm<sup>6<\/sup> mol<sup>−2<\/sup> s<sup>−1<\/sup> (1)"], "note": "Allow consequential marking from the rate equation in the previous question. Units mark is independent."}, {"t": "w", "q": "Explain what the rate equation, rate = <i>k<\/i>[NO]<sup>2<\/sup>[H<sub>2<\/sub>], suggests about the mechanism of this reaction.", "m": 3, "ms": ["the overall equation has 2NO + 2H<sub>2<\/sub> but the rate equation has only 2NO and 1H<sub>2<\/sub> (1)", "so the reaction occurs in more than one step (1)", "the rate-determining step (or steps before it) involves two NO molecules and one H<sub>2<\/sub> molecule (1)"], "note": "Do not award 'orders come from the balanced equation'."}, {"t": "w", "q": "Describe how a concentration–time graph for a single reactant can be used to show that the reaction is first order with respect to that reactant.", "m": 2, "ms": ["measure two or more successive half-lives from the graph (1)", "the half-life is constant, so the reaction is first order (1)"], "note": "Allow 'time for concentration to fall from 1.00 to 0.50 equals time from 0.50 to 0.25'. Do not award 'the graph is a curve' alone."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer>The rate equation tells you which species are in the rate-determining step.</footer>
+</div>
+<script>
+"use strict";
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* formula text: digits after a letter or ) ] are subscripts; ^xyz is superscript (+ − δ digits) */
+function fm(s,fs){fs=fs||18;let out='',cur=0,buf='',bt=0;const off=[0,fs*.3,-fs*.4];
+ const flush=()=>{if(!buf)return;const dy=off[bt]-cur;cur=off[bt];out+='<tspan'+(dy?' dy="'+dy.toFixed(1)+'"':'')+(bt?' font-size="'+(fs*.68).toFixed(1)+'"':'')+'>'+esc(buf)+'</tspan>';buf=''};
+ for(let i=0;i<s.length;i++){const c=s[i];let t;
+  if(c==='`'){flush();bt=0;buf+=s[i+1]||'';i++;flush();continue}
+  if(c==='^'){flush();bt=2;i++;while(i<s.length&&/[+\-−δ0-9a-z•]/.test(s[i])){buf+=s[i];i++}i--;continue}
+  if(/\d/.test(c)&&(bt===1||/[A-Za-z\)\]]/.test(s[i-1]||'')))t=1;else t=0;
+  if(t!==bt){flush();bt=t}buf+=c}
+ flush();return out}
+function T(x,y,s,o){o=o||{};const fs=o.fs||20;return `<text x="${x}" y="${y}" class="${o.c||'at'}" font-size="${fs}" text-anchor="${o.a||'middle'}" dominant-baseline="central"${o.f?` fill="${o.f}" style="fill:${o.f}"`:''}${o.w?` font-weight="${o.w}"`:''}${o.x||''}>${fm(s,fs)}</text>`}
+function trim(x1,y1,x2,y2,a,b){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;return[x1+ux*a,y1+uy*a,x2-ux*b,y2-uy*b,ux,uy]}
+function bd(x1,y1,x2,y2,a,b,o){a=a==null?13:a;b=b==null?13:b;const[p,q,r,s]=trim(x1,y1,x2,y2,a,b);return `<line class="bd" x1="${p.toFixed(1)}" y1="${q.toFixed(1)}" x2="${r.toFixed(1)}" y2="${s.toFixed(1)}"${o||''}/>`}
+function db(x1,y1,x2,y2,a,b,g){g=g||3.6;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?13:a,b==null?13:b);const nx=-uy*g,ny=ux*g;return `<line class="bd" x1="${p+nx}" y1="${q+ny}" x2="${r+nx}" y2="${s+ny}"/><line class="bd" x1="${p-nx}" y1="${q-ny}" x2="${r-nx}" y2="${s-ny}"/>`}
+function tb(x1,y1,x2,y2,a,b){return db(x1,y1,x2,y2,a,b,5)+bd(x1,y1,x2,y2,a,b)}
+function lp(x,y,ang,r){r=r||15;const a=ang*Math.PI/180,cx=x+Math.cos(a)*r,cy=y+Math.sin(a)*r,px=-Math.sin(a)*4,py=Math.cos(a)*4;return `<circle class="lpd" cx="${(cx+px).toFixed(1)}" cy="${(cy+py).toFixed(1)}" r="2.3"/><circle class="lpd" cx="${(cx-px).toFixed(1)}" cy="${(cy-py).toFixed(1)}" r="2.3"/>`}
+function wedge(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);return `<polygon fill="#1c2736" points="${p},${q} ${r-uy*w},${s+ux*w} ${r+uy*w},${s-ux*w}"/>`}
+function hash(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);let o='';for(let i=0;i<=6;i++){const t=i/6,cx=p+(r-p)*t,cy=q+(s-q)*t,h=0.8+w*t;o+=`<line stroke="#1c2736" stroke-width="1.8" x1="${(cx-uy*h).toFixed(1)}" y1="${(cy+ux*h).toFixed(1)}" x2="${(cx+uy*h).toFixed(1)}" y2="${(cy-ux*h).toFixed(1)}"/>`}return o}
+function ca(d,dl,col){return `<path class="ca" d="${d}" marker-end="url(#ah)" data-d="${dl||0}"${col?` style="stroke:${col}"`:''}/>`}
+function rarr(x1,y,x2,o){return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#1c2736" stroke-width="2" marker-end="url(#rh)"/>`+(o?T((x1+x2)/2,y-16,o,{fs:14,c:'sm'}):'')}
+function eqm(x1,y,x2){return `<path d="M${x1} ${y-4}H${x2}l-9 -6" stroke="#1c2736" stroke-width="2" fill="none"/><path d="M${x2} ${y+4}H${x1}l9 6" stroke="#1c2736" stroke-width="2" fill="none"/>`}
+function brk(x1,y1,x2,y2,dag){return `<path d="M${x1+8} ${y1}h-8v${y2-y1}h8M${x2-8} ${y1}h8v${y2-y1}h-8" stroke="#1c2736" stroke-width="2" fill="none"/>`+(dag?T(x2+12,y1+6,'‡',{fs:20}):'')}
+function G(inner,o){return `<g${o||''}>${inner}</g>`}
+const IN=(d,inner)=>`<g class="in" data-d="${d}">${inner}</g>`;
+const MV=(dx,dy,inner,d)=>`<g data-from="${dx},${dy}" data-d="${d||0}">${inner}</g>`;
+const DEFS=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="rh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker><marker id="kh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker></defs>`;
+/* graph axes: box x,y (top-left), w,h; returns {s,X,Y} */
+function axes(x,y,w,h,xl,yl,xr,yr,o){o=o||{};const X=v=>x+(v-xr[0])/(xr[1]-xr[0])*w,Y=v=>y+h-(v-yr[0])/(yr[1]-yr[0])*h;let s='';
+ (o.xt||[]).forEach(v=>{s+=`<line class="gd" x1="${X(v)}" y1="${y}" x2="${X(v)}" y2="${y+h}"/>`+T(X(v),y+h+12,String(v),{fs:12,c:'sm'})});
+ (o.yt||[]).forEach(v=>{s+=`<line class="gd" x1="${x}" y1="${Y(v)}" x2="${x+w}" y2="${Y(v)}"/>`+T(x-6,Y(v),String(v),{fs:12,c:'sm',a:'end'})});
+ s+=`<path class="ax" d="M${x} ${y-6}V${y+h}H${x+w+6}" marker-end="url(#kh)"/><path class="ax" d="M${x} ${y+h}V${y-6}" marker-end="url(#kh)"/>`;
+ s+=T(x+w/2,y+h+(o.xt?32:18),xl,{fs:13,c:'lab'})+`<g transform="translate(${x-(o.yt?38:16)} ${y+h/2}) rotate(-90)">${T(0,0,yl,{fs:13,c:'lab'})}</g>`;
+ return{s,X,Y}}
+function plotPath(X,Y,f,a,b,n){n=n||80;let d='';for(let i=0;i<=n;i++){const v=a+(b-a)*i/n;d+=(i?'L':'M')+X(v).toFixed(1)+' '+Y(f(v)).toFixed(1)}return d}
+/* animate new scene contents */
+function animIn(root,k,later){if(RM)return;
+ $$('.dr,.ca',root).forEach(p=>{let L=0;try{L=p.getTotalLength()}catch(e){}if(!L)return;const d=(+p.dataset.d||0)*k,du=(+(p.dataset.u||0.9))*k,m=p.getAttribute('marker-end');if(m){p.removeAttribute('marker-end');later(()=>p.setAttribute('marker-end',m),(d+du)*1000)}p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;later(()=>{p.style.transition=`stroke-dashoffset ${du}s ease ${d}s`;p.style.strokeDashoffset=0},30)});
+ $$('[data-from]',root).forEach(e=>{const[a,b]=e.dataset.from.split(','),d=(+e.dataset.d||0)*k;e.style.transform=`translate(${a}px,${b}px)`;later(()=>{e.style.transition=`transform ${1.1*k}s ease ${d}s`;e.style.transform='translate(0px,0px)'},30)});
+ $$('.in',root).forEach(e=>{const d=(+e.dataset.d||0)*k;e.style.opacity=0;later(()=>{e.style.transition=`opacity ${.6*k}s ease ${d}s`;e.style.opacity=1},30)})}
+/* player */
+function Player(steps){const N=steps.length,sc=$('#scene'),cap=$('#cap'),ind=$('#ind'),dots=$('#dots'),bP=$('#bPlay'),bB=$('#bBack'),bN=$('#bNext'),stg=$('#stage');
+ let i=0,playing=false,slow=false,auto=null,pend=[],cleanup=null;const seen=new Set();
+ const later=(f,ms)=>{pend.push(setTimeout(f,ms))};const k=()=>slow?1.6:1;
+ dots.innerHTML=steps.map((s,j)=>`<button type="button" class="dot" data-j="${j}" aria-label="Go to step ${j+1}">${j+1}</button>`).join('');
+ function sched(){clearTimeout(auto);if(!playing)return;auto=setTimeout(()=>{if(i<N-1)go(i+1);else setPlay(false)},((slow?7800:5200)+(steps[i].t||0))*(1))}
+ function go(n){n=Math.max(0,Math.min(N-1,n));i=n;pend.forEach(clearTimeout);pend=[];if(cleanup){try{cleanup()}catch(e){}cleanup=null}
+  sc.innerHTML=steps[n].svg();animIn(sc,k(),later);if(steps[n].on)cleanup=steps[n].on(sc,k(),later)||null;
+  cap.innerHTML=steps[n].cap;ind.textContent=`Step ${n+1} of ${N}`;seen.add(n);
+  $$('.dot',dots).forEach((d,j)=>{d.toggleAttribute('aria-current',false);if(j===n)d.setAttribute('aria-current','step');d.classList.toggle('seen',seen.has(j))});
+  bB.disabled=n===0;bN.disabled=n===N-1;sched()}
+ function setPlay(p){playing=p;bP.textContent=p?'Pause':'Play';bP.setAttribute('aria-pressed',p);if(p&&i===N-1){go(0);return}sched()}
+ $('#bRestart').onclick=()=>{go(0)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);bP.onclick=()=>setPlay(!playing);
+ dots.onclick=e=>{const b=e.target.closest('.dot');if(b)go(+b.dataset.j)};
+ $$('#spd .mini').forEach(b=>b.onclick=()=>{slow=b.dataset.s==='slow';$$('#spd .mini').forEach(x=>x.setAttribute('aria-pressed',x===b));sched()});
+ stg.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){setPlay(!playing);e.preventDefault()}});
+ go(0);return{go}}
+/* quiz */
+function Quiz(qs){const el=$('#qs');
+ el.innerHTML=qs.map((q,k)=>`<li><p>${q.q}</p><div class="mcq">${q.o.map((t,j)=>`<label><input type="radio" name="q${k}" value="${j}"><span>${t}</span></label>`).join('')}</div><p class="ex" id="ex${k}" hidden></p></li>`).join('');
+ $('#chkQs').onclick=()=>{let sc=0;qs.forEach((q,k)=>{const ch=$(`input[name=q${k}]:checked`),ex=$('#ex'+k);$$(`input[name=q${k}]`).forEach(r=>r.parentElement.classList.remove('ok','wrong'));
+  const v=ch?+ch.value:-1,good=v===q.a;if(good)sc++;if(ch)ch.parentElement.classList.add(good?'ok':'wrong');if(ch&&!good)$$(`input[name=q${k}]`)[q.a].parentElement.classList.add('ok');
+  ex.hidden=false;ex.className='ex '+(good?'good':'bad');ex.innerHTML=(good?'<b>Correct.</b> ':ch?'<b>Not quite.</b> ':'<b>No answer.</b> ')+q.x});
+  const s=$('#qScore');s.textContent=`Score: ${sc} / ${qs.length}`;s.className='score '+(sc>=3?'good':'bad')};
+ $('#rstQs').onclick=()=>{$$('#qs input').forEach(r=>{r.checked=false;r.parentElement.classList.remove('ok','wrong')});$$('#qs .ex').forEach(e=>e.hidden=true);$('#qScore').textContent=''}}
+
+$('#defs').innerHTML=DEFS;
+
+const ACC='#4a44b5',RED='#c0392b',GRN='#1d7a46';
+const P=(d,c,w,dl,u)=>`<path class="dr" d="${d}" stroke="${c}" stroke-width="${w||3.5}" data-d="${dl||0}" data-u="${u||1.4}"/>`;
+function pair(f,g,t1,t2,n1,n2,extra){const A=axes(80,50,280,220,'time / s','[A] / mol dm^−3',[0,10],[0,1.05]),B=axes(480,50,280,220,'[A] / mol dm^−3','rate / mol dm^−3 s^−1',[0,1.05],[0,1.05]);
+ return T(220,24,t1,{c:'lab',fs:16})+T(620,24,t2,{c:'lab',fs:16})+A.s+B.s+P(plotPath(A.X,A.Y,f,0,10),ACC)+P(plotPath(B.X,B.Y,g,0,1),RED,3.5,1)+(extra?extra(A,B):'')+IN(1.6,n1.map((s,j)=>T(220,335+j*24,s,{fs:16,c:'lab'})).join(''))+IN(2.2,n2.map((s,j)=>T(620,335+j*24,s,{fs:16,c:'lab'})).join(''))}
+const STEPS=[
+{cap:'A <b>rate equation</b> links the rate to concentrations. <b>m</b> and <b>n</b> are the <b>orders</b> with respect to A and B. They are usually 0, 1 or 2 and are found <b>by experiment</b>.',svg:()=>T(180,140,'rate =',{fs:44,a:'start'})+T(340,140,'k',{fs:44,f:RED})+T(400,140,'[A]',{fs:44})+T(444,118,'m',{fs:30,f:ACC})+T(500,140,'[B]',{fs:44})+T(544,118,'n',{fs:30,f:GRN})+
+ IN(.6,`<path d="M340 168V220" stroke="${RED}" stroke-width="2" marker-end="url(#kh)"/>`+T(340,240,'rate constant k',{fs:17,c:'lab'})+T(340,262,'(changes with temperature)',{fs:14,c:'sm'}))+
+ IN(1.2,`<path d="M446 100C470 60 520 60 560 70" stroke="${ACC}" stroke-width="2" fill="none"/>`+T(570,70,'order with respect to A',{fs:16,c:'lab',a:'start'}))+
+ IN(1.8,`<path d="M548 160C560 200 580 220 600 230" stroke="${GRN}" stroke-width="2" fill="none"/>`+T(605,235,'order with respect to B',{fs:16,c:'lab',a:'start'}))+
+ IN(2.6,T(400,320,'overall order = m + n',{fs:22,c:'lab'})+T(400,352,'units of rate: mol dm^−3 s^−1',{fs:16,c:'sm'}))},
+{cap:'<b>Zero order</b>: the rate does not depend on [A]. The concentration–time graph is a <b>straight line</b> (constant gradient). The rate–concentration graph is <b>horizontal</b>.',svg:()=>pair(t=>Math.max(0,1-0.09*t),c=>0.6,'Concentration–time','Rate–concentration',['straight line','gradient = rate (constant)'],['horizontal line','rate = k[A]^0 = k'])},
+{cap:'<b>First order</b>: rate = k[A]. The concentration falls in a smooth curve. The rate–concentration graph is a <b>straight line through the origin</b>: double [A] and the rate doubles.',svg:()=>pair(t=>Math.exp(-.28*t),c=>.9*c,'Concentration–time','Rate–concentration',['curve (falls more slowly','as [A] gets smaller)'],['straight line through origin','[A] × 2 → rate × 2'])},
+{cap:'For a <b>first-order</b> reaction the <b>half-life</b> (time for the concentration to halve) is <b>constant</b>. It takes the same time to go from 1.00 to 0.50 as from 0.50 to 0.25.',t:600,svg:()=>{const A=axes(80,40,420,270,'time / s','[A] / mol dm^−3',[0,12],[0,1.0],{xt:[0,2,4,6,8,10,12],yt:[0,.25,.5,.75,1]});let g='';const h=Math.log(2)/.25;
+ for(let j=1;j<=3;j++){const c=Math.pow(.5,j),t=h*j;g+=IN(.9+j*.7,`<path d="M${A.X(0)} ${A.Y(c)}H${A.X(t)}V${A.Y(0)}" stroke="${RED}" stroke-width="1.6" stroke-dasharray="5 4" fill="none"/><circle cx="${A.X(t)}" cy="${A.Y(c)}" r="4.5" fill="${RED}"/>`+T(A.X(t-h/2),A.Y(0)-12,'t½',{fs:15,f:RED}))}
+ return A.s+P(plotPath(A.X,A.Y,t=>Math.exp(-.25*t),0,12),ACC)+g+IN(3.2,T(540,90,'1.00 → 0.50 : 2.8 s',{fs:17,a:'start',c:'lab'})+T(540,124,'0.50 → 0.25 : 2.8 s',{fs:17,a:'start',c:'lab'})+T(540,158,'0.25 → 0.125 : 2.8 s',{fs:17,a:'start',c:'lab'})+`<rect x="532" y="190" width="240" height="70" rx="10" fill="#e7e6fb"/>`+T(652,212,'constant half-life',{fs:18,c:'lab'})+T(652,240,'→ first order',{fs:18,c:'lab',f:ACC}))}},
+{cap:'<b>Second order</b>: rate = k[A]<sup>2</sup>. The concentration–time curve is steeper at first and then flattens more; each half-life is <b>longer</b> than the one before. The rate–concentration graph is a <b>curve</b> (parabola).',svg:()=>pair(t=>1/(1+.7*t),c=>.95*c*c,'Concentration–time','Rate–concentration',['half-life gets longer','(not constant)'],['curve: rate ∝ [A]^2','[A] × 2 → rate × 4'])},
+{cap:'<b>Initial-rates method</b>: compare two experiments where only <b>one</b> concentration changes. Exp 1 → 2: [A] doubles and the rate doubles, so <b>first order in A</b>. Exp 1 → 3: [B] doubles and the rate ×4, so <b>second order in B</b>.',t:1500,svg:()=>{const xs=[100,220,380,540,720],ys=[50,95,140,185];let g='';
+ g+=`<rect x="100" y="50" width="620" height="180" fill="#fff" stroke="#cdd6df"/><rect x="100" y="50" width="620" height="45" fill="#e7e6fb"/>`;ys.slice(1).forEach(y=>g+=`<line x1="100" x2="720" y1="${y}" y2="${y}" stroke="#cdd6df"/>`);xs.slice(1,4).forEach(x=>g+=`<line y1="50" y2="230" x1="${x}" x2="${x}" stroke="#cdd6df"/>`);
+ const H=['Exp','[A] / mol dm^−3','[B] / mol dm^−3','initial rate / mol dm^−3 s^−1'],R=[['1','0.10','0.10','2.0 × 10^−4'],['2','0.20','0.10','4.0 × 10^−4'],['3','0.10','0.20','8.0 × 10^−4']];
+ H.forEach((h,j)=>g+=T((xs[j]+xs[j+1])/2,72,h,{fs:14,c:'lab'}));R.forEach((r,i)=>r.forEach((c,j)=>g+=T((xs[j]+xs[j+1])/2,117+45*i,c,{fs:18})));
+ g+=IN(.8,`<rect x="224" y="98" width="152" height="84" rx="8" fill="none" stroke="${ACC}" stroke-width="3"/><rect x="544" y="98" width="172" height="84" rx="8" fill="none" stroke="${ACC}" stroke-width="3"/>`+T(400,268,'Exp 1 → 2:  [A] × 2,  [B] same,  rate × 2  →  first order in A',{fs:17,c:'lab',f:ACC}));
+ g+=IN(2.4,`<rect x="384" y="100" width="152" height="126" rx="8" fill="none" stroke="${RED}" stroke-width="3" stroke-dasharray="7 4"/>`+T(400,302,'Exp 1 → 3:  [B] × 2,  [A] same,  rate × 4  →  second order in B',{fs:17,c:'lab',f:RED}));
+ g+=IN(4,`<rect x="250" y="328" width="300" height="50" rx="10" fill="#e7e6fb"/>`+T(400,353,'rate = k[A][B]^2',{fs:26,f:ACC})+T(640,353,'overall order 3',{fs:15,c:'sm'}));return g}},
+{cap:'To find <b>k</b>, rearrange the rate equation and put in the values from <b>one</b> experiment. Find the <b>units</b> by putting units into the same expression and cancelling.',t:1200,svg:()=>{const L=[['k = rate / ([A][B]^2)',0],['k = 2.0 × 10^−4 / (0.10 × 0.10^2)',.7],['k = 0.20',1.4],['units = (mol dm^−3 s^−1) / (mol dm^−3)^3',2.4],['= mol^−2 dm^6 s^−1',3.2],['units of k = dm^6 mol^−2 s^−1',4]];
+ return T(400,40,'Use experiment 1:  rate = 2.0 × 10^−4,  [A] = 0.10,  [B] = 0.10',{fs:16,c:'sm'})+L.map((l,j)=>IN(l[1],T(400,92+j*50,l[0],{fs:j===2||j===5?26:21,f:j===2||j===5?ACC:null}))).join('')}},
+{cap:'Propanone reacts with iodine in acid. Experiments show it is <b>zero order in I<sub>2</sub></b>. So iodine is <b>not</b> in the <b>rate-determining step</b> (the slow step). Propanone and H<sup>+</sup> are in the slow step.',t:1200,svg:()=>T(190,48,'CH3COCH3 + I2',{fs:21})+rarr(300,48,390,'H^+ catalyst')+T(515,48,'CH3COCH2I + HI',{fs:21})+
+ IN(.6,T(400,110,'rate = k[CH3COCH3][H^+]',{fs:28,f:ACC})+T(400,145,'[I2] does not appear: zero order in iodine',{fs:16,c:'sm'}))+
+ IN(1.6,`<rect x="40" y="185" width="345" height="140" rx="12" fill="#fdf1f0" stroke="${RED}" stroke-width="2"/>`+T(212,210,'Slow step (rate-determining)',{fs:16,c:'lab',f:RED})+T(212,248,'CH3COCH3 + H^+ → intermediate',{fs:18})+T(212,284,'both species are in the',{fs:15,c:'sm'})+T(212,305,'rate equation',{fs:15,c:'sm'}))+
+ IN(2.6,`<rect x="415" y="185" width="345" height="140" rx="12" fill="#eef8f2" stroke="${GRN}" stroke-width="2"/>`+T(587,210,'Fast step',{fs:16,c:'lab',f:GRN})+T(587,244,'intermediate + I2 →',{fs:18})+T(587,272,'CH3COCH2I + HI + H^+',{fs:18})+T(587,305,'I2 reacts after the slow step',{fs:15,c:'sm'}))+
+ IN(3.4,T(400,360,'H^+ is used up and then given back (a catalyst), but it is still in the rate equation.',{fs:15,c:'sm'}))},
+{cap:'<b>Tertiary</b> halogenoalkanes react by <b>S<sub>N</sub>1</b>: the slow step is C–Br breaking to give a <b>carbocation</b>, so rate = k[RBr]. <b>Primary</b> ones react by <b>S<sub>N</sub>2</b> in one step with a <b>transition state</b>, so rate = k[RBr][OH<sup>−</sup>].',t:2200,svg:()=>{let g=T(20,24,'Tertiary: SN`1, two steps',{fs:16,c:'lab',a:'start',f:ACC});
+ g+=T(118,90,'(CH3)3C',{fs:20,a:'end'})+bd(120,90,160,90,2,10)+T(178,90,'Br',{fs:20})+ca('M140 85C146 60 172 58 178 74',.5);
+ g+=IN(1,rarr(212,90,290,'slow (RDS)')+T(352,90,'(CH3)3C^+',{fs:20})+T(440,90,'+ Br^−',{fs:20}))+IN(1.8,rarr(486,90,560,'OH^−, fast')+T(650,90,'(CH3)3COH',{fs:20}));
+ g+=IN(2.4,T(400,140,'Only RBr is in the slow step  →  rate = k[(CH3)3CBr]   (first order)',{fs:16,c:'lab'}));
+ g+=`<line x1="20" x2="780" y1="170" y2="170" stroke="#cdd6df"/>`+T(20,192,'Primary: SN`2, one step',{fs:16,c:'lab',a:'start',f:GRN});
+ g+=IN(3,T(58,270,'HO^−',{fs:20})+lp(52,270,0,24)+T(160,270,'C',{fs:20})+bd(160,270,160,228)+T(160,222,'CH3',{fs:18})+bd(160,270,134,298)+T(128,304,'H',{fs:18})+bd(160,270,186,298)+T(192,304,'H',{fs:18})+bd(160,270,226,270)+T(242,270,'Br',{fs:20})+ca('M82 262C100 238 130 240 148 260',.5)+ca('M196 276C204 300 232 302 240 286',1));
+ g+=IN(4,rarr(262,270,300)+brk(306,212,478,322,1)+T(330,270,'HO',{fs:20})+`<line x1="348" y1="270" x2="378" y2="270" stroke="#1c2736" stroke-width="2.4" stroke-dasharray="3 4"/>`+T(392,270,'C',{fs:20})+bd(392,270,392,232)+T(392,226,'CH3',{fs:16})+bd(392,270,370,298)+T(364,304,'H',{fs:16})+bd(392,270,414,298)+T(420,304,'H',{fs:16})+`<line x1="406" y1="270" x2="436" y2="270" stroke="#1c2736" stroke-width="2.4" stroke-dasharray="3 4"/>`+T(452,270,'Br',{fs:20})+T(506,210,'−',{fs:20})+T(392,338,'transition state',{fs:13,c:'sm'}));
+ g+=IN(5,rarr(510,270,566)+T(676,270,'CH3CH2OH + Br^−',{fs:20}));
+ g+=IN(5.6,T(400,374,'RBr and OH^− are both in the one step  →  rate = k[CH3CH2Br][OH^−]  (second order)',{fs:16,c:'lab'}));return g}}];
+Player(STEPS);
+/* Try it */
+const CS=['0.10','0.20','0.30','0.40'];['sa','sb'].forEach(id=>$('#'+id).innerHTML=CS.map(c=>`<option>${c}</option>`).join(''));
+const UN=['mol dm<sup>−3</sup> s<sup>−1</sup>','s<sup>−1</sup>','dm<sup>3</sup> mol<sup>−1</sup> s<sup>−1</sup>','dm<sup>6</sup> mol<sup>−2</sup> s<sup>−1</sup>'];
+let R,rows=[],tries=0;
+function sci(v){const e=Math.floor(Math.log10(v)),m=v/Math.pow(10,e);let ms=m.toFixed(2);if(ms==='10.00'){return sci(v*1.0001)}return `${ms} × 10<sup>${e<0?'−'+(-e):e}</sup>`}
+function newR(){const combos=[[1,1],[1,2],[2,1],[0,1],[1,0],[2,0],[0,2],[2,1],[1,2]];const c=combos[Math.floor(Math.random()*combos.length)];const ks=[0.012,0.035,0.25,1.6,4.8,0.0042,0.75];R={m:c[0],n:c[1],k:ks[Math.floor(Math.random()*ks.length)]};rows=[];tries=0;drawT();['oa','ob','ku'].forEach(i=>{$('#'+i).value='';$('#'+i).classList.remove('ok','wrong')});$('#kv').value='';$('#kv').classList.remove('ok','wrong');say('A new hidden reaction is ready. Run at least three experiments.','')}
+function say(h,c){const s=$('#sayT');s.innerHTML=h;s.className='say '+(c||'')}
+function drawT(){$('#tb').innerHTML=rows.length?rows.map((r,i)=>`<tr><td>${i+1}</td><td>${r.a.toFixed(2)}</td><td>${r.b.toFixed(2)}</td><td>${sci(r.r)}</td></tr>`).join(''):'<tr><td colspan="4" class="hint">No experiments yet.</td></tr>'}
+$('#run').onclick=()=>{if(rows.length>=6){say('You have run 6 experiments. That is plenty! Use the table to deduce the orders.','mid');return}const a=+$('#sa').value,b=+$('#sb').value;if(rows.some(r=>r.a===a&&r.b===b)){say('You already ran those concentrations. Change one of them.','mid');return}rows.push({a,b,r:R.k*Math.pow(a,R.m)*Math.pow(b,R.n)});drawT();say(rows.length<3?`Experiment ${rows.length} done. Run ${3-rows.length} more.`:'Now compare pairs of experiments where only one concentration changes.','')};
+$('#newR').onclick=newR;
+function pnum(s){s=String(s).replace(/\s/g,'').replace(/[−–]/g,'-').replace(/[x×]10\^?/i,'e');return parseFloat(s)}
+$('#chkT').onclick=()=>{const oa=$('#oa').value,ob=$('#ob').value,kv=pnum($('#kv').value),ku=$('#ku').value;tries++;
+ if(rows.length<3){say('Run at least three experiments first.','mid');return}
+ const okA=oa!==''&&+oa===R.m,okB=ob!==''&&+ob===R.n,okK=isFinite(kv)&&Math.abs(kv/R.k-1)<0.03,okU=ku!==''&&+ku===R.m+R.n;
+ $('#oa').className=okA?'ok':'wrong';$('#ob').className=okB?'ok':'wrong';$('#kv').className=okK?'ok':'wrong';$('#ku').className=okU?'ok':'wrong';
+ const m=[];if(!okA)m.push('Order in A: find two experiments with the same [B]. How many times bigger is the rate when [A] changes?');if(!okB)m.push('Order in B: find two experiments with the same [A].');if(okA&&okB&&!okK)m.push('Orders are right. Now k = rate ÷ ([A]<sup>m</sup>[B]<sup>n</sup>) using one row.');if(okA&&okB&&!okU)m.push('Units: overall order is '+(R.m+R.n)+'. Divide mol dm<sup>−3</sup> s<sup>−1</sup> by (mol dm<sup>−3</sup>)<sup>'+(R.m+R.n)+'</sup>.');if(!okA||!okB)m.push('<i>Make sure your table has those pairs.</i>');
+ if(okA&&okB&&okK&&okU)say(`<b>All correct.</b> rate = k[A]${R.m===1?'':R.m===0?'<sup>0</sup>':'<sup>2</sup>'}[B]${R.n===1?'':R.n===0?'<sup>0</sup>':'<sup>2</sup>'}, k = ${sci(R.k)} ${UN[R.m+R.n]}. Press <b>New reaction</b> to try another.`,'good');else say(m.join('<br>'),'bad')};
+$('#ansT').onclick=()=>say(`Answer: order in A = <b>${R.m}</b>, order in B = <b>${R.n}</b>, so rate = k[A]${R.m===1?'':'<sup>'+R.m+'</sup>'}[B]${R.n===1?'':'<sup>'+R.n+'</sup>'}. k = <b>${sci(R.k)}</b> ${UN[R.m+R.n]}.`,'mid');
+newR();
+Quiz([
+{q:'Doubling [X], with all other concentrations kept the same, makes the initial rate <b>four</b> times faster. What is the order with respect to X?',o:['0','1','2','4'],a:2,x:'2<sup>n</sup> = 4, so n = 2. Rate ∝ [X]<sup>2</sup>.'},
+{q:'rate = <i>k</i>[A][B]. What are the units of <i>k</i>?',o:['s<sup>−1</sup>','dm<sup>3</sup> mol<sup>−1</sup> s<sup>−1</sup>','mol dm<sup>−3</sup> s<sup>−1</sup>','dm<sup>6</sup> mol<sup>−2</sup> s<sup>−1</sup>'],a:1,x:'k = rate/([A][B]) = (mol dm<sup>−3</sup> s<sup>−1</sup>)/(mol dm<sup>−3</sup>)<sup>2</sup> = dm<sup>3</sup> mol<sup>−1</sup> s<sup>−1</sup>.'},
+{q:'For the acid-catalysed reaction of propanone with iodine, rate = <i>k</i>[CH<sub>3</sub>COCH<sub>3</sub>][H<sup>+</sup>]. What does this show about iodine?',o:['It is not in the rate-determining step','It is a catalyst','It reacts in the slow step','It does not react at all'],a:0,x:'Iodine is zero order, so it reacts only in a fast step after the rate-determining step.'},
+{q:'A first-order reaction has a half-life of 20 s. [A] starts at 0.80 mol dm<sup>−3</sup>. What is [A] after 60 s?',o:['0.40 mol dm<sup>−3</sup>','0.27 mol dm<sup>−3</sup>','0.20 mol dm<sup>−3</sup>','0.10 mol dm<sup>−3</sup>'],a:3,x:'60 s = 3 half-lives: 0.80 → 0.40 → 0.20 → 0.10 mol dm<sup>−3</sup>.'}]);
+</script></body></html>

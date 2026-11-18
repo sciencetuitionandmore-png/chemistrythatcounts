@@ -1,0 +1,314 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Electrophilic Addition</title>
+<meta name="description" content="Interactive animation: Electrophilic Addition. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-electrophilic-addition.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.cf{font:600 1.05rem var(--display);color:var(--accent)}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Electrophilic addition to alkenes</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Introduction to organic chemistry: alkenes</p>
+<p><b>In this animation</b>: see how hydrogen bromide and bromine add across the C=C double bond, why propene gives mainly 2-bromopropane, and how bromine water tests for alkenes.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 380" role="img" aria-label="Mechanisms of electrophilic addition with curly arrows"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Choose an alkene and a reagent. Then predict the <b>major product</b>.</p>
+<div class="row"><span class="lbl">Alkene</span><span class="row" id="aBtns"></span></div>
+<div class="row"><span class="lbl">Reagent</span><span class="row" id="rBtns"></span></div>
+<div class="readout" id="tEq"></div>
+<div class="row"><span class="lbl">Major product</span><select id="tSel" aria-label="Major product"></select><button class="btn" type="button" id="tChk">Check</button></div>
+<div class="say" id="tSay" aria-live="polite">Choose the product, then press Check.</div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>An electrophile is
+<select data-a="b" aria-label="Answer 1"><option value="">choose…</option><option value="a">an electron pair donor</option><option value="b">an electron pair acceptor</option><option value="c">a species with an unpaired electron</option></select>.
+<p class="why" hidden>An electrophile accepts a pair of electrons, here from the π bond of the alkene.</p></li>
+<li>In the first step, the H–Br bond breaks by
+<select data-a="b" aria-label="Answer 2"><option value="">choose…</option><option value="a">homolytic fission</option><option value="b">heterolytic fission</option><option value="c">free radical substitution</option></select>.
+<p class="why" hidden>Both electrons of the H–Br bond go to Br, making Br<sup>−</sup>: heterolytic fission.</p></li>
+<li>The major product of propene with HBr is
+<select data-a="a" aria-label="Answer 3"><option value="">choose…</option><option value="a">2-bromopropane, via a secondary carbocation</option><option value="b">1-bromopropane, via a primary carbocation</option><option value="c">1,2-dibromopropane</option></select>.
+<p class="why" hidden>The secondary carbocation has two electron-releasing alkyl groups, so it is more stable and forms more often.</p></li>
+<li>When an alkene is shaken with bromine water, the colour changes from
+<select data-a="c" aria-label="Answer 4"><option value="">choose…</option><option value="a">colourless to orange</option><option value="b">orange to clear</option><option value="c">orange to colourless</option><option value="d">purple to colourless</option></select>.
+<p class="why" hidden>Bromine adds across the C=C bond, so the orange colour disappears. Say "colourless", not "clear".</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>The first curly arrow starts from the <b>middle of the C=C double bond</b> and ends on the <b>δ+ H</b> (or δ+ Br). Show the δ+ and δ− charges.</li>
+<li>The second arrow starts from the <b>H–Br bond</b> and goes to the Br atom.</li>
+<li>Draw Br<sup>−</sup> with a <b>lone pair</b>, and start the third arrow from that lone pair, ending on the C<sup>+</sup>.</li>
+<li>Bromine water turns from orange to <b>colourless</b>. "Clear" does not score the mark.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 13 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "What is the product when but-2-ene, CH<sub>3<\/sub>CH=CHCH<sub>3<\/sub>, reacts with hydrogen bromide?", "m": 1, "o": ["1-bromobutane", "2-bromobutane", "2,3-dibromobutane", "1,2-dibromobutane"], "a": 1, "why": "B is correct because but-2-ene is symmetrical, so H and Br can add either way round to give only 2-bromobutane."}, {"t": "mc", "q": "Which carbocation is the most stable?", "m": 1, "o": ["CH<sub>3<\/sub><sup>+<\/sup>", "CH<sub>3<\/sub>CH<sub>2<\/sub><sup>+<\/sup>", "(CH<sub>3<\/sub>)<sub>2<\/sub>CH<sup>+<\/sup>", "(CH<sub>3<\/sub>)<sub>3<\/sub>C<sup>+<\/sup>"], "a": 3, "why": "D is correct because the tertiary carbocation has three electron-releasing alkyl groups that stabilise the positive charge."}, {"t": "w", "q": "Propene reacts with bromine to form 1,2-dibromopropane.<br>Draw the mechanism for this reaction. Sketch it on paper, then describe the curly arrows and the intermediate in words.", "m": 4, "ms": ["δ+ and δ− shown on Br–Br, with a curly arrow from the C=C double bond to the δ+ Br atom (1)", "curly arrow from the Br–Br bond to the δ− Br atom (1)", "correct carbocation intermediate, CH<sub>3<\/sub>C<sup>+<\/sup>HCH<sub>2<\/sub>Br, and Br<sup>−<\/sup> ion (1)", "curly arrow from a lone pair on Br<sup>−<\/sup> to the C<sup>+<\/sup>, giving CH<sub>3<\/sub>CHBrCH<sub>2<\/sub>Br (1)"], "note": "Arrows must start from the bond or the lone pair, not from an atom. Allow the primary carbocation for mark 3 if the rest of the mechanism follows. Penalise missing lone pair on Br<sup>−<\/sup> only in mark 4."}, {"t": "w", "q": "The Br–Br bond is not polar. Explain how a bromine molecule can still act as an electrophile when it approaches an alkene.", "m": 2, "ms": ["the high electron density of the π bond / C=C repels the electrons in the Br–Br bond (1)", "this induces a dipole, so the Br atom nearer the alkene becomes δ+ (1)"], "note": "Allow 'temporary dipole' or 'induced dipole'. Do not award 'Br<sub>2<\/sub> is polar'."}, {"t": "w", "q": "Give the reagent and conditions needed to convert propene into propane.", "m": 2, "ms": ["hydrogen, H<sub>2<\/sub> (1)", "nickel catalyst, about 150 °C (1)"], "note": "Allow platinum or palladium catalyst. The condition mark depends on the correct reagent."}, {"t": "w", "q": "0.84 g of an alkene, C<sub>n<\/sub>H<sub>2n<\/sub>, reacts exactly with 3.20 g of bromine, Br<sub>2<\/sub>.<br>Calculate the molar mass of the alkene and deduce its molecular formula.<br>[A<sub>r<\/sub>: H = 1.0, C = 12.0, Br = 79.9]", "m": 3, "ms": ["amount of Br<sub>2<\/sub> = 3.20 ÷ 159.8 = 0.0200 mol (1)", "1 : 1 ratio, so M = 0.84 ÷ 0.0200 = 42 g mol<sup>−1<\/sup> (1)", "14n = 42, so n = 3: C<sub>3<\/sub>H<sub>6<\/sub> (1)"], "note": "Allow transferred error from an incorrect amount of bromine. Allow 41.9 for M."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> tertiary carbocations are more stable than secondary, which are more stable than primary.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const A=(p,x,y,s,fs)=>T(p,x,y,s,'at',fs);
+const tr=s=>s.length>2?24:s.length>1?18:14;
+function grp(p,c,pos,s){A(p,pos[0],pos[1],s);bond(p,c,pos,1,[14,tr(s)])}
+function alkene(p,x,y,o){o=Object.assign({ul:'H',dl:'H',ur:'H',dr:'H'},o||{});A(p,x,y,'C');A(p,x+70,y,'C');bond(p,[x,y],[x+70,y],2,14);
+ grp(p,[x,y],[x-42,y-42],o.ul);grp(p,[x,y],[x-42,y+42],o.dl);grp(p,[x+70,y],[x+112+(o.ur.length>2?8:0),y-42],o.ur);grp(p,[x+70,y],[x+112,y+42],o.dr)}
+function cat(p,x,y,o){o=Object.assign({u:'H',d:'H',l:'H',ur:'H',dr:'H'},o||{});A(p,x,y,'C');A(p,x+70,y,'C');bond(p,[x,y],[x+70,y],1,14);
+ grp(p,[x,y],[x,y-54],o.u);grp(p,[x,y],[x,y+54],o.d);grp(p,[x,y],[x-58-(o.l.length>1?6:0),y],o.l);
+ grp(p,[x+70,y],[x+112+(o.ur.length>2?8:0),y-42],o.ur);grp(p,[x+70,y],[x+112,y+42],o.dr);if(!o.no)T(p,x+70,y-30,'+','at',22)}
+function prod(p,x,y,o){o=Object.assign({u:'H',d:'H',l:'H',ru:'H',rd:'H',r:'Br'},o||{});A(p,x,y,'C');A(p,x+70,y,'C');bond(p,[x,y],[x+70,y],1,14);
+ grp(p,[x,y],[x,y-54],o.u);grp(p,[x,y],[x,y+54],o.d);grp(p,[x,y],[x-58-(o.l.length>1?6:0),y],o.l);grp(p,[x+70,y],[x+70,y-54],o.ru);grp(p,[x+70,y],[x+70,y+54],o.rd);grp(p,[x+70,y],[x+132,y],o.r)}
+function bromide(p,x,y){A(p,x,y,'Br');T(p,x+32,y-4,'−','at',20);[45,135,225,315].forEach(a=>lpAt(p,x,y,a,25))}
+function delta(p,x,y,s,neg){const t=T(p,x,y,s,'lb',15,'start');t.setAttribute('class','lb '+(neg?'dn':'dp'));return t}
+function rx(p,x1,x2,y,d,lab){const g=G(p,'fi',d||0);E(g,'path',{d:`M${x1} ${y}H${x2-10}`,stroke:'#1c2736','stroke-width':2.2});E(g,'path',{d:`M${x2} ${y}l-12 -6v12z`,fill:'#1c2736'});if(lab)T(g,(x1+x2)/2,y-14,lab,'sm',13).setAttribute('text-anchor','middle');return g}
+function title(p,s,s2){T(p,24,34,s,'tt',19,'start');if(s2)T(p,24,58,s2,'sm',15,'start')}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const[c,t]=Array.isArray(l)?l:['sm',l];T(g,x,yy,t,c,c==='tt'?18:c==='lb'?16:15,'start');yy+=c==='tt'?28:22}}return g}
+function label(p,x,y,s,d){const t=T(G(p,'fi',d||0),x,y,s,'sm',14);t.setAttribute('text-anchor','middle');return t}
+/* step 1 of HX/X2 addition: electrophile E–X above the C=C */
+function attack(p,x,y,e,xx,ind){const mx=x+35;A(p,mx,y-90,e);A(p,mx,y-160,xx);bond(p,[mx,y-90],[mx,y-160],1,[14,16]);
+ const dg=G(p,'fi',ind?1:0);delta(dg,mx+16,y-84,'δ+');delta(dg,mx-44,y-154,'δ−',1);
+ const d0=ind?1.8:.5;arrow(p,[mx-4,y-6,mx-34,y-30,mx-30,y-70,mx-14,y-90],{d:d0});arrow(p,[mx+4,y-125,mx+40,y-128,mx+40,y-160,mx+22,y-164],{d:d0+1})}
+const steps=[
+{t:6500,cap:'A C=C double bond is one <b>σ bond</b> plus one <b>π bond</b>. The π electrons sit <b>above and below</b> the plane of the molecule. This area of <b>high electron density</b> attracts <b>electrophiles</b> (electron pair acceptors).',draw(p){
+ title(p,'The C=C double bond in ethene');const x=170,y=200;
+ const g=G(p,'fi',.6);E(g,'ellipse',{cx:x+35,cy:y-30,rx:52,ry:20,fill:'#e7e6fb',stroke:'#4a44b5'});E(g,'ellipse',{cx:x+35,cy:y+30,rx:52,ry:20,fill:'#e7e6fb',stroke:'#4a44b5'});
+ A(p,x,y,'C');A(p,x+70,y,'C');bond(p,[x,y],[x+70,y],1,14);[[-50,-34],[-50,34]].forEach(([dx,dy])=>grp(p,[x,y],[x+dx,y+dy],'H'));[[50,-34],[50,34]].forEach(([dx,dy])=>grp(p,[x+70,y],[x+70+dx,y+dy],'H'));
+ label(p,x+35,y-62,'π bond (above)',.8);label(p,x+35,y+72,'π bond (below)',.8);label(p,x+35,y+14,'σ',.2);
+ panel(p,420,110,[['lb','C=C = σ bond + π bond'],'','The π bond is a region of','high electron density.','','An electrophile accepts a','pair of electrons from it.','','e.g. H^δ+ in HBr, Br^δ+ in Br_2'],1.4)}},
+{t:7500,cap:'<b>Ethene + HBr, step 1.</b> H–Br is polar: <b>H is δ+</b>. The π electrons attack the H (curly arrow from the <b>double bond</b> to H). The H–Br bond breaks <b>heterolytically</b>: both electrons go to Br, making <b>Br<sup>−</sup></b>. A <b>carbocation</b> forms.',draw(p){
+ title(p,'Ethene + HBr: step 1');const x=80,y=250;alkene(p,x,y);attack(p,x,y,'H','Br');
+ rx(p,270,340,y-40,2.6);const q=M(p,3,-40,0);cat(q,450,y-40);bromide(q,660,y-140);label(q,485,y+50,'carbocation',0)}},
+{t:7000,cap:'<b>Step 2.</b> The Br<sup>−</sup> ion uses a <b>lone pair</b> to attack the positive carbon, C<sup>+</sup>. A new C–Br bond forms. The product is <b>bromoethane</b>, CH<sub>3</sub>CH<sub>2</sub>Br.',draw(p){
+ title(p,'Ethene + HBr: step 2');const x=100,y=210;cat(p,x,y);bromide(p,x+170,y-110);
+ arrow(p,[x+151,y-91,x+140,y-60,x+100,y-40,x+82,y-18],{d:.5});rx(p,340,420,y,1.6);
+ const q=M(p,2,-40,0);prod(q,520,y);label(q,555,y+90,'bromoethane',0);panel(p,24,350,[['lb','CH_2=CH_2  +  HBr  →  CH_3CH_2Br']],2.6)}},
+{t:8000,cap:'<b>Ethene + Br<sub>2</sub>.</b> Br–Br is not polar. As it gets close, the π electrons <b>repel</b> the electrons in Br–Br, so an <b>induced dipole</b> forms: the nearer Br becomes δ+. Then the same mechanism happens.',draw(p){
+ title(p,'Ethene + Br_2: step 1','an induced dipole');const x=80,y=250;alkene(p,x,y);attack(p,x,y,'Br','Br',true);
+ rx(p,270,340,y-40,3.4);const q=M(p,3.8,-40,0);cat(q,450,y-40,{u:'Br'});bromide(q,660,y-140)}},
+{t:7000,cap:'<b>Step 2.</b> Br<sup>−</sup> attacks the carbocation with a lone pair. One Br atom has added to <b>each carbon</b>. The product is <b>1,2-dibromoethane</b>, CH<sub>2</sub>BrCH<sub>2</sub>Br.',draw(p){
+ title(p,'Ethene + Br_2: step 2');const x=100,y=210;cat(p,x,y,{u:'Br'});bromide(p,x+170,y-110);
+ arrow(p,[x+151,y-91,x+140,y-60,x+100,y-40,x+82,y-18],{d:.5});rx(p,340,420,y,1.6);
+ const q=M(p,2,-40,0);prod(q,520,y,{u:'Br'});label(q,555,y+90,'1,2-dibromoethane',0);panel(p,24,350,[['lb','CH_2=CH_2  +  Br_2  →  CH_2BrCH_2Br']],2.6)}},
+{t:8500,cap:'<b>Propene + HBr</b> can give two carbocations. The <b>secondary</b> carbocation has two alkyl groups. Alkyl groups are <b>electron-releasing</b>, so they stabilise C<sup>+</sup>. The secondary carbocation is <b>more stable</b>, so <b>2-bromopropane is the major product</b>.',draw(p){
+ title(p,'Propene + HBr: two possible routes');const y=200;A(p,105,y,'CH_3CH=CH_2');T(p,105,y+30,'+ HBr','lb',16).setAttribute('text-anchor','middle');
+ const u=G(p,'fi',.4);E(u,'path',{d:`M190 ${y-12}L260 ${y-80}`,stroke:'#1d7a46','stroke-width':3});E(u,'path',{d:`M190 ${y+12}L260 ${y+80}`,stroke:'#b3261e','stroke-width':2,'stroke-dasharray':'5 4'});
+ let g=G(p,'fi',1);A(g,375,y-95,'CH_3–C^+H–CH_3');T(g,375,y-130,'secondary (2°) carbocation','lb',15).setAttribute('text-anchor','middle');T(g,375,y-62,'2 alkyl groups: more stable','sm',14).setAttribute('text-anchor','middle');
+ g=G(p,'fi',2);A(g,375,y+95,'CH_3CH_2–C^+H_2');T(g,375,y+60,'primary (1°) carbocation','lb',15).setAttribute('text-anchor','middle');T(g,375,y+128,'1 alkyl group: less stable','sm',14).setAttribute('text-anchor','middle');
+ rx(p,500,560,y-95,3,'Br^−');rx(p,500,560,y+95,3.4,'Br^−');
+ g=G(p,'fi',3.6);A(g,680,y-95,'CH_3CHBrCH_3');T(g,680,y-62,'2-bromopropane: MAJOR','lb',15).setAttribute('text-anchor','middle');g.lastChild.style.fill='#1d7a46';
+ g=G(p,'fi',4.2);A(g,680,y+95,'CH_3CH_2CH_2Br');T(g,680,y+128,'1-bromopropane: minor','lb',15).setAttribute('text-anchor','middle')}},
+{t:8000,cap:'The mechanism for the <b>major product</b>. The H adds to the CH<sub>2</sub> end of the double bond, so the positive charge is on the <b>middle carbon</b> (secondary carbocation). Br<sup>−</sup> then bonds to that carbon to give <b>2-bromopropane</b>.',draw(p){
+ title(p,'Propene + HBr: major route');const x=70,y=260;alkene(p,x,y,{ur:'CH_3'});attack(p,x,y,'H','Br');
+ rx(p,265,315,y-40,2.6);const q=M(p,3,-30,0);cat(q,400,y-40,{ur:'CH_3'});bromide(q,480,y-160);
+ arrow(p,[460,y-140,452,y-118,468,y-98,472,y-74],{d:4});rx(p,595,640,y-40,4.8);const r=M(p,5.2,-30,0);A(r,720,y-40,'CH_3CHBrCH_3',19);label(r,720,y-8,'2-bromopropane',0);label(p,435,y+40,'secondary carbocation',3.2)}},
+{t:7500,cap:'<b>Test for a C=C bond:</b> shake with <b>bromine water</b>. With an alkene the <b>orange</b> colour disappears and the mixture becomes <b>colourless</b>, because bromine adds across the double bond. With an alkane it stays orange.',draw(p){
+ title(p,'Bromine water test');[[180,'alkene (cyclohexene)',true],[420,'alkane (cyclohexane)',false]].forEach(([x,lab,dec],i)=>{const g=E(p,'g');
+  E(g,'rect',{x:x-28,y:150,width:56,height:150,fill:'#f39c32','fill-opacity':.85});if(dec){const c=G(g,'fi',1.5+i);E(c,'rect',{x:x-28,y:150,width:56,height:150,fill:'#f4f8fb'})}
+  E(g,'path',{d:`M${x-30} 80V290a30 30 0 0 0 60 0V80`,fill:'none',stroke:'#7d8fa3','stroke-width':3});
+  T(g,x,330,lab,'lb',15).setAttribute('text-anchor','middle');const t=T(G(p,'fi',dec?2.1:1.4),x,358,dec?'orange → colourless':'stays orange','lb',16);t.setAttribute('text-anchor','middle');t.style.fill=dec?'#1d7a46':'#b3261e'});
+ panel(p,540,120,[['lb','Positive test:'],'orange → colourless','',['lb','Do not write "clear".'],'Clear means transparent;','orange solutions are','clear too.'],2.4)}}
+];
+Player(steps);Quiz();
+/* Try it */
+const AL={ethene:['CH₂=CH₂','ethane',0],propene:['CH₃CH=CH₂','propane',1],'but-2-ene':['CH₃CH=CHCH₃','butane',0],'2-methylpropene':['(CH₃)₂C=CH₂','2-methylpropane',2],cyclohexene:['C₆H₁₀ (ring)','cyclohexane',0]};
+const PR={ethene:{HBr:['bromoethane','CH₃CH₂Br'],HCl:['chloroethane','CH₃CH₂Cl'],Br2:['1,2-dibromoethane','CH₂BrCH₂Br']},
+ propene:{HBr:['2-bromopropane','CH₃CHBrCH₃','1-bromopropane'],HCl:['2-chloropropane','CH₃CHClCH₃','1-chloropropane'],Br2:['1,2-dibromopropane','CH₂BrCHBrCH₃']},
+ 'but-2-ene':{HBr:['2-bromobutane','CH₃CHBrCH₂CH₃'],HCl:['2-chlorobutane','CH₃CHClCH₂CH₃'],Br2:['2,3-dibromobutane','CH₃CHBrCHBrCH₃']},
+ '2-methylpropene':{HBr:['2-bromo-2-methylpropane','(CH₃)₃CBr','1-bromo-2-methylpropane'],HCl:['2-chloro-2-methylpropane','(CH₃)₃CCl','1-chloro-2-methylpropane'],Br2:['1,2-dibromo-2-methylpropane','(CH₃)₂CBrCH₂Br']},
+ cyclohexene:{HBr:['bromocyclohexane','C₆H₁₁Br'],HCl:['chlorocyclohexane','C₆H₁₁Cl'],Br2:['1,2-dibromocyclohexane','C₆H₁₀Br₂']}};
+const RG={HBr:'HBr',HCl:'HCl',Br2:'Br₂'};let al='propene',rg='HBr';
+function mk(id,obj,cb,on){const c=$(id);Object.keys(obj).forEach(k=>{const b=document.createElement('button');b.type='button';b.className='mini'+(k===on?' on':'');b.textContent=id==='rBtns'?RG[k]:k;b.setAttribute('aria-pressed',k===on);b.onclick=()=>{c.querySelectorAll('.mini').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});cb(k)};c.appendChild(b)})}
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+function setup(){const P=PR[al],opts=new Set();Object.values(P).forEach(v=>{opts.add(v[0]);if(v[2])opts.add(v[2])});opts.add(AL[al][1]);
+ const s=$('tSel');s.replaceChildren();s.classList.remove('ok','wrong');const o0=document.createElement('option');o0.value='';o0.textContent='choose…';s.appendChild(o0);
+ shuffle([...opts]).forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o)});
+ $('tEq').textContent=`${AL[al][0]}  +  ${RG[rg]}  →  ?`;say('Choose the product, then press Check.','')}
+mk('aBtns',AL,k=>{al=k;setup()},al);mk('rBtns',RG,k=>{rg=k;setup()},rg);
+$('tChk').onclick=()=>{const s=$('tSel'),v=s.value,P=PR[al][rg],ok=v===P[0];s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);
+ if(!v)return say('Choose a product first.','bad');
+ const X=rg==='HCl'?'Cl':'Br';let why;
+ if(rg==='Br2')why=`Bromine adds one Br atom to <b>each</b> carbon of the C=C bond.`;
+ else if(AL[al][2]===1)why=`H adds to the CH<sub>2</sub> end, giving the more stable <b>secondary</b> carbocation. ${P[2]} (from the primary carbocation) is only a minor product.`;
+ else if(AL[al][2]===2)why=`H adds to the CH<sub>2</sub> end, giving a <b>tertiary</b> carbocation (three alkyl groups), the most stable. ${P[2]} is only a minor product.`;
+ else why=`The alkene is symmetrical, so H and ${X} can add either way round: there is only one product.`;
+ if(v===AL[al][1])why='That is the alkane. Addition of '+RG[rg]+' adds atoms, it does not just add hydrogen. '+why;
+ say((ok?'<b>Correct!</b> ':'<b>Not quite.</b> ')+`The major product is <b>${P[0]}</b>, ${P[1]}. `+why,ok?'good':'bad')};
+setup();
+</script></body></html>

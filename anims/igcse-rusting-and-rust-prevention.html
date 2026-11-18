@@ -1,0 +1,638 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rusting and Rust Prevention</title>
+<meta name="description" content="Interactive animation: Rusting and Rust Prevention. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-rusting-and-rust-prevention.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+h3{font-size:.95rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kick{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:2px solid var(--line);padding-bottom:8px}
+.tabs button{font:600 .92rem var(--display);padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{border-color:var(--accent);background:var(--accent);color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--bench);border-radius:12px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.lab{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.btn{font:600 .9rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.pick{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.eq{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-weight:700;font-size:.95rem}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 10px}
+input[type=range]{accent-color:var(--accent);width:100%}
+label.chk{display:flex;gap:8px;align-items:center;font-size:.92rem}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.82rem;padding:6px 4px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend svg{width:18px;height:18px;background:none}
+.eqline{font:700 clamp(1.1rem,3vw,1.6rem) var(--display);text-align:center;padding:10px 4px 4px;min-height:2.4em}
+.eqline span{opacity:.08;transition:opacity .3s}
+.eqline span.on{opacity:1}
+.eqline .tag{display:block;font:700 .95rem var(--body);margin-top:4px}
+.defs{font-size:.88rem;border-collapse:collapse;width:100%}
+.defs td,.defs th{border:1px solid var(--line);padding:4px 6px;text-align:left}
+.defs th{background:var(--accent-soft);font-family:var(--display);font-weight:600}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;max-width:75ch}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+.opts{display:flex;flex-direction:column;gap:3px;margin-top:4px}
+.opts label{display:flex;gap:8px;align-items:flex-start;font-size:.95rem}
+.fb{font-size:.9rem;font-weight:700;margin-top:3px}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+.score{font-weight:700}
+svg text{font-family:var(--body)}
+.mo{fill:#e0483e;stroke:#8f1f19;stroke-width:1}
+.mw{fill:#3b8fd9;stroke:#1d5d99;stroke-width:1}
+.mh{fill:#fff;stroke:#1d5d99;stroke-width:1}
+.el{fill:#ffd23f;stroke:#8a6d00;stroke-width:1.2}
+.t{font-size:12px;fill:var(--ink)}
+.tm{font-size:11px;fill:var(--muted)}
+.tb{font:700 14px var(--display);fill:var(--ink)}
+.at{font:700 11px var(--body);text-anchor:middle;dominant-baseline:central}
+.hide-l .lbl{display:none}
+[hidden]{display:none!important}
+@media (max-width:520px){body{font-size:16px}}
+/* ---- top tabs + exam practice ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none!important}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tw{overflow-x:auto;margin-top:8px}
+.ex-tbl{width:auto;min-width:100%;border-collapse:collapse;font-size:.92rem}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:5px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--accent-soft);font-family:var(--display);font-weight:600}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-dl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-dl.eqn{font-size:1.02rem}
+.ex-sel{font:inherit;font-size:.95rem;max-width:100%;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-sel:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-ansn{font-size:.88rem;color:var(--good);font-weight:700}
+.ex-act{display:flex;gap:8px;flex-wrap:wrap}
+.ex-card .btn:disabled{opacity:.5;cursor:default}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-foot{display:flex;gap:10px;flex-wrap:wrap}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kick">IGCSE CHEMISTRY · METALS: RUSTING</div>
+<h1>Rusting and how to stop it</h1>
+<p>Choose a tab. Press Play or move the slider and watch what happens to the iron. The card on the right says what is happening in exam words.</p>
+</header>
+<div class="toptabs" id="topRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="topLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="topExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="topLearn">
+
+
+<section class="sheet">
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-t="0">1. What makes iron rust?</button>
+<button role="tab" aria-selected="false" data-t="1">2. Barrier methods</button>
+<button role="tab" aria-selected="false" data-t="2">3. Galvanising (sacrificial protection)</button>
+<button role="tab" aria-selected="false" data-t="3">4. Redox</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="layout tp" id="p0">
+<div class="stage"><svg id="s0" viewBox="0 0 600 400" role="img" aria-label="Four test tubes with iron nails"></svg>
+<div class="legend" id="lg0"></div></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<div class="row"><span>Time:</span><span class="readout" id="dayR">0 days</span></div>
+<input type="range" id="day" min="0" max="7" step="0.1" value="0" aria-label="Days">
+<div class="row"><button class="btn" id="play0">Play</button><button class="btn ghost" id="rep0">Replay</button></div>
+<div class="lab">Look at tube</div>
+<div class="row" id="selT"><button class="pick" aria-pressed="true">A</button><button class="pick" aria-pressed="false">B</button><button class="pick" aria-pressed="false">C</button><button class="pick" aria-pressed="false">D</button></div>
+<label class="chk"><input type="checkbox" id="lb0" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="st0"></div></div>
+</div></div>
+
+<!-- TAB 2 -->
+<div class="layout tp" id="p1" hidden>
+<div class="stage"><svg id="s1" viewBox="0 0 600 380" role="img" aria-label="Steel surface with a coating"></svg>
+<div class="legend" id="lg1"></div></div>
+<div class="side">
+<div class="panel"><div class="lab">Steel object</div>
+<div class="row" id="obj"><button class="pick" aria-pressed="true">Bike chain</button><button class="pick" aria-pressed="false">Car panel</button><button class="pick" aria-pressed="false">Garden gate</button></div>
+<div class="lab">Coating</div>
+<div class="row" id="coat"><button class="pick" aria-pressed="false" data-c="none">None</button><button class="pick" aria-pressed="false" data-c="paint">Paint</button><button class="pick" aria-pressed="true" data-c="oil">Oil / grease</button><button class="pick" aria-pressed="false" data-c="plastic">Plastic</button></div>
+<div class="row"><button class="btn" id="scr1">Scratch it</button><button class="btn ghost" id="play1">Pause</button><button class="btn ghost" id="rep1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb1" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="st1"></div></div>
+</div></div>
+
+<!-- TAB 3 -->
+<div class="layout tp" id="p2" hidden>
+<div class="stage"><svg id="s2" viewBox="0 0 600 420" role="img" aria-label="Coated steel and particle view of a scratch"></svg>
+<div class="legend" id="lg2"></div></div>
+<div class="side">
+<div class="panel"><div class="lab">Choose</div>
+<div class="row" id="gm"><button class="pick" aria-pressed="true" data-m="zn">Zinc (galvanised)</button><button class="pick" aria-pressed="false" data-m="sn">Tin</button><button class="pick" aria-pressed="false" data-m="paint">Paint</button><button class="pick" aria-pressed="false" data-m="mg">Ship + magnesium block</button></div>
+<div class="row"><button class="btn" id="scr2">Scratch it</button><button class="btn ghost" id="play2">Pause</button><button class="btn ghost" id="rep2">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb2" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="st2"></div></div>
+</div></div>
+
+<!-- TAB 4 -->
+<div class="layout tp" id="p3" hidden>
+<div class="stage"><svg id="s3" viewBox="0 0 600 320" role="img" aria-label="Electrons moving in redox half-equations"></svg>
+<div class="eqline" id="eq3" style="background:#fff;border-radius:8px;margin-top:6px"></div>
+<div class="legend" id="lg3"></div></div>
+<div class="side">
+<div class="panel"><div class="lab">Choose an example</div>
+<div class="row" id="rm"><button class="pick" aria-pressed="true">Zinc loses electrons</button><button class="pick" aria-pressed="false">Iron rusting</button><button class="pick" aria-pressed="false">Oxygen gains electrons</button><button class="pick" aria-pressed="false">Gain and loss of oxygen</button></div>
+<div class="row"><button class="btn" id="play3">Pause</button><button class="btn ghost" id="step3">Step</button><button class="btn ghost" id="rep3">Replay</button></div>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="st3"></div>
+<table class="defs"><tr><th></th><th>oxygen</th><th>electrons</th></tr><tr><th>Oxidation</th><td>gain of oxygen</td><td>loss of electrons</td></tr><tr><th>Reduction</th><td>loss of oxygen</td><td>gain of electrons</td></tr></table></div>
+</div></div>
+</section>
+
+<section class="sheet"><h2>Key points</h2>
+<ul class="kp">
+<li>Iron rusts only when <b>both oxygen (from air) and water</b> are present. Salt water makes rusting faster.</li>
+<li>Rust is <b>hydrated iron(III) oxide</b>: iron + oxygen + water → hydrated iron(III) oxide.</li>
+<li><b>Barrier methods</b> (paint, oil or grease, plastic coating) stop oxygen and water reaching the iron. If the barrier is scratched, the iron rusts.</li>
+<li><b>Galvanising</b> is coating iron or steel with zinc. Zinc is more reactive than iron, so even when scratched the zinc is oxidised instead of the iron. This is <b>sacrificial protection</b>. Magnesium blocks on ships work in the same way.</li>
+<li><b>Oxidation</b> is gain of oxygen or loss of electrons. <b>Reduction</b> is loss of oxygen or gain of electrons (OIL RIG). Redox means both happen at the same time.</li>
+<li>In rusting, iron is oxidised (Fe → Fe<sup>3+</sup> + 3e<sup>−</sup>) and oxygen is reduced.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2>
+<ol class="qs" id="quiz"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div>
+</section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="topExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-foot"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=Math.random,PI=Math.PI;
+const RUST='#b5521b';
+function O2(x,y,a){return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a*57.3)|0})"><circle cx="-3.6" r="4.4" class="mo"/><circle cx="3.6" r="4.4" class="mo"/></g>`}
+function W(x,y,a){return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a*57.3)|0})"><circle cx="-4" cy="-3.6" r="2.6" class="mh"/><circle cx="4" cy="-3.6" r="2.6" class="mh"/><circle r="5" class="mw"/></g>`}
+function E(x,y){return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" class="el"/>`}
+function mol(p){return p.t=='o'?O2(p.x,p.y,p.a):W(p.x,p.y,p.a)}
+function mk(n,b,ty,sp){sp=sp||40;const a=[];for(let i=0;i<n;i++){const an=R()*2*PI;a.push({x:b[0]+R()*(b[1]-b[0]),y:b[2]+R()*(b[3]-b[2]),vx:Math.cos(an)*sp,vy:Math.sin(an)*sp,a:R()*6.3,va:(R()-.5)*3,t:typeof ty=='string'?ty:ty(i),b})}return a}
+function mv(p,dt){p.x+=p.vx*dt;p.y+=p.vy*dt;p.a+=p.va*dt;const b=p.b;
+if(p.x<b[0]){p.x=b[0];p.vx=Math.abs(p.vx)}if(p.x>b[1]){p.x=b[1];p.vx=-Math.abs(p.vx)}
+if(p.y<b[2]){p.y=b[2];p.vy=Math.abs(p.vy)}if(p.y>b[3]){p.y=b[3];p.vy=-Math.abs(p.vy)}}
+function txt(x,y,s,c,anc){return `<text x="${x}" y="${y}" class="${c||'t'}"${anc?` text-anchor="${anc}"`:''}>${s}</text>`}
+function L(x,y,s,c,anc){return `<g class="lbl">${txt(x,y,s,c,anc)}</g>`}
+function along(pts,f){f=Math.max(0,Math.min(1,f));let tot=0,seg=[];for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);seg.push(d);tot+=d}
+let d=f*tot;for(let i=0;i<seg.length;i++){if(d<=seg[i]||i==seg.length-1){const k=seg[i]?Math.min(1,d/seg[i]):0;return[pts[i][0]+(pts[i+1][0]-pts[i][0])*k,pts[i][1]+(pts[i+1][1]-pts[i][1])*k]}d-=seg[i]}}
+function atom(x,y,r,fill,lab,ion,op){return `<g opacity="${op==null?1:op.toFixed(2)}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${fill}" stroke="${ion?'#1c2736':'#4b5563'}" stroke-width="${ion?1.6:1}"${ion?' stroke-dasharray="3 2"':''}/><text x="${x.toFixed(1)}" y="${y.toFixed(1)}" class="at" font-size="${r>20?16:10.5}">${lab}</text></g>`}
+const lgI={o:'<svg viewBox="-9 -9 18 18">'+O2(0,0,0)+'</svg>',w:'<svg viewBox="-9 -9 18 18">'+W(0,1,0)+'</svg>',e:'<svg viewBox="-9 -9 18 18">'+E(0,0)+'</svg>',
+r:'<svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="6" fill="'+RUST+'"/></svg>'};
+function legend(id,items){$(id).innerHTML=items.map(([k,s])=>`<span>${lgI[k]||`<svg viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="${k}" stroke="#4b5563"/></svg>`}${s}</span>`).join('')}
+function picks(id,fn){const b=$$(id+' button');b.forEach((x,i)=>x.onclick=()=>{b.forEach(y=>y.setAttribute('aria-pressed',y==x));fn(i,x)})}
+function setPick(id,i){$$(id+' button').forEach((y,j)=>y.setAttribute('aria-pressed',j==i))}
+function lbl(cb,svg){const f=()=>$(svg).classList.toggle('hide-l',!$(cb).checked);$(cb).onchange=f;f()}
+function msg(id,html,cls){const m=$(id);m.className='msg'+(cls?' '+cls:'');m.innerHTML=html}
+
+/* ---------- TAB 1 ---------- */
+const T1=(()=>{const cx=[75,225,375,525],svg=$('#s0');let day=0,play=false,sel=0,parts=[];
+const nail=[[100,300],[150,305],[110,244],[100,300]],spots=[];
+const lines=[220,0,0,220];
+cx.forEach((c,i)=>{const s=[];const[h,t]=nail[i];for(let k=0;k<46;k++)s.push({x:c+(R()*9-4.5),y:h+8+R()*(t-h-16),r:1.8+R()*2.6});if(lines[i])s.sort((a,b)=>Math.abs(a.y-lines[i])-Math.abs(b.y-lines[i]));spots.push(s)});
+const bx=(c,y0,y1)=>[c-21,c+21,y0,y1];
+parts=parts.concat(mk(5,bx(cx[0],72,212),'o',30),mk(6,bx(cx[0],228,306),i=>i<5?'w':'o',22),
+mk(3,bx(cx[1],70,104),'o',30),mk(8,bx(cx[1],138,306),'w',22),
+mk(8,bx(cx[2],82,238),'o',30),
+mk(5,bx(cx[3],72,212),'o',30),mk(6,bx(cx[3],228,306),i=>i<5?'w':'o',22));
+const tube=c=>`M${c-28} 40V300a28 28 0 0 0 56 0V40`;
+const lvl=i=>{const d=Math.max(0,day-.4)/6.6;return i==0?d*.6:i==3?Math.min(1,d*1.05):0};
+function stat(){const words=['A: air and water','B: boiled water + oil (no oxygen)','C: dry air (no water)','D: salt water'];
+const l=lvl(sel),amt=l<=0?'no rust':l<.25?'a little rust':l<.6?'some rust':'lots of rust';
+const t=['The nail touches <b>air (oxygen)</b> and <b>water</b>. Both are present, so the iron rusts.',
+'Boiling removes dissolved air from the water. The <b>layer of oil</b> stops air dissolving back in. There is water but <b>no oxygen</b>, so the nail does not rust.',
+'<b>Anhydrous calcium chloride</b> is a drying agent: it absorbs water vapour. The <b>bung</b> stops moist air getting in. There is oxygen but <b>no water</b>, so the nail does not rust.',
+'Oxygen and water are both present. <b>Salt</b> speeds up rusting, so this nail rusts fastest.'][sel];
+msg('#st0',`<div><b>Tube ${words[sel]}.</b> After ${day.toFixed(0)} day${day.toFixed(0)=='1'?'':'s'}: <b>${amt}</b>.</div><div>${t}</div><div><b>Conclusion:</b> iron needs both oxygen and water to rust.</div><div class="eq">iron + oxygen + water → hydrated iron(III) oxide (rust)</div>`,lvl(sel)>0?'warn':(sel==1||sel==2)?'ok':'')}
+function draw(){let h='';
+cx.forEach((c,i)=>{const hi=i==sel;
+h+=`<rect x="${c-62}" y="18" width="124" height="378" rx="10" fill="${hi?'#f1f0fc':'none'}" stroke="${hi?'#4a44b5':'none'}" stroke-width="2"/>`;
+h+=`<clipPath id="cp${i}"><path d="${tube(c)}Z"/></clipPath><g clip-path="url(#cp${i})">`;
+if(i==0)h+=`<rect x="${c-30}" y="220" width="60" height="120" fill="#cfe6f7"/>`;
+if(i==3)h+=`<rect x="${c-30}" y="220" width="60" height="120" fill="#d5e3ea"/>`;
+if(i==1)h+=`<rect x="${c-30}" y="130" width="60" height="210" fill="#cfe6f7"/><rect x="${c-30}" y="110" width="60" height="20" fill="#f1d77a"/>`;
+if(i==2){h+=`<rect x="${c-30}" y="262" width="60" height="80" fill="#f6f7f9"/>`;for(let k=0;k<26;k++)h+=`<circle cx="${c-24+(k%7)*8+(k>>3)%2*3}" cy="${268+(k/7|0)*9}" r="3.4" fill="#fff" stroke="#9aa5b1"/>`;
+h+=`<path d="M${c-30} 262q8-12 15-4t15-4 15 4 15-4v12h-60z" fill="#fbfbfb" stroke="#c2c9d1"/>`}
+h+='</g>';
+parts.filter(p=>Math.abs(p.b[0]+21-c)<1).forEach(p=>h+=mol(p));
+const[hy,ty]=nail[i];
+h+=`<rect x="${c-13}" y="${hy}" width="26" height="7" rx="2" fill="#8f9aa6" stroke="#5d6773"/><path d="M${c-4} ${hy+7}V${ty-10}L${c} ${ty}L${c+4} ${ty-10}V${hy+7}Z" fill="#9aa4af" stroke="#5d6773"/>`;
+const n=Math.round(lvl(i)*spots[i].length);for(let k=0;k<n;k++){const s=spots[i][k];h+=`<circle cx="${s.x.toFixed(1)}" cy="${s.y.toFixed(1)}" r="${s.r.toFixed(1)}" fill="${RUST}" opacity=".9"/>`}
+if(i==3&&lvl(3)>.5)h+=`<ellipse cx="${c}" cy="322" rx="${(lvl(3)-.5)*36}" ry="4" fill="${RUST}" opacity=".7"/>`;
+if(i==2)h+=`<rect x="${c-32}" y="30" width="64" height="30" rx="5" fill="#6b4a3a"/>`;
+h+=`<path d="${tube(c)}" fill="none" stroke="#7d8fa3" stroke-width="3"/>`;
+h+=txt(c,372,String.fromCharCode(65+i),'tb','middle');
+});
+h+=L(cx[0]+32,212,'water','tm')+L(cx[0]+32,90,'air','tm');
+h+=L(cx[1]+32,118,'oil','tm')+L(cx[1]+32,131,'layer','tm')+L(cx[1]+32,180,'boiled','tm')+L(cx[1]+32,193,'water','tm');
+h+=L(cx[2]+34,26,'bung','tm')+L(cx[2]+32,120,'dry air','tm')+L(cx[2]-32,254,'cotton wool','tm','end')+L(cx[2]+32,300,'anhydrous','tm')+L(cx[2]+32,313,'calcium','tm')+L(cx[2]+32,326,'chloride','tm');
+h+=L(cx[3]+32,212,'salt','tm')+L(cx[3]+32,225,'water','tm')+L(cx[0]+32,150,'iron','tm')+L(cx[0]+32,163,'nail','tm');
+['air + water','no oxygen','no water','salt water'].forEach((s,i)=>h+=txt(cx[i],352,s,'t','middle'));
+['rusts','no rust','no rust','rusts fastest'].forEach((s,i)=>{if(day>=6.9)h+=`<text x="${cx[i]}" y="388" text-anchor="middle" font-weight="700" font-size="12" fill="${i==1||i==2?'#1d7a46':'#b3261e'}">${s}</text>`});
+svg.innerHTML=h}
+const sl=$('#day'),pb=$('#play0');
+function setDay(d){day=d;sl.value=d;$('#dayR').textContent=d.toFixed(0)+(d.toFixed(0)=='1'?' day':' days');stat()}
+sl.oninput=()=>setDay(+sl.value);
+pb.onclick=()=>{if(day>=7)setDay(0);play=!play;pb.textContent=play?'Pause':'Play'};
+$('#rep0').onclick=()=>{setDay(0);play=true;pb.textContent='Pause'};
+picks('#selT',i=>{sel=i;stat()});lbl('#lb0','#s0');
+legend('#lg0',[['o','oxygen molecule'],['w','water molecule'],['r','rust']]);
+setDay(0);
+return{frame(dt){parts.forEach(p=>mv(p,dt));if(play){let d=day+dt*.9;if(d>=7){d=7;play=false;pb.textContent='Play'}setDay(d)}draw()}}})();
+
+/* ---------- TAB 2 ---------- */
+const T2=(()=>{const svg=$('#s1');let obj=0,coat='oil',cov=0,scr=false,scrT=0,play=true,bins,parts,fl=[];
+const X0=40,X1=560,G0=284,G1=316;
+const surf={none:250,paint:240,oil:243,plastic:234},col={paint:'#2f8a5e',oil:'rgba(214,170,54,.75)',plastic:'#3a5fc8'},nm={paint:'paint',oil:'oil / grease',plastic:'plastic coating'};
+function reset(){bins=Array.from({length:26},()=>({o:0,w:0}));cov=coat=='none'?1:0;scr=false;scrT=0;fl=[];
+parts=mk(16,[X0+4,X1-4,24,230],i=>i%2?'o':'w',130);upd()}
+const prot=x=>coat!='none'&&x<X0+cov*(X1-X0)&&!(scr&&x>G0&&x<G1);
+const objs=[
+`<g stroke="#4b5563" stroke-width="2" fill="#c3cad2">${[0,1,2,3,4].map(k=>`<rect x="${462+k*22}" y="34" width="26" height="14" rx="7"/>`).join('')}</g>`,
+`<path d="M458 54q4-16 22-18l14-10h38l16 10q16 2 18 18z" fill="#c3cad2" stroke="#4b5563" stroke-width="2"/><circle cx="478" cy="56" r="7" fill="#4b5563"/><circle cx="540" cy="56" r="7" fill="#4b5563"/>`,
+`<g stroke="#4b5563" stroke-width="2.5" fill="none"><rect x="470" y="24" width="90" height="38"/>${[0,1,2,3,4,5].map(k=>`<line x1="${483+k*13}" y1="24" x2="${483+k*13}" y2="62"/>`).join('')}</g>`];
+function draw(){let h=`<rect x="0" y="0" width="600" height="380" fill="#f7fbff"/>`;
+h+=`<rect x="448" y="12" width="140" height="66" rx="8" fill="#fff" stroke="#cdd6df"/>`+objs[obj]+txt(518,74,['bike chain','car panel','garden gate'][obj],'tm','middle');
+h+=`<rect x="${X0}" y="250" width="${X1-X0}" height="80" fill="#a7b0ba" stroke="#5d6773"/>`;
+for(let k=0;k<26;k++){const b=bins[k],r=Math.min(14,Math.min(b.o,b.w)*1.6);if(r>0)h+=`<ellipse cx="${X0+k*20+10}" cy="250" rx="11" ry="${(r/2+1).toFixed(1)}" fill="${RUST}"/><circle cx="${X0+k*20+5}" cy="${250-r/3}" r="${Math.min(4,r/3).toFixed(1)}" fill="#8a3a10"/>`}
+if(coat!='none'){const y=surf[coat],w=cov*(X1-X0);
+const seg=(a,b)=>b>a?`<rect x="${a}" y="${y}" width="${b-a}" height="${250-y}" fill="${col[coat]}"/>`:'';
+if(scr){h+=seg(X0,G0)+seg(G1,X0+w);h+=`<path d="M${G0} ${y}L300 262L${G1} ${y}" fill="#f7fbff" stroke="#5d6773" stroke-width="1"/>`;
+const r=Math.min(1,scrT/5);if(Math.min(bins[13].o,bins[13].w,bins[12].o,bins[12].w)>0||scrT>2)h+=`<ellipse cx="300" cy="252" rx="${(4+r*8).toFixed(1)}" ry="${(3+r*5).toFixed(1)}" fill="${RUST}"/>`}
+else h+=seg(X0,X0+w);
+h+=L(X0+4,y-6,nm[coat],'t')}
+fl=fl.filter(f=>(f.t-=1/60)>0);fl.forEach(f=>h+=`<circle cx="${f.x.toFixed(1)}" cy="${f.y}" r="${(10-f.t*20).toFixed(1)}" fill="none" stroke="#4a44b5" opacity="${(f.t*2).toFixed(2)}"/>`);
+parts.forEach(p=>h+=mol(p));
+h+=L(300,300,'steel (mostly iron)','tb','middle')+L(14,30,'air: oxygen and water vapour','t');
+if(scr)h+=L(300,350,'scratch: barrier broken','t','middle');
+svg.innerHTML=h}
+function upd(){const ob=['Bike chains are usually <b>oiled or greased</b>: the oil lets the moving parts slide and does not crack.','Car panels are <b>painted</b>.','Garden gates are <b>painted</b> or <b>plastic coated</b>.'][obj];
+if(coat=='none')msg('#st1',`<div>Bare steel. Oxygen and water reach the iron, so it <b>rusts</b> all over.</div><div>${ob}</div><div class="eq">iron + oxygen + water → hydrated iron(III) oxide</div>`,'warn');
+else if(scr)msg('#st1',`<div>The ${nm[coat]} is <b>scratched</b>, so the barrier is broken.</div><div>Oxygen and water reach the iron at the scratch, so it <b>rusts there</b>. A barrier only works while it is unbroken.</div><div class="eq">iron + oxygen + water → hydrated iron(III) oxide</div>`,'warn');
+else msg('#st1',`<div>The ${nm[coat]} covers the surface. It is a <b>barrier</b>: oxygen and water bounce off and cannot reach the iron, so the steel <b>does not rust</b>.</div><div>${ob}</div><div>Press <b>Scratch it</b> to break the barrier.</div>`,cov>=1?'ok':'');
+$('#scr1').disabled=coat=='none'||scr}
+function step(dt){if(cov<1){cov=Math.min(1,cov+dt*.5);if(cov>=1)upd()}if(scr)scrT+=dt;
+parts.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.a+=p.va*dt;if(p.x<X0+4){p.x=X0+4;p.vx=Math.abs(p.vx)}if(p.x>X1-4){p.x=X1-4;p.vx=-Math.abs(p.vx)}if(p.y<24){p.y=24;p.vy=Math.abs(p.vy)}
+const s=prot(p.x)?surf[coat]-6:244;
+if(p.y>s){if(prot(p.x)){p.y=s;p.vy=-Math.abs(p.vy);fl.push({x:p.x,y:s+4,t:.5})}
+else{const k=Math.max(0,Math.min(25,((p.x-X0)/20)|0));bins[k][p.t]++;p.y=26;p.x=X0+10+R()*(X1-X0-20);p.vy=Math.abs(p.vy)}}})}
+picks('#obj',i=>{obj=i;coat=['oil','paint','plastic'][i];setPick('#coat',['none','paint','oil','plastic'].indexOf(coat));reset()});
+picks('#coat',(i,b)=>{coat=b.dataset.c;reset()});
+$('#scr1').onclick=()=>{cov=1;scr=true;scrT=0;bins.forEach(b=>{b.o=b.w=0});upd()};
+const pb=$('#play1');pb.onclick=()=>{play=!play;pb.textContent=play?'Pause':'Play'};
+$('#rep1').onclick=()=>{reset();play=true;pb.textContent='Pause'};
+lbl('#lb1','#s1');legend('#lg1',[['o','oxygen molecule'],['w','water molecule'],['r','rust']]);reset();
+return{frame(dt){if(play)step(dt);draw()}}})();
+
+/* ---------- TAB 3 ---------- */
+const T3=(()=>{const svg=$('#s2');let mode='zn',scr=false,play=true,t=0,evs=[],used=new Set(),rust=0,next=0,mgUse=0,parts;
+const XS=[];for(let x=45;x<=555;x+=30)XS.push(x);
+const C={zn:'#8fb3d9',sn:'#d9d4bd',fe:'#9aa3ad',mg:'#c3d98a',fe3:'#e08a3a',paint:'#2f8a5e'};
+const NM={zn:'zinc',sn:'tin',paint:'paint'};
+const gap=x=>x==285||x==315;
+function cand(){if(mode=='zn')return XS.filter(x=>!gap(x)).sort((a,b)=>Math.abs(a-300)-Math.abs(b-300)).slice(0,8).map(x=>[x,305]);
+if(mode=='mg')return[405,435,465,495,525,555].map(x=>[x,305]);return[[285,335],[315,335],[285,365],[315,365]]}
+function reset(){scr=mode=='mg';t=0;evs=[];used=new Set();rust=0;next=1;mgUse=0;parts=mk(12,[34,566,198,280],i=>i%3?'w':'o',36);upd()}
+function spawn(){const cs=cand();let c=cs.find(c=>!used.has(c+'')&&!evs.some(e=>e.k==c+''));
+if(!c){used=new Set();return}
+const[x,y]=c,e={k:c+'',x,y,t0:t};
+if(mode=='zn'){e.lab='Zn';e.ion='Zn²⁺';e.col=C.zn;e.n=2;e.path=[[x,y],[x,320],[300,320],[300,318]];e.dest=[x+(x<300?-20:20),205]}
+else if(mode=='mg'){e.lab='Mg';e.ion='Mg²⁺';e.col=C.mg;e.n=2;e.path=[[x,y],[x,322],[150,322],[150,316]];e.dest=[x,205]}
+else{e.lab='Fe';e.ion='Fe³⁺';e.col=C.fe;e.col2=C.fe3;e.n=3;e.path=[[x,y],[x,290],[x+(x<300?-40:40),262]];e.dest=[300,272]}
+evs.push(e)}
+function upd(){let h,c='';
+if(mode=='mg'){h=`<div>The <b>magnesium block</b> is bolted to the steel hull. Magnesium is <b>more reactive</b> than iron.</div><div>Magnesium atoms <b>lose electrons</b> and are oxidised instead of the iron. The electrons flow into the hull, so the iron stays as Fe atoms and <b>does not rust</b>.</div><div>The block is slowly used up, so it must be replaced. This is <b>sacrificial protection</b>.</div><div class="eq">Mg(s) → Mg<sup>2+</sup>(aq) + 2e<sup>−</sup> &nbsp;(oxidation)</div>`;c='ok'}
+else if(!scr){h=`<div><b>Part 1:</b> the steel is coated with ${NM[mode]}. The coating is a <b>barrier</b>: oxygen and water cannot reach the iron, so it does not rust.</div><div>Press <b>Scratch it</b> to expose the iron.</div>`;c='ok'}
+else if(mode=='zn'){h=`<div><b>Part 2:</b> the scratch exposes the iron, but it <b>still does not rust</b>.</div><div>Zinc is <b>more reactive</b> than iron, so zinc loses electrons and is <b>oxidised instead of iron</b>. The electrons flow to the iron, so the iron stays as Fe atoms.</div><div>The zinc is "sacrificed": this is <b>sacrificial protection</b>.</div><div class="eq">Zn(s) → Zn<sup>2+</sup>(aq) + 2e<sup>−</sup> &nbsp;(oxidation)</div>`;c='ok'}
+else{h=`<div><b>Part 2:</b> the scratch exposes the iron, and the iron <b>rusts</b> at the scratch.</div><div>${mode=='sn'?'Tin is <b>less reactive</b> than iron, so it cannot give sacrificial protection.':'Paint is only a barrier. It cannot give sacrificial protection.'} Iron atoms lose electrons and are oxidised. The Fe<sup>3+</sup> ions form rust.</div><div class="eq">Fe(s) → Fe<sup>3+</sup> + 3e<sup>−</sup> &nbsp;(oxidation)</div>`;c='warn'}
+msg('#st2',h,c);$('#scr2').disabled=scr}
+function macro(){let h='';
+if(mode=='mg'){h+=`<rect x="0" y="0" width="600" height="168" fill="#f7fbff"/><rect x="0" y="66" width="600" height="102" fill="#bfdcf2"/>`;
+h+=`<path d="M30 14H570L530 150H80Z" fill="#7d8794" stroke="#3f4752" stroke-width="2"/><rect x="30" y="14" width="540" height="22" fill="#5c6570"/>`;
+const w=60*(1-mgUse*.55);h+=`<rect x="${380+(60-w)/2}" y="112" width="${w}" height="24" rx="3" fill="${C.mg}" stroke="#4b5563"/><circle cx="410" cy="124" r="3" fill="#3f4752"/>`;
+h+=L(14,60,'sea water','t')+L(84,96,'steel hull','tb')+L(450,108,'magnesium block','t')+L(450,122,'(bolted on)','tm');
+h+=`<path d="M378 138L15 180M442 138L585 180" stroke="#4a44b5" stroke-dasharray="4 3"/>`;return h}
+h+=`<rect x="0" y="0" width="600" height="168" fill="#f7fbff"/>`;
+h+=`<rect x="40" y="110" width="520" height="46" fill="#a7b0ba" stroke="#5d6773"/>`;
+const cc=mode=='paint'?C.paint:C[mode];
+if(scr){h+=`<rect x="40" y="96" width="230" height="14" fill="${cc}"/><rect x="330" y="96" width="230" height="14" fill="${cc}"/><path d="M270 96L294 124H306L330 96Z" fill="#cfe6f7" stroke="#5d6773"/>`;
+if(mode!='zn')h+=`<ellipse cx="300" cy="116" rx="${(4+rust*1.6).toFixed(1)}" ry="${(3+rust*.9).toFixed(1)}" fill="${RUST}"/>`}
+else h+=`<rect x="40" y="96" width="520" height="14" fill="${cc}"/>`;
+h+=`<path d="M215 96Q300 30 385 96Z" fill="#cfe6f7" opacity=".85" stroke="#7fb2dc"/>`;
+h+=L(300,62,'water droplet','tm','middle')+L(44,90,(mode=='zn'?'zinc coating':mode=='sn'?'tin coating':'paint')+(mode=='zn'?' (galvanised)':''),'t')+L(60,140,'steel (iron)','tb');
+if(scr)h+=L(340,140,'scratch','t');
+h+=`<path d="M270 124L15 180M330 124L585 180" stroke="#4a44b5" stroke-dasharray="4 3"/>`;return h}
+function draw(){let h=macro();
+h+=`<rect x="15" y="180" width="570" height="232" rx="10" fill="#fff" stroke="#4a44b5" stroke-width="2"/><clipPath id="pv"><rect x="16" y="181" width="568" height="230" rx="9"/></clipPath><g clip-path="url(#pv)">`;
+h+=`<rect x="16" y="181" width="568" height="110" fill="#e3f0fa"/>`;
+const fe=mode=='mg'?XS.filter(x=>x<=375):XS;
+const rows=mode=='mg'?[305,335,365,395]:[335,365,395];
+const hidden=k=>used.has(k)||evs.some(e=>e.k==k&&t-e.t0>.5);
+rows.forEach(y=>fe.forEach(x=>{const k=[x,y]+'';if(hidden(k))h+=`<circle cx="${x}" cy="${y}" r="13" fill="none" stroke="#9aa3ad" stroke-dasharray="2 3"/>`;else if(!evs.some(e=>e.k==k))h+=atom(x,y,13,C.fe,'Fe')}));
+if(mode=='mg')[305,335,365,395].forEach(y=>[405,435,465,495,525,555].forEach(x=>{const k=[x,y]+'';if(hidden(k))h+=`<circle cx="${x}" cy="${y}" r="13" fill="none" stroke="#9aa3ad" stroke-dasharray="2 3"/>`;else if(!evs.some(e=>e.k==k))h+=atom(x,y,13,C.mg,'Mg')}));
+if(mode=='zn'||mode=='sn')XS.forEach(x=>{if(scr&&gap(x))return;const k=[x,305]+'';if(hidden(k))h+=`<circle cx="${x}" cy="305" r="13" fill="none" stroke="#9aa3ad" stroke-dasharray="2 3"/>`;else if(!evs.some(e=>e.k==k))h+=atom(x,305,13,C[mode],mode=='zn'?'Zn':'Sn')});
+if(mode=='paint'){h+=scr?`<rect x="16" y="292" width="254" height="28" fill="${C.paint}"/><rect x="330" y="292" width="254" height="28" fill="${C.paint}"/>`:`<rect x="16" y="292" width="568" height="28" fill="${C.paint}"/>`}
+if(mode!='zn'&&mode!='mg'&&rust>0){for(let k=0;k<Math.min(rust,14);k++){const a=k*2.4,r=4+k*1.1;h+=`<circle cx="${(300+Math.cos(a)*r*1.4).toFixed(1)}" cy="${(274+Math.sin(a)*r*.5).toFixed(1)}" r="7" fill="${RUST}" stroke="#7a3410"/>`}}
+parts.forEach(p=>h+=mol(p));
+evs.forEach(e=>{const p=(t-e.t0)/2.6;
+let ax=e.x,ay=e.y,ion=p>.3;if(p>.3){const q=Math.min(1,(p-.3)/.6);ax=e.x+(e.dest[0]-e.x)*q;ay=e.y+(e.dest[1]-e.y)*q}
+h+=atom(ax,ay,ion?11:13,ion&&e.col2?e.col2:e.col,ion?e.ion:e.lab,ion,p>.85&&!e.col2?(1-p)/.15:1);
+for(let i=0;i<e.n;i++){const f=(p-.12-i*.07)/.55;if(f<0)h+=E(e.x+(i-(e.n-1)/2)*9,e.y-15);else if(f<=1){const[x,y]=along(e.path,f);h+=E(x+(e.path.length==3?(i-1)*8*f:0),y)}}
+if(mode=='zn'||mode=='mg'){const f=(p-.12)/.55;if(f>.95&&f<1.3)h+=`<circle cx="${e.path[3][0]}" cy="${e.path[3][1]}" r="${(8+(f-.95)*30).toFixed(1)}" fill="none" stroke="#e0b100" stroke-width="2" opacity="${(1.3-f)*2}"/>`}});
+if(scr&&mode=='zn')h+=`<rect x="248" y="339" width="104" height="18" rx="4" fill="#fff" opacity=".92"/>`+L(300,352,'Fe stays as Fe','tm','middle');
+h+='</g>';
+h+=txt(26,200,'Particle view: close-up of the '+(mode=='mg'?'hull and block':'scratch'),'t');
+if(scr){if(mode=='zn')h+=L(28,232,'Zn → Zn²⁺: zinc ions go into the water','tm')+L(28,246,'electrons flow through the metal to the iron','tm');
+else if(mode=='mg')h+=L(28,232,'Mg → Mg²⁺: magnesium ions go into the water','tm')+L(28,246,'electrons flow into the steel hull','tm');
+else h+=L(28,232,'Fe → Fe³⁺: iron is oxidised and forms rust','tm')+L(28,246,mode=='sn'?'tin is less reactive: it does not react':'paint cannot give electrons','tm')}
+svg.innerHTML=h}
+function step(dt){t+=dt;parts.forEach(p=>mv(p,dt));
+if(scr&&t>=next){spawn();next=t+1.7}
+evs=evs.filter(e=>{if(t-e.t0>2.6){used.add(e.k);if(e.col2)rust++;if(mode=='mg')mgUse=Math.min(1,mgUse+.03);return false}return true})}
+picks('#gm',(i,b)=>{mode=b.dataset.m;reset()});
+$('#scr2').onclick=()=>{scr=true;next=t+.4;upd()};
+const pb=$('#play2');pb.onclick=()=>{play=!play;pb.textContent=play?'Pause':'Play'};
+$('#rep2').onclick=()=>{reset();play=true;pb.textContent='Pause'};
+lbl('#lb2','#s2');reset();
+legend('#lg2',[[C.fe,'Fe atom'],[C.zn,'Zn atom'],[C.sn,'Sn atom'],[C.mg,'Mg atom'],['e','electron (e⁻)'],['o','oxygen'],['w','water'],['r','rust']]);
+return{frame(dt){if(play)step(dt);draw()}}})();
+
+/* ---------- TAB 4 ---------- */
+const T4=(()=>{const svg=$('#s3');let m=0,p=0,play=true,hold=0;const D=6;
+const ST=[.3,.55,.75,1];
+const EQ=[
+[['Zn',0],[' → ',.3],['Zn<sup>2+</sup>',.5],[' + 2e<sup>−</sup>',.6],['<span class="tag" style="color:#b3261e">oxidation: loss of electrons (OIL)</span>',.75]],
+[['Fe',0],[' → ',.3],['Fe<sup>3+</sup>',.5],[' + 3e<sup>−</sup>',.6],['<span class="tag" style="color:#b3261e">oxidation: iron loses electrons (OIL)</span>',.75]],
+[['O<sub>2</sub>',0],[' + 4e<sup>−</sup>',.45],[' → ',.55],['2O<sup>2−</sup>',.7],['<span class="tag" style="color:#1d7a46">reduction: gain of electrons (RIG)</span>',.8]],
+[['Mg + CuO',0],[' → ',.45],['MgO + Cu',.65],['<span class="tag">magnesium is oxidised (gains oxygen); copper(II) oxide is reduced (loses oxygen)</span>',.8]]];
+const TX=['A zinc atom <b>loses 2 electrons</b> and becomes a zinc ion, Zn<sup>2+</sup>. Loss of electrons is <b>oxidation</b>. This is what the zinc does in galvanised steel.',
+'When iron rusts, each iron atom <b>loses 3 electrons</b> and becomes an iron(III) ion, Fe<sup>3+</sup>. Iron also <b>gains oxygen</b> to make iron(III) oxide. Either way, <b>iron is oxidised</b>.',
+'The electrons lost by the iron are <b>gained by oxygen</b>. Gain of electrons is <b>reduction</b>, so oxygen is reduced. Oxidation and reduction happen together: this is a <b>redox</b> reaction.',
+'Oxidation also means <b>gain of oxygen</b>; reduction means <b>loss of oxygen</b>. Magnesium gains oxygen, so it is oxidised. Copper(II) oxide loses oxygen, so it is reduced. Magnesium is the <b>reducing agent</b> and copper(II) oxide is the <b>oxidising agent</b>.'];
+const sm=(a,b,x)=>{x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x)};
+function draw(){const tt=performance.now()/1000;let h='';
+const ox=m!=2,rd=m>=2;
+h+=`<rect x="20" y="10" width="270" height="52" rx="10" fill="${ox?'#fdecea':'#f4f6f8'}" stroke="${ox?'#b3261e':'#cdd6df'}" stroke-width="2"/><text x="155" y="33" text-anchor="middle" class="tb" fill="#b3261e" style="fill:#b3261e">OIL</text><text x="155" y="52" text-anchor="middle" class="t">Oxidation Is Loss (of electrons)</text>`;
+h+=`<rect x="310" y="10" width="270" height="52" rx="10" fill="${rd?'#e6f4ec':'#f4f6f8'}" stroke="${rd?'#1d7a46':'#cdd6df'}" stroke-width="2"/><text x="445" y="33" text-anchor="middle" class="tb" style="fill:#1d7a46">RIG</text><text x="445" y="52" text-anchor="middle" class="t">Reduction Is Gain (of electrons)</text>`;
+if(m<2){const n=m==0?2:3,col=m==0?'#8fb3d9':'#9aa3ad',lab=m==0?'Zn':'Fe',ion=m==0?'Zn²⁺':'Fe³⁺';const s=sm(.4,.55,p),r=46-s*12;
+h+=`<circle cx="150" cy="185" r="66" fill="none" stroke="#cdd6df" stroke-dasharray="3 4" opacity="${1-s}"/>`;
+h+=atom(150,185,r,s>.5&&m==1?'#e08a3a':col,s>.5?ion:lab,s>.5);
+h+=txt(150,100,s>.5?(m==0?'zinc ion':'iron(III) ion'):(m==0?'zinc atom':'iron atom'),'tb','middle');
+for(let i=0;i<n;i++){const a=tt*1.6+i*2*PI/n,x0=150+Math.cos(a)*66,y0=185+Math.sin(a)*66,tx=420+i*30,ty=185,f=sm(.25+i*.04,.55+i*.04,p);h+=E(x0+(tx-x0)*f,y0+(ty-y0)*f)}
+if(p>.6)h+=`<text x="${420+(n-1)*15}" y="222" text-anchor="middle" class="tb">${n} electrons lost</text>`;
+h+=`<path d="M255 185H380" stroke="#5a6878" stroke-width="2" marker-end="url(#ar)" opacity="${sm(.25,.35,p)}"/>`;
+if(p>.75)h+=`<text x="150" y="285" text-anchor="middle" class="tb" style="fill:#b3261e">loses electrons: oxidised</text>`;
+if(m==1&&p>.85)h+=txt(420,285,'(iron also gains oxygen when it rusts)','tm','middle')}
+else if(m==2){const s=sm(.6,.8,p);
+const A=[150-24-s*60,185],B=[150+24+s*130,185];
+for(let i=0;i<4;i++){const sx=520-i*26,sy=110,f=sm(.2+i*.05,.5+i*.05,p),tgt=i<2?A:B,a=tt*1.4+i*PI,ex=tgt[0]+Math.cos(a)*30,ey=tgt[1]+Math.sin(a)*30;h+=E(sx+(ex-sx)*f,sy+(ey-sy)*f)}
+if(p<.2)h+=txt(480,96,'electrons (from iron)','tm','middle');
+h+=atom(A[0],A[1],24,'#e0483e',s>.5?'O²⁻':'O',s>.5)+atom(B[0],B[1],24,'#e0483e',s>.5?'O²⁻':'O',s>.5);
+h+=txt(150+s*35,120,s>.5?'two oxide ions':'oxygen molecule','tb','middle');
+if(p>.8)h+=`<text x="300" y="285" text-anchor="middle" class="tb" style="fill:#1d7a46">gains electrons: reduced</text>`}
+else{const s=sm(.25,.65,p);const ox0=372,ox1=158;const x=ox0+(ox1-ox0)*s,y=185-Math.sin(s*PI)*70;
+h+=atom(110,185,28,'#c3d98a','Mg')+atom(340,185,28,'#c8794a','Cu')+atom(x,y,20,'#e0483e','O');
+h+=txt(110,130,p>.65?'magnesium oxide':'magnesium','tb','middle')+txt(355,130,p>.65?'copper':'copper(II) oxide','tb','middle');
+if(p>.7)h+=`<text x="120" y="262" text-anchor="middle" class="tb" style="fill:#b3261e">gains oxygen:</text><text x="120" y="282" text-anchor="middle" class="tb" style="fill:#b3261e">oxidised</text><text x="345" y="262" text-anchor="middle" class="tb" style="fill:#1d7a46">loses oxygen:</text><text x="345" y="282" text-anchor="middle" class="tb" style="fill:#1d7a46">reduced</text>`}
+svg.innerHTML=`<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5a6878"/></marker></defs>`+h;
+$$('#eq3 span[data-p]').forEach(s=>s.classList.toggle('on',p>=+s.dataset.p))}
+function setM(i){m=i;p=0;hold=0;$('#eq3').innerHTML=EQ[i].map(([s,q])=>`<span data-p="${q}">${s}</span>`).join('');msg('#st3','<p>'+TX[i]+'</p>',m==2?'ok':m==3?'':'warn')}
+picks('#rm',i=>setM(i));
+const pb=$('#play3');pb.onclick=()=>{play=!play;pb.textContent=play?'Pause':'Play';if(play&&p>=1)p=0};
+$('#step3').onclick=()=>{play=false;pb.textContent='Play';if(p>=1)p=0;else p=ST.find(s=>s>p+.001)||1};
+$('#rep3').onclick=()=>{p=0;hold=0;play=true;pb.textContent='Pause'};
+legend('#lg3',[['e','electron (e⁻)'],['#e0483e','oxygen'],['#8fb3d9','zinc'],['#9aa3ad','iron']]);setM(0);
+return{frame(dt){if(play){if(p<1)p=Math.min(1,p+dt/D);else if((hold+=dt)>2.5){p=0;hold=0}}draw()}}})();
+
+/* ---------- tabs + loop ---------- */
+const T=[T1,T2,T3,T4];let cur=0;
+$$('.tabs button').forEach((b,i)=>b.onclick=()=>{cur=i;$$('.tabs button').forEach((x,j)=>x.setAttribute('aria-selected',j==i));$$('.tp').forEach((x,j)=>x.hidden=j!=i)});
+let last=performance.now();function loop(n){const dt=Math.min(.05,(n-last)/1000);last=n;T[cur].frame(dt);requestAnimationFrame(loop)}requestAnimationFrame(loop);
+
+/* ---------- quiz ---------- */
+const Q=[
+['A nail is put in boiled water with a layer of oil on top. Why does it not rust?',['There is no water','There is no oxygen','Oil reacts with iron','Boiled water is too hot'],1,'Boiling removes dissolved oxygen and the oil stops air dissolving back in.'],
+['Which metal block could be bolted to a steel ship to stop it rusting?',['Copper','Tin','Magnesium','Silver'],2,'Magnesium is more reactive than iron, so it is oxidised instead (sacrificial protection).'],
+['Which half-equation shows oxidation?',['Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu','O<sub>2</sub> + 4e<sup>−</sup> → 2O<sup>2−</sup>','Fe → Fe<sup>3+</sup> + 3e<sup>−</sup>','Zn<sup>2+</sup> + 2e<sup>−</sup> → Zn'],2,'Iron loses electrons: Oxidation Is Loss.'],
+['What is the best way to stop a bike chain rusting?',['Oil or grease','Paint','Plastic coating','Coating with tin'],0,'Oil keeps out oxygen and water and lets the moving parts slide; paint or plastic would crack.']];
+$('#quiz').innerHTML=Q.map((q,i)=>`<li><div>${q[0]}</div><div class="opts">${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> <span>${o}</span></label>`).join('')}</div><div class="fb" id="fb${i}"></div></li>`).join('');
+$('#chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('#fb'+i);
+if(!c){f.className='fb bad';f.textContent='Choose an answer.';return}
+const ok=+c.value==q[2];if(ok)s++;f.className='fb '+(ok?'good':'bad');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+const sc=$('#score');sc.textContent=`Score: ${s} / ${Q.length}`;sc.style.color=s==Q.length?'var(--good)':'var(--ink)'};
+</script><script>
+/* ---- exam practice questions ---- */
+var EXQ=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'A student sets up four test tubes, each with an iron nail.<br>A: nail in tap water, open to the air<br>B: nail in boiled water with a layer of oil on top<br>C: nail in dry air, with anhydrous calcium chloride, stoppered<br>D: nail in salt water, open to the air',
+ stem:'In which tube does the nail rust the most after one week?',
+ opts:['A','B','C','D'],ans:3,
+ why:'Both oxygen and water are present in D, and dissolved salt makes rusting faster.'},
+{ref:'Q1(b)',marks:2,type:'written',
+ stem:'Explain why the water in tube B is boiled and why a layer of oil is added.',
+ points:['boiling removes dissolved air / oxygen from the water','the oil stops air / oxygen dissolving back into the water','so there is no oxygen and the nail cannot rust']},
+{ref:'Q1(c)',marks:1,type:'mcq',
+ stem:'What is the purpose of the anhydrous calcium chloride in tube C?',
+ opts:['to provide oxygen for the iron','to absorb water vapour from the air','to react with the iron nail','to make the iron rust faster'],ans:1,
+ why:'Anhydrous calcium chloride is a drying agent. It removes water vapour, so the air in the tube is dry.'},
+{ref:'Q2',marks:3,type:'drop',
+ stem:'Complete the sentences about rusting.',
+ parts:[{pre:'Rust is',opts:['hydrated iron(III) oxide','iron(II) sulfate','iron carbonate','iron sulfide'],ans:0},
+        {pre:'For iron to rust, oxygen and',opts:['carbon dioxide','nitrogen','water','salt'],ans:2,post:'must both be present.'},
+        {pre:'Rusting is',opts:['faster','slower','the same'],ans:0,post:'in salt water than in tap water.'}],
+ why:'Iron + oxygen + water → hydrated iron(III) oxide. Salt is not needed, but it speeds rusting up.'},
+{ref:'Q3',marks:2,type:'calc',ctx:'Damp iron wool is put into a sealed tube containing 80.0 cm³ of air. After one week the iron wool has rusted and the volume of gas in the tube is 63.4 cm³. The temperature and pressure are the same at the start and end.',
+ stem:'Calculate the percentage by volume of oxygen in the air.',
+ inputs:[{lab:'decrease in volume =',unit:'cm³',ans:16.6,tol:0.05,m:1},{lab:'percentage of oxygen =',unit:'%',ans:20.75,tol:0.06,m:1}],
+ work:'<ol><li>Decrease in volume = 80.0 − 63.4 = 16.6 cm³ (this is the oxygen used up by rusting) (1)</li><li>Percentage = 16.6 ÷ 80.0 × 100 = <b>20.75 %</b> (accept 20.7 or 20.8) (1)</li></ol>'},
+{ref:'Q4(a)',marks:1,type:'mcq',
+ stem:'Which of these is an example of sacrificial protection?',
+ opts:['painting a steel bridge','oiling a bicycle chain','attaching zinc blocks to the hull of a steel ship','coating a steel shelf with plastic'],ans:2,
+ why:'Zinc is more reactive than iron, so the zinc blocks are oxidised instead of the steel. The other three are barrier methods.'},
+{ref:'Q4(b)',marks:2,type:'written',ctx:'Some food cans are made of steel coated with a thin layer of tin. Tin is less reactive than iron.',
+ stem:'Explain why the steel rusts if the tin layer is scratched.',
+ points:['the scratch lets oxygen (air) and water reach the steel / iron','tin is less reactive than iron, so tin is not oxidised in place of the iron / tin does not give sacrificial protection','so the iron is oxidised / rusts']},
+{ref:'Q5',marks:5,type:'written',ctx:'Galvanised steel is steel coated with a layer of zinc.',
+ stem:'Explain how galvanising protects steel from rusting, even when the zinc layer is scratched. Refer to oxidation and electrons in your answer.',
+ points:['the zinc layer acts as a barrier, keeping oxygen and water away from the iron','zinc is more reactive than iron','when scratched, the zinc reacts / corrodes instead of the iron','zinc atoms lose electrons (to form zinc ions), so zinc is oxidised','iron does not lose electrons, so iron is not oxidised / does not rust','this is called sacrificial protection']},
+{ref:'Q6',marks:3,type:'drop',ctx:'When iron rusts, iron reacts with oxygen from the air.',
+ stem:'Complete the sentences about the redox reaction in rusting.',
+ parts:[{pre:'Iron atoms',opts:['lose','gain','share'],ans:0,post:'electrons.'},
+        {pre:'Iron is',opts:['oxidised','reduced','neutralised'],ans:0},
+        {pre:'Oxygen is the',opts:['reducing agent','oxidising agent','catalyst'],ans:1}],
+ why:'Iron atoms lose electrons, so iron is oxidised (OIL). Oxygen gains those electrons, so oxygen is reduced and is the oxidising agent.'}
+];
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('topLearn'),$('topExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('topRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=EXQ, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function txt(h){var d=document.createElement('div'); d.innerHTML=h; return d.textContent.trim();}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var dw=el('div','ex-drop'), sels=[], line=null;
+      q.parts.forEach(function(p,k){
+        var row; if(q.inline){ if(!line){line=el('div','ex-dl eqn'); dw.appendChild(line);} row=line; } else { row=el('div','ex-dl'); dw.appendChild(row); }
+        if(p.pre) row.appendChild(el('span','',p.pre));
+        var sel=document.createElement('select'); sel.className='ex-sel'; sel.setAttribute('aria-label',p.aria||((txt(p.pre||'')||q.ref)+' – choose'));
+        var o0=document.createElement('option'); o0.value=''; o0.textContent='choose…'; sel.appendChild(o0);
+        p.opts.forEach(function(o,j){var op=document.createElement('option'); op.value=j; op.textContent=o; sel.appendChild(op);});
+        row.appendChild(sel); sels.push(sel);
+        var an=el('span','ex-ansn'); an.hidden=true; row.appendChild(an);
+        if(p.post) row.appendChild(el('span','',p.post));
+        sel._an=an;
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); dw.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.parts[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong'); if(!ok){x._an.textContent='✓ '+q.parts[k].opts[q.parts[k].ans]; x._an.hidden=false;}});
+        s.score=Math.round(n*q.marks/sels.length); s.marked=true; bt3.disabled=true;
+        fb(box,s.score===q.marks,'<b>'+s.score+' / '+q.marks+' marks.</b> '+q.why); upd();
+      });
+      c.appendChild(dw); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

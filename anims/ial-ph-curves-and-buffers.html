@@ -1,0 +1,266 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>pH Curves and Buffers</title>
+<meta name="description" content="Interactive animation: pH Curves and Buffers. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-ph-curves-and-buffers.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--warn:#b25e00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;outline:none;position:relative}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.6em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:8px 12px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.pbtns,.spd{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.dots{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:#fff;cursor:pointer;padding:0;font:700 .7rem var(--display);color:var(--muted)}
+.dot[aria-current="step"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.dot.seen{border-color:var(--accent)}
+.ind{font:600 .9rem var(--display);color:var(--muted);white-space:nowrap}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.dot:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.84rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.say{min-height:2.8em;border-radius:10px;padding:8px 12px;background:#fff;border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.say.mid{border-color:var(--warn);background:#fff6e8}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.lbl{font-size:.88rem;color:var(--muted);font-weight:700}
+.panel{background:var(--paper);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:78ch}
+.mcq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:minmax(0,1fr)}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer;font-size:.95rem}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.ex{font-size:.9rem;margin-top:6px;padding:6px 10px;border-radius:8px}
+.ex.good{background:#eef8f2;color:#14532f}.ex.bad{background:#fdf1f0;color:#7d1a14}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:14px 18px}
+.tip h2{color:#7a4a00;font-size:1.1rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font:600 .92rem var(--display);color:var(--muted);text-align:center;padding:6px 0}
+.at{font-family:var(--body);fill:var(--ink);font-weight:700}
+.sm{font-family:var(--body);fill:var(--muted);font-size:14px}
+.lab{font-family:var(--display);fill:var(--ink);font-size:15px;font-weight:600}
+.dl{fill:var(--accent);font-family:var(--body);font-weight:700}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ca{stroke:#c0392b;stroke-width:2.4;fill:none;stroke-linecap:round}
+.dr{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gd{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.pick{cursor:pointer}
+@media(max-width:520px){body{font-size:16px}.dot{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>pH curves, indicators and buffers</h1><p class="meta">IAL Chemistry · Unit 4 · Acid–base equilibria</p><p><b>In this animation</b>: watch pH curves being drawn for different acid–base pairs, see why the indicator must change colour in the vertical section, and see how a buffer removes added H<sup>+</sup> and OH<sup>−</sup>.</p></header>
+<section class="sheet" aria-labelledby="hw"><h2 id="hw"><span class="step">Watch it</span>Titration curves and buffer action</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step, space to play or pause."><svg viewBox="0 0 800 400" role="img" aria-label="pH Curves and Buffers animation"><g id="defs"></g><g id="scene"></g></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><div class="pbtns"><button class="btn ghost" type="button" id="bRestart">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay" aria-pressed="false">Play</button><button class="btn ghost" type="button" id="bNext">Next</button></div>
+<span class="ind" id="ind" aria-live="polite"></span><div class="dots" id="dots"></div>
+<div class="spd" id="spd" role="group" aria-label="Speed"><span class="lbl">Speed</span><button type="button" class="mini" data-s="slow" aria-pressed="false">Slow</button><button type="button" class="mini" data-s="normal" aria-pressed="true">Normal</button></div></div>
+</section>
+<section class="sheet" aria-labelledby="ht"><h2 id="ht"><span class="step">Try it</span>Choose a pair and an indicator</h2>
+<p>25.0 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> acid is titrated with 0.100 mol dm<sup>−3</sup> base. Pick the acid, the base and an indicator. Does the indicator give a sharp end point?</p>
+<div class="row"><label class="lbl">Acid <select id="tA"><option value="s">HCl (strong)</option><option value="w">CH₃COOH (weak)</option></select></label><label class="lbl">Base <select id="tB"><option value="s">NaOH (strong)</option><option value="w">NH₃ (weak)</option></select></label><label class="lbl">Indicator <select id="tI"><option value="0">methyl orange (pH 3.1–4.4)</option><option value="1">bromothymol blue (pH 6.0–7.6)</option><option value="2">phenolphthalein (pH 8.3–10.0)</option></select></label></div>
+<div class="stage" style="padding:4px"><svg id="tsv" viewBox="0 0 800 330" role="img" aria-label="Titration curve with the indicator range shown as a coloured band"></svg></div>
+<div class="say" id="sayT" aria-live="polite"></div>
+</section>
+<section class="sheet" aria-labelledby="hc"><h2 id="hc"><span class="step">Check it</span>Four quick questions</h2>
+<ol class="qs" id="qs"></ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><button class="btn ghost" type="button" id="rstQs">Clear</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<aside class="tip" aria-labelledby="hx"><h2 id="hx">Exam tip</h2><ul><li>An indicator works only if its <b>whole colour-change range</b> lies inside the <b>vertical section</b> of the pH curve.</li>
+<li>At <b>half-equivalence</b> [HA] = [A<sup>−</sup>], so pH = p<i>K</i><sub>a</sub>. Read it from the curve at half the equivalence volume.</li>
+<li>Explain buffer action with <b>equations</b>: H<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> → CH<sub>3</sub>COOH and OH<sup>−</sup> + CH<sub>3</sub>COOH → CH<sub>3</sub>COO<sup>−</sup> + H<sub>2</sub>O. Say there is a <b>large reservoir</b> of both.</li>
+<li>The pH at equivalence is <b>not always 7</b>: above 7 for weak acid/strong base, below 7 for strong acid/weak base.</li></ul></aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 13 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "0.100 mol dm<sup>−3<\/sup> hydrochloric acid is titrated with 0.100 mol dm<sup>−3<\/sup> aqueous ammonia. Which indicator is most suitable?", "m": 1, "o": ["phenolphthalein (8.2–10.0)", "thymolphthalein (9.3–10.5)", "methyl orange (3.2–4.4)", "phenol red (6.8–8.4)"], "a": 2, "why": "C is correct because the vertical section for strong acid/weak base is about pH 3 to 7, and only methyl orange changes colour completely inside it."}, {"t": "mc", "q": "Which mixture forms a buffer solution?", "m": 1, "o": ["50 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> CH<sub>3<\/sub>COOH + 25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> NaOH", "25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> CH<sub>3<\/sub>COOH + 25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> NaOH", "25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> HCl + 25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> NaCl", "25 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> HCl + 50 cm<sup>3<\/sup> of 0.10 mol dm<sup>−3<\/sup> NaOH"], "a": 0, "why": "A is correct because half of the weak acid is neutralised, leaving large amounts of both CH<sub>3<\/sub>COOH and CH<sub>3<\/sub>COO<sup>−<\/sup>."}, {"t": "w", "q": "Calculate the pH of 0.100 mol dm<sup>−3<\/sup> ethanoic acid. <i>K<\/i><sub>a<\/sub> = 1.74 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup>.", "m": 3, "ms": ["<i>K<\/i><sub>a<\/sub> = [H<sup>+<\/sup>]<sup>2<\/sup> ÷ [CH<sub>3<\/sub>COOH] (1)", "[H<sup>+<\/sup>] = √(1.74 × 10<sup>−5<\/sup> × 0.100) = 1.32 × 10<sup>−3<\/sup> mol dm<sup>−3<\/sup> (1)", "pH = −log(1.32 × 10<sup>−3<\/sup>) = 2.88 (1)"], "note": "Correct answer with no working scores 3. Allow 2.9. Assumes [HA] at equilibrium ≈ 0.100 mol dm<sup>−3<\/sup>."}, {"t": "w", "q": "A buffer contains 0.0200 mol of ethanoic acid and 0.0300 mol of sodium ethanoate in 500 cm<sup>3<\/sup> of solution. Calculate the pH of the buffer. <i>K<\/i><sub>a<\/sub> = 1.74 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup>.", "m": 3, "ms": ["[H<sup>+<\/sup>] = <i>K<\/i><sub>a<\/sub> × [CH<sub>3<\/sub>COOH] ÷ [CH<sub>3<\/sub>COO<sup>−<\/sup>] (1)", "[H<sup>+<\/sup>] = 1.74 × 10<sup>−5<\/sup> × 0.0200 ÷ 0.0300 = 1.16 × 10<sup>−5<\/sup> mol dm<sup>−3<\/sup> (1)", "pH = 4.94 (1)"], "note": "The volume cancels, so moles may be used directly. Allow pH = p<i>K<\/i><sub>a<\/sub> + log([A<sup>−<\/sup>]/[HA]) = 4.76 + 0.18 = 4.94."}, {"t": "w", "q": "Explain how the ethanoic acid / sodium ethanoate buffer keeps the pH almost constant when a small amount of NaOH(aq) is added. Include an equation.", "m": 3, "ms": ["OH<sup>−<\/sup> + CH<sub>3<\/sub>COOH → CH<sub>3<\/sub>COO<sup>−<\/sup> + H<sub>2<\/sub>O (1)", "there is a large reservoir / large amount of CH<sub>3<\/sub>COOH (and CH<sub>3<\/sub>COO<sup>−<\/sup>) (1)", "so the ratio [CH<sub>3<\/sub>COOH] : [CH<sub>3<\/sub>COO<sup>−<\/sup>] hardly changes and the pH stays almost the same (1)"], "note": "Do not award 'the pH does not change at all'. Allow H<sup>+<\/sup> + OH<sup>−<\/sup> → H<sub>2<\/sub>O with the equilibrium CH<sub>3<\/sub>COOH ⇌ CH<sub>3<\/sub>COO<sup>−<\/sup> + H<sup>+<\/sup> shifting to the right."}, {"t": "w", "q": "Explain why the pH at the equivalence point is above 7 when ethanoic acid is titrated with sodium hydroxide.", "m": 2, "ms": ["the solution contains ethanoate ions, CH<sub>3<\/sub>COO<sup>−<\/sup>, which act as a (weak) base (1)", "CH<sub>3<\/sub>COO<sup>−<\/sup> + H<sub>2<\/sub>O ⇌ CH<sub>3<\/sub>COOH + OH<sup>−<\/sup> (1)"], "note": "Allow 'sodium ethanoate is the salt of a weak acid and a strong base' for the first mark."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer>A buffer keeps pH almost constant because it contains large amounts of both a weak acid and its conjugate base.</footer>
+</div>
+<script>
+"use strict";
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* formula text: digits after a letter or ) ] are subscripts; ^xyz is superscript (+ − δ digits) */
+function fm(s,fs){fs=fs||18;let out='',cur=0,buf='',bt=0;const off=[0,fs*.3,-fs*.4];
+ const flush=()=>{if(!buf)return;const dy=off[bt]-cur;cur=off[bt];out+='<tspan'+(dy?' dy="'+dy.toFixed(1)+'"':'')+(bt?' font-size="'+(fs*.68).toFixed(1)+'"':'')+'>'+esc(buf)+'</tspan>';buf=''};
+ for(let i=0;i<s.length;i++){const c=s[i];let t;
+  if(c==='`'){flush();bt=0;buf+=s[i+1]||'';i++;flush();continue}
+  if(c==='^'){flush();bt=2;i++;while(i<s.length&&/[+\-−δ0-9a-z•]/.test(s[i])){buf+=s[i];i++}i--;continue}
+  if(/\d/.test(c)&&(bt===1||/[A-Za-z\)\]]/.test(s[i-1]||'')))t=1;else t=0;
+  if(t!==bt){flush();bt=t}buf+=c}
+ flush();return out}
+function T(x,y,s,o){o=o||{};const fs=o.fs||20;return `<text x="${x}" y="${y}" class="${o.c||'at'}" font-size="${fs}" text-anchor="${o.a||'middle'}" dominant-baseline="central"${o.f?` fill="${o.f}" style="fill:${o.f}"`:''}${o.w?` font-weight="${o.w}"`:''}${o.x||''}>${fm(s,fs)}</text>`}
+function trim(x1,y1,x2,y2,a,b){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;return[x1+ux*a,y1+uy*a,x2-ux*b,y2-uy*b,ux,uy]}
+function bd(x1,y1,x2,y2,a,b,o){a=a==null?13:a;b=b==null?13:b;const[p,q,r,s]=trim(x1,y1,x2,y2,a,b);return `<line class="bd" x1="${p.toFixed(1)}" y1="${q.toFixed(1)}" x2="${r.toFixed(1)}" y2="${s.toFixed(1)}"${o||''}/>`}
+function db(x1,y1,x2,y2,a,b,g){g=g||3.6;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?13:a,b==null?13:b);const nx=-uy*g,ny=ux*g;return `<line class="bd" x1="${p+nx}" y1="${q+ny}" x2="${r+nx}" y2="${s+ny}"/><line class="bd" x1="${p-nx}" y1="${q-ny}" x2="${r-nx}" y2="${s-ny}"/>`}
+function tb(x1,y1,x2,y2,a,b){return db(x1,y1,x2,y2,a,b,5)+bd(x1,y1,x2,y2,a,b)}
+function lp(x,y,ang,r){r=r||15;const a=ang*Math.PI/180,cx=x+Math.cos(a)*r,cy=y+Math.sin(a)*r,px=-Math.sin(a)*4,py=Math.cos(a)*4;return `<circle class="lpd" cx="${(cx+px).toFixed(1)}" cy="${(cy+py).toFixed(1)}" r="2.3"/><circle class="lpd" cx="${(cx-px).toFixed(1)}" cy="${(cy-py).toFixed(1)}" r="2.3"/>`}
+function wedge(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);return `<polygon fill="#1c2736" points="${p},${q} ${r-uy*w},${s+ux*w} ${r+uy*w},${s-ux*w}"/>`}
+function hash(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);let o='';for(let i=0;i<=6;i++){const t=i/6,cx=p+(r-p)*t,cy=q+(s-q)*t,h=0.8+w*t;o+=`<line stroke="#1c2736" stroke-width="1.8" x1="${(cx-uy*h).toFixed(1)}" y1="${(cy+ux*h).toFixed(1)}" x2="${(cx+uy*h).toFixed(1)}" y2="${(cy-ux*h).toFixed(1)}"/>`}return o}
+function ca(d,dl,col){return `<path class="ca" d="${d}" marker-end="url(#ah)" data-d="${dl||0}"${col?` style="stroke:${col}"`:''}/>`}
+function rarr(x1,y,x2,o){return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#1c2736" stroke-width="2" marker-end="url(#rh)"/>`+(o?T((x1+x2)/2,y-16,o,{fs:14,c:'sm'}):'')}
+function eqm(x1,y,x2){return `<path d="M${x1} ${y-4}H${x2}l-9 -6" stroke="#1c2736" stroke-width="2" fill="none"/><path d="M${x2} ${y+4}H${x1}l9 6" stroke="#1c2736" stroke-width="2" fill="none"/>`}
+function brk(x1,y1,x2,y2,dag){return `<path d="M${x1+8} ${y1}h-8v${y2-y1}h8M${x2-8} ${y1}h8v${y2-y1}h-8" stroke="#1c2736" stroke-width="2" fill="none"/>`+(dag?T(x2+12,y1+6,'‡',{fs:20}):'')}
+function G(inner,o){return `<g${o||''}>${inner}</g>`}
+const IN=(d,inner)=>`<g class="in" data-d="${d}">${inner}</g>`;
+const MV=(dx,dy,inner,d)=>`<g data-from="${dx},${dy}" data-d="${d||0}">${inner}</g>`;
+const DEFS=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="rh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker><marker id="kh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker></defs>`;
+/* graph axes: box x,y (top-left), w,h; returns {s,X,Y} */
+function axes(x,y,w,h,xl,yl,xr,yr,o){o=o||{};const X=v=>x+(v-xr[0])/(xr[1]-xr[0])*w,Y=v=>y+h-(v-yr[0])/(yr[1]-yr[0])*h;let s='';
+ (o.xt||[]).forEach(v=>{s+=`<line class="gd" x1="${X(v)}" y1="${y}" x2="${X(v)}" y2="${y+h}"/>`+T(X(v),y+h+12,String(v),{fs:12,c:'sm'})});
+ (o.yt||[]).forEach(v=>{s+=`<line class="gd" x1="${x}" y1="${Y(v)}" x2="${x+w}" y2="${Y(v)}"/>`+T(x-6,Y(v),String(v),{fs:12,c:'sm',a:'end'})});
+ s+=`<path class="ax" d="M${x} ${y-6}V${y+h}H${x+w+6}" marker-end="url(#kh)"/><path class="ax" d="M${x} ${y+h}V${y-6}" marker-end="url(#kh)"/>`;
+ s+=T(x+w/2,y+h+(o.xt?32:18),xl,{fs:13,c:'lab'})+`<g transform="translate(${x-(o.yt?38:16)} ${y+h/2}) rotate(-90)">${T(0,0,yl,{fs:13,c:'lab'})}</g>`;
+ return{s,X,Y}}
+function plotPath(X,Y,f,a,b,n){n=n||80;let d='';for(let i=0;i<=n;i++){const v=a+(b-a)*i/n;d+=(i?'L':'M')+X(v).toFixed(1)+' '+Y(f(v)).toFixed(1)}return d}
+/* animate new scene contents */
+function animIn(root,k,later){if(RM)return;
+ $$('.dr,.ca',root).forEach(p=>{let L=0;try{L=p.getTotalLength()}catch(e){}if(!L)return;const d=(+p.dataset.d||0)*k,du=(+(p.dataset.u||0.9))*k,m=p.getAttribute('marker-end');if(m){p.removeAttribute('marker-end');later(()=>p.setAttribute('marker-end',m),(d+du)*1000)}p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;later(()=>{p.style.transition=`stroke-dashoffset ${du}s ease ${d}s`;p.style.strokeDashoffset=0},30)});
+ $$('[data-from]',root).forEach(e=>{const[a,b]=e.dataset.from.split(','),d=(+e.dataset.d||0)*k;e.style.transform=`translate(${a}px,${b}px)`;later(()=>{e.style.transition=`transform ${1.1*k}s ease ${d}s`;e.style.transform='translate(0px,0px)'},30)});
+ $$('.in',root).forEach(e=>{const d=(+e.dataset.d||0)*k;e.style.opacity=0;later(()=>{e.style.transition=`opacity ${.6*k}s ease ${d}s`;e.style.opacity=1},30)})}
+/* player */
+function Player(steps){const N=steps.length,sc=$('#scene'),cap=$('#cap'),ind=$('#ind'),dots=$('#dots'),bP=$('#bPlay'),bB=$('#bBack'),bN=$('#bNext'),stg=$('#stage');
+ let i=0,playing=false,slow=false,auto=null,pend=[],cleanup=null;const seen=new Set();
+ const later=(f,ms)=>{pend.push(setTimeout(f,ms))};const k=()=>slow?1.6:1;
+ dots.innerHTML=steps.map((s,j)=>`<button type="button" class="dot" data-j="${j}" aria-label="Go to step ${j+1}">${j+1}</button>`).join('');
+ function sched(){clearTimeout(auto);if(!playing)return;auto=setTimeout(()=>{if(i<N-1)go(i+1);else setPlay(false)},((slow?7800:5200)+(steps[i].t||0))*(1))}
+ function go(n){n=Math.max(0,Math.min(N-1,n));i=n;pend.forEach(clearTimeout);pend=[];if(cleanup){try{cleanup()}catch(e){}cleanup=null}
+  sc.innerHTML=steps[n].svg();animIn(sc,k(),later);if(steps[n].on)cleanup=steps[n].on(sc,k(),later)||null;
+  cap.innerHTML=steps[n].cap;ind.textContent=`Step ${n+1} of ${N}`;seen.add(n);
+  $$('.dot',dots).forEach((d,j)=>{d.toggleAttribute('aria-current',false);if(j===n)d.setAttribute('aria-current','step');d.classList.toggle('seen',seen.has(j))});
+  bB.disabled=n===0;bN.disabled=n===N-1;sched()}
+ function setPlay(p){playing=p;bP.textContent=p?'Pause':'Play';bP.setAttribute('aria-pressed',p);if(p&&i===N-1){go(0);return}sched()}
+ $('#bRestart').onclick=()=>{go(0)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);bP.onclick=()=>setPlay(!playing);
+ dots.onclick=e=>{const b=e.target.closest('.dot');if(b)go(+b.dataset.j)};
+ $$('#spd .mini').forEach(b=>b.onclick=()=>{slow=b.dataset.s==='slow';$$('#spd .mini').forEach(x=>x.setAttribute('aria-pressed',x===b));sched()});
+ stg.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){setPlay(!playing);e.preventDefault()}});
+ go(0);return{go}}
+/* quiz */
+function Quiz(qs){const el=$('#qs');
+ el.innerHTML=qs.map((q,k)=>`<li><p>${q.q}</p><div class="mcq">${q.o.map((t,j)=>`<label><input type="radio" name="q${k}" value="${j}"><span>${t}</span></label>`).join('')}</div><p class="ex" id="ex${k}" hidden></p></li>`).join('');
+ $('#chkQs').onclick=()=>{let sc=0;qs.forEach((q,k)=>{const ch=$(`input[name=q${k}]:checked`),ex=$('#ex'+k);$$(`input[name=q${k}]`).forEach(r=>r.parentElement.classList.remove('ok','wrong'));
+  const v=ch?+ch.value:-1,good=v===q.a;if(good)sc++;if(ch)ch.parentElement.classList.add(good?'ok':'wrong');if(ch&&!good)$$(`input[name=q${k}]`)[q.a].parentElement.classList.add('ok');
+  ex.hidden=false;ex.className='ex '+(good?'good':'bad');ex.innerHTML=(good?'<b>Correct.</b> ':ch?'<b>Not quite.</b> ':'<b>No answer.</b> ')+q.x});
+  const s=$('#qScore');s.textContent=`Score: ${sc} / ${qs.length}`;s.className='score '+(sc>=3?'good':'bad')};
+ $('#rstQs').onclick=()=>{$$('#qs input').forEach(r=>{r.checked=false;r.parentElement.classList.remove('ok','wrong')});$$('#qs .ex').forEach(e=>e.hidden=true);$('#qScore').textContent=''}}
+
+$('#defs').innerHTML=DEFS;
+
+const Kw=1e-14,KA=1.74e-5,KNH4=5.62e-10,ACC='#4a44b5',RED='#c0392b',GRN='#1d7a46',GRY='#9aa6b2';
+/* volume of base needed to reach a given pH (from the charge balance) */
+function vb(pH,a,b){const h=Math.pow(10,-pH),oh=Kw/h,al=a==='w'?KA/(KA+h):1,be=b==='w'?h/(h+KNH4):1,den=(h-oh)+be*.1;if(den<=0)return NaN;return(al*.1*25-(h-oh)*25)/den}
+function pts(a,b){const p=[];for(let pH=0.3;pH<=13.7;pH+=0.004){const v=vb(pH,a,b);if(isFinite(v)&&v>=0&&v<=50)p.push([v,pH])}return p}
+function curve(A,a,b,col,w,dl,u){const p=pts(a,b);let d='';p.forEach((q,i)=>{d+=(i?'L':'M')+A.X(q[0]).toFixed(1)+' '+A.Y(q[1]).toFixed(1)});return `<path class="dr" fill="none" d="${d}" stroke="${col}" stroke-width="${w||3.5}" data-d="${dl||0}" data-u="${u||1.8}"/>`}
+function pHat(V,a,b){let lo=0,hi=14;for(let i=0;i<60;i++){const m=(lo+hi)/2,v=vb(m,a,b);if(!isFinite(v)||v>V)hi=m;else lo=m}return(lo+hi)/2}
+const AX=()=>axes(70,30,440,300,'volume of base added / cm^3','pH',[0,50],[0,14],{xt:[0,10,20,30,40,50],yt:[0,2,4,6,8,10,12,14]});
+function eqMark(A,a,b,d){const p=pHat(25,a,b);return IN(d,`<circle cx="${A.X(25)}" cy="${A.Y(p)}" r="6" fill="#fff" stroke="${RED}" stroke-width="3"/>`+T(A.X(25)+12,A.Y(p),'equivalence point, pH '+p.toFixed(1),{fs:14,a:'start',c:'lab',f:RED}))}
+function vsec(A,lo,hi,d){return IN(d,`<path d="M${A.X(23.5)} ${A.Y(hi)}h-8V${A.Y(lo)}h8" stroke="${GRN}" stroke-width="2.5" fill="none"/>`+T(A.X(23.5)-12,A.Y((lo+hi)/2)-10,'vertical',{fs:13,a:'end',c:'lab',f:GRN})+T(A.X(23.5)-12,A.Y((lo+hi)/2)+8,'section',{fs:13,a:'end',c:'lab',f:GRN}))}
+function side(lines,d){return IN(d,lines.map((l,j)=>T(545,60+j*30,l[0],{fs:l[1]||16,a:'start',c:'lab',f:l[2]})).join(''))}
+function band(A,lo,hi,c1,c2,name,d){return IN(d,`<rect x="${A.X(0)}" y="${A.Y(hi)}" width="${A.X(50)-A.X(0)}" height="${A.Y(lo)-A.Y(hi)}" fill="${c2}" opacity=".28"/><rect x="${A.X(50)-28}" y="${A.Y(hi)}" width="14" height="${(A.Y(lo)-A.Y(hi))/2}" fill="${c2}"/><rect x="${A.X(50)-28}" y="${(A.Y(hi)+A.Y(lo))/2}" width="14" height="${(A.Y(lo)-A.Y(hi))/2}" fill="${c1}" stroke="#ccc"/>`+T(A.X(50)-34,(A.Y(hi)+A.Y(lo))/2,name,{fs:13,a:'end',c:'lab'}))}
+function flask(x,y,liq){return `<path d="M${x-12} ${y-60}v34l-34 48q-4 8 6 8h80q10 0 6-8l-34-48v-34" fill="none" stroke="#7d8fa3" stroke-width="2.5"/><path d="M${x-38} ${y+10}l-6 10q-2 6 6 6h80q8 0 6-6l-6-10z" fill="${liq}" opacity=".8"/>`}
+const STEPS=[
+{cap:'Put <b>25.0 cm<sup>3</sup></b> of 0.100 mol dm<sup>−3</sup> acid in a conical flask. Add 0.100 mol dm<sup>−3</sup> base from a burette and record the <b>pH</b> with a pH meter after each addition. Plot pH against volume added.',svg:()=>{const A=AX();return A.s+IN(.3,`<rect x="636" y="30" width="16" height="190" rx="3" fill="#eaf3fb" stroke="#7d8fa3" stroke-width="2.5"/><rect x="638" y="60" width="12" height="158" fill="#bfe0f7"/><path d="M644 220v22" stroke="#7d8fa3" stroke-width="3"/><rect x="626" y="196" width="36" height="8" rx="3" fill="#6b7684"/>`+T(600,40,'burette: base',{fs:14,a:'end',c:'sm'})+flask(644,320,'#dfeefa')+T(560,350,'25.0 cm^3 acid',{fs:14,c:'sm'})+`<rect x="700" y="240" width="76" height="40" rx="6" fill="#1c2736"/><text x="738" y="267" text-anchor="middle" font-size="20" font-weight="700" fill="#a6f3c0" font-family="Lexend,sans-serif">1.00</text><path d="M712 280L680 318" stroke="#1c2736" stroke-width="3"/>`+T(738,226,'pH meter',{fs:14,c:'sm'}))}},
+{cap:'<b>Strong acid + strong base</b> (HCl + NaOH). pH starts at 1 and rises slowly. Near <b>25.0 cm<sup>3</sup></b> one drop makes the pH jump from about 3 to 11: the <b>vertical section</b>. The equivalence point is at <b>pH 7</b>.',svg:()=>{const A=AX();return A.s+curve(A,'s','s',ACC)+vsec(A,3.3,10.7,1.8)+eqMark(A,'s','s',2.4)+side([['HCl + NaOH',18,ACC],['start: pH 1'],['vertical section: about 3 to 11'],['equivalence: pH 7']],1)}},
+{cap:'<b>Weak acid + strong base</b> (CH<sub>3</sub>COOH + NaOH). The pH starts higher (about 2.9) because the acid is only partly dissociated. The vertical section is shorter, about <b>7 to 11</b>, and the equivalence pH is <b>above 7</b>.',svg:()=>{const A=AX();return A.s+curve(A,'s','s',GRY,2,0,.1)+curve(A,'w','s',ACC)+vsec(A,7.2,10.7,1.8)+eqMark(A,'w','s',2.4)+side([['CH3COOH + NaOH',18,ACC],['start: pH 2.9'],['vertical section: about 7 to 11'],['equivalence: pH 8.7'],['(CH3COO^− ions make it alkaline)',14],['grey line: HCl + NaOH',14,'#5a6878']],1)}},
+{cap:'At the <b>half-equivalence point</b> (12.5 cm<sup>3</sup>) half the acid has been neutralised, so [CH<sub>3</sub>COOH] = [CH<sub>3</sub>COO<sup>−</sup>]. Then <b>pH = pK<sub>a</sub></b>. Here pK<sub>a</sub> = 4.76.',t:800,svg:()=>{const A=AX(),p=pHat(12.5,'w','s');return A.s+curve(A,'w','s',ACC,3.5,0,.1)+IN(.6,`<path d="M${A.X(12.5)} ${A.Y(0)}V${A.Y(p)}H${A.X(0)}" stroke="${RED}" stroke-width="2" stroke-dasharray="6 4" fill="none"/><circle cx="${A.X(12.5)}" cy="${A.Y(p)}" r="6" fill="${RED}"/>`+T(A.X(0)+8,A.Y(p)-12,'pH = 4.76',{fs:15,a:'start',c:'lab',f:RED})+T(A.X(12.5),A.Y(0)-14,'12.5',{fs:14,c:'lab',f:RED}))+side([['At half-equivalence:',17,ACC],['[CH3COOH] = [CH3COO^−]'],['Ka = [H^+][A^−] / [HA]'],['so Ka = [H^+]'],['pH = pKa = 4.76',20,RED],['Ka = 10^−4.76',15],['   = 1.7 × 10^−5 mol dm^−3',15]],1.4)}},
+{cap:'<b>Strong acid + weak base</b> (HCl + NH<sub>3</sub>). The vertical section is about <b>3 to 7</b> and the equivalence pH is <b>below 7</b> (NH<sub>4</sub><sup>+</sup> ions are slightly acidic). After equivalence the pH only rises to about 9.',svg:()=>{const A=AX();return A.s+curve(A,'s','s',GRY,2,0,.1)+curve(A,'s','w',ACC)+vsec(A,3.3,6.9,1.8)+eqMark(A,'s','w',2.4)+side([['HCl + NH3',18,ACC],['start: pH 1'],['vertical section: about 3 to 7'],['equivalence: pH 5.3'],['(NH4^+ ions make it acidic)',14],['grey line: HCl + NaOH',14,'#5a6878']],1)}},
+{cap:'An <b>indicator</b> changes colour over about 2 pH units. Its range must lie <b>inside the vertical section</b>. For CH<sub>3</sub>COOH + NaOH, <b>phenolphthalein</b> (8.3–10) works. <b>Methyl orange</b> (3.1–4.4) changes slowly, long before the end point, so it does not work.',t:1000,svg:()=>{const A=AX();return A.s+curve(A,'w','s',ACC,3.5,0,.1)+band(A,3.1,4.4,'#d7301f','#f2c12e','methyl orange',.6)+band(A,8.3,10,'#ffffff','#e0408a','phenolphthalein',1.4)+side([['CH3COOH + NaOH',18,ACC],['phenolphthalein:',16],['colourless → pink',15],['inside vertical section: works',15,GRN],['methyl orange:',16],['red → yellow',15],['changes in the flat part:',15,RED],['does not work',15,RED],['HCl + NaOH: both work',15],['HCl + NH3: methyl orange only',15]],2.2)}},
+{cap:'A <b>buffer</b> keeps the pH almost constant. CH<sub>3</sub>COOH/CH<sub>3</sub>COO<sup>−</sup> has <b>large amounts of both</b>. Added <b>H<sup>+</sup></b> reacts with CH<sub>3</sub>COO<sup>−</sup> to make CH<sub>3</sub>COOH, so the ratio [HA]/[A<sup>−</sup>] hardly changes.',t:1200,svg:()=>buf(1)},
+{cap:'Added <b>OH<sup>−</sup></b> reacts with CH<sub>3</sub>COOH to make CH<sub>3</sub>COO<sup>−</sup> and water. Again the ratio hardly changes, so the pH stays almost the same. The same OH<sup>−</sup> added to pure water would raise the pH from 7 to about 12.7.',t:1200,svg:()=>buf(-1)}];
+function buf(s){const ha=s>0?1.05:.95,a=s>0?.95:1.05,pH=(4.76+Math.log10(a/ha)).toFixed(2);const bar=(x,v,c,l,d)=>`<rect x="${x}" y="${300-v*150}" width="70" height="${v*150}" fill="${c}" rx="4"/>`+T(x+35,316,l,{fs:15})+T(x+35,290-v*150,v.toFixed(2)+' mol',{fs:14,c:'sm'});
+ let g=T(400,28,'CH3COOH ⇌ CH3COO^− + H^+',{fs:20})+T(400,54,'Before: 1.00 mol of each in 1 dm^3   pH = pKa = 4.76',{fs:15,c:'sm'});
+ g+=T(170,92,'before',{fs:15,c:'lab'})+bar(90,1,'#9fb7d8','CH3COOH')+bar(170,1,'#f0b37e','CH3COO^−');
+ g+=MV(-120,-40,`<circle cx="330" cy="150" r="20" fill="${s>0?'#d7301f':'#2f6fd6'}"/>`+T(330,150,s>0?'H^+':'OH^−',{fs:15,f:'#fff'})+T(330,190,'add 0.05 mol',{fs:13,c:'sm'}),.4);
+ g+=IN(1.4,T(560,92,'after',{fs:15,c:'lab'})+bar(480,ha,'#9fb7d8','CH3COOH')+bar(560,a,'#f0b37e','CH3COO^−'));
+ g+=IN(.9,`<rect x="250" y="230" width="190" height="50" rx="10" fill="#e7e6fb"/>`+T(345,255,s>0?'H^+ + CH3COO^− → CH3COOH':'OH^− + CH3COOH → CH3COO^− + H2O',{fs:s>0?14:12.5,c:'lab'}));
+ g+=IN(2.2,`<rect x="660" y="140" width="110" height="46" rx="8" fill="#1c2736"/><text x="715" y="171" text-anchor="middle" font-size="22" font-weight="700" fill="#a6f3c0" font-family="Lexend,sans-serif">${pH}</text>`+T(715,124,'new pH',{fs:14,c:'sm'})+T(715,206,'(was 4.76)',{fs:14,c:'sm'}));
+ g+=IN(2.8,T(400,360,`ratio [CH3COOH]/[CH3COO^−] = ${ha.toFixed(2)}/${a.toFixed(2)}: pH changes by only ${Math.abs(4.76-pH).toFixed(2)}`,{fs:16,c:'lab',f:GRN}));return g}
+Player(STEPS);
+/* Try it */
+const IND=[{n:'methyl orange',lo:3.1,hi:4.4,c1:'#d7301f',c2:'#f2c12e',w:'red → yellow'},{n:'bromothymol blue',lo:6.0,hi:7.6,c1:'#e8c21a',c2:'#2f6fd6',w:'yellow → blue'},{n:'phenolphthalein',lo:8.3,hi:10,c1:'#ffffff',c2:'#e0408a',w:'colourless → pink'}];
+function tryDraw(){const a=$('#tA').value,b=$('#tB').value,I=IND[+$('#tI').value];const A=axes(70,20,470,250,'volume of base added / cm^3','pH',[0,50],[0,14],{xt:[0,10,20,30,40,50],yt:[0,2,4,6,8,10,12,14]});
+ const vl=vb(I.lo,a,b),vm=vb((I.lo+I.hi)/2,a,b),vh=vb(I.hi,a,b),pe=pHat(25,a,b);
+ let s=A.s+`<rect x="${A.X(0)}" y="${A.Y(I.hi)}" width="${A.X(50)-A.X(0)}" height="${A.Y(I.lo)-A.Y(I.hi)}" fill="${I.c2}" opacity=".3"/>`+curve(A,a,b,ACC,3.5,0,.1);
+ s+=`<circle cx="${A.X(25)}" cy="${A.Y(pe)}" r="5" fill="#fff" stroke="${RED}" stroke-width="3"/>`;
+ const nm=(a==='s'?'HCl':'CH3COOH')+' + '+(b==='s'?'NaOH':'NH3');s+=T(670,40,nm,{fs:17,c:'lab',f:ACC})+T(670,66,'equivalence pH '+pe.toFixed(1),{fs:14,c:'sm'});
+ s+=flask(625,215,I.c1)+flask(735,215,I.c2)+T(625,262,'before',{fs:13,c:'sm'})+T(735,262,'after',{fs:13,c:'sm'})+T(680,104,I.n,{fs:14,c:'lab'})+T(680,124,I.w,{fs:13,c:'sm'});
+ $('#tsv').innerHTML=s;$$('.dr',$('#tsv')).forEach(p=>p.classList.remove('dr'));
+ const bad=x=>!isFinite(x)||x>50;let msg,cl;
+ if(a==='w'&&b==='w'){msg=`<b>No indicator works.</b> A weak acid with a weak base has <b>no vertical section</b>, so there is no sharp colour change.`;cl='bad'}
+ else if(bad(vh)||bad(vm)){msg=`<b>Does not work.</b> The pH never rises high enough for ${I.n} to change colour fully.`;cl='bad'}
+ else{const span=vh-Math.max(0,vl);if(vm<24.5){msg=`<b>Does not work.</b> ${I.n} changes colour too early, at about ${vm.toFixed(1)} cm<sup>3</sup>, well before the equivalence point (25.0 cm<sup>3</sup>).`+(span>1?` The change is also gradual (over ${span.toFixed(1)} cm<sup>3</sup>).`:'');cl='bad'}
+  else if(span>0.5){msg=`<b>Not a good choice.</b> The colour change is spread over ${span.toFixed(1)} cm<sup>3</sup>, so the end point is not sharp. Part of the range (${I.lo}–${I.hi}) is outside the vertical section.`;cl='mid'}
+  else{msg=`<b>Works.</b> The whole range ${I.lo}–${I.hi} is inside the vertical section. The colour changes within ${span<0.05?'one drop':span.toFixed(2)+' cm<sup>3</sup>'} at about ${vm.toFixed(2)} cm<sup>3</sup>.`;cl='good'}}
+ const s2=$('#sayT');s2.innerHTML=msg;s2.className='say '+cl}
+['tA','tB','tI'].forEach(i=>$('#'+i).onchange=tryDraw);tryDraw();
+Quiz([
+{q:'Which indicator should you use for ethanoic acid titrated with sodium hydroxide?',o:['methyl orange','phenolphthalein','either one','neither'],a:1,x:'The vertical section is about pH 7–11. Phenolphthalein (8.3–10) fits inside it.'},
+{q:'In a titration of a weak acid with NaOH, the pH at the half-equivalence point is 4.20. What is the p<i>K</i><sub>a</sub> of the acid?',o:['2.10','4.20','8.40','7.00'],a:1,x:'At half-equivalence [HA] = [A<sup>−</sup>], so pH = p<i>K</i><sub>a</sub> = 4.20.'},
+{q:'A little H<sup>+</sup> is added to a CH<sub>3</sub>COOH/CH<sub>3</sub>COONa buffer. What removes most of it?',o:['CH<sub>3</sub>COOH molecules','CH<sub>3</sub>COO<sup>−</sup> ions','Na<sup>+</sup> ions','water molecules'],a:1,x:'H<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> → CH<sub>3</sub>COOH. The large reservoir of CH<sub>3</sub>COO<sup>−</sup> removes it.'},
+{q:'What is the pH at the equivalence point when HCl is titrated with aqueous ammonia?',o:['exactly 7','above 7','below 7','about 12'],a:2,x:'The solution contains NH<sub>4</sub><sup>+</sup> ions, which are weakly acidic, so the pH is about 5.'}]);
+</script></body></html>
