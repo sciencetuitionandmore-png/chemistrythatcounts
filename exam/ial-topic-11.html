@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinetics Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Kinetics Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-11.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Kinetics: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+/* ---------- 1 initial rates ---------- */
+W.push({btn:'Rate equation from initial rates',spec:[["11.5 iii","order from initial rates"],["11.1","rate equation, rate constant"],["11.4 i","initial-rate method"]],type:'Calculate',marks:5,
+title:'Deducing a rate equation from initial-rate data',
+q:'<p><span class="mk">(5)</span>Substances <b>A</b> and <b>B</b> react: A + 2B → C. The table in the stage shows the <mark>initial rate</mark> for four experiments at the same temperature.</p><p><mark>Deduce</mark> the order with respect to A and to B, write the <mark>rate equation</mark>, and calculate the <mark>rate constant</mark>, <i>k</i>, with its <mark>units</mark>.</p>',
+diag:function(){var s='';
+  s+=tbl(3,10,[34,86,86,118],30,[['Exp','[A] / mol dm⁻³','[B] / mol dm⁻³','rate / mol dm⁻³ s⁻¹'],['1','0.10','0.10','2.0 × 10⁻⁴'],['2','0.20','0.10','4.0 × 10⁻⁴'],['3','0.10','0.20','8.0 × 10⁻⁴'],['4','0.30','0.30','?']],{1:'1 2 4',2:'1',3:'2'});
+  s+=G(1,T(20,176,'Exp 1 → 2: [A] × 2, [B] same, rate × 2','an')+T(20,192,'→ first order in A','sm'));
+  s+=G(2,T(20,214,'Exp 1 → 3: [B] × 2, [A] same, rate × 4','an')+T(20,230,'→ second order in B','sm'));
+  s+=G(3,T(20,256,'rate = k[A][B]²','big'));
+  s+=G(4,T(20,280,'k = 2.0×10⁻⁴ ÷ (0.10 × 0.10²) = 0.20','eq'));
+  s+=G(5,T(20,302,'units: dm⁶ mol⁻² s⁻¹','eq'));
+  return svg(330,316,s)},
+lines:plan(['pick two runs where only [A] changes','repeat for [B]','write the rate equation','rearrange for k','work out the units'])+
+ ans(1,'','','Experiments 1 and 2: [A] doubles, [B] is constant and the rate doubles, so the reaction is <span class="hl">first order with respect to A</span>.','M1')+
+ ans(2,'Second order in B because there are 2 B in the equation.','Orders come only from experiments, never from the balanced equation.','Experiments 1 and 3: [B] doubles and the rate goes up four times (2<sup>2</sup>), so the reaction is <span class="hl">second order with respect to B</span>.','M2')+
+ ans(3,'','','<span class="hl">rate = <i>k</i>[A][B]<sup>2</sup></span> (third order overall).','M3')+
+ ans(4,'','','<i>k</i> = rate ÷ ([A][B]<sup>2</sup>) = 2.0 × 10<sup>−4</sup> ÷ (0.10 × 0.10<sup>2</sup>) = <span class="hl">0.20</span>','M4')+
+ ans(5,'mol dm⁻³ s⁻¹','Those are the units of rate, not of <i>k</i>.','Units: (mol dm<sup>−3</sup> s<sup>−1</sup>) ÷ (mol dm<sup>−3</sup>)<sup>3</sup> = <span class="hl">dm<sup>6</sup> mol<sup>−2</sup> s<sup>−1</sup></span>','M5'),
+chips:[['M1','first order in A',1],['M2','second order in B',2],['M3','rate = k[A][B]²',3],['M4','k = 0.20',4],['M5','dm⁶ mol⁻² s⁻¹',5]],
+steps:[
+{t:'Read and plan',x:'The <b>order</b> with respect to a reactant tells you how the rate depends on its concentration. You find it by comparing two experiments where only that one concentration changes.',tip:'Write down which two experiments you are comparing. Examiners give credit for clear working.'},
+{t:'Order with respect to A',x:'In experiments 1 and 2, [A] doubles and [B] stays the same. The rate doubles too. Rate ∝ [A]<sup>1</sup>.',tip:'Concentration × 2 and rate × 2 means order 1. Rate × 4 means order 2. No change in rate means order 0.'},
+{t:'Order with respect to B',x:'In experiments 1 and 3, [B] doubles and [A] stays the same. The rate goes up by 4 = 2<sup>2</sup>, so rate ∝ [B]<sup>2</sup>.',tip:'The 2 in front of B in the equation is a coincidence here. Never take orders from the equation.'},
+{t:'The rate equation',x:'Put the orders in as powers. The overall order is 1 + 2 = 3.',tip:'Write <i>k</i> in the equation. "rate = [A][B]<sup>2</sup>" without <i>k</i> loses the mark.'},
+{t:'Calculate k',x:'Rearrange the rate equation for <i>k</i> and use any one experiment. Experiment 1 gives the simplest numbers.',tip:'Use the same experiment for every value you put in.'},
+{t:'Units of k',x:'Substitute units in the same way: mol dm<sup>−3</sup> s<sup>−1</sup> divided by (mol dm<sup>−3</sup>)<sup>3</sup>. This leaves mol<sup>−2</sup> dm<sup>6</sup> s<sup>−1</sup>.',tip:'Quick check: a third order reaction always has <i>k</i> in dm<sup>6</sup> mol<sup>−2</sup> s<sup>−1</sup>.'},
+{t:'Check against the mark scheme',x:'All five marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Taking orders from the coefficients in the balanced equation.','Comparing two experiments where both concentrations change.','Leaving <i>k</i> out of the rate equation.','Giving the units of rate as the units of <i>k</i>, or getting a sign wrong in the powers.'],
+your:{kind:'num',q:'Use the rate equation and your value of <i>k</i> to calculate the initial rate in <b>experiment 4</b>, in mol dm<sup>−3</sup> s<sup>−1</sup>. Give your answer in the form 0.00…',ans:0.0054,tol:0.00005,
+ ok:'Correct: rate = 0.20 × 0.30 × 0.30<sup>2</sup> = 0.20 × 0.30 × 0.090 = <b>5.4 × 10<sup>−3</sup> mol dm<sup>−3</sup> s<sup>−1</sup></b>.',
+ wrong:[[0.018,0.0002,'You used [B] to the power 1. B is second order, so square 0.30.'],[0.00162,0.00005,'Check the power on [A]. It is first order, so use 0.30 once.'],[0.027,0.0002,'You forgot to multiply by <i>k</i> = 0.20.']]}
+});
+/* ---------- 2 half-life ---------- */
+W.push({btn:'Order and k from a half-life',spec:[["11.2","half-life from a graph"],["11.5 i","order from a concentration–time graph"],["11.4 ii","continuous monitoring"]],type:'Calculate',marks:4,
+title:'Using half-lives from a concentration–time graph',
+q:'<p><span class="mk">(4)</span>The graph in the stage shows how the concentration of compound <b>X</b> changes during a reaction.</p><p>Use the graph to show that the reaction is <mark>first order</mark> with respect to X, then calculate the <mark>rate constant</mark>. Use <i>k</i> = ln 2 ÷ <i>t</i><sub>½</sub>.</p>',
+diag:function(){var g=gax({x0:0,x1:200,xs:40,y0:0,y1:0.8,ys:0.2,xl:'time / s',yl:'[X] / mol dm⁻³',h:236}),X=g.X,Y=g.Y,s=g.s,k=Math.LN2/50;
+  s+=PL(fpath(function(t){return 0.8*Math.exp(-k*t)},0,200,X,Y),'ln');
+  [[0,0.8,0.4,50,1],[50,0.4,0.2,100,2],[100,0.2,0.1,150,2]].forEach(function(h){s+=G(h[4],'<path class="anl" d="M'+X(h[0])+' '+Y(h[2])+'H'+X(h[3])+'V'+g.B+'"/>'+T((X(h[0])+X(h[3]))/2,Y(h[2])+14,'50 s','an','text-anchor="middle"'))});
+  s+=G(1,T(170,40,'0.80 → 0.40','sm')+T(170,54,'in 50 s','an'));
+  s+=G(2,T(170,74,'0.40 → 0.20 in 50 s','sm')+T(170,88,'constant half-life','an'));
+  return svg(330,236,s)},
+lines:plan(['read off the first half-life','read off a second half-life','compare them','calculate k'])+
+ ans(1,'','','From 0.80 to 0.40 mol dm<sup>−3</sup> takes <span class="hl">50 s</span>.','M1')+
+ ans(2,'','','From 0.40 to 0.20 mol dm<sup>−3</sup> also takes <span class="hl">50 s</span> (and 0.20 to 0.10 takes 50 s).','')+
+ ans(2,'The graph curves down, so it is first order.','Zero order is a straight line, but second order curves too. You need the half-lives.','The half-life is <span class="hl">constant</span>, so the reaction is <span class="hl">first order</span> with respect to X.','M2')+
+ ans(3,'','','<i>k</i> = ln 2 ÷ <i>t</i><sub>½</sub> = 0.693 ÷ 50 = <span class="hl">0.0139</span>','M3')+
+ ans(4,'','','Units for a first order reaction: <span class="hl">s<sup>−1</sup></span>','M4'),
+chips:[['M1','half-life read from graph: 50 s',1],['M2','constant half-life → first order',2],['M3','k = 0.0139',3],['M4','units s⁻¹',4]],
+steps:[
+{t:'Read and plan',x:'The <b>half-life</b>, <i>t</i><sub>½</sub>, is the time for the concentration of a reactant to fall to half its value. To use it as evidence, you need at least two half-lives.',tip:'Draw construction lines on the graph. Examiners look for them.'},
+{t:'The first half-life',x:'Start at 0.80 mol dm<sup>−3</sup>. Half of this is 0.40. Go across to the curve and down to the time axis: 50 s.',tip:'You can start a half-life anywhere on the curve, not just at t = 0.'},
+{t:'More half-lives',x:'0.40 to 0.20 takes 50 s, and 0.20 to 0.10 takes another 50 s. The half-life does not change as the concentration falls.',tip:'For a first order reaction the half-life stays the same. For a second order reaction it gets longer as the concentration falls.'},
+{t:'Calculate k',x:'For a first order reaction, <i>k</i> = ln 2 ÷ <i>t</i><sub>½</sub>. ln 2 = 0.693.',tip:'Keep 3 significant figures unless the question says otherwise.'},
+{t:'Units',x:'Rate = <i>k</i>[X], so <i>k</i> = rate ÷ [X]. The concentration units cancel and leave s<sup>−1</sup>.',tip:'First order: s<sup>−1</sup>. Second order: dm<sup>3</sup> mol<sup>−1</sup> s<sup>−1</sup>. Zero order: mol dm<sup>−3</sup> s<sup>−1</sup>.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using only one half-life as evidence.','Saying the graph is "curved" so it must be first order.','Reading the time at half the axis (0.40 on the scale) instead of half the starting concentration.','Leaving out the units of <i>k</i> or writing them as mol dm<sup>−3</sup> s<sup>−1</sup>.'],
+your:{kind:'num',q:'A different first order reaction has a half-life of 40 s. Calculate the rate constant, <i>k</i>, in s<sup>−1</sup>. Give 3 significant figures.',ans:0.0173,tol:0.0002,
+ ok:'Correct: <i>k</i> = 0.693 ÷ 40 = <b>0.0173 s<sup>−1</sup></b>.',
+ wrong:[[57.7,0.5,'You divided 40 by 0.693. Use <i>k</i> = 0.693 ÷ <i>t</i><sub>½</sub>.'],[0.025,0.0005,'That is 1 ÷ 40. You need ln 2 = 0.693 on the top.'],[0.0125,0.0003,'Check your value of ln 2: it is 0.693, not 0.5.']]}
+});
+/* ---------- 3 rate-concentration graphs ---------- */
+W.push({btn:'Rate–concentration graphs',spec:[["11.5 ii","order from a rate–concentration graph"],["11.5 i","concentration–time graphs"]],type:'Sketch',marks:3,
+title:'The shapes of rate–concentration graphs for orders 0, 1 and 2',
+q:'<p><span class="mk">(3)</span><mark>Sketch</mark> a graph of rate against concentration for a reactant that is <mark>zero order</mark>, <mark>first order</mark> and <mark>second order</mark>. Explain each shape.</p>',
+diag:function(){var s='';
+  [[0,'zero order','rate = k',function(c){return 0.5}],[1,'first order','rate = k[A]',function(c){return c*0.8}],[2,'second order','rate = k[A]²',function(c){return c*c*0.85}]].forEach(function(o,i){var x0=8+i*108,g;
+   g=gax({x0:0,x1:1,y0:0,y1:1,L:x0+22,w:x0+104+12,r:12,t:28,h:150,b:30,xl:'[A]',noxl:true,yl:''});
+   var sv=g.s+T(x0+60,18,o[1],'hd','text-anchor="middle"');
+   sv+=PL(fpath(o[3],0,1,g.X,g.Y),'ln');
+   sv+=T(x0+60,148,o[2],'an','text-anchor="middle"');
+   s+=G(i+1,sv)});
+  s+=G(1,T(10,182,'0: rate does not change with [A]','sm'));
+  s+=G(2,T(10,198,'1: straight line through the origin','sm'));
+  s+=G(3,T(10,214,'2: curve upwards; doubling [A] gives rate × 4','sm'));
+  return svg(330,224,s)},
+lines:plan(['zero order','first order','second order'])+
+ ans(1,'A line going down.','A line going down is a zero order <b>concentration–time</b> graph. Read the axes.','Zero order: a <span class="hl">horizontal line</span>. The rate does not depend on [A].','M1')+
+ ans(2,'','','First order: a <span class="hl">straight line through the origin</span>. Rate is directly proportional to [A].','M2')+
+ ans(3,'','','Second order: a <span class="hl">curve getting steeper</span>, through the origin. Rate ∝ [A]<sup>2</sup>.','M3'),
+chips:[['M1','zero order: horizontal line',1],['M2','first order: straight line through origin',2],['M3','second order: upward curve',3]],
+steps:[
+{t:'Read and plan',x:'Check the axes first. A <b>rate–concentration</b> graph is not the same as a <b>concentration–time</b> graph. The same order gives a different shape on each.',tip:'Label both axes on every sketch, even when it is "only a sketch".'},
+{t:'Zero order',x:'rate = <i>k</i>[A]<sup>0</sup> = <i>k</i>. Changing [A] has no effect, so the line is flat. The height of the line is <i>k</i>.',tip:'On a concentration–time graph, zero order gives a straight line going down.'},
+{t:'First order',x:'rate = <i>k</i>[A]. Rate is proportional to [A], so the graph is a straight line through the origin. Its gradient is <i>k</i>.',tip:'Remember the line must pass through (0, 0).'},
+{t:'Second order',x:'rate = <i>k</i>[A]<sup>2</sup>. Doubling [A] makes the rate four times bigger, so the line curves upwards.',tip:'To confirm second order, plot rate against [A]<sup>2</sup>: it gives a straight line through the origin.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Drawing concentration–time shapes when the question asks for rate–concentration.','A first order line that does not go through the origin.','Drawing a second order curve that levels off (that is the wrong way round).','No labels on the axes.'],
+your:{kind:'text',marks:3,q:'Describe the shape of a <b>concentration–time</b> graph for a zero order and a first order reaction, and say how you would use each graph to find the rate at a given time. (3)',
+ ms:['Zero order: a straight line with a negative (downward) gradient.','First order: a curve getting less steep, with a constant half-life.','The rate at any time is the gradient of a tangent to the curve at that time (for zero order the gradient is the same everywhere).'],
+ warn:[[/horizontal|flat/i,'A horizontal line is the zero order <b>rate–concentration</b> graph. On a concentration–time graph the concentration still falls.']]}
+});
+/* ---------- 4 rate-determining step ---------- */
+W.push({btn:'Rate-determining step: propanone + iodine',spec:[["11.6","orders, rate-determining step and mechanism"],["11.7","rate equation ↔ rate-determining step"],["11.12","CP9 iodine–propanone"]],type:'Explain',marks:4,
+title:'What the rate equation tells you about the mechanism',
+q:'<p><span class="mk">(4)</span>Propanone reacts with iodine in acid:</p><p>CH<sub>3</sub>COCH<sub>3</sub> + I<sub>2</sub> → CH<sub>3</sub>COCH<sub>2</sub>I + H<sup>+</sup> + I<sup>−</sup></p><p>The rate equation is <mark>rate = <i>k</i>[CH<sub>3</sub>COCH<sub>3</sub>][H<sup>+</sup>]</mark>.</p><p><mark>Explain</mark> what this tells you about the <mark>rate-determining step</mark> and the role of H<sup>+</sup>.</p>',
+diag:function(){var s='';
+  s+=box2(14,14,302,46,'card t',null)+T(165,34,'rate = k[CH₃COCH₃][H⁺]','big','text-anchor="middle"')+T(165,52,'I₂ is not in the rate equation','sm','text-anchor="middle"');
+  s+=G(1,box2(14,80,302,50,'card o','')+T(24,100,'Step 1 (slow): CH₃COCH₃ + H⁺ → intermediate','')+T(24,120,'contains propanone and H⁺ → rate-determining','an'));
+  s+=G(2,box2(14,142,302,44,'card','')+T(24,160,'Step 2 (fast): intermediate + I₂ → products','')+T(24,178,'I₂ reacts after the slow step: zero order','sm'));
+  s+=G(3,box2(14,198,302,44,'card g','')+T(24,216,'Final step: H⁺ is given back','')+T(24,234,'H⁺ is a catalyst','an'));
+  return svg(330,252,s)},
+lines:plan(['what is in the rate equation','what is missing','where I₂ reacts','role of H⁺'])+
+ ans(1,'','','Propanone and H<sup>+</sup> are both first order, so <span class="hl">one molecule of each</span> takes part in (or before) the <span class="hl">rate-determining step</span>.','M1')+
+ ans(2,'Iodine is not needed for the reaction.','Iodine is needed, but not in the slow step.','Iodine is <span class="hl">zero order</span>, so I<sub>2</sub> is <span class="hl">not involved in the rate-determining step</span>. It reacts in a later, faster step.','M2')+
+ ans(3,'','','So the mechanism has <span class="hl">more than one step</span>: the slow step must come before the step involving iodine.','M3')+
+ ans(3,'H⁺ is a reactant.','H<sup>+</sup> is in the rate equation but it is not used up overall: it is made again.','H<sup>+</sup> appears in the rate equation but is regenerated at the end, so it acts as a <span class="hl">catalyst</span>.','M4'),
+chips:[['M1','propanone + H⁺ in the rate-determining step',1],['M2','I₂ zero order → not in slow step',2],['M3','multi-step mechanism',3],['M4','H⁺ is a catalyst',3]],
+steps:[
+{t:'Read and plan',x:'The <b>rate-determining step</b> is the slowest step in a mechanism. The species in the rate equation, and their orders, tell you what takes part in that step.',tip:'Order 1 means one particle of that species in the slow step. Order 2 means two.'},
+{t:'What is in the rate equation',x:'Propanone and H<sup>+</sup> each have order 1. So one propanone and one H<sup>+</sup> are involved in the slow step (or in a fast step before it).',tip:'Use the phrase "involved in the rate-determining step".'},
+{t:'What is missing',x:'I<sub>2</sub> is in the overall equation, but not in the rate equation. Changing [I<sub>2</sub>] does not change the rate, so iodine must react after the slow step.',tip:'Zero order does not mean "not needed". It means "not in the slow step".'},
+{t:'The role of H⁺',x:'H<sup>+</sup> speeds up the reaction but is not used up: it is a product in the overall equation as well. This makes it a catalyst. This is an example of acid catalysis.',tip:'A species that is in the rate equation but not in the overall equation as a reactant is usually a catalyst.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying iodine is not needed at all.','Saying the reaction happens in one step.','Calling H<sup>+</sup> a reactant without saying it is regenerated.','Writing the rate equation from the overall equation.'],
+your:{kind:'text',marks:3,q:'The hydrolysis of 2-bromo-2-methylpropane, (CH<sub>3</sub>)<sub>3</sub>CBr, with hydroxide ions has the rate equation rate = <i>k</i>[(CH<sub>3</sub>)<sub>3</sub>CBr]. <b>Explain</b> what this tells you about the mechanism. (3)',
+ ms:['Only (CH<sub>3</sub>)<sub>3</sub>CBr is in the rate-determining step; OH<sup>−</sup> is zero order.','The slow step is the C–Br bond breaking to form a carbocation, (CH<sub>3</sub>)<sub>3</sub>C<sup>+</sup>, and Br<sup>−</sup>.','OH<sup>−</sup> attacks the carbocation in a fast second step, so the mechanism is S<sub>N</sub>1 (two steps).'],
+ warn:[[/SN2|S<sub>N<\/sub>2|one step/i,'A rate equation with only the halogenoalkane in it points to S<sub>N</sub>1, a two-step mechanism.']]}
+});
+/* ---------- 5 SN1 vs SN2 ---------- */
+W.push({btn:'S<sub>N</sub>2 or S<sub>N</sub>1? Using the rate equation',spec:[["11.9","rate equations and halogenoalkane mechanisms"],["11.8","mechanism from rate and stoichiometric equations"]],type:'Mechanism',marks:4,
+title:'Using kinetics to decide the mechanism for hydrolysing 1-bromobutane',
+q:'<p><span class="mk">(4)</span>1-Bromobutane reacts with aqueous hydroxide ions. The rate equation is <mark>rate = <i>k</i>[C<sub>4</sub>H<sub>9</sub>Br][OH<sup>−</sup>]</mark>.</p><p><mark>Name</mark> the mechanism and <mark>draw</mark> it, showing the <mark>transition state</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=AT(40,92,'HO⁻','at2')+X(30,106)+X(52,106);
+  s+=AT(140,92,'C','at2')+L(148,92,196,92,'bd')+AT(212,92,'Br','at2')+T(124,76,'δ+','dl')+T(214,74,'δ−','dl');
+  s+=L(140,82,140,56,'bd')+AT(140,48,'C₃H₇','at2s')+L(132,98,114,118,'bd')+AT(108,128,'H','at2')+L(148,98,166,118,'bd')+AT(172,128,'H','at2');
+  s+=CA('M58 92C80 80 104 84 126 90',1);
+  s+=CA('M172 86C182 72 202 66 210 76',2);
+  s+=G(3,T(86,182,'[','at2')+AT(150,176,'HO····C····Br','at2')+T(208,182,']⁻','at2')+T(150,196,'transition state: 5 groups round C','an','text-anchor="middle"'));
+  s+=G(4,T(30,232,'→  C₃H₇CH₂OH  +  Br⁻','big'));
+  s+=G(1,T(236,30,'both in the','an')+T(236,46,'rate equation','an')+T(236,62,'→ SN2, one step','an'));
+  return svg(330,248,s)},
+lines:plan(['read the orders','name the mechanism','arrow: lone pair → C','arrow: C–Br → Br','transition state'])+
+ ans(1,'','','Both the halogenoalkane and OH<sup>−</sup> are first order, so <span class="hl">both are in the rate-determining step</span>: a one-step mechanism, <span class="hl">S<sub>N</sub>2</span>.','M1')+
+ ans(1,'Arrow from the C to the OH⁻.','Electrons move from the nucleophile to the δ+ carbon.','Curly arrow from a <span class="hl">lone pair on O of OH<sup>−</sup> to the δ+ carbon</span>.','M2')+
+ ans(2,'','','Curly arrow from the <span class="hl">C–Br bond to Br</span>.','M3')+
+ ans(3,'','','The <span class="hl">transition state</span> has partial bonds to OH and Br, in square brackets with an overall − charge. The products are butan-1-ol and Br<sup>−</sup>.','M4'),
+chips:[['M1','both in slow step → SN2',1],['M2','arrow from OH⁻ lone pair to C',1],['M3','arrow from C–Br bond to Br',2],['M4','transition state with partial bonds',3]],
+steps:[
+{t:'Read and plan',x:'There are two mechanisms for nucleophilic substitution. In <b>S<sub>N</sub>2</b>, the bonds break and form in one step. In <b>S<sub>N</sub>1</b>, a carbocation forms first.',tip:'The "2" in S<sub>N</sub>2 means two species in the rate-determining step.'},
+{t:'Use the rate equation',x:'Both reactants are first order, so both are in the rate-determining step. A primary halogenoalkane like 1-bromobutane reacts this way. The first arrow goes from a lone pair on the OH<sup>−</sup> to the δ+ carbon.',tip:'Draw the lone pair on the oxygen. The arrow must start there, not at the minus sign.'},
+{t:'Break the C–Br bond',x:'As the new bond forms, the C–Br bond breaks heterolytically. Both electrons go to bromine.',tip:'In S<sub>N</sub>2 both arrows happen together, in one step.'},
+{t:'Transition state',x:'Halfway through, the carbon has a partial bond to OH and a partial bond to Br. The OH comes in on the opposite side to the Br. This is a transition state, not an intermediate.',tip:'Draw partial bonds as dotted lines and put the whole structure in square brackets with a − charge.'},
+{t:'Products',x:'The products are butan-1-ol and a bromide ion.',tip:'Compare with S<sub>N</sub>1: the rate equation for a tertiary halogenoalkane has only the halogenoalkane in it.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Calling the transition state an intermediate.','Arrows starting from the minus sign instead of a lone pair.','Choosing S<sub>N</sub>1 because the halogenoalkane is first order, ignoring OH<sup>−</sup>.','Missing the negative charge on the transition state.'],
+your:{kind:'text',marks:3,q:'Explain why tertiary halogenoalkanes usually react by S<sub>N</sub>1 and primary halogenoalkanes by S<sub>N</sub>2. (3)',
+ ms:['Tertiary carbocations are more stable (three alkyl groups push electrons towards / stabilise the positive charge).','In tertiary halogenoalkanes, the three alkyl groups block (sterically hinder) attack on the carbon from the back.','Primary carbocations are unstable, but the carbon is easy to reach, so the one-step S<sub>N</sub>2 route is used.'],
+ warn:[[/radical/i,'This is about nucleophilic substitution, not free radicals.']]}
+});
+/* ---------- 6 activation energy ---------- */
+W.push({btn:'Activation energy from an Arrhenius plot',spec:[["11.10","activation energy from data"],["11.13","CP10 activation energy"]],type:'Calculate',marks:4,
+title:'Finding the activation energy from a graph of ln k against 1/T',
+q:'<p><span class="mk">(4)</span>The rate constant, <i>k</i>, was measured at several temperatures. The graph in the stage shows ln <i>k</i> against 1/<i>T</i>.</p><p>The Arrhenius equation is <mark>ln <i>k</i> = −<i>E</i><sub>a</sub>/<i>RT</i> + ln <i>A</i></mark>. Use the graph to calculate the <mark>activation energy</mark>, <i>E</i><sub>a</sub>, in kJ mol<sup>−1</sup>. <i>R</i> = 8.31 J K<sup>−1</sup> mol<sup>−1</sup>.</p>',
+diag:function(){var g=gax({x0:3.0,x1:3.6,xs:0.1,xf:function(v){return v.toFixed(1)},y0:-6,y1:-2,ys:1,xl:'(1/T) × 10³ / K⁻¹',yl:'ln k',h:240,L:42}),X=g.X,Y=g.Y,s=g.s;
+  var f=function(x){return -2.5-6.2*(x-3.05)};
+  s+=PL(fpath(f,3.02,3.55,X,Y,4),'ln');
+  [3.1,3.2,3.3,3.4,3.5].forEach(function(x,i){s+=dot(X(x),Y(f(x)+[0.04,-0.05,0.03,-0.03,0.05][i]))});
+  s+=G(1,'<path class="anl" d="M'+X(3.1)+' '+Y(f(3.1))+'H'+X(3.5)+'V'+Y(f(3.5))+'"/>'+T(X(3.3),Y(f(3.1))-6,'Δx = 0.40 × 10⁻³','an','text-anchor="middle"')+T(X(3.5)-6,Y(-4.2),'Δy','an','text-anchor="end"')+T(X(3.5)-6,Y(-4.2)+14,'= −2.48','an','text-anchor="end"'));
+  s+=G(2,T(20,258,'gradient = −2.48 ÷ 0.00040 = −6200 K','eq'));
+  return svg(330,266,s)},
+lines:plan(['draw a large triangle','calculate the gradient','gradient = −Ea/R','convert to kJ'])+
+ ans(1,'','','From the line: Δln <i>k</i> = −2.48 over Δ(1/<i>T</i>) = 0.40 × 10<sup>−3</sup> K<sup>−1</sup>.','M1')+
+ ans(2,'Gradient = −2.48 ÷ 0.40 = −6.2','Read the axis label: the x values are × 10<sup>−3</sup>. Use 0.00040.','Gradient = −2.48 ÷ 0.00040 = <span class="hl">−6200 K</span>','M2')+
+ ans(3,'','','Gradient = −<i>E</i><sub>a</sub>/<i>R</i>, so <i>E</i><sub>a</sub> = 6200 × 8.31 = <span class="hl">51 500 J mol<sup>−1</sup></span>','M3')+
+ ans(4,'Ea = 51 500 kJ mol⁻¹','The value from <i>R</i> is in J. Divide by 1000.','<i>E</i><sub>a</sub> = <span class="hl">+51.5 kJ mol<sup>−1</sup></span>','M4'),
+chips:[['M1','large gradient triangle',1],['M2','gradient = −6200 K',2],['M3','Ea = −gradient × R',3],['M4','Ea = +51.5 kJ mol⁻¹',4]],
+steps:[
+{t:'Read and plan',x:'The Arrhenius equation has the form y = mx + c, with y = ln <i>k</i> and x = 1/<i>T</i>. So the gradient of the line is −<i>E</i><sub>a</sub>/<i>R</i>.',tip:'Write the link "gradient = −<i>E</i><sub>a</sub>/<i>R</i>" in your answer. It is often a mark on its own.'},
+{t:'Draw a gradient triangle',x:'Use a triangle that covers more than half the line. Read the coordinates of two points that are on the line (not data points that are off it).',tip:'A small triangle gives a less accurate gradient.'},
+{t:'Calculate the gradient',x:'Watch the axis: the label says (1/<i>T</i>) × 10<sup>3</sup>, so a reading of 0.40 really means 0.00040 K<sup>−1</sup>. The gradient is negative because the line goes down.',tip:'The gradient has units of K, because ln <i>k</i> has no units and 1/<i>T</i> is in K<sup>−1</sup>.'},
+{t:'Use the gradient',x:'<i>E</i><sub>a</sub> = −gradient × <i>R</i> = −(−6200) × 8.31.',tip:'Activation energy is always positive.'},
+{t:'Convert the units',x:'<i>R</i> is in J K<sup>−1</sup> mol<sup>−1</sup>, so the answer is in J mol<sup>−1</sup>. Divide by 1000 for kJ mol<sup>−1</sup>.',tip:'Give 3 significant figures and a + sign or no sign.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Ignoring the × 10<sup>−3</sup> in the axis label.','Giving a negative activation energy.','Forgetting to divide by 1000 to get kJ mol<sup>−1</sup>.','Using two data points that are not on the best-fit line.'],
+your:{kind:'num',q:'Another reaction gives a line with gradient −9500 K on a graph of ln <i>k</i> against 1/<i>T</i>. Calculate <i>E</i><sub>a</sub> in kJ mol<sup>−1</sup>. Give 3 significant figures.',ans:78.9,tol:0.15,
+ ok:'Correct: <i>E</i><sub>a</sub> = 9500 × 8.31 = 78 945 J mol<sup>−1</sup> = <b>78.9 kJ mol<sup>−1</sup></b>.',
+ wrong:[[78945,30,'That is in J mol<sup>−1</sup>. Divide by 1000.'],[-78.9,0.2,'Activation energy is positive: <i>E</i><sub>a</sub> = −gradient × <i>R</i>.'],[1.14,0.02,'You divided by <i>R</i>. Multiply the gradient by <i>R</i> instead.']]}
+});
+/* ---------- 7 heterogeneous catalyst ---------- */
+W.push({btn:'How a solid catalyst works',spec:[["11.11","heterogeneous catalysts"],["11.1 ix","heterogeneous and homogeneous"]],type:'Explain',marks:4,
+title:'How a heterogeneous catalyst speeds up a gas reaction',
+q:'<p><span class="mk">(4)</span>Iron is used as a catalyst in the Haber process: N<sub>2</sub>(g) + 3H<sub>2</sub>(g) ⇌ 2NH<sub>3</sub>(g).</p><p><mark>Explain</mark> how a <mark>heterogeneous catalyst</mark> increases the rate of a reaction between gases.</p>',
+diag:function(){var s='';
+  s+='<rect class="sea" x="10" y="150" width="310" height="34" rx="4"/>'+T(165,172,'iron surface','hd','text-anchor="middle"');
+  s+=G(1,C(50,128,9,'ip','N')+C(68,128,9,'ip','N')+C(100,128,7,'ath','H')+C(114,128,7,'ath','H')+arr(60,92,60,112,'po')+T(70,204,'1 adsorb','an','text-anchor="middle"'));
+  s+=G(2,C(150,138,9,'ip','N')+C(178,138,9,'ip','N')+'<path class="cut" d="M164 128V148"/>'+T(160,204,'2 bonds weaken','an','text-anchor="middle"'));
+  s+=G(3,C(236,136,9,'ip','N')+C(250,124,7,'ath','H')+C(236,120,7,'ath','H')+C(222,124,7,'ath','H')+T(236,204,'3 react','an','text-anchor="middle"'));
+  s+=G(4,C(300,82,9,'ip','N')+C(314,70,7,'ath','H')+C(300,66,7,'ath','H')+C(286,70,7,'ath','H')+arr(300,118,300,98,'po')+T(296,204,'4 desorb','an','text-anchor="middle"'));
+  s+=G(5,T(165,22,'lower activation energy:','eq','text-anchor="middle"')+T(165,40,'more collisions have E ≥ Ea','sm','text-anchor="middle"'));
+  return svg(330,214,s)},
+lines:plan(['adsorption','bonds weaken','reaction','desorption','activation energy'])+
+ ans(1,'The reactants absorb into the catalyst.','<b>Adsorb</b> means stick to the surface. Absorb means soak into.','The gas molecules <span class="hl">adsorb</span> onto active sites on the catalyst surface.','M1')+
+ ans(2,'','','Bonds form to the surface, which <span class="hl">weakens the bonds</span> within the reactant molecules (and holds them close together in a good orientation).','M2')+
+ ans(3,'','','The reaction happens on the surface.','')+
+ ans(4,'','','The product molecules <span class="hl">desorb</span>, which frees the active sites for more reactant.','M3')+
+ ans(5,'The catalyst gives the particles more energy.','A catalyst does not change the energy of the particles.','The catalyst provides an <span class="hl">alternative route with a lower activation energy</span>, so a greater proportion of collisions are successful.','M4'),
+chips:[['M1','reactants adsorb onto surface',1],['M2','bonds in reactants weaken',2],['M3','products desorb',4],['M4','alternative route, lower Ea',5]],
+steps:[
+{t:'Read and plan',x:'A <b>heterogeneous</b> catalyst is in a different phase from the reactants: here a solid with gases. The reaction happens on its surface in a set order.',tip:'Learn the three key words in order: adsorption, reaction, desorption.'},
+{t:'Adsorption',x:'Nitrogen and hydrogen molecules stick to active sites on the iron surface. This is adsorption.',tip:'Spelling matters: adsorb (with a d) is the right word.'},
+{t:'Bonds weaken',x:'The reactant molecules form bonds with the surface atoms. This weakens their own bonds, for example the N≡N triple bond, so less energy is needed to break them.',tip:'If adsorption is too weak, nothing happens. If it is too strong, the products never leave.'},
+{t:'Reaction on the surface',x:'The adsorbed atoms are held close together, so they react to form ammonia.',tip:'The surface also increases the chance of the reactants meeting in the right orientation.'},
+{t:'Desorption',x:'Ammonia molecules leave the surface. The active sites are free again for new reactant molecules.',tip:'A catalyst is not used up, but it can be <b>poisoned</b> if impurities block the active sites.'},
+{t:'Activation energy',x:'Overall, the catalyst provides a different route with a lower activation energy. More collisions have at least this much energy, so the rate increases.',tip:'Draw a Maxwell–Boltzmann graph and mark the lower <i>E</i><sub>a</sub> if the question asks for a diagram.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Writing "absorb" instead of "adsorb".','Saying the catalyst gives the molecules more energy.','Saying the catalyst changes the position of equilibrium.','Leaving out desorption.'],
+your:{kind:'text',marks:3,q:'Catalytic converters use platinum and rhodium spread thinly on a ceramic honeycomb. <b>Explain</b> why the metal is spread thinly, and why leaded petrol stops the converter working. (3)',
+ ms:['Spreading the metal thinly gives a large surface area, so more active sites.','It also reduces the amount (cost) of expensive metal needed.','Lead adsorbs strongly onto the active sites and blocks them (poisons the catalyst).'],
+ warn:[[/absorb/i,'Use "adsorb" for molecules sticking to a surface.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 4 · Topic 11 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["11.1", "Understand the terms rate of reaction, rate equation (rate = k[A]<sup>m</sup>[B]<sup>n</sup>), order, overall order, rate constant, half-life, rate-determining step, activation energy, and heterogeneous and homogeneous catalyst."], ["11.2", "Calculate the half-life of a reaction from a graph, and use constant half-lives to show a reaction is first order."], ["11.3", "Select and justify a technique for getting rate data: titration, colorimetry, mass change, volume of gas or other methods."], ["11.4", "Understand the initial-rate method and the continuous monitoring method (concentration–time or volume–time graphs)."], ["11.5", "Deduce orders (0, 1 or 2) from concentration–time graphs, rate–concentration graphs and initial-rate data."], ["11.6", "Use orders (for example in the acid-catalysed iodination of propanone) to predict the species in the rate-determining step and suggest a mechanism."], ["11.7", "Deduce the rate-determining step from a rate equation, and the rate equation from a rate-determining step."], ["11.8", "Deduce a reaction mechanism using the rate equation and the stoichiometric equation."], ["11.9", "Use rate equations for halogenoalkane hydrolysis as evidence for S<sub>N</sub>1 and S<sub>N</sub>2 mechanisms."], ["11.10", "Find the activation energy from experimental data by calculation and by graphical methods (ln k against 1/T)."], ["11.11", "Understand how a solid (heterogeneous) catalyst works for gas reactions: adsorption, reaction and desorption."], ["11.12", "Core Practical 9: follow the iodine–propanone reaction by titration, and investigate a clock reaction."], ["11.13", "Core Practical 10: find the activation energy of a reaction."]],KEY="ialchem-t11-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 11: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

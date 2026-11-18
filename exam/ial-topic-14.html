@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acid–Base Equilibria Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Acid–Base Equilibria Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-14.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Acid–base equilibria: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+function phWA(v,Va,ca,cb,Ka){var Ca=ca*Va/(Va+v),Cb=cb*v/(Va+v),lo=-14,hi=0;for(var i=0;i<60;i++){var m=(lo+hi)/2,H=Math.pow(10,m),f=H+Cb-1e-14/H-Ca*Ka/(Ka+H);if(f>0)hi=m;else lo=m}return -(lo+hi)/2}
+function phbar(y,marks){var s='',X=function(p){return 20+p*290/14};
+  s+='<rect class="in" x="20" y="'+y+'" width="145" height="16" style="opacity:.6"/><rect class="ip" x="165" y="'+y+'" width="145" height="16" style="opacity:.6"/>';
+  for(var p=0;p<=14;p+=2)s+=T(X(p),y+30,p,'sm','text-anchor="middle"');
+  (marks||[]).forEach(function(m){s+=G(m[2],'<path class="po" d="M'+X(m[0])+' '+(y-16)+'V'+(y-2)+'"/>'+T(X(m[0]),y-20,m[1],'an','text-anchor="middle"'))});
+  return s}
+/* ---------- 1 conjugate pairs ---------- */
+W.push({btn:'Brønsted–Lowry conjugate pairs',spec:[["14.1","proton donors and acceptors"],["14.2","conjugate acid–base pairs"]],type:'Identify',marks:2,
+title:'Finding the conjugate acid–base pairs when ammonia dissolves in water',
+q:'<p><span class="mk">(2)</span>NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup></p><p><mark>Identify</mark> the two <mark>conjugate acid–base pairs</mark> in this equilibrium.</p>',
+diag:function(){var s=DEFS;
+  s+=T(40,70,'NH₃','big','text-anchor="middle"')+T(80,70,'+','big','text-anchor="middle"')+T(120,70,'H₂O','big','text-anchor="middle"')+T(165,70,'⇌','big','text-anchor="middle"')+T(210,70,'NH₄⁺','big','text-anchor="middle"')+T(250,70,'+','big','text-anchor="middle"')+T(290,70,'OH⁻','big','text-anchor="middle"');
+  s+=G(1,'<path class="po" d="M118 50C110 22 60 22 46 48"/>'+T(82,22,'H⁺ moves','an','text-anchor="middle"'));
+  s+=G(1,T(40,96,'base','sm','text-anchor="middle"')+T(120,96,'acid','sm','text-anchor="middle"'));
+  s+=G(2,'<path class="anl" d="M40 104V118H210V104"/>'+T(165,134,'1','an','text-anchor="middle"')+T(20,190,'1: NH₄⁺ (acid) / NH₃ (base)','an'));
+  s+=G(3,'<path class="anl" d="M120 104V150H290V104"/>'+T(250,166,'2','an','text-anchor="middle"')+T(20,208,'2: H₂O (acid) / OH⁻ (base)','an'));
+  return svg(330,218,s)},
+lines:plan(['who donates H⁺','who accepts H⁺','pair 1','pair 2'])+
+ ans(1,'','','Water donates H<sup>+</sup>, so it is the acid; ammonia accepts H<sup>+</sup>, so it is the base.','')+
+ ans(2,'NH₃ and H₂O are a conjugate pair.','A conjugate pair differs by one H<sup>+</sup>. NH<sub>3</sub> and H<sub>2</sub>O do not.','<span class="hl">NH<sub>4</sub><sup>+</sup> (acid) and NH<sub>3</sub> (base)</span>','M1')+
+ ans(3,'','','<span class="hl">H<sub>2</sub>O (acid) and OH<sup>−</sup> (base)</span>','M2'),
+chips:[['M1','NH₄⁺ / NH₃',2],['M2','H₂O / OH⁻',3]],
+steps:[
+{t:'Read and plan',x:'A <b>Brønsted–Lowry acid</b> is a proton (H<sup>+</sup>) donor. A <b>base</b> is a proton acceptor. A <b>conjugate pair</b> is two species that differ by one H<sup>+</sup>.',tip:'In each pair, say which one is the acid and which is the base.'},
+{t:'Follow the proton',x:'H<sub>2</sub>O loses an H<sup>+</sup> and becomes OH<sup>−</sup>. NH<sub>3</sub> gains it and becomes NH<sub>4</sub><sup>+</sup>.',tip:'Here water acts as an acid. With HCl, water acts as a base. It can do both.'},
+{t:'Pair 1',x:'NH<sub>3</sub> and NH<sub>4</sub><sup>+</sup> differ by one H<sup>+</sup>. NH<sub>4</sub><sup>+</sup> is the acid (it can give H<sup>+</sup> back); NH<sub>3</sub> is its conjugate base.',tip:'The acid in a pair always has one more H than the base.'},
+{t:'Pair 2',x:'H<sub>2</sub>O and OH<sup>−</sup> differ by one H<sup>+</sup>. H<sub>2</sub>O is the acid; OH<sup>−</sup> is its conjugate base.',tip:'One pair has its acid on the left, the other on the right.'},
+{t:'Check against the mark scheme',x:'Both marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Pairing the two reactants together.','Not saying which member of each pair is the acid.','Pairs that differ by OH<sup>−</sup> or by H instead of H<sup>+</sup>.','Writing H<sub>3</sub>O<sup>+</sup>, which is not in this equation.'],
+your:{kind:'text',marks:2,q:'In concentrated acids: HNO<sub>3</sub> + H<sub>2</sub>SO<sub>4</sub> ⇌ H<sub>2</sub>NO<sub>3</sub><sup>+</sup> + HSO<sub>4</sub><sup>−</sup>. <b>Identify</b> the two conjugate acid–base pairs. (2)',
+ ms:['H<sub>2</sub>SO<sub>4</sub> (acid) and HSO<sub>4</sub><sup>−</sup> (base).','H<sub>2</sub>NO<sub>3</sub><sup>+</sup> (acid) and HNO<sub>3</sub> (base): here nitric acid acts as a base.'],
+ warn:[[/HNO.{0,20}acid/i,'In this reaction HNO<sub>3</sub> accepts a proton, so it acts as a base.']]}
+});
+/* ---------- 2 strong acid and base ---------- */
+W.push({btn:'pH of a strong acid and a strong base',spec:[["14.7","pH of a strong acid"],["14.11","pH of a strong base using Kw"],["14.10","Kw"]],type:'Calculate',marks:3,
+title:'Calculating the pH of hydrochloric acid and sodium hydroxide',
+q:'<p><span class="mk">(3)</span><mark>Calculate</mark> the pH of:</p><p>(i) <mark>0.025 mol dm<sup>−3</sup> HCl</mark><br>(ii) <mark>0.050 mol dm<sup>−3</sup> NaOH</mark>. <i>K</i><sub>w</sub> = 1.00 × 10<sup>−14</sup> mol<sup>2</sup> dm<sup>−6</sup>.</p>',
+diag:function(){var s='';
+  s+=phbar(70,[[1.6,'HCl: 1.60',1],[12.7,'NaOH: 12.70',3]]);
+  s+=T(20,124,'acidic','sm')+T(310,124,'alkaline','sm','text-anchor="end"');
+  s+=G(1,T(20,150,'[H⁺] = 0.025 → pH = −log 0.025 = 1.60','eq'));
+  s+=G(2,T(20,174,'[H⁺] = Kw ÷ [OH⁻] = 2.0 × 10⁻¹³','eq'));
+  s+=G(3,T(20,198,'pH = −log(2.0 × 10⁻¹³) = 12.70','eq'));
+  return svg(330,210,s)},
+lines:plan(['strong acid: [H⁺] = [acid]','pH = −log[H⁺]','strong base: use Kw'])+
+ ans(1,'','','HCl is fully dissociated, so [H<sup>+</sup>] = 0.025 mol dm<sup>−3</sup>; pH = −log 0.025 = <span class="hl">1.60</span>','M1')+
+ ans(2,'pH = −log 0.050 = 1.30','−log 0.050 gives the pOH, not the pH. Use <i>K</i><sub>w</sub> to find [H<sup>+</sup>].','[OH<sup>−</sup>] = 0.050, so [H<sup>+</sup>] = <i>K</i><sub>w</sub> ÷ [OH<sup>−</sup>] = 1.00 × 10<sup>−14</sup> ÷ 0.050 = <span class="hl">2.0 × 10<sup>−13</sup></span>','M2')+
+ ans(3,'','','pH = −log(2.0 × 10<sup>−13</sup>) = <span class="hl">12.70</span>','M3'),
+chips:[['M1','HCl pH = 1.60',1],['M2','[H⁺] = Kw/[OH⁻]',2],['M3','NaOH pH = 12.70',3]],
+steps:[
+{t:'Read and plan',x:'pH = −log<sub>10</sub>[H<sup>+</sup>]. Strong acids and bases dissociate completely, so the concentration of H<sup>+</sup> or OH<sup>−</sup> comes straight from the concentration of the solution.',tip:'Give pH values to 2 decimal places.'},
+{t:'The strong acid',x:'HCl → H<sup>+</sup> + Cl<sup>−</sup>, so [H<sup>+</sup>] = 0.025 mol dm<sup>−3</sup>. −log 0.025 = 1.60.',tip:'For H<sub>2</sub>SO<sub>4</sub>, take care: each molecule can give two H<sup>+</sup>.'},
+{t:'The strong base: use K<sub>w</sub>',x:'<i>K</i><sub>w</sub> = [H<sup>+</sup>][OH<sup>−</sup>] = 1.00 × 10<sup>−14</sup> at 298 K. Rearrange to find [H<sup>+</sup>].',tip:'Or use pH = 14.00 − pOH, where pOH = −log[OH<sup>−</sup>].'},
+{t:'pH of the base',x:'−log(2.0 × 10<sup>−13</sup>) = 12.70. A strong base has a high pH, which is a good check.',tip:'For Ba(OH)<sub>2</sub> or Ca(OH)<sub>2</sub>, [OH<sup>−</sup>] is twice the concentration.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using −log[OH<sup>−</sup>] as the pH.','Forgetting that some bases release two OH<sup>−</sup>.','Using ln instead of log<sub>10</sub>.','Giving pH to 1 decimal place or 4 significant figures.'],
+your:{kind:'num',q:'Calculate the pH of 0.010 mol dm<sup>−3</sup> barium hydroxide, Ba(OH)<sub>2</sub>. <i>K</i><sub>w</sub> = 1.00 × 10<sup>−14</sup>.',ans:12.30,tol:0.006,
+ ok:'Correct: [OH<sup>−</sup>] = 2 × 0.010 = 0.020; [H<sup>+</sup>] = 5.0 × 10<sup>−13</sup>; pH = <b>12.30</b>.',
+ wrong:[[12.0,0.006,'Ba(OH)<sub>2</sub> gives two OH<sup>−</sup> per formula unit, so [OH<sup>−</sup>] = 0.020.'],[1.70,0.006,'That is −log[OH<sup>−</sup>] (the pOH). Use <i>K</i><sub>w</sub> to find [H<sup>+</sup>].'],[2.0,0.006,'That is −log 0.010. Find [OH<sup>−</sup>], then [H<sup>+</sup>].']]}
+});
+/* ---------- 3 weak acid pH ---------- */
+W.push({btn:'pH of a weak acid from K<sub>a</sub>',spec:[["14.9","pH of a weak acid with assumptions"],["14.8","Ka expression"],["14.6","strong and weak acids"]],type:'Calculate',marks:4,
+title:'Calculating the pH of ethanoic acid',
+q:'<p><span class="mk">(4)</span><mark>Calculate</mark> the pH of <mark>0.10 mol dm<sup>−3</sup></mark> ethanoic acid. <i>K</i><sub>a</sub> = <mark>1.7 × 10<sup>−5</sup></mark> mol dm<sup>−3</sup>. State <mark>two assumptions</mark> you make.</p>',
+diag:function(){var s='';
+  s+=T(165,26,'CH₃COOH ⇌ H⁺ + CH₃COO⁻','big','text-anchor="middle"');
+  s+=G(1,T(60,66,'Ka =','eq')+T(170,56,'[H⁺][CH₃COO⁻]','eq','text-anchor="middle"')+L(110,62,230,62,'bd')+T(170,80,'[CH₃COOH]','eq','text-anchor="middle"'));
+  s+=G(2,T(20,112,'assume [H⁺] = [CH₃COO⁻]','an')+T(20,128,'assume [CH₃COOH] ≈ 0.10 (tiny dissociation)','an'));
+  s+=G(3,T(20,156,'[H⁺]² = 1.7 × 10⁻⁵ × 0.10 = 1.7 × 10⁻⁶',''));
+  s+=G(3,T(20,180,'[H⁺] = 1.30 × 10⁻³ mol dm⁻³','eq'));
+  s+=G(4,T(20,206,'pH = 2.88','big'));
+  return svg(330,218,s)},
+lines:plan(['write Ka','state assumptions','solve for [H⁺]','pH'])+
+ ans(1,'','','<i>K</i><sub>a</sub> = [H<sup>+</sup>][CH<sub>3</sub>COO<sup>−</sup>] / [CH<sub>3</sub>COOH]','M1')+
+ ans(2,'','','Assume <span class="hl">[H<sup>+</sup>] = [CH<sub>3</sub>COO<sup>−</sup>]</span> (H<sup>+</sup> from water ignored) and <span class="hl">[CH<sub>3</sub>COOH] at equilibrium ≈ 0.10</span> (dissociation is very small).','M2')+
+ ans(3,'[H⁺] = 1.7 × 10⁻⁵ × 0.10 = 1.7 × 10⁻⁶','That is [H<sup>+</sup>]<sup>2</sup>. Take the square root.','[H<sup>+</sup>] = √(1.7 × 10<sup>−6</sup>) = <span class="hl">1.30 × 10<sup>−3</sup> mol dm<sup>−3</sup></span>','M3')+
+ ans(4,'','','pH = −log(1.30 × 10<sup>−3</sup>) = <span class="hl">2.88</span>','M4'),
+chips:[['M1','Ka expression',1],['M2','two assumptions',2],['M3','[H⁺] = 1.30 × 10⁻³',3],['M4','pH = 2.88',4]],
+steps:[
+{t:'Read and plan',x:'A <b>weak acid</b> only partly dissociates, so [H<sup>+</sup>] is much smaller than the acid concentration. You need <i>K</i><sub>a</sub> to find it.',tip:'Never use −log(0.10) for a weak acid.'},
+{t:'Write K<sub>a</sub>',x:'Products over reactants, as for any equilibrium constant. Water is not included.',tip:'<i>K</i><sub>a</sub> has units of mol dm<sup>−3</sup>.'},
+{t:'Two assumptions',x:'(1) Each molecule that dissociates gives one H<sup>+</sup> and one CH<sub>3</sub>COO<sup>−</sup>, and water adds no H<sup>+</sup>. (2) So little acid dissociates that its concentration stays at about 0.10.',tip:'These assumptions turn the expression into <i>K</i><sub>a</sub> = [H<sup>+</sup>]<sup>2</sup> / [HA].'},
+{t:'Solve for [H⁺]',x:'[H<sup>+</sup>]<sup>2</sup> = <i>K</i><sub>a</sub> × [HA] = 1.7 × 10<sup>−6</sup>. The square root is 1.30 × 10<sup>−3</sup>.',tip:'Check: 1.30 × 10<sup>−3</sup> is only about 1% of 0.10, so assumption 2 is fine.'},
+{t:'pH',x:'−log(1.30 × 10<sup>−3</sup>) = 2.88. A strong acid at 0.10 mol dm<sup>−3</sup> would be pH 1.00.',tip:'Give 2 decimal places.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Forgetting the square root.','Using the acid concentration as [H<sup>+</sup>].','Assumptions that are vague ("the acid is weak").','Putting [H<sub>2</sub>O] into the <i>K</i><sub>a</sub> expression.'],
+your:{kind:'num',q:'Calculate the pH of 0.050 mol dm<sup>−3</sup> methanoic acid, HCOOH. <i>K</i><sub>a</sub> = 1.6 × 10<sup>−4</sup> mol dm<sup>−3</sup>.',ans:2.55,tol:0.006,
+ ok:'Correct: [H<sup>+</sup>] = √(1.6 × 10<sup>−4</sup> × 0.050) = √(8.0 × 10<sup>−6</sup>) = 2.83 × 10<sup>−3</sup>; pH = <b>2.55</b>.',
+ wrong:[[5.10,0.01,'You did not take the square root of [H<sup>+</sup>]<sup>2</sup>.'],[1.30,0.006,'That treats methanoic acid as a strong acid. Use <i>K</i><sub>a</sub>.']]}
+});
+/* ---------- 4 Ka from pH ---------- */
+W.push({btn:'K<sub>a</sub> and pK<sub>a</sub> from a measured pH',spec:[["14.14","Ka from pH and concentration"],["14.12","pKa"],["14.5","[H⁺] from pH"]],type:'Calculate',marks:3,
+title:'Calculating K<sub>a</sub> from the pH of a weak acid solution',
+q:'<p><span class="mk">(3)</span>A <mark>0.20 mol dm<sup>−3</sup></mark> solution of a weak acid, HA, has a <mark>pH of 2.72</mark>.</p><p><mark>Calculate</mark> <i>K</i><sub>a</sub> and <mark>pK<sub>a</sub></mark> for the acid.</p>',
+diag:function(){var s='';
+  s+=tbl(20,12,[120,90,80],28,[['','HA','H⁺ = A⁻'],['start','0.20','0'],['equilibrium','≈ 0.20','1.91 × 10⁻³']],{2:'1 2'});
+  s+=G(1,T(20,120,'[H⁺] = 10<tspan baseline-shift="super" font-size="10">−2.72</tspan> = 1.91 × 10⁻³','eq'));
+  s+=G(2,T(20,146,'Ka = (1.91 × 10⁻³)² ÷ 0.20','eq'));
+  s+=G(2,T(20,170,'Ka = 1.81 × 10⁻⁵ mol dm⁻³','big'));
+  s+=G(3,T(20,196,'pKa = −log Ka = 4.74','big'));
+  return svg(330,208,s)},
+lines:plan(['[H⁺] from pH','Ka = [H⁺]² ÷ [HA]','pKa'])+
+ ans(1,'[H⁺] = log 2.72','To undo −log, use 10<sup>−pH</sup>.','[H<sup>+</sup>] = 10<sup>−2.72</sup> = <span class="hl">1.91 × 10<sup>−3</sup> mol dm<sup>−3</sup></span>','M1')+
+ ans(2,'','','<i>K</i><sub>a</sub> = [H<sup>+</sup>]<sup>2</sup> ÷ [HA] = (1.91 × 10<sup>−3</sup>)<sup>2</sup> ÷ 0.20 = <span class="hl">1.81 × 10<sup>−5</sup> mol dm<sup>−3</sup></span>','M2')+
+ ans(3,'','','p<i>K</i><sub>a</sub> = −log(1.81 × 10<sup>−5</sup>) = <span class="hl">4.74</span>','M3'),
+chips:[['M1','[H⁺] = 1.91 × 10⁻³',1],['M2','Ka = 1.81 × 10⁻⁵',2],['M3','pKa = 4.74',3]],
+steps:[
+{t:'Read and plan',x:'This is the reverse of a pH calculation. Use the pH to find [H<sup>+</sup>], then put it into the <i>K</i><sub>a</sub> expression.',tip:'This is how Core Practical 11 works when you measure the pH of a weak acid.'},
+{t:'[H⁺] from pH',x:'[H<sup>+</sup>] = 10<sup>−pH</sup>. On a calculator: shift, log, then −2.72.',tip:'Keep all the figures in your calculator until the end.'},
+{t:'Calculate K<sub>a</sub>',x:'With the same assumptions as before ([H<sup>+</sup>] = [A<sup>−</sup>] and [HA] ≈ 0.20), <i>K</i><sub>a</sub> = [H<sup>+</sup>]<sup>2</sup> ÷ [HA].',tip:'Give 3 significant figures and units.'},
+{t:'pK<sub>a</sub>',x:'p<i>K</i><sub>a</sub> = −log <i>K</i><sub>a</sub>. A smaller p<i>K</i><sub>a</sub> means a stronger acid.',tip:'p<i>K</i><sub>a</sub> has no units.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not squaring [H<sup>+</sup>].','Rounding [H<sup>+</sup>] too early.','Leaving out the units of <i>K</i><sub>a</sub>.','Using ln instead of log for p<i>K</i><sub>a</sub>.'],
+your:{kind:'num',q:'A 0.10 mol dm<sup>−3</sup> solution of a weak acid has pH 3.00. Calculate its <b>pK<sub>a</sub></b>.',ans:5.00,tol:0.01,
+ ok:'Correct: [H<sup>+</sup>] = 1.0 × 10<sup>−3</sup>; <i>K</i><sub>a</sub> = (1.0 × 10<sup>−3</sup>)<sup>2</sup> ÷ 0.10 = 1.0 × 10<sup>−5</sup>; p<i>K</i><sub>a</sub> = <b>5.00</b>.',
+ wrong:[[2.0,0.01,'You did not square [H<sup>+</sup>]. <i>K</i><sub>a</sub> = [H<sup>+</sup>]<sup>2</sup> ÷ [HA].'],[3.0,0.01,'pH and pK<sub>a</sub> are only equal at half-neutralisation. Calculate <i>K</i><sub>a</sub> first.'],[6.0,0.01,'Check the division: (1.0 × 10<sup>−3</sup>)<sup>2</sup> ÷ 0.10 = 1.0 × 10<sup>−5</sup>.']]}
+});
+/* ---------- 5 dilution ---------- */
+W.push({btn:'Diluting strong and weak acids',spec:[["14.13 ii","diluting strong and weak acids"],["14.6","degree of dissociation"]],type:'Explain',marks:3,
+title:'How dilution changes the pH of a strong and a weak acid',
+q:'<p><span class="mk">(3)</span>Samples of 0.10 mol dm<sup>−3</sup> hydrochloric acid and 0.10 mol dm<sup>−3</sup> ethanoic acid are each <mark>diluted 10, 100 and 1000 times</mark>.</p><p><mark>Explain</mark> the pattern in the results shown in the graph.</p>',
+diag:function(){var g=gax({x0:0,x1:3,xs:1,xf:function(v){return ['×1','×10','×100','×1000'][v]},y0:0,y1:5,ys:1,xl:'dilution',yl:'pH',h:220,r:24}),X=g.X,Y=g.Y,s=g.s;
+  var st=[1,2,3,4],wk=[2.88,3.38,3.88,4.38];
+  s+=G(1,PL(pth(st.map(function(v,i){return [i,v]}),X,Y),'ln')+st.map(function(v,i){return dot(X(i),Y(v))}).join('')+T(X(1.25),Y(1.75),'HCl: +1 each time','an'));
+  s+=G(2,PL(pth(wk.map(function(v,i){return [i,v]}),X,Y),'ln2')+wk.map(function(v,i){return dot(X(i),Y(v),'pt hot')}).join('')+T(X(0.1),Y(4.4),'ethanoic acid: +0.5 each time','an'));
+  return svg(330,220,s)},
+lines:plan(['strong acid','weak acid','why they differ'])+
+ ans(1,'','','For HCl, each 10× dilution makes [H<sup>+</sup>] 10× smaller, so the <span class="hl">pH rises by 1</span>.','M1')+
+ ans(2,'The weak acid’s pH does not change.','It does change, just by less.','For ethanoic acid, the <span class="hl">pH rises by only about 0.5</span> for each 10× dilution.','M2')+
+ ans(3,'','','When a weak acid is diluted, the equilibrium CH<sub>3</sub>COOH ⇌ H<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> shifts right: <span class="hl">a larger fraction dissociates</span>, so [H<sup>+</sup>] falls less ([H<sup>+</sup>] ∝ √c).','M3'),
+chips:[['M1','strong: +1 per 10× dilution',1],['M2','weak: about +0.5',2],['M3','more dissociation on dilution',3]],
+steps:[
+{t:'Read and plan',x:'Compare the size of the pH change for each acid, then explain the difference using the degree of dissociation.',tip:'Quote the numbers from the graph.'},
+{t:'Strong acid',x:'HCl is fully dissociated at every concentration, so [H<sup>+</sup>] = [HCl]. Diluting 10 times gives one-tenth the [H<sup>+</sup>], and −log changes by exactly 1.',tip:'pH is a log scale: ×10 in [H<sup>+</sup>] means 1 pH unit.'},
+{t:'Weak acid',x:'For a weak acid, [H<sup>+</sup>] = √(<i>K</i><sub>a</sub> × c). Ten times smaller c makes [H<sup>+</sup>] √10 ≈ 3.2 times smaller, so pH goes up by 0.5.',tip:'A smaller pH change on dilution is a test for a weak acid.'},
+{t:'Why',x:'Adding water shifts the dissociation equilibrium to the right, so a greater proportion of the acid molecules are ionised. This partly makes up for the dilution.',tip:'Use the phrase "degree of dissociation increases".'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the weak acid’s pH stays the same.','Saying the strong acid becomes weaker on dilution.','Mixing up "weak" and "dilute".','Not explaining the weak acid result with the equilibrium.'],
+your:{kind:'text',marks:2,q:'<b>Explain</b> the difference between a <b>dilute</b> acid and a <b>weak</b> acid. (2)',
+ ms:['Dilute means a low concentration (few moles of acid per dm<sup>3</sup>).','Weak means only partly dissociated into ions (small K<sub>a</sub>); a weak acid can be concentrated.'],
+ warn:[[/weak.*low concentration/i,'Low concentration describes a dilute acid, not a weak one.']]}
+});
+/* ---------- 6 titration curve and indicator ---------- */
+W.push({btn:'Titration curve and choosing an indicator',spec:[["14.15","titration curves"],["14.16","choosing an indicator"],["14.21","Ka from half-neutralisation"]],type:'Explain',marks:4,
+title:'The titration curve for ethanoic acid with sodium hydroxide',
+q:'<p><span class="mk">(4)</span>25.0 cm<sup>3</sup> of 0.10 mol dm<sup>−3</sup> ethanoic acid is titrated with 0.10 mol dm<sup>−3</sup> sodium hydroxide. The pH curve is shown in the stage.</p><p><mark>Explain</mark> why <mark>phenolphthalein</mark> (range 8.2–10.0) is suitable but <mark>methyl orange</mark> (range 3.1–4.4) is not, and show how to find <mark>pK<sub>a</sub></mark> from the curve.</p>',
+diag:function(){var g=gax({x0:0,x1:40,xs:10,y0:0,y1:14,ys:2,xl:'volume of NaOH / cm³',yl:'pH',h:250}),X=g.X,Y=g.Y,s=g.s;
+  s+=G(2,'<rect class="band2" x="'+g.L+'" y="'+Y(10)+'" width="'+(g.R-g.L)+'" height="'+(Y(8.2)-Y(10))+'"/>'+T(g.R-4,Y(10)-4,'phenolphthalein','sm','text-anchor="end"'));
+  s+=G(3,'<rect class="band" x="'+g.L+'" y="'+Y(4.4)+'" width="'+(g.R-g.L)+'" height="'+(Y(3.1)-Y(4.4))+'"/>'+T(g.R-4,Y(3.1)+12,'methyl orange','sm','text-anchor="end"'));
+  var d='';for(var i=0;i<=200;i++){var v=i*0.2;d+=(i?'L':'M')+X(v).toFixed(1)+' '+Y(phWA(v,25,0.1,0.1,1.7e-5)).toFixed(1)}s+=PL(d,'ln');
+  s+=G(1,'<path class="anl" d="M'+X(25)+' '+g.B+'V'+Y(8.7)+'"/>'+T(X(25)-4,Y(1.2),'equivalence 25.0 cm³','an','text-anchor="end"'));
+  s+=G(1,T(X(23),Y(11.6),'vertical: pH 7.5 → 11','sm','text-anchor="end"'));
+  s+=G(4,'<path class="anl" d="M'+X(12.5)+' '+g.B+'V'+Y(4.77)+'H'+g.L+'"/>'+T(X(1),Y(6.4),'half-way: pH = pKa = 4.77','an'));
+  return svg(330,250,s)},
+lines:plan(['find the vertical section','phenolphthalein','methyl orange','pKa at half-neutralisation'])+
+ ans(1,'','','The <span class="hl">vertical section</span> is from about pH 7.5 to 11, at 25.0 cm<sup>3</sup>. The equivalence point is above 7 because ethanoate ions are basic.','M1')+
+ ans(2,'','','Phenolphthalein’s range (8.2–10.0) lies <span class="hl">within the vertical section</span>, so one drop of alkali changes its colour at the end point.','M2')+
+ ans(3,'Methyl orange is not suitable because it is for strong acids.','Explain using the curve: compare its range with the vertical section.','Methyl orange changes colour at pH 3.1–4.4, which is <span class="hl">in the buffer region before the end point</span>, so it would change gradually and too early.','M3')+
+ ans(4,'','','At <span class="hl">half-neutralisation</span> (12.5 cm<sup>3</sup>), [HA] = [A<sup>−</sup>], so <span class="hl">pH = pK<sub>a</sub></span> = 4.77.','M4'),
+chips:[['M1','vertical section pH 7.5–11',1],['M2','phenolphthalein range in vertical section',2],['M3','methyl orange changes before end point',3],['M4','pH at half-way = pKa',4]],
+steps:[
+{t:'Read and plan',x:'For a weak acid–strong base titration, the pH rises gently through a buffer region, then jumps steeply at the equivalence point. A good indicator changes colour completely within that steep section.',tip:'When you sketch a curve, mark the start pH, the volume at equivalence and the steep section.'},
+{t:'Find the steep section',x:'Equivalence is at 25.0 cm<sup>3</sup> (equal moles). The steep part runs from about pH 7.5 to pH 11. At equivalence, the solution is sodium ethanoate, which is slightly alkaline.',tip:'Strong acid–strong base: steep from about 3 to 11. Strong acid–weak base: steep from about 3 to 7.'},
+{t:'Phenolphthalein',x:'Its whole colour change (8.2–10.0) fits inside the steep section, so it changes sharply with less than one drop at the end point.',tip:'Phenolphthalein goes from colourless to pink.'},
+{t:'Methyl orange',x:'Its range (3.1–4.4) is at the start, in the buffer region, where the pH changes slowly. It would change colour gradually, well before 25.0 cm<sup>3</sup>.',tip:'Never just say "it is the wrong indicator". Compare ranges with the curve.'},
+{t:'Find pK<sub>a</sub>',x:'At half the equivalence volume, half the acid has been turned into ethanoate, so [HA] = [A<sup>−</sup>]. Then <i>K</i><sub>a</sub> = [H<sup>+</sup>], so pH = p<i>K</i><sub>a</sub>.',tip:'This is the method of Core Practical 11.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the equivalence point is at pH 7.','Choosing an indicator because it is "for weak acids" without using the curve.','Reading pK<sub>a</sub> at the equivalence point instead of half-way.','Starting the sketch at pH 1 (that is a strong acid).'],
+your:{kind:'text',marks:3,q:'<b>Describe</b> the titration curve you would expect for 25.0 cm<sup>3</sup> of 0.10 mol dm<sup>−3</sup> HCl titrated with 0.10 mol dm<sup>−3</sup> NaOH, and say which indicators would work. (3)',
+ ms:['Starts at pH 1; rises slowly at first.','Vertical section from about pH 3 to 11 at 25.0 cm<sup>3</sup>; equivalence at pH 7; levels off near pH 13.','Both phenolphthalein and methyl orange are suitable, because both ranges fall within the vertical section.'],
+ warn:[[/buffer/i,'A strong acid–strong base titration has no buffer region.']]}
+});
+/* ---------- 7 buffer action ---------- */
+W.push({btn:'How a buffer works',spec:[["14.17","buffer solution"],["14.18","buffer action"],["14.22","buffers in blood"]],type:'Explain',marks:4,
+title:'How an ethanoic acid / sodium ethanoate buffer resists changes in pH',
+q:'<p><span class="mk">(4)</span>A <mark>buffer</mark> is made from ethanoic acid and sodium ethanoate.</p><p><mark>Explain</mark>, with <mark>equations</mark>, how it keeps the pH almost constant when small amounts of <mark>acid</mark> or <mark>alkali</mark> are added.</p>',
+diag:function(){var s=DEFS;
+  s+='<rect class="card t" data-hot="3" x="20" y="20" width="130" height="60" rx="8"/>'+T(85,46,'CH₃COOH','hd','text-anchor="middle"')+T(85,66,'large reservoir','sm','text-anchor="middle"');
+  s+='<rect class="card o" data-hot="2" x="180" y="20" width="130" height="60" rx="8"/>'+T(245,46,'CH₃COO⁻','hd','text-anchor="middle"')+T(245,66,'large reservoir','sm','text-anchor="middle"');
+  s+=G(1,T(165,108,'CH₃COOH ⇌ H⁺ + CH₃COO⁻','','text-anchor="middle"'));
+  s+=G(2,box2(10,124,310,44,'card')+T(20,142,'add H⁺: CH₃COO⁻ removes it','hd')+T(20,160,'H⁺ + CH₃COO⁻ → CH₃COOH','an'));
+  s+=G(3,box2(10,178,310,44,'card')+T(20,196,'add OH⁻: CH₃COOH removes it','hd')+T(20,214,'OH⁻ + CH₃COOH → CH₃COO⁻ + H₂O','an'));
+  s+=G(4,T(165,242,'ratio [HA] : [A⁻] hardly changes → pH steady','sm','text-anchor="middle"'));
+  return svg(330,252,s)},
+lines:plan(['what a buffer contains','adding acid','adding alkali','why pH hardly changes'])+
+ ans(1,'','','The buffer has <span class="hl">large amounts of both</span> CH<sub>3</sub>COOH and CH<sub>3</sub>COO<sup>−</sup> (from the fully dissociated salt).','M1')+
+ ans(2,'','','Added H<sup>+</sup> reacts with ethanoate ions: <span class="hl">H<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> → CH<sub>3</sub>COOH</span>','M2')+
+ ans(3,'The added OH⁻ reacts with H⁺ only.','OH<sup>−</sup> reacts with H<sup>+</sup>, and then more acid dissociates. The overall change uses up CH<sub>3</sub>COOH.','Added OH<sup>−</sup> reacts with the acid: <span class="hl">OH<sup>−</sup> + CH<sub>3</sub>COOH → CH<sub>3</sub>COO<sup>−</sup> + H<sub>2</sub>O</span>','M3')+
+ ans(4,'','','Because both reservoirs are large, the <span class="hl">ratio [CH<sub>3</sub>COOH] : [CH<sub>3</sub>COO<sup>−</sup>] changes very little</span>, so [H<sup>+</sup>] = <i>K</i><sub>a</sub>[HA]/[A<sup>−</sup>] and the pH stay almost the same.','M4'),
+chips:[['M1','large amounts of HA and A⁻',1],['M2','H⁺ + A⁻ → HA',2],['M3','OH⁻ + HA → A⁻ + H₂O',3],['M4','ratio nearly constant',4]],
+steps:[
+{t:'Read and plan',x:'A <b>buffer solution</b> resists changes in pH when small amounts of acid or alkali are added. An acidic buffer is a weak acid with a salt of that acid.',tip:'A buffer does not keep the pH exactly constant, and it can be overwhelmed by large amounts.'},
+{t:'What is in it',x:'The weak acid is only slightly dissociated, so most of it stays as CH<sub>3</sub>COOH. The salt is fully dissociated, giving lots of CH<sub>3</sub>COO<sup>−</sup>.',tip:'The large reservoir of each is the key idea. Write "large concentration of both".'},
+{t:'Adding acid',x:'The extra H<sup>+</sup> is removed by the ethanoate ions, forming more ethanoic acid.',tip:'Write the equation: H<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> → CH<sub>3</sub>COOH.'},
+{t:'Adding alkali',x:'The extra OH<sup>−</sup> is removed by ethanoic acid, forming ethanoate ions and water.',tip:'You can also explain it as OH<sup>−</sup> + H<sup>+</sup> → H<sub>2</sub>O, then the acid dissociates to replace the H<sup>+</sup>.'},
+{t:'Why pH hardly changes',x:'[H<sup>+</sup>] depends on the ratio [HA]/[A<sup>−</sup>]. A small addition only changes the ratio slightly. In blood, the H<sub>2</sub>CO<sub>3</sub>/HCO<sub>3</sub><sup>−</sup> buffer works the same way to keep the pH near 7.4.',tip:'Mention the ratio and link it to [H<sup>+</sup>].'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying a buffer keeps the pH exactly constant.','Not mentioning large reservoirs of both species.','Writing the acid as the species that removes H<sup>+</sup>.','No equations.'],
+your:{kind:'text',marks:3,q:'Blood is buffered by H<sub>2</sub>CO<sub>3</sub> and HCO<sub>3</sub><sup>−</sup>. <b>Explain</b> how this buffer responds when lactic acid (H<sup>+</sup>) enters the blood during exercise. (3)',
+ ms:['Blood contains large amounts of both H<sub>2</sub>CO<sub>3</sub> and HCO<sub>3</sub><sup>−</sup>.','The extra H<sup>+</sup> reacts with HCO<sub>3</sub><sup>−</sup>: H<sup>+</sup> + HCO<sub>3</sub><sup>−</sup> → H<sub>2</sub>CO<sub>3</sub>.','The ratio [H<sub>2</sub>CO<sub>3</sub>]/[HCO<sub>3</sub><sup>−</sup>] changes only slightly, so the pH stays close to 7.4.'],
+ warn:[[/H2CO3 \+ H\+|H<sub>2<\/sub>CO<sub>3<\/sub> \+ H/i,'H<sub>2</sub>CO<sub>3</sub> is the acid. The added H<sup>+</sup> reacts with HCO<sub>3</sub><sup>−</sup>.']]}
+});
+/* ---------- 8 buffer pH ---------- */
+W.push({btn:'pH of a buffer solution',spec:[["14.19","pH of a buffer"],["14.20","concentrations for a given pH"]],type:'Calculate',marks:3,
+title:'Calculating the pH of an ethanoic acid / sodium ethanoate buffer',
+q:'<p><span class="mk">(3)</span>A buffer contains <mark>0.10 mol dm<sup>−3</sup> ethanoic acid</mark> and <mark>0.15 mol dm<sup>−3</sup> sodium ethanoate</mark>. <i>K</i><sub>a</sub> = 1.7 × 10<sup>−5</sup> mol dm<sup>−3</sup>.</p><p><mark>Calculate</mark> the pH of the buffer.</p>',
+diag:function(){var s='';
+  s+=T(60,40,'Ka =','eq')+T(170,30,'[H⁺][A⁻]','eq','text-anchor="middle"')+L(110,36,230,36,'bd')+T(170,54,'[HA]','eq','text-anchor="middle"');
+  s+=G(1,T(20,90,'[HA] = 0.10 (acid hardly dissociates)','sm')+T(20,106,'[A⁻] = 0.15 (from the salt)','sm'));
+  s+=G(2,T(20,136,'[H⁺] = Ka × [HA] ÷ [A⁻]','eq')+T(20,158,'= 1.7 × 10⁻⁵ × 0.10 ÷ 0.15','eq')+T(20,180,'= 1.13 × 10⁻⁵ mol dm⁻³','eq'));
+  s+=G(3,T(20,208,'pH = 4.95','big'));
+  return svg(330,220,s)},
+lines:plan(['which concentrations to use','rearrange Ka','pH'])+
+ ans(1,'Assume [H⁺] = [A⁻].','Not in a buffer: almost all the A<sup>−</sup> comes from the salt.','Use [HA] = <span class="hl">0.10</span> and [A<sup>−</sup>] = <span class="hl">0.15</span> mol dm<sup>−3</sup>.','M1')+
+ ans(2,'','','[H<sup>+</sup>] = <i>K</i><sub>a</sub> × [HA] ÷ [A<sup>−</sup>] = 1.7 × 10<sup>−5</sup> × 0.10 ÷ 0.15 = <span class="hl">1.13 × 10<sup>−5</sup></span>','M2')+
+ ans(3,'','','pH = −log(1.13 × 10<sup>−5</sup>) = <span class="hl">4.95</span>','M3'),
+chips:[['M1','[HA] 0.10, [A⁻] 0.15',1],['M2','[H⁺] = 1.13 × 10⁻⁵',2],['M3','pH = 4.95',3]],
+steps:[
+{t:'Read and plan',x:'In a buffer, [H<sup>+</sup>] and [A<sup>−</sup>] are not equal. The salt gives a large [A<sup>−</sup>], and the acid stays almost undissociated.',tip:'The weak-acid shortcut [H<sup>+</sup>]<sup>2</sup> does not work here.'},
+{t:'The concentrations',x:'[HA] = 0.10 mol dm<sup>−3</sup> and [A<sup>−</sup>] = 0.15 mol dm<sup>−3</sup>.',tip:'If you are given moles in a total volume, either divide both by the volume or use the mole ratio: the volume cancels.'},
+{t:'Rearrange K<sub>a</sub>',x:'[H<sup>+</sup>] = <i>K</i><sub>a</sub> × [HA] ÷ [A<sup>−</sup>]. More salt than acid gives [H<sup>+</sup>] below <i>K</i><sub>a</sub>, so the pH is above the p<i>K</i><sub>a</sub> (4.77).',tip:'You can also use pH = p<i>K</i><sub>a</sub> + log([A<sup>−</sup>]/[HA]).'},
+{t:'pH',x:'−log(1.13 × 10<sup>−5</sup>) = 4.95. Check: it is a little above 4.77, as expected.',tip:'When [HA] = [A<sup>−</sup>], pH = p<i>K</i><sub>a</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using [H<sup>+</sup>]<sup>2</sup> = <i>K</i><sub>a</sub>[HA].','Putting [HA] and [A<sup>−</sup>] the wrong way round.','Forgetting to account for mixing volumes when two solutions are combined.','Rounding [H<sup>+</sup>] too early.'],
+your:{kind:'num',q:'A buffer contains 0.20 mol dm<sup>−3</sup> ethanoic acid and 0.10 mol dm<sup>−3</sup> sodium ethanoate. <i>K</i><sub>a</sub> = 1.7 × 10<sup>−5</sup>. Calculate its pH.',ans:4.47,tol:0.006,
+ ok:'Correct: [H<sup>+</sup>] = 1.7 × 10<sup>−5</sup> × 0.20 ÷ 0.10 = 3.4 × 10<sup>−5</sup>; pH = <b>4.47</b>.',
+ wrong:[[5.07,0.006,'You put [HA] and [A<sup>−</sup>] the wrong way round.'],[2.73,0.006,'That is the weak-acid method. In a buffer, use [H<sup>+</sup>] = <i>K</i><sub>a</sub>[HA]/[A<sup>−</sup>].']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 4 · Topic 14 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["14.1", "Understand Brønsted–Lowry acids (proton donors) and bases (proton acceptors), and that acid–base reactions involve proton transfer."], ["14.2", "Identify Brønsted–Lowry conjugate acid–base pairs."], ["14.3", "Define pH."], ["14.4", "Calculate pH from [H<sup>+</sup>]."], ["14.5", "Calculate [H<sup>+</sup>] from pH."], ["14.6", "Explain the difference between strong and weak acids in terms of the degree of dissociation."], ["14.7", "Calculate the pH of a strong acid."], ["14.8", "Write the expression for K<sub>a</sub> of a weak acid."], ["14.9", "Calculate the pH of a weak acid from K<sub>a</sub> or pK<sub>a</sub>, stating the assumptions."], ["14.10", "Define the ionic product of water, K<sub>w</sub>."], ["14.11", "Calculate the pH of a strong base using K<sub>w</sub> or pK<sub>w</sub>."], ["14.12", "Define pK<sub>a</sub> and pK<sub>w</sub>."], ["14.13", "Analyse pH data: equimolar strong and weak acids and bases, salts, and the effect of diluting strong and weak acids 10, 100 and 1000 times."], ["14.14", "Calculate K<sub>a</sub> of a weak acid from the pH of a solution of known concentration."], ["14.15", "Draw and interpret titration curves for strong and weak, monoprotic and diprotic acids and bases."], ["14.16", "Choose a suitable indicator for a titration using the titration curve."], ["14.17", "Know what a buffer solution is."], ["14.18", "Understand how a buffer works, with equations."], ["14.19", "Calculate the pH of a buffer solution."], ["14.20", "Calculate the concentrations needed to make a buffer of a given pH."], ["14.21", "Use titration curves to show buffer action and to find K<sub>a</sub> from the pH at half-neutralisation."], ["14.22", "Explain the importance of buffers in biology (blood: H<sub>2</sub>CO<sub>3</sub>/HCO<sub>3</sub><sup>−</sup>) and in food."], ["14.23", "Core Practical 11: find the K<sub>a</sub> of a weak acid."]],KEY="ialchem-t14-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 14: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

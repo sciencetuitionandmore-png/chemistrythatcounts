@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arenes Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Arenes Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-18.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Arenes: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+function card(y,h,a,b,cls,at){return G(at,box2(10,y,310,h,cls||'card')+T(20,y+20,a,'hd')+(b?T(20,y+38,b,'an'):''))}
+function ring(cx,cy,r,circ,open){var p=[];for(var i=0;i<6;i++){var a=Math.PI/6+i*Math.PI/3;p.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}
+  var s='<path class="sk" d="'+pts(p)+'z"/>';if(circ)s+='<'+(open?'path class="sk" d="M'+(cx-r*0.55)+' '+(cy+r*0.3)+'A'+(r*0.58)+' '+(r*0.58)+' 0 1 1 '+(cx+r*0.55)+' '+(cy+r*0.3)+'"/>':'circle class="sk" cx="'+cx+'" cy="'+cy+'" r="'+(r*0.58)+'"/>');return s}
+/* ---------- 1 hydrogenation evidence ---------- */
+W.push({btn:'Thermochemical evidence for benzene',spec:[["18.1","evidence for benzene structure"],["18.2","delocalised model"]],type:'Explain',marks:4,
+title:'Using enthalpies of hydrogenation as evidence for delocalisation',
+q:'<p><span class="mk">(4)</span>ΔH of hydrogenation of cyclohexene is <mark>−120 kJ mol<sup>−1</sup></mark>. For benzene it is <mark>−208 kJ mol<sup>−1</sup></mark>.</p><p><mark>Explain</mark> how these values show that benzene does not have the Kekulé structure with three C=C bonds.</p>',
+diag:function(){var s=DEFS,y=function(E){return 30+(E+152)*0.48};
+  s+='<line class="lvl" x1="10" x2="300" y1="'+y(-152)+'" y2="'+y(-152)+'"/>'+T(14,y(-152)-5,'Kekulé (predicted)','sm');
+  s+='<line class="lvl" x1="10" x2="120" y1="'+y(0)+'" y2="'+y(0)+'"/>'+T(14,y(0)-5,'benzene (real)','sm');
+  s+='<line class="lvl" x1="10" x2="320" y1="'+y(208)+'" y2="'+y(208)+'"/>'+T(14,y(208)+14,'cyclohexane','sm');
+  s+=G(1,va(290,y(-152),y(208)-3,'3 × (−120) = −360',null,'dp','l'));
+  s+=G(2,va(90,y(0),y(208)-3,'−208',null,'po'));
+  s+=G(3,va(60,y(0),y(-152)+3,'152',null,'po','l'));
+  s+=G(4,T(130,y(-70),'benzene is 152 kJ mol⁻¹','an')+T(130,y(-70)+16,'more stable: delocalisation','an'));
+  return svg(330,220,s)},
+lines:plan(['predict for 3 C=C','compare with real value','difference','explain'])+
+ ans(1,'','','Kekulé structure: three C=C, so expected ΔH = 3 × (−120) = <span class="hl">−360 kJ mol<sup>−1</sup></span>.','M1')+
+ ans(2,'','','The real value is only <span class="hl">−208 kJ mol<sup>−1</sup></span>: less energy is released.','')+
+ ans(3,'Benzene is 152 kJ mol⁻¹ less stable.','Less energy released on hydrogenation means benzene starts lower: it is more stable.','So benzene is <span class="hl">152 kJ mol<sup>−1</sup> more stable</span> than predicted.','M2')+
+ ans(4,'','','This is because the six p electrons are <span class="hl">delocalised</span> in a ring of π bonding above and below the plane, which lowers the energy.','M3 M4'),
+chips:[['M1','predicted −360',1],['M2','152 more stable',3],['M3','delocalised p electrons',4],['M4','π ring above and below',4]],
+steps:[
+{t:'Read and plan',x:'If benzene had three separate C=C bonds, hydrogenating it would release three times as much energy as cyclohexene.',tip:'Draw an enthalpy level diagram if it helps.'},
+{t:'Predicted value',x:'3 × −120 = −360 kJ mol<sup>−1</sup>.',tip:'This assumes three identical, separate C=C bonds.'},
+{t:'Real value',x:'Only 208 kJ mol<sup>−1</sup> is released.',tip:'Less energy out means the starting compound was lower in energy.'},
+{t:'Difference',x:'360 − 208 = 152 kJ mol<sup>−1</sup>: the delocalisation (stabilisation) energy.',tip:'Use "more stable", not "less stable".'},
+{t:'Explanation',x:'Each carbon has one p orbital. These overlap sideways all round the ring, forming a delocalised π system above and below the ring.',tip:'X-ray data: all C–C bonds are 0.139 nm, between C–C and C=C. IR also lacks a normal C=C stretch.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying benzene is less stable.','Not calculating −360.','Saying the electrons are delocalised "in the bonds".','Forgetting the p-orbital overlap.'],
+your:{kind:'num',q:'Using the values above, what is the stabilisation (delocalisation) energy of benzene in kJ mol<sup>−1</sup>?',ans:152,tol:0.6,
+ ok:'Correct: 360 − 208 = <b>152 kJ mol<sup>−1</sup></b>.',
+ wrong:[[568,1,'Subtract: 360 − 208.'],[88,1,'Compare with three C=C bonds (−360), not with −120 alone.']]}
+});
+/* ---------- 2 nitration mechanism ---------- */
+W.push({btn:'Mechanism: nitration of benzene',spec:[["18.5","electrophilic substitution mechanism"],["18.4","reactions of benzene"]],type:'Mechanism',marks:4,
+title:'The electrophilic substitution of benzene by the nitronium ion',
+q:'<p><span class="mk">(4)</span>Benzene is nitrated by a mixture of concentrated nitric and sulfuric acids at 50 °C.</p><p>Write an equation for the formation of the <mark>electrophile</mark>, and <mark>draw</mark> the <mark>mechanism</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=G(1,T(20,22,'HNO₃ + 2H₂SO₄ → NO₂⁺ + H₃O⁺ + 2HSO₄⁻','sm'));
+  s+=ring(70,110,36,1)+AT(160,70,'NO₂⁺','at2');
+  s+=G(2,CA('M70 92C84 70 116 64 140 68',2));
+  s+=G(3,ring(220,110,36,1,1)+T(220,124,'+','plus','text-anchor="middle"')+L(246,80,262,56,'bd')+AT(272,48,'NO₂','at2s')+L(236,82,248,64,'bd')+AT(252,58,'H','at2s'));
+  s+=G(3,T(220,170,'intermediate: ring partly broken','an','text-anchor="middle"'));
+  s+=G(4,CA('M248 70C246 86 232 92 224 100',4)+T(20,196,'H⁺ lost, ring restored → C₆H₅NO₂','an'));
+  return svg(330,206,s)},
+lines:plan(['make NO₂⁺','arrow from ring to NO₂⁺','intermediate','C–H bond to ring'])+
+ ans(1,'','','<span class="hl">HNO<sub>3</sub> + 2H<sub>2</sub>SO<sub>4</sub> → NO<sub>2</sub><sup>+</sup> + H<sub>3</sub>O<sup>+</sup> + 2HSO<sub>4</sub><sup>−</sup></span>','M1')+
+ ans(2,'Arrow from NO₂⁺ to the ring.','Electrons move from the electron-rich ring to the electrophile.','Curly arrow from the <span class="hl">delocalised ring to the N of NO<sub>2</sub><sup>+</sup></span>.','M2')+
+ ans(3,'','','The <span class="hl">intermediate</span> has a broken delocalised ring (horseshoe) with a + charge, and H and NO<sub>2</sub> on the same carbon.','M3')+
+ ans(4,'','','Curly arrow from the <span class="hl">C–H bond back into the ring</span>; H<sup>+</sup> is lost and the ring is restored: nitrobenzene.','M4'),
+chips:[['M1','electrophile equation',1],['M2','arrow ring → NO₂⁺',2],['M3','intermediate',3],['M4','C–H bond → ring',4]],
+steps:[
+{t:'Read and plan',x:'Benzene reacts by <b>electrophilic substitution</b>: an H is replaced, and the stable delocalised ring is kept.',tip:'Addition would destroy the delocalisation, so it does not happen.'},
+{t:'The electrophile',x:'Sulfuric acid protonates nitric acid, which then loses water to form the nitronium ion, NO<sub>2</sub><sup>+</sup>.',tip:'H<sub>2</sub>SO<sub>4</sub> is a catalyst: H<sup>+</sup> + HSO<sub>4</sub><sup>−</sup> → H<sub>2</sub>SO<sub>4</sub> at the end.'},
+{t:'Attack',x:'A pair of electrons from the delocalised ring attacks the positive nitrogen.',tip:'Start the arrow inside the ring.'},
+{t:'Intermediate',x:'Two of the six π electrons now form the C–N bond. The remaining four are spread over five carbons, shown as a horseshoe with a +.',tip:'The horseshoe should not reach the carbon bonded to H and NO<sub>2</sub>.'},
+{t:'Losing H⁺',x:'The C–H bond electrons return to the ring, restoring the full delocalised system.',tip:'Keep the temperature at 50 °C or below to avoid multiple nitration.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Arrow starting from NO<sub>2</sub><sup>+</sup>.','Horseshoe drawn as a full circle, or covering the sp<sup>3</sup> carbon.','No + on the intermediate.','Wrong electrophile equation.'],
+your:{kind:'text',marks:2,q:'Bromine reacts with benzene only with a catalyst such as FeBr<sub>3</sub>. <b>Write</b> the equation for forming the electrophile and explain why a catalyst is needed. (2)',
+ ms:['Br<sub>2</sub> + FeBr<sub>3</sub> → Br<sup>+</sup> + FeBr<sub>4</sub><sup>−</sup>','The delocalised electrons in benzene are spread out (lower electron density than a C=C), so they cannot polarise Br<sub>2</sub>; a stronger electrophile is needed.'],
+ warn:[[/addition/i,'Benzene undergoes substitution with bromine.']]}
+});
+/* ---------- 3 Friedel-Crafts ---------- */
+W.push({btn:'Friedel–Crafts acylation',spec:[["18.4","reactions of benzene"],["18.5","generating the electrophile"]],type:'State',marks:3,
+title:'Making phenylethanone from benzene',
+q:'<p><span class="mk">(3)</span>Benzene reacts with ethanoyl chloride in the presence of aluminium chloride.</p><p>Give the <mark>conditions</mark>, the equation for forming the <mark>electrophile</mark>, and the <mark>organic product</mark>.</p>',
+diag:function(){var s='';
+  s+=card(10,44,'CH₃COCl + AlCl₃ → CH₃CO⁺ + AlCl₄⁻','electrophile: acylium ion','card t',1);
+  s+=card(64,44,'C₆H₆ + CH₃COCl → C₆H₅COCH₃ + HCl','product: phenylethanone','card g',2);
+  s+=card(118,44,'AlCl₃ regenerated','H⁺ + AlCl₄⁻ → AlCl₃ + HCl','card',3);
+  return svg(330,170,s)},
+lines:plan(['conditions','electrophile','product'])+
+ ans(1,'','','<span class="hl">Anhydrous AlCl<sub>3</sub></span> catalyst, heated under reflux (about 50 °C), dry conditions.','M1')+
+ ans(1,'','','Electrophile: <span class="hl">CH<sub>3</sub>COCl + AlCl<sub>3</sub> → CH<sub>3</sub>CO<sup>+</sup> + AlCl<sub>4</sub><sup>−</sup></span>','M2')+
+ ans(2,'','','Product: <span class="hl">phenylethanone</span>, C<sub>6</sub>H<sub>5</sub>COCH<sub>3</sub> (+ HCl).','M3'),
+chips:[['M1','anhydrous AlCl₃, heat',1],['M2','CH₃CO⁺ formed',1],['M3','phenylethanone',2]],
+steps:[
+{t:'Read and plan',x:'Friedel–Crafts reactions attach a carbon group to a benzene ring using a halogen carrier catalyst.',tip:'Acylation adds RCO–; alkylation adds R–.'},
+{t:'The electrophile',x:'AlCl<sub>3</sub> accepts Cl<sup>−</sup> from the acyl chloride, leaving a positive acylium ion.',tip:'AlCl<sub>3</sub> must be dry: water hydrolyses it.'},
+{t:'The product',x:'The acylium ion substitutes for an H on the ring, giving an aromatic ketone.',tip:'Alkylation with CH<sub>3</sub>Cl/AlCl<sub>3</sub> gives methylbenzene.'},
+{t:'Regenerating the catalyst',x:'The H<sup>+</sup> lost from the ring reacts with AlCl<sub>4</sub><sup>−</sup>, re-forming AlCl<sub>3</sub> and HCl.',tip:'Friedel–Crafts reactions are useful for making C–C bonds to rings.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Missing "anhydrous".','Writing the electrophile as CH<sub>3</sub><sup>+</sup>.','Naming the product as an aldehyde.','Forgetting HCl as a product.'],
+your:{kind:'text',marks:2,q:'Benzene can be hydrogenated to cyclohexane. Give the conditions and explain why they are more severe than for an alkene. (2)',
+ ms:['Hydrogen with a nickel catalyst at high temperature (about 150 °C) and pressure.','Benzene’s delocalised ring is very stable, so more energy is needed to break it than a single C=C.'],
+ warn:[[/room temperature/i,'Benzene needs heat and a catalyst to add hydrogen.']]}
+});
+/* ---------- 4 phenol ---------- */
+W.push({btn:'Phenol and bromine water',spec:[["18.6","phenol reactions"],["18.3","benzene’s resistance to bromination"]],type:'Explain',marks:4,
+title:'Why phenol reacts with bromine water but benzene does not',
+q:'<p><span class="mk">(4)</span>Phenol decolourises bromine water at room temperature and forms a white precipitate. Benzene does not react with bromine water.</p><p><mark>Explain</mark> this difference and name the <mark>product</mark>.</p>',
+diag:function(){var s='';
+  s+=ring(70,90,36,1)+L(70,54,70,30,'bd')+AT(70,20,'OH','at2');
+  s+=G(1,'<path class="share" d="M60 40C62 30 78 30 80 40C78 50 62 50 60 40z"/>'+T(110,24,'lone pair on O','an'));
+  s+=G(2,T(110,44,'delocalised into the ring','an')+T(110,60,'→ higher electron density','an'));
+  s+=G(3,T(110,90,'Br₂ polarised, attacks easily','an'));
+  s+=G(4,T(20,160,'product: 2,4,6-tribromophenol (white ppt) + 3HBr','an'));
+  return svg(330,172,s)},
+lines:plan(['lone pair on O','delocalised into ring','polarises Br₂','product'])+
+ ans(1,'','','A <span class="hl">lone pair on the oxygen</span> of the OH group','M1')+
+ ans(2,'','','is <span class="hl">partly delocalised into the ring</span>, increasing the <span class="hl">electron density</span> of the ring.','M2')+
+ ans(3,'Phenol is a stronger electrophile.','Phenol is attacked by the electrophile; it is more nucleophilic.','The ring can now <span class="hl">polarise Br<sub>2</sub></span> and is attacked more easily, so no catalyst is needed.','M3')+
+ ans(4,'','','Product: <span class="hl">2,4,6-tribromophenol</span> (white precipitate) + 3HBr.','M4'),
+chips:[['M1','lone pair on O',1],['M2','delocalised, higher electron density',2],['M3','polarises Br₂',3],['M4','2,4,6-tribromophenol',4]],
+steps:[
+{t:'Read and plan',x:'Compare the electron density of the two rings. Higher electron density makes a ring more reactive towards electrophiles.',tip:'Mention the oxygen lone pair.'},
+{t:'Lone pair',x:'The oxygen has two lone pairs. One p-type lone pair overlaps with the π system of the ring.',tip:'This is why phenol is also a very weak acid.'},
+{t:'Electron density',x:'Extra electron density makes the ring a better nucleophile.',tip:'Positions 2, 4 and 6 are activated most.'},
+{t:'Reaction',x:'The ring polarises Br<sub>2</sub> without a catalyst. Three Br atoms substitute.',tip:'C<sub>6</sub>H<sub>5</sub>OH + 3Br<sub>2</sub> → C<sub>6</sub>H<sub>2</sub>Br<sub>3</sub>OH + 3HBr'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying OH is an electron-withdrawing group.','Naming the product bromophenol only.','Saying the reaction is addition.','Forgetting the white precipitate observation.'],
+your:{kind:'text',marks:2,q:'Write the equation for the reaction of phenol with sodium hydroxide and name the product. (2)',
+ ms:['C<sub>6</sub>H<sub>5</sub>OH + NaOH → C<sub>6</sub>H<sub>5</sub>ONa + H<sub>2</sub>O','Sodium phenoxide.'],
+ warn:[[/CO2|carbonate/i,'Phenol is too weak an acid to react with carbonates.']]}
+});
+/* ---------- 5 delocalised model ---------- */
+W.push({btn:'Describing the bonding in benzene',spec:[["18.2","delocalised model of benzene"],["18.1","X-ray and IR evidence"]],type:'Describe',marks:3,
+title:'The delocalised model of benzene',
+q:'<p><span class="mk">(3)</span><mark>Describe</mark> the bonding in a benzene molecule, and give <mark>one piece of X-ray evidence</mark> that supports it.</p>',
+diag:function(){var s='';
+  s+=ring(90,90,40,0);
+  s+=G(1,[0,1,2,3,4,5].map(function(i){var a=Math.PI/6+i*Math.PI/3,x=90+40*Math.cos(a),y=90+40*Math.sin(a);return '<ellipse class="lobe" cx="'+x+'" cy="'+(y-14)+'" rx="7" ry="12"/><ellipse class="lobe" cx="'+x+'" cy="'+(y+14)+'" rx="7" ry="12"/>'}).join(''));
+  s+=G(2,'<ellipse class="lobe hot" cx="90" cy="70" rx="56" ry="10" style="opacity:.6"/><ellipse class="lobe hot" cx="90" cy="112" rx="56" ry="10" style="opacity:.6"/>'+T(170,70,'π ring above','an')+T(170,116,'π ring below','an'));
+  s+=G(3,T(170,150,'all C–C = 0.139 nm','big'));
+  return svg(330,170,s)},
+lines:plan(['σ bonds','p orbitals overlap','evidence'])+
+ ans(1,'','','Each carbon forms three <span class="hl">σ bonds</span> (two C–C, one C–H) in a planar hexagon, 120°.','M1')+
+ ans(2,'','','The remaining <span class="hl">p orbital</span> on each carbon <span class="hl">overlaps sideways</span> with its neighbours, giving a ring of <span class="hl">delocalised π electrons</span> above and below the plane.','M2')+
+ ans(3,'','','X-ray diffraction shows <span class="hl">all six C–C bonds are the same length</span> (0.139 nm), between C–C and C=C.','M3'),
+chips:[['M1','σ framework, planar',1],['M2','p overlap, delocalised π',2],['M3','equal bond lengths',3]],
+steps:[
+{t:'Read and plan',x:'Describe the σ bonds, then the π system, then link to evidence.',tip:'A labelled diagram can earn the marks.'},
+{t:'σ bonds',x:'Six carbons in a flat ring, each bonded to two carbons and one hydrogen.',tip:'Bond angle 120°.'},
+{t:'π system',x:'Six p orbitals overlap all the way round, so six electrons are shared over all six carbons.',tip:'Not three separate π bonds.'},
+{t:'Evidence',x:'If benzene had alternating single and double bonds, X-ray diffraction would show two different lengths. It shows one.',tip:'C–C 0.154 nm, C=C 0.134 nm, benzene 0.139 nm.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying p orbitals overlap end on.','Not saying "above and below the plane".','Giving thermochemical evidence when X-ray was asked for.','Saying the bonds alternate.'],
+your:{kind:'text',marks:2,q:'How does the infrared spectrum of benzene support the delocalised model? (2)',
+ ms:['Benzene does not show the usual C=C absorption of an alkene (about 1620–1680 cm<sup>−1</sup>).','It shows a different absorption for the aromatic ring (about 1450–1600 cm<sup>−1</sup>), so the bonds are not ordinary C=C.'],
+ warn:[[/O–H|C=O/i,'Benzene has no O–H or C=O bonds.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 5 · Topic 18 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["18.1", "Use thermochemical, X-ray diffraction and infrared data as evidence for the structure and stability of benzene."], ["18.2", "Describe the delocalised model of benzene: overlap of p orbitals forming π bonds."], ["18.3", "Explain benzene’s resistance to bromination compared with alkenes."], ["18.4", "Reactions of benzene: combustion, bromination, nitration, Friedel–Crafts alkylation and acylation, and addition of hydrogen."], ["18.5", "Draw the electrophilic substitution mechanism, including forming the electrophile."], ["18.6", "Explain the reactions of phenol with bromine water, and why phenol is more reactive than benzene."]],KEY="ialchem-t18-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 18: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

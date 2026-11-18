@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonding and Structure Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Bonding and Structure Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-3.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Bonding and structure: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+var W=[];
+/* ---------- 1 ionic lattice strength ---------- */
+W.push({btn:'Ionic bonding: melting temperature',spec:[["3.6","ionic radius & charge"],["3.5","ionic bonding"],["3.4","giant ionic lattice"]],type:'Explain',marks:4,
+title:'Why magnesium oxide has a much higher melting temperature than sodium fluoride',
+q:'<p><span class="mk">(4)</span>Sodium fluoride, NaF, melts at <mark>993 °C</mark>. Magnesium oxide, MgO, melts at <mark>2852 °C</mark>.</p><p><mark>Explain</mark> why the melting temperature of magnesium oxide is <mark>much higher</mark>. Refer to the <mark>ions</mark> in your answer.</p>',
+diag:function(){var s=DEFS;
+  s+=T(70,18,'NaF  (993 °C)','hd','text-anchor="middle"')+T(250,18,'MgO  (2852 °C)','hd','text-anchor="middle"');
+  s+=lattice(20,48,10,13,'+','−','2','')+lattice(205,48,7,13,'2+','2−','2 3','2');
+  s+='<g'+A(1)+'>'+arr(43,152,70,152,'dp')+arr(70,152,43,152,'dp')+T(70,190,'+ and − attract','an','text-anchor="middle"')+T(70,205,'in every direction','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(2)+'>'+T(250,190,'charges 2+ and 2−','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(250,206,'Mg²⁺ smaller than Na⁺','an','text-anchor="middle"')+T(250,222,'→ ions closer together','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'>'+T(165,250,'stronger attraction → more energy to separate the ions','an','text-anchor="middle"')+'</g>';
+  return svg(330,262,s)},
+lines:plan(['giant ionic lattice','charge 2+/2− vs 1+/1−','Mg²⁺ smaller','stronger attraction → more energy'])+
+ ans(1,'NaF has weaker bonds.','Which bonds? Name the attraction and the particles.','Both are <span class="hl">giant ionic lattices</span>. Melting means overcoming the <span class="hl">strong electrostatic attraction between oppositely charged ions</span>.','M1')+
+ ans(2,'MgO has more electrons.','The number of electrons is not the reason. Talk about the charge on the ions.','The ions in MgO have a <span class="hl">greater charge</span> (Mg<sup>2+</sup> and O<sup>2−</sup>) than the ions in NaF (Na<sup>+</sup> and F<sup>−</sup>).','M2')+
+ ans(3,'Magnesium atoms are smaller.','The question is about ions, not atoms.','The <span class="hl">Mg<sup>2+</sup> ion is smaller</span> than the Na<sup>+</sup> ion, so the ions are closer together.','M3')+
+ ans(4,'So MgO is harder to melt.','Say why: the attraction is stronger and more energy is needed.','So the <span class="hl">attraction between the ions is stronger</span> in MgO and <span class="hl">more energy is needed</span> to overcome it.','M4'),
+chips:[['M1','attraction between oppositely charged ions',1],['M2','higher charges in MgO',2],['M3','Mg²⁺ smaller than Na⁺',3],['M4','stronger attraction, more energy',4]],
+steps:[
+{t:'Read and plan',x:'Both substances are ionic. "Refer to the ions" tells you the marks are for the <b>charge</b> and the <b>size</b> of the ions.',tip:'For 4 marks, plan four separate ideas before you write.'},
+{t:'Name the structure and the force',x:'In a giant ionic lattice every ion is surrounded by ions of opposite charge. Melting means overcoming the attraction between them.',tip:'Never say "molecules" or "intermolecular forces" for an ionic compound. It has ions, not molecules.'},
+{t:'Compare the charges',x:'Mg<sup>2+</sup> and O<sup>2−</sup> each carry twice the charge of Na<sup>+</sup> and F<sup>−</sup>. Bigger charges attract more strongly.',tip:'Write the ions with their charges. "MgO has a bigger charge" is too vague.'},
+{t:'Compare the sizes',x:'Mg<sup>2+</sup> (72 pm) is much smaller than Na<sup>+</sup> (102 pm). Smaller ions can get closer, so the attraction is stronger.',tip:'Compare ions, not atoms. Ions and atoms have different sizes.'},
+{t:'Link to energy',x:'Finish the chain: stronger attraction, so more energy is needed to separate the ions, so a higher melting temperature.',tip:'End with energy. It is often the last mark.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Talking about molecules or intermolecular forces in an ionic compound.','Saying "MgO has a bigger charge" without naming the ions.','Comparing atoms instead of ions.','Saying covalent bonds break when an ionic solid melts.'],
+your:{kind:'text',marks:4,q:'Calcium oxide, CaO, melts at 2613 °C. Potassium chloride, KCl, melts at 770 °C. <b>Explain</b> the difference. (4)',
+ ms:['Both have giant ionic lattices / strong electrostatic attraction between oppositely charged ions.','Ca<sup>2+</sup> and O<sup>2−</sup> have greater charges than K<sup>+</sup> and Cl<sup>−</sup>.','Ca<sup>2+</sup> is smaller than K<sup>+</sup> (and O<sup>2−</sup> is smaller than Cl<sup>−</sup>), so the ions are closer.','So the attraction is stronger in CaO and more energy is needed to overcome it.'],
+ warn:[[/molecul|intermolecular/i,'CaO and KCl are ionic. They have ions, not molecules or intermolecular forces.'],[/covalent/i,'No covalent bonds are broken. Melting overcomes the attraction between ions.']]}
+});
+/* ---------- 2 isoelectronic radii ---------- */
+var RAD=[['N³⁻',171,7],['O²⁻',140,8],['F⁻',133,9],['Na⁺',102,11],['Mg²⁺',72,12],['Al³⁺',53,13]];
+W.push({btn:'Ionic radii: N³⁻ to Al³⁺',spec:[["3.7","trends in ionic radii"]],type:'Explain',marks:3,
+title:'The decrease in ionic radius from N<sup>3−</sup> to Al<sup>3+</sup>',
+q:'<p><span class="mk">(3)</span>The ionic radii of six ions are shown in the stage below, from N<sup>3−</sup> (<mark>171 pm</mark>) to Al<sup>3+</sup> (<mark>53 pm</mark>).</p><p><mark>Explain</mark> the <mark>decrease</mark> in ionic radius from the nitride ion to the aluminium ion.</p>',
+diag:function(){var s='',L=40,B=200,Tp=20;
+  for(var t=0;t<=180;t+=60){var y=B-t/180*(B-Tp);s+='<line class="grid" x1="'+L+'" x2="325" y1="'+y+'" y2="'+y+'"/>'+T(L-6,y+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H325"/>';
+  RAD.forEach(function(r,i){var x=L+12+i*47,h=r[1]/180*(B-Tp);s+='<rect class="bar" data-hot="1" x="'+x+'" y="'+(B-h)+'" width="30" height="'+h+'"/>'+T(x+15,B-h-5,r[1],'sm','text-anchor="middle"')+T(x+15,B+15,r[0],'','text-anchor="middle"');
+   s+='<g'+A(2)+'>'+T(x+15,B+31,r[2]+' p','an','text-anchor="middle"')+'</g>'});
+  s+='<g'+A(1)+'>'+T(250,40,'all have 10 electrons:','an','text-anchor="middle"')+T(250,56,'1s² 2s² 2p⁶','an','text-anchor="middle"')+'</g>';
+  s+='<path class="anl"'+A(3)+' d="M70 '+(B-171/180*(B-Tp)-16)+'L300 '+(B-53/180*(B-Tp)-16)+'"/>';
+  s+=T(12,110,'radius / pm','sm','text-anchor="middle" transform="rotate(-90 12 110)"');
+  return svg(330,240,s)},
+lines:plan(['same electrons (isoelectronic)','protons 7 → 13','stronger pull → smaller'])+
+ ans(1,'They are in the same period.','The ions are not all in the same period in the same way. Say what is the same: the electrons.','All six ions have the <span class="hl">same number of electrons</span> (10) / the same electronic configuration, 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup>.','M1')+
+ ans(2,'The charge increases.','Which charge? The ion charge goes from 3− to 3+. Name the nuclear charge.','The <span class="hl">number of protons increases</span> from 7 (N) to 13 (Al), so the <span class="hl">nuclear charge increases</span>.','M2')+
+ ans(3,'So the ion shrinks.','Explain why: say what attracts what.','So there is a <span class="hl">greater attraction between the nucleus and the electrons</span>, which are pulled closer, so the radius decreases.','M3'),
+chips:[['M1','same number of electrons',1],['M2','more protons / nuclear charge',2],['M3','greater attraction, e⁻ pulled closer',3]],
+steps:[
+{t:'Read and spot the pattern',x:'N<sup>3−</sup>, O<sup>2−</sup>, F<sup>−</sup>, Na<sup>+</sup>, Mg<sup>2+</sup> and Al<sup>3+</sup> are <b>isoelectronic</b>: they all have the same electron arrangement as neon.',tip:'Work out the electrons: N has 7 and gains 3 = 10. Al has 13 and loses 3 = 10.'},
+{t:'Idea 1: same electrons',x:'The electrons are the same in every ion, so shielding is the same. The only thing that changes is the nucleus.',tip:'The word "isoelectronic" alone may not score. Say "same number of electrons".'},
+{t:'Idea 2: more protons',x:'The number of protons goes up from 7 to 13. The nucleus becomes more positive.',tip:'Say "number of protons" or "nuclear charge", not just "charge".'},
+{t:'Idea 3: attraction and size',x:'A more positive nucleus pulls the same 10 electrons in more strongly, so the ion gets smaller.',tip:'Link cause to effect: greater attraction, electrons pulled closer, smaller radius.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the ions lose shells across the series (all have two shells).','Saying "the charge increases" without naming the nuclear charge.','Saying shielding increases.','Explaining with atoms instead of ions.'],
+your:{kind:'text',marks:3,q:'The ionic radius increases down Group 1: Li<sup>+</sup> 76 pm, Na<sup>+</sup> 102 pm, K<sup>+</sup> 138 pm. <b>Explain</b> this trend. (3)',
+ ms:['Each ion has an extra shell (quantum shell) of electrons.','There is more shielding of the outer electrons from the nucleus.','The outer electrons are further from the nucleus / this outweighs the increase in nuclear charge, so the radius increases.'],
+ warn:[[/fewer protons|less protons|protons decrease/i,'The number of protons increases down a group. The extra shells are the reason.']]}
+});
+/* ---------- 3 polarisation ---------- */
+W.push({btn:'Polarisation and covalent character',spec:[["3.9","polarising power & polarisability"],["3.8","polarisation"],["3.14","bonding continuum"]],type:'Explain',marks:3,
+title:'Why lithium iodide has some covalent character',
+q:'<p><span class="mk">(3)</span>Lithium iodide, LiI, is an ionic compound, but its bonding has some <mark>covalent character</mark>.</p><p><mark>Explain</mark> why, in terms of the <mark>ions</mark>.</p>',
+diag:function(){var s=DEFS;
+  s+='<circle class="ghost" cx="205" cy="110" r="58"/>';
+  s+='<path class="in"'+A(2)+' d="M150 110 C150 60 190 52 222 56 C262 62 263 96 263 110 C263 128 262 160 222 164 C190 168 150 160 150 110Z"/>';
+  s+='<circle class="in cl0" cx="205" cy="110" r="58"/>';
+  s+=C(90,110,13,'ip','Li⁺','1')+T(205,114,'I⁻','il','text-anchor="middle" font-size="15"');
+  s+='<g'+A(1)+'>'+T(90,150,'small, high charge density','an','text-anchor="middle"')+T(90,166,'→ high polarising power','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(2)+'>'+arr(176,110,112,110,'po')+T(222,196,'large I⁻: electron cloud','an','text-anchor="middle"')+T(222,212,'easily distorted','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'><ellipse class="share" cx="128" cy="110" rx="22" ry="16"/>'+T(165,248,'electron density between the ions = some sharing','an','text-anchor="middle"')+'</g>';
+  return svg(330,262,s)},
+lines:plan(['Li⁺ small → polarising','I⁻ large → polarisable','electron density shared'])+
+ ans(1,'Lithium is small.','Say the ion: Li<sup>+</sup>, and what it does.','The <span class="hl">Li<sup>+</sup> ion is very small</span> (high charge density), so it has a <span class="hl">high polarising power</span>.','M1')+
+ ans(2,'The iodine is big.','Iodine is I<sub>2</sub>. Name the ion, I<sup>−</sup>, and say what happens to it.','The <span class="hl">I<sup>−</sup> ion is large</span>, so its <span class="hl">electron cloud is easily distorted</span> (it is very polarisable).','M2')+
+ ans(3,'So the bond becomes covalent.','It is only partly covalent. Explain what the electrons do.','Li<sup>+</sup> pulls electron density from I<sup>−</sup> towards itself, so there is <span class="hl">some electron density between the ions</span> (some sharing of electrons).','M3'),
+chips:[['M1','Li⁺ small, high polarising power',1],['M2','I⁻ large, easily polarised',2],['M3','electron density between ions',3]],
+steps:[
+{t:'Read and plan',x:'Covalent character in an ionic compound always comes from <b>polarisation</b>: the cation distorts the electron cloud of the anion.',tip:'You need one idea about the cation, one about the anion, and one about what happens to the electrons.'},
+{t:'The cation: polarising power',x:'Polarising power is high when the cation is small and highly charged. Li<sup>+</sup> is the smallest Group 1 ion.',tip:'Use the words "polarising power" for the cation.'},
+{t:'The anion: polarisability',x:'A large anion holds its outer electrons loosely, so they are easily pulled out of shape. I<sup>−</sup> is the largest halide ion.',tip:'Use "polarisable" or "electron cloud distorted" for the anion. Do not say the anion polarises.'},
+{t:'What happens to the electrons',x:'Some electron density is pulled into the space between the two ions. That is like a shared pair: covalent character.',tip:'Say "some" covalent character. The compound is still mostly ionic.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Mixing up the roles: the cation polarises, the anion is polarised.','Writing "iodine" or "lithium" instead of the ions.','Saying LiI is a covalent compound.','Saying the anion is small.'],
+your:{kind:'text',marks:3,q:'Aluminium chloride has much more covalent character than sodium chloride. <b>Explain</b> why. (3)',
+ ms:['Al<sup>3+</sup> has a higher charge and a smaller radius than Na<sup>+</sup> / a higher charge density.','So Al<sup>3+</sup> has a greater polarising power.','It distorts the electron cloud of Cl<sup>−</sup> more, so there is more electron density between the ions (more sharing).'],
+ warn:[[/chloride\s+(ion\s+)?(is|has a)\s+(more\s+)?polaris(ing|es)/i,'The chloride ion is polarised. The aluminium ion does the polarising.'],[/atom/i,'Talk about ions (Al<sup>3+</sup>, Na<sup>+</sup>, Cl<sup>−</sup>), not atoms.']]}
+});
+/* ---------- 4 dative NH4+ ---------- */
+W.push({btn:'Dot-and-cross: dative bond in NH₄⁺',spec:[["3.11 ii","dative covalent bonds"],["3.11 i","dot-and-cross"]],type:'Draw',marks:3,
+title:'Dot-and-cross diagram for the ammonium ion, NH<sub>4</sub><sup>+</sup>',
+q:'<p><span class="mk">(3)</span>Ammonia reacts with a <mark>hydrogen ion</mark>, H<sup>+</sup>, to form the ammonium ion, NH<sub>4</sub><sup>+</sup>.</p><p><mark>Draw</mark> a <mark>dot-and-cross</mark> diagram for the ammonium ion. Show <mark>outer electrons only</mark>. Use × for nitrogen electrons and • for hydrogen electrons.</p>',
+diag:function(){var s=DEFS,cx=165,cy=120;
+  s+=T(cx,cy+6,'N','at','text-anchor="middle"');
+  s+=T(cx,cy-64,'H','at','text-anchor="middle"')+T(cx-82,cy+6,'H','at','text-anchor="middle"')+T(cx+82,cy+6,'H','at','text-anchor="middle"');
+  s+='<g data-hot="1">'+X(cx-6,cy-34)+D(cx+6,cy-36)+X(cx-41,cy-6)+D(cx-41,cy+6)+X(cx+41,cy-6)+D(cx+41,cy+6)+'</g>';
+  s+='<g class="lpg" data-hot="2 3">'+X(cx-7,cy+34)+X(cx+7,cy+34)+'</g>';
+  s+='<g'+A(2)+'>'+T(cx,cy+86,'H','at','text-anchor="middle"')+T(cx+36,cy+74,'H⁺: no','an')+T(cx+36,cy+90,'electrons','an')+'</g>';
+  s+='<g'+A(3)+'>'+arr(cx+22,cy+38,cx+22,cy+62,'po')+T(cx-100,cy+58,'both electrons','an')+T(cx-100,cy+74,'from N','an')+'</g>';
+  s+='<g'+A(4)+'><path class="brk" d="M28 30h-10v190h10M302 30h10v190h-10"/>'+T(318,30,'+','at','font-size="20"')+'</g>';
+  s+='<g'+A(1)+'>'+T(16,250,'N: 5 outer electrons → 3 bonds + 1 lone pair','an')+'</g>';
+  return svg(330,262,s)},
+lines:plan(['NH₃: 3 shared pairs + lone pair','lone pair → H⁺','brackets + charge'])+
+ ans(1,'','','Start from ammonia. Nitrogen has 5 outer electrons. <span class="hl">Three N–H bonds</span>, each a shared pair of <span class="hl">one × and one •</span>.','M1')+
+ ans(2,'','','The lone pair on nitrogen (× ×) is still there. H<sup>+</sup> has <span class="hl">no electrons</span> to share.','')+
+ ans(3,'Draw the fourth bond as × •.','Wrong: H<sup>+</sup> has no electron. Both electrons come from N.','The lone pair forms the fourth bond: a <span class="hl">dative covalent bond with two × electrons</span> from nitrogen.','M2')+
+ ans(4,'Forget the charge.','A charge is needed: this is an ion.','Draw <span class="hl">square brackets</span> around the ion and write the <span class="hl">+ charge</span> outside.','M3'),
+chips:[['M1','three N–H shared pairs (× •)',1],['M2','dative pair: both × from N',3],['M3','brackets and + charge',4]],
+steps:[
+{t:'Read the question',x:'Check the rules for the diagram: outer electrons only, × for N and • for H. Circles are optional.',tip:'Use the symbols the question gives you. Mixing them up can cost the dative bond mark.'},
+{t:'Draw ammonia first',x:'Nitrogen has 5 outer electrons. Three of them pair with the electrons of three H atoms. Two are left as a lone pair.',tip:'Count the electrons around N at the end: there should be 8.'},
+{t:'Add the hydrogen ion',x:'A hydrogen ion is a hydrogen atom that has lost its only electron. It has nothing to share.',tip:'H<sup>+</sup> is just a proton.'},
+{t:'Make the dative bond',x:'The lone pair on nitrogen is shared with H<sup>+</sup>. Both electrons come from N, so draw two × in the bond.',tip:'Once formed, a dative bond is the same as the other N–H bonds. All four bonds are identical.'},
+{t:'Show the charge',x:'The ion has one more proton than electrons, so it is 1+. Put the whole ion in square brackets with the charge outside.',tip:'The charge belongs to the whole ion, not to one atom.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Drawing the dative bond as × • (H<sup>+</sup> has no electron).','Leaving a lone pair on nitrogen in NH<sub>4</sub><sup>+</sup>.','Missing brackets or the + charge.','Drawing inner-shell electrons when the question says outer only.'],
+your:{kind:'text',marks:3,q:'Water reacts with a hydrogen ion to form the oxonium ion, H<sub>3</sub>O<sup>+</sup>. <b>Describe</b> how the dative covalent bond forms, and how it compares with the other O–H bonds. (3)',
+ ms:['The oxygen atom in water has a lone pair of electrons.','Both electrons of the new bond come from oxygen / the lone pair is donated to H<sup>+</sup> (which has no electrons).','Once formed, the dative bond is identical to the other O–H bonds / all three O–H bonds are the same.'],
+ warn:[[/hydrogen (ion )?(gives|donates|shares) (an |one )?electron/i,'H<sup>+</sup> has no electrons to give. Both electrons come from oxygen.']]}
+});
+/* ---------- 5 shape NCl3 ---------- */
+W.push({btn:'Shape and bond angle (EPR)',spec:[["3.19","predict shapes"],["3.16","electron-pair repulsion"],["3.18","NH₃ and analogues"]],type:'Explain',marks:4,
+title:'The shape and bond angle of nitrogen trichloride, NCl<sub>3</sub>',
+q:'<p><span class="mk">(4)</span>Nitrogen trichloride, NCl<sub>3</sub>, is a covalent molecule.</p><p>Use <mark>electron-pair repulsion theory</mark> to <mark>predict</mark> the <mark>shape</mark> of NCl<sub>3</sub> and the <mark>Cl–N–Cl bond angle</mark>. <mark>Explain</mark> your answer.</p>',
+diag:function(){var s=DEFS,nx=150,ny=112;
+  s+='<g data-hot="1"><path class="lobe" data-hot="1 3" d="M'+nx+' '+(ny-6)+'C'+(nx-26)+' '+(ny-40)+' '+(nx-14)+' '+(ny-74)+' '+nx+' '+(ny-74)+'C'+(nx+14)+' '+(ny-74)+' '+(nx+26)+' '+(ny-40)+' '+nx+' '+(ny-6)+'Z"/></g>';
+  s+=X(nx-6,ny-48)+X(nx+6,ny-48);
+  s+='<line class="bd" x1="'+nx+'" y1="'+ny+'" x2="'+(nx-70)+'" y2="'+(ny+60)+'"/>';
+  s+='<polygon class="wedge" points="'+nx+','+ny+' '+(nx+24)+','+(ny+84)+' '+(nx+38)+','+(ny+78)+'"/>';
+  for(var k=1;k<8;k++){var f=k/8,x=nx+f*86,y=ny+f*44,hw=1+f*6;s+='<line class="bd" x1="'+(x-hw*0.45)+'" y1="'+(y+hw*0.9)+'" x2="'+(x+hw*0.45)+'" y2="'+(y-hw*0.9)+'" stroke-width="1.4"/>'}
+  s+=C(nx,ny,13,'atn','N')+C(nx-78,ny+66,14,'atc','Cl')+C(nx+32,ny+92,14,'atc','Cl')+C(nx+94,ny+48,14,'atc','Cl');
+  s+='<g'+A(1)+'>'+T(208,30,'3 bonding pairs','an')+T(208,46,'+ 1 lone pair','an')+T(208,62,'= 4 electron pairs','an')+'</g>';
+  s+='<g'+A(2)+'>'+arr(nx-20,ny-28,nx-50,ny-6,'po')+arr(nx+20,ny-28,nx+50,ny-6,'po')+T(6,122,'repel → as far','an')+T(6,138,'apart as possible','an')+'</g>';
+  s+='<g'+A(3)+'>'+T(6,30,'lone pair repels','an')+T(6,46,'more strongly','an')+'</g>';
+  s+='<g'+A(4)+'><path class="anl" d="M'+(nx-24)+' '+(ny+20)+'Q'+(nx-4)+' '+(ny+38)+' '+(nx+12)+' '+(ny+32)+'"/>'+T(nx-24,ny+64,'107°','big','text-anchor="middle"')+T(165,250,'pyramidal (trigonal pyramidal)','an','text-anchor="middle"')+'</g>';
+  return svg(330,262,s)},
+lines:plan(['count pairs: 3 bp + 1 lp','repel → max separation','lp repels more','pyramidal, 107°'])+
+ ans(1,'N has three bonds.','The lone pair counts too. Count all the electron pairs.','Nitrogen has <span class="hl">3 bonding pairs and 1 lone pair</span> of electrons around it.','M1')+
+ ans(2,'The atoms repel each other.','EPR theory is about electron pairs, not atoms.','The <span class="hl">electron pairs repel</span> each other and move <span class="hl">as far apart as possible</span> (to minimise repulsion).','M2')+
+ ans(3,'The lone pair is bigger.','Say what the lone pair does: it repels more.','A <span class="hl">lone pair repels more than a bonding pair</span>, so the bond angle is less than 109.5°.','M3')+
+ ans(4,'Trigonal planar, 120°.','That ignores the lone pair. Four pairs give a tetrahedral arrangement.','Shape: <span class="hl">pyramidal</span>. Bond angle: <span class="hl">107°</span> (allow 106–108°).','M4'),
+chips:[['M1','3 bonding pairs + 1 lone pair',1],['M2','pairs repel, maximum separation',2],['M3','lone pair repels more',3],['M4','pyramidal, 107°',4]],
+steps:[
+{t:'Read and plan',x:'"Use electron-pair repulsion theory" means: count the electron pairs, say that they repel, then give the shape and angle.',tip:'NCl<sub>3</sub> is like NH<sub>3</sub>. Spot the analogue: same central atom, same number of bonds.'},
+{t:'Count the electron pairs',x:'Nitrogen has 5 outer electrons. Three are used in bonds to Cl. The other two form a lone pair. That is 4 pairs.',tip:'Draw a quick dot-and-cross diagram in the margin to count the pairs.'},
+{t:'Pairs repel',x:'Electron pairs are negative, so they repel. They get as far apart as possible. Four pairs point to the corners of a tetrahedron.',tip:'Say "electron pairs repel". Not atoms, not bonds.'},
+{t:'Lone pair effect',x:'A lone pair is held closer to the nitrogen, so it repels more than a bonding pair. It squeezes the bonds closer together.',tip:'Each lone pair reduces the angle by about 2.5°: 109.5° → 107° → 104.5°.'},
+{t:'Name the shape and angle',x:'The shape is named from the atoms only, not the lone pair. Three Cl atoms and the N make a pyramid.',tip:'Do not call it tetrahedral. The electron pairs are tetrahedral, but the shape is pyramidal.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Forgetting the lone pair and saying trigonal planar, 120°.','Saying "the atoms repel" or "the bonds repel".','Calling the shape tetrahedral.','Giving 109.5° for a molecule with a lone pair.'],
+your:{kind:'text',marks:4,q:'Oxygen difluoride, OF<sub>2</sub>, is a covalent molecule. Predict its shape and F–O–F bond angle, and <b>explain</b> your answer using electron-pair repulsion theory. (4)',
+ ms:['Oxygen has 2 bonding pairs and 2 lone pairs.','The electron pairs repel and move as far apart as possible.','Lone pairs repel more than bonding pairs.','Shape: bent / V-shaped / non-linear. Bond angle about 104.5° (allow 103–105°).'],
+ warn:[[/linear|180/i,'Did you forget the two lone pairs on oxygen? They make the molecule bent, not linear.'],[/atoms repel/i,'In EPR theory it is the electron pairs that repel, not the atoms.']]}
+});
+/* ---------- 6 polar molecules ---------- */
+W.push({btn:'Polar bonds and polar molecules',spec:[["3.15","polar molecules"],["3.13","electronegativity"],["3.14","bond polarity"]],type:'Explain',marks:3,
+title:'Why CCl<sub>4</sub> is non-polar but CHCl<sub>3</sub> is polar',
+q:'<p><span class="mk">(3)</span>Electronegativity values: C <mark>2.5</mark>, Cl <mark>3.0</mark>, H <mark>2.1</mark>.</p><p><mark>Explain</mark> why tetrachloromethane, CCl<sub>4</sub>, is a <mark>non-polar</mark> molecule but trichloromethane, CHCl<sub>3</sub>, is a <mark>polar</mark> molecule. Both are tetrahedral.</p>',
+diag:function(){var s=DEFS;
+  function mol(cx,top,lab){var p=[[0,-58],[-56,26],[56,26],[0,62]],r='';
+    p.forEach(function(q,i){r+='<line class="bd" x1="'+cx+'" y1="118" x2="'+(cx+q[0])+'" y2="'+(118+q[1])+'"/>'});
+    r+=C(cx,118,13,'atn','C');
+    p.forEach(function(q,i){var isH=(i===0&&top==='H');r+=C(cx+q[0],118+q[1],isH?9:13,isH?'ath':'atc',isH?'H':'Cl')});
+    r+='<g'+A(1)+'>';p.forEach(function(q,i){var isH=(i===0&&top==='H');if(!isH){r+=arr(cx+q[0]*0.25,118+q[1]*0.25,cx+q[0]*0.68,118+q[1]*0.68,'dp');r+=T(cx+q[0]*1.0+(q[0]>0?14:q[0]<0?-14:12),118+q[1]*1.0+(q[1]<0?-14:18),'δ−','dl','text-anchor="middle"')}});r+=T(cx+17,108,'δ+','dl')+'</g>';
+    r+=T(cx,24,lab,'hd','text-anchor="middle"');return r}
+  s+=mol(78,'Cl','CCl₄')+mol(250,'H','CHCl₃');
+  s+='<g'+A(2)+'>'+T(78,214,'symmetrical:','an','text-anchor="middle"')+T(78,230,'dipoles cancel','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+arr(322,58,322,138,'barr')+T(250,214,'C–H is not like C–Cl:','an','text-anchor="middle"')+T(250,230,'dipoles do not cancel','an','text-anchor="middle"')+T(250,246,'→ net dipole','an','text-anchor="middle"')+'</g>';
+  return svg(330,258,s)},
+lines:plan(['C–Cl polar (3.0 vs 2.5)','CCl₄ symmetrical → cancel','CHCl₃ not symmetrical → net dipole'])+
+ ans(1,'Chlorine is bigger than carbon.','Polarity comes from electronegativity, not size.','<span class="hl">Chlorine is more electronegative</span> than carbon, so each <span class="hl">C–Cl bond is polar</span> (C<sup>δ+</sup>–Cl<sup>δ−</sup>).','M1')+
+ ans(2,'CCl₄ has no polar bonds.','Wrong: all four bonds are polar. Their effects cancel.','CCl<sub>4</sub> is <span class="hl">symmetrical</span> (tetrahedral, four identical bonds), so the <span class="hl">bond dipoles cancel</span>.','M2')+
+ ans(3,'CHCl₃ is not symmetrical.','Good start, but finish the idea: what happens to the dipoles?','In CHCl<sub>3</sub> the C–H bond has a different (smaller) polarity, so the dipoles <span class="hl">do not cancel</span> and there is a <span class="hl">net (permanent) dipole</span>.','M3'),
+chips:[['M1','C–Cl bonds polar (electronegativity)',1],['M2','CCl₄ symmetrical, dipoles cancel',2],['M3','CHCl₃ dipoles do not cancel',3]],
+steps:[
+{t:'Read and plan',x:'This question is about the difference between a <b>polar bond</b> and a <b>polar molecule</b>. You need both ideas.',tip:'Use the electronegativity values. The examiner gave them for a reason.'},
+{t:'Polar bonds',x:'Cl (3.0) attracts the bonding pair more than C (2.5). The electrons are pulled towards Cl, so Cl is δ− and C is δ+.',tip:'Electronegativity is the ability of an atom to attract the bonding pair of electrons in a covalent bond.'},
+{t:'CCl₄: dipoles cancel',x:'Four identical dipoles point to the corners of a tetrahedron. They pull equally in all directions, so they cancel out.',tip:'A molecule with polar bonds can be non-polar. Shape decides.'},
+{t:'CHCl₃: net dipole',x:'One Cl is replaced by H. The C–H bond is much less polar, so the pulls are no longer balanced. The molecule has a net dipole.',tip:'End with the words "net dipole" or "permanent dipole".'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying CCl<sub>4</sub> has no polar bonds.','Explaining polarity with atom size instead of electronegativity.','Saying "it is not symmetrical" without saying the dipoles do not cancel.','Drawing the δ+ on chlorine.'],
+your:{kind:'text',marks:3,q:'Boron trifluoride, BF<sub>3</sub>, has polar bonds but is a non-polar molecule. Ammonia, NH<sub>3</sub>, is polar. <b>Explain</b> the difference. (3)',
+ ms:['B–F and N–H bonds are polar because of the difference in electronegativity.','BF<sub>3</sub> is trigonal planar / symmetrical, so the bond dipoles cancel.','NH<sub>3</sub> is pyramidal (has a lone pair) / not symmetrical, so the dipoles do not cancel: there is a net dipole.'],
+ warn:[[/no polar bonds|bonds are not polar|non-?polar bonds/i,'BF<sub>3</sub> does have polar bonds. The dipoles cancel because of the shape.']]}
+});
+/* ---------- 7 giant covalent vs simple molecular ---------- */
+W.push({btn:'Giant covalent vs simple molecular',spec:[["3.10 i","giant atomic structures"],["3.12","giant lattices"]],type:'Explain',marks:4,
+title:'Why silicon dioxide melts at a much higher temperature than carbon dioxide',
+q:'<p><span class="mk">(4)</span>Silicon dioxide, SiO<sub>2</sub>, melts at <mark>1710 °C</mark>. Carbon dioxide, CO<sub>2</sub>, turns to gas at <mark>−78 °C</mark>.</p><p><mark>Explain</mark> this difference in terms of <mark>structure</mark> and <mark>bonding</mark>.</p>',
+diag:function(){var s='';
+  s+=T(76,18,'SiO₂','hd','text-anchor="middle"')+T(250,18,'CO₂','hd','text-anchor="middle"');
+  var g='';for(var i=0;i<3;i++)for(var j=0;j<3;j++){var x=24+i*52,y=50+j*58;
+    if(i<2)g+='<line class="bd cv" data-hot="2" x1="'+x+'" y1="'+y+'" x2="'+(x+52)+'" y2="'+y+'"/>';
+    if(j<2)g+='<line class="bd cv" data-hot="2" x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y+58)+'"/>'}
+  for(var i=0;i<3;i++)for(var j=0;j<3;j++){var x=24+i*52,y=50+j*58;if(i<2)g+=C(x+26,y,6,'ato','');if(j<2)g+=C(x,y+29,6,'ato','');}
+  for(var i=0;i<3;i++)for(var j=0;j<3;j++)g+=C(24+i*52,50+j*58,10,'ats','Si');
+  s+=g;
+  var m=[[200,60],[284,84],[214,140],[290,170],[204,214]],r='';
+  m.forEach(function(p){r+='<line class="bd" x1="'+(p[0]-22)+'" y1="'+(p[1]-3)+'" x2="'+(p[0]+22)+'" y2="'+(p[1]-3)+'"/><line class="bd" x1="'+(p[0]-22)+'" y1="'+(p[1]+3)+'" x2="'+(p[0]+22)+'" y2="'+(p[1]+3)+'"/>'+C(p[0]-24,p[1],8,'ato','O')+C(p[0]+24,p[1],8,'ato','O')+C(p[0],p[1],8,'atn','C')});
+  s+=r;
+  s+='<g'+A(4)+'><path class="imf" data-hot="4" d="M226 66L262 80M228 132L270 92M236 146L268 166M228 206L272 178M206 84L210 128"/></g>';
+  s+='<g'+A(1)+'>'+T(76,240,'giant covalent lattice','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(250,240,'simple molecules','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'>'+T(250,256,'weak forces between them','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(2)+'>'+T(76,256,'strong covalent bonds','an','text-anchor="middle"')+'</g>';
+  return svg(330,264,s)},
+lines:plan(['SiO₂ giant covalent','break many strong covalent bonds','CO₂ simple molecular','only weak forces between molecules'])+
+ ans(1,'SiO₂ is ionic.','Si and O are both non-metals: the bonds are covalent.','Silicon dioxide has a <span class="hl">giant covalent</span> (giant atomic) lattice structure.','M1')+
+ ans(2,'Strong bonds need lots of energy.','Which bonds? Say covalent, and that there are many of them.','To melt it, <span class="hl">many strong covalent bonds must be broken</span>, which needs a lot of energy.','M2')+
+ ans(3,'','','Carbon dioxide is made of <span class="hl">simple molecules</span> (simple molecular structure).','M3')+
+ ans(4,'The covalent bonds in CO₂ are weak.','Wrong: the C=O bonds are strong and do not break. Only the forces between molecules are overcome.','Only the <span class="hl">weak forces between the molecules</span> (London forces) are overcome. <span class="hl">No covalent bonds break</span>, so little energy is needed.','M4'),
+chips:[['M1','SiO₂ giant covalent',1],['M2','many strong covalent bonds broken',2],['M3','CO₂ simple molecular',3],['M4','only weak intermolecular forces',4]],
+steps:[
+{t:'Read and plan',x:'"Structure and bonding" means: name the structure of each substance, then say which forces or bonds must be overcome.',tip:'For each substance, write two things: the structure, and what breaks when it melts or boils.'},
+{t:'SiO₂: the structure',x:'Every silicon atom is joined to four oxygen atoms, and every oxygen to two silicon atoms. There are no separate molecules.',tip:'Write "giant covalent" or "giant atomic". "Giant structure" alone is not enough.'},
+{t:'SiO₂: what breaks',x:'To melt SiO<sub>2</sub> you must break covalent bonds right through the lattice. There are very many of them, and each one is strong.',tip:'Use the word "many" or "lots of". It explains why the melting temperature is so high.'},
+{t:'CO₂: the structure',x:'Carbon dioxide exists as separate O=C=O molecules.',tip:'Do not say CO<sub>2</sub> is giant. Si and C are in the same group, but their oxides have very different structures.'},
+{t:'CO₂: what is overcome',x:'The molecules are held together only by weak forces. These are easy to overcome. The covalent bonds inside each molecule stay intact.',tip:'This is the most common place to lose a mark: never say the covalent bonds in CO<sub>2</sub> break.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying covalent bonds in CO<sub>2</sub> break when it turns to gas.','Calling SiO<sub>2</sub> ionic or a simple molecule.','Writing "strong bonds" without saying covalent.','Mixing up melting and boiling, or atoms and molecules.'],
+your:{kind:'text',marks:3,q:'Graphite conducts electricity but diamond does not. Both are giant covalent forms of carbon. <b>Explain</b> why. (3)',
+ ms:['In graphite each carbon atom is covalently bonded to three others (in layers).','So one electron per carbon atom is delocalised, and these electrons can move (and carry charge).','In diamond each carbon atom is bonded to four others, so all outer electrons are in bonds: no delocalised electrons.'],
+ warn:[[/\bions?\b/i,'Graphite conducts because of delocalised electrons, not ions.'],[/free to move between the layers because the layers/i,'The layers sliding is about softness, not conductivity.']]}
+});
+/* ---------- 8 metallic ---------- */
+W.push({btn:'Metallic bonding: Na vs Mg',spec:[["3.22","properties of metals"],["3.20","lattice of ions, delocalised e⁻"],["3.21","metallic bonding"]],type:'Explain',marks:4,
+title:'Why magnesium has a higher melting temperature than sodium',
+q:'<p><span class="mk">(4)</span>Sodium melts at <mark>98 °C</mark>. Magnesium melts at <mark>650 °C</mark>.</p><p><mark>Explain</mark> why the melting temperature of magnesium is higher. Use your knowledge of <mark>metallic bonding</mark>.</p>',
+diag:function(){var s='';
+  s+=T(70,14,'Na  (98 °C)','hd','text-anchor="middle"')+T(250,14,'Mg  (650 °C)','hd','text-anchor="middle"');
+  s+=metal(18,44,'+',12,1,'')+metal(198,44,'2+',10,2,'2');
+  s+='<g'+A(1)+'>'+T(165,196,'positive ions in a sea of delocalised electrons','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(2)+'>'+T(250,212,'Mg²⁺: higher charge','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(70,212,'1 e⁻ per atom','an','text-anchor="middle"')+T(250,228,'2 e⁻ per atom','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'>'+T(165,250,'stronger attraction → more energy to overcome','an','text-anchor="middle"')+'</g>';
+  return svg(330,262,s)},
+lines:plan(['ions + delocalised e⁻','Mg²⁺ vs Na⁺','2 e⁻ vs 1 e⁻ per atom','stronger attraction → more energy'])+
+ ans(1,'Metals have strong bonds.','Describe the bonding: what attracts what?','Metallic bonding is the <span class="hl">electrostatic attraction between positive metal ions and delocalised electrons</span>.','M1')+
+ ans(2,'Magnesium atoms are smaller.','Compare the ions in the lattice, and their charge.','Magnesium forms <span class="hl">Mg<sup>2+</sup> ions</span>, which have a <span class="hl">greater charge</span> (and are smaller) than Na<sup>+</sup> ions.','M2')+
+ ans(3,'Magnesium has more electrons.','Too vague: say delocalised electrons per atom.','Each Mg atom gives <span class="hl">two delocalised electrons</span>; each Na atom gives only one.','M3')+
+ ans(4,'So it is harder to melt.','Finish with attraction and energy.','So the <span class="hl">attraction between the ions and the delocalised electrons is stronger</span> in Mg and <span class="hl">more energy is needed</span> to overcome it.','M4'),
+chips:[['M1','attraction: ions ↔ delocalised e⁻',1],['M2','Mg²⁺ higher charge',2],['M3','more delocalised e⁻ per atom',3],['M4','stronger attraction, more energy',4]],
+steps:[
+{t:'Read and plan',x:'Both are metals, so both have metallic bonding. The marks come from comparing the ions and the delocalised electrons.',tip:'Plan one point each on: the model, the ions, the electrons, the energy.'},
+{t:'Describe metallic bonding',x:'A metal is a giant lattice of positive ions surrounded by a sea of delocalised electrons. The bonding is the attraction between them.',tip:'Use "delocalised". "Free electrons" may not score.'},
+{t:'Compare the ions',x:'Sodium is in Group 1 and forms Na<sup>+</sup>. Magnesium is in Group 2 and forms Mg<sup>2+</sup>, which is also smaller.',tip:'Give the ion charges. "Magnesium is bigger" or "has a bigger charge" alone is too vague.'},
+{t:'Compare the electrons',x:'Each Mg atom adds two electrons to the sea, so the sea has twice as many delocalised electrons.',tip:'Say "per atom". Magnesium does not have more electrons overall just because it is a metal.'},
+{t:'Link to energy',x:'More charge on both sides of the attraction makes the metallic bonding stronger. More energy is needed to overcome it.',tip:'Melting overcomes the metallic bonding. Do not mention intermolecular forces for a metal.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Talking about intermolecular forces or covalent bonds in a metal.','Saying "free electrons" instead of delocalised electrons.','Comparing atoms instead of ions.','Not saying "more energy is needed".'],
+your:{kind:'text',marks:3,q:'<b>Describe</b> metallic bonding, and <b>explain</b> why metals conduct electricity. (3)',
+ ms:['A lattice of positive metal ions.','Surrounded by a sea of delocalised electrons (strong electrostatic attraction between them).','The delocalised electrons can move through the lattice and carry charge when a potential difference is applied.'],
+ warn:[[/\bions\s+(move|carry|flow)/i,'In a solid metal the ions stay in place. It is the delocalised electrons that move.'],[/negative ions/i,'The metal ions are positive. The electrons are the negative part.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 1 · Topic 3 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["3.1", "Interpret evidence for ions: physical properties, electron density maps and ion migration."], ["3.2", "Describe how ions form when atoms lose or gain electrons."], ["3.3", "Draw dot-and-cross diagrams for cations and anions."], ["3.4", "Describe an ionic crystal as a giant lattice of ions."], ["3.5", "Define ionic bonding: strong net electrostatic attraction between ions."], ["3.6", "Explain how ionic radius and ionic charge affect the strength of ionic bonding."], ["3.7", "Explain trends in ionic radii down a group and for isoelectronic ions (N<sup>3−</sup> to Al<sup>3+</sup>)."], ["3.8", "Explain polarisation of ions."], ["3.9", "Explain how cation radius and charge affect polarising power, and anion radius and charge affect polarisability."], ["3.10", "Describe covalent bonding as attraction between two nuclei and a shared pair; use evidence from giant atomic structures and electron density maps."], ["3.11", "Draw dot-and-cross diagrams for covalent molecules, including double, triple and dative bonds (Al<sub>2</sub>Cl<sub>6</sub>, NH<sub>4</sub><sup>+</sup>)."], ["3.12", "Describe the structures of graphite, diamond and graphene, and their uses."], ["3.13", "Explain electronegativity for atoms in a covalent bond."], ["3.14", "Explain the ionic–covalent continuum using electronegativity difference and bond polarity."], ["3.15", "Tell the difference between polar bonds and polar molecules, and predict whether a molecule is polar."], ["3.16", "Use electron-pair repulsion theory to predict the shapes of molecules and ions."], ["3.17", "Explain the terms bond length and bond angle."], ["3.18", "Give and explain the shapes and bond angles of BeCl<sub>2</sub>, BCl<sub>3</sub>, CH<sub>4</sub>, NH<sub>3</sub>, NH<sub>4</sub><sup>+</sup>, H<sub>2</sub>O, CO<sub>2</sub>, PCl<sub>5</sub>, SF<sub>6</sub> and C<sub>2</sub>H<sub>4</sub>."], ["3.19", "Predict the shapes and bond angles of similar molecules and ions."], ["3.20", "Describe a metal as a giant lattice of positive ions in a sea of delocalised electrons."], ["3.21", "Define metallic bonding: strong electrostatic attraction between metal ions and delocalised electrons."], ["3.22", "Use metallic bonding to explain electrical conductivity and high melting temperature."]],KEY="ialchem-t3-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 3: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

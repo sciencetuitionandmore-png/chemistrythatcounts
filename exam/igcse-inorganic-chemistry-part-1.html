@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inorganic Chemistry Part 1</title>
+<meta name="description" content="How to answer exam questions, step by step: Inorganic Chemistry Part 1. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/igcse-inorganic-chemistry-part-1.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--good-soft:#e2f3e8;--bad:#b3261e;--bad-soft:#fbe8e6;--hl:#fff1c7;--amber:#e0a526;--amber-ink:#875700;--amber-soft:#fff8e7}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font:17px/1.55 "Atkinson Hyperlegible",Verdana,Arial,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:Lexend,"Atkinson Hyperlegible",Verdana,Arial,sans-serif;font-weight:700;line-height:1.25;margin:0}
+h1{font-size:clamp(24px,3.4vw,32px)}
+h2{font-size:clamp(20px,2.6vw,25px);margin:6px 0 10px}
+h3{font-size:18px;margin:2px 0 6px}
+p{margin:0 0 8px}
+sub,sup{font-size:.72em;line-height:0}
+button{font:inherit;color:inherit}
+.mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.wrap{max-width:1127px;margin:0 auto;padding:22px 16px 40px}
+.lead{color:var(--muted);margin:8px 0 18px}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px}
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.qc{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--sheet);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;min-height:74px}
+.qc b{font-family:Lexend,"Atkinson Hyperlegible",sans-serif;font-weight:600;font-size:16px;line-height:1.3}
+.qc .mono{font-size:11px}
+.qc:hover{border-color:var(--accent)}
+.qc.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.qc.on .mono{color:#dcdafa}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.qc.on:focus-visible{outline-color:var(--amber)}
+.lab{margin-bottom:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{font-size:13px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 11px;font-weight:700}
+.qbox{border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;background:var(--sheet)}
+.qbox p:last-child{margin-bottom:0}
+.eq{display:block;text-align:center;margin:8px 0;font-weight:700}
+.hl,.k{background:var(--hl);box-shadow:inset 0 0 0 1.5px var(--amber);border-radius:4px;padding:0 3px;font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.data{color:var(--muted)}
+.tw{overflow-x:auto;margin:8px 0}
+table.t{border-collapse:collapse;font-size:15px;min-width:100%}
+.t th,.t td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.t th{background:var(--paper);font-weight:700}
+.t td.c{text-align:center}
+.cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:start}
+.ans{border:2px solid var(--line);border-radius:12px;padding:10px 16px 14px;margin:0;min-height:300px;min-width:0}
+.ans legend{padding:0 6px}
+.empty{color:var(--muted);font-style:italic}
+.ln{padding:5px 0;border-bottom:1px dashed #e3e8ee}
+.ln:last-child{border-bottom:0}
+.tg{display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;font-weight:700;color:#fff;background:var(--good);border-radius:6px;padding:1px 6px;margin-right:7px;vertical-align:1px}
+.fin{border:2.5px solid var(--accent);border-radius:10px;padding:8px 12px;margin-top:8px;font-weight:700;background:var(--accent-soft)}
+.call{border:2px solid var(--amber);background:#fffdf6;border-radius:10px;padding:8px 12px;margin-top:12px}
+.call .mono{color:var(--amber-ink);display:block;margin-bottom:2px}
+.foot{font-size:14px;color:var(--muted);margin:12px 0 0;border-top:1px solid var(--line);padding-top:8px}
+.ctrl{display:flex;flex-direction:column;gap:12px;min-width:0}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font-family:Lexend,"Atkinson Hyperlegible",sans-serif;font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--sheet);cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.btns .pri{flex:1 1 auto}
+.dots{display:flex;gap:7px;flex-wrap:wrap}
+.dots span{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dots span.on{background:var(--accent)}
+.dots span.cur{box-shadow:0 0 0 3px var(--accent-soft)}
+.speed{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.speed button{font-size:14px;padding:4px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--sheet);cursor:pointer}
+.speed button[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.chips{display:flex;flex-direction:column;gap:6px}
+.chip{border:1.5px solid var(--line);border-radius:10px;padding:5px 10px;font-size:15px;line-height:1.35;color:var(--muted);background:var(--sheet)}
+.chip b{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;margin-right:4px}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on b::after{content:" \2713"}
+.step{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fafbfd}
+.step p:last-child{margin-bottom:0}
+.tip{border-left:4px solid var(--amber);background:var(--amber-soft);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-size:16px}
+.tip>b:first-child{color:var(--amber-ink)}
+.your{border:2px dashed var(--accent);border-radius:14px;background:var(--sheet);padding:20px;margin:22px 0}
+.your h3{color:var(--accent);font-size:20px}
+.yq{margin:6px 0 12px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.your input[type=text]{font:inherit;width:160px;max-width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:10px}
+.unit{font-weight:700;margin-right:6px}
+textarea{font:inherit;width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:10px;resize:vertical}
+.fb{margin:10px 0 0;font-weight:700;min-height:1.5em}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+.worked{margin:10px 0 0;padding-left:24px}
+.worked li{padding:3px 0}
+.ticks{list-style:none;padding:0;margin:8px 0}
+.ticks li{padding:4px 0}
+.ticks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.ticks input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--good)}
+.score{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:700;color:var(--good);font-size:16px}
+.bar{height:8px;border-radius:99px;background:var(--paper);overflow:hidden;display:flex;margin:12px 0 6px;border:1px solid var(--line)}
+.bar i{display:block;height:100%}
+.crow{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}
+.crow .sp{color:var(--accent)}
+.crow p{margin:0}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pills button{font-size:14px;padding:4px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--sheet);cursor:pointer}
+.pills button.v0[aria-pressed=true]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);font-weight:700}
+.pills button.v1[aria-pressed=true]{background:var(--amber-soft);border-color:var(--amber);color:var(--amber-ink);font-weight:700}
+.pills button.v2[aria-pressed=true]{background:var(--good-soft);border-color:var(--good);color:var(--good);font-weight:700}
+.prac{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:4px 14px}
+.link{background:none;border:0;padding:0;color:var(--accent);font-weight:700;text-decoration:underline;cursor:pointer;font-size:15px;text-align:left}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:900px){.picker{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:minmax(0,1fr)}.ctrl{order:-1}.ans{min-height:160px}}
+@media (max-width:640px){.card,.your{padding:16px 14px}.qbox{padding:12px 13px}.crow{grid-template-columns:40px minmax(0,1fr)}.pills{grid-column:2}}
+@media (max-width:470px){.picker{grid-template-columns:minmax(0,1fr)}.qc{min-height:0}}
+</style>
+</head>
+<body><a href="../index.html#igcse-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE exam walkthroughs</a>
+
+<div class="wrap">
+<header>
+<h1 id="h1"></h1>
+<p class="lead">Choose a question. Press <b>Next step</b> (or the → key) to build the answer one mark at a time.</p>
+</header>
+<nav class="picker" id="picker" aria-label="Choose a question"></nav>
+<section class="card" id="walk">
+<div class="mono lab" id="lab"></div>
+<h2 id="qt"></h2>
+<div class="tags" id="tags"></div>
+<div class="qbox" id="qbox"></div>
+<div class="cols">
+<fieldset class="ans"><legend class="mono">Answer space</legend><div id="lines"></div><div class="call" id="call" hidden></div><p class="foot" id="foot" hidden></p></fieldset>
+<div class="ctrl">
+<div class="btns"><button type="button" class="btn" id="back">← Back</button><button type="button" class="btn" id="replay">↻ Replay</button><button type="button" class="btn pri" id="next">Next step →</button></div>
+<div class="dots" id="dots" aria-hidden="true"></div>
+<div class="speed" role="group" aria-label="Typing speed"><span class="mono">Speed</span><button type="button" data-s="0" aria-pressed="false">Slow</button><button type="button" data-s="1" aria-pressed="true">Normal</button><button type="button" data-s="2" aria-pressed="false">Fast</button></div>
+<div class="chips" id="chips"></div>
+<div class="step" id="step" aria-live="polite"></div>
+</div>
+</div>
+</section>
+<section class="your" id="your" aria-label="Your turn"></section>
+<section class="card" id="check" aria-label="Spec checklist"></section>
+</div>
+<script>
+var PAGE={key:"y10-inorganic",year:"Year 10",group:"Inorganic chemistry part 1",
+qs:[
+{id:"salt",name:"Pure, dry salt crystals",type:"Describe",marks:6,
+title:"Preparing pure, dry copper(II) sulfate crystals",
+spec:["Spec 2.39 soluble salt from an insoluble reactant","Spec 2.42 core practical: copper(II) sulfate crystals"],
+q:"<p>Copper(II) sulfate is a soluble salt. It can be made from copper(II) oxide, an insoluble black solid, and dilute sulfuric acid.</p><span class='eq'>CuO(s) + H_2SO_4(aq) → CuSO_4(aq) + H_2O(l)</span><p>[[Describe]] how a student could prepare a [[pure, dry]] sample of [[hydrated copper(II) sulfate crystals]], starting from copper(II) oxide and dilute sulfuric acid. <b>(6)</b></p>",
+M:["Warm the dilute sulfuric acid","Add CuO until in excess (black solid left)","Filter to remove the excess CuO","Heat to evaporate some water / to crystallisation point","Leave to cool so crystals form","Filter off crystals and dry them (filter paper / warm place)"],
+foot:"The salt method: react with excess → filter → crystallise → dry.",
+S:[
+{t:"Warm the acid",x:"Start with the acid in a beaker. Warming it makes the copper(II) oxide react faster.",tip:"Say <b>warm</b> or <b>heat gently</b>. Do not boil the acid.",L:["{M1}Pour about 50 cm³ of dilute sulfuric acid into a beaker and **warm it gently**."],m:[0]},
+{t:"Add the base until it is in excess",x:"Add the solid a little at a time and stir. Stop when some black solid stays at the bottom and does not dissolve.",tip:"Why excess? It makes sure <b>all the acid reacts</b>, so there is no acid left in the salt. 'Add copper(II) oxide' alone does not score: you must show it is in excess.",L:["{M2}Add copper(II) oxide a spatula at a time, stirring, **until some black solid is left over** (the copper(II) oxide is in excess)."],m:[1],c:"Excess CuO = all the acid has been used up"},
+{t:"Filter off the excess solid",x:"The blue solution is what you want. The black solid in the filter paper is the unreacted copper(II) oxide.",tip:"A common mistake: 'filter, and the crystals are left in the filter paper'. At this stage the salt is <b>dissolved</b> in the filtrate.",L:["{M3}**Filter** the mixture to remove the excess copper(II) oxide. Collect the blue filtrate."],m:[2]},
+{t:"Evaporate some of the water",x:"Heat the filtrate in an evaporating basin. Stop when the solution is concentrated: crystals appear on a cold glass rod dipped into it.",tip:"Do <b>not</b> heat to dryness. That removes the water of crystallisation and gives white anhydrous powder, not blue hydrated crystals.",L:["{M4}Heat the filtrate in an evaporating basin to **evaporate some of the water**, until crystals form on a cold glass rod (the crystallisation point)."],m:[3],c:"Crystallisation point: crystals form on a cold glass rod"},
+{t:"Let crystals form",x:"As the hot concentrated solution cools, the salt is less soluble, so crystals grow.",L:["{M5}Leave the solution to **cool**, so that crystals form."],m:[4]},
+{t:"Separate and dry the crystals",x:"Remove the crystals from the remaining solution, then dry them without strong heating.",L:["{M6}**Filter off the crystals** and **dry** them by patting with filter paper (or leave them in a warm place)."],m:[5]},
+{t:"Check the order",x:"<b>Total: 6 marks.</b> One mark for each clear step, in a sensible order. Name the apparatus (beaker, filter funnel, evaporating basin) to make each step clear.",tip:"The most common way to lose marks is heating the solution to dryness, or forgetting to filter off the excess copper(II) oxide.",L:["{=}Warm acid → add CuO in excess → filter → evaporate some water → cool → filter and dry crystals"]}
+],
+Y:{k:"text",q:"<p>Zinc sulfate is a soluble salt. Zinc carbonate is insoluble.</p><p>[[Describe]] how you could make pure, dry crystals of zinc sulfate from zinc carbonate and dilute sulfuric acid. <b>(6)</b></p>",
+P:["Add zinc carbonate to (warm) dilute sulfuric acid a little at a time, stirring","Keep adding until fizzing stops / solid is left over (zinc carbonate in excess)","Filter to remove the excess zinc carbonate","Heat the filtrate to evaporate some water (to the crystallisation point)","Leave to cool so that crystals form","Filter off the crystals and dry them between filter papers / in a warm place"]}},
+
+{id:"disp",name:"Displacement results",type:"Explain",marks:4,
+title:"Using displacement results to order metals",
+spec:["Spec 2.16 displacement reactions","Spec 2.17 order of reactivity"],
+q:"<p>A student adds small pieces of four metals to solutions of metal sulfates. The table shows her results.</p><div class='tw'><table class='t'><tr><th>Metal</th><th>magnesium sulfate</th><th>zinc sulfate</th><th>iron(II) sulfate</th><th>copper(II) sulfate</th></tr><tr><th>magnesium</th><td class='c'>–</td><td class='c'>✓</td><td class='c'>✓</td><td class='c'>✓</td></tr><tr><th>zinc</th><td class='c'>✗</td><td class='c'>–</td><td class='c'>✓</td><td class='c'>✓</td></tr><tr><th>iron</th><td class='c'>✗</td><td class='c'>✗</td><td class='c'>–</td><td class='c'>✓</td></tr><tr><th>copper</th><td class='c'>✗</td><td class='c'>✗</td><td class='c'>✗</td><td class='c'>–</td></tr></table></div><p class='data'>✓ = reaction &nbsp; ✗ = no reaction &nbsp; – = not tested</p><p>(a) [[State]] [[two]] observations when zinc is added to copper(II) sulfate solution. <b>(2)</b></p><p>(b) [[Explain]] how the results show the order of reactivity of the four metals. <b>(2)</b></p>",
+M:["Brown / pink-brown solid forms","Blue colour of the solution fades","More reactive metal displaces less reactive metal from its compound","Mg displaces all, Cu none: Mg > Zn > Fe > Cu"],
+foot:"Zn(s) + CuSO_4(aq) → ZnSO_4(aq) + Cu(s)",
+S:[
+{t:"Read the table",x:"Each ✓ means the metal pushed another metal out of its compound. Count the ticks for each metal.",L:["Ticks: magnesium 3, zinc 2, iron 1, copper 0."],c:"More ticks = more reactive metal"},
+{t:"(a) First observation: the solid",x:"Zinc displaces copper. Copper metal is a brown (pink-brown) solid, so you see it form on the zinc.",tip:"Observations are what you <b>see</b>. 'Copper is formed' is a conclusion, not an observation: say <b>brown solid</b>.",L:["{M1}A **brown solid** forms on the zinc."],m:[0]},
+{t:"(a) Second observation: the solution",x:"Copper(II) sulfate solution is blue. Zinc sulfate solution is colourless. So the blue colour fades.",tip:"Write <b>colourless</b>, not 'clear'. A solution can be clear and still coloured.",L:["{M2}The **blue colour** of the solution **fades** (it becomes colourless)."],m:[1]},
+{t:"(b) Give the rule",x:"Explain questions need the reason. Displacement only happens when the metal added is more reactive.",L:["{M3}A **more reactive metal displaces a less reactive metal** from a solution of its compound."],m:[2]},
+{t:"(b) Use the evidence and give the order",x:"<b>Total: 4 marks.</b> Quote the results: magnesium displaces all three metals; copper displaces none.",tip:"Marks are lost by giving the order with no evidence from the table. Always link the order to the ticks.",L:["{M4}Magnesium displaces all three other metals but **copper displaces none**, so the order is:","{=}most reactive  Mg > Zn > Fe > Cu  least reactive"],m:[3]}
+],
+Y:{k:"text",q:"<p>Metal X reacts with lead(II) nitrate solution and with copper(II) nitrate solution. X does not react with zinc nitrate solution.</p><p>[[Explain]] where X fits in the reactivity series. <b>(3)</b></p>",
+P:["X displaces lead and copper, so X is more reactive than lead and copper","X does not displace zinc, so X is less reactive than zinc","X is between zinc and lead in the series (e.g. it could be iron)"]}},
+
+{id:"redox",name:"Oxidised or reduced?",type:"Explain",marks:4,
+title:"Redox: oxygen, electrons and agents",
+spec:["Spec 2.20 oxidation, reduction, redox and agents"],
+q:"<p>The thermite reaction is used to weld railway lines.</p><span class='eq'>Fe_2O_3(s) + 2Al(s) → Al_2O_3(s) + 2Fe(l)</span><p>(a) [[Identify]] the substance oxidised and the substance reduced. [[Explain]] your answer [[in terms of oxygen]]. <b>(2)</b></p><p>Zinc reacts with copper(II) ions:</p><span class='eq'>Zn(s) + Cu^2+(aq) → Zn^2+(aq) + Cu(s)</span><p>(b) [[Explain]], [[in terms of electrons]], why zinc is the reducing agent. <b>(2)</b></p>",
+M:["Aluminium oxidised: gains oxygen","Iron(III) oxide reduced: loses oxygen","Zinc atoms lose electrons (are oxidised)","Zinc gives electrons to Cu^2+, so it reduces them"],
+foot:"OIL RIG: Oxidation Is Loss, Reduction Is Gain (of electrons).",
+S:[
+{t:"Follow the oxygen",x:"Look at where the oxygen starts and where it ends.",L:["Fe_2O_3 → Fe : loses oxygen. &nbsp; Al → Al_2O_3 : gains oxygen."],c:"Gain of oxygen = oxidation. Loss of oxygen = reduction."},
+{t:"(a) Substance oxidised",x:"Name the substance, then give the reason with the word 'gains'.",L:["{M1}**Aluminium is oxidised** because it **gains oxygen**."],m:[0]},
+{t:"(a) Substance reduced",x:"Name the compound, iron(III) oxide, not just 'iron'.",tip:"Here aluminium is the <b>reducing agent</b> and iron(III) oxide is the <b>oxidising agent</b>. Redox means reduction and oxidation happen together.",L:["{M2}**Iron(III) oxide is reduced** because it **loses oxygen**."],m:[1]},
+{t:"Follow the electrons",x:"There is no oxygen in (b), so use electrons. A charge going up means electrons were lost.",tip:"You do not need half-equations on the double award paper. Just say which particle loses or gains electrons.",L:["Zn → Zn^2+ : 2 electrons lost. &nbsp; Cu^2+ → Cu : 2 electrons gained."],c:"OIL RIG: Oxidation Is Loss of electrons, Reduction Is Gain"},
+{t:"(b) Zinc is oxidised",x:"Zinc atoms lose two electrons each and become zinc ions.",L:["{M3}**Zinc atoms lose electrons** to form zinc ions, so zinc is oxidised."],m:[2]},
+{t:"(b) So zinc is the reducing agent",x:"<b>Total: 4 marks.</b> A reducing agent gives electrons to another substance and so reduces it.",tip:"The most common mistake: 'zinc is reduced, so it is the reducing agent'. No! The reducing agent is itself <b>oxidised</b>.",L:["{M4}Zinc **gives its electrons to the copper(II) ions**, so it reduces them. Zinc is the reducing agent.","{=}Reducing agent: Zn (is oxidised) · Oxidising agent: Cu^2+ (is reduced)"],m:[3]}
+],
+Y:{k:"text",q:"<p>Burning magnesium keeps burning in carbon dioxide:</p><span class='eq'>2Mg(s) + CO_2(g) → 2MgO(s) + C(s)</span><p>[[Identify]] the oxidising agent and the reducing agent. [[Explain]] your answer in terms of oxygen. <b>(4)</b></p>",
+P:["Magnesium gains oxygen, so magnesium is oxidised","Carbon dioxide loses oxygen, so carbon dioxide is reduced","Magnesium is the reducing agent","Carbon dioxide is the oxidising agent"]}},
+
+{id:"galv",name:"Galvanising when scratched",type:"Explain",marks:3,
+title:"Why galvanised steel still does not rust when scratched",
+spec:["Spec 2.19 preventing rusting"],
+q:"<p>Steel buckets are often <b>galvanised</b>. They are coated with a thin layer of zinc.</p><p>[[Explain]] how galvanising stops the iron in the steel from rusting, [[even when the zinc layer is scratched]]. <b>(3)</b></p>",
+M:["Zinc layer is a barrier to water and oxygen","Zinc is more reactive than iron","Zinc corrodes instead of iron (sacrificial protection)"],
+foot:"Rust is hydrated iron(III) oxide. Iron needs water and oxygen to rust.",
+S:[
+{t:"Spot the two parts",x:"The question has two situations: the zinc layer unbroken, and the zinc layer scratched. You need an idea for each.",L:["Part 1: coating not broken. &nbsp; Part 2: coating scratched."],c:"Barrier + sacrificial protection"},
+{t:"Unbroken layer: a barrier",x:"Iron needs both water and oxygen to rust. The coating keeps them away.",L:["{M1}The zinc coating is a **barrier**: it stops **water and oxygen** reaching the iron."],m:[0]},
+{t:"Scratched: compare reactivity",x:"When scratched, the iron is exposed. Now reactivity matters.",tip:"'Zinc is reactive' scores nothing. You must compare: <b>more reactive than iron</b>.",L:["{M2}Zinc is **more reactive than iron**."],m:[1]},
+{t:"Scratched: zinc corrodes first",x:"<b>Total: 3 marks.</b> The zinc reacts with water and oxygen instead of the iron. The zinc is 'sacrificed'.",tip:"Do not say 'zinc rusts': only iron rusts. Say zinc <b>corrodes</b> or <b>is oxidised</b>. 'Zinc loses electrons more easily than iron' is also accepted.",L:["{M3}So the **zinc corrodes instead of the iron** (it is oxidised first). This is **sacrificial protection**."],m:[2]}
+],
+Y:{k:"text",q:"<p>Blocks of magnesium are fixed to the steel hull of a ship.</p><p>[[Explain]] how the magnesium blocks stop the hull from rusting. <b>(3)</b></p>",
+P:["Magnesium is more reactive than iron","Magnesium corrodes / is oxidised / loses electrons instead of the iron (sacrificial protection)","The blocks are used up, so they must be replaced from time to time"]}},
+
+{id:"rust",name:"Rusting investigation",type:"Practical",marks:5,
+title:"Investigating the conditions for rusting",
+spec:["Spec 2.18 conditions for rusting"],
+q:"<p>A student sets up four test tubes, each with an iron nail. She leaves them for one week.</p><div class='tw'><table class='t'><tr><th>Tube</th><th>Contents</th><th>Result after one week</th></tr><tr><td>A</td><td>tap water, open to the air</td><td>rusted</td></tr><tr><td>B</td><td>boiled water with a layer of oil on top</td><td>no rust</td></tr><tr><td>C</td><td>air with anhydrous calcium chloride, stoppered</td><td>no rust</td></tr><tr><td>D</td><td>salt water, open to the air</td><td>a lot of rust</td></tr></table></div><p>(a) [[Explain]] why the water in tube B was boiled and why oil was added. <b>(2)</b></p><p>(b) [[State]] the purpose of the calcium chloride in tube C. <b>(1)</b></p><p>(c) What do tubes A, B and C show about the conditions needed for rusting? <b>(1)</b></p><p>(d) [[State]] one variable the student should control. <b>(1)</b></p>",
+M:["Boiling removes dissolved oxygen (air)","Oil stops air dissolving back in","Calcium chloride absorbs water / dries the air","Rusting needs both water and oxygen","Control: same size/type of nail, same time or temperature"],
+foot:"Rust = hydrated iron(III) oxide. Salt speeds up rusting (tube D).",
+S:[
+{t:"See what each tube removes",x:"A good rusting experiment removes one condition in each tube.",L:["Tube B: no oxygen. &nbsp; Tube C: no water. &nbsp; Tube A: both present."],c:"Each tube removes one condition"},
+{t:"(a) Why boil the water?",x:"Water contains dissolved air. Boiling drives the dissolved gases out.",L:["{M1}Boiling **removes dissolved oxygen** (air) from the water."],m:[0]},
+{t:"(a) Why add oil?",x:"Air would dissolve back into the cooled water. The oil layer stops that.",tip:"'To keep air out' is fine. 'To keep water out' is wrong: the nail is in water!",L:["{M2}The oil layer **stops air (oxygen) dissolving back** into the water."],m:[1]},
+{t:"(b) Calcium chloride",x:"Anhydrous calcium chloride is a drying agent.",L:["{M3}It **absorbs water (vapour)**, so the air in tube C is dry."],m:[2]},
+{t:"(c) The conclusion",x:"Only tube A, with both water and oxygen, rusted.",L:["{M4}Iron needs **both water and oxygen** to rust."],m:[3]},
+{t:"(d) A control variable",x:"<b>Total: 5 marks.</b> A control variable is kept the same in every tube so the test is fair.",tip:"'Same nail' is too vague. Say <b>same size</b> or <b>same type</b> of nail. Most lost marks come from (a): many students only say what boiling does and forget the oil.",L:["{M5}Use the **same size and type of iron nail** in each tube (or same time / same temperature)."],m:[4]}
+],
+Y:{k:"text",q:"<p>A student wants to find out if salt water makes iron rust faster than tap water.</p><p>[[Describe]] how she could do a fair test. Give the independent variable, how she measures the amount of rust, and two control variables. <b>(4)</b></p>",
+P:["Independent variable: type of water (tap water or salt water)","Measure: increase in mass of the nail (or compare amount of rust) after a set time","Control 1: same size / type / mass of iron nail","Control 2: same volume of water, same time, or same temperature"]}},
+
+{id:"eqn",name:"Metal + acid equation",type:"Equation",marks:3,
+title:"Word and symbol equation for a metal and an acid",
+spec:["Spec 2.37 acids with metals","Spec 2.21 core practical: acids and metals"],
+q:"<p>Magnesium ribbon reacts with dilute hydrochloric acid. Bubbles of gas form.</p><p>(a) Write the [[word equation]] for this reaction. <b>(1)</b></p><p>(b) Write the [[balanced]] symbol equation, [[including state symbols]]. <b>(2)</b></p>",
+M:["Word equation correct","All four formulae correct","Balanced (2HCl) with state symbols"],
+foot:"Metal + acid → salt + hydrogen. Hydrochloric acid makes chlorides; sulfuric acid makes sulfates.",
+S:[
+{t:"Use the general equation",x:"Every reaction of a metal with a dilute acid follows the same pattern.",L:["metal + acid → salt + hydrogen"],c:"hydrochloric acid → chloride · sulfuric acid → sulfate"},
+{t:"(a) Word equation",x:"Name the salt from the metal and the acid.",tip:"Do not write 'magnesium chlorine'. The salt is magnesium <b>chloride</b>.",L:["{M1}magnesium + hydrochloric acid → **magnesium chloride** + **hydrogen**"],m:[0]},
+{t:"Work out the salt's formula",x:"Magnesium ions are Mg^2+. Chloride ions are Cl^-. You need two chloride ions to balance one magnesium ion.",L:["Mg^2+ and Cl^- → **MgCl_2**"]},
+{t:"(b) Write the formulae",x:"Write every formula correctly first. Hydrogen gas is made of molecules, H_2.",tip:"Never change a formula to balance an equation. MgCl or H are wrong formulae.",L:["{M2}Mg + HCl → MgCl_2 + H_2"],m:[1]},
+{t:"(b) Balance and add state symbols",x:"<b>Total: 3 marks.</b> There are 2 Cl and 2 H on the right, so you need 2HCl. Then add (s), (aq), (aq), (g).",tip:"The most common lost mark: forgetting the 2 in front of HCl, or missing state symbols when the question asks for them.",L:["{= M3}Mg(s) + **2**HCl(aq) → MgCl_2(aq) + H_2(g)"],m:[2]}
+],
+Y:{k:"text",q:"<p>Zinc reacts with dilute sulfuric acid.</p><p>Write the [[word equation]] and the [[balanced]] symbol equation, with [[state symbols]], for this reaction. <b>(3)</b></p>",
+P:["zinc + sulfuric acid → zinc sulfate + hydrogen","Correct formulae: Zn, H_2SO_4, ZnSO_4, H_2","Balanced with state symbols: Zn(s) + H_2SO_4(aq) → ZnSO_4(aq) + H_2(g)"]}},
+
+{id:"yield",name:"Percentage yield of a salt",type:"Calculation",marks:4,
+title:"Theoretical mass and percentage yield of magnesium sulfate",
+spec:["Reacting masses","Percentage yield"],
+q:"<p>A student adds [[1.20 g]] of magnesium to excess dilute sulfuric acid.</p><span class='eq'>Mg(s) + H_2SO_4(aq) → MgSO_4(aq) + H_2(g)</span><p>She evaporates the solution and heats the solid to remove all water. She obtains [[4.80 g]] of anhydrous magnesium sulfate.</p><p>(a) [[Calculate]] the maximum mass of magnesium sulfate that could form. <b>(3)</b></p><p>(b) [[Calculate]] the percentage yield. <b>(1)</b></p><p class='data'>[A_r: Mg = 24, S = 32, O = 16]</p>",
+M:["Moles of Mg = 0.0500 mol","M_r MgSO_4 = 120; 1 : 1 so 0.0500 mol","Maximum mass = 6.00 g","% yield = 80.0 %"],
+foot:"The mole map: mass of Mg → moles of Mg → moles of MgSO_4 → mass of MgSO_4.",
+S:[
+{t:"Plan the route",x:"You know the mass of magnesium. Use the equation to get to the mass of magnesium sulfate.",L:["mass Mg → moles Mg → moles MgSO_4 → mass MgSO_4"],c:"moles = mass ÷ M_r"},
+{t:"Moles of magnesium",x:"Divide the mass by the relative atomic mass.",L:["{M1}n(Mg) = 1.20 ÷ 24 = **0.0500 mol**"],m:[0],c:"n(Mg) = 0.0500 mol"},
+{t:"Moles of magnesium sulfate",x:"Work out M_r, then use the equation ratio. 1 Mg gives 1 MgSO_4.",L:["{M2}M_r(MgSO_4) = 24 + 32 + (4 × 16) = **120**; ratio 1 : 1, so n(MgSO_4) = 0.0500 mol"],m:[1]},
+{t:"Maximum (theoretical) mass",x:"Multiply moles by M_r.",tip:"Show your working. If the final answer is wrong, you can still get method marks.",L:["{M3}mass = 0.0500 × 120 = **6.00 g**"],m:[2],c:"Theoretical mass = 6.00 g"},
+{t:"(b) Percentage yield",x:"<b>Total: 4 marks.</b> Actual mass ÷ theoretical mass × 100. The yield is less than 100 % because some solution is lost when transferring or some salt stays dissolved.",tip:"The most common lost mark: dividing the wrong way (6.00 ÷ 4.80 gives 125 %). A yield can never be over 100 %.",L:["{= M4}% yield = 4.80 ÷ 6.00 × 100 = **80.0 %**"],m:[3]}
+],
+Y:{k:"calc",q:"<p>[[1.30 g]] of zinc reacts with excess dilute sulfuric acid.</p><span class='eq'>Zn(s) + H_2SO_4(aq) → ZnSO_4(aq) + H_2(g)</span><p>The student obtains [[2.58 g]] of anhydrous zinc sulfate. [[Calculate]] the percentage yield. Give your answer to 3 significant figures.</p><p class='data'>[A_r: Zn = 65, S = 32, O = 16]</p>",
+a:80.1,tol:0.25,unit:"%",ok:"Theoretical mass 3.22 g, so 2.58 ÷ 3.22 × 100 = 80.1 %.",hint:"Find moles of Zn, then the maximum mass of ZnSO_4 (M_r = 161), then actual ÷ theoretical × 100.",
+w:[[124.8,1,"Upside down: you did theoretical ÷ actual. Use actual ÷ theoretical × 100."],[3.22,0.02,"That is the theoretical mass in grams. Now find the percentage yield."],[0.02,0.001,"That is the number of moles of zinc. Keep going."]],
+W:["n(Zn) = 1.30 ÷ 65 = 0.0200 mol","M_r(ZnSO_4) = 65 + 32 + (4 × 16) = 161; ratio 1 : 1 so n(ZnSO_4) = 0.0200 mol","Theoretical mass = 0.0200 × 161 = 3.22 g","% yield = 2.58 ÷ 3.22 × 100 = <b>80.1 %</b>"]}},
+
+{id:"acidmetal",name:"Metals with dilute acid",type:"Practical",marks:4,
+title:"Core practical: comparing metals with dilute acid",
+spec:["Spec 2.21 core practical: acids and metals","Spec 2.15 reactivity series"],
+q:"<p>A student adds a small piece of four different metals to separate test tubes of dilute hydrochloric acid.</p><div class='tw'><table class='t'><tr><th>Metal</th><th>Observations</th></tr><tr><td>magnesium</td><td>rapid fizzing; metal disappears quickly; tube gets warm</td></tr><tr><td>zinc</td><td>steady bubbles</td></tr><tr><td>iron</td><td>a few slow bubbles</td></tr><tr><td>copper</td><td>no change</td></tr></table></div><p>(a) [[Explain]] how these results show the order of reactivity of the metals. <b>(2)</b></p><p>(b) [[Describe]] [[two]] things the student must do to make this a fair test. <b>(2)</b></p>",
+M:["Faster bubbling (hydrogen) = more reactive","Order Mg > Zn > Fe > Cu; copper does not react","Same volume and concentration of acid","Same mass / size / surface area of metal"],
+foot:"metal + hydrochloric acid → metal chloride + hydrogen",
+S:[
+{t:"What are the bubbles?",x:"The bubbles are hydrogen gas. The faster they form, the faster the reaction.",L:["Bubbles = **hydrogen**: metal + acid → salt + hydrogen"],c:"Faster bubbling = more reactive metal"},
+{t:"(a) Link rate to reactivity",x:"Give the general idea first.",L:["{M1}The **faster the bubbles** of hydrogen form, the **more reactive** the metal."],m:[0]},
+{t:"(a) Use the results",x:"Put the metals in order and use the copper result.",tip:"A bigger temperature rise also shows a more reactive metal. You can measure it with a thermometer.",L:["{M2}So the order is **Mg > Zn > Fe > Cu**. Copper does not react, so it is the least reactive."],m:[1]},
+{t:"Fair test: what changes?",x:"Only one thing (the independent variable) should change. Here it is the metal. Everything else stays the same.",L:["Change: the metal. &nbsp; Observe: bubbling. &nbsp; Keep the same: everything else."]},
+{t:"(b) Control the acid",x:"Both the amount and the strength of the acid affect the rate.",tip:"'Same amount of acid' is too vague for the mark. Say <b>same volume</b> and <b>same concentration</b>.",L:["{M3}Use the **same volume and the same concentration** of acid each time."],m:[2]},
+{t:"(b) Control the metal",x:"<b>Total: 4 marks.</b> Surface area changes the rate, so the metal pieces must match.",tip:"The most common lost mark: giving 'the metal' as a control. The metal is what you are changing!",L:["{M4}Use the **same mass and size (surface area)** of each metal."],m:[3]}
+],
+Y:{k:"text",q:"<p>The student wants <b>numerical</b> results instead of just watching the bubbles.</p><p>[[Suggest]] how she could measure and compare the reactivity of magnesium, zinc and iron with dilute sulfuric acid. <b>(3)</b></p>",
+P:["Measure the temperature of the acid at the start and the highest temperature (or collect the gas in a gas syringe for a set time)","Use the same volume and concentration of acid and the same mass of metal powder","The bigger the temperature rise (or volume of gas), the more reactive the metal"]}}
+],
+check:[
+["2.15","Put metals in a reactivity series using their reactions with water and with dilute hydrochloric or sulfuric acid",["acidmetal","eqn"]],
+["2.16","Put metals in order using displacement reactions: a metal with a metal oxide, and a metal with a solution of a metal salt",["disp"]],
+["2.17","Recall the order: potassium, sodium, lithium, calcium, magnesium, aluminium, zinc, iron, copper, silver, gold",["disp"]],
+["2.18","State that iron needs both water and oxygen to rust (rust is hydrated iron(III) oxide)",["rust"]],
+["2.19","Explain how barrier methods, galvanising and sacrificial protection stop iron rusting",["galv"]],
+["2.20","Use oxygen gain/loss and electron loss/gain to explain oxidation, reduction, redox, oxidising agent and reducing agent",["redox"]],
+["2.21","Core practical: react metals such as magnesium, zinc and iron with dilute hydrochloric and sulfuric acids",["acidmetal"]],
+["2.34","Use the solubility rules for sodium, potassium and ammonium compounds, nitrates, chlorides, sulfates, carbonates and hydroxides",[]],
+["2.35","Explain acids and bases in terms of proton (H^+ ion) transfer",[]],
+["2.36","Know that an acid is a proton donor and a base is a proton acceptor",[]],
+["2.37","Describe how hydrochloric, sulfuric and nitric acids react with metals, bases and metal carbonates to make salts",["eqn","salt"]],
+["2.38","Know that metal oxides, metal hydroxides and ammonia are bases, and alkalis are bases that dissolve in water",[]],
+["2.39","Describe how to make a pure, dry soluble salt from an insoluble reactant (filter off the excess)",["salt"]],
+["2.42","Core practical: make pure, dry hydrated copper(II) sulfate crystals from copper(II) oxide",["salt"]],
+["","Calculate the mass of a salt made and its percentage yield (from Topic 1 calculations)",["yield"]]
+]};
+
+(function(){
+var P=PAGE;
+function fmt(s){return s.replace(/\[\[(.+?)\]\]/g,'<span class="hl">$1</span>').replace(/\*\*(.+?)\*\*/g,'<b class="k">$1</b>').replace(/_(\d+|r(?![a-z]))/g,'<sub>$1</sub>').replace(/\^(\d?)([+-])/g,function(m,a,b){return '<sup>'+a+(b=='-'?'−':'+')+'</sup>';});}
+function deep(o,key){if(typeof o=='string')return (key=='id'||key=='k')?o:fmt(o);if(Array.isArray(o))return o.map(function(x){return deep(x);});if(o&&typeof o=='object'){var r={};for(var k in o)r[k]=deep(o[k],k);return r;}return o;}
+var Q=P.qs.map(function(q){return deep(q);}),CL=deep(P.check),qi=0,cur=-1,spd=1,tok=0;
+var SP=[[38,1],[17,2],[8,6]],RM=false;
+try{RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+function $(id){return document.getElementById(id);}
+function h(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function each(list,f){Array.prototype.forEach.call(list,f);}
+$('h1').textContent=P.group+': answer it mark by mark';
+Q.forEach(function(q,i){var b=h('button','qc','<b>'+q.name+'</b><span class="mono">'+q.type+' · '+q.marks+' mark'+(q.marks>1?'s':'')+'</span>');b.type='button';b.onclick=function(){sel(i);};$('picker').appendChild(b);});
+function sel(i){
+  qi=i;cur=-1;var q=Q[i];
+  each($('picker').children,function(b,j){b.className='qc'+(j==i?' on':'');b.setAttribute('aria-pressed',j==i?'true':'false');});
+  $('lab').textContent='IGCSE Chemistry · '+P.year+' · '+P.group+' · Exam-style question · '+q.marks+' mark'+(q.marks>1?'s':'');
+  $('qt').innerHTML=q.title;
+  $('tags').innerHTML=q.spec.map(function(s){return '<span class="tag">'+s+'</span>';}).join('');
+  $('qbox').innerHTML=q.q;
+  $('chips').innerHTML=q.M.map(function(m,j){return '<div class="chip"><b>M'+(j+1)+'</b>'+m+'</div>';}).join('');
+  $('dots').innerHTML=q.S.map(function(){return '<span></span>';}).join('');
+  $('foot').innerHTML=q.foot||'';$('foot').hidden=!q.foot;
+  your(q);render(false);
+}
+function line(x){
+  var m=x.match(/^\{([^}]*)\}/),tg='',fin=false;
+  if(m){x=x.slice(m[0].length);m[1].split(' ').forEach(function(p){if(p=='=')fin=true;else if(p)tg+='<span class="tg">'+p+'</span>';});}
+  var el=h('div','ln'+(fin?' fin':''),tg),body=h('span','tx',x);el.appendChild(body);return {el:el,body:body};
+}
+function typeOne(b,t,done){
+  var tx=[];(function walk(n){for(var c=n.firstChild;c;c=c.nextSibling){if(c.nodeType==3){tx.push([c,c.nodeValue]);c.nodeValue='';}else walk(c);}})(b);
+  var i=0,j=0;(function tick(){if(t!==tok)return;var n=SP[spd][1];while(n>0&&i<tx.length){var f=tx[i][1],a=Math.min(n,f.length-j);j+=a;n-=a;tx[i][0].nodeValue=f.slice(0,j);if(j>=f.length){i++;j=0;}}if(i<tx.length)setTimeout(tick,SP[spd][0]);else done();})();
+}
+function typeQ(list,t){var k=0;list.forEach(function(b){b.parentNode.style.display='none';});(function nx(){if(t!==tok||k>=list.length)return;var b=list[k++];b.parentNode.style.display='';typeOne(b,t,nx);})();}
+function render(anim){
+  var q=Q[qi],S=q.S,N=S.length,t=++tok,L=$('lines'),queue=[],s;
+  L.innerHTML='';
+  if(cur<0)L.innerHTML='<p class="empty">Your answer will appear here, one mark at a time.</p>';
+  for(s=0;s<=cur;s++)(S[s].L||[]).forEach(function(x){var d=line(x);L.appendChild(d.el);if(s==cur&&anim&&!RM)queue.push(d.body);});
+  var c=null,got={};for(s=0;s<=cur;s++){if(S[s].c)c=S[s].c;(S[s].m||[]).forEach(function(j){got[j]=1;});}
+  $('call').innerHTML=c?'<span class="mono">Key point</span>'+c:'';$('call').hidden=!c;
+  each($('chips').children,function(e,j){e.className='chip'+(got[j]?' on':'');});
+  each($('dots').children,function(e,j){e.className=(j<=cur?'on':'')+(j==cur?' cur':'');});
+  var st=S[cur];
+  $('step').innerHTML=cur<0?'<div class="mono">Ready · '+N+' steps</div><h3>Read the question first</h3><p>Find the command word and the highlighted data. Think about how many points you need for '+q.marks+' mark'+(q.marks>1?'s':'')+'. Then press <b>Next step</b>.</p>':
+    '<div class="mono">Step '+(cur+1)+' of '+N+'</div><h3>'+st.t+'</h3><p>'+st.x+'</p>'+(st.tip?'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>':'');
+  $('back').disabled=cur<0;$('next').disabled=cur>=N-1;
+  $('next').textContent=cur>=N-1?'Finished ✓':'Next step →';
+  if(queue.length)typeQ(queue,t);
+}
+function next(){if(cur<Q[qi].S.length-1){cur++;render(true);}}
+function back(){if(cur>=0){cur--;render(false);}}
+$('next').onclick=next;$('back').onclick=back;
+$('replay').onclick=function(){cur=0;render(true);};
+each(document.querySelectorAll('.speed button'),function(b){b.onclick=function(){spd=+b.getAttribute('data-s');each(document.querySelectorAll('.speed button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});};});
+document.addEventListener('keydown',function(e){
+  var tn=(e.target&&e.target.tagName)||'';if(/INPUT|TEXTAREA|SELECT/.test(tn)||(e.target&&e.target.isContentEditable)||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(e.key=='ArrowRight'){e.preventDefault();next();}else if(e.key=='ArrowLeft'){e.preventDefault();back();}
+});
+function your(q){
+  var y=q.Y,E=$('your');
+  E.innerHTML='<h3>Your turn</h3><div class="yq">'+y.q+'</div>';
+  if(y.k=='calc'){
+    E.insertAdjacentHTML('beforeend','<div class="row"><label class="sr" for="yin">Your answer</label><input type="text" id="yin" inputmode="decimal" autocomplete="off" placeholder="Your answer"><span class="unit">'+y.unit+'</span><button type="button" class="btn pri" id="ychk">Check</button><button type="button" class="btn" id="yshow">Show worked answer</button></div><p class="fb" id="yfb" aria-live="polite"></p><ol class="worked" id="yw"></ol>');
+    $('ychk').onclick=function(){
+      var raw=String($('yin').value).replace(',','.').replace(/[^0-9.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb';fb.textContent='Type a number first.';return;}
+      if(Math.abs(v-y.a)<=y.tol){fb.className='fb good';fb.innerHTML='✓ Correct. '+y.ok;return;}
+      var w=(y.w||[]).filter(function(x){return Math.abs(v-x[0])<=x[1];})[0];
+      fb.className='fb bad';fb.innerHTML='✗ '+(w?w[2]:'Not quite. '+y.hint);
+    };
+    $('yin').addEventListener('keydown',function(e){if(e.key=='Enter')$('ychk').click();});
+    var k=0;$('yshow').onclick=function(){if(k<y.W.length){$('yw').appendChild(h('li','',y.W[k]));k++;}this.textContent=k<y.W.length?'Show next step ('+k+'/'+y.W.length+')':'Worked answer shown';this.disabled=k>=y.W.length;};
+  }else{
+    E.insertAdjacentHTML('beforeend','<label class="sr" for="yta">Your answer</label><textarea id="yta" rows="5" placeholder="Write your answer here, then compare it with the model answer."></textarea><div class="row"><button type="button" class="btn pri" id="ymod">Show model answer</button></div><div id="ymodel" hidden><p class="mono" style="margin-top:12px">Tick each point you made</p><ul class="ticks">'+y.P.map(function(p,i){return '<li><label><input type="checkbox" id="yp'+i+'"><span>'+p+'</span></label></li>';}).join('')+'</ul><p class="score" id="ysc">0 / '+y.P.length+'</p></div>');
+    $('ymod').onclick=function(){$('ymodel').hidden=false;this.disabled=true;this.textContent='Model answer shown';};
+    each(E.querySelectorAll('.ticks input'),function(c){c.onchange=function(){$('ysc').textContent=E.querySelectorAll('.ticks input:checked').length+' / '+y.P.length;};});
+  }
+}
+/* checklist */
+var KEY='igcse-howto-'+P.key,R={};
+try{R=JSON.parse(window.localStorage.getItem(KEY)||'{}')||{};}catch(e){R={};}
+function save(){try{window.localStorage.setItem(KEY,JSON.stringify(R));}catch(e){}}
+var C=$('check'),NAMES=['Not yet','Nearly','Got it'];
+C.innerHTML='<h2>'+P.group+': spec checklist</h2><p>Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" id="bar"><i style="background:var(--good)"></i><i style="background:var(--amber)"></i><i style="background:var(--bad)"></i></div><div class="mono" id="counts"></div><div id="rows"></div><div class="row" style="margin-top:14px"><button type="button" class="btn" id="clr">Clear my ratings</button></div>';
+CL.forEach(function(r,i){
+  var row=h('div','crow');
+  row.innerHTML='<span class="mono sp">'+(r[0]||'•')+'</span><p>'+r[1]+'</p><div class="pills" role="group" aria-label="Rate this point">'+NAMES.map(function(n,v){return '<button type="button" class="v'+v+'" data-v="'+v+'" aria-pressed="false">'+n+'</button>';}).join('')+'</div>';
+  if(r[2]&&r[2].length){var pr=h('div','prac');r[2].forEach(function(id){var qn=-1;Q.forEach(function(q,j){if(q.id==id)qn=j;});if(qn<0)return;var b=h('button','link','Practise: '+Q[qn].name);b.type='button';b.onclick=function(){sel(qn);try{$('walk').scrollIntoView({behavior:'smooth',block:'start'});}catch(e){$('walk').scrollIntoView();}};pr.appendChild(b);});row.appendChild(pr);}
+  each(row.querySelectorAll('.pills button'),function(b){b.onclick=function(){var v=+b.getAttribute('data-v');if(R[i]===v)delete R[i];else R[i]=v;save();paint();};});
+  $('rows').appendChild(row);
+});
+function paint(){
+  var n=[0,0,0],T=CL.length;
+  each($('rows').children,function(row,i){var v=R[i];if(v===0||v===1||v===2)n[v]++;each(row.querySelectorAll('.pills button'),function(b){b.setAttribute('aria-pressed',(+b.getAttribute('data-v')===v)?'true':'false');});});
+  var u=T-n[0]-n[1]-n[2],bar=$('bar').children;
+  bar[0].style.width=(100*n[2]/T)+'%';bar[1].style.width=(100*n[1]/T)+'%';bar[2].style.width=(100*n[0]/T)+'%';
+  $('counts').textContent=n[2]+' got it · '+n[1]+' nearly · '+n[0]+' not yet · '+u+' not rated (of '+T+')';
+}
+$('clr').onclick=function(){R={};save();paint();};
+paint();sel(0);
+})();
+</script>
+</body>
+</html>

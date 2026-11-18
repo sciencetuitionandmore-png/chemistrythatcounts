@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transition Metals Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Transition Metals Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-17.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Transition metals: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+function card(y,h,a,b,cls,at){return G(at,box2(10,y,310,h,cls||'card')+T(20,y+20,a,'hd')+(b?T(20,y+38,b,'an'):''))}
+/* ---------- 1 electron configurations ---------- */
+W.push({btn:'Electron configurations of transition metals',spec:[["17.2","configurations Sc–Zn"],["17.1","definition of a transition metal"],["17.3","variable oxidation number"]],type:'Explain',marks:4,
+title:'Electron configurations of iron, copper and zinc',
+q:'<p><span class="mk">(4)</span>Give the electron configurations of <mark>Fe</mark>, <mark>Fe<sup>3+</sup></mark> and <mark>Cu</mark>. Explain why <mark>zinc</mark> is not a <mark>transition metal</mark>.</p>',
+diag:function(){var s='';
+  s+=card(10,32,'Fe: [Ar] 3d⁶ 4s²','','card',1);
+  s+=card(50,46,'Fe³⁺: [Ar] 3d⁵','4s electrons lost first','card',2);
+  s+=card(104,46,'Cu: [Ar] 3d¹⁰ 4s¹','full d subshell more stable','card o',3);
+  s+=card(158,46,'Zn²⁺: [Ar] 3d¹⁰ (full)','no ion with an incomplete d subshell','card g',4);
+  return svg(330,212,s)},
+lines:plan(['Fe','Fe³⁺: lose 4s first','Cu: exception','Zn'])+
+ ans(1,'','','Fe: <span class="hl">1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>3d<sup>6</sup>4s<sup>2</sup></span>','M1')+
+ ans(2,'Fe³⁺: [Ar] 3d³ 4s²','Electrons are removed from 4s before 3d.','Fe<sup>3+</sup>: <span class="hl">[Ar] 3d<sup>5</sup></span>','M2')+
+ ans(3,'Cu: [Ar] 3d⁹ 4s²','Copper is an exception: a full 3d subshell is more stable.','Cu: <span class="hl">[Ar] 3d<sup>10</sup> 4s<sup>1</sup></span>','M3')+
+ ans(4,'','','Zinc only forms Zn<sup>2+</sup>, [Ar] 3d<sup>10</sup>: it has <span class="hl">no stable ion with an incomplete d subshell</span>.','M4'),
+chips:[['M1','Fe',1],['M2','Fe³⁺ 3d⁵',2],['M3','Cu 3d¹⁰ 4s¹',3],['M4','Zn²⁺ full d',4]],
+steps:[
+{t:'Read and plan',x:'A <b>transition metal</b> is a d-block element that forms one or more stable ions with an incomplete d subshell.',tip:'Write configurations in full unless [Ar] is allowed.'},
+{t:'Iron',x:'After argon, 4s fills before 3d: 4s<sup>2</sup> then 3d<sup>6</sup>.',tip:'Write 3d before 4s in the final answer, as the data booklet does.'},
+{t:'Iron(III)',x:'When forming ions, the 4s electrons are lost first, then 3d. Fe<sup>3+</sup> loses 4s<sup>2</sup> and one 3d electron.',tip:'Fe<sup>2+</sup> is [Ar] 3d<sup>6</sup>.'},
+{t:'Copper and chromium',x:'Cu is 3d<sup>10</sup>4s<sup>1</sup> and Cr is 3d<sup>5</sup>4s<sup>1</sup>: a full or half-full d subshell is more stable.',tip:'These two exceptions come up every year.'},
+{t:'Zinc',x:'Zn<sup>2+</sup> has a full d subshell, so zinc is a d-block element but not a transition metal. Scandium is not either: Sc<sup>3+</sup> has no d electrons.',tip:'Transition metals show variable oxidation numbers because 3d and 4s are close in energy.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Removing 3d electrons before 4s.','Writing Cu as 3d<sup>9</sup>4s<sup>2</sup>.','Saying zinc is not a transition metal because it is not in the d block.','Missing the "stable ion" part of the definition.'],
+your:{kind:'text',marks:2,q:'Give the electron configurations of Cr and Cr<sup>3+</sup>. (2)',
+ ms:['Cr: [Ar] 3d<sup>5</sup> 4s<sup>1</sup>','Cr<sup>3+</sup>: [Ar] 3d<sup>3</sup>'],
+ warn:[[/3d4 ?4s2|3d<sup>4<\/sup>4s<sup>2/i,'Chromium is an exception: 3d<sup>5</sup>4s<sup>1</sup>.']]}
+});
+/* ---------- 2 complexes and shapes ---------- */
+W.push({btn:'Complex ions and their shapes',spec:[["17.4","ligand"],["17.5","dative bonding"],["17.13","octahedral"],["17.14","tetrahedral"],["17.15","square planar, cisplatin"]],type:'Explain',marks:4,
+title:'Shapes of complex ions',
+q:'<p><span class="mk">(4)</span><mark>Explain</mark> how water molecules bond to Cu<sup>2+</sup> in [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>, and give the <mark>shapes</mark> of [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>, [CuCl<sub>4</sub>]<sup>2−</sup> and cisplatin.</p>',
+diag:function(){var s='';
+  var c=[80,90];s+=AT(c[0],c[1],'Cu','at2');
+  [[0,-48],[0,48],[-50,0],[50,0]].forEach(function(d){s+=L(c[0]+d[0]*0.3,c[1]+d[1]*0.3,c[0]+d[0]*0.75,c[1]+d[1]*0.75,'bd')+AT(c[0]+d[0],c[1]+d[1],'OH₂','at2s')});
+  s+=wedge(c[0]+6,c[1]+6,c[0]+30,c[1]+26)+AT(c[0]+42,c[1]+34,'OH₂','at2s')+hash(c[0]-6,c[1]-6,c[0]-30,c[1]-26)+AT(c[0]-42,c[1]-34,'H₂O','at2s');
+  s+=G(1,T(80,160,'octahedral, 90°','an','text-anchor="middle"'));
+  s+=G(2,T(160,40,'ligand: lone pair donor','an')+T(160,56,'dative covalent bonds','an'));
+  s+=G(3,T(160,96,'[CuCl₄]²⁻: tetrahedral','hd')+T(160,112,'(Cl⁻ is large: only 4 fit)','sm'));
+  s+=G(4,T(160,140,'cisplatin: square planar','hd'));
+  return svg(330,172,s)},
+lines:plan(['ligand and dative bond','coordination number 6','large Cl⁻: 4','cisplatin'])+
+ ans(1,'','','Each H<sub>2</sub>O is a <span class="hl">ligand</span>: it donates a <span class="hl">lone pair</span> from O to the Cu<sup>2+</sup>, forming a <span class="hl">dative covalent bond</span>.','M1')+
+ ans(2,'','','Six ligands give an <span class="hl">octahedral</span> complex (90° bond angles); coordination number 6.','M2')+
+ ans(3,'[CuCl₄]²⁻ is square planar.','Four large ligands around Cu<sup>2+</sup> are tetrahedral.','[CuCl<sub>4</sub>]<sup>2−</sup> is <span class="hl">tetrahedral</span>: Cl<sup>−</sup> ions are large, so only four fit.','M3')+
+ ans(4,'','','Cisplatin, [Pt(NH<sub>3</sub>)<sub>2</sub>Cl<sub>2</sub>], is <span class="hl">square planar</span> (the cis isomer is the anti-cancer drug).','M4'),
+chips:[['M1','lone pair, dative bond',1],['M2','octahedral',2],['M3','tetrahedral',3],['M4','square planar',4]],
+steps:[
+{t:'Read and plan',x:'A <b>complex ion</b> is a central metal ion surrounded by ligands bonded by dative covalent bonds. The <b>coordination number</b> is the number of dative bonds.',tip:'Draw 3D shapes with wedges.'},
+{t:'Bonding',x:'The oxygen of each water molecule donates a lone pair into an empty orbital on Cu<sup>2+</sup>.',tip:'Draw the bond from the O, not the H.'},
+{t:'Octahedral',x:'Small ligands such as H<sub>2</sub>O, NH<sub>3</sub> and OH<sup>−</sup> usually give six-coordinate octahedral complexes.',tip:'Bond angle 90°.'},
+{t:'Tetrahedral',x:'Larger ligands like Cl<sup>−</sup> give four-coordinate complexes, usually tetrahedral (109.5°).',tip:'[CoCl<sub>4</sub>]<sup>2−</sup> is blue and tetrahedral.'},
+{t:'Square planar',x:'Pt(II) complexes such as cisplatin are square planar. Cisplatin binds to DNA in cancer cells; only the cis isomer works.',tip:'Cisplatin is a single isomer, so it is effective.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Calling the bond ionic.','Bonds drawn from H of water.','[CuCl<sub>4</sub>]<sup>2−</sup> as square planar.','Not giving the coordination number.'],
+your:{kind:'text',marks:2,q:'EDTA<sup>4−</sup> is a hexadentate ligand. <b>Explain</b> what this means and give the coordination number of [Cu(EDTA)]<sup>2−</sup>. (2)',
+ ms:['Hexadentate: one ligand forms six dative bonds to the metal ion (six lone pairs donated).','Coordination number = 6.'],
+ warn:[[/coordination number.*1/i,'The coordination number counts dative bonds, not ligands.']]}
+});
+/* ---------- 3 colour ---------- */
+W.push({btn:'Why complexes are coloured',spec:[["17.8","d-orbital splitting"],["17.7","coloured solutions"],["17.9","colourless ions"],["17.11","causes of colour change"]],type:'Explain',marks:4,
+title:'Explaining the colour of [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>',
+q:'<p><span class="mk">(4)</span><mark>Explain</mark> why [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> is <mark>blue</mark>, but [Zn(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> is <mark>colourless</mark>.</p>',
+diag:function(){var s=DEFS;
+  s+='<line class="lvl" x1="30" x2="150" y1="140" y2="140"/>'+T(90,158,'3d in free ion','sm','text-anchor="middle"');
+  s+=G(1,'<line class="lvl" x1="180" x2="300" y1="160" y2="160"/><line class="lvl" x1="180" x2="300" y1="80" y2="80"/>'+T(240,176,'lower d orbitals','sm','text-anchor="middle"')+T(240,72,'higher d orbitals','sm','text-anchor="middle"')+'<path class="anl" d="M150 140L180 160M150 140L180 80"/>');
+  s+=G(2,'<path class="po" d="M210 156V86"/>'+T(204,124,'ΔE = hf','an','text-anchor="end"'));
+  s+=G(3,T(256,124,'absorbs red/','sm')+T(256,138,'orange light','sm'));
+  s+=G(4,T(20,30,'Zn²⁺: 3d¹⁰ full, no transition → colourless','an'));
+  return svg(330,186,s)},
+lines:plan(['ligands split the d orbitals','electron promoted','light absorbed','complementary colour','Zn²⁺'])+
+ ans(1,'','','The ligands cause the <span class="hl">3d orbitals to split</span> into two energy levels.','M1')+
+ ans(2,'The electrons emit light when they fall back.','Colour in complexes is due to absorption, not emission (that is flame tests).','An electron is <span class="hl">promoted</span> to the higher level by <span class="hl">absorbing</span> visible light with energy ΔE = hf.','M2')+
+ ans(3,'','','Red/orange light is absorbed, so the <span class="hl">complementary colour (blue) is transmitted</span>.','M3')+
+ ans(4,'','','Zn<sup>2+</sup> has a <span class="hl">full 3d subshell</span> (3d<sup>10</sup>), so no electron can be promoted: no visible light is absorbed.','M4'),
+chips:[['M1','d orbitals split',1],['M2','electron promoted, light absorbed',2],['M3','remaining colour seen',3],['M4','Zn²⁺ full 3d',4]],
+steps:[
+{t:'Read and plan',x:'Colour comes from d electrons absorbing visible light. You need: splitting, absorption, and the colour that is left.',tip:'Use ΔE = hf.'},
+{t:'Splitting',x:'In a complex, the d orbitals no longer have the same energy: ligands repel some more than others.',tip:'The size of ΔE depends on the ligand, the metal, its oxidation number and the coordination number.'},
+{t:'Absorption',x:'An electron in a lower d orbital absorbs a photon and moves to a higher one. The photon energy matches ΔE.',tip:'This needs a partly filled d subshell.'},
+{t:'Colour seen',x:'The light that is not absorbed reaches your eye. Absorbing red/orange makes the solution look blue.',tip:'Changing the ligand changes ΔE and so the colour.'},
+{t:'Colourless ions',x:'Zn<sup>2+</sup> (3d<sup>10</sup>) and Sc<sup>3+</sup> (3d<sup>0</sup>) have no possible d–d transitions.',tip:'Cu<sup>+</sup> (3d<sup>10</sup>) is also colourless.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying electrons emit light as they fall back.','Saying blue light is absorbed.','Saying all d orbitals split equally.','Not explaining the colourless ion.'],
+your:{kind:'text',marks:2,q:'Adding ammonia to [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> gives a deep blue solution. Why does the colour change? (2)',
+ ms:['The ligands change (NH<sub>3</sub> replaces some H<sub>2</sub>O): [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>.','Different ligands split the d orbitals by a different amount, so a different frequency of light is absorbed.'],
+ warn:[[/oxidation (number|state)/i,'The oxidation number of copper stays +2.']]}
+});
+/* ---------- 4 NaOH and NH3 ---------- */
+W.push({btn:'Metal ions with NaOH and ammonia',spec:[["17.22","reactions with NaOH and NH₃"],["17.23","amphoteric behaviour, deprotonation"],["17.24","ligand exchange"]],type:'Describe',marks:4,
+title:'Reactions of Cu<sup>2+</sup> and Cr<sup>3+</sup> with hydroxide ions and ammonia',
+q:'<p><span class="mk">(4)</span><mark>Describe</mark> what you would <mark>see</mark> when a few drops, then <mark>excess</mark>, of (i) sodium hydroxide and (ii) ammonia solution are added to aqueous Cu<sup>2+</sup> ions. Explain the reaction of Cr(OH)<sub>3</sub> with excess NaOH.</p>',
+diag:function(){var s='';
+  s+=tbl(5,10,[44,82,92,102],30,[['ion','few drops','excess NaOH','excess NH₃'],['Cu²⁺','blue ppt','no change','deep blue soln'],['Cr³⁺','green ppt','green soln','purple (slowly)'],['Fe²⁺','green ppt','no change','no change'],['Fe³⁺','brown ppt','no change','no change']],{1:'1 2',2:'3 4'});
+  return svg(330,166,s)},
+lines:plan(['Cu²⁺ + OH⁻','Cu²⁺ + excess NH₃','Cr(OH)₃ + excess OH⁻','why'])+
+ ans(1,'','','A few drops of NaOH or NH<sub>3</sub>: a <span class="hl">pale blue precipitate</span> of Cu(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>. No change with excess NaOH.','M1')+
+ ans(2,'','','Excess NH<sub>3</sub>: the precipitate dissolves to a <span class="hl">deep blue solution</span>, [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup> (ligand exchange).','M2')+
+ ans(3,'','','Cr<sup>3+</sup> gives a green precipitate, which dissolves in excess NaOH to a <span class="hl">green solution</span> of [Cr(OH)<sub>6</sub>]<sup>3−</sup>.','M3')+
+ ans(4,'','','Cr(OH)<sub>3</sub> is <span class="hl">amphoteric</span>: it reacts with acids and with bases (further deprotonation by OH<sup>−</sup>).','M4'),
+chips:[['M1','pale blue ppt',1],['M2','deep blue solution (NH₃)',2],['M3','Cr: green solution in excess NaOH',3],['M4','amphoteric',4]],
+steps:[
+{t:'Read and plan',x:'OH<sup>−</sup> and NH<sub>3</sub> first remove H<sup>+</sup> from water ligands (deprotonation), forming a neutral hydroxide precipitate.',tip:'Write the colour and state (precipitate or solution) every time.'},
+{t:'A few drops',x:'[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> + 2OH<sup>−</sup> → [Cu(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>] + 2H<sub>2</sub>O. With NH<sub>3</sub> the same precipitate forms, because NH<sub>3</sub> acts as a base.',tip:'Pale blue precipitate.'},
+{t:'Excess ammonia',x:'NH<sub>3</sub> replaces four water ligands, forming a soluble deep blue complex.',tip:'This is ligand exchange, not deprotonation.'},
+{t:'Chromium(III)',x:'Excess OH<sup>−</sup> removes more H<sup>+</sup>: [Cr(OH)<sub>3</sub>(H<sub>2</sub>O)<sub>3</sub>] + 3OH<sup>−</sup> → [Cr(OH)<sub>6</sub>]<sup>3−</sup> + 3H<sub>2</sub>O.',tip:'With excess NH<sub>3</sub>, Cr<sup>3+</sup> slowly forms [Cr(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup> (purple).'},
+{t:'Amphoteric',x:'Cr(OH)<sub>3</sub> dissolves in acid too, so it is amphoteric.',tip:'Zn(OH)<sub>2</sub> and Al(OH)<sub>3</sub> are also amphoteric.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['"Goes blue" without saying precipitate or solution.','Saying Cu(OH)<sub>2</sub> dissolves in excess NaOH.','Calling the reaction with excess NH<sub>3</sub> a precipitation.','Missing the word amphoteric.'],
+your:{kind:'text',marks:2,q:'Adding concentrated HCl to blue [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> gives a yellow-green solution. <b>Write</b> the equation and explain the change of shape. (2)',
+ ms:['[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> + 4Cl<sup>−</sup> ⇌ [CuCl<sub>4</sub>]<sup>2−</sup> + 6H<sub>2</sub>O','Octahedral to tetrahedral: Cl<sup>−</sup> ligands are larger, so only four fit.'],
+ warn:[[/precipitate/i,'No precipitate forms. This is ligand exchange in solution.']]}
+});
+/* ---------- 5 chelate effect ---------- */
+W.push({btn:'The chelate effect',spec:[["17.25","entropy and chelate stability"],["17.16","bidentate and hexadentate ligands"]],type:'Explain',marks:3,
+title:'Why [Cu(en)<sub>3</sub>]<sup>2+</sup> is more stable than [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>',
+q:'<p><span class="mk">(3)</span>[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> + 3en → [Cu(en)<sub>3</sub>]<sup>2+</sup> + 6H<sub>2</sub>O   (en = NH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub>)</p><p><mark>Explain</mark>, in terms of <mark>entropy</mark>, why this reaction is favourable.</p>',
+diag:function(){var s='';
+  s+=T(20,30,'4 particles → 7 particles','big');
+  s+=G(1,T(20,56,'more particles → more disorder: ΔS system > 0','an'));
+  s+=G(2,T(20,82,'ΔH ≈ 0 (6 N–Cu vs 6 O–Cu bonds broken/made similar)','sm'));
+  s+=G(3,T(20,108,'ΔS total > 0 → feasible; complex more stable','an'));
+  return svg(330,120,s)},
+lines:plan(['count particles','entropy change','enthalpy roughly zero'])+
+ ans(1,'','','Left: 1 complex + 3 en = <span class="hl">4 particles</span>. Right: 1 + 6 = <span class="hl">7 particles</span>.','M1')+
+ ans(2,'','','More particles means more ways of arranging them: <span class="hl">ΔS<sub>system</sub> is positive</span>.','M2')+
+ ans(3,'The new bonds are much stronger.','Similar bonds (Cu–N and Cu–O, six of each) are made and broken, so ΔH is small.','ΔH is about zero, so ΔS<sub>total</sub> is positive and the <span class="hl">chelate complex is more stable</span>.','M3'),
+chips:[['M1','4 → 7 particles',1],['M2','ΔS system positive',2],['M3','ΔH ≈ 0 → feasible',3]],
+steps:[
+{t:'Read and plan',x:'A <b>bidentate</b> ligand like en forms two dative bonds. Replacing monodentate ligands with fewer multidentate ones releases more particles.',tip:'Count all species on each side.'},
+{t:'Particles',x:'Three en molecules replace six water molecules, so the number of particles increases.',tip:'EDTA<sup>4−</sup> replacing six H<sub>2</sub>O: 2 → 7.'},
+{t:'Entropy',x:'More particles in solution means greater disorder, so ΔS<sub>system</sub> is positive.',tip:'This is called the chelate effect.'},
+{t:'Enthalpy',x:'Six similar dative bonds are broken and made, so ΔH is close to zero. The entropy term dominates.',tip:'Haemoglobin is a natural polydentate iron(II) complex; CO binds more strongly than O<sub>2</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Counting ligands instead of particles.','Saying ΔH is very negative.','Talking about ΔS<sub>surroundings</sub> only.','Not stating a conclusion about stability.'],
+your:{kind:'text',marks:2,q:'Explain why carbon monoxide is toxic, in terms of ligand exchange in haemoglobin. (2)',
+ ms:['CO replaces O<sub>2</sub> as a ligand on the Fe<sup>2+</sup> in haemoglobin (ligand exchange).','The Fe–CO bond is much stronger, so it is not easily reversed; haemoglobin cannot carry oxygen.'],
+ warn:[[/Fe3\+|Fe<sup>3\+/i,'Haemoglobin contains iron(II).']]}
+});
+/* ---------- 6 vanadium ---------- */
+W.push({btn:'Oxidation states of vanadium',spec:[["17.18","vanadium colours"],["17.19","interconversion with Eᵒ"]],type:'Describe',marks:4,
+title:'Reducing vanadium(V) with zinc and acid',
+q:'<p><span class="mk">(4)</span>Zinc and dilute acid are added to a solution of ammonium vanadate(V).</p><p><mark>Describe</mark> the <mark>colour changes</mark>, giving the vanadium species and <mark>oxidation numbers</mark>.</p>',
+diag:function(){var s='';
+  [['VO₂⁺','+5','yellow','#e8c33a'],['VO²⁺','+4','blue','#3d7ec9'],['V³⁺','+3','green','#3f9a5a'],['V²⁺','+2','violet','#7a4fb0']].forEach(function(v,i){s+=G(i+1,'<rect x="'+(10+i*80)+'" y="20" width="70" height="70" rx="8" fill="'+v[3]+'" opacity=".75"/>'+T(45+i*80,50,v[0],'hd','text-anchor="middle"')+T(45+i*80,70,v[1],'hd','text-anchor="middle"')+T(45+i*80,110,v[2],'an','text-anchor="middle"'))});
+  s+=G(4,T(20,140,'Zn reduces it all the way to V²⁺','sm'));
+  return svg(330,150,s)},
+lines:plan(['vanadium(V)','vanadium(IV)','vanadium(III)','vanadium(II)'])+
+ ans(1,'','','Start: <span class="hl">VO<sub>2</sub><sup>+</sup> (+5), yellow</span>.','M1')+
+ ans(2,'','','<span class="hl">VO<sup>2+</sup> (+4), blue</span>. (A green mixture of yellow and blue is seen briefly.)','M2')+
+ ans(3,'','','<span class="hl">V<sup>3+</sup> (+3), green</span>.','M3')+
+ ans(4,'','','<span class="hl">V<sup>2+</sup> (+2), violet</span>.','M4'),
+chips:[['M1','+5 yellow',1],['M2','+4 blue',2],['M3','+3 green',3],['M4','+2 violet',4]],
+steps:[
+{t:'Read and plan',x:'Zinc is a strong reducing agent. It reduces vanadium step by step through all its oxidation states.',tip:'Mnemonic: You Better Get Vanadium (yellow, blue, green, violet).'},
+{t:'+5 to +4',x:'Yellow VO<sub>2</sub><sup>+</sup> becomes blue VO<sup>2+</sup>.',tip:'The intermediate green is a mixture, not V<sup>3+</sup>.'},
+{t:'+4 to +3',x:'Blue VO<sup>2+</sup> becomes green V<sup>3+</sup>.',tip:'E<sup>⦵</sup> values show each step is feasible with Zn.'},
+{t:'+3 to +2',x:'Green V<sup>3+</sup> becomes violet V<sup>2+</sup>.',tip:'V<sup>2+</sup> is readily re-oxidised by air, so keep the flask stoppered.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Mixing up the oxidation numbers and species.','Saying the first green colour is V<sup>3+</sup>.','Purple and violet confused with blue.','Missing the oxidation numbers.'],
+your:{kind:'text',marks:2,q:'Use E<sup>⦵</sup> values to explain why Sn reduces VO<sup>2+</sup> to V<sup>3+</sup> but not V<sup>3+</sup> to V<sup>2+</sup>. Eᵒ: VO<sup>2+</sup>/V<sup>3+</sup> +0.34; V<sup>3+</sup>/V<sup>2+</sup> −0.26; Sn<sup>2+</sup>/Sn −0.14 V. (2)',
+ ms:['VO<sup>2+</sup> → V<sup>3+</sup>: E<sub>cell</sub> = 0.34 − (−0.14) = +0.48 V, positive, feasible.','V<sup>3+</sup> → V<sup>2+</sup>: E<sub>cell</sub> = −0.26 − (−0.14) = −0.12 V, negative, not feasible.'],
+ warn:[[/add/i,'Subtract the potentials; do not add them.']]}
+});
+/* ---------- 7 homogeneous catalysis ---------- */
+W.push({btn:'Homogeneous catalysis: Fe²⁺ with persulfate',spec:[["17.31","Fe²⁺ catalysing I⁻/S₂O₈²⁻"],["17.30","homogeneous catalysts"],["17.26","transition metal catalysts"]],type:'Explain',marks:4,
+title:'How Fe<sup>2+</sup> ions catalyse the reaction between peroxodisulfate and iodide',
+q:'<p><span class="mk">(4)</span>S<sub>2</sub>O<sub>8</sub><sup>2−</sup> + 2I<sup>−</sup> → 2SO<sub>4</sub><sup>2−</sup> + I<sub>2</sub> is slow, but fast with a little Fe<sup>2+</sup>.</p><p><mark>Explain</mark> why the uncatalysed reaction is slow, and give <mark>equations</mark> for the catalysed route.</p>',
+diag:function(){var s='';
+  s+=card(10,44,'uncatalysed: two negative ions','repel each other → high Ea','card o',1);
+  s+=card(64,44,'S₂O₈²⁻ + 2Fe²⁺ → 2SO₄²⁻ + 2Fe³⁺','oppositely charged ions attract','card g',2);
+  s+=card(118,44,'2Fe³⁺ + 2I⁻ → 2Fe²⁺ + I₂','Fe²⁺ regenerated','card g',3);
+  s+=G(4,T(20,186,'variable oxidation number: Fe²⁺ ⇌ Fe³⁺','an'));
+  return svg(330,196,s)},
+lines:plan(['why slow','step 1','step 2','why transition metals'])+
+ ans(1,'','','Both reactants are <span class="hl">negative ions</span>, so they <span class="hl">repel</span>: the activation energy is high.','M1')+
+ ans(2,'','','Step 1: <span class="hl">S<sub>2</sub>O<sub>8</sub><sup>2−</sup> + 2Fe<sup>2+</sup> → 2SO<sub>4</sub><sup>2−</sup> + 2Fe<sup>3+</sup></span>','M2')+
+ ans(3,'','','Step 2: <span class="hl">2Fe<sup>3+</sup> + 2I<sup>−</sup> → 2Fe<sup>2+</sup> + I<sub>2</sub></span>. Each step involves oppositely charged ions.','M3')+
+ ans(4,'','','Iron can do this because it has <span class="hl">variable oxidation numbers</span>; Fe<sup>2+</sup> is regenerated, so it is a catalyst.','M4'),
+chips:[['M1','negative ions repel',1],['M2','step 1',2],['M3','step 2',3],['M4','variable oxidation number',4]],
+steps:[
+{t:'Read and plan',x:'A <b>homogeneous</b> catalyst is in the same phase as the reactants. It forms an intermediate and is regenerated.',tip:'Fe<sup>3+</sup> would work too: it simply starts at step 2.'},
+{t:'Why slow',x:'Two negatively charged ions must collide. Repulsion makes successful collisions rare.',tip:'Mention the activation energy.'},
+{t:'Step 1',x:'Fe<sup>2+</sup> reduces S<sub>2</sub>O<sub>8</sub><sup>2−</sup>, becoming Fe<sup>3+</sup>. Opposite charges attract.',tip:'Check E<sup>⦵</sup> values: both steps are feasible.'},
+{t:'Step 2',x:'Fe<sup>3+</sup> oxidises I<sup>−</sup> to I<sub>2</sub>, becoming Fe<sup>2+</sup> again.',tip:'Add the two steps to get the overall equation.'},
+{t:'Why iron',x:'Transition metals change easily between oxidation numbers, which lets them act as electron carriers.',tip:'Autocatalysis: Mn<sup>2+</sup> formed in the MnO<sub>4</sub><sup>−</sup>/C<sub>2</sub>O<sub>4</sub><sup>2−</sup> reaction speeds it up.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not explaining the repulsion.','Unbalanced steps.','Saying the catalyst is used up.','Calling it heterogeneous.'],
+your:{kind:'text',marks:2,q:'In the contact process, V<sub>2</sub>O<sub>5</sub> catalyses 2SO<sub>2</sub> + O<sub>2</sub> → 2SO<sub>3</sub>. Write the two steps. (2)',
+ ms:['SO<sub>2</sub> + V<sub>2</sub>O<sub>5</sub> → SO<sub>3</sub> + V<sub>2</sub>O<sub>4</sub> (V: +5 → +4)','2V<sub>2</sub>O<sub>4</sub> + O<sub>2</sub> → 2V<sub>2</sub>O<sub>5</sub> (V: +4 → +5, catalyst regenerated)'],
+ warn:[[/homogeneous/i,'V<sub>2</sub>O<sub>5</sub> is a solid with gaseous reactants: heterogeneous.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 5 · Topic 17 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["17.1", "Define a transition metal: a d-block element forming a stable ion with an incomplete d subshell."], ["17.2", "Deduce electron configurations of Sc to Zn atoms and ions."], ["17.3", "Explain why transition metals show variable oxidation numbers."], ["17.4", "Understand the term ligand."], ["17.5", "Understand dative (coordinate) bonding in complex ions."], ["17.6", "Understand that a complex ion is a central metal ion surrounded by ligands."], ["17.7", "Know that aqueous transition metal ions are usually coloured."], ["17.8", "Explain colour by the splitting of d orbitals by ligands."], ["17.9", "Explain why some aqueous and complex ions are colourless."], ["17.10", "Understand the term coordination number."], ["17.11", "Know that colour changes with oxidation number, ligand or coordination number."], ["17.12", "Know H<sub>2</sub>O, OH<sup>−</sup> and NH<sub>3</sub> as monodentate ligands."], ["17.13", "Know that six-fold coordination gives octahedral complexes."], ["17.14", "Know that larger ligands such as Cl<sup>−</sup> give tetrahedral complexes."], ["17.15", "Know square planar complexes, including cisplatin as an anti-cancer drug."], ["17.16", "Identify bidentate and hexadentate ligands, such as NH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> and EDTA<sup>4−</sup>."], ["17.17", "Describe haemoglobin as an iron(II) complex and how CO replaces O<sub>2</sub>."], ["17.18", "Know the colours of vanadium in oxidation states +5, +4, +3 and +2."], ["17.19", "Use Eᵒ values to explain the interconversion of vanadium oxidation states."], ["17.20", "Reduce dichromate(VI) with zinc in acid; oxidise Cr<sup>3+</sup> with hydrogen peroxide in alkali."], ["17.21", "Understand the dichromate(VI)–chromate(VI) equilibrium."], ["17.22", "Describe the reactions of the metal ions with NaOH and NH<sub>3</sub>, including excess."], ["17.23", "Write ionic equations for amphoteric behaviour, deprotonation and ligand exchange."], ["17.24", "Describe ligand exchange with colour changes: [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>, [CuCl<sub>4</sub>]<sup>2−</sup>, [CoCl<sub>4</sub>]<sup>2−</sup>."], ["17.25", "Explain the stability of multidentate complexes using entropy (the chelate effect)."], ["17.26", "Know that transition metals and their compounds act as heterogeneous and homogeneous catalysts."], ["17.27", "Understand heterogeneous catalysis on a surface."], ["17.28", "Explain V<sub>2</sub>O<sub>5</sub> in the contact process using oxidation numbers."], ["17.29", "Describe catalytic converters: adsorption of CO and NO, desorption of CO<sub>2</sub> and N<sub>2</sub>."], ["17.30", "Understand homogeneous catalysis via an intermediate."], ["17.31", "Explain the role of Fe<sup>2+</sup> in the I<sup>−</sup>/S<sub>2</sub>O<sub>8</sub><sup>2−</sup> reaction."], ["17.32", "Explain autocatalysis by Mn<sup>2+</sup> in the MnO<sub>4</sub><sup>−</sup>/C<sub>2</sub>O<sub>4</sub><sup>2−</sup> reaction."], ["17.33", "Core Practical 14: prepare a transition metal complex."]],KEY="ialchem-t17-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 17: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Organic chemistry part 2</title>
+<meta name="description" content="How to answer exam questions, step by step: Organic chemistry part 2. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/igcse-organic-chemistry-part-2.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--good-soft:#e3f3e9;--bad:#b3261e;--bad-soft:#fbe8e6;--hl:#fff1c7;--amber:#e0a526;--amber-ink:#8a5a00;--amber-soft:#fff8e8;
+--disp:"Lexend",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);overflow-x:hidden}
+.wrap{max-width:1127px;margin:0 auto;padding:20px 16px 36px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.2;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(1.4rem,3.1vw,2rem)}
+h2{font-size:clamp(1.2rem,2.4vw,1.5rem);margin:4px 0 8px}
+h3{font-size:1.15rem}
+p{margin:0 0 .6em}
+sub,sup{line-height:0;font-size:.72em}
+button{font:inherit;color:inherit}
+.lede{margin:6px 0 18px;color:var(--muted)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+mark,.hl{background:var(--hl);color:inherit;border-radius:4px;padding:0 3px;box-shadow:0 0 0 1.5px var(--amber);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* picker */
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.qc{all:unset;box-sizing:border-box;cursor:pointer;background:var(--sheet);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;display:flex;flex-direction:column;justify-content:space-between;gap:4px;min-height:72px}
+.qc b{font-family:var(--disp);font-weight:600;font-size:.98rem;line-height:1.25}
+.qc span{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--muted)}
+.qc:hover{border-color:var(--accent)}
+.qc:focus-visible,.btn:focus-visible,.pill:focus-visible,.plink:focus-visible,.dot:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.qc[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.qc[aria-pressed="true"] span{color:#dedcfa}
+/* cards */
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;background:var(--accent-soft);color:var(--accent);border-radius:99px;padding:3px 10px}
+.qcard{border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;background:var(--sheet)}
+.qcard .mk{color:var(--muted);font-weight:700;float:right;margin-left:10px}
+.qcard p.mk{float:none;text-align:right;margin:0}
+.eq{font-size:1.1rem;text-align:center;margin:.4em 0 .8em}
+.fig{display:block;max-width:100%;height:auto;margin:6px auto 10px}
+.tbl{overflow-x:auto;margin:6px 0 12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 9px;text-align:left}
+th{background:#f4f6f9;font-family:var(--disp);font-weight:600;font-size:.88rem}
+td.n,th.n{text-align:center}
+tr.hl td{background:var(--hl)}
+.sw{display:inline-block;width:.9em;height:.9em;border-radius:3px;border:1px solid #8a96a3;vertical-align:-1px}
+.sw.or{background:#e98a24}.sw.cl{background:#fff}
+svg.mol{display:inline-block;vertical-align:middle;max-width:100%;height:auto;overflow:visible}
+svg.mol line,svg.mol path{stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;fill:none}
+svg.mol text{fill:var(--ink);font-family:var(--mono);font-size:15px}
+svg.mol .a{stroke:var(--accent)!important;stroke-width:2.6!important;fill:var(--accent)}
+svg.mol text.a{font-weight:700;stroke:none!important}
+/* walkthrough */
+.two{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:20px;align-items:start}
+fieldset.ans{border:1.5px solid var(--line);border-radius:12px;padding:8px 16px 16px;margin:0;min-height:300px;min-width:0}
+fieldset.ans legend{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 6px}
+.ln{margin:7px 0;overflow-wrap:anywhere}
+.ln.note{color:var(--muted);font-size:.93rem;font-style:italic}
+.ln.empty{color:var(--muted);font-style:italic}
+.ln.new svg{animation:fade .6s ease both}
+.mt{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.04em;background:var(--good-soft);color:var(--good);border:1px solid #9fd0b3;border-radius:99px;padding:0 7px;margin-left:4px;vertical-align:2px;font-style:normal}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.callout{border:2px solid var(--amber);background:var(--amber-soft);border-radius:10px;padding:7px 12px;margin:14px 0 4px;animation:fade .4s ease both}
+.callout .mono{color:var(--amber-ink);display:block;margin-bottom:1px}
+.final{border:2.5px solid var(--ink);border-radius:10px;padding:8px 14px;display:inline-block;font-weight:700;margin-top:12px;font-size:1.05rem;animation:fade .4s ease both}
+.foot{font-size:.86rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:16px;padding-top:8px}
+.ctrl{display:flex;flex-direction:column;gap:14px;min-width:0}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{cursor:pointer;font-family:var(--disp);font-weight:600;font-size:.92rem;border:1.5px solid var(--line);background:var(--sheet);border-radius:10px;padding:8px 13px;line-height:1.2}
+.btn:hover:not(:disabled){border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff;flex:1 1 auto}
+.btn.pri:hover:not(:disabled){background:#3b36a0}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;flex-wrap:wrap}
+.dot{all:unset;cursor:pointer;width:13px;height:13px;border-radius:50%;background:var(--line)}
+.dot.on{background:var(--accent)}
+.dot.cur{box-shadow:0 0 0 2px var(--sheet),0 0 0 4px var(--accent)}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{cursor:pointer;border:0;background:var(--sheet);padding:5px 11px;font-size:.85rem;font-family:var(--disp);font-weight:600}
+.seg button+button{border-left:1.5px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.chip{border:1.5px solid var(--line);border-radius:10px;padding:5px 10px;font-size:.88rem;display:flex;gap:9px;align-items:baseline;color:var(--muted);}
+.chip b{font-family:var(--mono);font-size:.74rem;flex:none}
+.chip.on{background:var(--good-soft);border-color:var(--good);color:#0f4a2a}
+.chip.on b::after{content:" ✓"}
+.stepc{border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;background:#fafbfd}
+.stepc h3{margin:3px 0 6px;font-size:1.06rem}
+.stepc p{margin:0 0 .4em;font-size:.97rem}
+.tip{border-left:4px solid var(--amber);background:var(--amber-soft);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-size:.93rem}
+.tip strong{color:var(--amber-ink)}
+/* your turn */
+.yt{border:2px dashed var(--accent);border-radius:14px;padding:18px 20px;background:var(--sheet);margin-top:20px}
+.yt h3{margin-bottom:8px}
+.yt .ytq{margin-bottom:12px}
+.yt input[type=text]{font:inherit;font-size:1.05rem;border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;width:150px;max-width:100%}
+.yt textarea{font:inherit;width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;min-height:96px;resize:vertical;margin-bottom:10px}
+.yt input:focus,.yt textarea:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}
+.unit{color:var(--muted)}
+.fb{margin:10px 0 0;font-weight:700;min-height:1.2em}
+.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.fb span{font-weight:400;color:var(--ink)}
+.work{margin-top:12px;border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;background:#fafbfd}
+.work .ln{animation:fade .4s ease both}
+.ticks{list-style:none;padding:0;margin:6px 0}
+.ticks li{margin:6px 0}
+.ticks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.ticks input{width:20px;height:20px;margin-top:3px;accent-color:var(--good);flex:none}
+.score{font-family:var(--disp);font-weight:700}
+/* checklist */
+.spec{margin-top:20px}
+.spec .intro{color:var(--muted);margin:4px 0 12px}
+.bar{height:8px;border-radius:99px;background:#e6ebf0;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;transition:width .3s}
+.bar .g{background:var(--good)}.bar .m{background:var(--amber)}.bar .r{background:var(--bad)}
+.counts{margin:8px 0 10px}
+.srow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.snum{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:700}
+.stext{font-size:.97rem}
+.plinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:2px}
+.plink{all:unset;cursor:pointer;font-size:.86rem;color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.pills{display:flex;gap:5px}
+.pill{cursor:pointer;border:1.5px solid var(--line);background:var(--sheet);border-radius:99px;padding:4px 11px;font-size:.84rem;font-family:var(--disp);font-weight:600;white-space:nowrap}
+.pill[data-v="0"][aria-pressed="true"]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.pill[data-v="1"][aria-pressed="true"]{background:#fdf0cf;border-color:var(--amber);color:var(--amber-ink)}
+.pill[data-v="2"][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.clear{margin-top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:900px){.picker{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}fieldset.ans{min-height:0}}
+@media (max-width:620px){.srow{grid-template-columns:34px minmax(0,1fr)}.pills{grid-column:2}.card{padding:16px 14px}.qcard{padding:12px 13px}.yt{padding:14px}}
+@media (max-width:420px){.picker{grid-template-columns:minmax(0,1fr)}.qc{min-height:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body><a href="../index.html#igcse-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE exam walkthroughs</a>
+
+<div class="wrap">
+<h1 id="h1"></h1>
+<p class="lede">Choose a question. Press <b>Next step</b> (or the → key) to build the answer one mark at a time.</p>
+<div class="picker" id="picker" role="group" aria-label="Questions"></div>
+
+<section class="card" id="walk" aria-live="off">
+<div class="mono" id="qlabel"></div>
+<h2 id="qtitle"></h2>
+<div class="tags" id="tags"></div>
+<div class="qcard" id="qtext"></div>
+<div class="two">
+<fieldset class="ans"><legend>Answer space</legend>
+<div id="lines"></div>
+<div class="callout" id="callout" hidden><span class="mono">Key point</span><span id="cotext"></span></div>
+<div id="final" class="final" hidden></div>
+<div class="foot" id="foot" hidden></div>
+</fieldset>
+<div class="ctrl">
+<div class="btns"><button class="btn" id="back" type="button">← Back</button><button class="btn" id="replay" type="button">↻ Replay</button><button class="btn pri" id="next" type="button">Next step →</button></div>
+<div class="dots" id="dots" aria-label="Progress"></div>
+<div class="row"><span class="mono">Speed</span><div class="seg" id="speed" role="group" aria-label="Typing speed"><button type="button" data-s="0" aria-pressed="false">Slow</button><button type="button" data-s="1" aria-pressed="true">Normal</button><button type="button" data-s="2" aria-pressed="false">Fast</button></div></div>
+<ul class="chips" id="chips" aria-label="Marking points"></ul>
+<div class="stepc" aria-live="polite"><div class="mono" id="stepno"></div><h3 id="steptitle"></h3><div id="steptext"></div><div class="tip" id="steptip" hidden></div></div>
+</div>
+</div>
+</section>
+
+<section class="yt" id="yt"></section>
+
+<section class="card spec" id="spec">
+<h2 id="spech"></h2>
+<p class="intro">Rate yourself on every spec point. Where there is a walkthrough, press Practise to open it.</p>
+<div class="bar" aria-hidden="true"><i class="g" id="bg"></i><i class="m" id="bm"></i><i class="r" id="br"></i></div>
+<div class="mono counts" id="counts"></div>
+<div id="speclist"></div>
+<button class="btn clear" id="clear" type="button">Clear my ratings</button>
+</section>
+</div>
+<script>
+"use strict";
+/* Displayed-formula drawer. Grid text: letters = atoms, - = | / \ bonds,
+   [ ] polymer brackets (span 2 rows up/down), ~ = subscript n. hl = [[row,col],...] */
+function M(src,hl){
+  var W=17,H=21,R=src.replace(/^\n/,"").split("\n"),cols=0,o="",i,r,c;
+  for(i=0;i<R.length;i++)cols=Math.max(cols,R[i].length);
+  var HS={};(hl||[]).forEach(function(p){HS[p[0]+","+p[1]]=1});
+  function L(x1,y1,x2,y2,a){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"'+(a?' class="a"':'')+'/>'}
+  for(r=0;r<R.length;r++){
+    var s=R[r];
+    for(c=0;c<s.length;c++){
+      var ch=s[c],x=c*W,y=r*H,cx=x+W/2,cy=y+H/2,a=HS[r+","+c];
+      if(ch===" ")continue;
+      if(ch==="-"){o+=L(x+1,cy,x+W-1,cy,a);continue}
+      if(ch==="="){o+=L(x+1,cy-3,x+W-1,cy-3,a)+L(x+1,cy+3,x+W-1,cy+3,a);continue}
+      if(ch==="|"){o+=L(cx,y+1,cx,y+H-1,a);continue}
+      if(ch==="/"){o+=L(x+2,y+H-2,x+W-2,y+2,a);continue}
+      if(ch==="\\"){o+=L(x+2,y+2,x+W-2,y+H-2,a);continue}
+      if(ch==="["||ch==="]"){var t=cy-2*H+2,b=cy+2*H-2,d=ch==="["?6:-6;
+        o+=L(x,cy,x+W,cy,a)+'<path d="M'+(cx+d)+" "+t+"H"+cx+"V"+b+"H"+(cx+d)+'"/>';continue}
+      if(ch==="~"){o+='<text x="'+(cx-3)+'" y="'+(cy+8)+'" style="font-size:12px;font-style:italic">n</text>';continue}
+      var tok=ch;
+      if(/[A-Za-z0-9]/.test(ch)){while(c+1<s.length&&/[A-Za-z0-9]/.test(s[c+1]))tok+=s[++c]}
+      var tx,cw=9;
+      var vb=(R[r-1]&&R[r-1][c-tok.length+1]==="|")||(R[r+1]&&R[r+1][c-tok.length+1]==="|");
+      if(/^[A-Z][a-z]$/.test(tok)&&!vb){tx=x+W-cw}             /* Br, Cl: centre over two cells (unless bonded vertically) */
+      else if(tok==="→"||tok==="+"){tx=cx-cw/2}
+      else tx=cx-cw/2;
+      var body=tok.replace(/(\d+)/g,'<tspan style="font-size:11px" dy="4">$1</tspan><tspan dy="-4"></tspan>');
+      if(tok==="→")body='<tspan style="font-size:22px" dx="-3">→</tspan>';
+      o+='<text x="'+tx+'" y="'+(cy+5)+'"'+(a?' class="a"':'')+'>'+body+"</text>";
+    }
+  }
+  var w=cols*W,h=R.length*H;
+  return '<svg class="mol" width="'+w+'" height="'+h+'" viewBox="-2 -2 '+(w+4)+" "+(h+4)+'" role="img" aria-label="displayed formula">'+o+"</svg>";
+}
+
+var PAGE={id:"y11-organic",year:"Year 11",group:"Organic chemistry part 2"};
+function sp(n){return new Array(n+1).join(" ")}
+var BUTANE=M("  H H H H\n  | | | |\nH-C-C-C-C-H\n  | | | |\n  H H H H");
+var MEPROP=M("  H H H\n  | | |\nH-C-C-C-H\n  | | |\n  H | H\n    |\n  H-C-H\n    |\n    H",[[5,4],[6,4],[3,4],[4,4]]);
+var BUTENE_SK=M("C=C-C-C",[[0,1]]);
+var BUTENE=M("H H H H\n| | | |\nC=C-C-C-H\n|   | |\nH   H H",[[2,1]]);
+var ETH_R=M("H H\n| |\nC=C + Br-Br\n| |\nH H",[[2,1]]);
+var ETH_EQ=M("H H"+sp(14)+"H H\n| |"+sp(14)+"| |\nC=C + Br-Br → Br-C-C-Br\n| |"+sp(14)+"| |\nH H"+sp(14)+"H H",[[2,14],[2,16],[2,20],[2,21],[2,18]]);
+var METH_EQ=M("  H"+sp(15)+"H\n  |"+sp(15)+"|\nH-C-H + Br-Br → H-C-Br + H-Br\n  |"+sp(15)+"|\n  H"+sp(15)+"H",[[2,19],[2,20],[2,25],[2,26],[2,27]]);
+
+var QS=[
+{id:"iso",name:"Isomers of C<sub>4</sub>H<sub>10</sub>",type:"Draw",marks:4,
+title:"Draw and name the two isomers of C<sub>4</sub>H<sub>10</sub>",
+tags:["Spec 4.3 isomerism","Spec 4.5 formulae from a molecular formula","Spec 4.21 alkanes"],
+q:'<p>Butane is used as a fuel in camping gas. Its molecular formula is <mark>C<sub>4</sub>H<sub>10</sub></mark>. Two different compounds have this molecular formula.</p><p><mark>Draw</mark> the <mark>displayed formulae</mark> of the two structural isomers of C<sub>4</sub>H<sub>10</sub>, and <mark>name</mark> each one.</p><p class="mk">(4)</p>',
+mk:[["M1","displayed formula of butane"],["M2","name: butane"],["M3","displayed formula of methylpropane"],["M4","name: methylpropane"]],
+foot:"Isomers: same molecular formula, different structural formula.",
+steps:[
+{t:"What is an isomer?",x:"Isomers have the <b>same molecular formula</b> but a <b>different structural formula</b>: the atoms are joined in a different way. Both drawings must have 4 C and 10 H.",
+ add:[{h:"Isomers: same molecular formula (C<sub>4</sub>H<sub>10</sub>), different structure.",c:"note"}],co:"4 C · 10 H in both drawings"},
+{t:"Draw the straight chain",x:"Join 4 carbon atoms in a row. Then add H atoms so that every carbon has 4 bonds.",
+ add:[{h:BUTANE,m:"M1"}],e:["M1"],
+ tip:"A displayed formula shows <b>every</b> bond as a line. CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub> is a structural formula, not a displayed one."},
+{t:"Name it",x:"“But-” means 4 carbon atoms. “-ane” means an alkane, with only single bonds.",
+ add:[{h:"Name: <mark>butane</mark>",m:"M2"}],e:["M2"]},
+{t:"Make a branch",x:"Take one carbon off the end of the chain and join it to the middle carbon. The longest chain is now 3 carbons, with a CH<sub>3</sub> branch.",
+ add:[{h:MEPROP,m:"M3"}],e:["M3"],co:"longest chain = 3 C + one CH<sub>3</sub> branch",
+ tip:"Bending the chain does <b>not</b> make a new isomer. Four carbons in an L-shape is still butane."},
+{t:"Name the branched isomer",x:"Longest chain of 3 carbons → propane. The CH<sub>3</sub> branch → methyl. Put them together.",
+ add:[{h:"Name: <mark>methylpropane</mark>",m:"M4"}],e:["M4"],tip:"Allow 2-methylpropane. Do not accept “isobutane” or “butane” for this one. (The spec only says you must name <b>unbranched</b> isomers, so a real paper may give this name or not ask for it, but it is good to know.)"},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> The most common mistakes are drawing butane twice (once bent) and missing an H atom.",
+ add:[{h:"Check: each drawing has 4 C and 10 H, and every C has 4 bonds ✓",c:"note"}]}
+],
+yt:{k:"t",q:"C<sub>4</sub>H<sub>8</sub> has two unbranched alkene isomers. <mark>Give the structural formula</mark> and the <mark>name</mark> of each one. (4)",
+ pts:["CH<sub>2</sub>=CHCH<sub>2</sub>CH<sub>3</sub>","…named but-1-ene","CH<sub>3</sub>CH=CHCH<sub>3</sub>","…named but-2-ene"]}
+},
+
+{id:"alk",name:"Naming an alkene",type:"Draw",marks:3,
+title:"Name an alkene and draw its displayed formula",
+tags:["Spec 4.4 naming compounds","Spec 4.23 the C=C group","Spec 4.26 alkenes"],
+q:'<p>Compound <b>A</b> has the structural formula <mark>CH<sub>2</sub>=CHCH<sub>2</sub>CH<sub>3</sub></mark>.</p><p>(a) <mark>Give the name</mark> of compound A. <span class="mk">(1)</span></p><p>(b) <mark>Draw</mark> the <mark>displayed formula</mark> of compound A. <span class="mk">(2)</span></p>',
+mk:[["M1","name: but-1-ene"],["M2","C=C between C1 and C2"],["M3","all 8 H; every C has 4 bonds"]],
+foot:"Stems: meth = 1 C, eth = 2, prop = 3, but = 4, pent = 5, hex = 6. Endings: -ane (alkane), -ene (alkene).",
+steps:[
+{t:"Count the carbons",x:"Count the C atoms in the structural formula. The stem of the name tells you the number of carbons.",
+ add:["Carbons: CH<sub>2</sub>, CH, CH<sub>2</sub>, CH<sub>3</sub> → 4 carbons → <b>but-</b>"],co:"4 C → but-"},
+{t:"Find the functional group",x:"The C=C double bond is the functional group of the alkenes. Number the chain from the end nearest the double bond: it starts at carbon 1.",
+ add:["C=C double bond → alkene → <b>-ene</b>, starting at carbon 1"]},
+{t:"Write the name",x:"Put the stem, the position number and the ending together.",
+ add:[{h:"(a) <mark>but-1-ene</mark>",m:"M1"}],e:["M1"],
+ tip:"Allow 1-butene. Do not accept but-2-ene: the position of the double bond matters."},
+{t:"Draw the carbon chain",x:"Draw 4 C atoms in a row. Put the double bond between carbon 1 and carbon 2.",
+ add:[{h:BUTENE_SK,m:"M2"}],e:["M2"]},
+{t:"Add all the H atoms",x:"Every carbon needs 4 bonds, and the double bond counts as 2. Carbon 1 has 2 H, carbon 2 has 1 H, carbon 3 has 2 H and carbon 4 has 3 H: 8 H in total.",
+ add:[{h:BUTENE,m:"M3"},{h:"Check: C<sub>4</sub>H<sub>8</sub> fits C<sub>n</sub>H<sub>2n</sub> ✓",c:"note"}],e:["M3"],
+ tip:"The most common error is an extra H on carbon 2, which gives it 5 bonds."},
+{t:"Check and total",x:"<b>Total: 3 marks.</b> Most marks are lost by giving a carbon 5 bonds, or by leaving the “1” out of the name.",
+ fin:"but-1-ene, C<sub>4</sub>H<sub>8</sub> → 3 / 3"}
+],
+yt:{k:"t",q:"An alkene has 3 carbon atoms. (a) <mark>Name</mark> it. (b) <mark>Give</mark> its molecular formula. (c) <mark>Explain</mark> why it is described as unsaturated. (3)",
+ pts:["propene","C<sub>3</sub>H<sub>6</sub>","It contains a C=C double bond (not all its carbon–carbon bonds are single)"]}
+},
+
+{id:"bw",name:"Bromine water test",type:"Describe",marks:3,
+title:"Describe the bromine water test for an alkene",
+tags:["Spec 4.28 bromine water test","Spec 4.20 saturated","Spec 4.25 unsaturated"],
+q:'<p>A student has two colourless liquids in unlabelled bottles. One is <b>hexane</b>, an alkane. The other is <b>hex-1-ene</b>, an alkene.</p><p><mark>Describe</mark> how the student could use <mark>bromine water</mark> to show which liquid is hex-1-ene. Give the <mark>observations</mark> for both liquids.</p><p class="mk">(3)</p>',
+mk:[["M1","add bromine water and shake"],["M2","alkene: orange → colourless"],["M3","alkane: stays orange"]],
+foot:'Bromine water: <span class="sw or"></span> orange. With an alkene: <span class="sw cl"></span> colourless.',
+steps:[
+{t:"What does the question need?",x:"Give the method <b>and</b> what you see for <b>each</b> liquid. “Observations” means what you can see, such as colours.",
+ add:[{h:"Plan: method → result with the alkene → result with the alkane",c:"note"}],co:"method + result for each liquid"},
+{t:"The method",x:"Use a small sample of each liquid in a separate test tube.",
+ add:[{h:"Add a few drops of <mark>bromine water</mark> to a sample of each liquid and <mark>shake</mark>.",m:"M1"}],e:["M1"]},
+{t:"Result with the alkene",x:"The alkene reacts with the bromine, so the orange colour disappears.",
+ add:[{h:"With hex-1-ene the bromine water changes from <mark>orange to colourless</mark> (it is decolourised).",m:"M2"}],e:["M2"],co:'<span class="sw or"></span> orange → <span class="sw cl"></span> colourless',
+ tip:"Say “colourless”, <b>not</b> “clear”. Clear means see-through, and an orange solution is clear too. Allow orange, yellow or brown for the starting colour."},
+{t:"Result with the alkane",x:"Alkanes are saturated: they have no C=C bond, so bromine cannot add on. You must give this result too.",
+ add:[{h:"With hexane the bromine water <mark>stays orange</mark> (no change).",m:"M3"}],e:["M3"]},
+{t:"Why does it work?",x:"This is not needed for the 3 marks, but it helps you remember the test.",
+ add:[{h:"Reason: the alkene has a C=C double bond. Bromine adds across it in an addition reaction.",c:"note"}]},
+{t:"Check and total",x:"<b>Total: 3 marks.</b> The most common reason for losing marks is writing “goes clear” instead of “colourless”, or giving no result for the alkane.",
+ fin:"method + 2 observations = 3 / 3"}
+],
+yt:{k:"t",q:"A gas is either ethane or ethene. A student bubbles the gas through bromine water. The colour does <b>not</b> change. <mark>Identify</mark> the gas and <mark>explain</mark> your answer. (3)",
+ pts:["The gas is ethane","The bromine water stays orange because ethane is saturated (only single C–C bonds)","Ethene would decolourise it (orange → colourless) because it has a C=C bond"]}
+},
+
+{id:"eq",name:"Ethene + bromine",type:"Equation",marks:4,
+title:"Write an equation for the addition of bromine to ethene",
+tags:["Spec 4.27 alkenes with bromine","Spec 4.6 addition reactions"],
+q:'<p>Ethene reacts with bromine at room temperature.</p><p>(a) <mark>Write</mark> a balanced equation for this reaction, using <mark>displayed formulae</mark>. <span class="mk">(2)</span></p><p>(b) <mark>Name</mark> the product. <span class="mk">(1)</span></p><p>(c) <mark>State</mark> the type of reaction. <span class="mk">(1)</span></p>',
+mk:[["M1","displayed ethene + Br–Br"],["M2","displayed product, one Br on each C"],["M3","1,2-dibromoethane"],["M4","addition"]],
+foot:"Alkene + bromine → dibromoalkane. One product only.",
+steps:[
+{t:"Start with molecular formulae",x:"One Br<sub>2</sub> molecule adds to one ethene molecule. Nothing else is made, so there is only one product.",
+ add:["C<sub>2</sub>H<sub>4</sub> + Br<sub>2</sub> → C<sub>2</sub>H<sub>4</sub>Br<sub>2</sub>"],co:"1 : 1 → one product"},
+{t:"Draw the reactants",x:"Draw ethene with its C=C double bond. Draw bromine as Br–Br.",
+ add:[{h:ETH_R,m:"M1"}],e:["M1"]},
+{t:"Draw the product",x:"The double bond opens and becomes a single bond. One Br atom joins each carbon atom.",
+ add:[{h:ETH_EQ,m:"M2"}],e:["M2"],
+ tip:"The two Br atoms go on <b>different</b> carbons. Both Br atoms on one carbon is wrong."},
+{t:"Name the product",x:"“1,2” shows one Br on carbon 1 and one on carbon 2. “Di” means two bromine atoms. The chain now has only single bonds, so it ends in “-ane”.",
+ add:[{h:"(b) <mark>1,2-dibromoethane</mark>",m:"M3"}],e:["M3"]},
+{t:"Type of reaction",x:"Two molecules join to make <b>one</b> product. Alkenes can do this because they are unsaturated.",
+ add:[{h:"(c) <mark>addition</mark>",m:"M4"}],e:["M4"],
+ tip:"Do not write “substitution”. In substitution an atom is swapped and there are <b>two</b> products."},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> The most common error is drawing the product with the double bond still there.",
+ add:[{h:"Check: C 2 = 2 · H 4 = 4 · Br 2 = 2 ✓",c:"note"}],fin:"C<sub>2</sub>H<sub>4</sub> + Br<sub>2</sub> → C<sub>2</sub>H<sub>4</sub>Br<sub>2</sub> (addition)"}
+],
+yt:{k:"t",q:"Propene, CH<sub>2</sub>=CHCH<sub>3</sub>, reacts with bromine. <mark>Write</mark> the equation using molecular formulae, and <mark>name</mark> the product. (2)",
+ pts:["C<sub>3</sub>H<sub>6</sub> + Br<sub>2</sub> → C<sub>3</sub>H<sub>6</sub>Br<sub>2</sub>","1,2-dibromopropane"]}
+},
+
+{id:"hom",name:"Homologous series",type:"Explain",marks:4,
+title:"Explain what is meant by a homologous series",
+tags:["Spec 4.3 homologous series","Spec 4.19 alkane general formula"],
+q:'<p>Methane, ethane and propane are the first three members of the alkanes.</p><p><mark>Explain</mark> what is meant by the term <mark>homologous series</mark>. Use the alkanes as an example.</p><p class="mk">(4)</p>',
+mk:[["M1","same general formula"],["M2","similar chemical properties"],["M3","differ by CH<sub>2</sub>"],["M4","trend in physical properties"]],
+foot:"Memory aid: formula · chemistry · CH<sub>2</sub> · trend.",
+steps:[
+{t:"Plan four points",x:"Four marks means four features. Remember them as: formula, chemistry, CH<sub>2</sub>, trend. Give an alkane example for each one.",
+ add:[{h:"Plan: same general formula · similar chemical properties · differ by CH<sub>2</sub> · trend in physical properties",c:"note"}],co:"formula · chemistry · CH<sub>2</sub> · trend"},
+{t:"General formula",x:"All members fit one general formula.",
+ add:[{h:"The members have the <mark>same general formula</mark>. For the alkanes it is C<sub>n</sub>H<sub>2n+2</sub>.",m:"M1"}],e:["M1"]},
+{t:"Chemical properties",x:"Members have the same functional group, so they react in the same way.",
+ add:[{h:"They have the same functional group, so they have <mark>similar chemical properties</mark>. For example, all alkanes burn, and all react with bromine in UV light.",m:"M2"}],e:["M2"],
+ tip:"For the alkanes, “similar chemical properties” is the safest way to earn this mark."},
+{t:"The CH<sub>2</sub> step",x:"Each member has one more carbon and two more hydrogens than the one before.",
+ add:[{h:"Each member <mark>differs from the next by CH<sub>2</sub></mark>: CH<sub>4</sub>, C<sub>2</sub>H<sub>6</sub>, C<sub>3</sub>H<sub>8</sub>.",m:"M3"}],e:["M3"],co:"+CH<sub>2</sub> each time"},
+{t:"Physical properties",x:"Physical properties such as boiling point change gradually as the molecules get bigger.",
+ add:[{h:"There is a <mark>gradual trend in physical properties</mark>, such as boiling point increasing as the chain gets longer.",m:"M4"}],e:["M4"],
+ tip:"Chemical properties are <b>similar</b>; physical properties show a <b>trend</b>. “They have the same properties” does not score."},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> Students most often lose marks by saying all members have “the same properties”: their physical properties are different.",
+ fin:"4 features → 4 / 4"}
+],
+yt:{k:"t",q:"<mark>Explain</mark> why ethane, C<sub>2</sub>H<sub>6</sub>, and ethene, C<sub>2</sub>H<sub>4</sub>, are <b>not</b> in the same homologous series. (3)",
+ pts:["They have different general formulae: C<sub>n</sub>H<sub>2n+2</sub> (alkanes) and C<sub>n</sub>H<sub>2n</sub> (alkenes)","Ethene has a C=C functional group; ethane has only single bonds","So they have different chemical properties, e.g. ethene decolourises bromine water but ethane does not"]}
+},
+
+{id:"genf",name:"Formula from a general formula",type:"Calculation",marks:3,
+title:"Deduce a molecular formula from a general formula",
+tags:["Spec 4.2 general formulae","Spec 4.24 alkene general formula"],
+q:'<p>Alkene <b>Y</b> has a relative formula mass (M<sub>r</sub>) of <mark>70</mark>.</p><p>The general formula of the alkenes is <mark>C<sub>n</sub>H<sub>2n</sub></mark>.</p><p><mark>Deduce</mark> the molecular formula of Y. Show your working.</p><p class="mk">[A<sub>r</sub>: C = 12, H = 1] (3)</p>',
+mk:[["M1","14n = 70"],["M2","n = 5"],["M3","C<sub>5</sub>H<sub>10</sub>"]],
+foot:"Alkanes C<sub>n</sub>H<sub>2n+2</sub> → M<sub>r</sub> = 14n + 2 · Alkenes C<sub>n</sub>H<sub>2n</sub> → M<sub>r</sub> = 14n",
+steps:[
+{t:"Write M<sub>r</sub> using n",x:"Each C atom has a mass of 12 and each H atom has a mass of 1. The molecule has n carbons and 2n hydrogens.",
+ add:["M<sub>r</sub> = (12 × n) + (1 × 2n)"],co:"C = 12 · H = 1"},
+{t:"Simplify and set equal to 70",x:"12n + 2n = 14n. One CH<sub>2</sub> unit has a mass of 14.",
+ add:[{h:"<mark>14n = 70</mark>",m:"M1"}],e:["M1"],co:"one CH<sub>2</sub> = 14"},
+{t:"Solve for n",x:"Divide both sides by 14.",
+ add:[{h:"n = 70 ÷ 14 = <mark>5</mark>",m:"M2"}],e:["M2"]},
+{t:"Write the formula",x:"Put n = 5 into C<sub>n</sub>H<sub>2n</sub>: there are 5 C atoms and 2 × 5 = 10 H atoms.",
+ add:[{h:"Molecular formula = <mark>C<sub>5</sub>H<sub>10</sub></mark>",m:"M3"}],e:["M3"],fin:"C<sub>5</sub>H<sub>10</sub>",
+ tip:"Check: (5 × 12) + (10 × 1) = 70 ✓. Write the formula, not just “n = 5”: the question asks for the formula."},
+{t:"Check and total",x:"<b>Total: 3 marks.</b> For alkanes use C<sub>n</sub>H<sub>2n+2</sub>, so M<sub>r</sub> = 14n + 2. The most common error is using the wrong general formula.",
+ add:[{h:"Check: 60 + 10 = 70 ✓",c:"note"}]}
+],
+yt:{k:"n",q:"An alkane has M<sub>r</sub> = <mark>72</mark>. The general formula of the alkanes is C<sub>n</sub>H<sub>2n+2</sub>. <mark>Calculate</mark> the number of carbon atoms, n. [A<sub>r</sub>: C = 12, H = 1]",
+ ans:5,tol:0,unit:"carbon atoms",
+ wrong:[[6,"72 ÷ 12 = 6 ignores the hydrogen atoms. Use M<sub>r</sub> = 14n + 2."],[5.14,"You divided 72 by 14. For alkanes, take away 2 first: 14n = 70.",0.02],[12,"12 is the number of H atoms (C<sub>5</sub>H<sub>12</sub>). The question asks for carbon atoms."]],
+ ok:"14n + 2 = 72, so 14n = 70 and n = 5. The alkane is C<sub>5</sub>H<sub>12</sub> (pentane).",no:"Write M<sub>r</sub> = 12n + 1(2n + 2) = 14n + 2, then solve 14n + 2 = 72.",
+ work:["M<sub>r</sub> = 12n + 1(2n + 2) = 14n + 2","14n + 2 = 72","14n = 70","n = 70 ÷ 14 = <b>5</b>","Formula: C<sub>5</sub>H<sub>12</sub> (pentane)"]}
+},
+
+{id:"sub",name:"Methane + bromine",type:"Describe",marks:4,
+title:"Describe the substitution reaction of methane with bromine",
+tags:["Spec 4.22 alkanes with halogens","Spec 4.6 substitution reactions"],
+q:'<p>Methane reacts with bromine, but only under certain conditions.</p><p>(a) <mark>State the condition</mark> needed for this reaction. <span class="mk">(1)</span></p><p>(b) <mark>Write</mark> a balanced equation for the reaction and <mark>name</mark> both products. <span class="mk">(2)</span></p><p>(c) <mark>Explain</mark> why this is called a <mark>substitution</mark> reaction. <span class="mk">(1)</span></p>',
+mk:[["M1","UV light"],["M2","CH<sub>4</sub> + Br<sub>2</sub> → CH<sub>3</sub>Br + HBr"],["M3","bromomethane + hydrogen bromide"],["M4","H atom replaced by Br atom"]],
+foot:"Substitution: one atom swapped → two products. Addition: two molecules join → one product.",
+steps:[
+{t:"The condition",x:"Alkanes are not very reactive. Their reaction with a halogen needs ultraviolet light, for example sunlight.",
+ add:[{h:"(a) <mark>Ultraviolet (UV) light</mark>",m:"M1"}],e:["M1"],co:"UV light",
+ tip:"Allow sunlight. “Heat” or “a catalyst” is wrong."},
+{t:"Write the equation",x:"One H atom in methane is swapped for one Br atom. The H atom that leaves joins the other Br atom.",
+ add:[{h:"(b) CH<sub>4</sub> + Br<sub>2</sub> → <mark>CH<sub>3</sub>Br + HBr</mark>",m:"M2"}],e:["M2"],co:"one H out, one Br in"},
+{t:"See it in displayed formulae",x:"The displayed formulae show which atoms swap places. The highlighted bonds are new.",
+ add:[{h:METH_EQ}]},
+{t:"Name the products",x:"CH<sub>3</sub>Br is methane with one Br: bromomethane. HBr is hydrogen bromide.",
+ add:[{h:"Products: <mark>bromomethane</mark> and <mark>hydrogen bromide</mark>",m:"M3"}],e:["M3"],
+ tip:"Write “hydrogen bromide”, not “hydrogen bromine”. Only one Br is substituted for 4CH1."},
+{t:"Explain “substitution”",x:"Substitution means one atom is swapped for another. Compare with the alkenes, which <b>add</b> bromine and make only one product.",
+ add:[{h:"(c) A hydrogen atom in methane is <mark>replaced by</mark> a bromine atom.",m:"M4"}],e:["M4"]},
+{t:"What you would see",x:"Not asked here, but it is sometimes tested.",
+ add:[{h:"Observation: the orange-brown colour of the bromine slowly fades.",c:"note"}]},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> Students most often forget the UV light, or forget HBr as the second product.",
+ fin:"CH<sub>4</sub> + Br<sub>2</sub> → CH<sub>3</sub>Br + HBr (UV light)"}
+],
+yt:{k:"t",q:"Ethane reacts with chlorine in sunlight. (a) <mark>Write</mark> the equation. (b) <mark>Name</mark> the organic product. (c) <mark>State</mark> the type of reaction. (3)",
+ pts:["C<sub>2</sub>H<sub>6</sub> + Cl<sub>2</sub> → C<sub>2</sub>H<sub>5</sub>Cl + HCl","chloroethane","substitution"]}
+}
+];
+
+var SPEC=[
+{n:"4.1",s:"A hydrocarbon is a compound of hydrogen and carbon only.",p:["hom"]},
+{n:"4.2",s:"Show organic molecules with empirical, molecular, general, structural and displayed formulae.",p:["genf","alk"]},
+{n:"4.3",s:"Know what is meant by homologous series, functional group and isomerism.",p:["hom","iso"]},
+{n:"4.4",s:"Name compounds with IUPAC rules (meth-, eth-, prop-, but-…; -ane, -ene).",p:["alk","iso"]},
+{n:"4.5",s:"Write the possible structural and displayed formulae for a given molecular formula.",p:["iso"]},
+{n:"4.6",s:"Classify reactions as substitution, addition or combustion.",p:["eq","sub"]},
+{n:"4.19",s:"The general formula of the alkanes is C<sub>n</sub>H<sub>2n+2</sub>.",p:["genf","hom"]},
+{n:"4.20",s:"Explain why alkanes are saturated: they have only single C–C bonds.",p:["bw"]},
+{n:"4.21",s:"Draw structural and displayed formulae of alkanes (up to five carbons) and name the straight-chain ones.",p:["iso"]},
+{n:"4.22",s:"Alkanes react with halogens in UV light by substitution (one halogen atom only).",p:["sub"]},
+{n:"4.23",s:"Alkenes contain the C=C functional group.",p:["alk"]},
+{n:"4.24",s:"The general formula of the alkenes is C<sub>n</sub>H<sub>2n</sub>.",p:["genf"]},
+{n:"4.25",s:"Explain why alkenes are unsaturated: they contain a C=C double bond.",p:["bw"]},
+{n:"4.26",s:"Draw structural and displayed formulae of alkenes (up to four carbons) and name the straight-chain ones.",p:["alk"]},
+{n:"4.27",s:"Alkenes react with bromine to make dibromoalkanes.",p:["eq"]},
+{n:"4.28",s:"Use bromine water to tell an alkane from an alkene: an alkene turns it from orange to colourless.",p:["bw"]}
+];
+
+(function(){
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var qi=0,k=0,gen=0,spd=1,DEL=[42,17,7],CH=[1,1,3];
+var reduce=false;try{reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+var store={get:function(key){try{return window.localStorage.getItem(key)}catch(e){return null}},
+  set:function(key,v){try{window.localStorage.setItem(key,v)}catch(e){}}};
+
+$("#h1").textContent=PAGE.group+": answer it mark by mark";
+$("#spech").textContent=PAGE.group+": spec checklist";
+
+/* picker */
+function buildPicker(){
+  $("#picker").innerHTML=QS.map(function(q,i){
+    return '<button class="qc" type="button" data-i="'+i+'" aria-pressed="'+(i===qi)+'"><b>'+q.name+'</b><span>'+q.type+" · "+q.marks+" marks</span></button>"}).join("");
+}
+$("#picker").addEventListener("click",function(e){var b=e.target.closest(".qc");if(b)select(+b.dataset.i,false)});
+function select(i,scroll){
+  qi=i;$$(".qc").forEach(function(b,j){b.setAttribute("aria-pressed",String(j===i))});
+  renderQ();
+  if(scroll){try{$("#walk").scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})}catch(e){$("#walk").scrollIntoView()}}
+}
+function renderQ(){
+  var q=QS[qi];
+  $("#qlabel").textContent="IGCSE Chemistry · "+PAGE.year+" · "+PAGE.group+" · Exam-style question · "+q.marks+" marks";
+  $("#qtitle").innerHTML=q.title;
+  $("#tags").innerHTML=q.tags.map(function(t){return '<span class="tag">'+t+"</span>"}).join("");
+  $("#qtext").innerHTML=q.q;
+  $("#chips").innerHTML=q.mk.map(function(m){return '<li class="chip" data-m="'+m[0]+'"><b>'+m[0]+"</b><span>"+m[1]+"</span></li>"}).join("");
+  $("#dots").innerHTML=q.steps.map(function(s,j){return '<button class="dot" type="button" data-j="'+(j+1)+'" aria-label="Go to step '+(j+1)+'"></button>'}).join("");
+  var f=$("#foot");f.innerHTML=q.foot||"";f.hidden=!q.foot;
+  renderYT(q);
+  go(0,false);
+}
+function go(n,anim){
+  var q=QS[qi],N=q.steps.length;n=Math.max(0,Math.min(N,n));k=n;gen++;var g=gen;
+  var box=$("#lines");box.innerHTML="";
+  var co=null,fin=null,earned={},queue=[];
+  for(var j=0;j<n;j++){
+    var s=q.steps[j],cur=anim&&!reduce&&j===n-1;
+    (s.add||[]).forEach(function(Ln){
+      var d=document.createElement("div"),h,m,cls="ln";
+      if(typeof Ln==="string")h=Ln;else{h=Ln.h;m=Ln.m;if(Ln.c)cls+=" "+Ln.c}
+      d.className=cls+(cur?" new":"");
+      d.innerHTML=h+(m?' <span class="mt">'+m+"</span>":"");
+      box.appendChild(d);if(cur)queue.push(d);
+    });
+    if(s.co)co=s.co;if(s.fin)fin=s.fin;(s.e||[]).forEach(function(x){earned[x]=1});
+  }
+  if(!n)box.innerHTML='<div class="ln empty">Your answer will build here, one mark at a time.</div>';
+  var c=$("#callout"),f=$("#final");
+  c.hidden=true;f.hidden=true;
+  function after(){if(g!==gen)return;if(co){$("#cotext").innerHTML=co;c.hidden=false}if(fin){f.innerHTML=fin;f.hidden=false}}
+  $$("#chips .chip").forEach(function(ch){ch.classList.toggle("on",!!earned[ch.dataset.m])});
+  $$("#dots .dot").forEach(function(d,i){d.classList.toggle("on",i<n);d.classList.toggle("cur",i===n-1);d.setAttribute("aria-current",i===n-1?"step":"false")});
+  var tip=$("#steptip");
+  if(n===0){
+    $("#stepno").textContent="Ready · "+N+" steps";
+    $("#steptitle").textContent="Read the question first";
+    $("#steptext").innerHTML="<p>Find the command word and the key data (highlighted in yellow). Then press <b>Next step</b>.</p>";
+    tip.hidden=true;
+  }else{
+    var st=q.steps[n-1];
+    $("#stepno").textContent="Step "+n+" of "+N;
+    $("#steptitle").innerHTML=st.t;
+    $("#steptext").innerHTML="<p>"+st.x+"</p>";
+    if(st.tip){tip.innerHTML="<strong>Exam tip:</strong> "+st.tip;tip.hidden=false}else tip.hidden=true;
+  }
+  $("#back").disabled=n===0;
+  $("#next").disabled=n===N;
+  $("#next").textContent=n===N?"Done ✓":"Next step →";
+  if(queue.length)typeQueue(queue,g,after);else after();
+}
+function typeQueue(els,g,done){
+  var items=[];
+  els.forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(t){return t.parentNode&&t.parentNode.closest&&t.parentNode.closest("svg")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}}),t;
+    while((t=w.nextNode()))items.push([t,t.data]);
+  });
+  items.forEach(function(it){it[0].data=""});
+  var i=0,p=0;
+  (function tick(){
+    if(g!==gen)return;
+    var n=CH[spd];
+    while(n>0&&i<items.length){
+      var it=items[i],full=it[1];
+      var take=Math.min(n,full.length-p);
+      p+=take;n-=take;it[0].data=full.slice(0,p);
+      if(p>=full.length){i++;p=0}
+      if(take===0&&full.length===0){i++;p=0}
+    }
+    if(i<items.length)setTimeout(tick,DEL[spd]);else done();
+  })();
+}
+$("#next").addEventListener("click",function(){go(k+1,true)});
+$("#back").addEventListener("click",function(){go(k-1,false)});
+$("#replay").addEventListener("click",function(){go(k===0?1:k,true)});
+$("#dots").addEventListener("click",function(e){var d=e.target.closest(".dot");if(d)go(+d.dataset.j,+d.dataset.j===k+1)});
+$("#speed").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;spd=+b.dataset.s;
+  $$("#speed button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))})});
+document.addEventListener("keydown",function(e){
+  var t=e.target,tag=t&&t.tagName;
+  if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT"||(t&&t.isContentEditable))return;
+  if(e.altKey||e.ctrlKey||e.metaKey)return;
+  if(e.key==="ArrowRight"){e.preventDefault();if(k<QS[qi].steps.length)go(k+1,true)}
+  else if(e.key==="ArrowLeft"){e.preventDefault();if(k>0)go(k-1,false)}
+});
+
+/* your turn */
+function num(s){s=String(s).trim().replace(/\s+/g,"");if(/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(s))s=s.replace(/,/g,"");else s=s.replace(",",".");return s===""?NaN:Number(s)}
+function renderYT(q){
+  var y=q.yt,el=$("#yt");
+  if(y.k==="n"){
+    el.innerHTML='<h3>Your turn</h3><div class="ytq">'+y.q+'</div><div class="row"><label class="sr" for="ytin">Your answer</label><input id="ytin" type="text" inputmode="decimal" autocomplete="off" placeholder="Answer"><span class="unit">'+y.unit+'</span><button class="btn pri" id="ytchk" type="button" style="flex:0 0 auto">Check</button><button class="btn" id="ytshow" type="button">Show worked answer</button></div><p class="fb" id="ytfb" aria-live="polite"></p><div class="work" id="ytwork" hidden></div>';
+    var chk=function(){
+      var v=num($("#ytin").value),fb=$("#ytfb");
+      if(isNaN(v)){fb.className="fb no";fb.innerHTML="Type a number first.";return}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className="fb ok";fb.innerHTML="✓ Correct. <span>"+y.ok+"</span>";return}
+      var why=y.no;(y.wrong||[]).forEach(function(w){if(Math.abs(v-w[0])<=(w[2]||0.001))why=w[1]});
+      fb.className="fb no";fb.innerHTML="✗ Not yet. <span>"+why+"</span>";
+    };
+    $("#ytchk").addEventListener("click",chk);
+    $("#ytin").addEventListener("keydown",function(e){if(e.key==="Enter")chk()});
+    $("#ytshow").addEventListener("click",function(){
+      var w=$("#ytwork"),b=this;b.disabled=true;w.hidden=false;w.innerHTML="";var i=0;
+      (function add(){if(!document.body.contains(w))return;var d=document.createElement("div");d.className="ln";d.innerHTML=y.work[i];w.appendChild(d);i++;if(i<y.work.length)setTimeout(add,reduce?0:550)})();
+    });
+  }else{
+    el.innerHTML='<h3>Your turn</h3><div class="ytq">'+y.q+'</div><label class="sr" for="ytta">Your answer</label><textarea id="ytta" placeholder="Write your answer here…"></textarea><div class="row"><button class="btn pri" id="ytshow" type="button" style="flex:0 0 auto">Show model answer</button></div><div class="work" id="ytmodel" hidden><div class="mono">Tick each point you made</div><ul class="ticks">'+
+      y.pts.map(function(p,i){return '<li><label><input type="checkbox" data-i="'+i+'"><span>'+p+"</span></label></li>"}).join("")+
+      '</ul><div class="score" aria-live="polite"><span id="ytsc">0</span> / '+y.pts.length+" marks</div></div>";
+    $("#ytshow").addEventListener("click",function(){$("#ytmodel").hidden=false;this.disabled=true});
+    $("#ytmodel").addEventListener("change",function(){$("#ytsc").textContent=$$("#ytmodel input:checked").length});
+  }
+}
+
+/* checklist */
+var KEY="igcse-chem-"+PAGE.id+"-ratings",RT={};
+try{RT=JSON.parse(store.get(KEY)||"{}")||{}}catch(e){RT={}}
+function buildSpec(){
+  $("#speclist").innerHTML=SPEC.map(function(s,i){
+    var links=(s.p||[]).map(function(id){var j=-1;QS.forEach(function(q,x){if(q.id===id)j=x});
+      return j<0?"":'<button class="plink" type="button" data-q="'+j+'">Practise: '+QS[j].name+"</button>"}).join("");
+    return '<div class="srow" data-i="'+i+'"><span class="snum">'+(s.n||"•")+'</span><div class="stext">'+s.s+(links?'<div class="plinks">'+links+"</div>":"")+'</div><div class="pills" role="group" aria-label="Rate spec point">'+
+      ["Not yet","Nearly","Got it"].map(function(t,v){return '<button class="pill" type="button" data-v="'+v+'" aria-pressed="false">'+t+"</button>"}).join("")+"</div></div>"}).join("");
+  paintSpec();
+}
+function paintSpec(){
+  var cnt=[0,0,0],N=SPEC.length;
+  $$(".srow").forEach(function(row){var key=String(row.dataset.i),v=RT.hasOwnProperty(key)?RT[key]:-1;
+    if(v>=0)cnt[v]++;
+    Array.prototype.forEach.call(row.querySelectorAll(".pill"),function(p){p.setAttribute("aria-pressed",String(+p.dataset.v===v))})});
+  var nr=N-cnt[0]-cnt[1]-cnt[2];
+  $("#counts").textContent=cnt[2]+" got it · "+cnt[1]+" nearly · "+cnt[0]+" not yet · "+nr+" not rated (of "+N+")";
+  $("#bg").style.width=(cnt[2]/N*100)+"%";$("#bm").style.width=(cnt[1]/N*100)+"%";$("#br").style.width=(cnt[0]/N*100)+"%";
+}
+$("#speclist").addEventListener("click",function(e){
+  var p=e.target.closest(".pill");
+  if(p){var key=String(p.closest(".srow").dataset.i),v=+p.dataset.v;
+    if(RT[key]===v)delete RT[key];else RT[key]=v;
+    store.set(KEY,JSON.stringify(RT));paintSpec();return}
+  var l=e.target.closest(".plink");if(l)select(+l.dataset.q,true);
+});
+$("#clear").addEventListener("click",function(){RT={};store.set(KEY,"{}");paintSpec()});
+
+buildPicker();renderQ();buildSpec();
+})();
+
+</script>
+</body>
+</html>

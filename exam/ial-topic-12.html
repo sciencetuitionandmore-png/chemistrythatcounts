@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entropy and Energetics Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Entropy and Energetics Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-12.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Entropy and energetics: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+var JK='J K<sup>−1</sup> mol<sup>−1</sup>';
+/* ---------- 1 entropy change of the system ---------- */
+W.push({btn:'ΔS<sub>system</sub> from standard entropies',spec:[["12.7","calculate ΔS system"],["12.5 iii","change in number of moles"],["12.3","entropy of solids, liquids and gases"]],type:'Calculate',marks:3,
+title:'Calculating the entropy change of the system for making ammonia',
+q:'<p><span class="mk">(3)</span>N<sub>2</sub>(g) + 3H<sub>2</sub>(g) → 2NH<sub>3</sub>(g)</p><p>Standard entropies, <i>S</i><sup>⦵</sup> / '+JK+': N<sub>2</sub>(g) 191.6, H<sub>2</sub>(g) 130.6, NH<sub>3</sub>(g) 192.3.</p><p><mark>Calculate</mark> ΔS<sup>⦵</sup><sub>system</sub> and <mark>explain</mark> its <mark>sign</mark>.</p>',
+diag:function(){var s='';
+  s+=T(20,24,'reactants: 4 mol gas','hd')+T(200,24,'products: 2 mol gas','hd');
+  [[40,60],[70,90],[40,110],[78,124]].forEach(function(p,i){s+=C(p[0],p[1],i===0?12:9,i===0?'ip':'ath',i===0?'N₂':'H₂')});
+  s+=C(232,74,12,'in','NH₃')+C(262,108,12,'in','NH₃');
+  s+=G(1,T(20,166,'Σ S(products) = 2 × 192.3 = 384.6',''));
+  s+=G(2,T(20,190,'Σ S(reactants) = 191.6 + 3 × 130.6 = 583.4',''));
+  s+=G(3,T(20,216,'ΔS = 384.6 − 583.4 = −198.8 J K⁻¹ mol⁻¹','big'));
+  s+=G(4,T(20,240,'fewer gas molecules → less disorder','an'));
+  return svg(330,252,s)},
+lines:plan(['sum S of products','sum S of reactants','products − reactants','explain the sign'])+
+ ans(1,'','','Σ<i>S</i>(products) = 2 × 192.3 = 384.6 '+JK,'')+
+ ans(2,'Σ S(reactants) = 191.6 + 130.6 = 322.2','Multiply each entropy by its coefficient: there are 3 mol of H<sub>2</sub>.','Σ<i>S</i>(reactants) = 191.6 + (3 × 130.6) = 583.4 '+JK,'M1')+
+ ans(3,'','','ΔS<sub>system</sub> = 384.6 − 583.4 = <span class="hl">−198.8 '+JK+'</span>','M2')+
+ ans(4,'','','The sign is negative because <span class="hl">4 mol of gas become 2 mol of gas</span>, so there are fewer ways to arrange the particles and energy.','M3'),
+chips:[['M1','multiply S by coefficients',2],['M2','ΔS = −198.8 J K⁻¹ mol⁻¹',3],['M3','fewer moles of gas',4]],
+steps:[
+{t:'Read and plan',x:'Entropy, <i>S</i>, measures how dispersed (spread out) the particles and their energy are. ΔS<sub>system</sub> = Σ<i>S</i>(products) − Σ<i>S</i>(reactants).',tip:'Unlike enthalpy of formation, elements do <b>not</b> have zero entropy. Use every value given.'},
+{t:'Products',x:'Two moles of ammonia, so multiply 192.3 by 2.',tip:'Entropy units are J K<sup>−1</sup> mol<sup>−1</sup>, not kJ.'},
+{t:'Reactants',x:'One mole of N<sub>2</sub> and three moles of H<sub>2</sub>. Multiply the hydrogen value by 3.',tip:'Forgetting the coefficients is the most common error in this calculation.'},
+{t:'Subtract',x:'Products minus reactants gives a negative value.',tip:'Keep the sign in your answer.'},
+{t:'Explain the sign',x:'Gases have much higher entropy than solids or liquids. Here the number of gas molecules goes down from 4 to 2, so the system becomes more ordered.',tip:'Predict the sign first from the moles of gas, then check that your calculation agrees.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not multiplying by the coefficients.','Doing reactants − products.','Giving the answer in kJ K<sup>−1</sup> mol<sup>−1</sup> without converting.','Explaining the sign with "the reaction is exothermic". That is about the surroundings.'],
+your:{kind:'num',q:'CaCO<sub>3</sub>(s) → CaO(s) + CO<sub>2</sub>(g). <i>S</i><sup>⦵</sup> / '+JK+': CaCO<sub>3</sub> 92.9, CaO 39.7, CO<sub>2</sub> 213.6. Calculate ΔS<sup>⦵</sup><sub>system</sub> in '+JK+'.',ans:160.4,tol:0.15,
+ ok:'Correct: ΔS = (39.7 + 213.6) − 92.9 = <b>+160.4 '+JK+'</b>. It is positive because a gas forms from a solid.',
+ wrong:[[-160.4,0.15,'Wrong sign. Do products − reactants.'],[346.2,0.2,'You added all three values. Subtract the reactant.']]}
+});
+/* ---------- 2 total entropy and feasibility ---------- */
+W.push({btn:'ΔS<sub>total</sub> and feasibility',spec:[["12.8","ΔS surroundings and ΔS total"],["12.9","feasibility and temperature"],["12.10","ΔS total must be positive"]],type:'Calculate',marks:4,
+title:'Is making ammonia feasible at 298 K?',
+q:'<p><span class="mk">(4)</span>For N<sub>2</sub>(g) + 3H<sub>2</sub>(g) → 2NH<sub>3</sub>(g), ΔH = −92.2 kJ mol<sup>−1</sup> and ΔS<sub>system</sub> = −198.8 '+JK+'.</p><p><mark>Calculate</mark> ΔS<sub>surroundings</sub> and ΔS<sub>total</sub> at <mark>298 K</mark>, and say whether the reaction is <mark>feasible</mark>.</p>',
+diag:function(){var g=gax({x0:0,x1:3,y0:-300,y1:400,ys:100,yl:'ΔS / J K⁻¹ mol⁻¹',h:250,L:52,noxl:true}),X=g.X,Y=g.Y,s=g.s;
+  s+='<line class="ax" x1="'+g.L+'" x2="'+g.R+'" y1="'+Y(0)+'" y2="'+Y(0)+'"/>';
+  var b=[[0.5,-198.8,'system',0],[1.5,309.4,'surroundings',2],[2.5,110.6,'total',3]];
+  b.forEach(function(o){var y1=Y(Math.max(0,o[1])),y2=Y(Math.min(0,o[1]));s+=G(o[3],'<rect class="bar" x="'+(X(o[0])-26)+'" y="'+y1+'" width="52" height="'+(y2-y1)+'"/>'+T(X(o[0]),o[1]>0?y1-6:y2+14,(o[1]>0?'+':'')+fmt(o[1]),'an','text-anchor="middle"')+T(X(o[0]),g.B+16,o[2],'sm','text-anchor="middle"'))});
+  return svg(330,250,s)},
+lines:plan(['convert ΔH to J','ΔS(surr) = −ΔH/T','add the two','feasible if positive'])+
+ ans(1,'','','ΔH = −92.2 kJ mol<sup>−1</sup> = <span class="hl">−92 200 J mol<sup>−1</sup></span>','M1')+
+ ans(2,'ΔS(surr) = −92 200 / 298 = −309.4','The minus sign in the formula matters: an exothermic reaction makes the surroundings more disordered.','ΔS<sub>surroundings</sub> = −ΔH/<i>T</i> = −(−92 200) ÷ 298 = <span class="hl">+309.4 '+JK+'</span>','M2')+
+ ans(3,'','','ΔS<sub>total</sub> = −198.8 + 309.4 = <span class="hl">+110.6 '+JK+'</span>','M3')+
+ ans(4,'It is feasible because it is exothermic.','Feasibility depends on ΔS<sub>total</sub>, not ΔH alone.','ΔS<sub>total</sub> is <span class="hl">positive</span>, so the reaction is <span class="hl">feasible</span> at 298 K.','M4'),
+chips:[['M1','ΔH in J mol⁻¹',1],['M2','ΔS surr = +309.4',2],['M3','ΔS total = +110.6',3],['M4','positive → feasible',4]],
+steps:[
+{t:'Read and plan',x:'ΔS<sub>total</sub> = ΔS<sub>system</sub> + ΔS<sub>surroundings</sub>. A reaction is feasible if ΔS<sub>total</sub> is positive.',tip:'Write both formulae at the top of your working.'},
+{t:'Convert units',x:'ΔH is in kJ but entropy is in J. Multiply ΔH by 1000 first.',tip:'This is the most common place to lose a mark.'},
+{t:'Entropy change of the surroundings',x:'ΔS<sub>surroundings</sub> = −ΔH/<i>T</i>. An exothermic reaction releases energy to the surroundings, so their entropy increases.',tip:'Exothermic → ΔS<sub>surroundings</sub> positive. Endothermic → negative.'},
+{t:'Total entropy change',x:'The positive ΔS<sub>surroundings</sub> is bigger than the negative ΔS<sub>system</sub>.',tip:'Show the addition with signs: (−198.8) + (+309.4).'},
+{t:'Feasibility',x:'ΔS<sub>total</sub> > 0, so the reaction is thermodynamically feasible. It may still be very slow: feasibility says nothing about rate.',tip:'At higher temperature, ΔS<sub>surroundings</sub> gets smaller, so this reaction becomes less feasible.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not converting kJ to J.','Losing the minus sign in −ΔH/<i>T</i>.','Saying "feasible" without quoting the sign of ΔS<sub>total</sub>.','Saying feasible means the reaction is fast.'],
+your:{kind:'num',q:'Assume ΔH and ΔS<sub>system</sub> do not change with temperature. Calculate the temperature, in K, above which this reaction is <b>no longer feasible</b> (where ΔS<sub>total</sub> = 0).',ans:464,tol:1.2,
+ ok:'Correct: 0 = −198.8 + 92 200/<i>T</i>, so <i>T</i> = 92 200 ÷ 198.8 = <b>464 K</b>.',
+ wrong:[[0.464,0.002,'Convert ΔH to J (× 1000) before dividing.'],[2156,5,'Divide ΔH by ΔS, not the other way round.']]}
+});
+/* ---------- 3 endothermic but spontaneous ---------- */
+W.push({btn:'Why an endothermic change can happen',spec:[["12.1","endothermic reactions can be spontaneous"],["12.5 ii","dissolving an ionic lattice"],["12.4","direction of increasing total entropy"]],type:'Explain',marks:4,
+title:'Why ammonium nitrate dissolves even though it is endothermic',
+q:'<p><span class="mk">(4)</span>Ammonium nitrate dissolves in water at room temperature, and the solution gets <mark>colder</mark>.</p><p><mark>Explain</mark>, in terms of <mark>entropy</mark>, why this process happens.</p>',
+diag:function(){var s=DEFS;
+  s+=lattice(30,40,9,11,'+','−');
+  s+=G(1,arr(130,75,182,75,'po')+T(156,64,'dissolve','an','text-anchor="middle"'));
+  [[205,30],[250,50],[290,30],[220,80],[275,95],[300,70],[210,120],[250,125],[295,125]].forEach(function(p,i){s+=G(1,C(p[0],p[1],i%2?11:9,i%2?'in':'ip',i%2?'−':'+'))});
+  s+=G(1,T(250,160,'ions spread out','an','text-anchor="middle"')+T(250,176,'ΔS system > 0','sm','text-anchor="middle"'));
+  s+=G(2,T(20,176,'heat taken in from','sm')+T(20,192,'surroundings: ΔS surr < 0','sm'));
+  s+=G(3,T(20,222,'ΔS total = ΔS system + ΔS surr > 0','big'));
+  return svg(330,236,s)},
+lines:plan(['entropy of the system','entropy of the surroundings','total entropy'])+
+ ans(1,'','','The ordered ionic lattice breaks up into ions that are <span class="hl">free to move</span> in solution, so <span class="hl">ΔS<sub>system</sub> is positive</span>.','M1')+
+ ans(2,'Because it is endothermic, it cannot be spontaneous.','Some endothermic changes are spontaneous. Enthalpy alone cannot predict the direction.','Energy is taken in from the surroundings, so <span class="hl">ΔS<sub>surroundings</sub> is negative</span> (= −ΔH/<i>T</i>).','M2')+
+ ans(3,'','','ΔS<sub>system</sub> is larger than the magnitude of ΔS<sub>surroundings</sub>, so <span class="hl">ΔS<sub>total</sub> is positive</span> and the process is spontaneous.','M3')+
+ ans(3,'','','The natural direction of change is the one in which <span class="hl">total entropy increases</span>.','M4'),
+chips:[['M1','lattice → mobile ions: ΔS sys +',1],['M2','endothermic: ΔS surr −',2],['M3','ΔS total positive',3],['M4','change goes in direction of increasing total entropy',3]],
+steps:[
+{t:'Read and plan',x:'Spontaneous changes happen in the direction that increases the <b>total</b> entropy. You need to think about the system and the surroundings separately.',tip:'Name both entropy changes in your answer, with their signs.'},
+{t:'The system',x:'In the solid, the ions are held in fixed positions in a lattice. In solution, they are spread out and move randomly, so the entropy of the system increases.',tip:'Use the words "more disordered" or "more ways of arranging the particles and energy".'},
+{t:'The surroundings',x:'The solution gets colder, so the process is endothermic. Energy moves from the surroundings into the system, so the entropy of the surroundings goes down.',tip:'ΔS<sub>surroundings</sub> = −ΔH/<i>T</i>; with ΔH positive, this is negative.'},
+{t:'The total',x:'The increase in the system is bigger than the decrease in the surroundings, so ΔS<sub>total</sub> is positive.',tip:'Always end with the sign of ΔS<sub>total</sub>.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Only talking about ΔH.','Saying ΔS<sub>surroundings</sub> is positive for an endothermic change.','Not comparing the sizes of the two entropy changes.','Talking about "energy disorder" without the system/surroundings split.'],
+your:{kind:'text',marks:3,q:'Water freezes below 0 °C but not above it, even though freezing is always exothermic. <b>Explain</b> this using entropy. (3)',
+ ms:['Freezing makes the water more ordered: ΔS<sub>system</sub> is negative.','Freezing is exothermic, so ΔS<sub>surroundings</sub> = −ΔH/<i>T</i> is positive.','Below 0 °C (smaller <i>T</i>), ΔS<sub>surroundings</sub> is large enough to outweigh ΔS<sub>system</sub>, so ΔS<sub>total</sub> > 0; above 0 °C it is smaller and ΔS<sub>total</sub> < 0.'],
+ warn:[[/activation/i,'This question is about feasibility (entropy), not about rate or activation energy.']]}
+});
+/* ---------- 4 thermodynamic vs kinetic stability ---------- */
+W.push({btn:'Thermodynamic or kinetic stability?',spec:[["12.11","thermodynamic and kinetic stability"]],type:'Explain',marks:3,
+title:'Why methane does not burn in air until it is lit',
+q:'<p><span class="mk">(3)</span>CH<sub>4</sub>(g) + 2O<sub>2</sub>(g) → CO<sub>2</sub>(g) + 2H<sub>2</sub>O(l) has a large positive ΔS<sub>total</sub> at room temperature.</p><p><mark>Explain</mark> why a mixture of methane and air does not react until it is lit. Use the terms <mark>thermodynamic stability</mark> and <mark>kinetic stability</mark>.</p>',
+diag:function(){var s=DEFS,g=gax({x0:0,x1:10,y0:0,y1:10,xl:'progress of reaction',yl:'energy',h:230,L:34,noxl:true}),X=g.X,Y=g.Y;s+=g.s;
+  s+=PL('M'+X(0.4)+' '+Y(6.2)+'H'+X(2.6)+'C'+X(4)+' '+Y(6.2)+' '+X(4)+' '+Y(9.4)+' '+X(5)+' '+Y(9.4)+'C'+X(6)+' '+Y(9.4)+' '+X(6)+' '+Y(1.4)+' '+X(7.4)+' '+Y(1.4)+'H'+X(9.6),'ln');
+  s+=T(X(0.4),Y(6.2)+14,'CH₄ + 2O₂','sm')+T(X(7.2),Y(1.4)+14,'CO₂ + 2H₂O','sm');
+  s+=G(1,'<path class="po" d="M'+X(8.4)+' '+Y(6.2)+'V'+Y(1.6)+'"/>'+'<path class="anl" d="M'+X(2.6)+' '+Y(6.2)+'H'+X(9)+'"/>'+T(X(8.6),Y(4),'ΔH','an'));
+  s+=G(1,T(X(6.3),Y(7.4),'thermodynamically','sm')+T(X(6.3),Y(7.4)+13,'unstable','sm'));
+  s+=G(2,'<path class="po" d="M'+X(2.4)+' '+Y(6.2)+'V'+Y(9.2)+'"/>'+T(X(2.1),Y(7.8),'large Ea','an','text-anchor="end"'));
+  s+=G(2,T(X(6.1),Y(9.0),'kinetically stable','an'));
+  return svg(330,230,s)},
+lines:plan(['thermodynamic stability','kinetic stability','what lighting does'])+
+ ans(1,'Methane is stable so it does not react.','Methane is thermodynamically unstable with respect to its products. Be precise.','ΔS<sub>total</sub> is positive, so the mixture is <span class="hl">thermodynamically unstable</span>: the reaction is feasible.','M1')+
+ ans(2,'','','But the <span class="hl">activation energy is high</span>, so at room temperature almost no collisions have enough energy: the mixture is <span class="hl">kinetically stable</span> (the rate is negligible).','M2')+
+ ans(3,'','','A flame or spark gives some molecules enough energy to <span class="hl">overcome the activation energy</span>; the heat released then keeps the reaction going.','M3'),
+chips:[['M1','feasible: thermodynamically unstable',1],['M2','high Ea: kinetically stable',2],['M3','spark supplies Ea',3]],
+steps:[
+{t:'Read and plan',x:'<b>Thermodynamic stability</b> is about whether a change is feasible (ΔS<sub>total</sub>). <b>Kinetic stability</b> is about how fast it happens (activation energy).',tip:'A reaction can be feasible and still not happen at a noticeable rate.'},
+{t:'Thermodynamic stability',x:'ΔS<sub>total</sub> is positive, so the products are favoured. The reactants are thermodynamically unstable compared with the products.',tip:'Link the sign of ΔS<sub>total</sub> to the word "feasible".'},
+{t:'Kinetic stability',x:'There is a large activation energy because strong C–H and O=O bonds must start to break. At room temperature, the rate is so slow that nothing seems to happen.',tip:'Diamond turning into graphite is another example: feasible, but far too slow.'},
+{t:'Lighting the gas',x:'A flame supplies enough energy for some collisions to get over the activation energy barrier. The reaction is exothermic, so it then supplies its own energy.',tip:'Lighting does not change ΔS<sub>total</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Mixing up the two kinds of stability.','Saying the reaction is not feasible at room temperature.','Saying the spark changes ΔS<sub>total</sub> or ΔH.','Forgetting to mention activation energy.'],
+your:{kind:'text',marks:2,q:'Hydrogen peroxide decomposes very slowly at room temperature: 2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub>, ΔS<sub>total</sub> > 0. Adding MnO<sub>2</sub> makes it fizz quickly. <b>Explain</b> both observations. (2)',
+ ms:['H<sub>2</sub>O<sub>2</sub> is thermodynamically unstable (ΔS<sub>total</sub> > 0, so feasible) but kinetically stable (high activation energy, slow).','MnO<sub>2</sub> is a catalyst: it provides a route with a lower activation energy, so the rate increases.'],
+ warn:[[/more energy/i,'A catalyst does not give the particles more energy. It lowers the activation energy.']]}
+});
+/* ---------- 5 Born-Haber ---------- */
+W.push({btn:'Born–Haber cycle: lattice energy of NaCl',spec:[["12.13","Born–Haber cycles"],["12.12","atomisation, electron affinity, lattice energy"]],type:'Calculate',marks:4,
+title:'Using a Born–Haber cycle to find a lattice energy',
+q:'<p><span class="mk">(4)</span>Use the data to <mark>calculate</mark> the <mark>lattice energy</mark> of sodium chloride.</p><p>Values in kJ mol<sup>−1</sup>: Δ<sub>f</sub>H(NaCl) −411; Δ<sub>at</sub>H(Na) +107; first ionisation energy of Na +496; Δ<sub>at</sub>H(½Cl<sub>2</sub>) +122; electron affinity of Cl −349.</p>',
+diag:function(){var s=DEFS,y=function(E){return 60+(725-E)*0.2};
+  s+=lev(20,160,y(0),'',null)+T(24,y(0)-5,'Na(s) + ½Cl₂(g)','sm');
+  s+=G(1,lev(20,160,y(107))+T(24,y(107)-5,'Na(g) + ½Cl₂(g)','sm')+va(150,y(0),y(107)+3,'+107')+lev(20,160,y(603))+T(24,y(603)-5,'Na⁺(g) + e⁻ + ½Cl₂(g)','sm')+va(150,y(107),y(603)+3,'+496'));
+  s+=G(2,lev(20,300,y(725))+T(24,y(725)-5,'Na⁺(g) + e⁻ + Cl(g)','sm')+va(150,y(603),y(725)+3,'+122')+lev(190,310,y(376))+T(194,y(376)-5,'Na⁺(g) + Cl⁻(g)','sm')+va(290,y(725),y(376)-3,'−349',null,'po','l'));
+  s+=lev(20,310,y(-411))+T(24,y(-411)-5,'NaCl(s)','sm');
+  s+=va(120,y(0),y(-411)-3,'ΔfH −411',null,'dp','l');
+  s+=G(3,va(290,y(376),y(-411)-3,'LE = ?',null,'po','l'));
+  s+=G(4,T(20,318,'LE = −411 − (107 + 496 + 122 − 349)','eq')+T(20,340,'LE = −787 kJ mol⁻¹','big'));
+  return svg(330,350,s)},
+lines:plan(['steps to gaseous ions','add them up','Hess’s law','calculate'])+
+ ans(1,'','','Make Na(g), then Na<sup>+</sup>(g): +107 + 496 kJ mol<sup>−1</sup>.','')+
+ ans(2,'','','Make Cl(g), then Cl<sup>−</sup>(g): +122 − 349 kJ mol<sup>−1</sup>. Sum of all steps = <span class="hl">+376 kJ mol<sup>−1</sup></span>','M1')+
+ ans(3,'LE = −411 + 376','Going round the cycle the other way changes the sign of the +376.','Hess’s law: Δ<sub>f</sub>H = (sum of steps) + LE, so LE = Δ<sub>f</sub>H − (+376)','M2')+
+ ans(4,'LE = +787 kJ mol⁻¹','Lattice energy is defined for forming the lattice from gaseous ions, so it is exothermic.','LE = −411 − 376 = <span class="hl">−787 kJ mol<sup>−1</sup></span>','M3'),
+chips:[['M1','sum of steps = +376',2],['M2','correct Hess expression',3],['M3','LE = −787 kJ mol⁻¹',4]],
+steps:[
+{t:'Read and plan',x:'A <b>Born–Haber cycle</b> links the formation of an ionic solid from its elements to the steps that make gaseous ions. Lattice energy is the enthalpy change when one mole of solid forms from its gaseous ions.',tip:'Draw the cycle with upward arrows for endothermic steps and downward arrows for exothermic steps.'},
+{t:'Make gaseous sodium ions',x:'Atomise sodium (+107), then ionise it (+496). Both steps need energy, so they go up.',tip:'Atomisation enthalpy is for making <b>one mole of gaseous atoms</b>. For chlorine, that is ½Cl<sub>2</sub> → Cl.'},
+{t:'Make gaseous chloride ions',x:'Atomise chlorine (+122), then add an electron (electron affinity, −349). The second step releases energy, so it goes down.',tip:'Add all four values: 107 + 496 + 122 − 349 = 376.'},
+{t:'Apply Hess’s law',x:'The direct route (Δ<sub>f</sub>H) equals the indirect route (all the steps, then the lattice energy).',tip:'Write the equation in words first: Δ<sub>f</sub>H = steps + LE.'},
+{t:'Calculate',x:'Rearrange: LE = −411 − 376 = −787 kJ mol<sup>−1</sup>.',tip:'Lattice energy as defined here is always negative.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Getting the sign of the 376 wrong when rearranging.','Using the bond enthalpy of Cl<sub>2</sub> (242) instead of the atomisation enthalpy (122).','Giving a positive lattice energy.','Missing a step out of the cycle.'],
+your:{kind:'num',q:'Calculate the lattice energy of potassium chloride, KCl, in kJ mol<sup>−1</sup>. Data: Δ<sub>f</sub>H(KCl) −437; Δ<sub>at</sub>H(K) +89; first ionisation energy of K +419; Δ<sub>at</sub>H(½Cl<sub>2</sub>) +122; electron affinity of Cl −349.',ans:-718,tol:0.6,
+ ok:'Correct: steps = 89 + 419 + 122 − 349 = +281; LE = −437 − 281 = <b>−718 kJ mol<sup>−1</sup></b>.',
+ wrong:[[718,0.6,'Lattice energy is exothermic. Check your sign.'],[-156,0.6,'You added the steps instead of subtracting them: LE = Δ<sub>f</sub>H − (sum of steps).'],[-1416,0.6,'Check the sign of the electron affinity: it is −349, so it is subtracted in the sum of steps.']]}
+});
+/* ---------- 6 polarisation ---------- */
+W.push({btn:'Experimental vs theoretical lattice energy',spec:[["12.14","experimental vs theoretical lattice energy"],["12.15","polarisation and covalent character"]],type:'Explain',marks:3,
+title:'Why the lattice energies of silver iodide do not match',
+q:'<p><span class="mk">(3)</span>Lattice energies, in kJ mol<sup>−1</sup>:</p><p>NaCl: experimental (Born–Haber) −787, theoretical (ionic model) −770<br>AgI: experimental −889, theoretical −778</p><p><mark>Explain</mark> the differences between the <mark>experimental</mark> and <mark>theoretical</mark> values.</p>',
+diag:function(){var s='';
+  s+=T(20,22,'NaCl: perfect ions','hd')+C(60,70,14,'ip','Na⁺')+C(108,70,28,'in','Cl⁻');
+  s+=G(1,T(180,22,'AgI: I⁻ is polarised','hd')+C(222,70,14,'ip','Ag⁺')+'<path class="in" d="M248 70C248 40 330 36 318 70C306 102 248 98 248 70z"/>'+T(290,74,'I⁻','il','text-anchor="middle"'));
+  s+=G(1,'<path class="share" d="M236 70C240 62 254 60 260 70C254 80 240 78 236 70z"/>'+T(244,118,'electron density','an','text-anchor="middle"')+T(244,132,'pulled towards Ag⁺','an','text-anchor="middle"'));
+  s+=G(2,T(20,150,'theoretical model assumes spherical ions','sm')+T(20,166,'and 100% ionic bonding','sm'));
+  s+=G(3,T(20,196,'AgI: extra covalent character →','eq')+T(20,214,'experimental value more exothermic','an'));
+  return svg(330,226,s)},
+lines:plan(['what the theory assumes','NaCl: close values','AgI: polarisation','covalent character'])+
+ ans(1,'','','The theoretical value assumes the ions are <span class="hl">perfect spheres</span> with <span class="hl">only ionic bonding</span>.','')+
+ ans(1,'','','For NaCl the values are close, so the bonding is <span class="hl">almost purely ionic</span>.','M1')+
+ ans(2,'Ag⁺ is a big cation, so it polarises the iodide.','A cation polarises more when it is small and highly charged; I<sup>−</sup> is easily polarised because it is large.','I<sup>−</sup> is a <span class="hl">large anion</span>, so its electron cloud is easily <span class="hl">distorted (polarised)</span> by the Ag<sup>+</sup> ion.','M2')+
+ ans(3,'','','This gives the bond some <span class="hl">covalent character</span>, so the experimental lattice energy is <span class="hl">more exothermic</span> than the ionic model predicts.','M3'),
+chips:[['M1','NaCl: close → almost purely ionic',1],['M2','large I⁻ polarised by Ag⁺',2],['M3','covalent character → more exothermic',3]],
+steps:[
+{t:'Read and plan',x:'The theoretical lattice energy is calculated from a model of perfect, spherical ions. The experimental value comes from real data in a Born–Haber cycle. A big difference tells you the model is not good enough.',tip:'"Experimental" and "theoretical" mean the same as "Born–Haber" and "calculated from the ionic model".'},
+{t:'Sodium chloride',x:'The two values differ by only 17 kJ mol<sup>−1</sup>. The ionic model works well, so the bonding is close to 100% ionic.',tip:'Always comment on both compounds when two are given.'},
+{t:'Silver iodide: polarisation',x:'The iodide ion is large, so its outer electrons are far from the nucleus and easily pulled towards the Ag<sup>+</sup> ion. The electron cloud is distorted.',tip:'Use the words "polarisability" for the anion and "polarising power" for the cation.'},
+{t:'Covalent character',x:'Some electron density is shared between the ions, which adds covalent character to the bonding. This extra attraction makes the experimental lattice energy more exothermic than the ionic model predicts.',tip:'The bigger the gap between the values, the more covalent character.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the cation is polarised (it is the anion).','Saying AgI is "less ionic" without explaining why (polarisation).','Saying the experimental value is less exothermic.','Not commenting on NaCl.'],
+your:{kind:'text',marks:3,q:'Magnesium iodide shows a larger difference between experimental and theoretical lattice energies than sodium iodide. <b>Explain</b> why. (3)',
+ ms:['Mg<sup>2+</sup> has a higher charge than Na<sup>+</sup>.','Mg<sup>2+</sup> is also smaller, so it has a higher charge density (polarising power).','So it distorts the I<sup>−</sup> electron cloud more, giving more covalent character.'],
+ warn:[[/iodide.*(small|polarising)/i,'Polarising power belongs to the cation. The iodide is the ion that gets polarised.']]}
+});
+/* ---------- 7 enthalpy of solution ---------- */
+W.push({btn:'Enthalpy change of solution',spec:[["12.17","energy cycle for ΔsolH"],["12.16","solution and hydration enthalpies"],["12.18","effect of charge and radius"]],type:'Calculate',marks:3,
+title:'Calculating the enthalpy change of solution of sodium chloride',
+q:'<p><span class="mk">(3)</span>Lattice energy of NaCl = −787 kJ mol<sup>−1</sup>. Enthalpy changes of hydration: Na<sup>+</sup> −406 kJ mol<sup>−1</sup>, Cl<sup>−</sup> −364 kJ mol<sup>−1</sup>.</p><p>Use an <mark>energy cycle</mark> to <mark>calculate</mark> the <mark>enthalpy change of solution</mark> of NaCl.</p>',
+diag:function(){var s=DEFS,y=function(E){return 34+(787-E)*0.24};
+  s+=lev(20,310,y(787))+T(24,y(787)-5,'Na⁺(g) + Cl⁻(g)','sm');
+  s+=lev(20,140,y(0))+T(24,y(0)-5,'NaCl(s)','sm');
+  s+=G(1,va(100,y(0),y(787)+3,'+787 (−LE)',null,'po'));
+  s+=G(2,lev(180,310,y(381))+T(184,y(381)-5,'Na⁺(aq) + Cl⁻(g)','sm')+va(290,y(787),y(381)-3,'−406',null,'dp'));
+  s+=G(2,lev(180,310,y(17))+T(184,y(17)+14,'Na⁺(aq) + Cl⁻(aq)','sm')+va(290,y(381),y(17)-3,'−364',null,'dp'));
+  s+=G(3,T(20,256,'ΔsolH = +787 − 406 − 364','eq')+T(20,276,'ΔsolH = +17 kJ mol⁻¹','big'));
+  return svg(330,286,s)},
+lines:plan(['break the lattice','hydrate the ions','add the steps'])+
+ ans(1,'Use −787 for breaking the lattice.','Breaking the lattice is the reverse of the lattice energy, so the sign changes.','Separating the solid into gaseous ions: <span class="hl">+787 kJ mol<sup>−1</sup></span> (−LE).','M1')+
+ ans(2,'','','Hydrating the ions: −406 + (−364) = <span class="hl">−770 kJ mol<sup>−1</sup></span>','')+
+ ans(3,'','','Δ<sub>sol</sub>H = +787 − 770 = <span class="hl">+17 kJ mol<sup>−1</sup></span>','M2')+
+ ans(3,'','','The value is slightly endothermic, so the solution cools a little. NaCl still dissolves because ΔS<sub>total</sub> is positive.','M3'),
+chips:[['M1','−LE: +787',1],['M2','ΔsolH = +17 kJ mol⁻¹',3],['M3','comment: small, endothermic',3]],
+steps:[
+{t:'Read and plan',x:'The <b>enthalpy change of solution</b> is the enthalpy change when one mole of solid dissolves in water. The <b>enthalpy change of hydration</b> is for one mole of gaseous ions dissolving to form aqueous ions.',tip:'Write the cycle: solid → gaseous ions → aqueous ions, and solid → aqueous ions directly.'},
+{t:'Break up the lattice',x:'Going from the solid to gaseous ions is the reverse of the lattice energy, so it is +787 kJ mol<sup>−1</sup>.',tip:'Reversing a step reverses its sign.'},
+{t:'Hydrate the ions',x:'Water molecules surround each ion. Na<sup>+</sup> attracts the δ− oxygen; Cl<sup>−</sup> attracts the δ+ hydrogens. Both steps release energy.',tip:'Hydration enthalpies are more exothermic for small, highly charged ions.'},
+{t:'Add the steps',x:'Δ<sub>sol</sub>H = −LE + Δ<sub>hyd</sub>H(Na<sup>+</sup>) + Δ<sub>hyd</sub>H(Cl<sup>−</sup>) = +17 kJ mol<sup>−1</sup>.',tip:'A small difference between two large numbers is easy to get wrong. Show every sign.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using −787 instead of +787 for breaking the lattice.','Adding only one hydration enthalpy.','Forgetting to multiply when there are two of an ion (for example 2Cl<sup>−</sup> in MgCl<sub>2</sub>).','Saying an endothermic solution means the salt will not dissolve.'],
+your:{kind:'num',q:'Calculate Δ<sub>sol</sub>H of MgCl<sub>2</sub> in kJ mol<sup>−1</sup>. Lattice energy of MgCl<sub>2</sub> = −2526; Δ<sub>hyd</sub>H(Mg<sup>2+</sup>) = −1920; Δ<sub>hyd</sub>H(Cl<sup>−</sup>) = −364.',ans:-122,tol:0.6,
+ ok:'Correct: Δ<sub>sol</sub>H = +2526 − 1920 − 2(364) = <b>−122 kJ mol<sup>−1</sup></b>.',
+ wrong:[[242,0.6,'There are two Cl<sup>−</sup> ions: multiply −364 by 2.'],[-5174,1,'Breaking the lattice is +2526, not −2526.'],[122,0.6,'Check your signs: +2526 − 1920 − 728.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 4 · Topic 12 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["12.1", "Understand that enthalpy changes alone cannot predict the direction of change, because some endothermic reactions are spontaneous."], ["12.2", "Understand entropy as a measure of disorder: the dispersal of particles and of energy."], ["12.3", "Understand that entropy increases with temperature and from solid to liquid to gas, and that simple substances have lower entropy than complex ones."], ["12.4", "Interpret the natural direction of change as the direction of increasing total entropy."], ["12.5", "Explain entropy changes for changes of state, dissolving an ionic lattice and reactions that change the number of moles (especially of gas)."], ["12.6", "Understand that ΔS<sub>total</sub> = ΔS<sub>system</sub> + ΔS<sub>surroundings</sub>."], ["12.7", "Calculate ΔS<sub>system</sub> from the standard entropies of reactants and products."], ["12.8", "Calculate ΔS<sub>surroundings</sub> = −ΔH/T and hence ΔS<sub>total</sub>."], ["12.9", "Understand that feasibility depends on the balance of ΔS<sub>system</sub> and ΔS<sub>surroundings</sub>, and on temperature."], ["12.10", "Understand that a reaction can happen when ΔS<sub>total</sub> is positive, even if one of the other entropy changes is negative."], ["12.11", "Distinguish between thermodynamic stability and kinetic stability."], ["12.12", "Define standard enthalpy change of atomisation, electron affinity and lattice energy."], ["12.13", "Construct Born–Haber cycles and do the calculations."], ["12.14", "Compare experimental (Born–Haber) and theoretical lattice energies to judge how ionic a compound is."], ["12.15", "Explain that polarisation of anions by cations gives some covalent character, using lattice energy evidence."], ["12.16", "Define enthalpy change of solution and enthalpy change of hydration of an ion."], ["12.17", "Use energy cycles and energy level diagrams to calculate the enthalpy change of solution."], ["12.18", "Explain how ionic charge and radius affect hydration enthalpies and lattice energies."], ["12.19", "Use entropy and enthalpy changes of solution to predict the solubility of ionic compounds."]],KEY="ialchem-t12-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 12: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

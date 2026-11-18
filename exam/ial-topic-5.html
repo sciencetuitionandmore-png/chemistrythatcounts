@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alkenes Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Alkenes Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-5.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Alkenes: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+function alk(cx,cy,g,hot){var s=L(cx-18,cy-3,cx+18,cy-3,'bd')+L(cx-18,cy+3,cx+18,cy+3,'bd');
+  var p=[[-1,-1],[-1,1],[1,-1],[1,1]];
+  p.forEach(function(q,i){var x=cx+q[0]*18,y=cy,X2=cx+q[0]*48,Y2=cy+q[1]*34;s+=L(x,y,X2,Y2,'bd');s+=AT(X2+q[0]*12,Y2+q[1]*8,g[i],'at2',hot&&hot[i]?'data-hot="'+hot[i]+'"':'')});
+  return s+AT(cx-22,cy-18,'C','at2s')+AT(cx+22,cy-18,'C','at2s')}
+var W=[];
+/* ---------- 1 sigma and pi ---------- */
+W.push({btn:'σ and π bonds in C=C',spec:[["5.1","σ and π bonds; unsaturated"]],type:'Describe',marks:3,
+title:'The σ bond and the π bond in a C=C double bond',
+q:'<p><span class="mk">(3)</span>The C=C double bond in ethene is made of one <mark>σ bond</mark> and one <mark>π bond</mark>.</p><p><mark>Describe</mark> how each bond forms, and <mark>explain</mark> why the π bond makes alkenes <mark>reactive</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=G(1,'<ellipse class="sig" data-hot="1" cx="165" cy="130" rx="44" ry="14"/>');
+  s+=G(2,'<ellipse class="lobe" data-hot="2" cx="135" cy="98" rx="13" ry="30"/><ellipse class="lobe" data-hot="2" cx="195" cy="98" rx="13" ry="30"/><ellipse class="lobe" data-hot="2" cx="135" cy="162" rx="13" ry="30"/><ellipse class="lobe" data-hot="2" cx="195" cy="162" rx="13" ry="30"/>');
+  s+=G(3,'<path class="pib" d="M135 72Q165 50 195 72L195 92Q165 74 135 92Z"/><path class="pib" d="M135 188Q165 210 195 188L195 168Q165 186 135 168Z"/>');
+  s+=C(135,130,9,'atn','C')+C(195,130,9,'atn','C');
+  s+=L(126,130,92,108,'bd')+L(126,130,92,152,'bd')+L(204,130,238,108,'bd')+L(204,130,238,152,'bd')+AT(84,104,'H')+AT(84,156,'H')+AT(246,104,'H')+AT(246,156,'H');
+  s+=G(1,T(20,230,'σ: head-on overlap, on the C–C axis','an'));
+  s+=G(2,T(20,246,'π: sideways overlap of p orbitals','an'));
+  s+=G(3,T(214,40,'e⁻ above and below','an')+T(214,56,'the plane: exposed','an'));
+  return svg(330,256,s)},
+lines:plan(['σ: head-on overlap','π: sideways p overlap','π electrons exposed, weaker'])+
+ ans(1,'The σ bond is the strong one.','True, but describe how it forms.','The σ bond forms by <span class="hl">head-on (end-on) overlap</span> of orbitals, so the electron density lies <span class="hl">between the two nuclei</span>, on the C–C axis.','M1')+
+ ans(2,'The π bond is a second bond on top.','Say how it forms: which orbitals and what kind of overlap.','The π bond forms by <span class="hl">sideways overlap of p orbitals</span>, so the electron density is <span class="hl">above and below</span> the plane of the molecule.','M2')+
+ ans(3,'The π bond breaks easily.','Explain why: where are the electrons, and what attacks them?','The π electrons are <span class="hl">exposed</span> and the π bond is <span class="hl">weaker</span> than the σ bond, so it is easily attacked by <span class="hl">electrophiles</span>.','M3'),
+chips:[['M1','σ: head-on overlap, between nuclei',1],['M2','π: sideways overlap of p orbitals',2],['M3','π exposed / weaker → electrophiles',3]],
+steps:[
+{t:'Read and plan',x:'A double bond is two different bonds. Describe each one by how the orbitals overlap and where the electron density ends up.',tip:'Use the words "head-on" and "sideways". They are what examiners look for.'},
+{t:'The σ bond',x:'Two orbitals point straight at each other and overlap end to end. The shared electrons sit on the line joining the nuclei.',tip:'Every single bond is a σ bond. A double bond is one σ + one π.'},
+{t:'The π bond',x:'Each carbon has a p orbital left over, standing up and down. The two p orbitals overlap side by side.',tip:'The π bond has two parts, above and below, but it is one bond with one pair of electrons.'},
+{t:'Why alkenes are reactive',x:'The π electron density is outside the C–C axis, so it is less tightly held and easy to reach. Electrophiles are attracted to it.',tip:'The π bond also stops rotation about the C=C bond. That is why geometric isomers exist.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the double bond is two identical bonds.','Describing the π bond without "sideways overlap of p orbitals".','Saying the π bond is stronger than the σ bond.','Saying nucleophiles attack the C=C.'],
+your:{kind:'text',marks:2,q:'Alkenes are described as <b>unsaturated</b> hydrocarbons. <b>State</b> what this means, and give the <b>general formula</b> of the alkenes. (2)',
+ ms:['Unsaturated: contains a carbon–carbon double bond (C=C), so more atoms can be added.','General formula of alkenes: C<sub>n</sub>H<sub>2n</sub>.'],
+ warn:[[/C\s*n\s*H\s*2n\s*\+\s*2/i,'C<sub>n</sub>H<sub>2n+2</sub> is the alkane formula. Alkenes have two fewer H atoms: C<sub>n</sub>H<sub>2n</sub>.']]}
+});
+/* ---------- 2 E/Z ---------- */
+W.push({btn:'Geometric isomers: E and Z',spec:[["5.2","geometric isomerism"],["5.3","E–Z naming"]],type:'Explain',marks:4,
+title:'Why but-2-ene has E and Z isomers',
+q:'<p><span class="mk">(4)</span>But-2-ene, CH<sub>3</sub>CH=CHCH<sub>3</sub>, exists as two <mark>geometric isomers</mark>.</p><p><mark>Explain</mark> why, and <mark>draw</mark> and <mark>name</mark> the two isomers using the <mark>E–Z</mark> system.</p>',
+diag:function(){var s='';
+  s+=G(0,alk(82,80,['CH₃','H','CH₃','H'],['3','','3',''])+alk(248,80,['CH₃','H','H','CH₃'],['4','','','4']));
+  s+=G(1,T(165,166,'π bond: no rotation about C=C','an','text-anchor="middle"'));
+  s+=G(2,T(165,184,'each C has two different groups (CH₃ and H)','an','text-anchor="middle"'));
+  s+=G(3,T(82,214,'Z-but-2-ene','big','text-anchor="middle"')+T(82,232,'CH₃ same side','an','text-anchor="middle"'));
+  s+=G(4,T(248,214,'E-but-2-ene','big','text-anchor="middle"')+T(248,232,'CH₃ opposite sides','an','text-anchor="middle"'));
+  return svg(330,250,s)},
+lines:plan(['restricted rotation','two different groups on each C','Z = same side','E = opposite'])+
+ ans(1,'The double bond is strong.','Strength is not the point. Say rotation is restricted.','There is <span class="hl">restricted rotation</span> about the C=C double bond, because rotating would break the π bond.','M1')+
+ ans(2,'','','<span class="hl">Each carbon of the C=C has two different groups</span> attached (CH<sub>3</sub> and H).','M2')+
+ ans(3,'cis-but-2-ene','Accepted in the past, but the question asks for E–Z names.','<span class="hl">Z</span>-but-2-ene: the higher-priority groups (CH<sub>3</sub>) are on the <span class="hl">same side</span>.','M3')+
+ ans(4,'','','<span class="hl">E</span>-but-2-ene: the higher-priority groups are on <span class="hl">opposite sides</span>.','M4'),
+chips:[['M1','restricted rotation about C=C',1],['M2','two different groups on each C',2],['M3','Z isomer drawn and named',3],['M4','E isomer drawn and named',4]],
+steps:[
+{t:'Read and plan',x:'Explain the two conditions for geometric isomerism, then draw both isomers so the difference is clear.',tip:'Draw the C=C with 120° angles and put the groups clearly above or below.'},
+{t:'Condition 1: restricted rotation',x:'To swap the groups over, the molecule would have to twist about the C=C. That would break the π bond, so it cannot happen at room temperature.',tip:'Write "restricted rotation", not "no rotation of the molecule".'},
+{t:'Condition 2: different groups',x:'Each carbon of the double bond carries one CH<sub>3</sub> and one H. If one carbon had two identical groups, there would be no isomers.',tip:'But-1-ene (CH<sub>2</sub>=CHCH<sub>2</sub>CH<sub>3</sub>) has two H atoms on carbon 1, so it has no E/Z isomers.'},
+{t:'The Z isomer',x:'On each carbon, the group with the higher atomic number at the point of attachment has priority. C beats H, so CH<sub>3</sub> wins on both carbons. Same side = Z (zusammen, "together").',tip:'Remember: Z = "Ze Zame Zide".'},
+{t:'The E isomer',x:'The two CH<sub>3</sub> groups are on opposite sides. Opposite = E (entgegen, "opposite").',tip:'The E–Z system works even when all four groups are different, where cis/trans fails.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying "the double bond cannot rotate" without linking it to the π bond.','Forgetting the second condition (two different groups on each carbon).','Mixing up E and Z.','Drawing bond angles of 90° so the isomers look the same.'],
+your:{kind:'text',marks:2,q:'But-1-ene, CH<sub>2</sub>=CHCH<sub>2</sub>CH<sub>3</sub>, is an isomer of but-2-ene. <b>Explain</b> why but-1-ene does <b>not</b> have E and Z isomers. (2)',
+ ms:['There is still restricted rotation about the C=C.','But carbon 1 of the double bond has two identical groups (two H atoms), so swapping them gives the same molecule.'],
+ warn:[[/no double bond|single bond/i,'But-1-ene does have a C=C. The reason is the groups on carbon 1.']]}
+});
+/* ---------- 3 mechanism HBr + ethene ---------- */
+W.push({btn:'Mechanism: HBr + ethene',spec:[["5.6 i","electrophilic addition mechanism"],["4.7 ii","heterolytic fission"],["4.8","electrophile"]],type:'Mechanism',marks:4,
+title:'The mechanism for the reaction of ethene with hydrogen bromide',
+q:'<p><span class="mk">(4)</span>Ethene reacts with hydrogen bromide to form bromoethane.</p><p><mark>Draw</mark> the <mark>mechanism</mark> for this reaction. Show <mark>curly arrows</mark>, relevant <mark>dipoles</mark>, <mark>lone pairs</mark> and the <mark>intermediate</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=AT(60,70,'H₂C','at2')+AT(132,70,'CH₂','at2')+L(80,66,110,66,'bd')+L(80,74,110,74,'bd');
+  s+=AT(122,22,'H','at2')+L(130,22,178,22,'bd')+AT(190,22,'Br','at2');
+  s+=G(1,T(112,10,'δ+','dl')+T(196,8,'δ−','dl'));
+  s+=CA('M95 64C96 44 110 32 118 28',1);
+  s+=CA('M154 16C162 2 182 4 186 12',2);
+  s+=G(3,AT(60,150,'H₂C','at2')+L(80,146,110,146,'bd')+AT(132,150,'CH₂','at2')+T(34,138,'+','plus')+L(132,140,132,112,'bd')+AT(132,104,'H','at2')+T(156,112,'carbocation:','an')+T(156,128,'the + is on the left C','sm')+AT(64,214,'Br⁻','at2')+X(54,226)+X(74,226));
+  s+=G(4,CA('M86 222C104 214 96 180 74 166',4));
+  s+=G(4,T(130,214,'product: CH₃CH₂Br','an'));
+  s+=G(1,T(220,58,'C=C: electron-rich','an')+T(220,74,'H of HBr is δ+','an'));
+  return svg(330,252,s)},
+lines:plan(['dipole on H–Br','arrow C=C → H','arrow H–Br → Br','carbocation','Br⁻ lone pair → C⁺'])+
+ ans(1,'Arrow from H to the double bond.','Wrong way round. Arrows show electrons moving, from the C=C to the H.','Show the dipole H<sup>δ+</sup>–Br<sup>δ−</sup>. A curly arrow goes <span class="hl">from the C=C double bond to the H</span> of HBr.','M1')+
+ ans(2,'','','A second arrow goes <span class="hl">from the H–Br bond to the Br</span>. The bond breaks heterolytically and Br takes both electrons.','M2')+
+ ans(3,'The positive charge on the H.','The positive charge ends up on the carbon that did not gain the H.','The intermediate is a <span class="hl">carbocation</span>, CH<sub>3</sub>CH<sub>2</sub><sup>+</sup>, and a <span class="hl">bromide ion with a lone pair</span>.','M3')+
+ ans(4,'Arrow from the C⁺ to Br⁻.','Wrong way. Electrons move from the Br<sup>−</sup> lone pair to the C<sup>+</sup>.','A curly arrow goes <span class="hl">from a lone pair on Br<sup>−</sup> to the C<sup>+</sup></span>, forming CH<sub>3</sub>CH<sub>2</sub>Br.','M4'),
+chips:[['M1','arrow C=C → H (with dipole)',1],['M2','arrow H–Br bond → Br',2],['M3','carbocation intermediate',3],['M4','arrow from Br⁻ lone pair to C⁺',4]],
+steps:[
+{t:'Read and plan',x:'This is electrophilic addition. Two stages: the electrophile attacks the C=C, then the bromide ion attacks the carbocation.',tip:'A curly arrow shows a pair of electrons moving. It must start at a bond or a lone pair.'},
+{t:'The first arrow',x:'H–Br is polar: H is δ+. The electron-rich π bond attacks the δ+ hydrogen. The arrow starts in the middle of the C=C and ends at the H.',tip:'An electrophile is an electron-pair acceptor. Here it is the H of HBr.'},
+{t:'The second arrow',x:'At the same time, the H–Br bond breaks. Both electrons go to bromine, forming Br<sup>−</sup>. This is heterolytic fission.',tip:'Start the arrow on the H–Br bond line, and end it on the Br.'},
+{t:'The intermediate',x:'One carbon gained the H. The other carbon lost its share of the π electrons, so it is now positive: a carbocation.',tip:'Show the + on the correct carbon and show a lone pair on Br<sup>−</sup>.'},
+{t:'The final arrow',x:'The bromide ion uses a lone pair to form a bond to the positive carbon. The product is bromoethane.',tip:'Start the arrow at the lone pair, not at the minus sign.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Arrows pointing the wrong way (from H to C=C).','Arrow starting from a carbon atom instead of the double bond.','Missing lone pair on Br<sup>−</sup>, or arrow starting from the minus sign.','Putting the + charge on the wrong carbon.'],
+your:{kind:'text',marks:4,q:'Bromine is non-polar, but it still reacts with ethene by electrophilic addition. <b>Describe</b> the mechanism in words, including how the bromine molecule becomes an electrophile. (4)',
+ ms:['As Br<sub>2</sub> approaches the electron-rich C=C, it becomes polarised (induced dipole): Br<sup>δ+</sup>–Br<sup>δ−</sup>.','A curly arrow from the C=C to the δ+ Br, and from the Br–Br bond to the δ− Br.','A carbocation intermediate forms, with a Br<sup>−</sup> ion.','The Br<sup>−</sup> lone pair attacks the C<sup>+</sup>, giving 1,2-dibromoethane.'],
+ warn:[[/nucleophil/i,'Bromine acts as an electrophile here. Br<sup>−</sup> attacks the carbocation in the second stage, but the reaction is electrophilic addition.'],[/radical/i,'This is not a free radical reaction. The Br–Br bond breaks heterolytically.']]}
+});
+/* ---------- 4 propene major product ---------- */
+W.push({btn:'Major product: HBr + propene',spec:[["5.6 ii","HBr + propene; carbocation stability"]],type:'Explain',marks:3,
+title:'Why propene and HBr give mainly 2-bromopropane',
+q:'<p><span class="mk">(3)</span>Propene reacts with hydrogen bromide to give two products: <mark>2-bromopropane</mark> (major) and <mark>1-bromopropane</mark> (minor).</p><p><mark>Explain</mark> why 2-bromopropane is the <mark>major product</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=G(0,T(165,22,'CH₃–CH=CH₂  +  HBr','eq','text-anchor="middle"'));
+  s+=G(0,'<path class="dp" d="M140 30L82 62"/><path class="dp" d="M190 30L248 62"/>');
+  s+=G(1,box2(10,66,140,74,'card o')+T(80,88,'H adds to C1','sm','text-anchor="middle"')+T(80,108,'CH₃–C⁺H–CH₃','eq','text-anchor="middle"')+T(80,128,'secondary','hd','text-anchor="middle"'));
+  s+=G(1,box2(180,66,140,74,'card')+T(250,88,'H adds to C2','sm','text-anchor="middle"')+T(250,108,'CH₃–CH₂–C⁺H₂','eq','text-anchor="middle"')+T(250,128,'primary','hd','text-anchor="middle"'));
+  s+=G(2,T(80,158,'2 alkyl groups push','an','text-anchor="middle"')+T(80,174,'electrons → more stable','an','text-anchor="middle"')+T(250,158,'1 alkyl group','an','text-anchor="middle"')+T(250,174,'→ less stable','an','text-anchor="middle"'));
+  s+=G(3,'<path class="po" d="M80 182V206"/><path class="dp" d="M250 182V206"/>'+T(80,226,'2-bromopropane','big','text-anchor="middle"')+T(80,242,'major','an','text-anchor="middle"')+T(250,226,'1-bromopropane','nm','text-anchor="middle"')+T(250,242,'minor','sm','text-anchor="middle"'));
+  return svg(330,252,s)},
+lines:plan(['two possible carbocations','secondary more stable','alkyl groups donate electrons','→ major product'])+
+ ans(1,'Bromine prefers the middle carbon.','It is about the carbocation, not where bromine "wants" to go.','The H can add to either end of the C=C, giving a <span class="hl">secondary carbocation</span> (2-bromopropane route) or a <span class="hl">primary carbocation</span>.','M1')+
+ ans(2,'The secondary carbocation is bigger.','Not bigger: more stable. Say why.','The secondary carbocation is <span class="hl">more stable</span>, because it has <span class="hl">two alkyl groups</span> that <span class="hl">push electron density</span> towards the positive carbon (positive inductive effect).','M2')+
+ ans(3,'','','The more stable intermediate forms more easily, so <span class="hl">more 2-bromopropane</span> forms.','M3'),
+chips:[['M1','secondary vs primary carbocation',1],['M2','secondary more stable: alkyl groups donate e⁻',2],['M3','more stable intermediate → major product',3]],
+steps:[
+{t:'Read and plan',x:'Two products means two possible intermediates. The major product comes from the more stable carbocation.',tip:'Draw both carbocations if you have time. It makes the explanation clear.'},
+{t:'Two carbocations',x:'If H joins carbon 1, the positive charge is on carbon 2: a secondary carbocation. If H joins carbon 2, the charge is on carbon 1: a primary carbocation.',tip:'Primary: C<sup>+</sup> joined to 1 carbon. Secondary: joined to 2. Tertiary: joined to 3.'},
+{t:'Stability',x:'Alkyl groups release electron density towards the positive carbon. More alkyl groups spread the charge more, so the ion is more stable.',tip:'Stability order: tertiary > secondary > primary.'},
+{t:'The major product',x:'The secondary carbocation forms faster and more often, so the Br<sup>−</sup> mostly attacks carbon 2.',tip:'Link stability to amount of product. Saying "it is more stable" alone is not enough.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Explaining with the stability of the product instead of the carbocation.','Mixing up primary and secondary.','Saying alkyl groups "attract" electrons.','Not linking the stable intermediate to the major product.'],
+your:{kind:'text',marks:3,q:'2-Methylpropene, (CH<sub>3</sub>)<sub>2</sub>C=CH<sub>2</sub>, reacts with HBr. <b>Name</b> the major product and <b>explain</b> why it forms. (3)',
+ ms:['Major product: 2-bromo-2-methylpropane.','It forms via a tertiary carbocation, (CH<sub>3</sub>)<sub>3</sub>C<sup>+</sup>.','A tertiary carbocation is more stable than a primary one, because three alkyl groups release electron density to the positive carbon.'],
+ warn:[[/1-bromo-2-methyl/i,'1-bromo-2-methylpropane is the minor product. It comes from the less stable primary carbocation.']]}
+});
+/* ---------- 5 reactions of alkenes ---------- */
+W.push({btn:'Reactions of alkenes',spec:[["5.4 i–v","reactions of alkenes"],["4.6","addition, oxidation"]],type:'Recall',marks:5,
+title:'Five reactions of propene: reagents, conditions and products',
+q:'<p><span class="mk">(5)</span><mark>Name</mark> the organic product, and give the <mark>reagent</mark> and any <mark>conditions</mark>, when propene reacts with:</p><p>hydrogen · bromine · hydrogen bromide · steam · acidified potassium manganate(VII).</p>',
+diag:function(){var s=DEFS2,c=[165,128];
+  s+=box2(110,110,110,36,'card')+T(165,133,'CH₃CH=CH₂','eq','text-anchor="middle"');
+  var o=[[1,64,40,'propane','H₂, Ni, heat'],[2,264,40,'1,2-dibromopropane','Br₂, room temp'],[3,46,206,'2-bromopropane','HBr, room temp'],[4,284,206,'propan-2-ol','steam, H₃PO₄, 300 °C'],[5,165,240,'propane-1,2-diol','KMnO₄ / H⁺, purple → colourless']];
+  o.forEach(function(q){var x=q[1],y=q[2];s+=G(q[0],'<path class="dp" d="M'+(c[0]+(x-c[0])*0.32)+' '+(c[1]+(y-c[1])*0.32)+'L'+(c[0]+(x-c[0])*0.72)+' '+(c[1]+(y-c[1])*0.72)+'"/>'+T(Math.min(Math.max(x,74),252),y,q[3],'nm','text-anchor="middle"')+T(Math.min(Math.max(x,74),252),y+15,q[4],'sm','text-anchor="middle"'))});
+  return svg(330,262,s)},
+lines:plan(['addition × 4','oxidation × 1','give conditions'])+
+ wl(1,'H<sub>2</sub>, nickel catalyst, heat (≈150 °C) → <b>propane</b><span class="mt">M1</span>')+
+ wl(2,'Br<sub>2</sub>, room temperature → <b>1,2-dibromopropane</b><span class="mt">M2</span>')+
+ wl(3,'HBr, room temperature → <b>2-bromopropane</b> (major)<span class="mt">M3</span>')+
+ wl(4,'steam, H<sub>3</sub>PO<sub>4</sub> catalyst, 300 °C, 60 atm → <b>propan-2-ol</b><span class="mt">M4</span>')+
+ wl(5,'KMnO<sub>4</sub>, dilute H<sub>2</sub>SO<sub>4</sub> → <b>propane-1,2-diol</b><span class="mt">M5</span>'),
+chips:[['M1','H₂ / Ni → propane',1],['M2','Br₂ → 1,2-dibromopropane',2],['M3','HBr → 2-bromopropane',3],['M4','steam / H₃PO₄ → propan-2-ol',4],['M5','KMnO₄ / H⁺ → propane-1,2-diol',5]],
+steps:[
+{t:'Read and plan',x:'Four of these are additions across the C=C. The last is an oxidation. For each one, give the reagent, the conditions and the product name.',tip:'Learn these as a set. They come up every year in some form.'},
+{t:'Hydrogen',x:'Hydrogenation needs a nickel catalyst and heat. The alkene becomes an alkane.',tip:'This is how vegetable oils are hardened to make margarine.'},
+{t:'Bromine',x:'Bromine adds one Br to each carbon of the C=C, giving a di-substituted product.',tip:'Name it with both positions: 1,2-dibromopropane.'},
+{t:'Hydrogen bromide',x:'HBr adds H to one carbon and Br to the other. With propene, the major product is 2-bromopropane (via the secondary carbocation).',tip:'Mono-substituted: only one Br is added.'},
+{t:'Steam',x:'Hydration with steam needs a phosphoric acid catalyst, high temperature and high pressure. The product is an alcohol.',tip:'With propene, the major product is propan-2-ol, for the same reason as with HBr.'},
+{t:'Acidified potassium manganate(VII)',x:'The C=C is oxidised and an OH group joins each carbon, giving a diol. The purple solution turns colourless.',tip:'Name the diol with both positions: propane-1,2-diol.'},
+{t:'Check against the mark scheme',x:'All five marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Forgetting the catalyst (Ni for H<sub>2</sub>, H<sub>3</sub>PO<sub>4</sub> for steam).','Naming the bromine product "dibromopropane" with no numbers.','Giving 1-bromopropane as the major product with HBr.','Calling the KMnO<sub>4</sub> reaction "addition" instead of oxidation.'],
+your:{kind:'text',marks:4,q:'<b>Name</b> the organic product when cyclohexene reacts with: (a) hydrogen and a nickel catalyst; (b) bromine; (c) steam with an acid catalyst; (d) acidified potassium manganate(VII). (4)',
+ ms:['(a) cyclohexane','(b) 1,2-dibromocyclohexane','(c) cyclohexanol','(d) cyclohexane-1,2-diol'],
+ warn:[[/hexane\b(?!-)/i,'Cyclohexene keeps its ring when it reacts. The hydrogenation product is cyclohexane, not hexane.']]}
+});
+/* ---------- 6 bromine water test ---------- */
+W.push({btn:'Test for C=C: bromine water',spec:[["5.5","test for C=C"]],type:'Describe',marks:3,
+title:'Telling cyclohexane and cyclohexene apart',
+q:'<p><span class="mk">(3)</span>Two unlabelled bottles contain <mark>cyclohexane</mark> and <mark>cyclohexene</mark>.</p><p><mark>Describe</mark> a chemical test to identify which is which. Give the <mark>result</mark> for each liquid.</p>',
+diag:function(){var s='';
+  function tube(x,lab,at){var t='<path class="glass" d="M'+(x-20)+' 40V188a20 20 0 0 0 40 0V40"/>';t+='<path class="liq" d="M'+(x-18)+' 110V188a18 18 0 0 0 36 0V110Z"/>';if(at)t+='<path class="clear"'+A(at)+' d="M'+(x-18)+' 110V188a18 18 0 0 0 36 0V110Z"/>';return t+T(x,230,lab,'nm','text-anchor="middle"')}
+  s+=G(1,tube(90,'cyclohexene',2)+tube(240,'cyclohexane',0));
+  s+=G(1,T(165,26,'add bromine water, shake','an','text-anchor="middle"'));
+  s+=G(2,T(90,250,'orange → colourless','an','text-anchor="middle"'));
+  s+=G(3,T(240,250,'stays orange','an','text-anchor="middle"'));
+  return svg(330,258,s)},
+lines:plan(['reagent: bromine water','alkene: decolourised','alkane: stays orange'])+
+ ans(1,'Add bromine.','Say bromine water (or bromine), and shake.','Add a few drops of <span class="hl">bromine water</span> to each liquid and shake.','M1')+
+ ans(2,'It goes clear.','Clear is not a colour change: "clear" can still be coloured. Say colourless, and give the start colour.','Cyclohexene: bromine water turns from <span class="hl">orange (brown) to colourless</span>, because bromine adds across the C=C.','M2')+
+ ans(3,'Cyclohexane: no reaction.','Say what you see.','Cyclohexane: the mixture <span class="hl">stays orange</span>. There is no C=C bond to react.','M3'),
+chips:[['M1','bromine water, shake',1],['M2','cyclohexene: orange → colourless',2],['M3','cyclohexane: stays orange',3]],
+steps:[
+{t:'Read and plan',x:'A test answer has three parts: what you add, what you see with one substance, what you see with the other.',tip:'Always give a result for both substances.'},
+{t:'The reagent',x:'Bromine water is a dilute orange solution of bromine. It is safer than pure bromine.',tip:'Write "bromine water", not just "water" or "Br". Shake the mixture.'},
+{t:'Result with the alkene',x:'Bromine adds across the double bond, so the colour of bromine disappears.',tip:'Never write "clear". Clear means see-through. Write "colourless".'},
+{t:'Result with the alkane',x:'Cyclohexane has only single bonds, so nothing happens. The orange colour stays.',tip:'In bright UV light an alkane would slowly react by substitution. In a quick test it stays orange.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Writing "goes clear" instead of "goes colourless".','Giving the result for only one liquid.','Saying the alkane "goes colourless slowly" as the result.','Using a test for a different functional group.'],
+your:{kind:'num',q:'Limonene, C<sub>10</sub>H<sub>16</sub>, contains <b>two</b> C=C double bonds. How many <b>moles of Br<sub>2</sub></b> react with 1 mol of limonene?',ans:2,tol:0.01,
+ ok:'Correct: one Br<sub>2</sub> adds across each C=C, so 2 mol of Br<sub>2</sub>.',
+ wrong:[[1,0.01,'There are two C=C bonds, and each one adds a Br<sub>2</sub> molecule.'],[4,0.01,'4 is the number of Br <b>atoms</b>. The question asks for Br<sub>2</sub> molecules.']]}
+});
+/* ---------- 7 addition polymers ---------- */
+W.push({btn:'Addition polymers: repeat unit',spec:[["5.7","addition polymerisation"],["4.6","polymerisation"]],type:'Draw',marks:3,
+title:'The repeat unit of poly(chloroethene)',
+q:'<p><span class="mk">(3)</span>Chloroethene, CH<sub>2</sub>=CHCl, is the monomer used to make PVC, poly(chloroethene).</p><p><mark>Draw</mark> the <mark>repeat unit</mark> of poly(chloroethene).</p>',
+diag:function(){var s=DEFS2;
+  s+=G(0,alk(80,64,['H','H','H','Cl'],['','','','1'])+T(80,130,'chloroethene','nm','text-anchor="middle"'));
+  s+='<path class="dp" d="M140 64H190"/>';
+  s+=G(1,T(165,50,'C=C opens','an','text-anchor="middle"'));
+  var cx=252,cy=64;s+=G(2,L(cx-16,cy,cx+16,cy,'bd')+AT(cx-22,cy-1,'C','at2s')+AT(cx+22,cy-1,'C','at2s')+L(cx-22,cy-10,cx-22,cy-30,'bd')+L(cx-22,cy+10,cx-22,cy+30,'bd')+L(cx+22,cy-10,cx+22,cy-30,'bd')+L(cx+22,cy+10,cx+22,cy+30,'bd')+AT(cx-22,cy-40,'H')+AT(cx-22,cy+40,'H')+AT(cx+22,cy-40,'H')+AT(cx+22,cy+40,'Cl','at2','data-hot="2"'));
+  s+=G(3,L(cx-34,cy,cx-58,cy,'bd ext','3')+L(cx+34,cy,cx+58,cy,'bd ext','3')+'<path class="brk" d="M'+(cx-46)+' '+(cy-48)+'h-6v96h6M'+(cx+46)+' '+(cy-48)+'h6v96h-6"/>'+T(cx+56,cy+56,'n','big'));
+  s+=G(3,T(165,180,'bonds go through the brackets','an','text-anchor="middle"')+T(165,198,'n = many repeat units','an','text-anchor="middle"'));
+  s+=G(4,T(165,236,'…–CH₂–CHCl–CH₂–CHCl–…','eq','text-anchor="middle"'));
+  return svg(330,252,s)},
+lines:plan(['C=C → C–C','keep the groups','extension bonds + n'])+
+ ans(1,'','','In addition polymerisation the <span class="hl">C=C double bond opens</span>, and the monomers join end to end. Nothing else is lost.','')+
+ ans(2,'Draw a C=C in the repeat unit.','The double bond is used up. The backbone has only single bonds.','Draw <span class="hl">two carbons joined by a single bond</span>, with <span class="hl">three H atoms and one Cl</span>, in the same places as in the monomer.','M1 M2')+
+ ans(3,'Brackets around everything.','The end bonds must cross the brackets, and you need n.','Draw <span class="hl">extension bonds through square brackets</span> on both sides and write <span class="hl">n</span> after the bracket.','M3'),
+chips:[['M1','single C–C backbone',2],['M2','H, H, H, Cl correct',2],['M3','extension bonds and n',3]],
+steps:[
+{t:'Read the monomer',x:'Look at the four groups on the C=C: here, three H atoms and one Cl.',tip:'The repeat unit always has exactly two carbons in the backbone for a monomer with one C=C.'},
+{t:'Open the double bond',x:'One bond of the C=C breaks open, so each carbon can join to a neighbour. This is addition: all atoms of the monomer end up in the polymer.',tip:'Addition polymers have the same empirical formula as their monomer.'},
+{t:'Draw the backbone',x:'Draw the two carbons with a single bond between them. Keep each group on the carbon it started on.',tip:'Do not move the Cl to the other carbon, and do not add an extra H.'},
+{t:'Brackets and n',x:'The bonds on the left and right show where the next repeat units join. They must pass through the brackets.',tip:'Without extension bonds or n, the structure is just a molecule, not a repeat unit.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Leaving the C=C double bond in the repeat unit.','Extension bonds that stop at the brackets, or no n.','Moving the Cl or adding extra atoms.','Drawing a repeat unit with four carbons in the backbone.'],
+your:{kind:'num',q:'A sample of poly(ethene) has a relative molecular mass of <b>280 000</b>. The monomer is ethene, C<sub>2</sub>H<sub>4</sub> (M<sub>r</sub> = 28.0). Calculate n, the number of repeat units in one polymer molecule.',ans:10000,tol:1,
+ ok:'Correct: n = 280 000 ÷ 28.0 = 10 000.',
+ wrong:[[20000,1,'You divided by 14 (CH<sub>2</sub>). The repeat unit is C<sub>2</sub>H<sub>4</sub>, M<sub>r</sub> 28.0.'],[7840000,1,'You multiplied. Divide the polymer M<sub>r</sub> by the repeat unit M<sub>r</sub>.']]}
+});
+/* ---------- 8 polymer disposal ---------- */
+W.push({btn:'Polymer disposal',spec:[["5.8","polymer disposal"]],type:'Explain',marks:4,
+title:'Reducing the problems caused by waste polymers',
+q:'<p><span class="mk">(4)</span>Addition polymers such as PVC are difficult to dispose of.</p><p><mark>Explain</mark> why, and describe <mark>two ways</mark> chemists are reducing the problems.</p>',
+diag:function(){var s='';
+  s+=G(1,box2(14,20,302,52,'card o')+T(28,42,'landfill','hd')+T(28,60,'not biodegradable: lasts hundreds of years','sm'));
+  s+=G(2,box2(14,84,302,52,'card g')+T(28,106,'biodegradable polymers','hd')+T(28,124,'e.g. from starch: broken down by microorganisms','sm'));
+  s+=G(3,box2(14,148,302,52,'card o')+T(28,170,'incineration','hd')+T(28,188,'energy recovered, but PVC releases HCl (toxic, acidic)','sm'));
+  s+=G(4,box2(14,212,302,40,'card g')+T(28,236,'gas scrubbers: base (e.g. CaO) removes HCl','sm'));
+  return svg(330,260,s)},
+lines:plan(['why: unreactive, non-biodegradable','biodegradable polymers','incineration: toxic gases','remove gases (scrubbing)'])+
+ ans(1,'They are plastic.','Explain why they last: strong, non-polar bonds.','Addition polymers are <span class="hl">unreactive</span> (strong, non-polar C–C and C–H bonds), so they are <span class="hl">not biodegradable</span> and stay in landfill for a very long time.','M1')+
+ ans(2,'Recycle them.','Recycling helps, but the spec points are biodegradable polymers and incineration.','Chemists are developing <span class="hl">biodegradable polymers</span> (for example from starch) that <span class="hl">microorganisms can break down</span>.','M2')+
+ ans(3,'Burning them is bad.','Say what is produced and why it matters.','Waste polymers can be <span class="hl">incinerated</span> to release energy, but burning PVC produces <span class="hl">toxic gases such as HCl</span>.','M3')+
+ ans(4,'Filter the smoke.','HCl is a gas. Say how it is removed.','The waste gases are passed through <span class="hl">scrubbers containing a base</span> (e.g. calcium oxide), which <span class="hl">neutralises the HCl</span>.','M4'),
+chips:[['M1','unreactive, not biodegradable',1],['M2','biodegradable polymers',2],['M3','incineration releases toxic gases (HCl)',3],['M4','gases removed by base / scrubbers',4]],
+steps:[
+{t:'Read and plan',x:'One mark for the problem, then two solutions, each with a reason or detail.',tip:'For 4 marks, write four separate points.'},
+{t:'The problem',x:'The same strong bonds that make polymers useful also make them hard to break down. Bacteria cannot digest them.',tip:'Use the word "non-biodegradable".'},
+{t:'Solution 1: biodegradable polymers',x:'Polymers made from plant materials can be broken down by microorganisms, so they do not build up in landfill.',tip:'Give a named example of what they are made from, e.g. starch.'},
+{t:'Solution 2: incineration',x:'Burning waste polymers releases energy that can generate electricity. PVC contains chlorine, so it makes hydrogen chloride when it burns.',tip:'Name the toxic gas from PVC: HCl.'},
+{t:'Removing the toxic gas',x:'HCl is acidic, so it reacts with a base. Flue gases are passed through a base before release.',tip:'Write "neutralised by a base", not just "filtered".'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying polymers are "toxic" in landfill as the main problem.','Saying "recycle" with no link to the spec ideas.','Not naming the toxic gas from PVC.','Saying the gases are "filtered" instead of neutralised.'],
+your:{kind:'text',marks:3,q:'A council is deciding whether to put waste poly(propene) in landfill or burn it in an incinerator. <b>Give</b> one advantage and one disadvantage of incineration, and one way to reduce its harm. (3)',
+ ms:['Advantage: energy is released and can be used (e.g. to generate electricity) / less waste goes to landfill.','Disadvantage: CO<sub>2</sub> is released (greenhouse gas), and toxic gases may form, e.g. CO from incomplete combustion.','Reduce harm: remove toxic waste gases, e.g. with scrubbers or catalytic treatment, before they are released.'],
+ warn:[[/hcl|hydrogen chloride/i,'Poly(propene) contains no chlorine, so it does not make HCl. That problem is specific to PVC.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 1 · Topic 5 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["5.1", "Give the general formula of alkenes; explain unsaturated and the σ and π bonds in C=C."], ["5.2", "Explain geometric isomerism: restricted rotation about C=C and the groups on each carbon."], ["5.3", "Use the E–Z naming system and explain why it is needed when cis/trans breaks down."], ["5.4", "Describe the reactions of alkenes with H<sub>2</sub>/Ni, halogens, hydrogen halides, steam/acid catalyst and acidified KMnO<sub>4</sub>."], ["5.5", "Describe the bromine (water) test for a C=C double bond."], ["5.6", "Draw the electrophilic addition mechanisms (Br<sub>2</sub> and HBr with ethene, HBr with propene) and explain carbocation stability."], ["5.7", "Describe addition polymerisation; draw the repeat unit from the monomer and the monomer from the repeat unit."], ["5.8", "Explain how chemists reduce polymer disposal problems: biodegradable polymers and removing toxic gases from incineration."]],KEY="ialchem-t5-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 5: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

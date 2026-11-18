@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chemistry That Counts | Free IGCSE &amp; IAL Chemistry animations, labs, videos and cheat sheets</title>
+<meta name="description" content="Free Pearson Edexcel International GCSE and International A Level Chemistry revision: interactive animations, virtual core practical labs, exam walkthroughs, summary videos and one-page cheat sheets. Teaching resources for teachers and tutors.">
+<link rel="canonical" href="https://chemistrythatcounts.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chemistry That Counts">
+<meta property="og:title" content="Chemistry That Counts | Free IGCSE &amp; IAL Chemistry resources">
+<meta property="og:description" content="Animations, virtual labs, summary videos and cheat sheets for Edexcel IGCSE and IAL Chemistry.">
+<meta property="og:url" content="https://chemistrythatcounts.com/">
+<meta property="og:image" content="https://chemistrythatcounts.com/img/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Chemistry That Counts","url":"https://chemistrythatcounts.com/","logo":"https://chemistrythatcounts.com/img/icon-512.png","description":"Free Edexcel IGCSE and IAL Chemistry revision resources and teaching materials."}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 240 260' aria-hidden='true'%3E%3Cpath d='M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z' fill='%23F2937A'/%3E%3Cpath d='M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30' fill='none' stroke='%231F5E66' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M98 210 L114 224 L144 196' fill='none' stroke='%231F5E66' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='146' r='6' fill='%23F2937A'/%3E%3Ccircle cx='113' cy='126' r='4.5' fill='%23F2937A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap">
+<style>
+/* Layout: brand-teal hero with the new revision-booklet covers fanned out; periodic-table tiles carry the counts;
+   brand = teal + coral with the round-bottom flask; IGCSE = coral, IAL = teal; unit colours on pills. Blog lives at #blog and #post-*. */
+:root{
+  --brand:#1F5E66; --brand-dk:#17474D; --gold:#F2937A; --coral-txt:#B2482E; --coral-lt:#F7B3A2;
+  --bg:#F3F8F7; --surface:#FFFFFF; --ink:#24303A; --muted:#5A6A72; --line:#D3E2E0;
+  --igcse:#B2482E; --igcse-soft:#FDE9E3; --ial:#2E7A83; --ial-soft:#E3F2EF;
+  --on-brand:#FFFFFF; --on-brand-muted:#C8E2E0;
+  --display:"Nunito", "Segoe UI", system-ui, sans-serif;
+  --body:"Nunito", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1F22; --surface:#16292D; --ink:#E6F1F0; --muted:#9DB5B6; --line:#24403F;
+    --igcse:#F7B3A2; --igcse-soft:#3A2420; --ial:#7CC7CB; --ial-soft:#18383B; --brand:#17474D; --brand-dk:#113539; --coral-txt:#F7B3A2;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1F22; --surface:#16292D; --ink:#E6F1F0; --muted:#9DB5B6; --line:#24403F;
+  --igcse:#F7B3A2; --igcse-soft:#3A2420; --ial:#7CC7CB; --ial-soft:#18383B; --brand:#17474D; --brand-dk:#113539; --coral-txt:#F7B3A2;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0;font-weight:800}
+h1{font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem);letter-spacing:-.01em}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0;max-width:65ch}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.muted{color:var(--muted)}
+.gold{color:var(--coral-lt)}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:5;background:var(--brand);color:var(--on-brand)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--display)}
+.brand svg{height:40px;width:auto}
+.brand .wm{display:flex;flex-direction:column;line-height:1}
+.brand .wm b{font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.brand .wm span{font-weight:600;font-size:.85rem;color:var(--coral-lt);margin-top:2px}
+nav.links{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+nav.links a{text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:700;font-size:.95rem;color:var(--on-brand-muted)}
+nav.links a:hover,nav.links a[aria-current="page"]{color:var(--on-brand);background:rgba(255,255,255,.08)}
+@media (max-width:700px){nav.links a.opt{display:none}}
+@media (max-width:420px){.brand .wm{display:none}}
+
+/* Hero */
+.hero{background:var(--brand);color:var(--on-brand);padding:48px 0 64px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero .lead{font-size:1.2rem;margin-top:16px;color:var(--on-brand-muted)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;text-decoration:none;border:2px solid currentColor;cursor:pointer;font:700 1rem var(--body);transition:transform .15s}
+.btn.solid{background:var(--gold);border-color:var(--gold);color:#28140E}
+.btn.ghost{background:transparent}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+.btn.pending{opacity:.55;border-style:dashed}
+.fan{position:relative;aspect-ratio:5/4;max-width:520px;width:100%;justify-self:end}
+.fan img{position:absolute;width:72%;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.fan img:nth-child(1){left:0;top:2%;width:56%;transform:rotate(-5deg)}
+.fan img:nth-child(2){right:0;top:0;width:56%;transform:rotate(4deg)}
+.fan img:nth-child(3){left:24%;top:44%;width:56%;transform:rotate(-1deg)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.fan{justify-self:center;max-width:440px}}
+
+/* Element tiles strip */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:-36px;position:relative}
+@media (max-width:860px){.tiles{grid-template-columns:repeat(3,1fr)}}
+.el{border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;background:var(--surface);border:2px solid var(--line);box-shadow:0 6px 18px rgba(31,94,102,.10)}
+.el .n{font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums}
+.el .sym{font:700 clamp(1.6rem,3.4vw,2.2rem)/1 var(--display)}
+.el .name{font-size:.78rem;color:var(--muted);line-height:1.25}
+.el.i{border-color:var(--igcse)} .el.i .sym{color:var(--igcse)}
+.el.a{border-color:var(--ial)} .el.a .sym{color:var(--ial)}
+.el.g{border-color:var(--gold)} .el.g .sym{color:var(--coral-txt)}
+
+section{padding:56px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.sec-head p{margin-top:8px}
+
+/* Students */
+.switch{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap}
+.switch button{border:0;background:transparent;color:var(--muted);font:700 1rem var(--body);padding:10px 18px;border-radius:9px;cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--c);color:#fff}
+.course{--c:var(--igcse);--soft:var(--igcse-soft)}
+.course.ial{--c:var(--ial);--soft:var(--ial-soft)}
+.course[hidden]{display:none}
+.course-intro{border-left:6px solid var(--c);padding:4px 0 4px 16px;margin-bottom:24px}
+.course-intro h3{font-size:1.45rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:960px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.grid4{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
+a.card[href]:hover{border-color:var(--c)}
+.card .tag{width:46px;height:46px;border-radius:8px;background:var(--soft);color:var(--c);display:grid;place-items:center;font:700 1.1rem var(--display);position:relative}
+.card .tag small{position:absolute;top:2px;left:4px;font:700 .55rem var(--body)}
+.card .go{margin-top:auto;font-weight:700;color:var(--c)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font-size:.85rem;padding:5px 10px;border-radius:999px;background:var(--soft);border:1px solid color-mix(in srgb,var(--c) 30%,transparent)}
+.block{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.block h4{margin:0 0 4px;font-size:1.05rem;font-weight:600}
+.units{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:12px}
+@media (max-width:700px){.units{grid-template-columns:1fr}}
+.cp-list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+.cp-list a{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--bg);text-decoration:none;border:1px solid transparent}
+.cp-list a:hover{border-color:var(--c)}
+.cp-list .open{margin-left:auto;font-weight:700;font-size:.85rem;color:var(--c)}
+.cp-list b{font-variant-numeric:tabular-nums;min-width:44px;color:var(--c);font-family:var(--display)}
+
+/* Teachers */
+.teach{background:var(--brand);color:var(--on-brand)}
+.teach .muted{color:var(--on-brand-muted)}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.shop{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.shop{grid-template-columns:1fr}}
+.prod{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.prod img{aspect-ratio:909/660;object-fit:cover;width:100%}
+.prod .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prod .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:auto;padding-top:8px}
+.peek{align-self:flex-start;margin-top:6px;background:#F7B3A2;color:#1b1b1b;border:0;border-radius:20px;padding:7px 14px;font:800 .9rem var(--display,inherit);cursor:pointer}
+.peek:hover{filter:brightness(1.05)}
+.lb{position:fixed;inset:0;z-index:99999;background:rgba(10,30,33,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}.lb figure{margin:0;max-width:min(1100px,92vw);display:flex;flex-direction:column;align-items:center;gap:10px}
+.lb img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:6px;box-shadow:0 8px 40px rgba(0,0,0,.5);background:#fff;user-select:none;-webkit-user-drag:none}
+.lb figcaption{color:#fff;font-weight:700;text-align:center}.lb figcaption small{display:block;color:#cfe3e1;font-weight:600;margin-top:4px}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);color:#fff;border:0;width:52px;height:52px;border-radius:50%;font-size:28px;cursor:pointer}
+.lb .prev{left:14px}.lb .next{right:14px}.lb .x{position:absolute;top:14px;right:16px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+.lb .shop{display:inline-block;margin-top:6px;background:#F7B3A2;color:#1b1b1b;border-radius:20px;padding:7px 16px;font-weight:800;text-decoration:none}
+.prod .price{font:800 1.3rem var(--display);color:var(--coral-lt);font-variant-numeric:tabular-nums}
+.lvl{font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-lt)}
+.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.who span{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 14px;font-size:.9rem}
+
+/* Brand art panels: teal card, unit pill, flask (mirrors the new booklet covers) */
+.art{position:relative;aspect-ratio:909/660;background:var(--brand);color:#fff;overflow:hidden;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.art::before{content:"";position:absolute;right:-18%;top:12%;width:70%;aspect-ratio:1;border-radius:50%;background:var(--brand-dk)}
+.art .upill{position:relative;align-self:flex-start;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--u,#F2937A);color:#1B1B1B}
+.art .atitle{position:relative;font:800 clamp(1.05rem,2.1vw,1.35rem)/1.15 var(--display);max-width:60%}
+.art svg{position:absolute;right:7%;bottom:6%;height:62%;width:auto}
+.u1{--u:#F2937A}.u2{--u:#8EC5E8}.u3{--u:#9ED3A6}.u4{--u:#F2CF6B}.u5{--u:#B9A7E3}
+/* Videos */
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.vid{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.vid .thumb{position:relative}
+.vid .thumb .art{aspect-ratio:16/9}
+.vid .art svg{height:52%;right:5%;bottom:auto;top:10%}
+.vid .art .atitle{max-width:62%;font-size:1rem}
+.vid .count{position:absolute;right:10px;bottom:10px;background:rgba(23,71,77,.92);color:#fff;font-weight:700;font-size:.8rem;padding:3px 8px;border-radius:6px}
+.vid .play{position:absolute;left:12px;bottom:10px;width:40px;height:40px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.vid .play::after{content:"";border-left:13px solid #28140E;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.vid .body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.lvl.i{color:var(--igcse)} .lvl.a{color:var(--ial)}
+
+/* About */
+.about{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+.about .mark{width:150px;aspect-ratio:1;border-radius:20px;background:var(--brand);display:grid;place-items:center;padding:18px}
+.about p+p{margin-top:12px}
+@media (max-width:640px){.about{grid-template-columns:1fr}.about .mark{width:110px}}
+
+/* Blog */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.posts{grid-template-columns:1fr}}
+.post-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
+.post-card:hover{border-color:var(--gold)}
+.meta{font-size:.85rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--soft,var(--igcse-soft));color:var(--c,var(--igcse))}
+.pill.a{--soft:var(--ial-soft);--c:var(--ial)}
+.pill.g{background:color-mix(in srgb,var(--gold) 22%,transparent);color:var(--ink)}
+.read{margin-top:auto;font-weight:700}
+article.post{max-width:720px;margin:0 auto}
+article.post h1{font-size:clamp(1.8rem,4vw,2.6rem);margin:14px 0 10px}
+article.post h2{font-size:1.3rem;margin:32px 0 8px}
+article.post p,article.post li{font-size:1.08rem}
+article.post p{margin-top:14px}
+article.post ul,article.post ol{padding-left:1.3em;margin:12px 0 0}
+article.post li+li{margin-top:6px}
+article.post .poster-fig{margin:24px 0 0}
+article.post .poster-fig img{width:100%;max-width:520px;border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(31,94,102,.15)}
+article.post h3{margin:26px 0 6px;font-size:1.1rem}
+article.post table.data{border-collapse:collapse;margin:12px 0;font-size:.95rem}
+article.post table.data th,article.post table.data td{border:1px solid var(--line);padding:6px 12px;text-align:center}
+article.post table.data th{background:var(--mint,#E3F2EF);text-align:left}
+article.post figcaption{font-size:.92rem;color:var(--muted);margin-top:8px}
+article.post .callout{margin-top:24px;padding:18px 20px;border-radius:12px;background:var(--surface);border-left:5px solid var(--gold)}
+.series{margin:14px 0 0;font-weight:800;color:var(--coral-txt);letter-spacing:.04em;text-transform:uppercase;font-size:.8rem}
+.back{display:inline-block;margin-bottom:8px;font-weight:700;text-decoration:none;color:var(--muted)}
+.view[hidden]{display:none}
+
+footer{background:var(--brand);color:var(--on-brand-muted);padding:32px 0 44px;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
+footer a{color:var(--on-brand)}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Chemistry That Counts home"><svg viewBox="0 0 240 260" width="34" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" fill="#F2937A"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" fill="#F2937A"/><circle cx="113" cy="126" r="4.5" fill="#F2937A"/></svg><span class="wm"><b>chemistry</b><span>that counts</span></span></a>
+    <nav class="links" aria-label="Main">
+      <a href="#students">Students</a>
+      <a href="#teachers">Teachers</a>
+      <a class="opt" href="#videos">Videos</a>
+      <a href="#blog">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME VIEW -->
+<div class="view" id="view-home">
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>See the chemistry happen. <span class="gold">Then make every mark count.</span></h1>
+        <p class="lead">Virtual core practicals, animations, summary videos and step-by-step exam walkthroughs for Pearson Edexcel International GCSE and International A Level Chemistry.</p>
+        <div class="cta">
+          <a class="btn solid" href="#students">I'm a student</a>
+          <a class="btn ghost" href="#teachers">I teach or tutor</a>
+        </div>
+      </div>
+      <div class="fan" aria-hidden="true">
+        <img src="img/nb-igcse-energetics.jpg" alt="">
+        <img src="img/nb-ial-equilibria.jpg" alt="">
+        <img src="img/nb-ial-bonding.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="tiles" aria-label="What's on the site">
+      <div class="el a"><span class="n">16</span><span class="sym">Vl</span><span class="name">IAL virtual labs</span></div>
+      <div class="el i"><span class="n">8</span><span class="sym">Vl</span><span class="name">IGCSE virtual labs</span></div>
+      <div class="el a"><span class="n">23</span><span class="sym">An</span><span class="name">IAL animations</span></div>
+      <div class="el i"><span class="n">15</span><span class="sym">An</span><span class="name">IGCSE animations</span></div>
+      <div class="el g"><span class="n">60</span><span class="sym">Yt</span><span class="name">videos on YouTube</span></div>
+      <div class="el a"><span class="n">20</span><span class="sym">Ex</span><span class="name">IAL exam walkthrough topics</span></div>
+    </div>
+  </div>
+
+  <!-- STUDENTS -->
+  <section id="students">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>For students</h2>
+          <p class="muted">Choose your course. Everything here is free.</p>
+        </div>
+        <div class="switch" role="tablist" aria-label="Course">
+          <button role="tab" id="tab-igcse" aria-controls="igcse" aria-selected="true" style="--c:var(--igcse)">IGCSE · Years 10–11</button>
+          <button role="tab" id="tab-ial" aria-controls="ial" aria-selected="false" style="--c:var(--ial)">IAL · Years 12–13</button>
+        </div>
+      </div>
+
+      <div class="course" id="igcse" role="tabpanel" aria-labelledby="tab-igcse">
+        <div class="course-intro">
+          <h3>International GCSE Chemistry</h3>
+          <p class="muted">Pearson Edexcel modular course, Years 10 and 11.</p>
+        </div>
+        <div class="grid4">
+          <a class="card" data-link="igcseLabs" href="#"><span class="tag"><small>8</small>Vl</span><h3>Core practical labs</h3><p class="muted">Do each practical on screen, record results, then try the exam practice tab.</p><span class="go">Open the labs →</span></a>
+          <a class="card" data-link="igcseAnimations" href="#"><span class="tag"><small>12</small>An</span><h3>Animations</h3><p class="muted">Watch particles move in bonding, rates, cracking and more.</p><span class="go">Watch →</span></a>
+          <a class="card" data-link="igcseExam" href="#"><span class="tag"><small>8</small>Ex</span><h3>How to answer exam questions</h3><p class="muted">Pick your year and topic, then build the answer one mark at a time.</p><span class="go">Start →</span></a>
+          <a class="card" data-link="igcseVideos" href="#"><span class="tag"><small>10</small>Sv</span><h3>Summary videos</h3><p class="muted">Four-minute recaps with subtitles, each with a free one-page cheat sheet. More topics coming soon.</p><span class="go">Watch →</span></a>
+        </div>
+        <div class="block">
+          <h4 id="igcse-labs">Core practicals</h4>
+          <p class="muted" style="font-size:.95rem">Choose a practical to open its virtual lab.</p>
+          <div class="units"><div><p class="muted">Year 10</p><ul class="cp-list"><li><a href="labs/igcse-cp1-paper-chromatography.html"><b>CP1</b>Paper chromatography<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp2-formula-of-a-metal-oxide.html"><b>CP2</b>Formula of a metal oxide<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp4-acids-and-metals.html"><b>CP4</b>Acids and metals<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp5-copperii-sulfate-crystals.html"><b>CP5</b>Copper(II) sulfate crystals<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp6-temperature-changes.html"><b>CP6</b>Temperature changes<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Year 11</p><ul class="cp-list"><li><a href="labs/igcse-cp3-oxygen-in-air.html"><b>CP3</b>Oxygen in air<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp7-marble-chips-and-rate.html"><b>CP7</b>Marble chips and rate<span class="open">Open →</span></a></li><li><a href="labs/igcse-cp8-catalysts-and-hydrogen-peroxide.html"><b>CP8</b>Catalysts and hydrogen peroxide<span class="open">Open →</span></a></li></ul></div></div>
+          <h4 id="igcse-animations" style="margin-top:24px">Animations</h4>
+          <div class="units"><div><p class="muted">Year 10</p><ul class="cp-list"><li><a href="anims/igcse-diffusion.html"><b>Y10</b>Diffusion<span class="open">Open →</span></a></li><li><a href="anims/igcse-metal-displacement.html"><b>Y10</b>Metal displacement<span class="open">Open →</span></a></li><li><a href="anims/igcse-redox-reactions.html"><b>Y10</b>Redox reactions<span class="open">Open →</span></a></li><li><a href="anims/igcse-rusting-and-rust-prevention.html"><b>Y10</b>Rusting and rust prevention<span class="open">Open →</span></a></li><li><a href="anims/igcse-energetics.html"><b>Y10</b>Energetics<span class="open">Open →</span></a></li><li><a href="anims/igcse-crude-oil-distillation.html"><b>Y10</b>Crude oil distillation<span class="open">Open →</span></a></li><li><a href="anims/igcse-cracking-alkanes-and-alkenes.html"><b>Y10</b>Cracking, alkanes and alkenes<span class="open">Open →</span></a></li><li><a href="anims/igcse-pollutants-and-climate-change.html"><b>Y10</b>Pollutants and climate change<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Year 11</p><ul class="cp-list"><li><a href="anims/igcse-bonding.html"><b>Y11</b>Bonding<span class="open">Open →</span></a></li><li><a href="anims/igcse-structure-and-properties.html"><b>Y11</b>Structure and properties<span class="open">Open →</span></a></li><li><a href="anims/igcse-collision-theory-and-rates.html"><b>Y11</b>Collision theory and rates<span class="open">Open →</span></a></li><li><a href="anims/igcse-polymerisation.html"><b>Y11</b>Polymerisation<span class="open">Open →</span></a></li></ul></div></div>
+          <h4 id="igcse-exam" style="margin-top:24px">How to answer exam questions</h4>
+          <p class="muted" style="font-size:.95rem">Pick your year and topic, then build the answer one mark at a time.</p>
+          <div class="units"><div><p class="muted">Year 10</p><ul class="cp-list"><li><a href="exam/igcse-principles-of-chemistry-part-1.html"><b>Y10</b>Principles of chemistry 1<span class="open">Open →</span></a></li><li><a href="exam/igcse-inorganic-chemistry-part-1.html"><b>Y10</b>Inorganic chemistry 1<span class="open">Open →</span></a></li><li><a href="exam/igcse-physical-chemistry-part-1.html"><b>Y10</b>Physical chemistry 1<span class="open">Open →</span></a></li><li><a href="exam/igcse-organic-chemistry-part-1.html"><b>Y10</b>Organic chemistry 1<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Year 11</p><ul class="cp-list"><li><a href="exam/igcse-principles-of-chemistry-part-2.html"><b>Y11</b>Principles of chemistry 2<span class="open">Open →</span></a></li><li><a href="exam/igcse-inorganic-chemistry-part-2.html"><b>Y11</b>Inorganic chemistry 2<span class="open">Open →</span></a></li><li><a href="exam/igcse-physical-chemistry-part-2.html"><b>Y11</b>Physical chemistry 2<span class="open">Open →</span></a></li><li><a href="exam/igcse-organic-chemistry-part-2.html"><b>Y11</b>Organic chemistry 2<span class="open">Open →</span></a></li></ul></div></div>
+          <h4 id="igcse-cheatsheets" style="margin-top:24px">Cheat sheets</h4>
+          <p class="muted" style="font-size:.95rem">A free one-page summary for each video: key points, key words, common mistakes and a quick check.</p>
+          <div class="units"><div><p class="muted">Year 10</p><ul class="cp-list"><li><a href="sheets/igcse-acids-alkalis-neutralisation.html"><b>PDF</b>Acids, alkalis and neutralisation<span class="open">Open →</span></a></li><li><a href="sheets/igcse-alkanes-and-alkenes.html"><b>PDF</b>Alkanes and alkenes<span class="open">Open →</span></a></li><li><a href="sheets/igcse-atomic-structure-isotopes.html"><b>PDF</b>Atomic structure and isotopes<span class="open">Open →</span></a></li><li><a href="sheets/igcse-concentration.html"><b>PDF</b>Concentration of solutions<span class="open">Open →</span></a></li><li><a href="sheets/igcse-cracking.html"><b>PDF</b>Cracking<span class="open">Open →</span></a></li><li><a href="sheets/igcse-crude-oil.html"><b>PDF</b>Crude oil and fractional distillation<span class="open">Open →</span></a></li><li><a href="sheets/igcse-diffusion-and-dilution.html"><b>PDF</b>Diffusion and dilution<span class="open">Open →</span></a></li><li><a href="sheets/igcse-metal-displacement.html"><b>PDF</b>Displacement reactions of metals<span class="open">Open →</span></a></li><li><a href="sheets/igcse-mixtures-and-separation.html"><b>PDF</b>Elements, compounds, mixtures and separation<span class="open">Open →</span></a></li><li><a href="sheets/igcse-empirical-formula-yield.html"><b>PDF</b>Empirical formula and percentage yield<span class="open">Open →</span></a></li><li><a href="sheets/igcse-energetics.html"><b>PDF</b>Energy changes in reactions<span class="open">Open →</span></a></li><li><a href="sheets/igcse-formulae-and-equations.html"><b>PDF</b>Formulae and balancing equations<span class="open">Open →</span></a></li><li><a href="sheets/igcse-gases-in-the-air.html"><b>PDF</b>Gases in the air and tests for gases<span class="open">Open →</span></a></li><li><a href="sheets/igcse-intro-to-organic.html"><b>PDF</b>Introduction to organic chemistry<span class="open">Open →</span></a></li><li><a href="sheets/igcse-ionic-and-covalent-bonding.html"><b>PDF</b>Ionic and covalent bonding<span class="open">Open →</span></a></li><li><a href="sheets/igcse-making-salts.html"><b>PDF</b>Making salts and solubility rules<span class="open">Open →</span></a></li><li><a href="sheets/igcse-moles-and-reacting-masses.html"><b>PDF</b>Moles and reacting masses<span class="open">Open →</span></a></li><li><a href="sheets/igcse-redox.html"><b>PDF</b>Oxidation and reduction<span class="open">Open →</span></a></li><li><a href="sheets/igcse-paper-chromatography.html"><b>PDF</b>Paper chromatography<span class="open">Open →</span></a></li><li><a href="sheets/igcse-pollutants-climate-change.html"><b>PDF</b>Pollutants and climate change<span class="open">Open →</span></a></li><li><a href="sheets/igcse-rusting.html"><b>PDF</b>Rusting and how to prevent it<span class="open">Open →</span></a></li><li><a href="sheets/igcse-states-of-matter.html"><b>PDF</b>States of matter<span class="open">Open →</span></a></li><li><a href="sheets/igcse-structure-and-properties.html"><b>PDF</b>Structure and properties<span class="open">Open →</span></a></li><li><a href="sheets/igcse-periodic-table.html"><b>PDF</b>The Periodic Table and electron configuration<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Year 11</p><ul class="cp-list"><li><a href="sheets/igcse-addition-polymerisation.html"><b>PDF</b>Addition polymerisation<span class="open">Open →</span></a></li><li><a href="sheets/igcse-chemical-tests.html"><b>PDF</b>Chemical tests for ions<span class="open">Open →</span></a></li><li><a href="sheets/igcse-group-1-alkali-metals.html"><b>PDF</b>Group 1 – the alkali metals<span class="open">Open →</span></a></li><li><a href="sheets/igcse-group-7-halogens.html"><b>PDF</b>Group 7 – the halogens<span class="open">Open →</span></a></li><li><a href="sheets/igcse-rates-of-reaction.html"><b>PDF</b>Rates of reaction and reversible reactions<span class="open">Open →</span></a></li><li><a href="sheets/igcse-reversible-reactions-equilibrium.html"><b>PDF</b>Reversible reactions and dynamic equilibrium<span class="open">Open →</span></a></li></ul></div></div>
+          <h4 style="margin-top:20px">Summary videos</h4>
+          <div class="chips"><span class="chip">Diffusion</span><span class="chip">Acids, alkalis and neutralisation</span><span class="chip">Bonding</span><span class="chip">Structure and properties</span><span class="chip">Energetics</span><span class="chip">Crude oil</span><span class="chip">Cracking</span><span class="chip">Alkanes and alkenes</span><span class="chip">Gases and gas tests</span><span class="chip">Group 1</span><span class="chip">Group 7</span><span class="chip">Metal displacement</span><span class="chip">Redox</span><span class="chip">Rust prevention</span><span class="chip">Rates of reaction</span><span class="chip">Polymerisation</span><span class="chip">Pollutants and climate change</span></div>
+        </div>
+      </div>
+
+      <div class="course ial" id="ial" role="tabpanel" aria-labelledby="tab-ial" hidden>
+        <div class="course-intro">
+          <h3>International A Level Chemistry</h3>
+          <p class="muted">Pearson Edexcel IAL, Units 1 to 6.</p>
+        </div>
+        <div class="grid4">
+          <a class="card" data-link="ialLabs" href="#"><span class="tag"><small>16</small>Vl</span><h3>Core practical labs</h3><p class="muted">All 16 core practicals: do the experiment, record results, interpret, exam practice.</p><span class="go">Open the labs →</span></a>
+          <a class="card" data-link="ialAnimations" href="#"><span class="tag"><small>23</small>An</span><h3>Animations</h3><p class="muted">Mechanisms, orbitals, equilibria and complexes, with spec points shown.</p><span class="go">Watch →</span></a>
+          <a class="card" data-link="ialExam" href="#"><span class="tag"><small>20</small>Ex</span><h3>How to answer exam questions</h3><p class="muted">Step-by-step walkthroughs, a "Your turn" question and an "I can…" checklist per topic.</p><span class="go">Start →</span></a>
+          <a class="card" data-link="ialVideos" href="#"><span class="tag"><small>84</small>Sv</span><h3>Summary videos</h3><p class="muted">Short recaps for every IAL theory unit: Units 1, 2, 4 and 5.</p><span class="go">Watch →</span></a>
+        </div>
+        <div class="block">
+          <h4 id="ial-practicals">Core practicals</h4>
+          <p class="muted" style="font-size:.95rem">Choose a practical to open its virtual lab.</p>
+          <div class="units">
+            <div>
+              <p class="muted">AS · Unit 3</p>
+              <ul class="cp-list">
+                <li><a href="labs/cp1-molar-volume.html"><b>CP1</b>Molar volume of a gas<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp2-hess-law.html"><b>CP2</b>Hess's law<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp3-hcl-titration.html"><b>CP3</b>Concentration of HCl<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp4-standard-solution.html"><b>CP4</b>Standard solution<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp5-halogenoalkane-hydrolysis.html"><b>CP5</b>Hydrolysis of halogenoalkanes<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp6-chlorination-2-methylpropan-2-ol.html"><b>CP6</b>Chlorination of 2-methylpropan-2-ol<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp7-oxidation-propan-1-ol.html"><b>CP7</b>Oxidation of propan-1-ol<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp8-unknowns-as.html"><b>CP8</b>AS unknowns<span class="open">Open →</span></a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="muted">A2 · Unit 6</p>
+              <ul class="cp-list">
+                <li><a href="labs/cp9-rates-iodine-propanone.html"><b>CP9</b>Rate of the iodine–propanone reaction<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp10-activation-energy.html"><b>CP10</b>Activation energy<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp11-ka-weak-acid.html"><b>CP11</b><span>K<sub>a</sub> of a weak acid</span><span class="open">Open →</span></a></li>
+                <li><a href="labs/cp12-electrochemical-cells.html"><b>CP12</b>Electrochemical cells<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp13-redox-titrations.html"><b>CP13</b>Redox titrations<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp14-transition-metal-complex.html"><b>CP14</b>Preparing a transition metal complex<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp15-unknowns-a2.html"><b>CP15</b>A2 unknowns<span class="open">Open →</span></a></li>
+                <li><a href="labs/cp16-aspirin.html"><b>CP16</b>Preparation of aspirin<span class="open">Open →</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <h4 id="ial-animations" style="margin-top:24px">Animations by unit</h4>
+          <div class="units"><div><p class="muted">Unit 1</p><ul class="cp-list"><li><a href="anims/ial-electron-configuration.html"><b>U1</b>Electron configuration<span class="open">Open →</span></a></li><li><a href="anims/ial-ionisation-energies.html"><b>U1</b>Ionisation energies<span class="open">Open →</span></a></li><li><a href="anims/ial-shapes-of-molecules.html"><b>U1</b>Shapes of molecules<span class="open">Open →</span></a></li><li><a href="anims/ial-bonding-continuum.html"><b>U1</b>Bonding continuum<span class="open">Open →</span></a></li><li><a href="anims/ial-polar-molecules.html"><b>U1</b>Polar molecules<span class="open">Open →</span></a></li><li><a href="anims/ial-free-radical-substitution.html"><b>U1</b>Free radical substitution<span class="open">Open →</span></a></li><li><a href="anims/ial-electrophilic-addition.html"><b>U1</b>Electrophilic addition<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 2</p><ul class="cp-list"><li><a href="anims/ial-intermolecular-forces.html"><b>U2</b>Intermolecular forces<span class="open">Open →</span></a></li><li><a href="anims/ial-collision-theory.html"><b>U2</b>Collision theory<span class="open">Open →</span></a></li><li><a href="anims/ial-le-chateliers-principle.html"><b>U2</b>Le Chatelier<span class="open">Open →</span></a></li><li><a href="anims/ial-nucleophilic-substitution.html"><b>U2</b>Nucleophilic substitution<span class="open">Open →</span></a></li><li><a href="anims/ial-elimination-vs-substitution.html"><b>U2</b>Elimination vs substitution<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 4</p><ul class="cp-list"><li><a href="anims/ial-rate-equations.html"><b>U4</b>Rate equations<span class="open">Open →</span></a></li><li><a href="anims/ial-ph-curves-and-buffers.html"><b>U4</b>pH curves and buffers<span class="open">Open →</span></a></li><li><a href="anims/ial-optical-isomerism.html"><b>U4</b>Optical isomerism<span class="open">Open →</span></a></li><li><a href="anims/ial-nucleophilic-addition.html"><b>U4</b>Nucleophilic addition<span class="open">Open →</span></a></li><li><a href="anims/ial-esters-and-acyl-chlorides.html"><b>U4</b>Esters and acyl chlorides<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 5</p><ul class="cp-list"><li><a href="anims/ial-electrochemical-cells.html"><b>U5</b>Electrochemical cells<span class="open">Open →</span></a></li><li><a href="anims/ial-colour-of-complexes.html"><b>U5</b>Colour of complexes<span class="open">Open →</span></a></li><li><a href="anims/ial-ligand-exchange.html"><b>U5</b>Ligand exchange<span class="open">Open →</span></a></li><li><a href="anims/ial-electrophilic-substitution.html"><b>U5</b>Electrophilic substitution<span class="open">Open →</span></a></li><li><a href="anims/ial-condensation-polymers.html"><b>U5</b>Condensation polymers<span class="open">Open →</span></a></li><li><a href="anims/ial-organic-reaction-map.html"><b>Map</b>Organic reaction map<span class="open">Open →</span></a></li></ul></div></div>
+          <h4 id="ial-exam" style="margin-top:24px">How to answer exam questions</h4>
+          <p class="muted" style="font-size:.95rem">Step-by-step walkthroughs for every topic.</p>
+          <div class="units"><div><p class="muted">Unit 1</p><ul class="cp-list"><li><a href="exam/ial-topic-1.html"><b>T1</b>Calculations<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-2.html"><b>T2</b>Atomic Structure<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-3.html"><b>T3</b>Bonding and Structure<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-4.html"><b>T4</b>Alkanes<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-5.html"><b>T5</b>Alkenes<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 2</p><ul class="cp-list"><li><a href="exam/ial-topic-6.html"><b>T6</b>Energetics<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-7.html"><b>T7</b>Intermolecular Forces<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-8.html"><b>T8</b>Redox and Groups<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-9.html"><b>T9</b>Kinetics and Equilibria<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-10.html"><b>T10</b>Halogenoalkanes, Alcohols and Spectra<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 4</p><ul class="cp-list"><li><a href="exam/ial-topic-11.html"><b>T11</b>Kinetics<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-12.html"><b>T12</b>Entropy and Energetics<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-13.html"><b>T13</b>Chemical Equilibria<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-14.html"><b>T14</b>Acid–Base Equilibria<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-15.html"><b>T15</b>Carbonyls, Acids and Chirality<span class="open">Open →</span></a></li></ul></div><div><p class="muted">Unit 5</p><ul class="cp-list"><li><a href="exam/ial-topic-16.html"><b>T16</b>Redox Equilibria<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-17.html"><b>T17</b>Transition Metals<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-18.html"><b>T18</b>Arenes<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-19.html"><b>T19</b>Organic Nitrogen<span class="open">Open →</span></a></li><li><a href="exam/ial-topic-20.html"><b>T20</b>Organic Synthesis<span class="open">Open →</span></a></li></ul></div></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHERS -->
+  <section id="teachers" class="teach">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>For teachers, tutors and home educators</h2>
+          <p class="muted">Editable, ready-to-teach Edexcel resources that match the free animations and videos, so students revise from the same material you teach with.</p>
+        </div>
+        <a class="btn solid" data-link="tes" href="#">Visit the shop on TES →</a>
+      </div>
+      <div class="shop">
+        <div class="prod"><div class="art u3"><span class="upill">Units 3 &amp; 6 · Core practicals</span><span class="atitle">CP1–CP16 lessons</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><div class="body"><span class="lvl">IAL</span><h3>Core practical lessons</h3><p class="muted">Method, results, analysis and exam questions for each of CP1–CP16.</p><button class="peek" type="button" data-peek="cp">See inside · 6 pages</button><div class="row"><span class="price">£3</span><span class="muted">each</span></div></div></div>
+        <div class="prod"><div class="art u2"><span class="upill">Units 1, 2, 4, 5</span><span class="atitle">Animation lesson decks</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><div class="body"><span class="lvl">IAL</span><h3>Animation lesson decks</h3><p class="muted">23 decks built around the animations, Units 1, 2, 4 and 5, plus an organic reaction map.</p><button class="peek" type="button" data-peek="decks">See inside · 7 pages</button><div class="row"><span class="price">£3</span><span class="muted">each</span></div></div></div>
+        <div class="prod"><div class="art u1"><span class="upill">International GCSE</span><span class="atitle">Topic tests</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><div class="body"><span class="lvl">IGCSE</span><h3>Topic tests</h3><p class="muted">17 thirty-mark tests with mark schemes, grade bands and a RAG self-assessment sheet. Three are free.</p><button class="peek" type="button" data-peek="tests">See inside · 5 pages</button><div class="row"><span class="price">From free</span></div></div></div>
+        <div class="prod"><div class="art u5"><span class="upill">Bundles</span><span class="atitle">Unit and practical bundles</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><div class="body"><span class="lvl">Bundles</span><h3>Unit and practical bundles</h3><p class="muted">Complete Unit 1 and Unit 4 bundles, core practical bundles and animation bundles.</p><button class="peek" type="button" data-peek="bundles">See inside · 4 pages</button><div class="row"><span class="price">£9–£36</span></div></div></div>
+        <div class="prod"><img src="img/nb-ial-alkenes.jpg" alt="Cover of the IAL Unit 1 Topic 5 Alkenes revision booklet" loading="lazy"><div class="body"><span class="lvl">IAL</span><h3>Revision booklets and flashcards</h3><p class="muted">Every spec point in order, worked examples, model answers and exam questions. IAL Units 1 and 4, with free samples.</p><button class="peek" type="button" data-peek="booklets">See inside · 8 pages</button><div class="row"><span class="price">From free</span></div></div></div>
+        <div class="prod"><div class="art u4"><span class="upill">Unit 1 &amp; Unit 4</span><span class="atitle">Predicted papers</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><div class="body"><span class="lvl">IAL</span><h3>Predicted papers</h3><p class="muted">Full Unit 1 and Unit 4 practice papers with mark schemes.</p><button class="peek" type="button" data-peek="papers">See inside · 6 pages</button><div class="row"><span class="price">£9</span></div></div></div>
+      </div>
+      <div class="who" aria-label="Made for"><span>Classroom teachers</span><span>Private tutors</span><span>Home educators</span><span>Online schools</span></div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>Watch on YouTube</h2>
+          <p class="muted">Short summary videos with subtitles. Subscribe to get new topics as they're added.</p>
+        </div>
+        <a class="btn dark" data-link="youtube" href="#">Open the channel →</a>
+      </div>
+      <div class="vids">
+        <a class="vid" data-link="ytIal1" href="#"><div class="thumb"><div class="art u1"><span class="upill">IAL · Unit 1</span><span class="atitle">Topics 1 to 5</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">20 videos</span></div><div class="body"><span class="lvl a">IAL</span><h3>Unit 1: Topics 1 to 5</h3><p class="muted">Formulae, atomic structure, bonding, organic chemistry.</p></div></a>
+        <a class="vid" data-link="ytIal2" href="#"><div class="thumb"><div class="art u2"><span class="upill">IAL · Unit 2</span><span class="atitle">Topics 6 to 10</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">23 videos</span></div><div class="body"><span class="lvl a">IAL</span><h3>Unit 2: Topics 6 to 10</h3><p class="muted">Energetics, intermolecular forces, redox, kinetics, equilibrium, organic chemistry and spectra.</p></div></a>
+        <a class="vid" data-link="ytIal4" href="#"><div class="thumb"><div class="art u4"><span class="upill">IAL · Unit 4</span><span class="atitle">Topics 11 to 15</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">20 videos</span></div><div class="body"><span class="lvl a">IAL</span><h3>Unit 4: Topics 11 to 15</h3><p class="muted">Kinetics, entropy, equilibrium, acids and bases, organic chemistry.</p></div></a>
+        <a class="vid" data-link="ytIal5" href="#"><div class="thumb"><div class="art u5"><span class="upill">IAL · Unit 5</span><span class="atitle">Topics 16 to 20</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">21 videos</span></div><div class="body"><span class="lvl a">IAL</span><h3>Unit 5: Topics 16 to 20</h3><p class="muted">Electrochemistry, transition metals, benzene, organic nitrogen compounds and synthesis.</p></div></a>
+        <a class="vid" data-link="ytIalAll" href="#"><div class="thumb"><div class="art u2"><span class="upill">IAL · All units</span><span class="atitle">Summary videos</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">84 videos</span></div><div class="body"><span class="lvl a">IAL</span><h3>All IAL summaries</h3><p class="muted">Every IAL summary video, plus Shorts for quick revision.</p></div></a>
+        <a class="vid" data-link="ytIgcse" href="#"><div class="thumb"><div class="art u1"><span class="upill">International GCSE</span><span class="atitle">Summary videos</span><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" style="fill:var(--u)"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" style="fill:var(--u)"/><circle cx="113" cy="126" r="4.5" style="fill:var(--u)"/></svg></div><span class="play"></span><span class="count">10 videos</span></div><div class="body"><span class="lvl i">IGCSE</span><h3>IGCSE summaries (4CH1)</h3><p class="muted">Four-minute recaps, from diffusion to energetics.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG TEASER -->
+  <section id="blog-teaser" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>From the blog</h2>
+          <p class="muted">Exam technique, revision ideas and teaching notes.</p>
+        </div>
+        <a class="btn dark" href="#blog">All posts →</a>
+      </div>
+      <div class="posts" data-posts="3"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding-top:0">
+    <div class="wrap">
+      <div class="about">
+        <div class="mark" role="img" aria-label="Chemistry That Counts logo"><svg viewBox="0 0 240 260" aria-hidden="true"><path d="M58 182 Q89 170 120 182 T182 182 A62 62 0 0 1 58 182 Z" fill="#F2937A"/><path d="M100 30 L140 30 M108 30 L108 104 A72 72 0 1 0 132 104 L132 30" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M98 210 L114 224 L144 196" fill="none" stroke="#1F5E66" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="146" r="6" fill="#F2937A"/><circle cx="113" cy="126" r="4.5" fill="#F2937A"/></svg></div>
+        <div>
+          <h2>About Chemistry That Counts</h2>
+          <p style="margin-top:12px">I've taught chemistry for more than 30 years, including 18 years at an international school teaching Pearson Edexcel International GCSE and International A Level.</p>
+          <p>Everything here comes from that classroom: the practicals students find hardest to picture, the questions where marks slip away, and the step-by-step thinking that gets them back. The animations, labs and videos are free for students. The lessons and tests that go with them are in my TES shop.</p>
+          <p class="muted">Ms C. Gilding</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- BLOG LIST VIEW -->
+<div class="view" id="view-blog" hidden>
+  <section>
+    <div class="wrap">
+      <a class="back" href="#top">← Home</a>
+      <div class="sec-head">
+        <div>
+          <h1>Blog</h1>
+          <p class="muted" style="margin-top:8px">Exam technique, revision ideas and teaching notes for Edexcel IGCSE and IAL Chemistry.</p>
+        </div>
+      </div>
+      <div class="posts" data-posts="all"></div>
+    </div>
+  </section>
+</div>
+
+<!-- SINGLE POST VIEW -->
+<div class="view" id="view-post" hidden>
+  <section>
+    <div class="wrap"><article class="post" id="post-body"></article></div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span><b style="color:var(--on-brand)">chemistry</b> <span class="gold">that counts</span> · Ms C. Gilding</span>
+    <span><a data-link="tes" href="#">TES shop</a> · <a data-link="youtube" href="#">YouTube</a> · <a href="#blog">Blog</a></span>
+    <span>Written for Pearson Edexcel International GCSE and IAL Chemistry. Not endorsed by Pearson.</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- Links: fill any empty ones and they switch on ---------- */
+const LINKS = {
+  igcseLabs: "#igcse-labs",
+  igcseAnimations: "#igcse-animations",
+  igcseExam: "#igcse-exam",
+  igcseVideos: "https://www.youtube.com/playlist?list=PLXNSZeFW1zzI",
+  ialLabs: "#ial-practicals",
+  ialAnimations: "#ial-animations",
+  ialExam: "#ial-exam",
+  ialVideos: "https://www.youtube.com/playlist?list=PLKt7kQm350Ps",
+  tes: "https://www.tes.com/teaching-resources/shop/chemistrythatcounts",
+  tesPosters: "https://www.tes.com/teaching-resource/resource-13663243",
+  tesCalendar: "https://www.tes.com/teaching-resource/resource-13663254",
+  youtube: "https://www.youtube.com/channel/UCKzE4hqDHofROOCt3EmEOhQ",
+  ytIal1: "https://www.youtube.com/playlist?list=PLWAumtNxkXTM",
+  ytIal4: "https://www.youtube.com/playlist?list=PLEjXO537a9ME", ytIal2: "https://www.youtube.com/playlist?list=PLbj5Bt0Oy7vA", ytIal5: "https://www.youtube.com/playlist?list=PLLOW4CZ8W-Zg",
+  ytIalAll: "https://www.youtube.com/playlist?list=PLKt7kQm350Ps",
+  ytIgcse: "https://www.youtube.com/playlist?list=PLXNSZeFW1zzI"
+};
+
+/* ---------- Blog posts: newest first. Add a new object at the top to publish a post. ---------- */
+const POSTS = [
+  {
+    slug: "ial-chemistry-core-practicals-troubleshooting-uncertainty",
+    title: "IAL Chemistry core practicals: troubleshooting, back-up data and uncertainties",
+    date: "14 November 2026", course: "IAL core practicals", tag: "a", mins: 10, series: "For teachers",
+    summary: "How to stop the trickiest IAL core practicals failing, what to do when a lab goes wrong or you lack the kit, and how to handle percentage uncertainty and “too high or too low” questions.",
+    body: `
+<p>The sixteen IAL Chemistry core practicals are examined in written papers, so students need to understand them even if a lesson goes wrong. Some are notoriously difficult to prepare, run and mark. This post covers three things teachers ask me about most: how to stop the tricky practicals failing, what to do when you have no results, and how to teach uncertainty and error analysis.</p>
+
+<h2>1. Practicals that fail, and how to rescue them</h2>
+
+<h3>Calorimetry: Core Practical 2 (Hess’s law)</h3>
+<p>Students react calcium carbonate and then calcium oxide with hydrochloric acid, and use Hess’s law to find the enthalpy change for CaCO<sub>3</sub> → CaO + CO<sub>2</sub>.</p>
+<ul>
+<li><b>Use fresh calcium oxide.</b> Old CaO absorbs water and carbon dioxide from the air, so it gives out less heat with acid. Keep it in a sealed container.</li>
+<li><b>Use excess acid</b> so all the solid reacts, and weigh the solid by difference.</li>
+<li><b>Polystyrene cup with a lid</b>, stirred, standing in a beaker so it doesn’t tip over.</li>
+<li><b>Record the temperature for a few minutes before adding the solid, then every 30 s after.</b> Plot temperature against time and extrapolate back to the time of mixing. This corrects for heat lost while the reaction finishes, and it is a favourite exam question.</li>
+<li><b>Add the carbonate in small portions</b> so the fizzing doesn’t carry acid spray out of the cup.</li>
+</ul>
+<p><a href="labs/cp2-hess-law.html">Try the free Core Practical 2 virtual lab →</a></p>
+
+<h3>Rates and clock reactions: Core Practicals 9 and 10</h3>
+<p><b>Iodine–propanone by titration (9a).</b></p>
+<ul>
+<li>Use propanone and acid in large excess so only the iodine concentration changes noticeably.</li>
+<li><b>Quench each sample at once</b> in sodium hydrogencarbonate solution. This removes the acid catalyst and stops the reaction. Record the time of quenching, not the time of sampling.</li>
+<li>Titrate the remaining iodine with sodium thiosulfate, and <b>add starch only near the end point</b>, when the solution is pale yellow.</li>
+</ul>
+<p><b>Iodine clock (9b) and activation energy (10).</b> In Core Practical 10, bromide and bromate(V) react in acid; the bromine reacts with phenol first, then bleaches methyl red once the phenol is used up.</p>
+<ul>
+<li><b>Let both tubes sit in the water bath for about five minutes</b> before mixing, and record the temperature of the mixture, not the bath.</li>
+<li>Look down the tube onto a white tile and agree beforehand what “colour gone” means. Students should judge the end point the same way every run.</li>
+<li>At 50–60 °C the reaction is fast, so timing errors are larger. Repeat the hot runs.</li>
+<li>Plot ln(1/<i>t</i>) against 1/<i>T</i>, with <i>T</i> in kelvin. The gradient is −<i>E</i><sub>a</sub>/<i>R</i>.</li>
+</ul>
+<p><a href="labs/cp9-rates-iodine-propanone.html">Core Practical 9 virtual lab →</a> · <a href="labs/cp10-activation-energy.html">Core Practical 10 virtual lab →</a></p>
+
+<h3>Electrochemical cells: Core Practical 12</h3>
+<ul>
+<li><b>Clean every metal strip with emery paper</b> just before use. Oxide layers lower the reading.</li>
+<li><b>Make a fresh salt bridge for each cell</b> from filter paper soaked in saturated potassium nitrate. Never use potassium chloride with a silver half-cell: silver chloride precipitates in the bridge.</li>
+<li>Use a <b>high-resistance voltmeter</b> so almost no current flows; otherwise the reading drops while you watch.</li>
+<li>If the reading drifts or is far too low, check the bridge hasn’t dried out and that the leads are clean. A Zn/Cu cell with 1.0 mol dm<sup>−3</sup> solutions should give close to 1.10 V.</li>
+</ul>
+<p><a href="labs/cp12-electrochemical-cells.html">Core Practical 12 virtual lab →</a></p>
+
+<h2>2. When the lab goes wrong: back-up data</h2>
+<p>Sometimes the results are useless, a student is absent, or the school simply doesn’t have the equipment. Students still need to practise the analysis, because that is what the exam tests. Two options:</p>
+<ul>
+<li><b>The free virtual labs.</b> Every <a href="#ial-practicals">IAL core practical virtual lab</a> lets students “do” the experiment, record realistic results, and then work through the analysis and exam questions.</li>
+<li><b>A dry-lab sheet.</b> Give students a set of results and the questions. Here is a short example for Core Practical 9.</li>
+</ul>
+<p><b>Sample data (illustrative): iodine–propanone.</b> 10.0 cm<sup>3</sup> samples were quenched and titrated with sodium thiosulfate.</p>
+<table class="data">
+<tr><th>Time / min</th><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr>
+<tr><th>Titre / cm<sup>3</sup></th><td>14.20</td><td>12.60</td><td>11.00</td><td>9.45</td><td>7.85</td></tr>
+</table>
+<ol>
+<li><b>Plot titre against time.</b> The points lie on a straight line.</li>
+<li><b>Interpret it.</b> The titre is proportional to the iodine concentration. A straight line means the iodine is used up at a constant rate even as its concentration falls, so the reaction is <b>zero order with respect to iodine</b>.</li>
+<li><b>Link to the mechanism.</b> Iodine is therefore not involved in the rate-determining step, or in any step before it.</li>
+<li><b>Gradient.</b> About −0.79 cm<sup>3</sup> min<sup>−1</sup>, which students can convert to a rate in mol dm<sup>−3</sup> s<sup>−1</sup> using the thiosulfate concentration.</li>
+</ol>
+
+<h2>3. Error analysis: the cheat sheet</h2>
+<h3>Percentage uncertainty</h3>
+<p><b>Percentage uncertainty = (uncertainty ÷ measured value) × 100</b></p>
+<ul>
+<li><b>Each reading:</b> the uncertainty is usually half the smallest division, unless the question gives a value. Always use the value the question gives.</li>
+<li><b>Two readings:</b> a burette titre, a temperature change or a mass by difference uses two readings, so double the uncertainty. A burette read to ±0.05 cm<sup>3</sup> gives a titre of ±0.10 cm<sup>3</sup>.</li>
+<li><b>Combining:</b> when values are multiplied or divided, add their percentage uncertainties.</li>
+</ul>
+<p><b>Worked example.</b> A titre of 22.50 cm<sup>3</sup> (±0.10 cm<sup>3</sup>) has a percentage uncertainty of 0.10 ÷ 22.50 × 100 = <b>0.44%</b>. A 25.0 cm<sup>3</sup> pipette (±0.06 cm<sup>3</sup>) adds 0.24%. The concentration calculated from them has a total uncertainty of about <b>0.68%</b>.</p>
+<p><b>Percentage error</b> compares a result with the accepted value: (difference ÷ accepted value) × 100. If the percentage error is much bigger than the total percentage uncertainty, the apparatus can’t explain the difference: there must be a systematic error in the method, such as heat loss.</p>
+
+<h3>“Is the result too high or too low?”</h3>
+<p>Teach students to answer in three linked steps: <b>what the error does → what it does to the measurement → what that does to the final answer.</b></p>
+<ul>
+<li><b>Heat loss in an exothermic reaction:</b> the temperature rise is smaller → less heat is calculated → Δ<i>H</i> is less negative than the true value.</li>
+<li><b>Burette rinsed with water, not the acid it holds:</b> the acid is diluted → a bigger titre is needed → more moles of acid are calculated → the concentration found for the alkali is too high.</li>
+<li><b>Gas escapes before the bung goes on:</b> the volume collected is smaller → fewer moles of gas are calculated → the result based on gas volume is too low.</li>
+</ul>
+
+<div class="callout"><b>Teachers:</b> my TES shop has ready-to-use worksheets for the IAL core practicals, with mark-scheme checklists. <a href="${LINKS.tes}" target="_blank" rel="noopener">Visit the shop →</a></div>
+<div class="callout"><b>Students:</b> try any of the 16 <a href="#ial-practicals">free virtual labs</a>, then read <a href="#post-core-practicals">how to revise a core practical you’ve never done</a>.</div>`
+  },
+  {
+    slug: "ial-chemistry-unit-1-unit-4-30-day-revision-plan",
+    title: "IAL Chemistry Unit 1 & Unit 4: the 30-day January revision plan",
+    date: "14 November 2026", course: "IAL Unit 1 · Unit 4", tag: "a", mins: 9, series: "Exam countdown",
+    summary: "A day-by-day plan for the January Edexcel IAL Chemistry exams, Unit 1 and Unit 4, built around the winter holidays. Free printable calendar included.",
+    body: `
+<p>Preparing for the January Edexcel International A-Level (IAL) Chemistry exams comes with a unique challenge: the winter holidays sit right in the middle of your revision window. Whether you are sitting <b>Unit 1</b> (Structure, Bonding and Introduction to Organic Chemistry) or <b>Unit 4</b> (Rates, Equilibria and Further Organic Chemistry), cramming in the first week of January will not cut it.</p>
+<p>Edexcel mark schemes are strict about specific phrasing, reagents and calculation layouts. To help you stay on track without burning out over the holidays, follow this structured 30-day countdown starting around <b>10 December</b>.</p>
+<figure class="poster-fig"><img src="img/ial-30-day-plan.jpg" alt="Printable 30-day revision calendar for IAL Chemistry Unit 1 and Unit 4, with Days 1 to 30 colour-coded into three phases and a tick box for each day."><figcaption>Print it, stick it on your wall and tick off each day. <a href="${LINKS.tesCalendar}" target="_blank" rel="noopener">Download the printable A4/A3 version free on TES</a>.</figcaption></figure>
+
+<h2>How to use this plan</h2>
+<ul>
+<li><b>Watch and recall.</b> Use your revision time actively. Watch a quick recap video on the topic, close your notes, and write down everything you remember.</li>
+<li><b>Master the mark scheme.</b> Do not just check if your past-paper answer is “close”. Highlight the exact words Edexcel examiners require.</li>
+<li><b>Take holiday breaks.</b> Build in rest days around late December so you start January fresh and focused.</li>
+</ul>
+
+<h2>Phase 1: Core content and calculations (Days 1–12)</h2>
+<h3>Unit 1 focus: foundations and bonding</h3>
+<ul>
+<li><b>Days 1–3: Formulae, equations and amounts of substance.</b> Practise mole calculations, reacting masses, gas volumes and percentage yield. <a href="${LINKS.ytIal1}" target="_blank" rel="noopener">Watch the free Unit 1 summary videos, starting with moles →</a></li>
+<li><b>Days 4–6: Atomic structure and the periodic table.</b> Review mass spectrometry, electron configurations (watch out for chromium and copper) and trends in ionisation energy.</li>
+<li><b>Days 7–9: Bonding and structure.</b> Master dot-and-cross diagrams, shapes of molecules (electron-pair repulsion theory) and intermolecular forces. Make sure you can explain why boiling points differ using exact mark-scheme phrasing.</li>
+<li><b>Days 10–12: Introductory organic chemistry (alkanes and alkenes).</b> Learn the free-radical substitution and electrophilic addition mechanisms, and the rules for naming isomers.</li>
+</ul>
+<h3>Unit 4 focus: physical chemistry and kinetics</h3>
+<ul>
+<li><b>Days 1–4: Kinetics and rate equations.</b> Practise deducing orders of reaction from initial-rate data, calculating the rate constant (<i>k</i>) with correct units, and linking rate-determining steps to mechanisms. <a href="${LINKS.ytIal4}" target="_blank" rel="noopener">Watch the free Unit 4 summary videos, starting with kinetics →</a></li>
+<li><b>Days 5–8: Entropy and energetics.</b> Master ΔS<sub>system</sub>, ΔS<sub>surroundings</sub> and ΔS<sub>total</sub> calculations. Review Born–Haber cycles and enthalpy of solution.</li>
+<li><b>Days 9–12: Chemical equilibria.</b> Practise calculating <i>K</i><sub>c</sub> and <i>K</i><sub>p</sub> using ICE tables, and learn how temperature, and only temperature, changes equilibrium constants.</li>
+</ul>
+<div class="callout"><b>Teacher and student resource:</b> struggling to organise all the equations and definitions? The Unit 1 and Unit 4 revision workbooks and summary sheets in my <a href="${LINKS.tes}" target="_blank" rel="noopener">TES shop</a> have structured practice questions and printable cheat sheets.</div>
+
+<h2>Phase 2: Organic mechanisms, acids and synthesis (Days 13–20)</h2>
+<p><i>This phase usually overlaps with the winter break. Aim for 60 to 90 minutes of focused study per day so you still get plenty of downtime.</i></p>
+<h3>Unit 1 focus: mechanisms and past topic questions</h3>
+<ul>
+<li><b>Days 13–15: Curly arrow mastery.</b> Practise drawing mechanisms with exact dipoles (δ+ and δ−), lone pairs, and curly arrows starting from bonds or lone pairs, never from positive charges.</li>
+<li><b>Days 16–18: Topic exam questions.</b> Complete targeted exam questions on your weakest Unit 1 topics. <a href="${LINKS.ytIal1}" target="_blank" rel="noopener">Recap the alkane and alkene mechanisms in the Unit 1 videos →</a></li>
+<li><b>Days 19–20: Mid-point review and rest.</b> Review your error log from the past two weeks and take a full day off to recharge.</li>
+</ul>
+<h3>Unit 4 focus: acid–base equilibria and further organic chemistry</h3>
+<ul>
+<li><b>Days 13–15: Acid–base equilibria (<i>K</i><sub>a</sub>, pH and buffers).</b> Practise weak-acid pH calculations, buffer action explanations and sketching titration curves.</li>
+<li><b>Days 16–18: Carbonyls, carboxylic acids and chirality.</b> Learn the nucleophilic addition mechanism, the rules for optical isomerism, and the chemical tests (2,4-DNPH, Tollens’ reagent, Fehling’s solution).</li>
+<li><b>Days 19–20: Organic synthesis and spectroscopy.</b> Practise interpreting mass spectra, IR spectra and high-resolution <sup>1</sup>H NMR splitting patterns (the <i>n</i>+1 rule). <a href="${LINKS.ytIal4}" target="_blank" rel="noopener">Recap spectroscopy in the Unit 4 videos →</a></li>
+</ul>
+<p><b>Sitting both units?</b> Do the spectroscopy on Day 19 alongside your error log, and keep Day 20 as a full day off. The calendar is set out this way.</p>
+
+<h2>Phase 3: Timed past papers and exam technique (Days 21–30)</h2>
+<p>Welcome to early January. It is time to switch from learning content to mastering exam conditions.</p>
+<ul>
+<li><b>Days 21–24: From untimed to timed.</b> Complete two recent past papers. Do the first one untimed with your notes nearby to check your phrasing, then do the second under strict timed conditions (<b>1 hour 30 minutes for Unit 1; 1 hour 45 minutes for Unit 4</b>).</li>
+<li><b>Days 25–27: The key-word audit.</b> Go through the mark schemes for the papers you just completed. List the 6-mark explanation questions (like ionisation energy trends in Unit 1 or buffer solutions in Unit 4) and learn the exact points examiners look for.</li>
+<li><b>Days 28–29: Final timed mock and calculation check.</b> Do one final full paper under exam conditions. Check that you always show intermediate steps in calculations and give answers to an appropriate number of significant figures.</li>
+<li><b>Day 30: Light review only.</b> Spend 45 minutes looking over organic reagents, flame colours and key definitions. Pack your calculator, ruler and pens, and get a full night’s sleep.</li>
+</ul>
+
+<h2>Ready to boost your grade?</h2>
+<div class="callout"><b>For students:</b> watch the complete <a href="${LINKS.ytIalAll}" target="_blank" rel="noopener">IAL Unit 1 and Unit 4 video playlist</a> to revise tricky ideas on the go. For the core practicals, try the <a href="#ial-practicals">free virtual labs</a>.</div>
+<div class="callout"><b>For teachers:</b> looking for ready-to-use January mock materials? The IAL Unit 1 and Unit 4 exam practice bundles in my <a href="${LINKS.tes}" target="_blank" rel="noopener">TES shop</a> include mark-scheme checklists and printable reaction maps.</div>`
+  },
+  {
+    slug: "scientists-transition",
+    title: "The people behind transition metals",
+    date: "14 November 2026", course: "IAL transition metals · IGCSE redox", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Transition metals give us coloured glass, paint, catalysts and cancer drugs, and their chemistry is all about moving electrons.",
+    body: `
+<p>Transition metals give us coloured glass, paint, catalysts and cancer drugs, and their chemistry is all about moving electrons. Here are fifteen scientists from around the world who discovered and explained them.</p>
+<figure class="poster-fig"><img src="img/poster-transition.jpg" alt="A3 poster: The people behind transition metals, showing fifteen scientists from Johann Jacob Diesbach to Karen Wetterhahn, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Finding the metals</h2>
+<p><b>Georg Brandt</b> (Sweden, 1735). Discovered cobalt, which gives glass its deep blue colour.</p>
+<p><b>Antonio de Ulloa</b> (Spain, 1748). Described platinum from South America to European scientists.</p>
+<p><b>Axel Cronstedt</b> (Sweden, 1751). Isolated nickel from an ore miners called ‘copper-nickel’.</p>
+<p><b>Louis Vauquelin</b> (France, 1797). Discovered chromium, named from the Greek for colour.</p>
+
+<h2>Colours and complexes</h2>
+<p><b>Johann Jacob Diesbach</b> (Berlin, 1706). Made Prussian blue by accident, an iron complex and one of the first synthetic pigments.</p>
+<p><b>Louis Jacques Thénard</b> (France, 1802). Made cobalt blue pigment, used by painters ever since.</p>
+<p><b>Alfred Werner</b> (Switzerland, 1893). Explained how ligands bond to a central metal ion. Nobel Prize 1913.</p>
+
+<h2>Electron transfer</h2>
+<p><b>John Frederic Daniell</b> (England, 1836). Built a steady zinc–copper cell from two redox half-reactions.</p>
+<p><b>Henry Taube</b> (Canada &amp; USA, 1950s). Showed how electrons jump between metal complexes. Nobel Prize 1983.</p>
+<p><b>Rudolph Marcus</b> (Canada &amp; USA, 1956). Theory of the speed of electron transfer. Nobel Prize 1992.</p>
+
+<h2>Metals in medicine</h2>
+<p><b>Michele Peyrone</b> (Italy, 1844). First made the platinum complex now called cisplatin.</p>
+<p><b>Barnett Rosenberg</b> (USA, 1965). Found cisplatin stops cells dividing; it became a major cancer drug.</p>
+<p><b>Jacqueline Barton</b> (USA, 1980s). Uses metal complexes to probe DNA; US National Medal of Science.</p>
+<p><b>Karen Wetterhahn</b> (USA, 1990s). Studied how chromium(VI) damages cells and causes cancer.</p>
+
+<h2>New structures</h2>
+<p><b>Fischer &amp; Wilkinson</b> (Germany &amp; England, 1952). Explained ferrocene’s sandwich structure. Nobel Prize 1973.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Coloured compounds and complexes:</b> Diesbach, Thénard, Werner.</li>
+<li><b>Redox and cells:</b> Daniell, Taube, Marcus.</li>
+<li><b>Ligands and medicine:</b> Peyrone, Rosenberg, Barton.</li>
+<li><b>Catalysts:</b> transition metals in industry.</li>
+</ul>
+<p><b>Think about it:</b> Why are transition metal compounds so often coloured?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-tests",
+    title: "The people behind chemical tests",
+    date: "14 November 2026", course: "IGCSE 2(h) · IAL analysis", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "How do you know what is in a substance? From a strip of papyrus in ancient Rome to machines that weigh proteins, here are fifteen scientists from around the world who found ways to find out..",
+    body: `
+<p>How do you know what is in a substance? From a strip of papyrus in ancient Rome to machines that weigh proteins, here are fifteen scientists from around the world who found ways to find out.</p>
+<figure class="poster-fig"><img src="img/poster-tests.jpg" alt="A3 poster: The people behind chemical tests, showing fifteen scientists from Pliny the Elder to Koichi Tanaka, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Early tests</h2>
+<p><b>Pliny the Elder</b> (Rome, 77 CE). Described papyrus soaked in oak gall that blackens if iron is present.</p>
+<p><b>Torbern Bergman</b> (Sweden, 1778). Wrote a scheme for testing water with reagents.</p>
+<p><b>James Marsh</b> (England, 1836). Invented a sensitive test for arsenic poisoning.</p>
+<p><b>Carl Remigius Fresenius</b> (Germany, 1841). Wrote the textbook of tests for ions used for decades.</p>
+
+<h2>Flames and light</h2>
+<p><b>Robert Bunsen &amp; Gustav Kirchhoff</b> (Germany, 1859). Used flame spectra to identify elements, finding caesium and rubidium.</p>
+<p><b>Miguel Catalán</b> (Spain, 1922). Found patterns in the spectrum of manganese, revealing electron energy levels.</p>
+<p><b>Ida Noddack</b> (Germany, 1925). With Walter Noddack and Otto Berg used X-ray spectra to find rhenium.</p>
+
+<h2>Spectra of stars</h2>
+<p><b>Annie Jump Cannon</b> (USA, 1901). Classified hundreds of thousands of stars by their spectra.</p>
+<p><b>Cecilia Payne</b> (England &amp; USA, 1925). Used spectra to show stars are mostly hydrogen and helium.</p>
+
+<h2>Inside molecules</h2>
+<p><b>William Coblentz</b> (USA, 1905). Recorded the infrared spectra of many compounds.</p>
+<p><b>C. V. Raman</b> (India, 1928). Discovered light scattering that identifies molecules. Nobel Physics 1930.</p>
+<p><b>Felix Bloch &amp; Edward Purcell</b> (Switzerland &amp; USA, 1946). Developed NMR, now used in chemistry and MRI scanners.</p>
+<p><b>Mildred Cohn</b> (USA, 1950s). Pioneered NMR to study how enzymes work.</p>
+
+<h2>Modern instruments</h2>
+<p><b>Jaroslav Heyrovský</b> (Czechoslovakia, 1922). Invented polarography to analyse ions. Nobel Prize 1959.</p>
+<p><b>Koichi Tanaka</b> (Japan, 1987). Found a way to weigh big molecules like proteins by mass spectrometry. Nobel 2002.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Flame tests:</b> Bunsen and Kirchhoff.</li>
+<li><b>Tests for ions:</b> Bergman, Fresenius.</li>
+<li><b>Spectra and electron energy levels:</b> Catalán, Payne.</li>
+<li><b>Instrumental analysis (IAL):</b> infrared, NMR and mass spectrometry.</li>
+</ul>
+<p><b>Think about it:</b> Why does each metal ion give its own flame colour?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-equilibrium",
+    title: "The people behind equilibrium",
+    date: "14 November 2026", course: "IGCSE 3(c) · IAL equilibrium", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Some reactions go both ways.",
+    body: `
+<p>Some reactions go both ways. Learning to push them in the direction we want gave the world fertiliser, sulfuric acid and a lot of the food we eat. Here are fifteen scientists from around the world behind the idea of equilibrium.</p>
+<figure class="poster-fig"><img src="img/poster-equilibrium.jpg" alt="A3 poster: The people behind equilibrium, showing fifteen scientists from Claude Louis Berthollet to Roger Revelle and Hans Suess, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Reactions go both ways</h2>
+<p><b>Claude Louis Berthollet</b> (France, 1803). Saw soda forming at Egyptian salt lakes, the reverse of the lab reaction.</p>
+<p><b>William Henry</b> (England, 1803). More gas dissolves at higher pressure: Henry’s law, why fizzy drinks fizz.</p>
+
+<h2>Laws of equilibrium</h2>
+<p><b>Cato Guldberg &amp; Peter Waage</b> (Norway, 1864). Law of mass action: the basis of the equilibrium constant.</p>
+<p><b>Henri Le Chatelier</b> (France, 1884). An equilibrium shifts to oppose any change made to it.</p>
+<p><b>Jacobus van ’t Hoff</b> (Netherlands, 1884). Linked equilibrium to temperature. First Nobel Prize in Chemistry, 1901.</p>
+<p><b>Clara Immerwahr</b> (Germany, 1900). First woman PhD at Breslau, for measuring how slightly soluble salts dissolve.</p>
+
+<h2>Fixing nitrogen</h2>
+<p><b>Kristian Birkeland &amp; Sam Eyde</b> (Norway, 1903). Used electric arcs to fix nitrogen from air for fertiliser.</p>
+<p><b>Fritz Haber &amp; Robert Le Rossignol</b> (Germany &amp; Jersey, 1909). Made ammonia from nitrogen and hydrogen at high pressure.</p>
+<p><b>Alwin Mittasch</b> (Germany, 1910). Tested thousands of catalysts to find the iron catalyst still used today.</p>
+
+<h2>Industrial chemistry</h2>
+<p><b>Peregrine Phillips</b> (England, 1831). Patented the contact process idea: SO₂ and oxygen over a catalyst.</p>
+<p><b>Wilhelm Ostwald</b> (born in Latvia, 1902). Made nitric acid by oxidising ammonia over a platinum catalyst.</p>
+<p><b>Carl Bosch</b> (Germany, 1913). Scaled the Haber process up to a factory. Nobel Prize 1931.</p>
+<p><b>Hou Debang</b> (China, 1940s). Combined soda and ammonia making in one process.</p>
+
+<h2>Equilibrium in nature</h2>
+<p><b>Christian Bohr</b> (Denmark, 1904). Showed CO₂ shifts how tightly haemoglobin holds oxygen.</p>
+<p><b>Roger Revelle &amp; Hans Suess</b> (USA &amp; Austria, 1957). Showed ocean equilibria limit how much CO₂ the sea absorbs.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Reversible reactions:</b> Berthollet.</li>
+<li><b>Le Chatelier’s principle:</b> changing temperature, pressure and concentration.</li>
+<li><b>The Haber process:</b> Haber, Le Rossignol, Mittasch and Bosch.</li>
+<li><b>The contact process:</b> Phillips.</li>
+</ul>
+<p><b>Think about it:</b> Why does the Haber process use 450 °C when a lower temperature gives a better yield?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-atmosphere",
+    title: "The people behind the air we breathe",
+    date: "14 November 2026", course: "IGCSE 2(c) · Earth and atmospheric", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "The air looks like nothing at all, which is why its gases took so long to find.",
+    body: `
+<p>The air looks like nothing at all, which is why its gases took so long to find. Here are fifteen scientists from around the world who discovered them, and then found how a tiny amount of carbon dioxide can change the climate.</p>
+<figure class="poster-fig"><img src="img/poster-atmosphere.jpg" alt="A3 poster: The people behind the air we breathe, showing fifteen scientists from Jan Baptist van Helmont to Susan Solomon, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Discovering the gases</h2>
+<p><b>Jan Baptist van Helmont</b> (Belgium, 1640s). Coined the word ‘gas’ and noticed burning charcoal gives off a ‘wild spirit’, carbon dioxide.</p>
+<p><b>Henry Cavendish</b> (England, 1766). Made hydrogen with acids and metals, and later showed it burns to form water.</p>
+<p><b>Daniel Rutherford</b> (Scotland, 1772). Isolated nitrogen, the gas left when air can no longer support burning.</p>
+<p><b>Carl Wilhelm Scheele</b> (Sweden, 1772). Made oxygen, ‘fire air’, by heating compounds, before others but published later.</p>
+<p><b>Joseph Priestley</b> (England, 1774). Made oxygen by heating mercury oxide; a mouse lived longer in it.</p>
+
+<h2>Noble gases</h2>
+<p><b>Lord Rayleigh &amp; William Ramsay</b> (England &amp; Scotland, 1894). Found argon in air; Ramsay went on to find neon, krypton and xenon.</p>
+
+<h2>Greenhouse effect</h2>
+<p><b>Eunice Foote</b> (USA, 1856). Showed a jar of carbon dioxide heats up more in sunlight than air: the greenhouse effect.</p>
+<p><b>John Tyndall</b> (Ireland, 1859). Measured how carbon dioxide and water vapour absorb heat radiation.</p>
+<p><b>Guy Callendar</b> (England, 1938). Linked rising carbon dioxide from burning fuels to a warming climate.</p>
+
+<h2>Ozone layer</h2>
+<p><b>Gordon Dobson</b> (England, 1920s). Built the instrument still used to measure the ozone layer.</p>
+<p><b>Farman, Gardiner &amp; Shanklin</b> (England, 1985). Discovered the ozone hole over Antarctica.</p>
+<p><b>Susan Solomon</b> (USA, 1986). Explained how polar clouds help chlorine destroy ozone; led to the CFC ban.</p>
+
+<h2>Measuring change</h2>
+<p><b>Joanne Simpson</b> (USA, 1949). First woman to earn a PhD in meteorology; explained how tropical clouds form.</p>
+<p><b>Charles David Keeling</b> (USA, 1958). Began measuring CO₂ on Mauna Loa: the Keeling curve still rises today.</p>
+<p><b>Syukuro Manabe</b> (Japan &amp; USA, 1967). Built the first climate model linking CO₂ to temperature. Nobel Physics 2021.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Composition of air:</b> nitrogen, oxygen, argon, carbon dioxide.</li>
+<li><b>Greenhouse effect:</b> Foote, Tyndall, Callendar, Keeling.</li>
+<li><b>Oxygen and combustion:</b> Scheele and Priestley.</li>
+<li><b>Ozone:</b> Dobson, Farman and Solomon.</li>
+</ul>
+<p><b>Think about it:</b> Carbon dioxide is less than 0.1% of the air. How can it warm the whole planet?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-groups-1-7",
+    title: "The people behind the alkali metals and halogens",
+    date: "14 November 2026", course: "IGCSE 2(a)(b) · IAL Topic 8", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "The alkali metals and the halogens are the most reactive elements on the periodic table, so most of them were hard to find and dangerous to isolate.",
+    body: `
+<p>The alkali metals and the halogens are the most reactive elements on the periodic table, so most of them were hard to find and dangerous to isolate. Here are fifteen people from around the world who found them and put them to use.</p>
+<figure class="poster-fig"><img src="img/poster-groups-1-7.jpg" alt="A3 poster: The people behind the alkali metals and halogens, showing fifteen scientists from Carl Wilhelm Scheele to Russian–American team, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Finding the halogens</h2>
+<p><b>Carl Wilhelm Scheele</b> (Sweden, 1774). First made chlorine gas, though he thought it was a compound.</p>
+<p><b>Bernard Courtois</b> (France, 1811). Found violet vapour while making saltpetre from seaweed ash: iodine.</p>
+<p><b>Antoine Balard</b> (France, 1826). Discovered bromine in salt-marsh water at Montpellier.</p>
+<p><b>Henri Moissan</b> (France, 1886). Finally isolated fluorine by electrolysis. Nobel Prize 1906.</p>
+
+<h2>Finding the alkali metals</h2>
+<p><b>Humphry Davy</b> (England, 1807). Isolated potassium and sodium by electrolysis; later showed chlorine is an element.</p>
+<p><b>Johan August Arfwedson</b> (Sweden, 1817). Discovered lithium in the mineral petalite.</p>
+
+<h2>Halogens at work</h2>
+<p><b>Charles Tennant</b> (Scotland, 1799). Patented bleaching powder, using chlorine to whiten cloth safely.</p>
+<p><b>Alexander Houston</b> (England, 1905). Chlorinated Lincoln’s water to end a typhoid outbreak.</p>
+<p><b>Thomas Midgley</b> (USA, 1928). Invented CFCs, later found to destroy the ozone layer.</p>
+
+<h2>Radioactive members</h2>
+<p><b>Marguerite Perey</b> (France, 1939). Discovered francium, the last group 1 element found in nature.</p>
+<p><b>Corson, MacKenzie &amp; Segrè</b> (USA &amp; Italy, 1940). First made astatine, the rarest natural halogen.</p>
+<p><b>Berta Karlik &amp; Traude Bernert</b> (Austria, 1943). Showed astatine forms naturally in radioactive decay.</p>
+<p><b>Russian–American team</b> (Russia &amp; USA, 2010). Made element 117, the heaviest member of group 17.</p>
+
+<h2>Medicine and health</h2>
+<p><b>H. Trendley Dean</b> (USA, 1945). Linked fluoride in water to fewer cavities; led the first water fluoridation trial.</p>
+<p><b>John Cade</b> (Australia, 1949). Found lithium salts calm mania, still a key treatment for bipolar disorder.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Group 1 reactivity:</b> Davy’s potassium, Perey’s francium.</li>
+<li><b>Group 7 trends:</b> chlorine, bromine, iodine and fluorine.</li>
+<li><b>Uses:</b> chlorinating water, bleach, fluoride, lithium.</li>
+<li><b>Displacement:</b> a more reactive halogen displaces a less reactive one.</li>
+</ul>
+<p><b>Think about it:</b> Why does reactivity increase down group 1 but decrease down group 7?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-electrolysis",
+    title: "The people behind electrolysis",
+    date: "14 November 2026", course: "IGCSE 1(i) · IAL electrochemistry", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Within weeks of the first battery, scientists were using electricity to pull compounds apart.",
+    body: `
+<p>Within weeks of the first battery, scientists were using electricity to pull compounds apart. Electrolysis went on to give us reactive metals, chlorine, silver plating and, today, clean hydrogen. Here are fifteen people from around the world who made it happen.</p>
+<figure class="poster-fig"><img src="img/poster-electrolysis.jpg" alt="A3 poster: The people behind electrolysis, showing fifteen scientists from William Nicholson and Anthony Carlisle to Lesley Yellowlees, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>First electrolysis</h2>
+<p><b>William Nicholson &amp; Anthony Carlisle</b> (England, 1800). Weeks after Volta’s battery, they used it to split water into hydrogen and oxygen.</p>
+<p><b>Berzelius &amp; Hisinger</b> (Sweden, 1803). Showed salts split in electrolysis, with metals at the negative pole.</p>
+<p><b>Humphry Davy</b> (England, 1807). Electrolysed molten compounds to isolate potassium and sodium.</p>
+
+<h2>Understanding it</h2>
+<p><b>Michael Faraday</b> (England, 1834). Showed the mass made at an electrode depends on the charge passed: Faraday’s laws.</p>
+<p><b>Marcel Pourbaix</b> (Belgium, 1940s). Drew diagrams that predict when a metal will corrode or be protected.</p>
+
+<h2>Plating and storing</h2>
+<p><b>Moritz Jacobi</b> (Germany &amp; Russia, 1838). Used electrolysis to copy objects in copper: electrotyping.</p>
+<p><b>George &amp; Henry Elkington</b> (England, 1840). Patented silver electroplating in Birmingham, making ‘silver’ affordable.</p>
+<p><b>Gaston Planté</b> (France, 1859). Invented the lead–acid battery, recharged by electrolysis. Still used in cars.</p>
+
+<h2>Electrolysis industry</h2>
+<p><b>Charles Hall &amp; Paul Héroult</b> (USA &amp; France, 1886). Extracted aluminium from oxide dissolved in molten cryolite.</p>
+<p><b>Dmitry Lachinov</b> (Russia, 1888). Developed industrial electrolysis of water to make hydrogen and oxygen.</p>
+<p><b>Herbert Dow</b> (Canada &amp; USA, 1891). Extracted bromine from underground brine by electrolysis; founded Dow Chemical.</p>
+<p><b>Hamilton Castner &amp; Carl Kellner</b> (USA &amp; Austria, 1892). Electrolysed brine to make chlorine and sodium hydroxide.</p>
+
+<h2>Cleaner energy</h2>
+<p><b>Asahi Chemical team</b> (Japan, 1975). Developed the membrane cell, a safer way to electrolyse brine without mercury.</p>
+<p><b>Sossina Haile</b> (Ethiopia &amp; USA, 2001). Invented solid acid fuel cells that turn fuel into electricity.</p>
+<p><b>Lesley Yellowlees</b> (Scotland, 2010s). Studies electron transfer in metal compounds; first woman president of the RSC.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Electrolysis of molten compounds:</b> Davy.</li>
+<li><b>Electrolysis of solutions and brine:</b> Nicholson and Carlisle, Castner and Kellner.</li>
+<li><b>Electroplating:</b> the Elkingtons.</li>
+<li><b>Extracting aluminium:</b> Hall and Héroult.</li>
+</ul>
+<p><b>Think about it:</b> Why does molten salt conduct electricity but solid salt does not?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-moles",
+    title: "The people behind moles and equations",
+    date: "14 November 2026", course: "IGCSE 1(e) · IAL Topic 1", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Balancing equations and calculating moles is where many students meet their first real chemistry maths.",
+    body: `
+<p>Balancing equations and calculating moles is where many students meet their first real chemistry maths. The rules behind it came from careful weighing, arguments about gases and, more recently, a near-perfect silicon sphere. Here are fifteen of the people involved.</p>
+<figure class="poster-fig"><img src="img/poster-moles.jpg" alt="A3 poster: The people behind moles and equations, showing fifteen scientists from Antoine and Marie-Anne Lavoisier to Avogadro Project, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Mass is conserved</h2>
+<p><b>Antoine &amp; Marie-Anne Lavoisier</b> (France, 1789). Careful weighing showed mass is conserved in reactions: the basis of balanced equations.</p>
+<p><b>Ida Freund</b> (Austria &amp; England, 1904). Cambridge chemistry teacher whose book traced the laws of chemical combination.</p>
+
+<h2>Combining rules</h2>
+<p><b>Jeremias Richter</b> (Germany, 1792). Coined ‘stoichiometry’ for measuring the amounts in which substances react.</p>
+<p><b>Joseph Proust</b> (France, worked in Spain, 1797). Working in Segovia and Madrid, showed a compound always has the same ratio of elements.</p>
+<p><b>Joseph Gay-Lussac</b> (France, 1808). Gases react in simple whole-number ratios by volume.</p>
+
+<h2>Symbols and formulae</h2>
+<p><b>Jöns Jacob Berzelius</b> (Sweden, 1813). Introduced letter symbols for elements and the formulae we still write.</p>
+<p><b>Edward Frankland</b> (England, 1852). Proposed valency: each element has a set combining power.</p>
+<p><b>Alexander Crum Brown</b> (Scotland, 1864). Drew atoms in circles joined by lines, the way we draw structures today.</p>
+
+<h2>Counting particles</h2>
+<p><b>Amedeo Avogadro</b> (Italy, 1811). Equal volumes of gases hold equal numbers of molecules.</p>
+<p><b>Johann Josef Loschmidt</b> (Austria, 1865). Made the first estimate of how many molecules are in a gas.</p>
+<p><b>Avogadro Project</b> (Germany, Australia &amp; others, 2019). Counted atoms in a near-perfect silicon sphere to help fix the new definition of the mole.</p>
+
+<h2>Weighing atoms</h2>
+<p><b>Stanislao Cannizzaro</b> (Italy, 1860). Used Avogadro’s idea to give chemists one agreed set of atomic masses.</p>
+<p><b>Theodore Richards</b> (USA, 1910s). Measured atomic masses more accurately than ever. Nobel Prize 1914.</p>
+<p><b>Stefanie Horovitz</b> (Poland &amp; Austria, 1914). Showed lead from uranium ore has a different atomic mass: proof isotopes exist.</p>
+<p><b>Francis Aston</b> (England, 1919). Built the mass spectrograph to weigh individual isotopes. Nobel Prize 1922.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Conservation of mass:</b> the Lavoisiers.</li>
+<li><b>Formulae and symbols:</b> Proust, Berzelius, Frankland.</li>
+<li><b>Gas volumes and the mole:</b> Gay-Lussac, Avogadro, Cannizzaro.</li>
+<li><b>Relative atomic mass and isotopes:</b> Richards, Horovitz, Aston.</li>
+</ul>
+<p><b>Think about it:</b> If mass is always conserved, why does a burning candle seem to get lighter?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-states",
+    title: "The people behind states of matter",
+    date: "14 November 2026", course: "IGCSE 1(a)(b) · IAL Topic 7", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Solids, liquids and gases, and the ways we separate mixtures, have a long history: from stills in ancient Alexandria to the coldest matter ever made.",
+    body: `
+<p>Solids, liquids and gases, and the ways we separate mixtures, have a long history: from stills in ancient Alexandria to the coldest matter ever made. Here are fifteen scientists from around the world who helped explain them.</p>
+<figure class="poster-fig"><img src="img/poster-states.jpg" alt="A3 poster: The people behind states of matter, showing fifteen scientists from Maria the Jewess to Eric Cornell and Carl Wieman, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Early separations</h2>
+<p><b>Maria the Jewess</b> (Alexandria, Egypt, 1st–3rd c.). Credited with early stills and the water bath still called a bain-marie.</p>
+<p><b>al-Kindi</b> (Iraq, 9th c.). His Book of Perfume describes distilling rose water and scented oils.</p>
+
+<h2>Particles in motion</h2>
+<p><b>Anders Celsius</b> (Sweden, 1742). Proposed a temperature scale fixed by the melting and boiling points of water.</p>
+<p><b>Robert Brown</b> (Scotland, 1827). Saw tiny grains from pollen jiggling non-stop in water: Brownian motion.</p>
+<p><b>Thomas Graham</b> (Scotland, 1833). Found lighter gases diffuse faster: Graham’s law.</p>
+<p><b>Jean Perrin</b> (France, 1908). Experiments on Brownian motion proved atoms exist. Nobel Prize 1926.</p>
+
+<h2>Forces and states</h2>
+<p><b>Johannes van der Waals</b> (Netherlands, 1873). Explained liquids with weak forces between molecules. Nobel Prize 1910.</p>
+<p><b>Agnes Pockels</b> (Germany, 1891). Measured surface films with a trough she built at home; published with Rayleigh’s help.</p>
+<p><b>Heike Kamerlingh Onnes</b> (Netherlands, 1908). First to turn helium into a liquid. Nobel Prize 1913.</p>
+
+<h2>Chromatography</h2>
+<p><b>Mikhail Tsvet</b> (Russia, 1906). Separated plant pigments in a column and named the method chromatography.</p>
+<p><b>Archer Martin &amp; Richard Synge</b> (England, 1941). Invented partition chromatography, the basis of paper chromatography. Nobel 1952.</p>
+<p><b>Erika Cremer</b> (Germany &amp; Austria, 1944). Pioneered gas chromatography, now used to analyse everything from fuels to blood.</p>
+
+<h2>New states of matter</h2>
+<p><b>Satyendra Nath Bose</b> (India, 1924). His maths, extended by Einstein, predicted a new state of matter: the Bose–Einstein condensate.</p>
+<p><b>Irving Langmuir</b> (USA, 1928). Named plasma, the glowing gas of ions found in lightning, neon signs and stars.</p>
+<p><b>Eric Cornell &amp; Carl Wieman</b> (USA, 1995). Made the first Bose–Einstein condensate, colder than anything in nature. Nobel 2001.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Particle model and diffusion:</b> Brown, Graham, Perrin.</li>
+<li><b>Forces between particles:</b> van der Waals.</li>
+<li><b>Distillation:</b> Maria the Jewess, al-Kindi.</li>
+<li><b>Chromatography and R<sub>f</sub> values:</b> Tsvet, Martin and Synge, Cremer.</li>
+</ul>
+<p><b>Think about it:</b> Why does a drop of ink spread through still water without any stirring?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-acids",
+    title: "The people behind acids and alkalis",
+    date: "14 November 2026", course: "IGCSE 2(f)(g) · IAL Acid–base", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Acids, alkalis and salts are some of the oldest chemicals people have made, and some of the hardest to explain.",
+    body: `
+<p>Acids, alkalis and salts are some of the oldest chemicals people have made, and some of the hardest to explain. From violet syrup to the pH meter, here are fifteen people from around the world who worked them out.</p>
+<figure class="poster-fig"><img src="img/poster-acids.jpg" alt="A3 poster: The people behind acids and alkalis, showing fifteen scientists from Jabir ibn Hayyan to Mary Amdur, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Making acids and salts</h2>
+<p><b>Jabir ibn Hayyan</b> (Iraq, 8th–9th c.). Arabic texts credited to him describe distilling and crystallising salts, key steps toward pure acids.</p>
+<p><b>Johann Glauber</b> (Germany, 1650s). Made hydrochloric acid from salt and sulfuric acid, leaving sodium sulfate: Glauber’s salt.</p>
+<p><b>Prafulla Chandra Ray</b> (India, 1896). Made mercurous nitrite from mercury and dilute nitric acid; founded India’s first drug company.</p>
+
+<h2>Testing for acids</h2>
+<p><b>Robert Boyle</b> (Ireland, 1664). Syrup of violets turned red with acids and green with alkalis: one of the first indicators.</p>
+<p><b>Ellen Swallow Richards</b> (USA, 1887). Tested over 20,000 water samples, leading to the first water-quality standards in the USA.</p>
+<p><b>Søren Sørensen</b> (Denmark, 1909). Invented the pH scale at the Carlsberg Laboratory while studying proteins and enzymes.</p>
+<p><b>Arnold Beckman</b> (USA, 1934). Built the first practical pH meter to test the acidity of lemon juice.</p>
+
+<h2>What is an acid?</h2>
+<p><b>Humphry Davy</b> (England, 1810). Showed hydrochloric acid contains no oxygen, so hydrogen, not oxygen, makes an acid.</p>
+<p><b>Svante Arrhenius</b> (Sweden, 1887). Acids release H⁺ ions in water and alkalis release OH⁻ ions.</p>
+<p><b>Brønsted &amp; Lowry</b> (Denmark &amp; England, 1923). An acid is a proton donor and a base is a proton acceptor.</p>
+
+<h2>Alkali industry</h2>
+<p><b>Nicolas Leblanc</b> (France, 1791). Patented a way to make sodium carbonate from salt, starting the alkali industry.</p>
+<p><b>Ernest Solvay</b> (Belgium, 1861). Invented the ammonia–soda process, a cleaner, cheaper way to make sodium carbonate.</p>
+
+<h2>Acids in our world</h2>
+<p><b>Robert Angus Smith</b> (Scotland, 1872). Measured acidic rain in polluted Manchester and coined the term ‘acid rain’.</p>
+<p><b>Kikunae Ikeda</b> (Japan, 1908). Found the savoury taste of kelp comes from glutamate and made its sodium salt, MSG.</p>
+<p><b>Mary Amdur</b> (USA, 1950s). Showed breathing sulfuric acid mist harms lungs, despite industry pressure to stop her work.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Indicators and pH:</b> Boyle’s violets, Sørensen’s scale, Beckman’s meter.</li>
+<li><b>What makes an acid:</b> Davy, Arrhenius (H⁺ ions), Brønsted and Lowry (proton donors).</li>
+<li><b>Making salts:</b> Glauber, Leblanc, Solvay, Ray.</li>
+<li><b>Acid rain:</b> Robert Angus Smith, Mary Amdur.</li>
+</ul>
+<p><b>Think about it:</b> Why is the hydrogen ion, not oxygen, the key to every acid?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-rates",
+    title: "The people behind rates of reaction",
+    date: "14 November 2026", course: "IGCSE 3(b) · IAL Kinetics", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Why do some reactions finish in a flash while others take years? Answering that took a Scottish woman working on dyes, a German who measured sugar with light, and enzyme chemists from Canada to California.",
+    body: `
+<p>Why do some reactions finish in a flash while others take years? Answering that took a Scottish woman working on dyes, a German who measured sugar with light, and enzyme chemists from Canada to California. Here are fifteen of them.</p>
+<figure class="poster-fig"><img src="img/poster-rates.jpg" alt="A3 poster: The people behind rates of reaction, showing fifteen scientists from Elizabeth Fulhame to Frances Arnold, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Catalysts discovered</h2>
+<p><b>Elizabeth Fulhame</b> (Scotland, 1794). Showed water takes part in reactions but is given back unchanged: the first account of catalysis.</p>
+<p><b>Johann Döbereiner</b> (Germany, 1823). Platinum made hydrogen catch fire in air without being used up. He turned it into a lighter.</p>
+<p><b>Jöns Jacob Berzelius</b> (Sweden, 1835). Gave catalysis its name, for substances that speed up reactions without being used up.</p>
+
+<h2>Measuring rates</h2>
+<p><b>Ludwig Wilhelmy</b> (Germany, 1850). First to measure a reaction rate, finding it depended on the concentration of sugar and acid.</p>
+<p><b>Augustus Harcourt &amp; William Esson</b> (England, 1865). Followed a reaction over time and showed how rate falls as reactants are used up.</p>
+<p><b>Cyril Hinshelwood &amp; Nikolay Semenov</b> (England &amp; Russia, 1956). Shared a Nobel Prize for explaining fast chain reactions, including explosions.</p>
+
+<h2>Why collisions count</h2>
+<p><b>Svante Arrhenius</b> (Sweden, 1889). Explained why rates rise steeply with temperature: molecules need a minimum energy to react.</p>
+<p><b>Max Trautz &amp; William Lewis</b> (Germany &amp; England, 1916–18). Collision theory: particles must collide, with enough energy, to react.</p>
+<p><b>Henry Eyring &amp; Michael Polanyi</b> (born Mexico &amp; Hungary, 1935). Pictured the high-energy arrangement atoms pass through as bonds break and form.</p>
+
+<h2>Catalysts at work</h2>
+<p><b>Wilhelm Ostwald</b> (born in Latvia, 1890s). Defined a catalyst as something that speeds up a reaction without being used up. Nobel Prize 1909.</p>
+<p><b>Paul Sabatier</b> (France, 1897). Used nickel to add hydrogen to alkenes, the reaction used to make margarine. Nobel Prize 1912.</p>
+<p><b>Gerhard Ertl</b> (Germany, 1970s–2000s). Showed step by step how reactions happen on catalyst surfaces, as in the Haber process. Nobel 2007.</p>
+
+<h2>Enzymes and the planet</h2>
+<p><b>Leonor Michaelis &amp; Maud Menten</b> (Germany &amp; Canada, 1913). Described how an enzyme’s rate depends on how much substrate it has to work on.</p>
+<p><b>Mario Molina</b> (Mexico, 1974). With Sherwood Rowland showed chlorine from CFCs catalyses ozone breakdown. Nobel Prize 1995.</p>
+<p><b>Frances Arnold</b> (USA, 1993). Bred better enzymes by directed evolution, making catalysts for medicines and fuels. Nobel 2018.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Collision theory:</b> Trautz and Lewis; particles must collide with enough energy.</li>
+<li><b>Activation energy and temperature:</b> Arrhenius.</li>
+<li><b>Concentration:</b> Wilhelmy, Harcourt and Esson.</li>
+<li><b>Catalysts:</b> Fulhame, Berzelius, Ostwald, Sabatier; enzymes from Michaelis and Menten to Arnold.</li>
+</ul>
+<p><b>Think about it:</b> Why does powdered marble react faster with acid than marble chips?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-energetics",
+    title: "The people behind energetics",
+    date: "14 November 2026", course: "IGCSE 3(a) · IAL Energetics", tag: "g", mins: 6, series: "Scientists who counted",
+    summary: "Exothermic, endothermic, Hess’s law: the words feel like they were always there.",
+    body: `
+<p>Exothermic, endothermic, Hess’s law: the words feel like they were always there. They were invented by people trying to answer a simple question: what is heat? Here are fifteen of them, from Scotland to Japan.</p>
+<figure class="poster-fig"><img src="img/poster-energetics.jpg" alt="A3 poster: The people behind energetics, showing fifteen scientists from Joseph Black to Akira Fujishima and Kenichi Honda, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>What is heat?</h2>
+<p><b>Joseph Black</b> (Scotland, 1761). Found ice soaks up heat as it melts without getting warmer: latent heat. Also measured specific heat.</p>
+<p><b>Lavoisier &amp; Laplace</b> (France, 1783). Measured the heat given out by reactions, and by a guinea pig, from how much ice it melted.</p>
+<p><b>Count Rumford</b> (born USA, worked in Bavaria, 1798). Boring cannons made endless heat, so heat must be motion, not a fluid called ‘caloric’.</p>
+<p><b>James Joule</b> (England, 1845). Showed a set amount of work always makes the same heat. The energy unit, the joule, is named after him.</p>
+
+<h2>Measuring energy changes</h2>
+<p><b>Germain Hess</b> (born Geneva, worked in Russia, 1840). The total enthalpy change is the same whatever route a reaction takes: Hess’s law.</p>
+<p><b>Marcellin Berthelot</b> (France, 1879). Coined the words exothermic and endothermic, and built a bomb calorimeter to measure heats of combustion.</p>
+<p><b>Max Born &amp; Fritz Haber</b> (Germany, 1919). The Born–Haber cycle uses Hess’s law to find lattice energies of ionic compounds.</p>
+<p><b>Elsie Widdowson</b> (England, 1940). With Robert McCance analysed thousands of foods; their tables are still the UK standard.</p>
+
+<h2>Why reactions go</h2>
+<p><b>Sadi Carnot</b> (France, 1824). Worked out the limits on how much work any engine can get from heat. The start of thermodynamics.</p>
+<p><b>Josiah Willard Gibbs</b> (USA, 1876). Combined enthalpy and entropy into free energy, which predicts whether a reaction can happen.</p>
+<p><b>Ludwig Boltzmann</b> (Austria, 1877). Linked entropy to the number of ways particles and energy can be arranged: S = k ln W.</p>
+
+<h2>Keeping things cold</h2>
+<p><b>Mary Engle Pennington</b> (USA, 1900s). The ‘Ice Lady’ designed refrigerated rail cars and cold stores to keep food safe.</p>
+
+<h2>Energy for the future</h2>
+<p><b>William Grove</b> (Wales, 1842). Built a ‘gas battery’ that combined hydrogen and oxygen to make electricity: the first fuel cell.</p>
+<p><b>Mária Telkes</b> (Hungary &amp; USA, 1948). The ‘Sun Queen’ heated a house with solar energy stored by melting Glauber’s salt.</p>
+<p><b>Akira Fujishima &amp; Kenichi Honda</b> (Japan, 1972). Used light on titanium dioxide to split water into hydrogen and oxygen.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Exothermic and endothermic:</b> Berthelot’s words; a cold pack takes energy in from the surroundings.</li>
+<li><b>Calorimetry:</b> Lavoisier and Laplace’s ice calorimeter, Berthelot’s bomb calorimeter.</li>
+<li><b>Hess’s law and energy cycles:</b> Hess, then Born and Haber.</li>
+<li><b>Fuels and energy:</b> Grove’s fuel cell, Telkes’s stored solar heat.</li>
+</ul>
+<p><b>Think about it:</b> A cold pack gets colder as it works. Where has the energy gone?</p>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach this topic.</div>`
+  },
+  {
+    slug: "scientists-bonding",
+    title: "The people behind chemical bonding",
+    date: "14 November 2026", course: "IGCSE 1(f)(g)(h) · IAL Topic 3", tag: "g", mins: 7, series: "Scientists who counted",
+    summary: "Why do atoms stick together? From Faraday’s new words to graphene peeled off with sticky tape, meet the scientists from around the world who found out.",
+    body: `
+<p>Ionic, covalent, metallic: the three types of bonding feel like they were always known. They weren’t. Each idea was argued over, tested and sometimes photographed, by people working in England, Sweden, Egypt, Japan and beyond. Here are fifteen of them.</p>
+<figure class="poster-fig"><img src="img/poster-bonding.jpg" alt="A3 poster: The people behind chemical bonding, showing fifteen scientists from Michael Faraday to Andre Geim and Konstantin Novoselov, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Ions and electrons</h2>
+<p>In 1834 <b>Michael Faraday</b> needed words for what he saw during electrolysis. With help from the scholar William Whewell he introduced <b>ion</b>, <b>anion</b>, <b>cation</b>, <b>anode</b> and <b>cathode</b>, words you still use in every electrolysis question.</p>
+<p>Faraday assumed the current made the ions. In 1884 the Swedish chemist <b>Svante Arrhenius</b> argued something bolder: salts split into ions as soon as they dissolve, with or without a current. Many senior chemists disliked the idea, but it won him the Nobel Prize in Chemistry in 1903.</p>
+<p>In 1900 the German physicist <b>Paul Drude</b> pictured a metal as positive ions surrounded by a “gas” of electrons free to move. That is the model you draw for <b>metallic bonding</b>, and it explains why metals conduct.</p>
+
+<h2>Bonding theories</h2>
+<p>In 1916 two scientists, working separately, explained the other two types of bond. In California, <b>Gilbert Lewis</b> proposed that a <b>covalent bond</b> is a pair of electrons shared between two atoms, and drew the first dot diagrams. In Germany, <b>Walther Kossel</b> explained <b>ionic bonding</b> as electrons moving from one atom to another so that both end up with a full outer shell.</p>
+<p>In 1932 the American chemist <b>Linus Pauling</b> created the first <b>electronegativity</b> scale, with fluorine at the top. It shows how unevenly two atoms share a bond and why some covalent bonds are polar. He won the Nobel Prize in Chemistry in 1954 (and later the Peace Prize too).</p>
+
+<h2>X-rays reveal structure</h2>
+<p>In 1913 father and son <b>William Henry and Lawrence Bragg</b> fired X-rays at crystals of common salt. The pattern showed there are no NaCl molecules at all, only a <b>giant lattice</b> of Na⁺ and Cl⁻ ions. They shared the 1915 Nobel Prize in Physics; Lawrence, born in Adelaide, was just 25, still the youngest science laureate.</p>
+<p>Irish-born <b>Kathleen Lonsdale</b> used X-rays in 1929 to prove that the benzene ring is flat and hexagonal. In 1945 she was one of the first two women elected Fellows of the Royal Society.</p>
+<p><b>Dorothy Crowfoot Hodgkin</b>, born in Cairo, worked out the structures of penicillin (1945) and vitamin B12, and won the 1964 Nobel Prize in Chemistry. In 1952 <b>Rosalind Franklin</b> and her student Raymond Gosling took <b>Photo 51</b>, the X-ray image that revealed DNA’s double helix.</p>
+
+<h2>Watching bonds form</h2>
+<p>Bonds break and form in about a hundred femtoseconds, far too fast to see. In the late 1980s the Egyptian-born chemist <b>Ahmed Zewail</b> used ultra-short laser flashes to film reactions as they happen. In 1999 he became the first Egyptian to win a Nobel Prize in a science.</p>
+
+<h2>New forms of carbon</h2>
+<p>Diamond and graphite are the giant covalent structures you learn about, but carbon has more surprises. <b>Mildred Dresselhaus</b> at MIT, the “Queen of Carbon”, spent decades on graphite and predicted how carbon nanotubes would behave. In 1985 <b>Harry Kroto, Robert Curl and Richard Smalley</b> discovered <b>buckminsterfullerene</b>, C₆₀, a football-shaped cage (Nobel 1996). In 1991 <b>Sumio Iijima</b> in Japan photographed <b>carbon nanotubes</b> under the electron microscope. And in 2004 <b>Andre Geim and Konstantin Novoselov</b>, both born in Russia and working in Manchester, used sticky tape to peel <b>graphene</b>, a single layer of graphite, winning the 2010 Nobel Prize in Physics.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Ionic bonding:</b> Kossel’s electron transfer; the Braggs’ lattice explains high melting points.</li>
+<li><b>Conducting when molten or dissolved:</b> Arrhenius’s free ions.</li>
+<li><b>Covalent bonding:</b> Lewis’s shared pair and dot-and-cross diagrams.</li>
+<li><b>Metallic bonding:</b> Drude’s sea of delocalised electrons.</li>
+<li><b>Giant covalent structures and fullerenes:</b> graphite, graphene, C₆₀ and nanotubes.</li>
+</ul>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach bonding and structure.</div>`
+  },
+  {
+    slug: "scientists-reactivity-series",
+    title: "The people behind the reactivity series",
+    date: "14 November 2026", course: "IGCSE 2(d)(e)", tag: "g", mins: 7, series: "Scientists who counted",
+    summary: "From South Indian steelmakers to the inventors of the battery in your phone: the people who learned how metals react, and how to tame them.",
+    body: `
+<p>The reactivity series is a ranking: potassium at the top, gold at the bottom. It decides which metals we can dig up as they are, which we free with carbon and which need electricity. Working that out took metalworkers, chemists and battery inventors from around the world.</p>
+<figure class="poster-fig"><img src="img/poster-reactivity.jpg" alt="A3 poster: The people behind the reactivity series, showing fifteen people from the wootz steelmakers of South India to Clare Grey, each with a related element tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Early metalworking</h2>
+<p>Long before anyone wrote down a reactivity series, metalworkers in <b>South India</b> were reducing iron ore with carbon and making <b>wootz</b>, a crucible steel, from around the middle of the first millennium BCE. It was traded across Asia and became the steel of the famous Damascus blades.</p>
+
+<h2>Reactivity explained</h2>
+<p>In late-18th-century Paris, <b>Antoine Lavoisier</b> showed that burning and rusting are both reactions with <b>oxygen</b>. His wife <b>Marie-Anne Paulze Lavoisier</b> was a full partner in the lab: she translated English chemistry papers for him and drew the detailed plates of apparatus in his 1789 textbook.</p>
+<p>In 1865 the Russian chemist <b>Nikolay Beketov</b> studied how one metal <b>displaces</b> another from its compounds, the reactions you do in class with iron nails in copper sulfate. He also found that aluminium can pull oxygen away from other metal oxides, the idea behind the thermite reaction.</p>
+<p>In 1889 the German chemist <b>Walther Nernst</b> explained what sets the voltage of a cell, linking it to how readily each metal loses electrons. He won the Nobel Prize in Chemistry in 1920.</p>
+
+<h2>Electricity frees the metals</h2>
+<p>In 1800 the Italian physicist <b>Alessandro Volta</b> stacked zinc and copper discs separated by salt-soaked card and made the first battery to give a steady current. Within seven years, <b>Humphry Davy</b> in London was using batteries to electrolyse molten compounds. In 1807 he isolated <b>potassium</b> and <b>sodium</b>, and in 1808 calcium, magnesium, barium and strontium: the metals at the top of the series, too reactive to free with carbon.</p>
+<p>In 1825 the Danish scientist <b>Hans Christian Ørsted</b> made the first, impure, aluminium by reacting aluminium chloride with potassium amalgam. For decades aluminium cost more than gold. Then, in 1886, <b>Charles Martin Hall</b> in the USA and <b>Paul Héroult</b> in France independently found how to extract it cheaply by <b>electrolysis</b> of aluminium oxide dissolved in molten cryolite. Hall’s sister <b>Julia Hall</b>, also a chemistry graduate, helped with the work and kept the records that later supported his patent.</p>
+
+<h2>Stopping rust</h2>
+<p>In 1837 the French engineer <b>Stanislas Sorel</b> patented coating iron with zinc, which we call <b>galvanising</b>. Zinc is more reactive than iron, so it corrodes first and protects the iron underneath, even if scratched. In 1913 <b>Harry Brearley</b> in Sheffield added chromium to steel and found it did not rust. He called it “rustless steel”; a local cutler suggested the name <b>stainless</b>.</p>
+
+<h2>Reactive metals in batteries</h2>
+<p>Lithium sits near the top of the series, which makes it perfect for batteries. In 1980 <b>John Goodenough</b> developed the lithium cobalt oxide cathode. The same year <b>Rachid Yazami</b>, from Morocco, showed lithium can move in and out of <b>graphite</b>, the anode in most lithium-ion batteries today. In 1985 <b>Akira Yoshino</b> in Japan built the first lithium-ion battery safe enough to sell. Goodenough and Yoshino shared the 2019 Nobel Prize with Stanley Whittingham; at 97, Goodenough was the oldest Nobel laureate ever.</p>
+<p>In the 1980s <b>Esther Takeuchi</b> in the USA invented the lithium/silver vanadium oxide battery that powers implanted heart defibrillators. And today <b>Clare Grey</b> at Cambridge uses NMR to look inside batteries while they charge, to help them last longer.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Order of reactivity:</b> Davy needed electrolysis for the most reactive metals.</li>
+<li><b>Displacement reactions:</b> Beketov’s work on one metal displacing another.</li>
+<li><b>Extraction:</b> iron with carbon (wootz), aluminium by electrolysis (Hall and Héroult).</li>
+<li><b>Rusting and its prevention:</b> galvanising and sacrificial protection.</li>
+</ul>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach the reactivity series.</div>`
+  },
+  {
+    slug: "scientists-organic",
+    title: "The people behind organic chemistry",
+    date: "14 November 2026", course: "IGCSE 4(a)–(h) · IAL organic", tag: "g", mins: 7, series: "Scientists who counted",
+    summary: "From al-Razi’s distillation of crude oil to a plastic that conducts electricity: the scientists from around the world who unlocked the chemistry of carbon.",
+    body: `
+<p>Crude oil, alkanes, alkenes, alcohols, esters and polymers: organic chemistry is a big part of your course. The people who built it worked in Persia, Poland, India, China, Japan and beyond, and several of their discoveries happened by accident.</p>
+<figure class="poster-fig"><img src="img/poster-organic.jpg" alt="A3 poster: The people behind organic chemistry, showing fifteen scientists from al-Razi to Hideki Shirakawa, each with a related tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Early ideas</h2>
+<p>Around the 9th and 10th centuries, the Persian physician and alchemist <b>al-Razi</b> (Rhazes) described distilling crude oil, <i>naft</i>, and the apparatus for doing it. Distillation, the basis of <b>fractional distillation</b>, owes a great deal to scholars of the Islamic world.</p>
+<p>For a long time chemists believed organic compounds could only be made by living things. In 1828 the German chemist <b>Friedrich Wöhler</b> made <b>urea</b>, a compound found in urine, by heating ammonium cyanate, which is not organic. The old belief took a while to die, but this was the start.</p>
+
+<h2>Crude oil and fuels</h2>
+<p>In 1853 the Polish pharmacist <b>Ignacy Łukasiewicz</b> distilled <b>kerosene</b> from crude oil and invented the kerosene lamp. In 1856 he opened one of the world’s first oil refineries. In 1891 the Russian engineer <b>Vladimir Shukhov</b> patented the first thermal <b>cracking</b> process, breaking long alkanes into shorter, more useful ones.</p>
+
+<h2>Structure and reactions</h2>
+<p>In 1858 <b>August Kekulé</b> in Germany and <b>Archibald Scott Couper</b> from Scotland, working separately, realised that carbon forms <b>four bonds</b> and can link to other carbon atoms in chains. Couper drew bonds as lines between atoms, the displayed formulae you draw today.</p>
+<p>In 1895 <b>Emil Fischer</b> and <b>Arthur Speier</b> described making <b>esters</b> by heating a carboxylic acid with an alcohol and an acid catalyst. Chemists still call it Fischer esterification.</p>
+
+<h2>Polymers</h2>
+<p>In 1920 the German chemist <b>Hermann Staudinger</b> argued that polymers are giant molecules made of long chains, not clumps of small molecules. Many disagreed, but he was right, and won the 1953 Nobel Prize. In 1933 <b>Reginald Gibson and Eric Fawcett</b> at ICI in Northwich made <b>poly(ethene)</b> by accident while heating ethene at very high pressure. In 1935 <b>Wallace Carothers</b> at DuPont made <b>nylon 6,6</b>, a <b>condensation polymer</b>: each link forms a small molecule of water. In 1953 <b>Karl Ziegler</b> and <b>Giulio Natta</b> found catalysts that make poly(ethene) and poly(propene) at low pressure, and shared the 1963 Nobel Prize.</p>
+
+<h2>Medicines and new materials</h2>
+<p>In 1915 the American chemist <b>Alice Ball</b> turned chaulmoogra oil into ethyl <b>esters</b> that could be injected to treat leprosy, the best treatment for decades. She was the first woman to earn a master’s in chemistry at the College of Hawaii, and died aged just 24.</p>
+<p>In 1944 <b>Asima Chatterjee</b> became the first woman to earn a Doctor of Science from an Indian university. She developed anti-epileptic and anti-malarial drugs from plants. In 1965 <b>Stephanie Kwolek</b> at DuPont invented <b>Kevlar</b>, a polymer fibre five times stronger than steel for its weight.</p>
+<p>In 1972 <b>Tu Youyou</b>’s team in China extracted <b>artemisinin</b> from sweet wormwood after reading ancient Chinese medical texts; she tested it on herself first. It has saved millions from malaria, and in 2015 she became the first Chinese woman to win a Nobel Prize. And in 1977 <b>Hideki Shirakawa</b> in Japan, with Alan MacDiarmid and Alan Heeger, made <b>polyacetylene</b>, a plastic that conducts electricity (Nobel 2000).</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Crude oil:</b> fractional distillation and cracking (al-Razi, Łukasiewicz, Shukhov).</li>
+<li><b>Displayed formulae:</b> carbon’s four bonds (Kekulé and Couper).</li>
+<li><b>Esters:</b> acid + alcohol with an acid catalyst (Fischer and Speier, Alice Ball).</li>
+<li><b>Addition and condensation polymers:</b> poly(ethene) and nylon.</li>
+</ul>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach organic chemistry.</div>`
+  },
+  {
+    slug: "scientists-periodic-table",
+    title: "The people behind the periodic table",
+    date: "14 November 2026", course: "IGCSE 1(c)(d) · IAL Topic 2", tag: "g", mins: 7, series: "Scientists who counted",
+    summary: "From an ancient Indian philosopher to a Japanese team in 2004: the men and women from around the world who worked out what atoms are made of and how to arrange the elements.",
+    body: `
+<p>The periodic table on your classroom wall looks finished, but it took more than two thousand years and people from every corner of the world to build it. Some became famous. Others were told they were wrong, left off the paperwork, or only remembered for a single word. Here are some of them, in the order their ideas arrived.</p>
+<figure class="poster-fig"><img src="img/poster-periodic-table.jpg" alt="A3 poster: The people behind the periodic table, showing fifteen scientists from Kaṇāda to Kosuke Morita, each with a related element tile."><figcaption>The A3 poster that goes with this post. Teachers: <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">download all 15 posters free on TES</a>.</figcaption></figure>
+
+<h2>Early ideas: how small can you go?</h2>
+<p>In ancient India, the philosopher <b>Kaṇāda</b> founded the Vaisheshika school, which taught that everything can be divided, but not forever. There must be smallest particles, <i>paramāṇu</i>, that cannot be split and that join in different ways to make everything around us. Nobody is sure exactly when he lived; estimates run from about the 6th to the 2nd century BCE. In Greece, Leucippus and Democritus argued for atoms in the 5th century BCE. None of them could test the idea. That had to wait for experiments.</p>
+
+<h2>Finding the elements</h2>
+<p>In 1783 two brothers from La Rioja, <b>Juan José and Fausto Elhuyar</b>, isolated a new metal from the mineral wolframite in the laboratory of the Royal Seminary of Bergara in the Basque Country. They called it volfram. Today we call it tungsten, but its symbol is still <b>W</b>.</p>
+<p>In 1801 <b>Andrés Manuel del Río</b>, a Spanish mineralogist teaching at the School of Mines in Mexico City, found a new element in a lead ore from Zimapán. Its salts turned red when heated, so he named it erythronium. A French chemist examined the ore and declared it was just impure chromium, and del Río accepted the verdict. In 1831 Friedrich Wöhler showed that the newly announced “vanadium” was the same element del Río had found thirty years earlier.</p>
+<p>In 1808 the English schoolteacher <b>John Dalton</b> published <i>A New System of Chemical Philosophy</i>. His big idea: every element is made of its own kind of atom, and atoms of different elements have different masses. That is why we can talk about relative atomic mass at all.</p>
+<p>In 1869 the Russian chemist <b>Dmitri Mendeleev</b> arranged the known elements in a table. His masterstroke was to leave gaps where no known element fitted, and to predict what the missing elements would be like. When gallium, scandium and germanium were discovered, they matched his predictions remarkably well.</p>
+
+<h2>Inside the atom</h2>
+<p>In 1898 <b>Marie Skłodowska-Curie</b> and Pierre Curie discovered two new radioactive elements, polonium (named after her homeland, Poland) and radium. She shared the 1903 Nobel Prize in Physics and won the 1911 Nobel Prize in Chemistry alone. She is still the only person to win Nobel Prizes in two different sciences.</p>
+<p>In Canada, <b>Harriet Brooks</b> became Ernest Rutherford’s first graduate student at McGill and, in 1901, the first woman to receive a master’s degree there. She was among the first to identify the radioactive gas radon, and she discovered atomic recoil. Rutherford compared her ability to Marie Curie’s.</p>
+<p>Rutherford himself grew up in New Zealand. His students Hans Geiger and Ernest Marsden fired alpha particles at thin gold foil. Most went straight through, but a few bounced back. In 1911 Rutherford explained why: almost all the mass of an atom is packed into a tiny, dense, positive <b>nucleus</b>. In 1919 he went on to observe the proton.</p>
+<p>The word <b>isotope</b> came from a doctor, not a chemist. In 1913 the Scottish physician and novelist <b>Margaret Todd</b> heard her friend Frederick Soddy describe atoms that sat in the same place in the periodic table but had different masses. She suggested “isotope”, Greek for “same place”. That is why chlorine can have a relative atomic mass of 35.5: it is a mixture of isotopes.</p>
+<p>Also in 1913, the young English physicist <b>Henry Moseley</b> fired X-rays at different metals and found that the X-rays changed in step with the element’s <b>atomic number</b>. Atomic number was no longer just a position in a list; it was the positive charge on the nucleus. The periodic table has been ordered by atomic number ever since. Moseley was killed at Gallipoli in 1915, aged just 27.</p>
+<p>One piece was still missing. Atoms were heavier than their protons alone could explain. In 1932 <b>James Chadwick</b>, working in Cambridge, showed that the nucleus also contains uncharged particles with about the same mass as a proton: <b>neutrons</b>. He won the Nobel Prize in Physics in 1935.</p>
+
+<h2>Splitting the nucleus</h2>
+<p>In late 1938 the Austrian physicist <b>Lise Meitner</b>, who had fled Nazi Germany, worked out with her nephew Otto Frisch that uranium nuclei hit by neutrons were splitting in two. They named the process <b>fission</b> and published in February 1939. Her colleague Otto Hahn received the Nobel Prize; Meitner did not. Element 109, meitnerium, is named in her honour.</p>
+<p>In January 1939 <b>Marguerite Perey</b>, a laboratory assistant who had trained with Marie Curie, discovered element 87, which she named francium after her country. It was the last element to be discovered in nature. In 1962 she became the first woman elected to the French Académie des sciences, an honour never given to Curie.</p>
+
+<h2>Making new elements</h2>
+<p>The newest elements are made, not found, by smashing nuclei together. <b>Yuri Oganessian</b>, born in Rostov-on-Don to an Armenian family, led the teams at Dubna in Russia that made many of the heaviest elements. Element 118 was first made there in 2002 by a Russian–American team and named <b>oganesson</b> in 2016. He is the only living person with an element named after him.</p>
+<p>In Japan, <b>Kosuke Morita</b> led the RIKEN team that first made element 113 in 2004. In 2016 it was named <b>nihonium</b>, from <i>Nihon</i>, Japan. It was the first element discovered in Asia.</p>
+
+<h2>Why it matters for your exam</h2>
+<ul>
+<li><b>Protons, neutrons and electrons:</b> Rutherford found the nucleus, Chadwick found the neutron.</li>
+<li><b>Atomic number and mass number:</b> Moseley showed atomic number is the charge on the nucleus.</li>
+<li><b>Isotopes and relative atomic mass:</b> Todd and Soddy’s isotopes explain why chlorine is 35.5.</li>
+<li><b>The periodic table:</b> Mendeleev’s gaps and predictions, then Moseley’s reordering by atomic number.</li>
+</ul>
+<div class="callout"><b>Teachers:</b> the A3 poster of these scientists is free on TES, as part of the <a href="${LINKS.tesPosters}" target="_blank" rel="noopener">Scientists Who Counted pack of 15 posters</a>. Print it for your wall while you teach atomic structure and the periodic table.</div>`
+  },
+  {
+    slug: "core-practicals",
+    title: "How to revise a core practical you've never done",
+    date: "14 November 2026", course: "IGCSE and IAL", tag: "g", mins: 4,
+    summary: "Exam questions on core practicals come up in every paper. Here's how to revise one properly, even if you missed the lesson.",
+    body: `
+<p>Every Edexcel chemistry paper has questions on the core practicals. Students who did the practical in class often remember what it looked like but not why each step was there. Students who missed it have nothing to picture at all. Either way, the marks go to whoever can explain the method.</p>
+<h2>1. Do the experiment on screen first</h2>
+<p>Open the virtual lab and work through the <b>Do the experiment</b> tab. Don't rush. At each step, ask yourself what would go wrong if you skipped it.</p>
+<h2>2. Fill in the results table yourself</h2>
+<p>Write the results down with units and the right number of decimal places. Exam questions often give you a table with a mistake in it, and spotting it is easier if you've built one yourself.</p>
+<h2>3. Learn the four things every practical question asks</h2>
+<ul>
+<li><b>Variables:</b> what you change, what you measure, what you keep the same.</li>
+<li><b>Method:</b> why each step matters, especially the ones that improve accuracy.</li>
+<li><b>Calculations:</b> moles, concentrations, enthalpy changes or rates from your data.</li>
+<li><b>Errors and improvements:</b> one specific problem and one specific fix. "Repeat it" is rarely enough.</li>
+</ul>
+<h2>4. Finish with the exam practice tab</h2>
+<p>Answer the questions before you look at the mark scheme, then mark your own work. Every point you missed is something to add to your revision notes.</p>
+<div class="callout"><b>Teachers:</b> each virtual lab pairs with a full PowerPoint lesson in my TES shop, with method, results and exam questions ready to teach.</div>`
+  },
+  {
+    slug: "command-words",
+    title: "Describe, explain, evaluate: what the command word is really asking",
+    date: "14 November 2026", course: "IGCSE and IAL", tag: "g", mins: 3,
+    summary: "Students lose marks by answering a different question from the one on the paper. The command word tells you what the examiner wants.",
+    body: `
+<p>The first word of an exam question tells you what kind of answer earns the marks. Read it before anything else.</p>
+<ul>
+<li><b>State / give / name:</b> a short answer. No explanation needed.</li>
+<li><b>Describe:</b> say what happens or what you see. Use data from a graph or table if there is one.</li>
+<li><b>Explain:</b> say <i>why</i> it happens. Link a cause to an effect with "because" or "so".</li>
+<li><b>Calculate:</b> show your working and give units. Working can earn marks even if the final answer is wrong.</li>
+<li><b>Suggest:</b> apply what you know to something unfamiliar. There may be more than one right answer.</li>
+<li><b>Evaluate / discuss:</b> give points on both sides, then reach a judgement.</li>
+</ul>
+<h2>Count the marks</h2>
+<p>A 3-mark "explain" usually needs three linked points. Write one clear idea per mark and you'll know when you've written enough.</p>
+<div class="callout">Try it on the <b>How to answer exam questions</b> pages: each walkthrough builds an answer one mark at a time.</div>`
+  },
+  {
+    slug: "summary-videos",
+    title: "Four-minute videos, fifteen minutes of revision",
+    date: "14 November 2026", course: "IGCSE and IAL", tag: "g", mins: 2,
+    summary: "Watching a video isn't revising. Here's how to turn a short summary video into active revision.",
+    body: `
+<p>Watching a video feels like revision, but most of it is forgotten by the next day. You remember far more when you do something with it.</p>
+<ol>
+<li><b>Before you press play,</b> write down three things you already know about the topic.</li>
+<li><b>Pause at each key idea</b> and say what comes next before the video tells you.</li>
+<li><b>After the video,</b> close it and write a summary from memory. Then watch again and fill the gaps in a different colour.</li>
+<li><b>Finish with a question:</b> try the matching worksheet or topic test, then mark it.</li>
+</ol>
+<p>That's about fifteen minutes per topic, and the gaps in your summary show you exactly what to revise next.</p>
+<div class="callout">All the summary videos are free on the <b>Chemistry That Counts</b> YouTube channel, with subtitles.</div>`
+  }
+];
+
+/* ---------- Render ---------- */
+function postCard(p){
+  return `<a class="post-card" href="#post-${p.slug}">
+    <div class="meta"><span class="pill ${p.tag}">${p.course}</span><span>${p.date}</span><span>· ${p.mins} min read</span></div>
+    <h3>${p.title}</h3><p class="muted">${p.summary}</p><span class="read">Read →</span></a>`;
+}
+document.querySelectorAll("[data-posts]").forEach(el => {
+  const n = el.dataset.posts === "all" ? POSTS.length : +el.dataset.posts;
+  el.innerHTML = POSTS.slice(0, n).map(postCard).join("");
+});
+
+document.querySelectorAll("[data-link]").forEach(a => {
+  const url = LINKS[a.dataset.link];
+  if (url) { a.href = url; if (/^https?:/.test(url)) { a.target = "_blank"; a.rel = "noopener"; } }
+  else {
+    a.removeAttribute("href"); a.setAttribute("aria-disabled","true"); a.style.cursor = "default";
+    const go = a.querySelector(".go");
+    if (go) go.textContent = "Coming soon";
+    else if (a.classList.contains("btn")) a.classList.add("pending");
+  }
+});
+
+const tabs = document.querySelectorAll('[role="tab"]');
+function showCourse(id){
+  tabs.forEach(t => {
+    const on = t.getAttribute("aria-controls") === id;
+    t.setAttribute("aria-selected", on);
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+}
+tabs.forEach(t => t.addEventListener("click", () => showCourse(t.getAttribute("aria-controls"))));
+
+/* ---------- Simple hash routing for the blog ---------- */
+const DEFAULT_TITLE = document.title;
+function route(){
+  const h = location.hash.slice(1);
+  const home = document.getElementById("view-home"), list = document.getElementById("view-blog"), single = document.getElementById("view-post");
+  const navBlog = document.querySelector('nav.links a[href="#blog"]');
+  if (h === "blog") {
+    home.hidden = true; single.hidden = true; list.hidden = false; navBlog.setAttribute("aria-current","page"); window.scrollTo(0,0); return;
+  }
+  if (h.startsWith("post-")) {
+    const p = POSTS.find(x => "post-" + x.slug === h);
+    if (p) {
+      document.getElementById("post-body").innerHTML =
+        `<a class="back" href="#blog">← All posts</a>
+         <div class="meta"><span class="pill ${p.tag}">${p.course}</span><span>${p.date}</span><span>· ${p.mins} min read</span></div>
+         ${p.series ? `<p class="series">${p.series}</p>` : ""}<h1>${p.title}</h1>${p.body}
+         <p style="margin-top:32px"><a class="btn dark" href="#blog">More posts</a></p>`;
+      document.title = p.title + " | Chemistry That Counts";
+      home.hidden = true; list.hidden = true; single.hidden = false; navBlog.setAttribute("aria-current","page"); window.scrollTo(0,0); return;
+    }
+  }
+  navBlog.removeAttribute("aria-current");
+  document.title = DEFAULT_TITLE;
+  if (h === "ial" || h.startsWith("ial-")) showCourse("ial");
+  else if (h === "igcse" || h.startsWith("igcse-")) showCourse("igcse");
+  const wasHidden = home.hidden;
+  home.hidden = false; list.hidden = true; single.hidden = true;
+  if (wasHidden || !routedOnce) {
+    const target = h && document.getElementById(h);
+    if (target) target.scrollIntoView(); else window.scrollTo(0,0);
+  }
+}
+window.addEventListener("hashchange", () => { routedOnce = true; route(); });
+let routedOnce = false;
+route(); routedOnce = true;
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Resource preview"><button class="x" type="button" aria-label="Close">×</button><button class="nav prev" type="button" aria-label="Previous">‹</button><figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><small id="lbNum"></small><a class="shop" data-link="tes" href="#" target="_blank" rel="noopener">See it on TES →</a></figcaption></figure><button class="nav next" type="button" aria-label="Next">›</button></div>
+<script>
+const PREVIEWS = {"cp": [{"src": "preview/cp-1.jpg", "cap": "Title slide"}, {"src": "preview/cp-2.jpg", "cap": "Safety and apparatus"}, {"src": "preview/cp-3.jpg", "cap": "Step-by-step method with the reasons"}, {"src": "preview/cp-4.jpg", "cap": "Results to process"}, {"src": "preview/cp-5.jpg", "cap": "Check-it questions"}, {"src": "preview/cp-6.jpg", "cap": "Exam tip: how to get the marks"}], "decks": [{"src": "preview/decks-1.jpg", "cap": "Title slide"}, {"src": "preview/decks-2.jpg", "cap": "Do-now starter"}, {"src": "preview/decks-3.jpg", "cap": "Worked teaching slide"}, {"src": "preview/decks-4.jpg", "cap": "Animated percentage-yield slide"}, {"src": "preview/decks-5.jpg", "cap": "Atom economy"}, {"src": "preview/decks-6.jpg", "cap": "Hinge questions"}, {"src": "preview/decks-7.jpg", "cap": "Matching student worksheet"}], "tests": [{"src": "preview/tests-1.jpg", "cap": "TES cover"}, {"src": "preview/tests-2.jpg", "cap": "Question paper: front page"}, {"src": "preview/tests-3.jpg", "cap": "Question paper inside"}, {"src": "preview/tests-4.jpg", "cap": "Mark scheme with grade bands"}, {"src": "preview/tests-5.jpg", "cap": "RAG self-assessment sheet"}], "bundles": [{"src": "preview/bundles-1.jpg", "cap": "IAL Unit 1 bundle"}, {"src": "preview/bundles-2.jpg", "cap": "IAL Unit 4 bundle"}, {"src": "preview/bundles-3.jpg", "cap": "Scheme of work included"}, {"src": "preview/bundles-4.jpg", "cap": "Every lesson in the unit"}], "booklets": [{"src": "preview/booklets-1.jpg", "cap": "Revision booklet cover"}, {"src": "preview/booklets-2.jpg", "cap": "Spec points with skills, steps and worked examples"}, {"src": "preview/booklets-3.jpg", "cap": "Calculations from equations"}, {"src": "preview/booklets-4.jpg", "cap": "Flashcards: 24 cards in three types"}, {"src": "preview/booklets-5.jpg", "cap": "Key-term cards (front)"}, {"src": "preview/booklets-6.jpg", "cap": "Definitions (back)"}, {"src": "preview/booklets-7.jpg", "cap": "Exam-question cards (front)"}, {"src": "preview/booklets-8.jpg", "cap": "Worked answers (back)"}], "papers": [{"src": "preview/papers-1.jpg", "cap": "Predicted question paper"}, {"src": "preview/papers-2.jpg", "cap": "Question paper inside"}, {"src": "preview/papers-3.jpg", "cap": "Full mark scheme"}, {"src": "preview/papers-4.jpg", "cap": "Topic analysis"}, {"src": "preview/papers-5.jpg", "cap": "Self-assessment rubric"}, {"src": "preview/papers-6.jpg", "cap": "Practice booklet"}]};
+(function(){const lb=document.getElementById('lb'),im=document.getElementById('lbImg'),cap=document.getElementById('lbCap'),num=document.getElementById('lbNum');let g=null,i=0;
+function show(){const p=PREVIEWS[g][i];im.src=p.src;im.alt=p.cap;cap.textContent=p.cap;num.textContent=(i+1)+' of '+PREVIEWS[g].length+' · watermarked preview';}
+function open(k){g=k;i=0;show();lb.classList.add('on');document.body.style.overflow='hidden';}
+function close(){lb.classList.remove('on');document.body.style.overflow='';}
+document.querySelectorAll('[data-peek]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.peek)));
+lb.querySelector('.x').onclick=close;lb.addEventListener('click',e=>{if(e.target===lb)close();});
+lb.querySelector('.prev').onclick=()=>{i=(i-1+PREVIEWS[g].length)%PREVIEWS[g].length;show();};
+lb.querySelector('.next').onclick=()=>{i=(i+1)%PREVIEWS[g].length;show();};
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')lb.querySelector('.next').click();if(e.key==='ArrowLeft')lb.querySelector('.prev').click();});
+im.addEventListener('contextmenu',e=>e.preventDefault());
+const tes=document.querySelector('a.btn[data-link="tes"]');if(tes)lb.querySelector('.shop').href=tes.href;})();
+</script>
+</body>
+</html>

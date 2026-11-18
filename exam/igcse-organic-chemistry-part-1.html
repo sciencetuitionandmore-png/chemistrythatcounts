@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Organic chemistry part 1</title>
+<meta name="description" content="How to answer exam questions, step by step: Organic chemistry part 1. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/igcse-organic-chemistry-part-1.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--good-soft:#e3f3e9;--bad:#b3261e;--bad-soft:#fbe8e6;--hl:#fff1c7;--amber:#e0a526;--amber-ink:#8a5a00;--amber-soft:#fff8e8;
+--disp:"Lexend",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);overflow-x:hidden}
+.wrap{max-width:1127px;margin:0 auto;padding:20px 16px 36px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.2;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(1.4rem,3.1vw,2rem)}
+h2{font-size:clamp(1.2rem,2.4vw,1.5rem);margin:4px 0 8px}
+h3{font-size:1.15rem}
+p{margin:0 0 .6em}
+sub,sup{line-height:0;font-size:.72em}
+button{font:inherit;color:inherit}
+.lede{margin:6px 0 18px;color:var(--muted)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+mark,.hl{background:var(--hl);color:inherit;border-radius:4px;padding:0 3px;box-shadow:0 0 0 1.5px var(--amber);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* picker */
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.qc{all:unset;box-sizing:border-box;cursor:pointer;background:var(--sheet);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;display:flex;flex-direction:column;justify-content:space-between;gap:4px;min-height:72px}
+.qc b{font-family:var(--disp);font-weight:600;font-size:.98rem;line-height:1.25}
+.qc span{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--muted)}
+.qc:hover{border-color:var(--accent)}
+.qc:focus-visible,.btn:focus-visible,.pill:focus-visible,.plink:focus-visible,.dot:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.qc[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.qc[aria-pressed="true"] span{color:#dedcfa}
+/* cards */
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;background:var(--accent-soft);color:var(--accent);border-radius:99px;padding:3px 10px}
+.qcard{border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:14px 18px;margin-bottom:18px;background:var(--sheet)}
+.qcard .mk{color:var(--muted);font-weight:700;float:right;margin-left:10px}
+.qcard p.mk{float:none;text-align:right;margin:0}
+.eq{font-size:1.1rem;text-align:center;margin:.4em 0 .8em}
+.fig{display:block;max-width:100%;height:auto;margin:6px auto 10px}
+.tbl{overflow-x:auto;margin:6px 0 12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 9px;text-align:left}
+th{background:#f4f6f9;font-family:var(--disp);font-weight:600;font-size:.88rem}
+td.n,th.n{text-align:center}
+tr.hl td{background:var(--hl)}
+.sw{display:inline-block;width:.9em;height:.9em;border-radius:3px;border:1px solid #8a96a3;vertical-align:-1px}
+.sw.or{background:#e98a24}.sw.cl{background:#fff}
+svg.mol{display:inline-block;vertical-align:middle;max-width:100%;height:auto;overflow:visible}
+svg.mol line,svg.mol path{stroke:var(--ink);stroke-width:1.7;stroke-linecap:round;fill:none}
+svg.mol text{fill:var(--ink);font-family:var(--mono);font-size:15px}
+svg.mol .a{stroke:var(--accent)!important;stroke-width:2.6!important;fill:var(--accent)}
+svg.mol text.a{font-weight:700;stroke:none!important}
+/* walkthrough */
+.two{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);gap:20px;align-items:start}
+fieldset.ans{border:1.5px solid var(--line);border-radius:12px;padding:8px 16px 16px;margin:0;min-height:300px;min-width:0}
+fieldset.ans legend{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 6px}
+.ln{margin:7px 0;overflow-wrap:anywhere}
+.ln.note{color:var(--muted);font-size:.93rem;font-style:italic}
+.ln.empty{color:var(--muted);font-style:italic}
+.ln.new svg{animation:fade .6s ease both}
+.mt{display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.04em;background:var(--good-soft);color:var(--good);border:1px solid #9fd0b3;border-radius:99px;padding:0 7px;margin-left:4px;vertical-align:2px;font-style:normal}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.callout{border:2px solid var(--amber);background:var(--amber-soft);border-radius:10px;padding:7px 12px;margin:14px 0 4px;animation:fade .4s ease both}
+.callout .mono{color:var(--amber-ink);display:block;margin-bottom:1px}
+.final{border:2.5px solid var(--ink);border-radius:10px;padding:8px 14px;display:inline-block;font-weight:700;margin-top:12px;font-size:1.05rem;animation:fade .4s ease both}
+.foot{font-size:.86rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:16px;padding-top:8px}
+.ctrl{display:flex;flex-direction:column;gap:14px;min-width:0}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{cursor:pointer;font-family:var(--disp);font-weight:600;font-size:.92rem;border:1.5px solid var(--line);background:var(--sheet);border-radius:10px;padding:8px 13px;line-height:1.2}
+.btn:hover:not(:disabled){border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff;flex:1 1 auto}
+.btn.pri:hover:not(:disabled){background:#3b36a0}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:7px;flex-wrap:wrap}
+.dot{all:unset;cursor:pointer;width:13px;height:13px;border-radius:50%;background:var(--line)}
+.dot.on{background:var(--accent)}
+.dot.cur{box-shadow:0 0 0 2px var(--sheet),0 0 0 4px var(--accent)}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{cursor:pointer;border:0;background:var(--sheet);padding:5px 11px;font-size:.85rem;font-family:var(--disp);font-weight:600}
+.seg button+button{border-left:1.5px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.chip{border:1.5px solid var(--line);border-radius:10px;padding:5px 10px;font-size:.88rem;display:flex;gap:9px;align-items:baseline;color:var(--muted);}
+.chip b{font-family:var(--mono);font-size:.74rem;flex:none}
+.chip.on{background:var(--good-soft);border-color:var(--good);color:#0f4a2a}
+.chip.on b::after{content:" ✓"}
+.stepc{border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;background:#fafbfd}
+.stepc h3{margin:3px 0 6px;font-size:1.06rem}
+.stepc p{margin:0 0 .4em;font-size:.97rem}
+.tip{border-left:4px solid var(--amber);background:var(--amber-soft);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-size:.93rem}
+.tip strong{color:var(--amber-ink)}
+/* your turn */
+.yt{border:2px dashed var(--accent);border-radius:14px;padding:18px 20px;background:var(--sheet);margin-top:20px}
+.yt h3{margin-bottom:8px}
+.yt .ytq{margin-bottom:12px}
+.yt input[type=text]{font:inherit;font-size:1.05rem;border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;width:150px;max-width:100%}
+.yt textarea{font:inherit;width:100%;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;min-height:96px;resize:vertical;margin-bottom:10px}
+.yt input:focus,.yt textarea:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}
+.unit{color:var(--muted)}
+.fb{margin:10px 0 0;font-weight:700;min-height:1.2em}
+.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.fb span{font-weight:400;color:var(--ink)}
+.work{margin-top:12px;border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;background:#fafbfd}
+.work .ln{animation:fade .4s ease both}
+.ticks{list-style:none;padding:0;margin:6px 0}
+.ticks li{margin:6px 0}
+.ticks label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.ticks input{width:20px;height:20px;margin-top:3px;accent-color:var(--good);flex:none}
+.score{font-family:var(--disp);font-weight:700}
+/* checklist */
+.spec{margin-top:20px}
+.spec .intro{color:var(--muted);margin:4px 0 12px}
+.bar{height:8px;border-radius:99px;background:#e6ebf0;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;transition:width .3s}
+.bar .g{background:var(--good)}.bar .m{background:var(--amber)}.bar .r{background:var(--bad)}
+.counts{margin:8px 0 10px}
+.srow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.snum{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:700}
+.stext{font-size:.97rem}
+.plinks{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:2px}
+.plink{all:unset;cursor:pointer;font-size:.86rem;color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.pills{display:flex;gap:5px}
+.pill{cursor:pointer;border:1.5px solid var(--line);background:var(--sheet);border-radius:99px;padding:4px 11px;font-size:.84rem;font-family:var(--disp);font-weight:600;white-space:nowrap}
+.pill[data-v="0"][aria-pressed="true"]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.pill[data-v="1"][aria-pressed="true"]{background:#fdf0cf;border-color:var(--amber);color:var(--amber-ink)}
+.pill[data-v="2"][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.clear{margin-top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:900px){.picker{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}fieldset.ans{min-height:0}}
+@media (max-width:620px){.srow{grid-template-columns:34px minmax(0,1fr)}.pills{grid-column:2}.card{padding:16px 14px}.qcard{padding:12px 13px}.yt{padding:14px}}
+@media (max-width:420px){.picker{grid-template-columns:minmax(0,1fr)}.qc{min-height:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body><a href="../index.html#igcse-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE exam walkthroughs</a>
+
+<div class="wrap">
+<h1 id="h1"></h1>
+<p class="lede">Choose a question. Press <b>Next step</b> (or the → key) to build the answer one mark at a time.</p>
+<div class="picker" id="picker" role="group" aria-label="Questions"></div>
+
+<section class="card" id="walk" aria-live="off">
+<div class="mono" id="qlabel"></div>
+<h2 id="qtitle"></h2>
+<div class="tags" id="tags"></div>
+<div class="qcard" id="qtext"></div>
+<div class="two">
+<fieldset class="ans"><legend>Answer space</legend>
+<div id="lines"></div>
+<div class="callout" id="callout" hidden><span class="mono">Key point</span><span id="cotext"></span></div>
+<div id="final" class="final" hidden></div>
+<div class="foot" id="foot" hidden></div>
+</fieldset>
+<div class="ctrl">
+<div class="btns"><button class="btn" id="back" type="button">← Back</button><button class="btn" id="replay" type="button">↻ Replay</button><button class="btn pri" id="next" type="button">Next step →</button></div>
+<div class="dots" id="dots" aria-label="Progress"></div>
+<div class="row"><span class="mono">Speed</span><div class="seg" id="speed" role="group" aria-label="Typing speed"><button type="button" data-s="0" aria-pressed="false">Slow</button><button type="button" data-s="1" aria-pressed="true">Normal</button><button type="button" data-s="2" aria-pressed="false">Fast</button></div></div>
+<ul class="chips" id="chips" aria-label="Marking points"></ul>
+<div class="stepc" aria-live="polite"><div class="mono" id="stepno"></div><h3 id="steptitle"></h3><div id="steptext"></div><div class="tip" id="steptip" hidden></div></div>
+</div>
+</div>
+</section>
+
+<section class="yt" id="yt"></section>
+
+<section class="card spec" id="spec">
+<h2 id="spech"></h2>
+<p class="intro">Rate yourself on every spec point. Where there is a walkthrough, press Practise to open it.</p>
+<div class="bar" aria-hidden="true"><i class="g" id="bg"></i><i class="m" id="bm"></i><i class="r" id="br"></i></div>
+<div class="mono counts" id="counts"></div>
+<div id="speclist"></div>
+<button class="btn clear" id="clear" type="button">Clear my ratings</button>
+</section>
+</div>
+<script>
+"use strict";
+/* Displayed-formula drawer. Grid text: letters = atoms, - = | / \ bonds,
+   [ ] polymer brackets (span 2 rows up/down), ~ = subscript n. hl = [[row,col],...] */
+function M(src,hl){
+  var W=17,H=21,R=src.replace(/^\n/,"").split("\n"),cols=0,o="",i,r,c;
+  for(i=0;i<R.length;i++)cols=Math.max(cols,R[i].length);
+  var HS={};(hl||[]).forEach(function(p){HS[p[0]+","+p[1]]=1});
+  function L(x1,y1,x2,y2,a){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"'+(a?' class="a"':'')+'/>'}
+  for(r=0;r<R.length;r++){
+    var s=R[r];
+    for(c=0;c<s.length;c++){
+      var ch=s[c],x=c*W,y=r*H,cx=x+W/2,cy=y+H/2,a=HS[r+","+c];
+      if(ch===" ")continue;
+      if(ch==="-"){o+=L(x+1,cy,x+W-1,cy,a);continue}
+      if(ch==="="){o+=L(x+1,cy-3,x+W-1,cy-3,a)+L(x+1,cy+3,x+W-1,cy+3,a);continue}
+      if(ch==="|"){o+=L(cx,y+1,cx,y+H-1,a);continue}
+      if(ch==="/"){o+=L(x+2,y+H-2,x+W-2,y+2,a);continue}
+      if(ch==="\\"){o+=L(x+2,y+2,x+W-2,y+H-2,a);continue}
+      if(ch==="["||ch==="]"){var t=cy-2*H+2,b=cy+2*H-2,d=ch==="["?6:-6;
+        o+=L(x,cy,x+W,cy,a)+'<path d="M'+(cx+d)+" "+t+"H"+cx+"V"+b+"H"+(cx+d)+'"/>';continue}
+      if(ch==="~"){o+='<text x="'+(cx-3)+'" y="'+(cy+8)+'" style="font-size:12px;font-style:italic">n</text>';continue}
+      var tok=ch;
+      if(/[A-Za-z0-9]/.test(ch)){while(c+1<s.length&&/[A-Za-z0-9]/.test(s[c+1]))tok+=s[++c]}
+      var tx,cw=9;
+      var vb=(R[r-1]&&R[r-1][c-tok.length+1]==="|")||(R[r+1]&&R[r+1][c-tok.length+1]==="|");
+      if(/^[A-Z][a-z]$/.test(tok)&&!vb){tx=x+W-cw}             /* Br, Cl: centre over two cells (unless bonded vertically) */
+      else if(tok==="→"||tok==="+"){tx=cx-cw/2}
+      else tx=cx-cw/2;
+      var body=tok.replace(/(\d+)/g,'<tspan style="font-size:11px" dy="4">$1</tspan><tspan dy="-4"></tspan>');
+      if(tok==="→")body='<tspan style="font-size:22px" dx="-3">→</tspan>';
+      o+='<text x="'+tx+'" y="'+(cy+5)+'"'+(a?' class="a"':'')+'>'+body+"</text>";
+    }
+  }
+  var w=cols*W,h=R.length*H;
+  return '<svg class="mol" width="'+w+'" height="'+h+'" viewBox="-2 -2 '+(w+4)+" "+(h+4)+'" role="img" aria-label="displayed formula">'+o+"</svg>";
+}
+
+var PAGE={id:"y10-organic",year:"Year 10",group:"Organic chemistry part 1"};
+var COLUMN='<svg class="fig" width="400" height="262" viewBox="0 0 400 262" role="img" aria-label="Fractionating column. Hot crude oil vapour enters at the bottom. The column is about 350 °C at the bottom and 25 °C at the top. Fractions leave at different heights: refinery gases at the top, then gasoline, kerosene, diesel, fuel oil, and bitumen at the bottom."><defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2edfb"/><stop offset="1" stop-color="#fad6c4"/></linearGradient><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker></defs>'+
+'<g font-family="Atkinson Hyperlegible,Arial,sans-serif" font-size="13" fill="#1c2736"><rect x="140" y="10" width="78" height="228" rx="9" fill="url(#tg)" stroke="#1c2736" stroke-width="2"/>'+
+[48,84,120,156,192].map(function(y){return '<line x1="140" x2="218" y1="'+y+'" y2="'+y+'" stroke="#1c2736" stroke-dasharray="5 4"/>'}).join("")+
+[[24,"refinery gases"],[66,"gasoline (petrol)"],[102,"kerosene"],[138,"diesel oil"],[174,"fuel oil"],[226,"bitumen"]].map(function(a){return '<line x1="218" y1="'+a[0]+'" x2="248" y2="'+a[0]+'" stroke="#1c2736" stroke-width="1.6" marker-end="url(#ar)"/><text x="254" y="'+(a[0]+4)+'">'+a[1]+"</text>"}).join("")+
+'<text x="132" y="28" text-anchor="end">25 °C</text><text x="132" y="196" text-anchor="end">350 °C</text><line x1="112" y1="168" x2="112" y2="48" stroke="#5a6878" stroke-width="1.6" marker-end="url(#ar)"/><text x="104" y="112" text-anchor="end" fill="#5a6878">cooler</text>'+
+'<line x1="40" y1="214" x2="138" y2="214" stroke="#1c2736" stroke-width="2" marker-end="url(#ar)"/><text x="8" y="236">hot crude oil vapour</text></g></svg>';
+var TABLE='<div class="tbl"><table><thead><tr><th>Fraction</th><th>Use</th><th class="n">Supply / %</th><th class="n">Demand / %</th></tr></thead><tbody>'+
+[["Refinery gases","bottled gas for heating and cooking",3,4],["Gasoline","fuel for cars",20,30],["Kerosene","fuel for aircraft",13,10],["Diesel oil","fuel for lorries, trains and some cars",18,22],["Fuel oil and bitumen","fuel for ships; surfacing roads",46,34]].map(function(r,i){
+return '<tr'+(i===1?' class="hl"':'')+'><td>'+r[0]+'</td><td>'+r[1]+'</td><td class="n">'+r[2]+'</td><td class="n">'+r[3]+'</td></tr>'}).join("")+'</tbody></table></div>';
+
+var PROPENE=M("H H\n| |\nC=C\n| |\nH CH3",[[2,1]]);
+var PP_OPEN=M(" H H\n | |\n-C-C-\n | |\n H CH3",[[2,2]]);
+var PP_RU=M("   H H\n   | |\n-[-C-C-]-\n   | |\n   H CH3~",[[2,0],[2,1],[2,7],[2,8]]);
+var PVC_RU=M("   H H\n   | |\n-[-C-C-]-\n   | |\n   H Cl ~");
+var PVC_BARE=M("H H\n| |\nC-C\n| |\nH Cl");
+var CLETHENE=M("H H\n| |\nC=C\n| |\nH Cl",[[2,1]]);
+
+var QS=[
+{id:"fd",name:"Fractional distillation",type:"Describe",marks:6,
+title:"Describe and explain the fractional distillation of crude oil",
+tags:["Spec 4.7 crude oil","Spec 4.8 fractional distillation","Spec 4.10 trends in the fractions"],
+q:'<p>Crude oil is a mixture of hydrocarbons. At a refinery it is separated into fractions in a fractionating column.</p>'+COLUMN+'<p><mark>Describe and explain</mark> how fractional distillation separates crude oil into fractions.</p><p class="mk">(6)</p>',
+mk:[["M1","crude oil heated → vapour"],["M2","vapour enters bottom of column"],["M3","hot at bottom, cool at top"],["M4","vapours rise and cool"],["M5","condense at different heights (boiling points)"],["M6","small molecules top, large molecules bottom"]],
+foot:"Top to bottom: refinery gases, gasoline, kerosene, diesel, fuel oil, bitumen. Going down the column: boiling point ↑, viscosity ↑, colour darker.",
+steps:[
+{t:"Plan the answer",x:"“Describe and explain” means say <b>what happens</b> and <b>why</b>. Six marks means about six separate points. Follow the oil from the furnace to the top of the column.",
+ add:[{h:"Plan: heat → vapour → column → hot at bottom, cool at top → rise and cool → condense at boiling point → small molecules top, large at bottom",c:"note"}],
+ co:"Describe = what happens. Explain = why it happens.",tip:"Write the points in the order they happen. A clear sequence makes it easy for the examiner to find every mark."},
+{t:"Heat the crude oil",x:"The first mark is for heating the crude oil so that it turns into a vapour (gas). The refinery heats it to about 350 °C.",
+ add:[{h:"Crude oil is <mark>heated</mark> so that it <mark>evaporates</mark> (turns into vapour).",m:"M1"}],e:["M1"],co:"heated → vapour",
+ tip:"Allow “boils” or “vaporises”. Do <b>not</b> write “burned”: burning is combustion and loses the mark."},
+{t:"Where does the vapour go?",x:"Say where the vapour goes in. It enters near the bottom of the column, where it is hottest.",
+ add:[{h:"The vapour <mark>enters the bottom</mark> of the fractionating column.",m:"M2"}],e:["M2"]},
+{t:"Describe the temperature gradient",x:"The column is not the same temperature all the way up. Say which end is hot and which end is cool.",
+ add:[{h:"The column is <mark>hot at the bottom and cooler at the top</mark> (a temperature gradient).",m:"M3"}],e:["M3"],co:"hot at the bottom · cool at the top",
+ tip:"“There is a temperature gradient” on its own is not enough. Give the direction."},
+{t:"The vapours rise and cool",x:"As the gases rise, they move into cooler parts of the column, so they lose energy and cool down.",
+ add:[{h:"The vapours <mark>rise up</mark> the column and <mark>cool down</mark>.",m:"M4"}],e:["M4"]},
+{t:"Condensing at the boiling point",x:"This is the key idea. The fractions separate because they have different boiling points. Each one turns back into a liquid at its own height.",
+ add:[{h:"Each fraction <mark>condenses at a different height</mark>, where the temperature falls below its <mark>boiling point</mark>. The liquid is collected on a tray and piped off.",m:"M5"}],e:["M5"],co:"separated by boiling point",
+ tip:"Use the word <b>condense</b> (gas → liquid). Many students write “evaporate” here and lose the mark."},
+{t:"Explain top and bottom",x:"Now explain <b>why</b> fractions come out at different places. Bigger molecules have stronger forces between the molecules, so they need more energy to boil.",
+ add:[{h:"Fractions with <mark>small molecules</mark> have low boiling points and leave near the <mark>top</mark> (refinery gases). Fractions with <mark>large molecules</mark> have high boiling points and leave at the <mark>bottom</mark> (bitumen).",m:"M6"}],e:["M6"],
+ tip:"Allow “long chains” for large molecules. “Heavy molecules sink” is wrong: everything rises as vapour first."},
+{t:"Check and total",x:"You have six separate points in a logical order. <b>Total: 6 marks.</b> The most common way to lose marks is to say the oil is “burned”, or that fractions “evaporate” in the column instead of condensing.",
+ fin:"6 marking points made → 6 / 6"}
+],
+yt:{k:"t",q:"Bitumen and refinery gases are both fractions of crude oil. <mark>Compare</mark> bitumen with refinery gases. Give <mark>three differences</mark> and <mark>one use</mark> of each fraction. (5)",
+ pts:["Bitumen has larger molecules (longer carbon chains)","Bitumen has a higher boiling point","Bitumen is more viscous (thicker) or darker in colour","Bitumen is used to surface roads or roofs","Refinery gases are used as bottled gas for heating and cooking"]}
+},
+
+{id:"comb",name:"Complete combustion equation",type:"Equation",marks:3,
+title:"Write a balanced equation for the complete combustion of heptane",
+tags:["Spec 4.11 fuels","Spec 4.12 combustion products"],
+q:'<p>Heptane, C<sub>7</sub>H<sub>16</sub>, is a hydrocarbon in the gasoline fraction. It is used as a <mark>fuel</mark>: it releases heat energy when it burns.</p><p>In plenty of air, heptane undergoes <mark>complete combustion</mark>.</p><p><mark>Write</mark> the <mark>balanced equation</mark> for the complete combustion of heptane. <mark>Include state symbols</mark>. Give water as a liquid.</p><p class="mk">(3)</p>',
+mk:[["M1","correct formulae: CO<sub>2</sub> and H<sub>2</sub>O"],["M2","balanced: 11O<sub>2</sub>, 7CO<sub>2</sub>, 8H<sub>2</sub>O"],["M3","correct state symbols"]],
+foot:"Balance in the order C → H → O. Oxygen is always last.",
+steps:[
+{t:"Name the products",x:"Complete combustion means there is plenty of oxygen. All the carbon becomes carbon dioxide and all the hydrogen becomes water.",
+ add:[{h:"C<sub>7</sub>H<sub>16</sub> + O<sub>2</sub> → <mark>CO<sub>2</sub> + H<sub>2</sub>O</mark>",m:"M1"}],e:["M1"],co:"products: CO<sub>2</sub> + H<sub>2</sub>O",
+ tip:"Complete combustion never makes CO or C (soot). Those come from <b>incomplete</b> combustion."},
+{t:"Balance carbon",x:"There are 7 C atoms on the left, so put 7 in front of CO<sub>2</sub>.",
+ add:["C<sub>7</sub>H<sub>16</sub> + O<sub>2</sub> → <mark>7</mark>CO<sub>2</sub> + H<sub>2</sub>O"],co:"7 C on each side"},
+{t:"Balance hydrogen",x:"There are 16 H atoms. Each H<sub>2</sub>O has 2 H atoms, so you need 16 ÷ 2 = 8 H<sub>2</sub>O.",
+ add:["C<sub>7</sub>H<sub>16</sub> + O<sub>2</sub> → 7CO<sub>2</sub> + <mark>8</mark>H<sub>2</sub>O"],co:"16 H ÷ 2 = 8 H<sub>2</sub>O"},
+{t:"Balance oxygen last",x:"Count the O atoms on the right: 7 × 2 = 14 in CO<sub>2</sub>, plus 8 × 1 = 8 in water. That is 22. Each O<sub>2</sub> has 2 atoms, so you need 22 ÷ 2 = 11 O<sub>2</sub>.",
+ add:[{h:"O atoms on the right: (7 × 2) + (8 × 1) = 22, so 22 ÷ 2 = 11 O<sub>2</sub>",c:"note"},{h:"C<sub>7</sub>H<sub>16</sub> + <mark>11</mark>O<sub>2</sub> → 7CO<sub>2</sub> + 8H<sub>2</sub>O",m:"M2"}],e:["M2"],co:"22 O atoms = 11 O<sub>2</sub>",
+ tip:"M2 is only given if the formulae (M1) are correct. If you get an odd number of O atoms, double every number."},
+{t:"Add state symbols",x:"Heptane is a liquid at room temperature. Oxygen and carbon dioxide are gases. The question says to give water as a liquid.",
+ add:[{h:"C<sub>7</sub>H<sub>16</sub>(l) + 11O<sub>2</sub>(g) → 7CO<sub>2</sub>(g) + 8H<sub>2</sub>O(l)",m:"M3"}],e:["M3"],
+ fin:"C<sub>7</sub>H<sub>16</sub>(l) + 11O<sub>2</sub>(g) → 7CO<sub>2</sub>(g) + 8H<sub>2</sub>O(l)",
+ tip:"Write state symbols in lower case in brackets: (s), (l), (g), (aq). Do not use (aq) for a pure liquid like heptane."},
+{t:"Check and total",x:"Count each element on both sides. <b>Total: 3 marks.</b> The most common error is the oxygen: students forget the O atoms in the water.",
+ add:[{h:"Check: C 7 = 7 · H 16 = 16 · O 22 = 22 ✓",c:"note"}]}
+],
+yt:{k:"n",q:"Pentane, C<sub>5</sub>H<sub>12</sub>, burns completely in air:<br><span class=\"eq\" style=\"display:block\">C<sub>5</sub>H<sub>12</sub> + <b>?</b> O<sub>2</sub> → 5CO<sub>2</sub> + 6H<sub>2</sub>O</span><mark>Work out</mark> the number that goes in front of O<sub>2</sub>.",
+ ans:8,tol:0,unit:"O<sub>2</sub> molecules",
+ wrong:[[16,"16 is the number of O <b>atoms</b>. Each O<sub>2</sub> molecule has 2 atoms, so divide by 2."],[11,"You may have counted the 12 H atoms. Count only the O atoms in the products."],[13,"Check the water: each H<sub>2</sub>O has only one O atom."]],
+ ok:"16 O atoms on the right ÷ 2 = 8 O<sub>2</sub>.",no:"Count all the O atoms in the products, then divide by 2.",
+ work:["O atoms in 5CO<sub>2</sub>: 5 × 2 = 10","O atoms in 6H<sub>2</sub>O: 6 × 1 = 6","Total O atoms = 16","16 ÷ 2 = <b>8 O<sub>2</sub></b>","C<sub>5</sub>H<sub>12</sub> + 8O<sub>2</sub> → 5CO<sub>2</sub> + 6H<sub>2</sub>O"]}
+},
+
+{id:"co",name:"Carbon monoxide",type:"Explain",marks:5,
+title:"Explain how carbon monoxide forms and why it is toxic",
+tags:["Spec 4.12 incomplete combustion","Spec 4.13 carbon monoxide"],
+q:'<p>A gas boiler burns methane, CH<sub>4</sub>. The air vent of the boiler becomes <mark>blocked</mark>. A carbon monoxide alarm in the house starts to sound.</p><p>(a) <mark>Explain</mark> why the boiler now produces carbon monoxide. Include a <mark>balanced equation</mark>. <span class="mk">(2)</span></p><p>(b) <mark>Explain</mark> why carbon monoxide is dangerous to the people in the house. <span class="mk">(3)</span></p>',
+mk:[["M1","not enough oxygen → incomplete combustion"],["M2","balanced equation making CO"],["M3","CO combines with the blood"],["M4","blood carries less oxygen"],["M5","colourless and odourless"]],
+foot:"Incomplete combustion can make CO, C (soot) or both, as well as water.",
+steps:[
+{t:"Spot the link",x:"Blocked vent = less air comes in. Less air means less oxygen. Part (a) asks <b>why</b> CO forms. Part (b) asks what CO does in the body.",
+ add:[{h:"Plan: blocked vent → not enough oxygen → incomplete combustion → CO. Then: CO in blood → less oxygen carried → danger.",c:"note"}],co:"blocked vent → less O<sub>2</sub>"},
+{t:"Give the cause",x:"Link the blocked vent to the oxygen supply. The carbon in the fuel can only be partly oxidised.",
+ add:[{h:"(a) There is <mark>not enough oxygen</mark>, so <mark>incomplete combustion</mark> happens. The carbon in methane is only partly oxidised, to carbon monoxide.",m:"M1"}],e:["M1"],
+ tip:"“Not enough air” or “limited oxygen” are fine. Writing only “incomplete combustion” without the reason may not get the mark."},
+{t:"Write the equation",x:"Write CO instead of CO<sub>2</sub>. Balance C, then H, then O: 2 + 4 = 6 O atoms on the right, so you need 3 O<sub>2</sub>.",
+ add:[{h:"2CH<sub>4</sub> + <mark>3</mark>O<sub>2</sub> → <mark>2CO</mark> + 4H<sub>2</sub>O",m:"M2"}],e:["M2"],co:"2 + 4 = 6 O atoms → 3O<sub>2</sub>",
+ tip:"Allow CH<sub>4</sub> + 1½O<sub>2</sub> → CO + 2H<sub>2</sub>O, or other correct multiples."},
+{t:"What CO does in the blood",x:"CO joins onto the part of the blood that normally carries oxygen. You do not need the word haemoglobin for 4CH1, but you may use it.",
+ add:[{h:"(b) Carbon monoxide <mark>combines with the blood</mark> (haemoglobin in red blood cells) instead of oxygen.",m:"M3"}],e:["M3"]},
+{t:"The effect on the body",x:"Now give the result. The key idea is the blood’s <b>capacity to carry oxygen</b>.",
+ add:[{h:"So the blood <mark>carries less oxygen</mark> around the body. Cells do not get enough oxygen, which can cause unconsciousness or death.",m:"M4"}],e:["M4"],co:"less oxygen carried by the blood",
+ tip:"Do not write “CO stops you breathing”. You still breathe, but your blood carries less oxygen."},
+{t:"Why it is not noticed",x:"The question mentions an alarm. Use that clue: people cannot detect the gas themselves.",
+ add:[{h:"Carbon monoxide is <mark>colourless and odourless</mark>, so people cannot see or smell it. That is why an alarm is needed.",m:"M5"}],e:["M5"]},
+{t:"Check and total",x:"Part (a): cause + equation. Part (b): effect on the blood + why it is not noticed. <b>Total: 5 marks.</b> Marks are most often lost by saying CO is “poisonous” without explaining the effect on oxygen transport.",
+ fin:"(a) 2 marks + (b) 3 marks = 5 / 5"}
+],
+yt:{k:"t",q:"A candle burns under a cold beaker with very little air. A black solid forms on the beaker.<br>(a) <mark>Name</mark> the black solid. (b) <mark>Explain</mark> why it forms. (c) <mark>Give one problem</mark> caused when this solid is released from engines. (3)",
+ pts:["Carbon (soot)","There is not enough oxygen, so combustion is incomplete","It blackens buildings, or it can cause breathing problems"]}
+},
+
+{id:"acid",name:"Acid rain",type:"Explain",marks:4,
+title:"Explain how acid rain forms and give one effect",
+tags:["Spec 4.14 oxides of nitrogen","Spec 4.15 sulfur dioxide","Spec 4.16 acid rain"],
+q:'<p>Coal burned in a power station contains small amounts of <mark>sulfur</mark>. Car engines burn petrol at very <mark>high temperatures</mark>.</p><p><mark>Explain</mark> how these two sources can cause acid rain, and <mark>give one effect</mark> of acid rain on the environment.</p><p class="mk">(4)</p>',
+mk:[["M1","sulfur impurity burns → SO<sub>2</sub>"],["M2","N<sub>2</sub> + O<sub>2</sub> from air react in hot engine"],["M3","gases dissolve in rain → acids"],["M4","one specific effect"]],
+foot:"Acid rain gases: sulfur dioxide (from sulfur impurities) and oxides of nitrogen (from air in hot engines).",
+steps:[
+{t:"Two sources, two gases",x:"The question gives two clues: sulfur in coal, and high temperature in engines. Each clue leads to a different gas.",
+ add:[{h:"Plan: sulfur → SO<sub>2</sub> · hot engine → oxides of nitrogen · gases + rain water → acids · one effect",c:"note"}],co:"sulfur → SO<sub>2</sub> · hot engine → NO<sub>x</sub>"},
+{t:"Sulfur dioxide",x:"Fossil fuels contain sulfur as an impurity. When the fuel burns, the sulfur reacts with oxygen.",
+ add:[{h:"Sulfur <mark>impurities</mark> in the coal burn and react with oxygen to form <mark>sulfur dioxide</mark>: S + O<sub>2</sub> → SO<sub>2</sub>",m:"M1"}],e:["M1"],
+ tip:"The hydrocarbon itself does not make SO<sub>2</sub>. It is the sulfur <b>impurity</b>."},
+{t:"Oxides of nitrogen",x:"Air is about 78 % nitrogen. Nitrogen is unreactive, but the very high temperature in an engine lets it react with oxygen.",
+ add:[{h:"In car engines the temperature is high enough for <mark>nitrogen and oxygen from the air</mark> to react, forming <mark>oxides of nitrogen</mark> (such as NO<sub>2</sub>).",m:"M2"}],e:["M2"],co:"N<sub>2</sub> and O<sub>2</sub> come from the air",
+ tip:"The nitrogen comes from the <b>air</b>, not from the petrol. “Nitrogen in the fuel” is a common error."},
+{t:"Forming the acid",x:"Both gases are acidic. They dissolve in the water in clouds and react to make acids.",
+ add:[{h:"These gases <mark>dissolve in rain water</mark> (and react with water and oxygen) to form <mark>acids</mark>, such as sulfuric acid and nitric acid. The rain has a lower pH.",m:"M3"}],e:["M3"]},
+{t:"Give one effect",x:"Choose one clear effect. Name what is damaged.",
+ add:[{h:"One effect: acid rain <mark>damages limestone buildings and statues</mark>. (Also allow: makes lakes acidic so fish die; damages trees.)",m:"M4"}],e:["M4"],
+ tip:"“It damages the environment” is too vague for the mark."},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> The commonest mistake is mixing up acid rain with global warming. Carbon dioxide is not the gas to write about here.",
+ fin:"4 / 4: SO<sub>2</sub> · NO<sub>x</sub> · acids in rain · effect"}
+],
+yt:{k:"t",q:"Burning fossil fuels also releases carbon dioxide. <mark>Explain</mark> how increasing the amount of carbon dioxide in the atmosphere may lead to climate change. (3)",
+ pts:["Carbon dioxide is a greenhouse gas","It absorbs heat (infrared radiation) given out by the Earth, so less heat escapes to space","More CO<sub>2</sub> traps more heat, so the average temperature rises, which may change the climate"]}
+},
+
+{id:"crack",name:"Cracking equation",type:"Equation",marks:4,
+title:"Complete a cracking equation and state the conditions",
+tags:["Spec 4.17 catalytic cracking"],
+q:'<p>Long-chain alkanes from crude oil are cracked to make more useful products. The equation shows the cracking of dodecane.</p><p class="eq">C<sub>12</sub>H<sub>26</sub> → C<sub>8</sub>H<sub>18</sub> + <mark>2</mark> ______</p><p>(a) <mark>Complete</mark> the equation by giving the formula of the missing product. <span class="mk">(1)</span></p><p>(b) <mark>Name</mark> the type of hydrocarbon that the missing product is. <span class="mk">(1)</span></p><p>(c) <mark>State</mark> the conditions used for catalytic cracking. <span class="mk">(2)</span></p>',
+mk:[["M1","C<sub>2</sub>H<sub>4</sub>"],["M2","alkene"],["M3","silica or alumina catalyst"],["M4","600–700 °C"]],
+foot:"Cracking: long-chain alkane → shorter alkane + alkene. Atoms in = atoms out.",
+steps:[
+{t:"Count the atoms on the left",x:"Atoms are not made or destroyed in cracking. The products must contain 12 C and 26 H in total.",
+ add:["Left side: C<sub>12</sub>H<sub>26</sub> → 12 C, 26 H"],co:"12 C · 26 H"},
+{t:"Take away the known product",x:"Subtract the atoms in C<sub>8</sub>H<sub>18</sub>. What is left over is shared between the 2 missing molecules.",
+ add:["C: 12 − 8 = 4 · H: 26 − 18 = 8","So the 2 missing molecules contain C<sub>4</sub>H<sub>8</sub> altogether"],co:"left over: C<sub>4</sub>H<sub>8</sub>"},
+{t:"Divide by 2",x:"There is a 2 in front of the gap, so each molecule has half of the left-over atoms.",
+ add:[{h:"Each molecule: C<sub>4</sub>H<sub>8</sub> ÷ 2 = <mark>C<sub>2</sub>H<sub>4</sub></mark>",m:"M1"},"C<sub>12</sub>H<sub>26</sub> → C<sub>8</sub>H<sub>18</sub> + 2C<sub>2</sub>H<sub>4</sub>"],e:["M1"],
+ fin:"C<sub>12</sub>H<sub>26</sub> → C<sub>8</sub>H<sub>18</sub> + 2C<sub>2</sub>H<sub>4</sub>",
+ tip:"Look for a number in front of the gap. Many students write C<sub>4</sub>H<sub>8</sub> and lose the mark."},
+{t:"Identify the product",x:"C<sub>8</sub>H<sub>18</sub> fits C<sub>n</sub>H<sub>2n+2</sub>, so it is an alkane. C<sub>2</sub>H<sub>4</sub> fits C<sub>n</sub>H<sub>2n</sub>, so it is an alkene. Cracking always makes at least one alkene.",
+ add:[{h:"(b) C<sub>2</sub>H<sub>4</sub> is ethene, an <mark>alkene</mark>.",m:"M2"}],e:["M2"]},
+{t:"The catalyst",x:"In industry the hydrocarbon vapour is passed over a hot catalyst.",
+ add:[{h:"(c) Catalyst: <mark>silica or alumina</mark> (aluminium oxide)",m:"M3"}],e:["M3"],
+ tip:"Allow SiO<sub>2</sub> or Al<sub>2</sub>O<sub>3</sub>. In the school lab, paraffin on mineral wool is heated and the vapour passes over hot broken porcelain or aluminium oxide; the gas is collected over water."},
+{t:"The temperature",x:"Give a number with units, inside the range in the specification.",
+ add:[{h:"Temperature: <mark>600–700 °C</mark>",m:"M4"}],e:["M4"],co:"catalyst + 600–700 °C",
+ tip:"“A high temperature” on its own does not score. Give a value."},
+{t:"Check and total",x:"Check the products: C 8 + 4 = 12, H 18 + 8 = 26 ✓. <b>Total: 4 marks.</b> The most common mistake is to ignore the “2” in front of the missing formula.",
+ add:[{h:"Check: C 12 = 8 + 4 · H 26 = 18 + 8 ✓",c:"note"}]}
+],
+yt:{k:"n",q:"Decane is cracked: C<sub>10</sub>H<sub>22</sub> → C<sub>8</sub>H<sub>18</sub> + X<br><mark>How many hydrogen atoms</mark> are in one molecule of X?",
+ ans:4,tol:0,unit:"H atoms",
+ wrong:[[2,"2 is the number of <b>carbon</b> atoms in X. Now do the hydrogen: 22 − 18."],[40,"Subtract, do not add: 22 − 18."],[22,"That is the number on the left. Take away the 18 H atoms in C<sub>8</sub>H<sub>18</sub>."]],
+ ok:"22 − 18 = 4, so X is C<sub>2</sub>H<sub>4</sub> (ethene).",no:"Subtract the H atoms in C<sub>8</sub>H<sub>18</sub> from the H atoms in C<sub>10</sub>H<sub>22</sub>.",
+ work:["H atoms on the left: 22","H atoms in C<sub>8</sub>H<sub>18</sub>: 18","H atoms in X = 22 − 18 = <b>4</b>","C atoms in X = 10 − 8 = 2, so X = C<sub>2</sub>H<sub>4</sub> (ethene)"]}
+},
+
+{id:"poly",name:"Addition polymers",type:"Draw",marks:4,
+title:"Draw a repeat unit and deduce a monomer",
+tags:["Addition polymers","Monomers and repeat units"],
+q:'<p>Propene is used to make the polymer poly(propene).</p><div style="text-align:center;margin:6px 0 10px">'+PROPENE+'</div><p>(a) <mark>Draw</mark> the <mark>repeat unit</mark> of poly(propene). <span class="mk">(2)</span></p><p>The diagram shows the repeat unit of another addition polymer, poly(chloroethene).</p><div style="text-align:center;margin:6px 0 10px">'+PVC_RU+'</div><p>(b) <mark>Draw</mark> the displayed formula of the <mark>monomer</mark> used to make this polymer. <span class="mk">(2)</span></p>',
+mk:[["M1","single C–C bond, side groups in place"],["M2","extension bonds through brackets + n"],["M3","C=C double bond"],["M4","all atoms correct, no extension bonds"]],
+foot:"Monomer ⇄ repeat unit: open the C=C to go forwards; close it again to go backwards.",
+steps:[
+{t:"Start from the monomer",x:"Copy the monomer and find the C=C double bond. In addition polymerisation, the double bond opens and many monomers join into a long chain.",
+ add:[{h:PROPENE+' <span class="note">propene</span>'}],co:"the C=C opens up"},
+{t:"Open the double bond",x:"Change C=C into a single C–C bond. Each carbon now has a spare bond. Keep every atom on the same carbon: the CH<sub>3</sub> stays as a side group.",
+ add:[{h:PP_OPEN,m:"M1"}],e:["M1"]},
+{t:"Add brackets and n",x:"Draw a bond out of each carbon, going <b>through</b> square brackets. Write n after the bracket to show that the unit repeats many times.",
+ add:[{h:PP_RU,m:"M2"}],e:["M2"],co:"n = a very large number",
+ tip:"Do not put the CH<sub>3</sub> into the main chain. The repeat unit has only 2 carbons in the chain."},
+{t:"Work backwards for (b)",x:"To find a monomer, reverse the steps: remove n, the brackets and the extension bonds.",
+ add:[{h:PVC_BARE}],co:"remove n, brackets and extension bonds"},
+{t:"Put the double bond back",x:"In the monomer the two carbons were joined by a double bond.",
+ add:[{h:CLETHENE,m:"M3"}],e:["M3"],tip:"A monomer drawn with extension bonds or brackets gets no mark."},
+{t:"Check the atoms",x:"Each carbon has 4 bonds (the double bond counts as 2). There are 3 H atoms and 1 Cl atom, the same as in the repeat unit.",
+ add:[{h:"(b) Monomer: <mark>chloroethene</mark>, CH<sub>2</sub>=CHCl",m:"M4"}],e:["M4"]},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> The most common errors are keeping the double bond in the repeat unit, or forgetting the extension bonds.",
+ tip:"Name rule: poly(name of monomer). Poly(ethene) comes from ethene; poly(tetrafluoroethene), PTFE, comes from CF<sub>2</sub>=CF<sub>2</sub>.",
+ fin:"(a) 2 marks + (b) 2 marks = 4 / 4"}
+],
+yt:{k:"t",q:"Poly(chloroethene) is used for window frames and water pipes. <mark>Explain two problems</mark> with disposing of waste poly(chloroethene). (4)",
+ pts:["In landfill it does not biodegrade, because it is inert (microorganisms cannot break it down)","So it stays in landfill sites for a very long time and uses up land","When burned it produces toxic gases, such as hydrogen chloride","Burning also releases carbon dioxide (a greenhouse gas), or carbon monoxide if combustion is incomplete"]}
+},
+
+{id:"data",name:"Supply and demand data",type:"Data",marks:4,
+title:"Use supply and demand data to explain cracking",
+tags:["Spec 4.9 fractions and their uses","Spec 4.18 why cracking is needed"],
+q:'<p>The table shows the percentage of each fraction that a refinery <b>gets</b> from crude oil (supply), and the percentage that customers <b>want</b> (demand).</p>'+TABLE+'<p>The refinery processes <mark>50 000 tonnes</mark> of crude oil each day.</p><p>(a) <mark>Calculate</mark> the extra mass of <mark>gasoline</mark> needed each day to meet demand. <span class="mk">(2)</span></p><p>(b) <mark>Explain</mark> how cracking helps the refinery to match supply with demand. <span class="mk">(2)</span></p>',
+mk:[["M1","difference = 10 %"],["M2","5 000 tonnes"],["M3","fuel oil and bitumen: supply > demand"],["M4","cracked into shorter, wanted fractions"]],
+foot:"Percentage of a total: (percentage ÷ 100) × total.",
+steps:[
+{t:"Find the right row",x:"Only the gasoline row matters for part (a). Read both numbers carefully.",
+ add:["Gasoline: supply = 20 %, demand = 30 %"],co:"20 % supplied · 30 % wanted"},
+{t:"Find the difference",x:"Demand is higher than supply. The difference is the percentage that is missing.",
+ add:[{h:"Shortfall = 30 − 20 = <mark>10 %</mark>",m:"M1"}],e:["M1"]},
+{t:"Turn the percentage into a mass",x:"Find 10 % of the 50 000 tonnes processed each day.",
+ add:[{h:"Extra mass = 10 ÷ 100 × 50 000 = <mark>5 000 tonnes</mark>",m:"M2"}],e:["M2"],fin:"5 000 tonnes of gasoline per day",
+ tip:"Do not work out 30 % of 50 000 (15 000 t). That is the total demand, not the extra. With working shown, M1 can still score if the final answer is wrong."},
+{t:"Find the surplus",x:"Cracking needs a starting material that there is too much of. Look for the row where supply is bigger than demand.",
+ add:[{h:"(b) The refinery makes <mark>more fuel oil and bitumen than customers want</mark> (46 % supplied, only 34 % wanted).",m:"M3"}],e:["M3"],co:"surplus: large molecules"},
+{t:"Explain what cracking does",x:"Cracking breaks long molecules into shorter ones. Link it to the shortage you found in (a).",
+ add:[{h:"These <mark>long-chain</mark> hydrocarbons are <mark>cracked into shorter-chain</mark> molecules, such as gasoline, which are in high demand. Cracking also makes alkenes for making polymers.",m:"M4"}],e:["M4"],
+ tip:"Quote numbers from the table. It shows the examiner that you have used the data."},
+{t:"Check and total",x:"<b>Total: 4 marks.</b> Students most often lose marks by finding 30 % of the total instead of the 10 % difference, or by saying cracking makes “more crude oil”."}
+],
+yt:{k:"n",q:"Use the table above. Another refinery processes <mark>80 000 tonnes</mark> of crude oil each day, with the same percentages. <mark>Calculate</mark> the extra mass of <mark>diesel oil</mark> needed each day to meet demand.",
+ ans:3200,tol:1,unit:"tonnes",
+ wrong:[[17600,"That is the total demand for diesel (22 %). You need demand − supply."],[14400,"That is the supply of diesel (18 %). Find demand − supply first."],[4,"4 % is the shortfall as a percentage. Now find 4 % of 80 000 tonnes."],[8000,"Check the row: diesel is 18 % supply and 22 % demand."]],
+ ok:"22 − 18 = 4 %; 4 ÷ 100 × 80 000 = 3 200 tonnes.",no:"Find demand − supply for diesel, then work out that percentage of 80 000 tonnes.",
+ work:["Diesel: supply 18 %, demand 22 %","Shortfall = 22 − 18 = 4 %","Extra mass = 4 ÷ 100 × 80 000","= <b>3 200 tonnes</b>"]}
+}
+];
+
+var SPEC=[
+{n:"4.7",s:"Crude oil is a mixture of hydrocarbons (compounds of hydrogen and carbon only).",p:["fd"]},
+{n:"4.8",s:"Describe how fractional distillation separates crude oil into fractions in a column.",p:["fd"]},
+{n:"4.9",s:"Name the main fractions (refinery gases, gasoline, kerosene, diesel, fuel oil, bitumen) and give a use of each.",p:["data"]},
+{n:"4.10",s:"Know the trends down the column: boiling point and viscosity increase, and the colour gets darker.",p:["fd"]},
+{n:"4.11",s:"A fuel is a substance that releases heat energy when it burns.",p:["comb"]},
+{n:"4.12",s:"Know the products of complete combustion (CO<sub>2</sub>, H<sub>2</sub>O) and of incomplete combustion (also CO and carbon/soot).",p:["comb","co"]},
+{n:"4.13",s:"Explain why carbon monoxide is poisonous: it reduces how much oxygen the blood can carry.",p:["co"]},
+{n:"4.14",s:"In car engines it is hot enough for nitrogen and oxygen from the air to react, making oxides of nitrogen.",p:["acid"]},
+{n:"4.15",s:"Explain how burning sulfur impurities in fuels makes sulfur dioxide.",p:["acid"]},
+{n:"4.16",s:"Explain how sulfur dioxide and oxides of nitrogen cause acid rain.",p:["acid"]},
+{n:"",s:"Carbon dioxide is a greenhouse gas; more of it in the atmosphere may contribute to climate change (see Your turn in Acid rain).",p:["acid"]},
+{n:"4.17",s:"Describe catalytic cracking: long-chain alkanes → shorter alkanes + alkenes, silica or alumina catalyst, 600–700 °C.",p:["crack"]},
+{n:"4.18",s:"Explain why cracking is needed, using the supply and demand of the fractions.",p:["data"]},
+{n:"",s:"An addition polymer is made by joining many small molecules called monomers.",p:["poly"]},
+{n:"",s:"Draw the repeat unit of poly(ethene), poly(propene), poly(chloroethene) and poly(tetrafluoroethene).",p:["poly"]},
+{n:"",s:"Work out a monomer from a repeat unit, and a repeat unit from a monomer.",p:["poly"]},
+{n:"",s:"Explain the problems of disposing of addition polymers: they are inert and do not biodegrade, and burning them makes toxic gases.",p:["poly"]}
+];
+
+(function(){
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var qi=0,k=0,gen=0,spd=1,DEL=[42,17,7],CH=[1,1,3];
+var reduce=false;try{reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+var store={get:function(key){try{return window.localStorage.getItem(key)}catch(e){return null}},
+  set:function(key,v){try{window.localStorage.setItem(key,v)}catch(e){}}};
+
+$("#h1").textContent=PAGE.group+": answer it mark by mark";
+$("#spech").textContent=PAGE.group+": spec checklist";
+
+/* picker */
+function buildPicker(){
+  $("#picker").innerHTML=QS.map(function(q,i){
+    return '<button class="qc" type="button" data-i="'+i+'" aria-pressed="'+(i===qi)+'"><b>'+q.name+'</b><span>'+q.type+" · "+q.marks+" marks</span></button>"}).join("");
+}
+$("#picker").addEventListener("click",function(e){var b=e.target.closest(".qc");if(b)select(+b.dataset.i,false)});
+function select(i,scroll){
+  qi=i;$$(".qc").forEach(function(b,j){b.setAttribute("aria-pressed",String(j===i))});
+  renderQ();
+  if(scroll){try{$("#walk").scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})}catch(e){$("#walk").scrollIntoView()}}
+}
+function renderQ(){
+  var q=QS[qi];
+  $("#qlabel").textContent="IGCSE Chemistry · "+PAGE.year+" · "+PAGE.group+" · Exam-style question · "+q.marks+" marks";
+  $("#qtitle").innerHTML=q.title;
+  $("#tags").innerHTML=q.tags.map(function(t){return '<span class="tag">'+t+"</span>"}).join("");
+  $("#qtext").innerHTML=q.q;
+  $("#chips").innerHTML=q.mk.map(function(m){return '<li class="chip" data-m="'+m[0]+'"><b>'+m[0]+"</b><span>"+m[1]+"</span></li>"}).join("");
+  $("#dots").innerHTML=q.steps.map(function(s,j){return '<button class="dot" type="button" data-j="'+(j+1)+'" aria-label="Go to step '+(j+1)+'"></button>'}).join("");
+  var f=$("#foot");f.innerHTML=q.foot||"";f.hidden=!q.foot;
+  renderYT(q);
+  go(0,false);
+}
+function go(n,anim){
+  var q=QS[qi],N=q.steps.length;n=Math.max(0,Math.min(N,n));k=n;gen++;var g=gen;
+  var box=$("#lines");box.innerHTML="";
+  var co=null,fin=null,earned={},queue=[];
+  for(var j=0;j<n;j++){
+    var s=q.steps[j],cur=anim&&!reduce&&j===n-1;
+    (s.add||[]).forEach(function(Ln){
+      var d=document.createElement("div"),h,m,cls="ln";
+      if(typeof Ln==="string")h=Ln;else{h=Ln.h;m=Ln.m;if(Ln.c)cls+=" "+Ln.c}
+      d.className=cls+(cur?" new":"");
+      d.innerHTML=h+(m?' <span class="mt">'+m+"</span>":"");
+      box.appendChild(d);if(cur)queue.push(d);
+    });
+    if(s.co)co=s.co;if(s.fin)fin=s.fin;(s.e||[]).forEach(function(x){earned[x]=1});
+  }
+  if(!n)box.innerHTML='<div class="ln empty">Your answer will build here, one mark at a time.</div>';
+  var c=$("#callout"),f=$("#final");
+  c.hidden=true;f.hidden=true;
+  function after(){if(g!==gen)return;if(co){$("#cotext").innerHTML=co;c.hidden=false}if(fin){f.innerHTML=fin;f.hidden=false}}
+  $$("#chips .chip").forEach(function(ch){ch.classList.toggle("on",!!earned[ch.dataset.m])});
+  $$("#dots .dot").forEach(function(d,i){d.classList.toggle("on",i<n);d.classList.toggle("cur",i===n-1);d.setAttribute("aria-current",i===n-1?"step":"false")});
+  var tip=$("#steptip");
+  if(n===0){
+    $("#stepno").textContent="Ready · "+N+" steps";
+    $("#steptitle").textContent="Read the question first";
+    $("#steptext").innerHTML="<p>Find the command word and the key data (highlighted in yellow). Then press <b>Next step</b>.</p>";
+    tip.hidden=true;
+  }else{
+    var st=q.steps[n-1];
+    $("#stepno").textContent="Step "+n+" of "+N;
+    $("#steptitle").innerHTML=st.t;
+    $("#steptext").innerHTML="<p>"+st.x+"</p>";
+    if(st.tip){tip.innerHTML="<strong>Exam tip:</strong> "+st.tip;tip.hidden=false}else tip.hidden=true;
+  }
+  $("#back").disabled=n===0;
+  $("#next").disabled=n===N;
+  $("#next").textContent=n===N?"Done ✓":"Next step →";
+  if(queue.length)typeQueue(queue,g,after);else after();
+}
+function typeQueue(els,g,done){
+  var items=[];
+  els.forEach(function(el){
+    var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:function(t){return t.parentNode&&t.parentNode.closest&&t.parentNode.closest("svg")?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}}),t;
+    while((t=w.nextNode()))items.push([t,t.data]);
+  });
+  items.forEach(function(it){it[0].data=""});
+  var i=0,p=0;
+  (function tick(){
+    if(g!==gen)return;
+    var n=CH[spd];
+    while(n>0&&i<items.length){
+      var it=items[i],full=it[1];
+      var take=Math.min(n,full.length-p);
+      p+=take;n-=take;it[0].data=full.slice(0,p);
+      if(p>=full.length){i++;p=0}
+      if(take===0&&full.length===0){i++;p=0}
+    }
+    if(i<items.length)setTimeout(tick,DEL[spd]);else done();
+  })();
+}
+$("#next").addEventListener("click",function(){go(k+1,true)});
+$("#back").addEventListener("click",function(){go(k-1,false)});
+$("#replay").addEventListener("click",function(){go(k===0?1:k,true)});
+$("#dots").addEventListener("click",function(e){var d=e.target.closest(".dot");if(d)go(+d.dataset.j,+d.dataset.j===k+1)});
+$("#speed").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;spd=+b.dataset.s;
+  $$("#speed button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))})});
+document.addEventListener("keydown",function(e){
+  var t=e.target,tag=t&&t.tagName;
+  if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT"||(t&&t.isContentEditable))return;
+  if(e.altKey||e.ctrlKey||e.metaKey)return;
+  if(e.key==="ArrowRight"){e.preventDefault();if(k<QS[qi].steps.length)go(k+1,true)}
+  else if(e.key==="ArrowLeft"){e.preventDefault();if(k>0)go(k-1,false)}
+});
+
+/* your turn */
+function num(s){s=String(s).trim().replace(/\s+/g,"");if(/^\d{1,3}(,\d{3})+(\.\d+)?$/.test(s))s=s.replace(/,/g,"");else s=s.replace(",",".");return s===""?NaN:Number(s)}
+function renderYT(q){
+  var y=q.yt,el=$("#yt");
+  if(y.k==="n"){
+    el.innerHTML='<h3>Your turn</h3><div class="ytq">'+y.q+'</div><div class="row"><label class="sr" for="ytin">Your answer</label><input id="ytin" type="text" inputmode="decimal" autocomplete="off" placeholder="Answer"><span class="unit">'+y.unit+'</span><button class="btn pri" id="ytchk" type="button" style="flex:0 0 auto">Check</button><button class="btn" id="ytshow" type="button">Show worked answer</button></div><p class="fb" id="ytfb" aria-live="polite"></p><div class="work" id="ytwork" hidden></div>';
+    var chk=function(){
+      var v=num($("#ytin").value),fb=$("#ytfb");
+      if(isNaN(v)){fb.className="fb no";fb.innerHTML="Type a number first.";return}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className="fb ok";fb.innerHTML="✓ Correct. <span>"+y.ok+"</span>";return}
+      var why=y.no;(y.wrong||[]).forEach(function(w){if(Math.abs(v-w[0])<=(w[2]||0.001))why=w[1]});
+      fb.className="fb no";fb.innerHTML="✗ Not yet. <span>"+why+"</span>";
+    };
+    $("#ytchk").addEventListener("click",chk);
+    $("#ytin").addEventListener("keydown",function(e){if(e.key==="Enter")chk()});
+    $("#ytshow").addEventListener("click",function(){
+      var w=$("#ytwork"),b=this;b.disabled=true;w.hidden=false;w.innerHTML="";var i=0;
+      (function add(){if(!document.body.contains(w))return;var d=document.createElement("div");d.className="ln";d.innerHTML=y.work[i];w.appendChild(d);i++;if(i<y.work.length)setTimeout(add,reduce?0:550)})();
+    });
+  }else{
+    el.innerHTML='<h3>Your turn</h3><div class="ytq">'+y.q+'</div><label class="sr" for="ytta">Your answer</label><textarea id="ytta" placeholder="Write your answer here…"></textarea><div class="row"><button class="btn pri" id="ytshow" type="button" style="flex:0 0 auto">Show model answer</button></div><div class="work" id="ytmodel" hidden><div class="mono">Tick each point you made</div><ul class="ticks">'+
+      y.pts.map(function(p,i){return '<li><label><input type="checkbox" data-i="'+i+'"><span>'+p+"</span></label></li>"}).join("")+
+      '</ul><div class="score" aria-live="polite"><span id="ytsc">0</span> / '+y.pts.length+" marks</div></div>";
+    $("#ytshow").addEventListener("click",function(){$("#ytmodel").hidden=false;this.disabled=true});
+    $("#ytmodel").addEventListener("change",function(){$("#ytsc").textContent=$$("#ytmodel input:checked").length});
+  }
+}
+
+/* checklist */
+var KEY="igcse-chem-"+PAGE.id+"-ratings",RT={};
+try{RT=JSON.parse(store.get(KEY)||"{}")||{}}catch(e){RT={}}
+function buildSpec(){
+  $("#speclist").innerHTML=SPEC.map(function(s,i){
+    var links=(s.p||[]).map(function(id){var j=-1;QS.forEach(function(q,x){if(q.id===id)j=x});
+      return j<0?"":'<button class="plink" type="button" data-q="'+j+'">Practise: '+QS[j].name+"</button>"}).join("");
+    return '<div class="srow" data-i="'+i+'"><span class="snum">'+(s.n||"•")+'</span><div class="stext">'+s.s+(links?'<div class="plinks">'+links+"</div>":"")+'</div><div class="pills" role="group" aria-label="Rate spec point">'+
+      ["Not yet","Nearly","Got it"].map(function(t,v){return '<button class="pill" type="button" data-v="'+v+'" aria-pressed="false">'+t+"</button>"}).join("")+"</div></div>"}).join("");
+  paintSpec();
+}
+function paintSpec(){
+  var cnt=[0,0,0],N=SPEC.length;
+  $$(".srow").forEach(function(row){var key=String(row.dataset.i),v=RT.hasOwnProperty(key)?RT[key]:-1;
+    if(v>=0)cnt[v]++;
+    Array.prototype.forEach.call(row.querySelectorAll(".pill"),function(p){p.setAttribute("aria-pressed",String(+p.dataset.v===v))})});
+  var nr=N-cnt[0]-cnt[1]-cnt[2];
+  $("#counts").textContent=cnt[2]+" got it · "+cnt[1]+" nearly · "+cnt[0]+" not yet · "+nr+" not rated (of "+N+")";
+  $("#bg").style.width=(cnt[2]/N*100)+"%";$("#bm").style.width=(cnt[1]/N*100)+"%";$("#br").style.width=(cnt[0]/N*100)+"%";
+}
+$("#speclist").addEventListener("click",function(e){
+  var p=e.target.closest(".pill");
+  if(p){var key=String(p.closest(".srow").dataset.i),v=+p.dataset.v;
+    if(RT[key]===v)delete RT[key];else RT[key]=v;
+    store.set(KEY,JSON.stringify(RT));paintSpec();return}
+  var l=e.target.closest(".plink");if(l)select(+l.dataset.q,true);
+});
+$("#clear").addEventListener("click",function(){RT={};store.set(KEY,"{}");paintSpec()});
+
+buildPicker();renderQ();buildSpec();
+})();
+
+</script>
+</body>
+</html>

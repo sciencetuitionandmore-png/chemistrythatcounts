@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redox and Groups Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Redox and Groups Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-8.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Redox chemistry and Groups 1, 2 and 7: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+/* ---------- 1 oxidation numbers ---------- */
+W.push({btn:'Working out oxidation numbers',spec:[["8.2","oxidation numbers in compounds and ions"],["8.1","rules"],["8.3","Roman numerals"]],type:'Calculate',marks:3,
+title:'Oxidation numbers in ions and compounds',
+q:'<p><span class="mk">(3)</span>Give the <mark>oxidation number</mark> of:</p><p>(i) Mn in MnO<sub>4</sub><sup>−</sup>   (ii) Cr in Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup>   (iii) Fe in Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>, and name this compound.</p>',
+diag:function(){var s='';
+  s+=T(20,24,'rules: O = −2, H = +1, sum = overall charge','an');
+  s+=G(1,box2(10,36,310,46,'card')+T(20,56,'MnO₄⁻:  Mn + 4(−2) = −1','eq')+T(20,74,'Mn = +7','big'));
+  s+=G(2,box2(10,92,310,46,'card')+T(20,112,'Cr₂O₇²⁻:  2Cr + 7(−2) = −2','eq')+T(20,130,'Cr = +6','big'));
+  s+=G(3,box2(10,148,310,46,'card')+T(20,168,'SO₄²⁻ is −2: 2Fe + 3(−2) = 0','eq')+T(20,186,'Fe = +3: iron(III) sulfate','big'));
+  return svg(330,204,s)},
+lines:plan(['MnO₄⁻','Cr₂O₇²⁻','Fe₂(SO₄)₃'])+
+ ans(1,'','','Mn + 4(−2) = −1, so <span class="hl">Mn = +7</span>','M1')+
+ ans(2,'Cr = +12','There are two Cr atoms: share the total between them.','2Cr + 7(−2) = −2, so 2Cr = +12 and <span class="hl">Cr = +6</span>','M2')+
+ ans(3,'','','The sulfate ion is −2: 2Fe + 3(−2) = 0, so <span class="hl">Fe = +3</span>: <span class="hl">iron(III) sulfate</span>','M3'),
+chips:[['M1','Mn +7',1],['M2','Cr +6',2],['M3','Fe +3, iron(III) sulfate',3]],
+steps:[
+{t:'Read and plan',x:'Oxidation numbers add up to zero in a compound, or to the charge on an ion. Oxygen is usually −2 and hydrogen +1.',tip:'Exceptions: O is −1 in peroxides; H is −1 in metal hydrides.'},
+{t:'Manganate(VII)',x:'Four oxygens give −8. The overall charge is −1, so Mn must be +7.',tip:'The Roman numeral in the name gives the oxidation number: manganate(VII).'},
+{t:'Dichromate(VI)',x:'Seven oxygens give −14. The ion is −2, so the two Cr atoms together are +12: each is +6.',tip:'Oxidation numbers are per atom.'},
+{t:'Iron(III) sulfate',x:'Treat SO<sub>4</sub><sup>2−</sup> as a unit with −2. Three of them make −6, shared between two Fe: +3 each.',tip:'Write a + or − sign with every oxidation number.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Forgetting to divide by the number of atoms.','No sign on the oxidation number.','Ignoring the charge on the ion.','Writing the Roman numeral for the wrong element.'],
+your:{kind:'num',q:'What is the oxidation number of nitrogen in the nitrate ion, NO<sub>3</sub><sup>−</sup>?',ans:5,tol:0.01,
+ ok:'Correct: N + 3(−2) = −1, so N = <b>+5</b>.',
+ wrong:[[6,0.01,'Remember the ion has a −1 charge: N + (−6) = −1.'],[-5,0.01,'Check the sign: N must be positive to balance the oxygens.']]}
+});
+/* ---------- 2 half equations ---------- */
+W.push({btn:'Combining half-equations',spec:[["8.10","ionic half-equations"],["8.5","redox and electron transfer"],["8.6","oxidising and reducing agents"]],type:'Write',marks:3,
+title:'Writing the ionic equation for manganate(VII) and iron(II)',
+q:'<p><span class="mk">(3)</span>Acidified manganate(VII) ions oxidise iron(II) ions.</p><p>MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5e<sup>−</sup> → Mn<sup>2+</sup> + 4H<sub>2</sub>O<br>Fe<sup>2+</sup> → Fe<sup>3+</sup> + e<sup>−</sup></p><p><mark>Write</mark> the overall <mark>ionic equation</mark> and identify the <mark>oxidising agent</mark>.</p>',
+diag:function(){var s='';
+  s+=T(20,30,'MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O','');
+  s+=G(1,T(20,58,'5Fe²⁺ → 5Fe³⁺ + 5e⁻','')+T(240,58,'(× 5)','an'));
+  s+=G(2,'<line class="ax" x1="20" x2="310" y1="70" y2="70"/>'+T(20,92,'MnO₄⁻ + 8H⁺ + 5Fe²⁺ →','')+T(60,112,'Mn²⁺ + 4H₂O + 5Fe³⁺','')+T(240,112,'5e⁻ cancel','an'));
+  s+=G(3,T(20,144,'oxidising agent: MnO₄⁻ (gains electrons)','an'));
+  return svg(330,156,s)},
+lines:plan(['balance the electrons','add and cancel','oxidising agent'])+
+ ans(1,'','','Multiply the iron half-equation by <span class="hl">5</span> so that both have 5 electrons.','M1')+
+ ans(2,'MnO₄⁻ + 8H⁺ + Fe²⁺ → Mn²⁺ + 4H₂O + Fe³⁺','The electrons do not balance: 5 gained but only 1 lost.','<span class="hl">MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5Fe<sup>2+</sup> → Mn<sup>2+</sup> + 4H<sub>2</sub>O + 5Fe<sup>3+</sup></span>','M2')+
+ ans(3,'','','The <span class="hl">oxidising agent is MnO<sub>4</sub><sup>−</sup></span>: it gains electrons (Mn +7 → +2).','M3'),
+chips:[['M1','× 5 to balance electrons',1],['M2','correct overall equation',2],['M3','MnO₄⁻ is the oxidising agent',3]],
+steps:[
+{t:'Read and plan',x:'In a redox reaction, the electrons lost by one species are gained by another. The overall equation has no electrons in it.',tip:'OIL RIG: oxidation is loss, reduction is gain (of electrons).'},
+{t:'Balance the electrons',x:'MnO<sub>4</sub><sup>−</sup> gains 5 electrons. Each Fe<sup>2+</sup> loses 1, so 5 Fe<sup>2+</sup> are needed.',tip:'Find the lowest common multiple of the electrons.'},
+{t:'Add and cancel',x:'Add the two half-equations and cross out the 5e<sup>−</sup> on each side.',tip:'Check: charges balance. Left: −1 + 8 + 10 = +17. Right: +2 + 15 = +17.'},
+{t:'Oxidising agent',x:'An oxidising agent is reduced: it gains electrons. Manganese goes from +7 to +2.',tip:'Fe<sup>2+</sup> is the reducing agent.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Leaving electrons in the overall equation.','Not multiplying the Fe half-equation.','Calling Fe<sup>2+</sup> the oxidising agent.','Charges that do not balance.'],
+your:{kind:'text',marks:2,q:'Chlorine oxidises bromide ions. <b>Write</b> the two half-equations and the overall ionic equation. (2)',
+ ms:['Cl<sub>2</sub> + 2e<sup>−</sup> → 2Cl<sup>−</sup> and 2Br<sup>−</sup> → Br<sub>2</sub> + 2e<sup>−</sup>','Cl<sub>2</sub> + 2Br<sup>−</sup> → 2Cl<sup>−</sup> + Br<sub>2</sub>'],
+ warn:[[/Br\+|Br<sup>\+/i,'Bromide ions are Br<sup>−</sup>.']]}
+});
+/* ---------- 3 disproportionation ---------- */
+W.push({btn:'Disproportionation of chlorine',spec:[["8.7","disproportionation"],["8.26 ii","chlorine with cold and hot alkali"]],type:'Explain',marks:3,
+title:'Chlorine with cold sodium hydroxide',
+q:'<p><span class="mk">(3)</span>Cl<sub>2</sub> + 2NaOH → NaCl + NaClO + H<sub>2</sub>O</p><p>Use <mark>oxidation numbers</mark> to explain why this is a <mark>disproportionation</mark> reaction.</p>',
+diag:function(){var s=DEFS;
+  s+=T(20,40,'Cl₂','big')+T(130,26,'NaCl','big')+T(130,90,'NaClO','big');
+  s+=G(1,T(28,62,'0','an')+T(170,46,'−1','an')+T(188,110,'+1','an'));
+  s+=G(2,arr(56,34,124,24,'po')+T(80,18,'reduced','sm')+arr(56,46,124,86,'dp')+T(60,100,'oxidised','sm'));
+  s+=G(3,T(20,140,'same element oxidised and reduced','an'));
+  return svg(330,152,s)},
+lines:plan(['oxidation numbers of Cl','reduction','oxidation','definition'])+
+ ans(1,'','','Cl in Cl<sub>2</sub> is <span class="hl">0</span>; in NaCl it is <span class="hl">−1</span>; in NaClO it is <span class="hl">+1</span>.','M1')+
+ ans(2,'','','Some chlorine is <span class="hl">reduced</span> (0 → −1) and some is <span class="hl">oxidised</span> (0 → +1).','M2')+
+ ans(3,'','','Disproportionation is when the <span class="hl">same element is simultaneously oxidised and reduced</span>.','M3'),
+chips:[['M1','0, −1, +1',1],['M2','reduced and oxidised',2],['M3','same element both ways',3]],
+steps:[
+{t:'Read and plan',x:'Find the oxidation number of chlorine in every species.',tip:'Na is +1 and O is −2.'},
+{t:'Oxidation numbers',x:'Element: 0. NaCl: Cl = −1. NaClO: 1 + Cl − 2 = 0, so Cl = +1.',tip:'NaClO is sodium chlorate(I).'},
+{t:'Both changes',x:'One chlorine atom goes down to −1 (reduction); the other goes up to +1 (oxidation).',tip:'Both happen at once in the same reaction.'},
+{t:'The definition',x:'Disproportionation: a species is both oxidised and reduced in the same reaction.',tip:'With hot alkali: 3Cl<sub>2</sub> + 6NaOH → 5NaCl + NaClO<sub>3</sub> + 3H<sub>2</sub>O (Cl goes to −1 and +5).'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Writing Cl in NaClO as −1.','Saying sodium is oxidised.','A vague definition with no mention of "same element".','No oxidation numbers given.'],
+your:{kind:'text',marks:2,q:'Chlorine reacts with water: Cl<sub>2</sub> + H<sub>2</sub>O ⇌ HCl + HClO. Show that this is disproportionation. (2)',
+ ms:['Cl: 0 in Cl<sub>2</sub>, −1 in HCl, +1 in HClO.','So chlorine is both reduced and oxidised in the same reaction.'],
+ warn:[[/oxygen is (oxidised|reduced)/i,'Oxygen stays at −2 here.']]}
+});
+/* ---------- 4 group 2 ---------- */
+W.push({btn:'Group 2 trends',spec:[["8.12","reactivity down Groups 1 and 2"],["8.11","ionisation energy trend"],["8.15","solubility of hydroxides and sulfates"]],type:'Explain',marks:4,
+title:'Explaining the trend in reactivity of the Group 2 metals with water',
+q:'<p><span class="mk">(4)</span>Magnesium reacts very slowly with cold water, but barium reacts quickly.</p><p><mark>Explain</mark> this trend and describe the trends in <mark>solubility</mark> of the Group 2 hydroxides and sulfates.</p>',
+diag:function(){var s='';
+  s+=tbl(10,10,[70,80,80,80],28,[['metal','reactivity','M(OH)₂','MSO₄'],['Mg','slow','sparingly','soluble'],['Ca','moderate','slightly','slightly'],['Sr','fast','more','less'],['Ba','fastest','soluble','insoluble']],{1:'1',4:'2 3 4'});
+  s+=G(1,T(20,170,'down the group: bigger atoms, more shielding','an'));
+  s+=G(2,T(20,190,'→ outer electrons lost more easily','an'));
+  return svg(330,202,s)},
+lines:plan(['atomic radius and shielding','ionisation energy','reactivity','solubility trends'])+
+ ans(1,'','','Down the group, atoms have <span class="hl">more shells</span>, so the outer electrons are <span class="hl">further from the nucleus</span> and <span class="hl">more shielded</span>.','M1')+
+ ans(2,'','','The attraction for the outer electrons is weaker, so the <span class="hl">first and second ionisation energies decrease</span>.','M2')+
+ ans(3,'','','So the metals lose electrons more easily and become <span class="hl">more reactive</span>: M + 2H<sub>2</sub>O → M(OH)<sub>2</sub> + H<sub>2</sub>.','')+
+ ans(4,'Both hydroxides and sulfates get more soluble.','They go in opposite directions.','Hydroxides become <span class="hl">more soluble</span> down the group; sulfates become <span class="hl">less soluble</span> (BaSO<sub>4</sub> is insoluble).','M3 M4'),
+chips:[['M1','more shells/shielding',1],['M2','ionisation energies fall',2],['M3','hydroxides more soluble',4],['M4','sulfates less soluble',4]],
+steps:[
+{t:'Read and plan',x:'Reactivity of metals depends on how easily they lose their outer electrons. Group 2 metals lose two electrons to form M<sup>2+</sup>.',tip:'Use nuclear charge, distance and shielding together.'},
+{t:'Size and shielding',x:'Each element down the group has an extra shell. The increase in nuclear charge is outweighed by the extra distance and shielding.',tip:'Write "the outer electrons are further from the nucleus".'},
+{t:'Ionisation energy',x:'Less energy is needed to remove the two outer electrons.',tip:'This is the same reason Group 1 metals get more reactive down the group.'},
+{t:'Reactivity',x:'Barium reacts rapidly with cold water; magnesium reacts very slowly with cold water but burns in steam to form MgO + H<sub>2</sub>.',tip:'The solutions formed are alkaline, and more alkaline down the group.'},
+{t:'Solubility',x:'Group 2 hydroxides become more soluble down the group. Sulfates become less soluble. Barium chloride is used to test for sulfate ions: a white precipitate of BaSO<sub>4</sub>.',tip:'Mg(OH)<sub>2</sub> is used as an antacid because it is only sparingly soluble.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying nuclear charge decreases down the group.','Saying the atoms "want" to lose electrons.','Mixing up the hydroxide and sulfate trends.','Forgetting to mention ionisation energy.'],
+your:{kind:'text',marks:2,q:'Describe how to test a solution for sulfate ions, giving the result. (2)',
+ ms:['Add dilute hydrochloric acid (to remove carbonate), then barium chloride solution.','A white precipitate of barium sulfate forms if sulfate ions are present.'],
+ warn:[[/sulfuric/i,'Do not add sulfuric acid: it contains sulfate ions itself.']]}
+});
+/* ---------- 5 thermal stability ---------- */
+W.push({btn:'Thermal stability of carbonates',spec:[["8.16","thermal stability of nitrates and carbonates"],["8.18","thermal decomposition experiments"]],type:'Explain',marks:3,
+title:'Why thermal stability of Group 2 carbonates increases down the group',
+q:'<p><span class="mk">(3)</span>Magnesium carbonate decomposes at a much <mark>lower temperature</mark> than barium carbonate.</p><p><mark>Explain</mark> this in terms of the <mark>cations</mark> and the <mark>carbonate ion</mark>.</p>',
+diag:function(){var s='';
+  s+=C(50,70,10,'ip','Mg²⁺')+'<path class="in" d="M70 70C70 42 150 38 150 70C150 102 70 98 70 70z"/>'+T(110,74,'CO₃²⁻','il','text-anchor="middle"');
+  s+=G(1,'<path class="share" d="M66 70C72 60 84 60 88 70C84 80 72 80 66 70z"/>'+T(90,122,'small Mg²⁺ distorts CO₃²⁻','an','text-anchor="middle"'));
+  s+=C(210,70,22,'ip','Ba²⁺')+'<circle class="in" cx="280" cy="70" r="34"/>'+T(280,74,'CO₃²⁻','il','text-anchor="middle"');
+  s+=G(2,T(250,122,'large Ba²⁺: little distortion','an','text-anchor="middle"'));
+  s+=G(3,T(165,152,'more distortion → C–O bond weakens → CO₂ released more easily','sm','text-anchor="middle"'));
+  return svg(330,164,s)},
+lines:plan(['charge density of the cation','polarising the carbonate ion','effect on decomposition'])+
+ ans(1,'','','Mg<sup>2+</sup> is <span class="hl">smaller</span> than Ba<sup>2+</sup> with the same charge, so it has a <span class="hl">higher charge density</span>.','M1')+
+ ans(2,'Mg²⁺ is polarised by the carbonate ion.','It is the cation that polarises the large carbonate anion.','Mg<sup>2+</sup> <span class="hl">polarises (distorts) the electron cloud</span> of the carbonate ion more.','M2')+
+ ans(3,'','','This <span class="hl">weakens a C–O bond</span> in the carbonate, so MgCO<sub>3</sub> → MgO + CO<sub>2</sub> happens at a lower temperature. Down the group, polarisation decreases, so stability increases.','M3'),
+chips:[['M1','smaller Mg²⁺, higher charge density',1],['M2','polarises carbonate ion',2],['M3','C–O weakened, decomposes easily',3]],
+steps:[
+{t:'Read and plan',x:'Group 2 carbonates decompose on heating: MCO<sub>3</sub> → MO + CO<sub>2</sub>. How easily depends on how much the cation distorts the carbonate ion.',tip:'Group 1 carbonates (except Li) do not decompose at Bunsen temperatures: their +1 ions polarise less.'},
+{t:'Charge density',x:'All Group 2 ions are 2+. The smallest, Mg<sup>2+</sup>, concentrates that charge in the smallest space.',tip:'Charge density = charge ÷ size.'},
+{t:'Polarisation',x:'The large carbonate ion has an electron cloud that is easily distorted. A small, highly charged cation pulls electron density towards itself.',tip:'Use the word "polarises".'},
+{t:'Effect on stability',x:'The distortion weakens one C–O bond, so CO<sub>2</sub> can break away more easily. Larger cations further down the group polarise less, so the carbonates are more stable.',tip:'Group 2 nitrates follow the same trend: 2M(NO<sub>3</sub>)<sub>2</sub> → 2MO + 4NO<sub>2</sub> + O<sub>2</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the carbonate polarises the cation.','Saying larger ions have higher charge density.','Not linking distortion to weakening of the C–O bond.','Giving the trend the wrong way round.'],
+your:{kind:'text',marks:2,q:'Describe how you could compare the thermal stability of two Group 2 carbonates in the laboratory. (2)',
+ ms:['Heat equal amounts of each carbonate in the same way (same flame, same tube).','Pass the gas into limewater and time how long it takes to turn cloudy; the faster it goes cloudy, the less stable the carbonate.'],
+ warn:[[/litmus/i,'Use limewater to detect CO<sub>2</sub>.']]}
+});
+/* ---------- 6 flame tests ---------- */
+W.push({btn:'Flame tests',spec:[["8.17","flame colours and electron transitions"],["8.18","flame test experiments"]],type:'Explain',marks:3,
+title:'Explaining flame colours',
+q:'<p><span class="mk">(3)</span>Sodium compounds give a <mark>yellow</mark> flame and potassium compounds a <mark>lilac</mark> flame.</p><p><mark>Explain</mark> how the colour is produced.</p>',
+diag:function(){var s=DEFS;
+  s+='<line class="lvl" x1="100" x2="220" y1="140" y2="140"/>'+T(226,144,'ground state','sm');
+  s+='<line class="lvl" x1="100" x2="220" y1="50" y2="50"/>'+T(226,54,'higher level','sm');
+  s+=G(1,'<path class="dp" d="M130 138V54"/>'+T(124,100,'heat: e⁻ excited','sm2','text-anchor="end"'));
+  s+=G(2,'<path class="po" d="M190 52V136"/>'+T(196,100,'falls back: light','sm2'));
+  s+=G(3,tbl(20,164,[70,70,70,70],24,[['Li','Na','K','Ca'],['red','yellow','lilac','orange-red']]));
+  return svg(330,218,s)},
+lines:plan(['heat excites electrons','electrons fall back','energy as visible light'])+
+ ans(1,'','','Heat energy <span class="hl">excites electrons</span> to higher energy levels.','M1')+
+ ans(2,'','','The electrons <span class="hl">fall back</span> to lower energy levels.','M2')+
+ ans(3,'The flame burns the metal.','The colour comes from energy released by electrons, not from burning.','They release energy as <span class="hl">light of a particular frequency (colour)</span>; each element has different energy gaps, so a different colour.','M3'),
+chips:[['M1','electrons excited',1],['M2','fall back to lower levels',2],['M3','light emitted, specific frequency',3]],
+steps:[
+{t:'Read and plan',x:'Flame colours come from electrons moving between energy levels in the metal ions.',tip:'Use the word "excited".'},
+{t:'Excitation',x:'The flame gives electrons energy, and they move up to a higher energy level.',tip:'The electrons are in the metal ions, not in the anion.'},
+{t:'Falling back',x:'Excited electrons are unstable and drop back down.',tip:'Energy released = the energy gap between the levels.'},
+{t:'Light',x:'The energy is given out as visible light. Different elements have different energy gaps, so different colours.',tip:'Use a nichrome wire dipped in concentrated HCl to do the test.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the electrons are excited when they release light.','Saying the metal burns.','Not explaining why each element has a different colour.','Mixing up Na (yellow) and K (lilac).'],
+your:{kind:'text',marks:2,q:'Give the flame colours of strontium and barium compounds. (2)',
+ ms:['Strontium: red (crimson).','Barium: pale green (apple green).'],
+ warn:[[/barium.*red/i,'Barium gives a pale green flame.']]}
+});
+/* ---------- 7 halides + sulfuric acid ---------- */
+W.push({btn:'Halides with concentrated sulfuric acid',spec:[["8.27 i","solid halides with sulfuric acid"],["8.24","reactivity trends of Group 7"]],type:'Describe',marks:4,
+title:'Reactions of sodium chloride, bromide and iodide with concentrated sulfuric acid',
+q:'<p><span class="mk">(4)</span>Concentrated sulfuric acid is added to solid samples of NaCl, NaBr and NaI.</p><p><mark>Describe</mark> what you would <mark>see</mark> in each case, and <mark>explain</mark> the trend in terms of the <mark>reducing power</mark> of the halide ions.</p>',
+diag:function(){var s='';
+  s+=tbl(5,10,[46,170,104],30,[['halide','observations','products'],['NaCl','steamy fumes','HCl'],['NaBr','steamy fumes, brown gas','HBr, Br₂, SO₂'],['NaI','purple vapour, black solid,','HI, I₂, S, H₂S'],['','yellow solid, bad-egg smell','']],{1:'1',2:'2',3:'3',4:'3'});
+  s+=G(4,T(20,182,'reducing power: Cl⁻ < Br⁻ < I⁻','big'));
+  return svg(330,194,s)},
+lines:plan(['NaCl','NaBr','NaI','reducing power'])+
+ ans(1,'','','NaCl: <span class="hl">steamy fumes</span> of HCl. No redox: Cl<sup>−</sup> cannot reduce H<sub>2</sub>SO<sub>4</sub>.','M1')+
+ ans(2,'','','NaBr: steamy fumes of HBr and a <span class="hl">brown gas (Br<sub>2</sub>)</span>; the acid is reduced to SO<sub>2</sub>.','M2')+
+ ans(3,'','','NaI: steamy fumes, <span class="hl">purple vapour / black solid (I<sub>2</sub>)</span>, a yellow solid (S) and a bad-egg smell (H<sub>2</sub>S).','M3')+
+ ans(4,'I⁻ is the strongest oxidising agent.','I<sup>−</sup> gives electrons away: it is a reducing agent.','Reducing power increases <span class="hl">Cl<sup>−</sup> < Br<sup>−</sup> < I<sup>−</sup></span>: larger ions lose their outer electron more easily, so they reduce the sulfur further (S +6 → +4 → 0 → −2).','M4'),
+chips:[['M1','NaCl: steamy fumes only',1],['M2','NaBr: brown Br₂, SO₂',2],['M3','NaI: purple/black I₂, S, H₂S',3],['M4','reducing power Cl⁻ < Br⁻ < I⁻',4]],
+steps:[
+{t:'Read and plan',x:'All three first give hydrogen halide gas (steamy fumes). Then bromide and iodide also act as reducing agents and reduce the sulfuric acid.',tip:'Give an observation and a product for each halide.'},
+{t:'Chloride',x:'NaCl + H<sub>2</sub>SO<sub>4</sub> → NaHSO<sub>4</sub> + HCl. This is an acid–base reaction only.',tip:'Steamy fumes: the HCl dissolves in moisture in the air.'},
+{t:'Bromide',x:'Some HBr is formed. Br<sup>−</sup> reduces H<sub>2</sub>SO<sub>4</sub> (S +6) to SO<sub>2</sub> (S +4), and is oxidised to brown Br<sub>2</sub>.',tip:'SO<sub>2</sub> is a colourless gas with a choking smell.'},
+{t:'Iodide',x:'I<sup>−</sup> is a stronger reducing agent. It reduces the acid all the way to S (0) and H<sub>2</sub>S (−2). Iodine appears as a black solid or purple vapour.',tip:'H<sub>2</sub>S smells of bad eggs.'},
+{t:'The trend',x:'Down Group 7, the halide ions are larger, so their outer electrons are further from the nucleus and more easily lost. Reducing power increases.',tip:'This is the reverse of the oxidising power of the halogens.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying chloride gives Cl<sub>2</sub>.','"Smoke" instead of "steamy fumes".','Calling halide ions oxidising agents.','Missing the observations for iodide.'],
+your:{kind:'text',marks:3,q:'<b>Describe</b> how silver nitrate solution is used to identify chloride, bromide and iodide ions, including the use of ammonia. (3)',
+ ms:['Acidify with dilute nitric acid, then add silver nitrate: Cl<sup>−</sup> white, Br<sup>−</sup> cream, I<sup>−</sup> yellow precipitate.','AgCl dissolves in dilute ammonia.','AgBr dissolves only in concentrated ammonia; AgI does not dissolve in concentrated ammonia.'],
+ warn:[[/hydrochloric/i,'Use nitric acid, not hydrochloric acid, which would add chloride ions.']]}
+});
+/* ---------- 8 titration ---------- */
+W.push({btn:'Titration calculation',spec:[["8.20","concentrations and titrations"],["8.21","CP3"],["8.22","uncertainty in volumetric analysis"]],type:'Calculate',marks:4,
+title:'Finding the concentration of sodium hydroxide by titration',
+q:'<p><span class="mk">(4)</span>A <mark>25.0 cm<sup>3</sup></mark> sample of NaOH solution was titrated with <mark>0.100 mol dm<sup>−3</sup> HCl</mark>. Concordant titres: 23.45, 23.40 and 23.50 cm<sup>3</sup>.</p><p><mark>Calculate</mark> the concentration of the NaOH and the <mark>percentage uncertainty</mark> in the mean titre (burette ±0.05 cm<sup>3</sup> per reading).</p>',
+diag:function(){var s='';
+  s+=G(1,T(20,26,'mean titre = (23.45 + 23.40 + 23.50) ÷ 3 = 23.45 cm³','sm'));
+  s+=G(2,T(20,52,'n(HCl) = 0.100 × 23.45 ÷ 1000 = 2.345 × 10⁻³ mol','sm'));
+  s+=G(3,T(20,78,'1 : 1, so n(NaOH) = 2.345 × 10⁻³ mol','sm')+T(20,100,'[NaOH] = 2.345 × 10⁻³ ÷ 0.0250 = 0.0938 mol dm⁻³','an'));
+  s+=G(4,T(20,128,'uncertainty = 2 × 0.05 ÷ 23.45 × 100 = 0.43%','an'));
+  return svg(330,140,s)},
+lines:plan(['mean titre','moles of HCl','moles and concentration of NaOH','percentage uncertainty'])+
+ ans(1,'','','Mean titre = <span class="hl">23.45 cm<sup>3</sup></span>','')+
+ ans(2,'n = 0.100 × 23.45 = 2.345','Convert cm<sup>3</sup> to dm<sup>3</sup>: divide by 1000.','n(HCl) = 0.100 × 23.45/1000 = <span class="hl">2.345 × 10<sup>−3</sup> mol</span>','M1')+
+ ans(3,'','','HCl + NaOH → NaCl + H<sub>2</sub>O (1 : 1), so [NaOH] = 2.345 × 10<sup>−3</sup> ÷ 0.0250 = <span class="hl">0.0938 mol dm<sup>−3</sup></span>','M2 M3')+
+ ans(4,'0.05 ÷ 23.45 × 100 = 0.21%','A titre is a difference between two readings, so double the uncertainty.','% uncertainty = (2 × 0.05) ÷ 23.45 × 100 = <span class="hl">0.43%</span>','M4'),
+chips:[['M1','moles HCl',2],['M2','1 : 1 ratio',3],['M3','0.0938 mol dm⁻³',3],['M4','0.43%',4]],
+steps:[
+{t:'Read and plan',x:'Moles from the solution you know, then use the equation to find moles of the other, then concentration.',tip:'Concordant titres are within 0.10 cm<sup>3</sup> of each other.'},
+{t:'Mean titre',x:'Average only the concordant titres. Here all three are concordant.',tip:'Never include the rough titre.'},
+{t:'Moles of acid',x:'n = c × V, with V in dm<sup>3</sup>.',tip:'Keep 4 significant figures in working.'},
+{t:'Concentration of NaOH',x:'The ratio is 1 : 1. Divide the moles by 0.0250 dm<sup>3</sup>.',tip:'For Na<sub>2</sub>CO<sub>3</sub> + 2HCl, divide the moles of HCl by 2.'},
+{t:'Uncertainty',x:'Each burette reading is ±0.05 cm<sup>3</sup>. A titre uses two readings, so ±0.10 cm<sup>3</sup>.',tip:'A larger titre gives a smaller percentage uncertainty.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not converting cm<sup>3</sup> to dm<sup>3</sup>.','Including the rough titre in the mean.','Using only one ±0.05 for the titre.','Too many significant figures in the final answer.'],
+your:{kind:'num',q:'25.0 cm<sup>3</sup> of Na<sub>2</sub>CO<sub>3</sub> solution needs 21.30 cm<sup>3</sup> of 0.150 mol dm<sup>−3</sup> HCl. Na<sub>2</sub>CO<sub>3</sub> + 2HCl → 2NaCl + H<sub>2</sub>O + CO<sub>2</sub>. Calculate [Na<sub>2</sub>CO<sub>3</sub>] in mol dm<sup>−3</sup>.',ans:0.0639,tol:0.0002,
+ ok:'Correct: n(HCl) = 3.195 × 10<sup>−3</sup>; n(Na<sub>2</sub>CO<sub>3</sub>) = 1.598 × 10<sup>−3</sup>; concentration = <b>0.0639 mol dm<sup>−3</sup></b>.',
+ wrong:[[0.128,0.001,'The ratio is 1 : 2. Divide the moles of HCl by 2.'],[0.0016,0.0001,'That is the number of moles. Divide by 0.0250 dm<sup>3</sup>.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 2 · Topic 8 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["8.1", "Know the rules for assigning oxidation numbers."], ["8.2", "Calculate oxidation numbers in compounds and ions."], ["8.3", "Use Roman numerals for oxidation numbers in names."], ["8.4", "Write formulae from names that include oxidation numbers."], ["8.5", "Understand redox as electron transfer and as change in oxidation number."], ["8.6", "Understand that oxidising agents gain electrons and reducing agents lose electrons."], ["8.7", "Define disproportionation."], ["8.8", "Use oxidation numbers to classify reactions."], ["8.9", "Know that metals form positive ions and non-metals negative ions."], ["8.10", "Write ionic half-equations and combine them into full ionic equations."], ["8.11", "Explain the trend in ionisation energy down Groups 1 and 2."], ["8.12", "Explain the trend in reactivity down Groups 1 and 2."], ["8.13", "Reactions of Group 1 and 2 elements with oxygen, chlorine and water."], ["8.14", "Reactions of Group 1 and 2 oxides and hydroxides with water and dilute acids."], ["8.15", "Trends in solubility of Group 2 hydroxides and sulfates."], ["8.16", "Thermal stability of Group 1 and 2 nitrates and carbonates (charge density, polarisation)."], ["8.17", "Flame test colours and how they arise from electron transitions."], ["8.18", "Experiments on thermal decomposition and flame colours."], ["8.19", "Tests for carbonate, sulfate and ammonium ions."], ["8.20", "Calculate solution concentrations and results of acid–base titrations."], ["8.21", "Core Practical 3: find the concentration of hydrochloric acid."], ["8.22", "Minimise and estimate uncertainty in volumetric analysis."], ["8.23", "Core Practical 4: make a standard solution and find the concentration of NaOH."], ["8.24", "Trends in Group 7: melting and boiling points, electronegativity and reactivity."], ["8.25", "Halogen displacement reactions and the colours of the halogens."], ["8.26", "Reactions of halogens with metals, with cold and hot alkali, and of chlorine with water."], ["8.27", "Reactions of solid halides with sulfuric acid; silver nitrate tests; hydrogen halides with ammonia and water."], ["8.28", "Predict the properties of fluorine and astatine."]],KEY="ialchem-t8-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 8: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

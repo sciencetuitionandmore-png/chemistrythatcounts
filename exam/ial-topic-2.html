@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atomic Structure Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Atomic Structure Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-2.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Atomic structure: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+var W=[];
+/* ---------- 1 RAM ---------- */
+W.push({btn:'Relative atomic mass',spec:[["2.6 ii", "A<sub>r</sub> from abundances"], ["2.5", "isotopes"]],type:'Calculation',marks:3,
+title:'A<sub>r</sub> from a mass spectrum',
+q:'<p><span class="mk">(3)</span>The mass spectrum of a sample of <b>silicon</b> is shown in the stage below.</p><p><mark>Calculate</mark> the relative atomic mass, A<sub>r</sub>, of silicon. Give your answer to <mark>one decimal place</mark>.</p>',
+diag:function(){var g=spec({min:27,max:31,ymax:25,step:5,yl:'relative abundance',bars:[{m:28,v:23,lab:'23.0',km:'m28',kv:'a28',hot:'2'},{m:29,v:1.17,lab:'1.17',km:'m29',kv:'a29',hot:'2'},{m:30,v:0.78,lab:'0.78',km:'m30',kv:'a30',hot:'2'}]});
+  var s=g.s+'<g'+A(0)+'>'+T(196,40,'1 peak = 1 isotope','an')+T(196,56,'height = abundance','an')+'</g>';
+  s+='<g'+A(3)+'>'+T(196,84,'total = 24.95','an')+T(196,100,'(not 100!)','an')+'</g>';
+  return svg(330,230,s)},
+lines:plan(['m/z × abundance','add','÷ total','1 d.p.'])+
+ wl(1,'A<sub>r</sub> = Σ(<i>m/z</i> × abundance) ÷ Σ(abundance)')+
+ wl(2,'top: ('+F('m28','28')+' × '+F('a28','23.0')+') + ('+F('m29','29')+' × '+F('a29','1.17')+')')+
+ wl(2,'     + ('+F('m30','30')+' × '+F('a30','0.78')+')')+
+ wl(2,'   = 644 + 33.93 + 23.4 = <b>701.33</b><span class="mt">M1</span>')+
+ wl(3,'bottom: 23.0 + 1.17 + 0.78 = <b>24.95</b>')+
+ wl(3,'A<sub>r</sub> = 701.33 ÷ 24.95 = 28.109…<span class="mt">M2</span>')+
+ wl(4,'A<sub>r</sub> = <span class="box">28.1</span> <span style="font-family:var(--b);font-size:13px">(no units)</span><span class="mt">M3</span>','ans1'),
+chips:[['M1','Σ(m/z × abundance) = 701.33',2],['M2','÷ total abundance 24.95',3],['M3','28.1 to 1 d.p.',4]],
+steps:[
+{t:'Read the question and the spectrum',x:'There are three peaks. Each peak is one isotope of silicon. The <i>m/z</i> value is the mass of the isotope. The height is its relative abundance.',tip:'Add up the abundances first. Here they make 24.95, not 100 — so you must divide by the total, not by 100.'},
+{t:'Write the method',x:'Write the general method first. If you make a slip later, the examiner can still follow your working and give error carried forward (ECF).',tip:'Show every step. A wrong final answer with no working scores zero.'},
+{t:'Multiply and add',x:'Multiply each <i>m/z</i> value by its abundance. Then add the three results. The numbers come straight from the spectrum.',tip:'Use the <i>m/z</i> of each peak. Do not use the same mass for every isotope.'},
+{t:'Divide by the total abundance',x:'Add the three abundances: 24.95. Divide the top line by this total.',tip:'Keep all the digits in your calculator. Round only once, at the very end.'},
+{t:'Round as the question asks',x:'The question asks for one decimal place, so 28.109… becomes 28.1. A<sub>r</sub> has no units because it is a ratio compared with 1/12 of the mass of a carbon-12 atom.',tip:'Never write g or g mol<sup>−1</sup> after A<sub>r</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Dividing by 100 when the abundances do not add up to 100 (gives 7.0).','Dividing by 3, the number of peaks.','Rounding in the middle, or not giving 1 d.p.','Adding units such as g mol<sup>−1</sup>.'],
+your:{kind:'num',q:'A sample of copper gives two peaks: <i>m/z</i> 63 (relative abundance <b>9.0</b>) and <i>m/z</i> 65 (relative abundance <b>4.0</b>). Calculate A<sub>r</sub> of copper to one decimal place.',ans:63.6,tol:0.051,
+ ok:'Correct: (63 × 9.0 + 65 × 4.0) ÷ 13.0 = 827 ÷ 13.0 = 63.6',
+ wrong:[[827,1,'You forgot to divide by the total abundance (13.0).'],[8.27,0.05,'You divided by 100. The abundances add up to 13.0, not 100.'],[413.5,1,'You divided by 2 (the number of peaks). Divide by the total abundance, 13.0.'],[64,0.01,'That is just the mean of 63 and 65. You must weight each mass by its abundance.'],[63.62,0.01,'Right value, but give it to one decimal place: 63.6.']]}
+});
+/* ---------- 2 Cl2 ---------- */
+W.push({btn:'Mass spectrum of Cl₂',spec:[["2.7", "spectra of diatomic molecules"], ["2.6 i", "isotopic composition"]],type:'Explain',marks:4,
+title:'Molecular ion peaks of chlorine, Cl<sub>2</sub>',
+q:'<p><span class="mk">(4)</span>Chlorine has two isotopes: '+iso(35)+' (<mark data-k="p75">75%</mark>) and '+iso(37)+' (<mark data-k="p25">25%</mark>). The mass spectrum of Cl<sub>2</sub> has peaks at <i>m/z</i> 35, 37, 70, 72 and 74.</p><p>(a) <mark>Identify</mark> the species that cause the peaks at <i>m/z</i> 70, 72 and 74.<br>(b) <mark>Explain</mark> why these three peaks have heights in the ratio <mark>9 : 6 : 1</mark>.</p>',
+diag:function(){var g=spec({h:170,px:{35:.1,37:.25,70:.6,72:.75,74:.9},brk:.42,ymax:10,step:5,yl:'rel. abundance',bars:[{m:35,v:6,lab:'Cl⁺'},{m:37,v:2,lab:'Cl⁺'},{m:70,v:9,lab:'9',hot:'1'},{m:72,v:6,lab:'6',hot:'1 3'},{m:74,v:1,lab:'1',hot:'1'}]});
+  var s=g.s,x0=120,y0=190,c=52;
+  var gr='<g'+A(3)+'>'+T(x0-58,y0+12,'1st atom ↓','sm')+T(x0+c,y0-4,'2nd atom →','sm','text-anchor="middle"');
+  var lab=[['35','¾'],['37','¼']];
+  for(var i=0;i<2;i++){gr+=T(x0+c*i+c/2,y0+12,lab[i][0]+' ('+lab[i][1]+')','',' text-anchor="middle" font-weight="700"');gr+=T(x0-10,y0+18+c*i+c/2,lab[i][0]+' ('+lab[i][1]+')','',' text-anchor="end" font-weight="700"');}
+  var cell=[['70','9/16'],['72','3/16'],['72','3/16'],['74','1/16']];
+  for(i=0;i<4;i++){var cx=x0+(i%2)*c,cy=y0+18+Math.floor(i/2)*c;gr+='<rect class="bx"'+(cell[i][0]==='72'?' data-hot="3"':'')+' x="'+cx+'" y="'+cy+'" width="'+c+'" height="'+c+'"/>'+T(cx+c/2,cy+22,cell[i][0],'',' text-anchor="middle" font-weight="700"')+T(cx+c/2,cy+38,cell[i][1],'sm','text-anchor="middle"');}
+  gr+=T(x0+2*c+10,y0+64,'two boxes','an')+T(x0+2*c+10,y0+80,'make 72','an')+'</g>';
+  return svg(330,302,s+gr)},
+lines:plan(['species + charge','¾ and ¼','72 two ways','9 : 6 : 1'])+
+ ans(1,'70 is Cl<sub>2</sub>, 72 and 74 are its isotopes.','No isotope masses and no + charge.','<i>m/z</i> 70 = <b class="hl">('+iso(35)+'–'+iso(35)+')<sup>+</sup></b>, 72 = <b class="hl">('+iso(35)+'–'+iso(37)+')<sup>+</sup></b>, 74 = <b class="hl">('+iso(37)+'–'+iso(37)+')<sup>+</sup></b>','M1')+
+ ans(2,'There is more Cl-35.','True, but how much more? Use the percentages.','Each atom has a <span class="hl">'+F('p75','0.75')+' chance of being '+iso(35)+'</span> and a <span class="hl">'+F('p25','0.25')+' chance of being '+iso(37)+'</span>.','M2')+
+ ans(3,'72 is in the middle, so it is a medium peak.','Not a reason.','The 72 ion forms in <span class="hl">two ways</span>: '+iso(35)+'–'+iso(37)+' <b>and</b> '+iso(37)+'–'+iso(35)+'.','M3')+
+ wl(4,'70: 0.75 × 0.75 = 0.5625')+wl(4,'72: 2 × 0.75 × 0.25 = 0.375')+wl(4,'74: 0.25 × 0.25 = 0.0625')+wl(4,'÷ 0.0625 → <span class="box">9 : 6 : 1</span><span class="mt">M4</span>'),
+chips:[['M1','species, e.g. (³⁵Cl–³⁵Cl)⁺',1],['M2','chance 0.75 and 0.25',2],['M3','72 forms two ways',3],['M4','probabilities → 9 : 6 : 1',4]],
+steps:[
+{t:'Read and plan',x:'4 marks: 1 for naming the species, 3 for explaining the ratio. Plan four ideas before you write.',tip:'Peaks at 70–74 are molecular ions, Cl<sub>2</sub><sup>+</sup>. Peaks at 35 and 37 are Cl<sup>+</sup> ions from molecules that broke apart.'},
+{t:'Identify the species',x:'A species in a mass spectrum is an ion. Show which two isotopes are in each molecule.',tip:'Every species detected is a <b>positive</b> ion. Always add the + charge.'},
+{t:'Turn the percentages into chances',x:'75% means a probability of 0.75 for each atom. The two atoms in a molecule are chosen independently.',tip:'Use the data in the question. Examiners want numbers, not "more" or "less".'},
+{t:'Find the two ways to make 72',x:'A 2 × 2 grid shows all four combinations. Two of the four boxes give a mass of 72.',tip:'Draw the grid in your answer space. It shows the examiner your reasoning.'},
+{t:'Calculate the ratio',x:'Multiply the chances. Remember the ×2 for the 72 peak. Then divide each value by the smallest one.',tip:'Dividing by the smallest value turns decimals into a whole-number ratio.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Missing the + charge on the ions.','Forgetting the ×2 for the 72 peak (gives 9 : 3 : 1).','Saying the peaks at 35 and 37 are Cl<sub>2</sub> molecules.','Giving the 35 : 37 ratio (3 : 1) as the answer.'],
+your:{kind:'num',q:'Bromine has two isotopes, <sup>79</sup>Br and <sup>81</sup>Br, in a <b>50% : 50%</b> ratio. What <b>percentage</b> of Br<sub>2</sub> molecules have <i>m/z</i> = 160?',ans:50,tol:0.6,
+ ok:'Correct: 160 = <sup>79</sup>Br–<sup>81</sup>Br or <sup>81</sup>Br–<sup>79</sup>Br, so 2 × 0.5 × 0.5 = 0.50 = 50%. The peaks are 1 : 2 : 1.',
+ wrong:[[25,0.6,'You found only one way to make 160. Remember <sup>81</sup>Br–<sup>79</sup>Br as well: × 2.'],[33.3,0.6,'The three peaks are not equal. Work out the chance of each combination.'],[100,0.1,'Only some molecules have m/z 160. The others are 158 and 162.']]}
+});
+/* ---------- 3 Period 3 increase ---------- */
+var P3=[496,738,578,787,1012,1000,1251,1521],P3l=['Na','Mg','Al','Si','P','S','Cl','Ar'];
+W.push({btn:'IE across Period 3',spec:[["2.18 ii", "IE across a period"], ["2.10", "nuclear charge & shielding"]],type:'Explain',marks:3,
+title:'The general increase in first ionisation energy across Period 3',
+q:'<p><span class="mk">(3)</span>The graph shows the first ionisation energies of the elements sodium to argon.</p><p><mark>Explain</mark> the <mark>general increase</mark> in first ionisation energy across Period 3.</p>',
+diag:function(){var g=lineG({v:P3,lab:P3l,y0:0,y1:1600,step:400,xl:'element (Period 3)',yl:'1st IE / kJ mol⁻¹',hot:{0:'1',7:'1'}});
+  var s=g.s;
+  s+='<path class="anl"'+A(3)+' d="M'+g.X(0)+' '+(g.Y(496)-14)+'L'+g.X(7)+' '+(g.Y(1521)-14)+'"/>';
+  s+='<g'+A(1)+'>'+T(g.X(0)-6,g.Y(496)+20,'11 p','an')+T(g.X(7)-10,g.Y(1521)+22,'18 p','an')+'</g>';
+  s+='<g'+A(2)+'>'+T(60,30,'outer e⁻ always in shell n = 3','an')+'</g>';
+  s+='<g'+A(3)+'>'+T(60,46,'radius gets smaller →','an')+'</g>';
+  return svg(330,240,s)},
+lines:plan(['protons ↑','same shell, similar shielding','radius ↓ → stronger attraction'])+
+ ans(1,'The atoms get more charge.','Which charge? Name the protons or the nucleus.','Across the period the <span class="hl">number of protons increases</span>, so the <span class="hl">nuclear charge increases</span>.','M1')+
+ ans(2,'There is more shielding.','Wrong! Electrons go into the same shell, so shielding hardly changes.','The outer electron is in the <span class="hl">same shell</span> (n = 3), so there is <span class="hl">similar shielding</span>.','M2')+
+ ans(3,'So the electron is held more.','Held by what? Name the nucleus and the outer electron.','The <span class="hl">atomic radius decreases</span>, so there is a <span class="hl">stronger attraction between the nucleus and the outer electron</span>. More energy is needed to remove it.','M3'),
+chips:[['M1','nuclear charge increases',1],['M2','same shell / similar shielding',2],['M3','smaller radius → stronger attraction',3]],
+steps:[
+{t:'Read and plan',x:'"Explain" with 3 marks means three linked ideas. Write a quick plan of key words before you write sentences.',tip:'"General" increase means the overall trend. You do not need to explain the dips here.'},
+{t:'Idea 1: nuclear charge',x:'From Na (11 protons) to Ar (18 protons), the nucleus gets more positive.',tip:'Say "number of protons" or "nuclear charge". Vague words like "charge" or "more stuff" score nothing.'},
+{t:'Idea 2: same shell, similar shielding',x:'The outer electron of every Period 3 element is in the third shell. The inner shells (2, 8) stay the same.',tip:'Never write "shielding increases" across a period. It is a common way to lose a mark.'},
+{t:'Idea 3: radius and attraction',x:'More protons pull the same shell closer. Link this to attraction and to the energy needed.',tip:'End with energy: "…so more energy is needed to remove the outer electron".'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying shielding increases across the period.','Saying the atom gets bigger (the radius decreases).','Writing only about the dips at Al and S.','Saying "charge" instead of nuclear charge / number of protons.'],
+your:{kind:'text',marks:3,q:'The first ionisation energy of neon (2081 '+KJ+') is much higher than that of lithium (520 '+KJ+'). Both are in Period 2. <b>Explain</b> why. (3)',
+ ms:['Neon has more protons / greater nuclear charge.','The outer electron is in the same shell (n = 2) / similar shielding.','Neon has a smaller atomic radius, so stronger attraction between the nucleus and the outer electron.'],
+ warn:[[/shield\w*\s+(increase|is (greater|more|higher))|more shield/i,'You wrote that shielding increases. Across a period the shielding stays about the same.'],[/(neon|ne)\s+(is|has a)\s+(bigger|larger)/i,'Neon is smaller than lithium, not bigger.']]}
+});
+/* ---------- 4 dips ---------- */
+W.push({btn:'The two dips in Period 3',spec:[["2.11 ii", "evidence for sub-shells"], ["2.10", "sub-shell"], ["2.13", "spin pairing"]],type:'Explain',marks:4,
+title:'Why Al is lower than Mg, and S is lower than P',
+q:'<p><span class="mk">(4)</span>First ionisation energies / '+KJ+': Mg <mark>738</mark>, Al <mark>578</mark>, P <mark>1012</mark>, S <mark>1000</mark>.</p><p><mark>Explain</mark> why the first ionisation energy of <b>aluminium</b> is lower than that of magnesium, <b>and</b> why the first ionisation energy of <b>sulfur</b> is lower than that of phosphorus. You may use orbital box diagrams.</p>',
+diag:function(){var s='';
+  s+=orbRow(22,'Mg','1s² 2s² 2p⁶ 3s²','ud',[],738,['1','','','']);
+  s+=orbRow(94,'Al','1s² 2s² 2p⁶ 3s² 3p¹','ud',['u'],578,['','1 2','','']);
+  s+=orbRow(184,'P','1s² 2s² 2p⁶ 3s² 3p³','ud',['u','u','u'],1012,['','3','3','3']);
+  s+=orbRow(256,'S','1s² 2s² 2p⁶ 3s² 3p⁴','ud',['ud','u','u'],1000,['','3 4','','']);
+  s+='<line x1="4" x2="326" y1="152" y2="152" stroke="#c9d5db" stroke-dasharray="4 4"/>';
+  s+='<g'+A(1)+'>'+T(104,140,'removed from 3p, not 3s','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(2)+'>'+T(214,140,'3p: higher energy','an')+'</g>';
+  s+='<g'+A(4)+'>'+T(130,302,'↔ paired e⁻ repel','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(214,176,'P: all 3p unpaired','an')+'</g>';
+  return svg(330,310,s)},
+lines:plan(['Al: 3p not 3s','3p higher energy, shielded by 3s','S: a paired 3p orbital','pair repulsion'])+
+ ans(1,'Al has its outer electron in a new shell.','Wrong: 3p is in the same shell (n = 3). It is a new sub-shell.','In Mg the electron is removed from the <span class="hl">3s</span> orbital. In Al it is removed from a <span class="hl">3p</span> orbital.','M1')+
+ ans(2,'The 3p electron is easier to remove.','That is the effect, not the reason.','The 3p electron is <span class="hl">higher in energy</span> (slightly further from the nucleus) and is <span class="hl">partly shielded by the 3s electrons</span>, so less energy is needed.','M2')+
+ ans(3,'S has one more electron than P.','True, but where does it go? Name the orbital.','In P each 3p orbital has <span class="hl">one unpaired electron</span>. In S, <span class="hl">one 3p orbital holds a pair of electrons</span>.','M3')+
+ ans(4,'The electrons repel.','All electrons repel. Say which ones.','The <span class="hl">paired electrons repel each other</span>, so <span class="hl">less energy is needed</span> to remove one of them.','M4'),
+chips:[['M1','Al: electron from 3p (Mg: 3s)',1],['M2','3p higher energy / shielded by 3s',2],['M3','S: two electrons paired in a 3p orbital',3],['M4','spin-pair repulsion → less energy',4]],
+steps:[
+{t:'Read and plan',x:'Two dips and 4 marks: 2 marks for each dip. For each one, say <b>where</b> the electron comes from, then <b>why</b> it is easier to remove.',tip:'Draw orbital boxes for the four atoms. They show which electron is removed.'},
+{t:'Dip 1: where is the electron?',x:'Mg loses a 3s electron. Al loses its single 3p electron.',tip:'Do not say "new shell". 3s and 3p are both in shell 3. Say "3p orbital" or "3p sub-shell".'},
+{t:'Dip 1: why is it easier?',x:'The 3p sub-shell is higher in energy than 3s. The 3s electrons also shield it a little.',tip:'Finish each dip with "so less energy is needed to remove it".'},
+{t:'Dip 2: where is the electron?',x:'Hund\'s rule: electrons go into p orbitals singly first. P has three unpaired 3p electrons. In S, the fourth 3p electron must pair up.',tip:'In a pair, draw the arrows in opposite directions (opposite spins).'},
+{t:'Dip 2: why is it easier?',x:'Two electrons in the same orbital repel each other. This repulsion makes one of them easier to remove.',tip:'Write "paired electrons in the same orbital repel". Just "electrons repel" is too vague.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the Al electron is in a new shell (it is the same shell, a new sub-shell).','Saying S has more shielding than P.','Saying a half-filled sub-shell is "stable" with no reason.','Drawing paired arrows pointing the same way.'],
+your:{kind:'text',marks:4,q:'First ionisation energies / '+KJ+': Be 900, B 801, N 1402, O 1314. <b>Explain</b> why B is lower than Be, <b>and</b> why O is lower than N. (4)',
+ ms:['B: electron removed from a 2p orbital (Be: from 2s).','2p is higher in energy / shielded by the 2s electrons, so less energy needed.','O: two electrons paired in one 2p orbital (N: all 2p electrons unpaired).','Repulsion between the paired electrons, so less energy needed.'],
+ warn:[[/new shell|different shell|another shell/i,'2p is in the same shell as 2s. Call it a new sub-shell or the 2p orbital.'],[/stable/i,'"More stable" alone scores nothing. Explain with repulsion of paired electrons.']]}
+});
+/* ---------- 5 successive ---------- */
+var AL=[578,1817,2745,11577,14842,18379,23326,27465,31853,38473,42647,201266,222316];
+W.push({btn:'Successive ionisation energies',spec:[["2.11 i", "evidence for shells"], ["2.8", "successive IEs"]],type:'Deduce + explain',marks:4,
+title:'Successive ionisation energies of element Z',
+q:'<p><span class="mk">(4)</span>The graph shows log<sub>10</sub>(ionisation energy) for the removal of all 13 electrons from an atom of element <b>Z</b>.</p><p>(a) <mark>Deduce</mark> the group of Z. <mark>Justify</mark> your answer.<br>(b) <mark>Explain</mark> how the graph gives evidence for electron <mark>shells</mark>.</p>',
+diag:function(){var v=AL.map(function(x){return Math.log10(x)}),lab=[];for(var i=1;i<=13;i++)lab.push(i);
+  var g=lineG({v:v,lab:lab,y0:2.5,y1:5.5,step:0.5,xl:'number of electron removed',yl:'log₁₀(IE / kJ mol⁻¹)',hot:{2:'1',3:'1 3'}}),s='';
+  s+='<g'+A(2)+'><rect class="band" x="'+(g.X(0)-9)+'" y="'+(g.Y(3.6))+'" width="'+(g.X(2)-g.X(0)+18)+'" height="'+(g.Y(2.6)-g.Y(3.6))+'" rx="6"/>'+T(g.X(1),g.Y(3.7),'n = 3: 3 e⁻','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'><rect class="band" x="'+(g.X(3)-9)+'" y="'+(g.Y(4.8))+'" width="'+(g.X(10)-g.X(3)+18)+'" height="'+(g.Y(3.9)-g.Y(4.8))+'" rx="6"/>'+T(g.X(6.5),g.Y(4.9),'n = 2: 8 e⁻','an','text-anchor="middle"')+'<rect class="band" x="'+(g.X(11)-9)+'" y="'+(g.Y(5.48))+'" width="'+(g.X(12)-g.X(11)+18)+'" height="'+(g.Y(5.1)-g.Y(5.48))+'" rx="6"/>'+T(g.X(11)-14,g.Y(5.33),'n = 1: 2 e⁻','an','text-anchor="end"')+'</g>';
+  s+='<g'+A(1)+'><path class="anl" d="M'+(g.X(3)+14)+' '+g.Y(v[2])+'V'+g.Y(v[3])+'"/>'+T(g.X(3)+18,(g.Y(v[2])+g.Y(v[3]))/2+4,'big jump 3 → 4','an')+'</g>';
+  s+='<g'+A(3)+'>'+T(g.X(3)+18,(g.Y(v[2])+g.Y(v[3]))/2+20,'inner shell','an')+'</g>';
+  return svg(330,240,g.s.replace('<path class="ln"',s+'<path class="ln"'))},
+lines:plan(['where is the big jump?','count e⁻ before it','inner shell, less shielding','2, 8, 3'])+
+ ans(1,'There is a big jump.','Where? Give the numbers of the ionisations.','There is a <span class="hl">large jump between the 3rd and 4th</span> ionisation energies.','M1')+
+ ans(2,'Z is in Group 4.','Wrong: count the electrons <b>before</b> the jump, not after.','So Z has <span class="hl">3 electrons in its outer shell</span>: Z is in <span class="hl">Group 3</span> (aluminium).','M2')+
+ ans(3,'The 4th electron is harder to remove.','That is what the graph shows. Now say why.','The 4th electron is removed from a <span class="hl">shell closer to the nucleus</span>, with <span class="hl">less shielding</span>, so much more energy is needed.','M3')+
+ ans(4,'The graph goes up.','Describe the pattern of jumps.','A second big jump, between the 11th and 12th, shows the <span class="hl">electrons are in shells of 2, 8 and 3</span>.','M4')+
+ wl(4,'Z: 1s² 2s² 2p⁶ 3s² 3p¹'),
+chips:[['M1','big jump between 3rd and 4th',1],['M2','3 outer electrons → Group 3',2],['M3','4th e⁻ from inner shell, nearer nucleus',3],['M4','jumps show shells of 2, 8, 3',4]],
+steps:[
+{t:'Read the graph',x:'The y-axis is log<sub>10</sub>(IE). A log scale squeezes huge values (578 to 222 316 '+KJ+') onto one graph. Look for the big steps.',tip:'Small rises are normal: each electron leaves an ion that is more and more positive.'},
+{t:'Find the first big jump',x:'The line rises gently for electrons 1–3, then jumps up at electron 4.',tip:'Always name the jump with numbers: "between the 3rd and 4th".'},
+{t:'Deduce the group',x:'Three electrons come off easily, so there are three in the outer shell. That puts Z in Group 3.',tip:'The number of electrons <b>before</b> the big jump = the group number.'},
+{t:'Explain the jump',x:'After three electrons have gone, the next one comes from the second shell. It is nearer the nucleus and less shielded.',tip:'Use "closer to the nucleus" and "less shielding" — both are on the mark scheme.'},
+{t:'Evidence for shells',x:'There are two big jumps. They split the 13 electrons into groups of 3, 8 and 2. These groups are the shells. The electron configuration matches.',tip:'Write the configuration with s and p notation if the question asks for it: 1s² 2s² 2p⁶ 3s² 3p¹.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Counting the electron after the jump (says Group 4).','Not saying where the jump is.','Saying the jump happens because the electron is "paired".','Forgetting to give a reason for the jump (closer to nucleus / less shielding).'],
+your:{kind:'num',q:'The first eight successive ionisation energies of element Q / '+KJ+' are: 1000, 2252, 3357, 4556, 7004, 8496, 27107, 31719. Which <b>group</b> is Q in? (type a number)',ans:6,tol:0.01,
+ ok:'Correct: the big jump is between the 6th and 7th IE (8496 → 27107), so Q has 6 outer electrons: Group 6 (sulfur).',
+ wrong:[[7,0.01,'You counted the electron after the jump. Count the electrons BEFORE the jump.'],[8,0.01,'There are 8 values, but the group comes from the position of the big jump.'],[5,0.01,'The rise from 4556 to 7004 is small. Look for the much larger jump.'],[0,0.01,'Q is not a noble gas. Find the largest jump.']]}
+});
+/* ---------- 6 Group 2 ---------- */
+W.push({btn:'IE down Group 2',spec:[["2.18 iii", "IE down a group"], ["2.14", "configurations"]],type:'Explain',marks:3,
+title:'The decrease in first ionisation energy down Group 2',
+q:'<p><span class="mk">(3)</span>First ionisation energies / '+KJ+': Mg 738, Ca 590, Sr 550.</p><p><mark>Explain</mark> why the first ionisation energy <mark>decreases down</mark> Group 2.</p>',
+diag:function(){var s=atom(76,92,12,[2,8,2],'2 4')+atom(242,92,20,[2,8,8,2],'2 4');
+  s+=T(76,190,'Mg','',' text-anchor="middle" font-weight="700" font-size="14"')+T(242,190,'Ca','',' text-anchor="middle" font-weight="700" font-size="14"');
+  s+='<g'+A(2)+'><path class="anl" d="M76 92H126"/>'+T(76,22,'outer e⁻ in shell 3','an','text-anchor="middle"')+'<path class="anl" d="M242 92H305"/>'+T(242,22,'outer e⁻ in shell 4','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(165,210,'Ca: 3 inner shells shield the outer e⁻','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'>'+T(165,228,'weaker pull on the outer electron','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(1)+'>'+T(8,252,'Mg  1s² 2s² 2p⁶ 3s²','sm')+T(8,268,'Ca  1s² 2s² 2p⁶ 3s² 3p⁶ 4s²','sm')+T(8,284,'Sr  1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹⁰ 4s² 4p⁶ 5s²','sm')+'</g>';
+  return svg(330,292,s)},
+lines:plan(['further from nucleus','more shielding','weaker attraction'])+
+ wl(1,'outer electron: <b>3s</b> → <b>4s</b> → <b>5s</b>')+
+ ans(2,'The atoms have more electrons.','Not a reason. Say where the outer electron is.','Down the group the outer electron is in a <span class="hl">shell further from the nucleus</span> (larger atomic radius).','M1')+
+ ans(3,'The nucleus is shielded.','Compare: is there more or less shielding, and why?','There are <span class="hl">more inner shells</span>, so there is <span class="hl">more shielding</span> of the outer electron.','M2')+
+ ans(4,'The nuclear charge decreases.','Wrong! The number of protons increases down a group.','So the <span class="hl">attraction between the nucleus and the outer electron is weaker</span>, even though the nuclear charge is larger. Less energy is needed to remove it.','M3'),
+chips:[['M1','outer e⁻ further from nucleus',2],['M2','more shielding (more inner shells)',3],['M3','weaker attraction to the nucleus',4]],
+steps:[
+{t:'Read and plan',x:'3 marks, so three ideas: distance, shielding, attraction. Each one links to the next.',tip:'Do not write "nuclear charge decreases". The number of protons increases down the group.'},
+{t:'Write the electron configurations',x:'Use s, p and d notation. Each new period adds a shell, so the outer electron moves from 3s to 4s to 5s. Notice the 3d<sup>10</sup> in strontium.',tip:'You may shorten with the noble gas core: Sr = [Kr] 5s². Fill 3d before 4p.'},
+{t:'Idea 1: distance',x:'Calcium\'s outer electron is in shell 4. It is further from the nucleus than magnesium\'s electron in shell 3.',tip:'"Atomic radius increases" is also accepted.'},
+{t:'Idea 2: shielding',x:'Calcium has three full inner shells between the nucleus and the outer electron. Magnesium has only two.',tip:'Give the reason for more shielding: more inner shells / more inner electrons.'},
+{t:'Idea 3: attraction and energy',x:'The extra protons are there, but the extra distance and shielding matter more. The outer electron is held less strongly.',tip:'Mention the nuclear charge to show you know it increases — then say the other effects outweigh it.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the nuclear charge decreases down the group.','Saying "more shielding" with no reason (more inner shells).','Saying "attraction is weaker" without saying between what.','Writing 4p before 3d, or missing 3d<sup>10</sup>, in the configuration of Sr.'],
+your:{kind:'text',marks:3,q:'<b>Explain</b> why the first ionisation energy of potassium (419 '+KJ+') is lower than that of sodium (496 '+KJ+'). (3)',
+ ms:['The outer electron of K is in a shell further from the nucleus (4s, not 3s) / larger radius.','K has more inner shells, so more shielding.','Weaker attraction between the nucleus and the outer electron, so less energy needed (despite more protons).'],
+ warn:[[/(nuclear charge|protons?)\W+(\w+\W+){0,2}(decreas|less|lower|smaller|fewer)|fewer protons|less protons/i,'Nuclear charge does not decrease. K has 19 protons, Na has 11.'],[/lose[sr]? (an )?electrons? (more )?easil/i,'"Loses electrons easily" describes the result. Give the reasons: distance and shielding.']]}
+});
+
+/* ---------- 7 electron configuration ---------- */
+W.push({btn:'Electron configurations',spec:[["2.14","configurations & ions"],["2.13","filling orbitals"],["2.9","orbitals & spin"]],type:'Give + deduce',marks:4,
+title:'Electronic configuration of iron and Fe<sup>3+</sup>',
+q:'<p><span class="mk">(4)</span>Iron has atomic number <mark>26</mark>.</p><p>(a) <mark>Give</mark> the full electronic configuration of an iron atom and of an <mark>Fe<sup>3+</sup></mark> ion, using s, p and d notation. (2)</p><p>(b) <mark>Complete</mark> the electrons-in-boxes diagram for the 3d and 4s sub-shells of an iron atom. <mark>State</mark> the number of unpaired electrons. (2)</p>',
+diag:function(){var s='<g'+A(0)+'>'+T(8,18,'Filling order:','sm',' font-weight="700"')+T(8,36,'1s 2s 2p 3s 3p 4s 3d','sm')+T(8,54,'s holds 2, p holds 6, d holds 10','sm')+'</g>';
+  var y=96;s+='<g'+A(3)+'>'+T(8,y+18,'Fe','',' font-weight="700" font-size="15"');
+  var fe=['ud','u','u','u','u'];for(var i=0;i<5;i++)s+=box(44+i*28,y,fe[i],'3');
+  s+=T(114,y-5,'3d','sm','text-anchor="middle"')+box(200,y,'ud','3')+T(214,y-5,'4s','sm','text-anchor="middle"')+'</g>';
+  s+='<g'+A(4)+'>'+T(44,y+44,'4 unpaired (single arrows)','an')+'</g>';
+  y=172;s+='<g'+A(4)+'>'+T(8,y+18,'Fe³⁺','',' font-weight="700" font-size="15"');
+  for(i=0;i<5;i++)s+=box(44+i*28,y,'u','4');
+  s+=T(114,y-5,'3d','sm','text-anchor="middle"')+box(200,y,'')+T(214,y-5,'4s','sm','text-anchor="middle"')+T(44,y+44,'4s empty: lost first','an')+'</g>';
+  return svg(330,236,s)},
+lines:plan(['count electrons','fill 4s before 3d','ions lose 4s first','one per box, then pair'])+
+ wl(1,'Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ <b>3d⁶ 4s²</b><span class="mt">M1</span>')+
+ wl(1,'check: 2+2+6+2+6+6+2 = 26 ✓')+
+ wl(2,'Fe³⁺ (23 e⁻): lose 4s² first, then 1 × 3d')+
+ wl(2,'Fe³⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ <b>3d⁵</b><span class="mt">M2</span>')+
+ wl(3,'3d: ↑↓ ↑ ↑ ↑ ↑    4s: ↑↓')+wl(3,'one e⁻ per orbital, then pair (↑↓)<span class="mt">M3</span>')+
+ wl(4,'Fe: <span class="box">4 unpaired</span> (Fe³⁺: 5)<span class="mt">M4</span>','ans1'),
+chips:[['M1','Fe … 3d⁶ 4s²',1],['M2','Fe³⁺ … 3d⁵',2],['M3','singly fill, then pair (opposite spins)',3],['M4','4 unpaired',4]],
+steps:[
+{t:'Read and plan',x:'Iron has 26 electrons. Fill the sub-shells in energy order. 4s fills before 3d because it is slightly lower in energy.',tip:'Learn the order 1s 2s 2p 3s 3p 4s 3d. It works for every element from H to Kr except Cr and Cu.'},
+{t:'(a) The iron atom',x:'Fill each sub-shell until you have used all 26 electrons. After 3p⁶ you have used 18. Put 2 in 4s, then the last 6 go into 3d.',tip:'Add up the superscripts to check: they must equal the atomic number.'},
+{t:'(a) The Fe³⁺ ion',x:'Fe³⁺ has lost 3 electrons, so it has 23. When a transition metal forms an ion, it loses its <b>4s</b> electrons <b>first</b>, then 3d electrons.',tip:'Do not take electrons from 3d first. 3d⁶ 4s² → Fe³⁺ is 3d⁵, not 3d³ 4s².'},
+{t:'(b) Electrons in boxes',x:'Each box is an orbital that holds up to two electrons with opposite spins. In a sub-shell, put one electron in each box before you pair any up.',tip:'Draw the paired arrows pointing in opposite directions (↑↓). Two arrows the same way loses the mark.'},
+{t:'(b) Count the unpaired electrons',x:'Six electrons in five 3d orbitals: five go in singly, then the sixth pairs up. That leaves four single arrows.',tip:'In Fe³⁺ (3d⁵) every 3d orbital has one electron, so there are 5 unpaired electrons.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Writing Fe³⁺ as 3d³ 4s² (3d electrons removed before 4s).','Pairing 3d electrons before every box has one electron.','Drawing paired electrons with the same spin.','Total of superscripts not equal to the number of electrons.'],
+your:{kind:'text',marks:2,q:'<b>Give</b> the electronic configurations of a copper atom (Z = 29) and of a Cu<sup>2+</sup> ion, using s, p and d notation. (2)',
+ ms:['Cu: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹⁰ 4s¹','Cu²⁺: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁹'],
+ warn:[[/3d\s*(9|⁹)\s*4s\s*(2|²)/i,'Copper is an exception: the atom is 3d¹⁰ 4s¹, not 3d⁹ 4s². A full 3d sub-shell is more stable.'],[/3d\s*(8|⁸)/i,'For Cu²⁺, remove the 4s electron first and then one 3d electron: 3d⁹.']]}
+});
+/* ---------- 8 melting temperatures ---------- */
+W.push({btn:'Melting temperatures in Period 3',spec:[["2.18 i","melting temperatures across a period"]],type:'Explain',marks:5,
+title:'Explaining melting temperatures across Period 3',
+q:'<p><span class="mk">(5)</span>The graph shows the melting temperatures of the elements in Period 3.</p><p><mark>Explain</mark> the trend in melting temperature from sodium to argon in terms of <mark>structure</mark> and <mark>bonding</mark>.</p>',
+diag:function(){var g=lineG({v:[371,923,933,1687,317,388,172,84],lab:['Na','Mg','Al','Si','P','S','Cl','Ar'],y0:0,y1:1800,step:300,xl:'Period 3 element',yl:'melting temperature / K',hot:{0:'1 2',1:'1 2',2:'1 2',3:'3',4:'4 5',5:'4 5',6:'4 5',7:'4 5'}});
+  var s=g.s+'<g'+A(1)+'>'+T(96,88,'giant metallic','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(3)+'>'+T(176,24,'giant covalent','an')+'</g>';
+  s+='<g'+A(4)+'>'+T(256,118,'simple molecular','an','text-anchor="middle"')+'</g>';
+  s+='<g'+A(5)+'>'+T(256,134,'S₈ > P₄ > Cl₂ > Ar','an','text-anchor="middle"')+'</g>';
+  return svg(330,240,s)},
+lines:plan(['name the structure','name the bonding','say what is overcome','link strength to T<sub>m</sub>'])+
+ ans(1,'Na, Mg and Al have strong bonds.','Name the structure and the bonding.','Na, Mg and Al have <span class="hl">giant metallic lattices</span>: positive ions in a sea of delocalised electrons.','M1')+
+ ans(2,'The metallic bonding gets stronger.','Say why it gets stronger.','From Na to Al the ions have a <span class="hl">larger charge</span> (Na⁺, Mg²⁺, Al³⁺) and are smaller, and there are <span class="hl">more delocalised electrons</span>, so the metallic bonding is stronger and T<sub>m</sub> rises.','M2')+
+ ans(3,'Silicon has strong intermolecular forces.','Wrong: silicon has no molecules.','Silicon is <span class="hl">giant covalent</span>. Many <span class="hl">strong covalent bonds</span> must be broken to melt it, so its T<sub>m</sub> is the highest.','M3')+
+ ans(4,'Melting P, S and Cl breaks weak covalent bonds.','Wrong: the covalent bonds inside the molecules do not break.','P₄, S₈ and Cl₂ are <span class="hl">simple molecular</span> and argon is single atoms. Only <span class="hl">weak London forces between the molecules</span> are overcome, so T<sub>m</sub> is low.','M4')+
+ ans(5,'','','S₈ has the most electrons, then P₄, then Cl₂, then Ar. <span class="hl">More electrons → stronger London forces</span>, so T<sub>m</sub>: S > P > Cl > Ar.','M5'),
+chips:[['M1','Na–Al giant metallic',1],['M2','more e⁻ / higher ion charge → stronger',2],['M3','Si giant covalent, many bonds broken',3],['M4','P–Ar: weak London forces overcome',4],['M5','S₈ > P₄ > Cl₂ > Ar (more electrons)',5]],
+steps:[
+{t:'Read and plan',x:'5 marks for a trend across eight elements. Split the period into three groups by structure: metals, silicon, and the non-metals. For each, name the structure, the bonding, and what has to be overcome.',tip:'Use the words "structure" and "bonding" in your answer. The question asks for both.'},
+{t:'Sodium to aluminium: structure',x:'These are metals. Name the structure and describe the bonding: a lattice of positive ions held together by delocalised electrons.',tip:'Write "giant metallic lattice". "Metallic bonds" on its own is often not enough.'},
+{t:'Why the metals get higher',x:'Na gives one delocalised electron per atom, Mg two, Al three. The ions also get more charge and smaller, so the attraction between the ions and the delocalised electrons gets stronger.',tip:'Compare two things: the charge on the ion AND the number of delocalised electrons.'},
+{t:'Silicon',x:'Silicon has a giant covalent structure, like diamond. To melt it, you must break many strong covalent bonds. This needs a lot of energy.',tip:'Never write "intermolecular forces" for silicon. It has no molecules.'},
+{t:'Phosphorus to argon',x:'These are simple molecules (P₄, S₈, Cl₂) or single atoms (Ar). Melting only overcomes the weak London forces between molecules. The covalent bonds inside the molecules stay intact.',tip:'Say clearly that the forces are BETWEEN molecules. This is the most common lost mark.'},
+{t:'Order the molecules',x:'London forces get stronger as the number of electrons increases. S₈ has 128 electrons, P₄ has 60, Cl₂ has 34 and Ar has 18.',tip:'Quote the formulae P₄ and S₈. They show you know why sulfur is higher than phosphorus.'},
+{t:'Check against the mark scheme',x:'All five marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying covalent bonds break when phosphorus, sulfur or chlorine melt.','Calling silicon simple molecular, or using intermolecular forces for silicon.','"Stronger metallic bonds" with no reason (ion charge, delocalised electrons).','Not explaining why sulfur is higher than phosphorus (S₈ is bigger than P₄).'],
+your:{kind:'text',marks:3,q:'<b>Explain</b> why magnesium has a higher melting temperature than sodium. (3)',
+ ms:['Both have giant metallic lattices (positive ions and delocalised electrons).','Mg²⁺ has a larger charge (and is smaller) than Na⁺, and Mg gives two delocalised electrons per atom while Na gives one.','So the attraction between the ions and the delocalised electrons is stronger in Mg; more energy is needed to overcome it.'],
+ warn:[[/intermolecular|london|van der waals|dipole/i,'Metals have metallic bonding. Do not write about intermolecular forces.'],[/covalent|molecules?\b/i,'Sodium and magnesium are metals: they have no covalent bonds or molecules.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 1 · Topic 2 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["2.1", "Describe the structure of an atom: protons, neutrons and electrons."], ["2.2", "Give the relative mass and charge of protons, neutrons and electrons."], ["2.3", "Explain the terms atomic (proton) number and mass number."], ["2.4", "Work out the numbers of protons, neutrons and electrons in an atom or ion."], ["2.5", "Explain what isotopes are."], ["2.6", "Interpret mass spectra: isotopic composition, A<sub>r</sub>, M<sub>r</sub> and 2+ ions."], ["2.7", "Predict the mass spectrum of a diatomic molecule such as Cl<sub>2</sub>."], ["2.8", "Define first, second and third ionisation energies (all endothermic)."], ["2.9", "Describe an orbital: up to two electrons with opposite spins."], ["2.10", "Explain how nuclear charge, shielding and sub-shell affect ionisation energy."], ["2.11", "Use successive and first ionisation energies as evidence for shells and sub-shells."], ["2.12", "Describe the shapes of s and p orbitals."], ["2.13", "Fill orbitals correctly: one electron each before pairing, with opposite spins."], ["2.14", "Write configurations for H to Kr and their ions (s, p, d and electrons-in-boxes)."], ["2.15", "Explain how electronic configuration decides chemical properties."], ["2.16", "Name the s, p and d blocks and how many electrons s, p and d sub-shells hold."], ["2.17", "Plot periodic data (including log of first IE) and explain 'periodic property'."], ["2.18", "Explain trends in melting temperature and IE across Periods 2 and 3, and IE down a group."]],KEY="ialchem-t2-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 2: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

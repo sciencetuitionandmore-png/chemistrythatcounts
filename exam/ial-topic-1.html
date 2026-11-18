@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Topic 1 Calculations</title>
+<meta name="description" content="How to answer exam questions, step by step: Topic 1 Calculations. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-1.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#a3341f;--bad-soft:#fbe4de;
+--fh:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;--fb:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--fm:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.45;overflow-x:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px;position:relative}
+h1,h2,h3,button{font-family:var(--fh)}
+sub,sup{font-size:.72em;line-height:0}
+.top h1{font-size:1.15rem;margin:0 0 2px;font-weight:700}
+.top p{margin:0 0 10px;color:var(--muted);font-size:.92rem}
+.pick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick button{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;text-align:left;cursor:pointer;color:var(--ink);font-size:.86rem;font-weight:600;line-height:1.25;min-height:54px}
+.pick button small{display:block;font-family:var(--fm);font-weight:500;font-size:.7rem;color:var(--muted);margin-top:3px}
+.pick button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+.pick button[aria-pressed=true] small{color:#d4e9ef}
+.pick button:focus-visible,.ctl button:focus-visible,.dots button:focus-visible,.yt button:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--fm);font-size:.72rem;letter-spacing:.02em;color:var(--accent);text-transform:uppercase;margin:0 0 4px}
+.qh h2{margin:0 0 6px;font-size:1.2rem}
+.q{background:var(--paper);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;min-height:118px;font-size:.95rem}
+.q p{margin:0 0 6px}.q p:last-child{margin:0}
+.q .eq{font-family:var(--fm);font-size:.86rem;text-align:center;margin:4px 0 6px}
+.q .dat{color:var(--muted);font-size:.86rem}
+.q mark{background:var(--spark-soft);color:inherit;padding:0 3px;border-radius:4px;transition:background .3s,box-shadow .3s}
+.q mark.hot{background:#ffd98a;box-shadow:0 0 0 2px var(--spark)}
+.q table{border-collapse:collapse;font-family:var(--fm);font-size:.8rem;margin:2px 0 6px}
+.q td,.q th{border:1px solid var(--line);padding:2px 8px;text-align:center}
+.q th{background:var(--bg);font-weight:500}
+.stage{margin-top:12px;background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:14px;min-height:340px;display:flex;gap:14px;position:relative}
+.stage::before{content:"Answer space";position:absolute;top:-9px;left:14px;background:var(--paper);padding:0 6px;font-family:var(--fm);font-size:.68rem;color:var(--muted)}
+.work{flex:1 1 auto;min-width:0;font-family:var(--fm);font-size:.86rem}
+.work .ln{padding:3px 8px;border-bottom:1px dashed #e1e8ec;position:relative;overflow-wrap:anywhere}
+.work .ln.lab{font-family:var(--fh);font-weight:600;font-size:.76rem;color:var(--accent);border:0;padding-top:6px;padding-bottom:0}
+.work .ln.new{animation:type calc(1.3s*var(--sp,1)) steps(30,end) both;background:linear-gradient(90deg,var(--spark-soft),transparent 80%)}
+.work .ln.cur{background:linear-gradient(90deg,#f6fafb,transparent)}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.work .v{font-style:normal;background:var(--spark-soft);border-radius:3px;padding:0 2px}
+.work .r{font-weight:700;color:var(--accent)}
+.work .ans{display:inline-block;border:2px solid var(--good);border-radius:6px;padding:1px 8px;background:var(--good-soft);font-weight:700}
+.work .mk{float:right;font-size:.7rem;color:var(--good);font-weight:500;margin-left:6px}
+.diag{flex:0 0 260px;display:flex;flex-direction:column;gap:8px;font-size:.82rem}
+.diag svg{width:100%;height:auto;display:block}
+[data-s]{transition:opacity calc(.8s*var(--sp,1)),transform calc(.8s*var(--sp,1))}
+.off{opacity:0;transform:translateY(4px)}
+.flow{display:flex;flex-direction:column;gap:4px;align-items:stretch}
+.flow .bx{border:1.5px solid var(--line);border-radius:8px;padding:5px 8px;text-align:center;font-family:var(--fm);font-size:.8rem;background:#f8fbfc}
+.flow .bx b{display:block;font-family:var(--fh);font-size:.95rem;color:var(--accent)}
+.flow .ar{text-align:center;font-family:var(--fm);font-size:.74rem;color:var(--spark);font-weight:500}
+.hl{box-shadow:0 0 0 3px var(--spark)!important}
+table.t{border-collapse:collapse;width:100%;font-family:var(--fm);font-size:.76rem}
+table.t th,table.t td{border:1px solid var(--line);padding:4px 3px;text-align:center}
+table.t th{background:var(--bg);font-weight:500}
+table.t td.rl{text-align:left;color:var(--muted);font-size:.7rem}
+.card{border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;background:#f8fbfc;font-family:var(--fm);font-size:.76rem}
+.card div{display:flex;justify-content:space-between;gap:6px;padding:2px 0}
+.card div b{color:var(--spark);font-weight:500}
+.cap{font-size:.75rem;color:var(--muted);text-align:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.chip{font-family:var(--fm);font-size:.74rem;border:1.5px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--paper);color:var(--muted);transition:all .5s}
+.chip b{font-weight:500;color:var(--ink);margin-right:4px}
+.chip.on{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.chip.on b{color:var(--good)}
+.chip.on::before{content:"\2713 ";font-weight:700}
+.chip.pop{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.nar{margin-top:10px;background:var(--paper);border-radius:12px;padding:12px 14px;min-height:184px;border:1.5px solid var(--line)}
+.nar .sc{font-family:var(--fm);font-size:.72rem;color:var(--muted)}
+.nar h3{margin:2px 0 4px;font-size:1.02rem}
+.nar p{margin:0 0 8px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:0 8px 8px 0;padding:6px 10px;font-size:.92rem}
+.tip b{color:#9a5c00}
+.nar ul{margin:4px 0 8px;padding-left:20px;font-size:.92rem}
+.nar ul li{margin:2px 0}
+.ctl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.ctl button{border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:8px 14px;font-weight:600;font-size:.9rem;cursor:pointer;min-height:42px}
+.ctl button.pri{background:var(--accent);color:#fff;margin-left:auto}
+.ctl button:disabled{opacity:.4;cursor:default}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.ctl .dots button{width:14px;height:14px;min-height:0;flex:none;border-radius:50%;border:1.5px solid var(--accent);background:var(--paper);padding:0;cursor:pointer}
+.ctl .dots button.done{background:#8fbfcd}
+.ctl .dots button.now{background:var(--accent);transform:scale(1.2)}
+.yt{margin-top:14px;background:var(--paper);border:2px dashed var(--accent);border-radius:12px;padding:12px 14px;min-height:210px}
+.yt h3{margin:0 0 4px;font-size:1rem;color:var(--accent)}
+.yt p{margin:0 0 8px;font-size:.93rem}
+.yt .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.yt input{font-family:var(--fm);font-size:1rem;padding:8px 10px;border:1.5px solid var(--line);border-radius:8px;width:150px;color:var(--ink)}
+.yt input:focus{outline:3px solid var(--spark);outline-offset:1px;border-color:var(--accent)}
+.yt button{border:1.5px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;min-height:40px;font-size:.9rem}
+.yt button.sec{background:var(--paper);color:var(--accent)}
+.fb{margin-top:8px;padding:7px 10px;border-radius:8px;font-size:.92rem;display:none}
+.fb.ok{display:block;background:var(--good-soft);color:var(--good);border-left:4px solid var(--good)}
+.fb.no{display:block;background:var(--bad-soft);color:var(--bad);border-left:4px solid var(--bad)}
+.wk{display:none;margin-top:8px;font-family:var(--fm);font-size:.8rem;background:var(--bg);border-radius:8px;padding:8px 10px}
+.wk.show{display:block}
+.fly{position:absolute;z-index:20;pointer-events:none;font-family:var(--fm);font-size:.86rem;background:#ffd98a;border-radius:4px;padding:0 3px;box-shadow:0 2px 8px rgba(0,0,0,.18);white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:640px){
+ .pick{grid-template-columns:repeat(2,1fr)}
+ .stage{flex-direction:column}
+ .diag{flex:none;max-width:340px;width:100%;margin:0 auto}
+ .ctl button.pri{margin-left:0}
+ .q table{font-size:.7rem}.q td,.q th{padding:2px 4px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--fm);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--fm);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--fm);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--fh);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--fh);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--fh);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.wrap{max-width:1100px}
+.pick{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:12px}
+.play .stage{margin-top:0}.play .diag{flex:0 0 230px}
+.side .ctl{margin-top:0;gap:6px}.side .ctl button{padding:8px 10px}
+.side .ctl button.pri{margin-left:auto}.side .dots{order:9;width:100%}
+.side .chips{margin:10px 0 0}.side .nar{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.pick{grid-template-columns:repeat(2,1fr)}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--fh);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap" id="wrap">
+ <div class="top">
+  <h1>Topic 1 calculations: answer it mark by mark</h1>
+  <p>Choose a question. Press <b>Next step</b> (or the → key) to build the answer one mark at a time.</p>
+ </div>
+ <div class="pick" id="pick" role="group" aria-label="Choose a walkthrough"></div>
+ <div class="qh">
+  <p class="eyebrow" id="eb"></p>
+  <h2 id="tt"></h2>
+  <div class="specs" id="spec" aria-label="Specification points"></div>
+  <div class="q" id="q"></div>
+ </div>
+ <div class="play">
+ <div class="stage" id="stage">
+  <div class="work" id="work" aria-live="polite"></div>
+  <div class="diag" id="diag"></div>
+ </div>
+ <div class="side">
+ <div class="ctl">
+  <button id="bk" type="button">← Back</button>
+  <button id="rp" type="button">↻ Replay</button>
+  <div class="dots" id="dots" aria-label="Steps"></div>
+  <div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div>
+  <button id="nx" class="pri" type="button">Next step →</button>
+ </div>
+ <div class="chips" id="chips" aria-label="Mark scheme"></div>
+ <div class="nar" id="nar" aria-live="polite">
+  <div class="sc" id="sc"></div>
+  <h3 id="st"></h3>
+  <div id="sx"></div>
+ </div>
+ </div>
+ </div>
+ <div class="yt" id="yt"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(id){return document.getElementById(id);}
+/* helpers for working-line markup */
+function v(k,t){return '<i class="v" data-f="'+k+'">'+t+'</i>';}
+function r(t){return '<span class="r">'+t+'</span>';}
+function A(t){return '<span class="ans">'+t+'</span>';}
+function M(t){return '<span class="mk">'+t+'</span>';}
+function L(t){return {lab:1,h:t};}
+var tenM3='10<sup>−3</sup>';
+
+var W=[
+/* ---------- 1 REACTING MASSES ---------- */
+{btn:"Reacting masses",spec:[["1.7", "reacting masses"], ["1.4 ii", "relative formula mass"]],marks:4,title:"Mass of iron from iron(III) oxide",
+q:'<p>Iron is made when iron(III) oxide is reduced by carbon monoxide.</p><p class="eq">Fe<sub>2</sub>O<sub>3</sub>(s) + 3CO(g) → <mark data-f="ra">2</mark>Fe(s) + 3CO<sub>2</sub>(g)</p><p><mark>Calculate</mark> the maximum mass of iron that can be made from <mark data-f="m">12.0 g</mark> of iron(III) oxide. Give your answer to <mark>three significant figures</mark>.</p><p class="dat">[A<sub>r</sub>: Fe = <mark data-f="fe">55.8</mark>, O = <mark data-f="o">16.0</mark>]</p>',
+diag:'<div class="flow"><div class="bx" data-s="0" data-h="0">mass Fe<sub>2</sub>O<sub>3</sub><b>12.0 g</b></div><div class="ar" data-s="2">↓ ÷ M<sub>r</sub> (159.6)</div><div class="bx" data-s="2" data-h="2">moles Fe<sub>2</sub>O<sub>3</sub><b>0.07519 mol</b></div><div class="ar" data-s="3">↓ × 2 (mole ratio 1 : 2)</div><div class="bx" data-s="3" data-h="3">moles Fe<b>0.1504 mol</b></div><div class="ar" data-s="4">↓ × A<sub>r</sub> (55.8)</div><div class="bx" data-s="4" data-h="4">mass Fe<b>8.39 g</b></div></div><p class="cap" data-s="0">The mole map: mass → moles → moles → mass</p>',
+chips:[["M1","M<sub>r</sub> Fe<sub>2</sub>O<sub>3</sub> = 159.6"],["M2","mol Fe<sub>2</sub>O<sub>3</sub>"],["M3","×2 mole ratio"],["M4","8.39 g (3 s.f.)"]],
+steps:[
+{t:"Find the data and the mole ratio",x:"Underline the mass you are given and the substance you want. Read the ratio from the big numbers in the equation: 1 Fe<sub>2</sub>O<sub>3</sub> makes 2 Fe.",tip:"Write the ratio down before you start. Most lost marks in this question come from using the wrong ratio.",
+ l:[L("Data"),'mass Fe<sub>2</sub>O<sub>3</sub> = '+v("m","12.0 g")+'   ratio Fe<sub>2</sub>O<sub>3</sub> : Fe = 1 : '+v("ra","2")]},
+{t:"Work out the relative formula mass",x:"Add up the A<sub>r</sub> values for every atom in the formula. Fe<sub>2</sub>O<sub>3</sub> has 2 iron atoms and 3 oxygen atoms.",tip:"Show the sum, not just the answer. If you make a slip, the examiner can still give credit for the method.",e:["M1"],
+ l:[L("Step 1  M<sub>r</sub>"),'M<sub>r</sub>(Fe<sub>2</sub>O<sub>3</sub>) = (2 × '+v("fe","55.8")+') + (3 × '+v("o","16.0")+') = '+r("159.6")+M("M1")]},
+{t:"Change mass into moles",x:"Moles = mass ÷ M<sub>r</sub>. Keep at least 4 significant figures in the middle of a calculation.",tip:"Moles (n) = mass (m) ÷ M<sub>r</sub>. Do not round until the final answer.",e:["M2"],
+ l:[L("Step 2  moles of Fe<sub>2</sub>O<sub>3</sub>"),'n = '+v("m","12.0")+' ÷ 159.6 = '+r("0.07519 mol")+M("M2")]},
+{t:"Use the mole ratio",x:"One mole of Fe<sub>2</sub>O<sub>3</sub> gives two moles of Fe, so multiply by 2.",tip:"Check the direction: you want MORE moles of Fe than Fe<sub>2</sub>O<sub>3</sub>, so multiply, do not divide.",e:["M3"],
+ l:[L("Step 3  moles of Fe"),'n(Fe) = 0.07519 × '+v("ra","2")+' = '+r("0.1504 mol")+M("M3")]},
+{t:"Change moles back into mass",x:"Mass = moles × A<sub>r</sub>. Use A<sub>r</sub> of Fe (55.8), not 2 × 55.8, because you already have moles of Fe atoms.",tip:"Give your answer to the same number of significant figures as the data: 12.0 g has 3 s.f., so give 8.39 g.",e:["M4"],
+ l:[L("Step 4  mass of Fe"),'mass = 0.1504 × '+v("fe","55.8")+' = 8.391 = '+A("8.39 g")+M("M4")]},
+{fin:1,t:"Check against the mark scheme",x:"All four marks are earned. Each mark matches one line of working.",tip:"An error carried forward (ECF) still scores later marks, so always show every step.",
+ mis:["Using a 1 : 1 ratio (gives 4.20 g): loses M3.","Using M<sub>r</sub> of Fe = 111.6 (2 × 55.8) in the last step.","Rounding 0.07519 to 0.08 too early, so the answer is wrong.","Writing 8.4 g or 8.391 g: not 3 s.f."]}
+],
+yt:{q:'Aluminium reacts with chlorine: 2Al(s) + 3Cl<sub>2</sub>(g) → 2AlCl<sub>3</sub>(s). Calculate the mass of chlorine, in g, that reacts with exactly 4.05 g of aluminium. [A<sub>r</sub>: Al = 27.0, Cl = 35.5]',
+ u:"g",a:15.975,tol:0.06,
+ w:[[7.10,0.06,"You used the mole ratio upside down. Moles Cl<sub>2</sub> = moles Al × 3/2, not × 2/3."],[7.99,0.05,"You used 35.5 for chlorine. Chlorine is Cl<sub>2</sub>, so its M<sub>r</sub> is 71.0."],[10.65,0.06,"You used a 1 : 1 ratio. Look at the big numbers: 2Al : 3Cl<sub>2</sub>."]],
+ k:'n(Al) = 4.05 ÷ 27.0 = 0.150 mol<br>n(Cl<sub>2</sub>) = 0.150 × 3/2 = 0.225 mol<br>mass = 0.225 × 71.0 = 15.975 = <b>16.0 g</b>'}
+},
+/* ---------- 2 EMPIRICAL & MOLECULAR FORMULA ---------- */
+{btn:"Empirical & molecular formula",spec:[["1.6", "empirical & molecular formulae"]],marks:4,title:"Formula of compound Y from % by mass",
+q:'<p>Compound Y contains carbon, hydrogen and oxygen only. Its composition by mass is <mark data-f="c">C 40.68%</mark>, <mark data-f="h">H 5.08%</mark> and <mark data-f="ox">O 54.24%</mark>.</p><p>The relative molecular mass of Y is <mark data-f="mr">118</mark>.</p><p><mark>Calculate</mark> the empirical formula of Y and <mark>deduce</mark> its molecular formula. Show your working.</p><p class="dat">[A<sub>r</sub>: C = 12.0, H = 1.0, O = 16.0]</p>',
+diag:'<table class="t"><tr><th></th><th>C</th><th>H</th><th>O</th></tr><tr data-s="0" data-h="0"><td class="rl">mass /g</td><td>40.68</td><td>5.08</td><td>54.24</td></tr><tr data-s="1" data-h="1"><td class="rl">÷ A<sub>r</sub></td><td>3.39</td><td>5.08</td><td>3.39</td></tr><tr data-s="2" data-h="2"><td class="rl">÷ 3.39</td><td>1</td><td>1.50</td><td>1</td></tr><tr data-s="3" data-h="3"><td class="rl">× 2</td><td>2</td><td>3</td><td>2</td></tr></table><p class="cap" data-s="0">Set it out as a table: one column per element.</p><div class="card" data-s="4" data-h="4"><div><span>M<sub>r</sub> of C<sub>2</sub>H<sub>3</sub>O<sub>2</sub></span><b>59.0</b></div><div><span>118 ÷ 59.0</span><b>2</b></div><div><span>molecular formula</span><b>C<sub>4</sub>H<sub>6</sub>O<sub>4</sub></b></div></div>',
+chips:[["M1","÷ A<sub>r</sub> for each element"],["M2","÷ smallest: 1 : 1.5 : 1"],["M3","EF C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>"],["M4","MF C<sub>4</sub>H<sub>6</sub>O<sub>4</sub>"]],
+steps:[
+{t:"Assume you have 100 g",x:"If you have 100 g of Y, each percentage becomes a mass in grams. This makes the numbers easy to use.",tip:"Check the percentages add up to 100%. Here 40.68 + 5.08 + 54.24 = 100.",
+ l:[L("Assume 100 g of Y"),'C = '+v("c","40.68 g")+'   H = '+v("h","5.08 g")+'   O = '+v("ox","54.24 g")]},
+{t:"Divide each mass by its A<sub>r</sub>",x:"This gives the number of moles of atoms of each element.",tip:"Use the A<sub>r</sub> of the atom: O = 16.0, not 32 for O<sub>2</sub>.",e:["M1"],
+ l:[L("Step 1  moles of atoms"),'C: 40.68 ÷ 12.0 = '+r("3.39")+'   H: 5.08 ÷ 1.0 = '+r("5.08"),'O: 54.24 ÷ 16.0 = '+r("3.39")+M("M1")]},
+{t:"Divide by the smallest number",x:"The smallest value is 3.39. Divide all three by 3.39 to get the simplest ratio.",tip:"1.5 is not a whole number. Never round 1.5 up to 2 or down to 1. Only round values very close to a whole number, like 0.98 or 2.03.",e:["M2"],
+ l:[L("Step 2  simplest ratio"),'C : H : O = 3.39/3.39 : 5.08/3.39 : 3.39/3.39','= '+r("1 : 1.50 : 1")+M("M2")]},
+{t:"Multiply to get whole numbers",x:"A ratio with .5 must be doubled. 1 : 1.5 : 1 becomes 2 : 3 : 2.",tip:"Learn these: x.5 → ×2, x.33 or x.67 → ×3, x.25 or x.75 → ×4.",e:["M3"],
+ l:[L("Step 3  empirical formula"),'(1 : 1.5 : 1) × 2 = 2 : 3 : 2','empirical formula = '+A("C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>")+M("M3")]},
+{t:"Use the M<sub>r</sub> to find the molecular formula",x:"Find the mass of one empirical formula unit. Divide the M<sub>r</sub> by it. Multiply the formula by that number.",tip:"Always show the check: M<sub>r</sub> ÷ empirical formula mass. A formula without this line can lose the mark.",e:["M4"],
+ l:[L("Step 4  molecular formula"),'EF mass = (2×12.0) + (3×1.0) + (2×16.0) = 59.0',v("mr","118")+' ÷ 59.0 = 2  →  MF = '+A("C<sub>4</sub>H<sub>6</sub>O<sub>4</sub>")+M("M4")]},
+{fin:1,t:"Check against the mark scheme",x:"All four marks are earned. The table layout makes each mark easy for the examiner to see.",tip:"Write the molecular formula with numbers as subscripts, e.g. C<sub>4</sub>H<sub>6</sub>O<sub>4</sub>, not C4H6O4 on the line or (C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>2</sub>.",
+ mis:["Rounding 1.5 to 2, giving CH<sub>2</sub>O: loses M2, M3 and M4.","Dividing by atomic number (C = 6) instead of A<sub>r</sub>.","Using 32 for oxygen (O<sub>2</sub>).","Giving only the empirical formula when the molecular formula is asked for."]}
+],
+yt:{txt:1,q:'An oxide of phosphorus contains 43.7% phosphorus and 56.3% oxygen by mass. Its M<sub>r</sub> is 284. Find its <b>molecular formula</b>. [A<sub>r</sub>: P = 31.0, O = 16.0] Type it like P4O10 (letters and numbers).',
+ a:"P4O10",
+ w:[["P2O5","That is the empirical formula. Now divide 284 by the empirical formula mass (142) and multiply."],["PO2.5","Good start, but 1 : 2.5 must be multiplied by 2 to give whole numbers."],["PO2","Do not round 2.5 down. Multiply 1 : 2.5 by 2 instead."],["PO3","Do not round 2.5 up. Multiply 1 : 2.5 by 2 instead."]],
+ k:'P: 43.7 ÷ 31.0 = 1.410   O: 56.3 ÷ 16.0 = 3.519<br>ratio 1 : 2.50 → ×2 → 2 : 5 → EF P<sub>2</sub>O<sub>5</sub> (mass 142)<br>284 ÷ 142 = 2 → <b>P<sub>4</sub>O<sub>10</sub></b>'}
+},
+/* ---------- 4 GAS VOLUMES ---------- */
+{btn:"Gas volumes: molar volume & pV = nRT",spec:[["1.8 ii", "molar volume"], ["1.8 iii", "pV = nRT"]],marks:5,title:"Volume of hydrogen from magnesium",
+q:'<p><mark data-f="mg">0.120 g</mark> of magnesium reacts with excess hydrochloric acid.</p><p class="eq">Mg(s) + 2HCl(aq) → MgCl<sub>2</sub>(aq) + H<sub>2</sub>(g)</p><p><b>(a)</b> <mark>Calculate</mark> the volume of hydrogen, in cm<sup>3</sup>, at room temperature and pressure. <span class="dat">[A<sub>r</sub> Mg = <mark data-f="ar">24.3</mark>; molar volume = <mark data-f="mv">24.0 dm<sup>3</sup> mol<sup>−1</sup></mark>]</span> (2)</p><p><b>(b)</b> The gas is collected at <mark data-f="tc">35 °C</mark> and <mark data-f="p">98.0 kPa</mark>. Use <mark>pV = nRT</mark> to calculate its volume in cm<sup>3</sup>. <span class="dat">[R = <mark data-f="R">8.31</mark> J mol<sup>−1</sup> K<sup>−1</sup>]</span> (3)</p>',
+diag:'<svg viewBox="0 0 260 110" role="img" aria-label="Gas syringe collecting hydrogen from a flask"><path d="M20 50 L20 96 Q20 104 28 104 L62 104 Q70 104 70 96 L70 50Z" fill="#fff" stroke="#5b7380" stroke-width="1.5"/><path d="M22 78 L68 78 L68 96 Q68 102 62 102 L28 102 Q22 102 22 96Z" fill="#d4ecf5"/><rect x="40" y="36" width="10" height="16" fill="#5b7380"/><path d="M50 42 L96 42" stroke="#5b7380" stroke-width="4"/><rect x="96" y="30" width="130" height="26" rx="3" fill="#f3f8fa" stroke="#5b7380" stroke-width="1.5"/><rect x="98" y="32" width="10" height="22" fill="#fff"/><g data-s="1"><rect x="98" y="32" width="64" height="22" fill="#e6f3e9"/></g><rect x="108" y="32" width="5" height="22" fill="#14313d" data-s="-1"/><g data-s="1"><rect x="162" y="32" width="5" height="22" fill="#14313d"/><line x1="167" y1="43" x2="250" y2="43" stroke="#14313d" stroke-width="3"/></g><text x="130" y="76" font-family="JetBrains Mono,monospace" font-size="11" fill="#0b5d75" data-s="1">H₂ collected</text><circle cx="40" cy="90" r="2" fill="#5b7380" data-s="0"/><circle cx="52" cy="86" r="2" fill="#5b7380" data-s="0"/><circle cx="46" cy="70" r="2" fill="#5b7380" data-s="0"/></svg><div class="card" data-s="2" data-h="2"><div><span>°C → K</span><b>+ 273</b></div><div><span>kPa → Pa</span><b>× 1000</b></div></div><div class="card" data-s="1"><div><span>dm³ → cm³</span><b>× 1000</b></div><div data-s="4" data-h="4"><span>m³ → cm³</span><b>× 10⁶</b></div></div><p class="cap" data-s="3">pV = nRT uses SI units only: Pa, m³, K</p>',
+chips:[["M1","mol Mg = mol H<sub>2</sub>"],["M2","(a) 119 cm<sup>3</sup>"],["M3","308 K and 98 000 Pa"],["M4","V = nRT/p substituted"],["M5","(b) 129 cm<sup>3</sup>"]],
+steps:[
+{t:"Moles of magnesium = moles of hydrogen",x:"Change the mass of Mg into moles. The equation shows 1 Mg gives 1 H<sub>2</sub>, so the moles are the same.",tip:"Write the ratio, even when it is 1 : 1. It shows the examiner you checked.",e:["M1"],
+ l:[L("(a) Step 1  moles"),'n(Mg) = '+v("mg","0.120")+' ÷ '+v("ar","24.3")+' = '+r("4.938 × "+tenM3+" mol"),'ratio 1 : 1, so n(H<sub>2</sub>) = 4.938 × '+tenM3+' mol'+M("M1")]},
+{t:"Volume at RTP = moles × 24.0",x:"At room temperature and pressure, one mole of any gas fills 24.0 dm<sup>3</sup>. The question asks for cm<sup>3</sup>, so multiply by 1000.",tip:"Read the units the question asks for. Here: cm<sup>3</sup>, not dm<sup>3</sup>.",e:["M2"],
+ l:[L("(a) Step 2  volume at RTP"),'V = 4.938 × '+tenM3+' × '+v("mv","24.0")+' = 0.1185 dm<sup>3</sup>','= '+A("119 cm<sup>3</sup>")+M("M2")]},
+{t:"(b) Convert to SI units first",x:"pV = nRT only works with pressure in Pa, volume in m<sup>3</sup> and temperature in K.",tip:"Convert BEFORE you substitute: K = °C + 273, Pa = kPa × 1000.",e:["M3"],
+ l:[L("(b) Step 3  units"),'T = '+v("tc","35")+' + 273 = '+r("308 K"),'p = '+v("p","98.0")+' × 1000 = '+r("98 000 Pa")+M("M3")]},
+{t:"Rearrange and substitute",x:"Rearrange pV = nRT to make V the subject: V = nRT ÷ p. Put in n, R, T and p.",tip:"Write the rearranged equation first. Then substitute. This earns the method mark even if you slip on the calculator.",e:["M4"],
+ l:[L("(b) Step 4  V = nRT ÷ p"),'V = (4.938 × '+tenM3+' × '+v("R","8.31")+' × 308) ÷ 98 000','= '+r("1.290 × 10<sup>−4</sup> m<sup>3</sup>")+M("M4")]},
+{t:"Change m<sup>3</sup> into cm<sup>3</sup>",x:"1 m<sup>3</sup> = 1 000 000 cm<sup>3</sup>. Multiply by 10<sup>6</sup>. The answer is bigger than in (a) because the gas is warmer and the pressure is lower.",tip:"Sense check: a warmer gas at lower pressure takes up MORE space. 129 cm<sup>3</sup> > 119 cm<sup>3</sup>.",e:["M5"],
+ l:['V = 1.290 × 10<sup>−4</sup> × 10<sup>6</sup> = '+A("129 cm<sup>3</sup>")+M("M5")]},
+{fin:1,t:"Check against the mark scheme",x:"All five marks are earned: two for (a) and three for (b).",tip:"Learn the three conversions as a set: °C + 273, kPa × 10<sup>3</sup>, cm<sup>3</sup> × 10<sup>−6</sup> (to m<sup>3</sup>).",
+ mis:["Using 35 instead of 308 K (gives 14.7 cm<sup>3</sup>).","Using 98.0 kPa without × 1000, so the volume is 1000 times too big.","Giving the answer in m<sup>3</sup> when cm<sup>3</sup> was asked for.","Using 24.0 dm<sup>3</sup> in part (b): molar volume is only for RTP."]}
+],
+yt:{q:'A volatile liquid is vaporised. 0.250 g of the liquid forms 98.5 cm<sup>3</sup> of gas at 100 °C and 101 kPa. Use pV = nRT to calculate the relative molecular mass, M<sub>r</sub>, of the liquid. [R = 8.31 J mol<sup>−1</sup> K<sup>−1</sup>]',
+ u:"",a:77.9,tol:0.35,
+ w:[[20.9,0.3,"You used 100 for T. Temperature must be in kelvin: 100 + 273 = 373 K."],[0.0779,0.001,"Check the volume. 98.5 cm<sup>3</sup> = 98.5 × 10<sup>−6</sup> m<sup>3</sup> (you used dm<sup>3</sup>)."],[77900,400,"Check the pressure. 101 kPa = 101 000 Pa."],[0.0128,0.0005,"You found 1/M<sub>r</sub>. M<sub>r</sub> = mass ÷ moles."]],
+ k:'p = 101 000 Pa, V = 98.5 × 10<sup>−6</sup> m<sup>3</sup>, T = 373 K<br>n = pV ÷ RT = (101 000 × 98.5 × 10<sup>−6</sup>) ÷ (8.31 × 373) = 3.210 × 10<sup>−3</sup> mol<br>M<sub>r</sub> = 0.250 ÷ 3.210 × 10<sup>−3</sup> = <b>77.9</b>'}
+},
+/* ---------- 5 YIELD & ATOM ECONOMY ---------- */
+{btn:"Percentage yield & atom economy",spec:[["1.9", "% yield & atom economy"]],marks:4,title:"Making ethyl ethanoate",
+q:'<p>Ethyl ethanoate is made from ethanoic acid and ethanol.</p><p class="eq">CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH → CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O</p><p>A student used <mark data-f="ma">6.00 g</mark> of ethanoic acid with excess ethanol and obtained <mark data-f="act">5.72 g</mark> of ethyl ethanoate.</p><p><b>(a)</b> <mark>Calculate</mark> the percentage yield. (3) <b>(b)</b> <mark>Calculate</mark> the atom economy by mass for making ethyl ethanoate. (1)</p><p class="dat">[M<sub>r</sub>: CH<sub>3</sub>COOH <mark data-f="m1">60.0</mark>; C<sub>2</sub>H<sub>5</sub>OH <mark data-f="m2">46.0</mark>; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> <mark data-f="m3">88.0</mark>; H<sub>2</sub>O 18.0]</p>',
+diag:'<svg viewBox="0 0 260 120" role="img" aria-label="Bars comparing actual and theoretical mass"><text x="0" y="12" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="1">(a) yield</text><g data-s="1" data-h="1"><rect x="0" y="18" width="240" height="18" rx="3" fill="#d4ecf5"/><text x="6" y="31" font-family="JetBrains Mono,monospace" font-size="10" fill="#14313d">theoretical 8.80 g</text></g><g data-s="2" data-h="2"><rect x="0" y="40" width="156" height="18" rx="3" fill="#e08a00"/><text x="6" y="53" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">actual 5.72 g = 65.0%</text></g><text x="0" y="78" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="3">(b) atom economy</text><g data-s="3" data-h="3"><rect x="0" y="84" width="240" height="20" rx="3" fill="#c9d5db"/><rect x="0" y="84" width="199" height="20" rx="3" fill="#1f7a4a"/><text x="6" y="98" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">ester 88.0 (83.0%)</text><text x="204" y="98" font-family="JetBrains Mono,monospace" font-size="9" fill="#14313d">H₂O</text><text x="0" y="117" font-family="JetBrains Mono,monospace" font-size="9" fill="#5b7380">total reactants 106.0</text></g></svg><div class="card" data-s="4" data-h="4"><div><span>% yield</span><b>depends on the experiment</b></div><div><span>atom economy</span><b>depends on the equation</b></div></div>',
+chips:[["M1","mol acid = 0.100"],["M2","theoretical 8.80 g"],["M3","yield 65.0%"],["M4","atom economy 83.0%"]],
+steps:[
+{t:"Moles of the limiting reactant",x:"Ethanol is in excess, so ethanoic acid controls how much ester can form. Change its mass to moles.",tip:"Only use the reactant that is NOT in excess.",e:["M1"],
+ l:[L("(a) Step 1  moles of ethanoic acid"),'n = '+v("ma","6.00")+' ÷ '+v("m1","60.0")+' = '+r("0.100 mol")+M("M1")]},
+{t:"Theoretical (maximum) mass of product",x:"The ratio acid : ester is 1 : 1, so 0.100 mol of ester could form. Change this to mass.",tip:"The theoretical yield is what you WOULD get if every molecule reacted. Calculate it from the equation.",e:["M2"],
+ l:[L("(a) Step 2  theoretical mass"),'n(ester) = 0.100 mol (1 : 1)','mass = 0.100 × '+v("m3","88.0")+' = '+r("8.80 g")+M("M2")]},
+{t:"Percentage yield",x:"Percentage yield = actual mass ÷ theoretical mass × 100.",tip:"Actual goes on top. A yield above 100% means you have made a mistake (or the product is wet).",e:["M3"],
+ l:[L("(a) Step 3  % yield"),'= '+v("act","5.72")+' ÷ 8.80 × 100 = '+A("65.0%")+M("M3")]},
+{t:"Atom economy",x:"Atom economy = M<sub>r</sub> of the wanted product ÷ total M<sub>r</sub> of all reactants × 100. Use the equation, not the masses from the experiment.",tip:"Include every reactant in the bottom line, multiplied by its number in the equation.",e:["M4"],
+ l:[L("(b) atom economy"),'= '+v("m3","88.0")+' ÷ ('+v("m1","60.0")+' + '+v("m2","46.0")+') × 100','= 88.0 ÷ 106.0 × 100 = '+A("83.0%")+M("M4")]},
+{t:"Know the difference",x:"Percentage yield tells you how well the experiment worked. Atom economy tells you how much of the reactants end up in the product. A reaction can have a high atom economy but a low yield.",tip:"6-mark questions sometimes ask why a high atom economy is good: less waste, fewer raw materials, more sustainable.",
+ l:[]},
+{fin:1,t:"Check against the mark scheme",x:"All four marks are earned: three for the yield, one for atom economy.",tip:"Give percentages to 3 significant figures, like the data.",
+ mis:["Dividing 5.72 by 6.00 (mass of reactant): gives 95.3%.","Putting the theoretical mass on top (gives 154%).","Using the masses 5.72 and 6.00 for atom economy.","Leaving out ethanol from the bottom of the atom economy: gives 147%."]}
+],
+yt:{q:'Cyclohexene is made by dehydrating cyclohexanol: C<sub>6</sub>H<sub>11</sub>OH → C<sub>6</sub>H<sub>10</sub> + H<sub>2</sub>O. A student heated 10.0 g of cyclohexanol and obtained 5.33 g of cyclohexene. Calculate the <b>percentage yield</b>. [M<sub>r</sub>: C<sub>6</sub>H<sub>11</sub>OH 100.0, C<sub>6</sub>H<sub>10</sub> 82.0]',
+ u:"%",a:65.0,tol:0.15,
+ w:[[53.3,0.15,"You divided by the mass of cyclohexanol. First find the theoretical mass of cyclohexene: 0.100 mol × 82.0 = 8.20 g."],[82.0,0.15,"That is the atom economy, not the percentage yield. Use actual mass ÷ theoretical mass × 100."],[154,1,"You put the theoretical mass on top. Use actual ÷ theoretical × 100."]],
+ k:'n(cyclohexanol) = 10.0 ÷ 100.0 = 0.100 mol<br>theoretical mass = 0.100 × 82.0 = 8.20 g<br>% yield = 5.33 ÷ 8.20 × 100 = <b>65.0%</b>'}
+},
+/* ---------- 6 WATER OF CRYSTALLISATION ---------- */
+{btn:"Water of crystallisation",spec:[["1.10", "formula by experiment"], ["1.6", "formula from data"]],marks:4,title:"Finding x in MgSO<sub>4</sub>·xH<sub>2</sub>O",
+q:'<p>A student heated hydrated magnesium sulfate, MgSO<sub>4</sub>·xH<sub>2</sub>O, in a crucible until there was no further change in mass.</p><table><tr><th>Mass / g</th><th>Crucible</th><th>Crucible + hydrated salt</th><th>Crucible + anhydrous salt</th></tr><tr><td></td><td><mark data-f="c0">21.36</mark></td><td><mark data-f="c1">26.28</mark></td><td><mark data-f="c2">23.76</mark></td></tr></table><p><mark>Calculate</mark> the value of <mark>x</mark>. Show your working.</p><p class="dat">[M<sub>r</sub>: MgSO<sub>4</sub> = <mark data-f="ms">120.4</mark>, H<sub>2</sub>O = <mark data-f="mw">18.0</mark>]</p>',
+diag:'<svg viewBox="0 0 260 150" role="img" aria-label="Crucible heated on a pipeclay triangle"><path d="M90 40 L170 40 L160 86 L100 86Z" fill="#fff" stroke="#5b7380" stroke-width="1.5"/><path d="M96 58 L164 58 L160 86 L100 86Z" fill="#cfe3ec" data-s="-1"/><path d="M96 58 L164 58 L160 86 L100 86Z" fill="#f4f4f0" data-s="0"/><path d="M84 36 L176 36" stroke="#5b7380" stroke-width="3"/><path d="M70 88 L190 88" stroke="#c9a27a" stroke-width="4"/><line x1="78" y1="88" x2="64" y2="146" stroke="#5b7380" stroke-width="3"/><line x1="182" y1="88" x2="196" y2="146" stroke="#5b7380" stroke-width="3"/><rect x="122" y="128" width="16" height="20" fill="#5b7380"/><path d="M130 96 Q118 112 124 126 L136 126 Q142 112 130 96Z" fill="#7ab6e8" data-s="0"/><path d="M130 106 Q124 116 127 124 L133 124 Q136 116 130 106Z" fill="#e08a00" data-s="0"/><g data-s="1" data-h="1"><text x="190" y="30" font-family="JetBrains Mono,monospace" font-size="10" fill="#0b5d75">H₂O</text><path d="M188 34 Q178 26 182 16" stroke="#0b5d75" fill="none" stroke-dasharray="3 3"/><text x="4" y="22" font-family="JetBrains Mono,monospace" font-size="10" fill="#0b5d75">2.52 g water lost</text></g></svg><table class="t"><tr data-s="0" data-h="0"><td class="rl">hydrated salt</td><td>26.28 − 21.36 = 4.92 g</td></tr><tr data-s="0" data-h="0"><td class="rl">anhydrous MgSO<sub>4</sub></td><td>23.76 − 21.36 = 2.40 g</td></tr><tr data-s="1" data-h="1"><td class="rl">water</td><td>4.92 − 2.40 = 2.52 g</td></tr><tr data-s="2" data-h="2"><td class="rl">mol H<sub>2</sub>O</td><td>0.140</td></tr><tr data-s="3" data-h="3"><td class="rl">mol MgSO<sub>4</sub></td><td>0.01993</td></tr><tr data-s="4" data-h="4"><td class="rl">ratio</td><td>1 : 7.02 → x = 7</td></tr></table>',
+chips:[["M1","mass water 2.52 g"],["M2","mol H<sub>2</sub>O"],["M3","mol MgSO<sub>4</sub>"],["M4","ratio → x = 7"]],
+steps:[
+{t:"Find the two masses of salt",x:"Subtract the mass of the empty crucible from each reading. The anhydrous salt is what is left after all the water has gone.",tip:"Heating to constant mass makes sure ALL the water has been driven off.",
+ l:[L("Masses of salt"),'hydrated = '+v("c1","26.28")+' − '+v("c0","21.36")+' = 4.92 g','anhydrous MgSO<sub>4</sub> = '+v("c2","23.76")+' − 21.36 = 2.40 g']},
+{t:"Mass of water lost",x:"The mass that disappeared on heating is the water of crystallisation.",tip:"You can also do 26.28 − 23.76 directly. Both give 2.52 g.",e:["M1"],
+ l:[L("Step 1  mass of water"),'4.92 − 2.40 = '+r("2.52 g")+M("M1")]},
+{t:"Moles of water",x:"Divide the mass of water by M<sub>r</sub> of H<sub>2</sub>O.",tip:"Use M<sub>r</sub> H<sub>2</sub>O = 18.0, not 16.0 (oxygen) or 2.0 (hydrogen).",e:["M2"],
+ l:[L("Step 2  moles of H<sub>2</sub>O"),'2.52 ÷ '+v("mw","18.0")+' = '+r("0.140 mol")+M("M2")]},
+{t:"Moles of anhydrous MgSO<sub>4</sub>",x:"Use the mass of the anhydrous salt (2.40 g), not the hydrated salt.",tip:"M<sub>r</sub> of MgSO<sub>4</sub> goes with the mass of MgSO<sub>4</sub> only. The hydrated salt has a different M<sub>r</sub>.",e:["M3"],
+ l:[L("Step 3  moles of MgSO<sub>4</sub>"),'2.40 ÷ '+v("ms","120.4")+' = '+r("0.01993 mol")+M("M3")]},
+{t:"Find the ratio and x",x:"Divide moles of water by moles of MgSO<sub>4</sub>. 7.02 is very close to 7, so x = 7.",tip:"x must be a whole number. Round only at the very end.",e:["M4"],
+ l:[L("Step 4  ratio"),'x = 0.140 ÷ 0.01993 = 7.02','x = '+A("7")+'  (MgSO<sub>4</sub>·7H<sub>2</sub>O)'+M("M4")]},
+{fin:1,t:"Check against the mark scheme",x:"All four marks are earned. A ratio method (MgSO<sub>4</sub> : H<sub>2</sub>O = 1 : 7) also gets full marks.",tip:"If the salt was not heated to constant mass, some water stays behind, so x comes out too small.",
+ mis:["Using 4.92 g (hydrated) with M<sub>r</sub> 120.4, giving x = 3.4.","Dividing the wrong way: MgSO<sub>4</sub> ÷ H<sub>2</sub>O = 0.142.","Giving x = 7.02: x must be a whole number.","Forgetting to subtract the mass of the crucible."]}
+],
+yt:{q:'Hydrated copper(II) sulfate, CuSO<sub>4</sub>·xH<sub>2</sub>O, was heated to constant mass. Mass of hydrated salt = 3.74 g. Mass of anhydrous salt = 2.39 g. Calculate x. [M<sub>r</sub>: CuSO<sub>4</sub> = 159.6, H<sub>2</sub>O = 18.0]',
+ u:"",a:5,tol:0.05,
+ w:[[3.2,0.25,"You used the mass of the hydrated salt (3.74 g) for CuSO<sub>4</sub>. Use the anhydrous mass, 2.39 g."],[0.2,0.02,"You divided the wrong way. x = moles H<sub>2</sub>O ÷ moles CuSO<sub>4</sub>."],[5.6,0.1,"Check M<sub>r</sub> of water: it is 18.0, not 16.0."]],
+ k:'mass of water = 3.74 − 2.39 = 1.35 g<br>n(H<sub>2</sub>O) = 1.35 ÷ 18.0 = 0.0750 mol<br>n(CuSO<sub>4</sub>) = 2.39 ÷ 159.6 = 0.01497 mol<br>x = 0.0750 ÷ 0.01497 = 5.01 → <b>x = 5</b>'}
+},
+/* ---------- 7 MOLES & AVOGADRO ---------- */
+{btn:"Moles & the Avogadro constant",spec:[["1.2","mole & Avogadro constant"],["1.4 iii","molar mass"]],marks:3,title:"Counting molecules and atoms in water",
+q:'<p>A beaker contains <mark data-f="m">3.60 g</mark> of water, H<sub>2</sub>O.</p><p><b>(a)</b> <mark>Calculate</mark> the number of water molecules in the beaker. (2)</p><p><b>(b)</b> <mark>Calculate</mark> the total number of <mark data-f="at">atoms</mark> in the beaker. (1)</p><p class="dat">[M<sub>r</sub> H<sub>2</sub>O = <mark data-f="mr">18.0</mark>; Avogadro constant L = <mark data-f="L">6.02 × 10<sup>23</sup> mol<sup>−1</sup></mark>]</p>',
+diag:'<div class="flow"><div class="bx" data-s="0" data-h="0">mass H<sub>2</sub>O<b>3.60 g</b></div><div class="ar" data-s="1">↓ ÷ M<sub>r</sub> (18.0)</div><div class="bx" data-s="1" data-h="1">moles<b>0.200 mol</b></div><div class="ar" data-s="2">↓ × L (6.02 × 10<sup>23</sup>)</div><div class="bx" data-s="2" data-h="2">molecules<b>1.20 × 10<sup>23</sup></b></div><div class="ar" data-s="3">↓ × 3 atoms per molecule</div><div class="bx" data-s="3" data-h="3">atoms<b>3.61 × 10<sup>23</sup></b></div></div><p class="cap" data-s="0">mass → moles → particles</p>',
+chips:[["M1","n = 0.200 mol"],["M2","1.20 × 10<sup>23</sup> molecules"],["M3","×3 → 3.61 × 10<sup>23</sup> atoms"]],
+steps:[
+{t:"Find the data",x:"You are given a mass, so the first job is to change it into moles. Then use L to change moles into particles.",tip:"L is the number of particles in ONE mole. It is in the data, so you do not need to learn the value, but you must know how to use it.",
+ l:[L("Data"),'mass = '+v("m","3.60 g")+'   M<sub>r</sub> = '+v("mr","18.0")]},
+{t:"Change mass into moles",x:"Moles = mass ÷ M<sub>r</sub>. The molar mass of water is 18.0 g mol<sup>−1</sup>.",tip:"Molar mass (g mol<sup>−1</sup>) has the same number as M<sub>r</sub>, but it has a unit.",e:["M1"],
+ l:[L("(a) Step 1  moles"),'n = '+v("m","3.60")+' ÷ '+v("mr","18.0")+' = '+r("0.200 mol")+M("M1")]},
+{t:"Multiply by the Avogadro constant",x:"Number of particles = moles × L. Each mole contains 6.02 × 10<sup>23</sup> molecules.",tip:"Write the answer in standard form with 3 significant figures. Type it on the calculator with the ×10<sup>x</sup> (EXP) key.",e:["M2"],
+ l:[L("(a) Step 2  molecules"),'N = 0.200 × '+v("L","6.02 × 10<sup>23</sup>")+' = '+A("1.20 × 10<sup>23</sup>")+M("M2")]},
+{t:"Count the atoms in one molecule",x:"Read the question again: it asks for <b>atoms</b>, not molecules. One H<sub>2</sub>O has 2 H atoms and 1 O atom, so 3 atoms.",tip:"Look for the words molecules, atoms or ions. They change the answer.",e:["M3"],
+ l:[L("(b) atoms"),v("at","atoms")+' = 1.204 × 10<sup>23</sup> × 3 = '+A("3.61 × 10<sup>23</sup>")+M("M3")]},
+{fin:1,t:"Check against the mark scheme",x:"All three marks are earned.",tip:"Sense check: 3.60 g is a tiny amount, but the number of particles is huge. If your answer is small, you have divided by L instead of multiplying.",
+ mis:["Multiplying the mass by L (3.60 × 6.02 × 10<sup>23</sup>) without finding moles first.","Dividing by L, giving 3.32 × 10<sup>−25</sup>.","Giving molecules (1.20 × 10<sup>23</sup>) when atoms are asked for.","Writing 1.2 × 10<sup>23</sup> or 1.204 × 10<sup>23</sup>: not 3 s.f."]}
+],
+yt:{q:'Calculate the total number of <b>ions</b> in 5.85 g of sodium chloride, NaCl. [M<sub>r</sub> NaCl = 58.5; L = 6.02 × 10<sup>23</sup> mol<sup>−1</sup>] Type it like 1.23e23.',
+ u:"",a:1.204e23,tol:0.006e23,
+ w:[[6.02e22,0.03e22,"That is the number of NaCl formula units. Each NaCl gives two ions (Na<sup>+</sup> and Cl<sup>−</sup>), so multiply by 2."],[3.52e24,0.02e24,"You multiplied the mass by L. Change the mass into moles first: 5.85 ÷ 58.5."],[1.66e-24,0.02e-24,"You divided by L. Particles = moles × L."]],
+ k:'n(NaCl) = 5.85 ÷ 58.5 = 0.100 mol<br>formula units = 0.100 × 6.02 × 10<sup>23</sup> = 6.02 × 10<sup>22</sup><br>ions = 6.02 × 10<sup>22</sup> × 2 = <b>1.20 × 10<sup>23</sup></b>'}
+},
+/* ---------- 8 CONCENTRATION & PPM ---------- */
+{btn:"Concentration & ppm",spec:[["1.5","mol dm<sup>−3</sup> and g dm<sup>−3</sup>"],["1.4 iv","parts per million"]],marks:4,title:"Concentration of a sodium hydroxide solution",
+q:'<p><mark data-f="m">4.00 g</mark> of sodium hydroxide, NaOH, is dissolved in water. The solution is made up to <mark data-f="v">250 cm<sup>3</sup></mark>.</p><p><b>(a)</b> <mark>Calculate</mark> the concentration of the solution in <mark>mol dm<sup>−3</sup></mark> and in <mark>g dm<sup>−3</sup></mark>. (3)</p><p><b>(b)</b> A sample of air contains <mark data-f="pc">0.0412%</mark> carbon dioxide by volume. Give this in <mark>parts per million</mark> (ppm). (1)</p><p class="dat">[M<sub>r</sub> NaOH = <mark data-f="mr">40.0</mark>]</p>',
+diag:'<svg viewBox="0 0 260 130" role="img" aria-label="Volumetric flask filled to the 250 cm3 mark"><path d="M118 10 H142 V58 L196 112 Q200 122 190 122 H70 Q60 122 64 112 L118 58Z" fill="#fff" stroke="#5b7380" stroke-width="1.5"/><path d="M106 70 H154 L194 112 Q198 120 190 120 H70 Q62 120 66 112Z" fill="#d4ecf5" data-s="0"/><line x1="114" y1="30" x2="146" y2="30" stroke="#0b5d75" stroke-width="2"/><text x="152" y="34" font-family="JetBrains Mono,monospace" font-size="10" fill="#0b5d75">250 cm³</text><g data-s="2" data-h="2"><text x="4" y="60" font-family="JetBrains Mono,monospace" font-size="10" fill="#e08a00">= 0.250 dm³</text></g></svg><div class="card" data-s="2" data-h="2"><div><span>cm³ → dm³</span><b>÷ 1000</b></div><div><span>mol dm<sup>−3</sup></span><b>n ÷ V</b></div></div><div class="card" data-s="3" data-h="3"><div><span>g dm<sup>−3</sup></span><b>mass ÷ V</b></div><div><span>or</span><b>mol dm<sup>−3</sup> × M<sub>r</sub></b></div></div><div class="card" data-s="4" data-h="4"><div><span>% → ppm</span><b>× 10 000</b></div></div>',
+chips:[["M1","n(NaOH) = 0.100 mol"],["M2","0.400 mol dm<sup>−3</sup>"],["M3","16.0 g dm<sup>−3</sup>"],["M4","(b) 412 ppm"]],
+steps:[
+{t:"Find the data",x:"You need the amount in moles and the volume in dm<sup>3</sup>. The volume is given in cm<sup>3</sup>, so it must be converted.",tip:"Concentration questions almost always give volumes in cm<sup>3</sup>. Convert straight away.",
+ l:[L("Data"),'mass = '+v("m","4.00 g")+'   V = '+v("v","250 cm<sup>3</sup>")+'   M<sub>r</sub> = '+v("mr","40.0")]},
+{t:"Moles of solute",x:"Moles = mass ÷ M<sub>r</sub>.",tip:"Show this line on its own. It is often the first mark.",e:["M1"],
+ l:[L("(a) Step 1  moles"),'n = '+v("m","4.00")+' ÷ '+v("mr","40.0")+' = '+r("0.100 mol")+M("M1")]},
+{t:"Concentration in mol dm<sup>−3</sup>",x:"Change 250 cm<sup>3</sup> into dm<sup>3</sup> by dividing by 1000. Then concentration = moles ÷ volume.",tip:"1 dm<sup>3</sup> = 1000 cm<sup>3</sup>. Dividing moles by 250 instead of 0.250 makes the answer 1000 times too small.",e:["M2"],
+ l:[L("(a) Step 2  mol dm<sup>−3</sup>"),'V = '+v("v","250")+' ÷ 1000 = 0.250 dm<sup>3</sup>','c = 0.100 ÷ 0.250 = '+A("0.400 mol dm<sup>−3</sup>")+M("M2")]},
+{t:"Concentration in g dm<sup>−3</sup>",x:"Mass concentration = mass ÷ volume in dm<sup>3</sup>. You can also multiply the answer in mol dm<sup>−3</sup> by M<sub>r</sub>.",tip:"Check the unit the question asks for. g dm<sup>−3</sup> and mol dm<sup>−3</sup> are different quantities.",e:["M3"],
+ l:[L("(a) Step 3  g dm<sup>−3</sup>"),v("m","4.00")+' ÷ 0.250 = '+A("16.0 g dm<sup>−3</sup>")+'  (check: 0.400 × 40.0 = 16.0)'+M("M3")]},
+{t:"(b) Percentage into ppm",x:"Per cent means parts per hundred. Parts per million means parts per 1 000 000. So divide by 100, then multiply by 10<sup>6</sup>: overall × 10 000.",tip:"ppm is used for very small amounts, such as gases in the atmosphere or pollutants in water.",e:["M4"],
+ l:[L("(b) ppm"),v("pc","0.0412")+' ÷ 100 × 10<sup>6</sup> = '+A("412 ppm")+M("M4")]},
+{fin:1,t:"Check against the mark scheme",x:"All four marks are earned.",tip:"Always write the unit with a concentration. A number on its own can lose the mark.",
+ mis:["Dividing by 250 instead of 0.250 (gives 4.00 × 10<sup>−4</sup> mol dm<sup>−3</sup>).","Multiplying by the volume instead of dividing.","Mixing up mol dm<sup>−3</sup> and g dm<sup>−3</sup>.","Multiplying % by 10<sup>6</sup> (gives 41 200 ppm)."]}
+],
+yt:{q:'2.65 g of sodium carbonate, Na<sub>2</sub>CO<sub>3</sub>, is dissolved and made up to 500 cm<sup>3</sup> of solution. Calculate its concentration in <b>mol dm<sup>−3</sup></b>. [M<sub>r</sub> Na<sub>2</sub>CO<sub>3</sub> = 106.0]',
+ u:"mol dm<sup>−3</sup>",a:0.0500,tol:0.0004,
+ w:[[5.0e-5,0.05e-5,"You divided by 500. Change the volume into dm<sup>3</sup> first: 500 ÷ 1000 = 0.500 dm<sup>3</sup>."],[0.0125,0.0002,"You multiplied by the volume. Concentration = moles ÷ volume."],[5.30,0.02,"That is the concentration in g dm<sup>−3</sup>. Divide by M<sub>r</sub> (106.0) to get mol dm<sup>−3</sup>."],[0.025,0.0003,"That is the number of moles. Now divide by the volume in dm<sup>3</sup> (0.500)."]],
+ k:'n = 2.65 ÷ 106.0 = 0.0250 mol<br>V = 500 ÷ 1000 = 0.500 dm<sup>3</sup><br>c = 0.0250 ÷ 0.500 = <b>0.0500 mol dm<sup>−3</sup></b>'}
+}
+];
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,step=0;
+var pick=$("pick"),wrap=$("wrap");
+
+W.forEach(function(w,i){
+ var b=document.createElement("button");b.type="button";
+ b.innerHTML=w.btn+'<small>Calculation · '+w.marks+' marks</small>';
+ b.addEventListener("click",function(){load(i);});
+ pick.appendChild(b);
+});
+
+function load(i){
+ cur=i;step=0;var w=W[i];
+ [].forEach.call(pick.children,function(b,j){b.setAttribute("aria-pressed",j===i?"true":"false");});
+ $("eb").textContent="IAL Chemistry · Unit 1 · Topic 1 · Exam-style question · "+w.marks+" marks";
+ $("tt").innerHTML=w.title;
+ $("spec").innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>';}).join("");
+ $("q").innerHTML=w.q;
+ $("diag").innerHTML=w.diag;
+ $("chips").innerHTML=w.chips.map(function(c){return '<span class="chip" data-m="'+c[0]+'"><b>'+c[0]+'</b>'+c[1]+'</span>';}).join("");
+ var d=$("dots");d.innerHTML="";
+ w.steps.forEach(function(s,j){var b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Step "+(j+1));b.addEventListener("click",function(){go(j,true);});d.appendChild(b);});
+ buildYT(w.yt);
+ render(true);
+}
+
+function earnedUpTo(n){var w=W[cur],e={};for(var j=0;j<=n;j++){(w.steps[j].e||[]).forEach(function(m){e[m]=1;});if(w.steps[j].fin)w.chips.forEach(function(c){e[c[0]]=1;});}return e;}
+
+function render(anim){
+ var w=W[cur],s=w.steps[step],n=w.steps.length;
+ /* working */
+ var html="",newEls=[];
+ for(var j=0;j<=step;j++){
+  (w.steps[j].l||[]).forEach(function(l){
+   var lab=typeof l==="object",h=lab?l.h:l;
+   html+='<div class="ln'+(lab?' lab':'')+(j===step?' cur'+(anim&&!RM?' new':''):'')+'">'+h+'</div>';
+  });
+ }
+ var wk=$("work");wk.innerHTML=html;
+ /* stagger new lines */
+ if(anim&&!RM){var nl=wk.querySelectorAll(".ln.new");[].forEach.call(nl,function(e,k){e.style.animationDelay=(k*1.2*SP)+"s";});}
+ /* diagram reveal */
+ [].forEach.call($("diag").querySelectorAll("[data-s]"),function(e){
+  var t=+e.getAttribute("data-s");
+  var show=t<0?step<1:step>=t; /* -1: visible before step 1 only */
+  e.classList.toggle("off",!show);
+ });
+ [].forEach.call($("diag").querySelectorAll("[data-h]"),function(e){
+  var on=+e.getAttribute("data-h")===step&&!s.fin;
+  if(e.namespaceURI==="http://www.w3.org/2000/svg"){e.style.filter=on?"drop-shadow(0 0 3px #e08a00)":"";}
+  else e.classList.toggle("hl",on);
+ });
+ /* chips */
+ var got=earnedUpTo(step),prev=step>0?earnedUpTo(step-1):{};
+ var nLn=wk.querySelectorAll(".ln.new").length,cd=(anim&&!RM)?((Math.max(nLn,1)*1.2+0.4)*SP):0;(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call($("chips").children,function(c){var m=c.getAttribute("data-m"),fresh=got[m]&&!prev[m]&&anim;c.classList.remove("pop");if(fresh&&cd>0){c.classList.remove("on");window.__ct.push(setTimeout(function(){c.classList.add("on");void c.offsetWidth;c.classList.add("pop");},cd*1000));}else{c.classList.toggle("on",!!got[m]);if(fresh){void c.offsetWidth;c.classList.add("pop");}}});
+ /* narration */
+ $("sc").textContent="Step "+(step+1)+" of "+n;
+ $("st").innerHTML=s.t;
+ var x='<p>'+s.x+'</p>';
+ if(s.mis)x+='<p style="margin:0"><b>Common mistakes that lose marks:</b></p><ul>'+s.mis.map(function(m){return '<li>'+m+'</li>';}).join("")+'</ul>';
+ x+='<div class="tip"><b>Exam tip:</b> '+s.tip+'</div>';
+ $("sx").innerHTML=x;
+ /* dots + buttons */
+ [].forEach.call($("dots").children,function(b,j){b.className=j<step?"done":(j===step?"now":"");if(j===step)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");});
+ $("bk").disabled=step===0;
+ $("nx").innerHTML=step===n-1?"↻ Start again":"Next step →";
+ /* question highlight + fly */
+ [].forEach.call($("q").querySelectorAll("mark.hot"),function(m){m.classList.remove("hot");});
+ var cl=wk.querySelectorAll(".ln.cur .v[data-f]");
+ [].forEach.call(cl,function(t,k){
+  var src=$("q").querySelector('mark[data-f="'+t.getAttribute("data-f")+'"]');
+  if(!src)return;src.classList.add("hot");
+  if(anim&&!RM)fly(src,t,k);
+ });
+}
+
+function fly(src,dst,k){
+ var wr=wrap.getBoundingClientRect(),a=src.getBoundingClientRect(),b=dst.getBoundingClientRect();
+ var f=document.createElement("span");f.className="fly";f.innerHTML=dst.innerHTML;
+ f.style.left=(a.left-wr.left)+"px";f.style.top=(a.top-wr.top)+"px";
+ wrap.appendChild(f);
+ dst.style.visibility="hidden";
+ var dx=b.left-a.left,dy=b.top-a.top;
+ if(!f.animate){f.remove();dst.style.visibility="";return;}
+ var an=f.animate([{transform:"translate(0,0) scale(1)",opacity:0},{transform:"translate(0,0) scale(1.15)",opacity:1,offset:.15},{transform:"translate("+dx+"px,"+dy+"px) scale(1)",opacity:1}],{duration:1300*SP,delay:((function(){var l=dst.closest(".ln");return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(k%3)*300)*SP,easing:"cubic-bezier(.4,.1,.2,1)",fill:"both"});
+ an.onfinish=function(){f.remove();dst.style.visibility="";};
+}
+
+function go(j,anim){var n=W[cur].steps.length;if(j<0)j=0;if(j>n-1)j=n-1;step=j;clearFly();render(anim);}
+function clearFly(){[].forEach.call(wrap.querySelectorAll(".fly"),function(f){f.remove();});}
+$("nx").addEventListener("click",function(){if(step===W[cur].steps.length-1)go(0,true);else go(step+1,true);});
+$("bk").addEventListener("click",function(){go(step-1,false);});
+$("rp").addEventListener("click",function(){clearFly();render(true);});
+document.addEventListener("keydown",function(e){
+ var t=e.target&&e.target.tagName;if(t==="INPUT"||t==="TEXTAREA")return;
+ if(e.key==="ArrowRight"){e.preventDefault();if(step<W[cur].steps.length-1)go(step+1,true);}
+ else if(e.key==="ArrowLeft"){e.preventDefault();go(step-1,false);}
+});
+
+/* ---------- Your turn ---------- */
+function buildYT(y){
+ var box=$("yt");
+ box.innerHTML='<h3>Your turn</h3><p>'+y.q+'</p><div class="row"><label class="sr" for="ya">Your answer</label><input id="ya" '+(y.txt?'type="text" autocomplete="off" spellcheck="false"':'type="text" inputmode="decimal" autocomplete="off"')+' placeholder="'+(y.txt?'formula':'answer')+'"><span>'+(y.u||"")+'</span><button type="button" id="yc">Check</button><button type="button" class="sec" id="ys">Show worked answer</button></div><div class="fb" id="yf" role="status"></div><div class="wk" id="yk">'+y.k+'</div>';
+ var inp=$("ya"),fb=$("yf");
+ function check(){
+  var raw=inp.value.trim();fb.className="fb";
+  if(!raw){fb.className="fb no";fb.innerHTML="Type an answer first.";return;}
+  if(y.txt){
+   var s=raw.replace(/\s+/g,"").replace(/[₀-₉]/g,function(c){return String(c.charCodeAt(0)-0x2080);});
+   s=s.replace(/^p/,"P").replace(/o/g,"O").replace(/([A-Z])1(?=[A-Z]|$)/g,"$1");
+   if(s==="P4O10"){fb.className="fb ok";fb.innerHTML="Correct: P<sub>4</sub>O<sub>10</sub>. Ratio 1 : 2.5 → P<sub>2</sub>O<sub>5</sub> (142), and 284 ÷ 142 = 2.";return;}
+   for(var i=0;i<y.w.length;i++){if(s===y.w[i][0]){fb.className="fb no";fb.innerHTML=y.w[i][1];return;}}
+   fb.className="fb no";fb.innerHTML="Not quite. Divide each % by A<sub>r</sub>, divide by the smallest, make whole numbers, then use M<sub>r</sub> = 284.";return;
+  }
+  var t=raw.replace(/,/g,".").replace(/[×x]\s*10\^?/i,"e").replace(/\s/g,"");
+  var val=parseFloat(t);
+  if(isNaN(val)){fb.className="fb no";fb.innerHTML="Enter a number, e.g. 0.123.";return;}
+  if(Math.abs(val-y.a)<=y.tol){fb.className="fb ok";fb.innerHTML="Correct! Well done. Check you have given 3 significant figures"+(y.u?" and the unit "+y.u:"")+".";return;}
+  for(var j=0;j<y.w.length;j++){if(Math.abs(val-y.w[j][0])<=y.w[j][1]){fb.className="fb no";fb.innerHTML=y.w[j][1];return;}}
+  fb.className="fb no";fb.innerHTML="Not quite. Follow the same steps as the walkthrough above, one line at a time. Then press <b>Show worked answer</b>.";
+ }
+ $("yc").addEventListener("click",check);
+ inp.addEventListener("keydown",function(e){if(e.key==="Enter")check();});
+ $("ys").addEventListener("click",function(){var k=$("yk");var on=k.classList.toggle("show");this.textContent=on?"Hide worked answer":"Show worked answer";});
+}
+
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["1.1", "Know the terms atom, element, ion, molecule, compound, empirical formula and molecular formula."], ["1.2", "Use the mole and the Avogadro constant (6.02 × 10<sup>23</sup> mol<sup>−1</sup>) in calculations."], ["1.3", "Write balanced full and ionic equations, with state symbols."], ["1.4", "Explain and use A<sub>r</sub> (<sup>12</sup>C scale), M<sub>r</sub>, relative formula mass, molar mass and ppm."], ["1.5", "Calculate the concentration of a solution in mol dm<sup>−3</sup> and g dm<sup>−3</sup>."], ["1.6", "Calculate empirical and molecular formulae from experimental data."], ["1.7", "Calculate reacting masses from a chemical equation."], ["1.8", "Calculate gas volumes using moles, molar volume and pV = nRT."], ["1.9", "Calculate percentage yield and percentage atom economy."], ["1.10", "Find a formula or confirm an equation by experiment, and evaluate the data."], ["1.11", "Core Practical 1: measure the molar volume of a gas."], ["1.12", "Link full and ionic equations to observations: displacement, reactions of acids, precipitation."]],KEY="ialchem-t1-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 1: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+wrap.appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

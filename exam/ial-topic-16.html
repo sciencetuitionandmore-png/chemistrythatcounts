@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redox Equilibria Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Redox Equilibria Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-16.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Redox equilibria: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+function card(y,h,a,b,cls,at){return G(at,box2(10,y,310,h,cls||'card')+T(20,y+20,a,'hd')+(b?T(20,y+38,b,'an'):''))}
+/* ---------- 1 cell emf ---------- */
+W.push({btn:'Cell e.m.f. and cell diagrams',spec:[["16.7","standard emf from two Eᵒ values"],["16.8","cell diagrams"],["16.6","CP12"]],type:'Calculate',marks:3,
+title:'The e.m.f. of a zinc–copper cell',
+q:'<p><span class="mk">(3)</span>A cell is made from Zn<sup>2+</sup>(aq)|Zn(s) and Cu<sup>2+</sup>(aq)|Cu(s) half-cells.</p><p>E<sup>⦵</sup>: Cu<sup>2+</sup> + 2e<sup>−</sup> ⇌ Cu   +0.34 V; Zn<sup>2+</sup> + 2e<sup>−</sup> ⇌ Zn   −0.76 V.</p><p><mark>Write</mark> the <mark>cell diagram</mark> and <mark>calculate</mark> the <mark>standard e.m.f.</mark></p>',
+diag:function(){var s='';
+  s+=card(10,44,'more positive Eᵒ: Cu²⁺/Cu (+0.34 V)','reduced: positive electrode','card g',1);
+  s+=card(64,44,'more negative Eᵒ: Zn²⁺/Zn (−0.76 V)','oxidised: negative electrode','card o',1);
+  s+=G(2,T(20,138,'Zn(s) | Zn²⁺(aq) || Cu²⁺(aq) | Cu(s)','big'));
+  s+=G(3,T(20,166,'Eᵒcell = Eᵒ(right) − Eᵒ(left) = 0.34 − (−0.76)','')+T(20,190,'Eᵒcell = +1.10 V','big'));
+  return svg(330,202,s)},
+lines:plan(['which half-cell is reduced','cell diagram','E(right) − E(left)'])+
+ ans(1,'','','Cu<sup>2+</sup>/Cu has the <span class="hl">more positive E<sup>⦵</sup></span>, so Cu<sup>2+</sup> is reduced; zinc is oxidised.','')+
+ ans(2,'Cu(s) | Cu²⁺(aq) || Zn²⁺(aq) | Zn(s)','The oxidation half-cell goes on the left.','<span class="hl">Zn(s) | Zn<sup>2+</sup>(aq) || Cu<sup>2+</sup>(aq) | Cu(s)</span>','M1')+
+ ans(3,'0.34 + (−0.76) = −0.42 V','Subtract: E<sub>right</sub> − E<sub>left</sub>.','E<sup>⦵</sup><sub>cell</sub> = +0.34 − (−0.76) = <span class="hl">+1.10 V</span>','M2 M3'),
+chips:[['M1','correct cell diagram',2],['M2','E(right) − E(left)',3],['M3','+1.10 V',3]],
+steps:[
+{t:'Read and plan',x:'The half-cell with the more positive E<sup>⦵</sup> is where reduction happens. The other is oxidised.',tip:'A feasible cell always has a positive E<sup>⦵</sup><sub>cell</sub>.'},
+{t:'Which way?',x:'+0.34 is more positive than −0.76, so Cu<sup>2+</sup> gains electrons. Zinc loses electrons: Zn → Zn<sup>2+</sup> + 2e<sup>−</sup>.',tip:'Electrons flow in the external circuit from zinc to copper.'},
+{t:'Cell diagram',x:'Oxidised half-cell on the left, written as reduced form | oxidised form. The salt bridge is ||.',tip:'For a half-cell with two ions, use a platinum electrode: Pt | Fe<sup>2+</sup>, Fe<sup>3+</sup>.'},
+{t:'Calculate',x:'E<sup>⦵</sup><sub>cell</sub> = E<sup>⦵</sup><sub>right</sub> − E<sup>⦵</sup><sub>left</sub> = 1.10 V.',tip:'Do not multiply E<sup>⦵</sup> values by the number of electrons.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Cell diagram written the wrong way round.','Adding instead of subtracting.','Multiplying E<sup>⦵</sup> by stoichiometric numbers.','Single line instead of || for the salt bridge.'],
+your:{kind:'num',q:'Calculate E<sup>⦵</sup><sub>cell</sub>, in V, for a cell made from Mg<sup>2+</sup>/Mg (−2.37 V) and Ag<sup>+</sup>/Ag (+0.80 V).',ans:3.17,tol:0.006,
+ ok:'Correct: 0.80 − (−2.37) = <b>+3.17 V</b>.',
+ wrong:[[1.57,0.006,'Subtract the negative value: 0.80 − (−2.37).'],[3.97,0.006,'Do not double the silver value.']]}
+});
+/* ---------- 2 SHE ---------- */
+W.push({btn:'The standard hydrogen electrode',spec:[["16.4","standard hydrogen electrode"],["16.2","standard electrode potential"],["16.3","standard conditions"]],type:'Describe',marks:4,
+title:'Measuring a standard electrode potential',
+q:'<p><span class="mk">(4)</span><mark>Describe</mark> the <mark>standard hydrogen electrode</mark> and explain how it is used to measure the standard electrode potential of the Cu<sup>2+</sup>/Cu half-cell.</p>',
+diag:function(){var s='';
+  s+=card(10,44,'H₂(g) at 100 kPa','bubbled over a platinum electrode','card t',1);
+  s+=card(60,44,'1.00 mol dm⁻³ H⁺(aq), 298 K','e.g. HCl(aq); defined as Eᵒ = 0.00 V','card t',2);
+  s+=card(110,44,'connect to Cu in 1.00 mol dm⁻³ Cu²⁺','salt bridge (KNO₃) + high-resistance voltmeter','card g',3);
+  s+=G(4,T(20,178,'reading = Eᵒ(Cu²⁺/Cu) = +0.34 V','big'));
+  return svg(330,190,s)},
+lines:plan(['hydrogen gas','acid solution','platinum electrode','connect and measure'])+
+ ans(1,'','','<span class="hl">Hydrogen gas at 100 kPa</span> bubbled over a <span class="hl">platinum electrode</span> (coated in platinum black).','M1')+
+ ans(2,'','','Dipped in a solution with <span class="hl">[H<sup>+</sup>] = 1.00 mol dm<sup>−3</sup></span>, at <span class="hl">298 K</span>. Its E<sup>⦵</sup> is defined as 0.00 V.','M2')+
+ ans(3,'Connect the two solutions with a wire.','The solutions are joined by a salt bridge; the electrodes by a wire and voltmeter.','Connect to a Cu electrode in 1.00 mol dm<sup>−3</sup> Cu<sup>2+</sup> with a <span class="hl">salt bridge</span> and a <span class="hl">high-resistance voltmeter</span>.','M3')+
+ ans(4,'','','The voltage measured is the <span class="hl">standard electrode potential</span> of Cu<sup>2+</sup>/Cu.','M4'),
+chips:[['M1','H₂ 100 kPa, Pt',1],['M2','1.00 mol dm⁻³ H⁺, 298 K',2],['M3','salt bridge + voltmeter',3],['M4','reading = Eᵒ',4]],
+steps:[
+{t:'Read and plan',x:'You cannot measure the potential of one half-cell alone. Every E<sup>⦵</sup> is measured against a reference: the standard hydrogen electrode.',tip:'List all the standard conditions.'},
+{t:'Hydrogen gas and platinum',x:'Platinum is inert and provides a surface for H<sub>2</sub> ⇌ 2H<sup>+</sup> + 2e<sup>−</sup> to reach equilibrium.',tip:'Platinum black gives a large surface area.'},
+{t:'Acid and conditions',x:'[H<sup>+</sup>] = 1.00 mol dm<sup>−3</sup> at 298 K, gas at 100 kPa. Under these conditions its potential is defined as zero.',tip:'Standard conditions affect E because they shift the equilibria.'},
+{t:'Connecting the cells',x:'The salt bridge completes the circuit without mixing the solutions. A high-resistance voltmeter means almost no current flows, so the concentrations do not change.',tip:'A salt bridge is filter paper soaked in KNO<sub>3</sub>(aq).'},
+{t:'The reading',x:'The voltmeter shows the standard electrode potential directly, with its sign.',tip:'In practice, a secondary reference such as a calomel electrode is often used.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using 1 atm or 101 kPa instead of 100 kPa.','Missing the platinum electrode.','Saying a salt bridge carries electrons.','Forgetting the high-resistance voltmeter.'],
+your:{kind:'text',marks:2,q:'Why is a salt bridge made with potassium nitrate rather than potassium chloride for a cell containing Ag<sup>+</sup> ions? (2)',
+ ms:['Chloride ions would react with Ag<sup>+</sup> to form a precipitate of AgCl.','This would change the concentration of Ag<sup>+</sup> (and the potential); nitrates are all soluble.'],
+ warn:[[/electrons/i,'A salt bridge carries ions, not electrons.']]}
+});
+/* ---------- 3 feasibility ---------- */
+W.push({btn:'Predicting feasibility with Eᵒ',spec:[["16.10","predicting feasibility"],["16.12","limitations of predictions"],["16.13","electrochemical series"]],type:'Predict',marks:4,
+title:'Will iron(III) ions oxidise iodide or bromide ions?',
+q:'<p><span class="mk">(4)</span>E<sup>⦵</sup>: Fe<sup>3+</sup> + e<sup>−</sup> ⇌ Fe<sup>2+</sup> +0.77 V; I<sub>2</sub> + 2e<sup>−</sup> ⇌ 2I<sup>−</sup> +0.54 V; Br<sub>2</sub> + 2e<sup>−</sup> ⇌ 2Br<sup>−</sup> +1.09 V.</p><p><mark>Predict</mark>, with reasons, whether Fe<sup>3+</sup> will oxidise <mark>I<sup>−</sup></mark> and <mark>Br<sup>−</sup></mark>. Give one <mark>limitation</mark> of your prediction.</p>',
+diag:function(){var s='',Y=function(e){return 190-e*130};
+  s+='<path class="ax" d="M60 20V190"/>'+T(54,24,'Eᵒ / V','sm','text-anchor="end"');
+  [[1.09,'Br₂ / Br⁻'],[0.77,'Fe³⁺ / Fe²⁺'],[0.54,'I₂ / I⁻']].forEach(function(p){s+=L(56,Y(p[0]),64,Y(p[0]),'bd')+T(50,Y(p[0])+4,'+'+p[0].toFixed(2),'sm','text-anchor="end"')+T(72,Y(p[0])+4,p[1],'hd')});
+  s+=G(1,T(140,Y(0.655)+4,'+0.77 − 0.54 = +0.23 V ✓','an'));
+  s+=G(2,T(140,Y(0.93)+4,'+0.77 − 1.09 = −0.32 V ✗','an'));
+  s+=G(3,T(20,206,'positive Eᵒcell → feasible','sm'));
+  return svg(330,214,s)},
+lines:plan(['Fe³⁺ with I⁻','Fe³⁺ with Br⁻','limitation'])+
+ ans(1,'','','Fe<sup>3+</sup>/I<sup>−</sup>: E<sup>⦵</sup><sub>cell</sub> = 0.77 − 0.54 = <span class="hl">+0.23 V</span>, positive, so the reaction <span class="hl">is feasible</span>: 2Fe<sup>3+</sup> + 2I<sup>−</sup> → 2Fe<sup>2+</sup> + I<sub>2</sub>.','M1 M2')+
+ ans(2,'','','Fe<sup>3+</sup>/Br<sup>−</sup>: E<sup>⦵</sup><sub>cell</sub> = 0.77 − 1.09 = <span class="hl">−0.32 V</span>, negative, so it is <span class="hl">not feasible</span>.','M3')+
+ ans(3,'The prediction is always correct.','E<sup>⦵</sup> says nothing about rate, and only applies under standard conditions.','A feasible reaction may be <span class="hl">too slow</span> (high activation energy), and the conditions may not be <span class="hl">standard</span>.','M4'),
+chips:[['M1','+0.23 V',1],['M2','I⁻ oxidised',1],['M3','Br⁻: −0.32 V, not feasible',2],['M4','kinetics / non-standard',3]],
+steps:[
+{t:'Read and plan',x:'For a proposed reaction, E<sup>⦵</sup><sub>cell</sub> = E<sup>⦵</sup>(species reduced) − E<sup>⦵</sup>(species oxidised). Positive means feasible.',tip:'Or use the anticlockwise rule on the series.'},
+{t:'Iodide',x:'Fe<sup>3+</sup> would be reduced (+0.77) and I<sup>−</sup> oxidised (+0.54). 0.77 − 0.54 is positive.',tip:'The more positive half-cell takes electrons from the less positive one.'},
+{t:'Bromide',x:'Br<sub>2</sub>/Br<sup>−</sup> is more positive than Fe<sup>3+</sup>/Fe<sup>2+</sup>, so Fe<sup>3+</sup> is not a strong enough oxidising agent.',tip:'In fact Br<sub>2</sub> oxidises Fe<sup>2+</sup>.'},
+{t:'Limitations',x:'E<sup>⦵</sup> values predict thermodynamic feasibility only. They do not predict rate, and concentrations or temperatures other than standard change E.',tip:'E<sup>⦵</sup><sub>cell</sub> is proportional to ΔS<sub>total</sub> and to ln K.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Subtracting the wrong way round.','Saying "feasible" without the sign of E<sup>⦵</sup><sub>cell</sub>.','Saying a feasible reaction must happen quickly.','Giving a limitation about the voltmeter.'],
+your:{kind:'num',q:'Cu<sup>+</sup> can disproportionate: 2Cu<sup>+</sup> → Cu + Cu<sup>2+</sup>. E<sup>⦵</sup>: Cu<sup>+</sup> + e<sup>−</sup> ⇌ Cu +0.52 V; Cu<sup>2+</sup> + e<sup>−</sup> ⇌ Cu<sup>+</sup> +0.15 V. Calculate E<sup>⦵</sup><sub>cell</sub> in V.',ans:0.37,tol:0.006,
+ ok:'Correct: 0.52 − 0.15 = <b>+0.37 V</b>, so Cu<sup>+</sup>(aq) disproportionates.',
+ wrong:[[-0.37,0.006,'Cu<sup>+</sup> is reduced to Cu (+0.52); Cu<sup>+</sup> is oxidised to Cu<sup>2+</sup> (+0.15): 0.52 − 0.15.'],[0.67,0.006,'Subtract the two values.']]}
+});
+/* ---------- 4 MnO4 titration ---------- */
+W.push({btn:'Redox titration: manganate(VII)',spec:[["16.15","redox titration calculations"],["16.17","CP13a"],["16.16","measurement uncertainty"]],type:'Calculate',marks:4,
+title:'Finding the concentration of iron(II) ions by titration',
+q:'<p><span class="mk">(4)</span>25.0 cm<sup>3</sup> of acidified Fe<sup>2+</sup> solution needs <mark>22.50 cm<sup>3</sup></mark> of <mark>0.0200 mol dm<sup>−3</sup> KMnO<sub>4</sub></mark>.</p><p>MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5Fe<sup>2+</sup> → Mn<sup>2+</sup> + 4H<sub>2</sub>O + 5Fe<sup>3+</sup></p><p><mark>Calculate</mark> [Fe<sup>2+</sup>] and give the <mark>end-point colour change</mark>.</p>',
+diag:function(){var s='';
+  s+=G(1,T(20,26,'n(MnO₄⁻) = 0.0200 × 22.50 ÷ 1000 = 4.50 × 10⁻⁴','sm'));
+  s+=G(2,T(20,52,'n(Fe²⁺) = 5 × 4.50 × 10⁻⁴ = 2.25 × 10⁻³ mol','sm'));
+  s+=G(3,T(20,80,'[Fe²⁺] = 2.25 × 10⁻³ ÷ 0.0250 = 0.0900 mol dm⁻³','an'));
+  s+=G(4,T(20,110,'end point: colourless → first permanent pale pink','an'));
+  return svg(330,122,s)},
+lines:plan(['moles of MnO₄⁻','ratio 1 : 5','concentration','end point'])+
+ ans(1,'','','n(MnO<sub>4</sub><sup>−</sup>) = <span class="hl">4.50 × 10<sup>−4</sup> mol</span>','M1')+
+ ans(2,'n(Fe²⁺) = 4.50 × 10⁻⁴ ÷ 5','One MnO<sub>4</sub><sup>−</sup> reacts with five Fe<sup>2+</sup>: multiply.','n(Fe<sup>2+</sup>) = 5 × 4.50 × 10<sup>−4</sup> = <span class="hl">2.25 × 10<sup>−3</sup> mol</span>','M2')+
+ ans(3,'','','[Fe<sup>2+</sup>] = 2.25 × 10<sup>−3</sup> ÷ 0.0250 = <span class="hl">0.0900 mol dm<sup>−3</sup></span>','M3')+
+ ans(4,'Purple to colourless.','The manganate(VII) is in the burette; the flask stays colourless until it is in excess.','End point: <span class="hl">colourless to the first permanent pale pink</span>.','M4'),
+chips:[['M1','n(MnO₄⁻)',1],['M2','× 5',2],['M3','0.0900 mol dm⁻³',3],['M4','pale pink end point',4]],
+steps:[
+{t:'Read and plan',x:'Same method as an acid–base titration, but use the ratio in the redox equation.',tip:'Manganate(VII) acts as its own indicator.'},
+{t:'Moles of manganate(VII)',x:'c × V = 0.0200 × 0.02250.',tip:'Divide cm<sup>3</sup> by 1000.'},
+{t:'Use the ratio',x:'1 mol MnO<sub>4</sub><sup>−</sup> reacts with 5 mol Fe<sup>2+</sup>.',tip:'Mn goes from +7 to +2 (gains 5 e<sup>−</sup>); each Fe loses 1.'},
+{t:'Concentration',x:'Divide by 0.0250 dm<sup>3</sup>.',tip:'Give 3 significant figures.'},
+{t:'End point',x:'Each drop of purple MnO<sub>4</sub><sup>−</sup> is decolourised while Fe<sup>2+</sup> remains. The first permanent pink shows a slight excess.',tip:'The acid used is dilute sulfuric acid, not HCl (which would be oxidised).'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Dividing by 5 instead of multiplying.','Colour change written the wrong way round.','Using HCl to acidify.','Not converting cm<sup>3</sup> to dm<sup>3</sup>.'],
+your:{kind:'num',q:'Copper(II) ions react with excess KI: 2Cu<sup>2+</sup> + 4I<sup>−</sup> → 2CuI + I<sub>2</sub>. The iodine needs 18.60 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> (I<sub>2</sub> + 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup> → 2I<sup>−</sup> + S<sub>4</sub>O<sub>6</sub><sup>2−</sup>). Calculate the <b>mass</b> of copper, in g (Cu = 63.5).',ans:0.118,tol:0.0015,
+ ok:'Correct: n(S<sub>2</sub>O<sub>3</sub><sup>2−</sup>) = 1.86 × 10<sup>−3</sup> = n(Cu<sup>2+</sup>) (2Cu : 1I<sub>2</sub> : 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup>); mass = <b>0.118 g</b>.',
+ wrong:[[0.0591,0.001,'The ratio Cu<sup>2+</sup> : S<sub>2</sub>O<sub>3</sub><sup>2−</sup> is 1 : 1, not 1 : 2.'],[0.236,0.002,'Check the ratio: 2Cu<sup>2+</sup> → 1I<sub>2</sub> → 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup>.']]}
+});
+/* ---------- 5 fuel cell ---------- */
+W.push({btn:'Hydrogen–oxygen fuel cells',spec:[["16.19","fuel cell electrode reactions"],["16.18","fuel cells"]],type:'Write',marks:3,
+title:'The electrode reactions in an acidic hydrogen–oxygen fuel cell',
+q:'<p><span class="mk">(3)</span><mark>Write</mark> the <mark>half-equations</mark> at each electrode of a hydrogen–oxygen fuel cell with an <mark>acidic</mark> electrolyte, and the overall equation.</p>',
+diag:function(){var s=DEFS;
+  s+=box2(10,20,90,120,'card o')+T(55,40,'H₂ in','hd','text-anchor="middle"')+T(55,60,'negative','sm','text-anchor="middle"');
+  s+=box2(230,20,90,120,'card g')+T(275,40,'O₂ in','hd','text-anchor="middle"')+T(275,60,'positive','sm','text-anchor="middle"');
+  s+='<rect class="sea" x="110" y="20" width="110" height="120"/>'+T(165,40,'H⁺ electrolyte','sm','text-anchor="middle"');
+  s+=G(1,arr(120,80,212,80,'po')+T(165,72,'H⁺','an','text-anchor="middle"'));
+  s+=G(1,T(20,166,'(−) H₂ → 2H⁺ + 2e⁻','eq'));
+  s+=G(2,T(20,190,'(+) O₂ + 4H⁺ + 4e⁻ → 2H₂O','eq'));
+  s+=G(3,T(20,216,'overall: 2H₂ + O₂ → 2H₂O','big'));
+  return svg(330,228,s)},
+lines:plan(['negative electrode','positive electrode','overall'])+
+ ans(1,'','','Negative electrode (oxidation): <span class="hl">H<sub>2</sub> → 2H<sup>+</sup> + 2e<sup>−</sup></span>','M1')+
+ ans(2,'O₂ + 2H₂O + 4e⁻ → 4OH⁻','That is the alkaline cell. In acid, H<sup>+</sup> is the reactant.','Positive electrode (reduction): <span class="hl">O<sub>2</sub> + 4H<sup>+</sup> + 4e<sup>−</sup> → 2H<sub>2</sub>O</span>','M2')+
+ ans(3,'','','Overall: <span class="hl">2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</span>','M3'),
+chips:[['M1','H₂ → 2H⁺ + 2e⁻',1],['M2','O₂ + 4H⁺ + 4e⁻ → 2H₂O',2],['M3','overall equation',3]],
+steps:[
+{t:'Read and plan',x:'A fuel cell turns the energy of a fuel reacting with oxygen directly into electrical energy. The reactants are supplied continuously.',tip:'Check which electrolyte: acid or alkali.'},
+{t:'Hydrogen electrode',x:'Hydrogen is oxidised, releasing electrons into the external circuit. H<sup>+</sup> ions move through the electrolyte.',tip:'Alkaline: H<sub>2</sub> + 2OH<sup>−</sup> → 2H<sub>2</sub>O + 2e<sup>−</sup>.'},
+{t:'Oxygen electrode',x:'Oxygen gains electrons and combines with H<sup>+</sup> to form water.',tip:'Alkaline: O<sub>2</sub> + 2H<sub>2</sub>O + 4e<sup>−</sup> → 4OH<sup>−</sup>.'},
+{t:'Overall',x:'Double the hydrogen half-equation to balance electrons, then add.',tip:'The only product is water, but making the hydrogen may produce CO<sub>2</sub>.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using alkaline equations for an acidic cell.','Electrons on the wrong side.','Unbalanced electrons in the overall equation.','Saying fuel cells produce no pollution at all.'],
+your:{kind:'text',marks:2,q:'Give one advantage and one disadvantage of hydrogen fuel cells compared with petrol engines. (2)',
+ ms:['Advantage: only water is produced at the point of use / more efficient.','Disadvantage: hydrogen is flammable and hard to store; it is often made from fossil fuels; the cells are expensive.'],
+ warn:[[/no CO2 at all|zero emissions/i,'Making the hydrogen can produce CO<sub>2</sub>.']]}
+});
+/* ---------- 6 Ecell and K ---------- */
+W.push({btn:'Eᵒcell, entropy and K',spec:[["16.11","Eᵒcell ∝ ΔS total and ln K"],["16.9","conditions affect E"]],type:'Explain',marks:3,
+title:'What a large positive E<sup>⦵</sup><sub>cell</sub> means',
+q:'<p><span class="mk">(3)</span>The reaction Zn + Cu<sup>2+</sup> → Zn<sup>2+</sup> + Cu has E<sup>⦵</sup><sub>cell</sub> = <mark>+1.10 V</mark>.</p><p><mark>Explain</mark> what this tells you about <mark>ΔS<sub>total</sub></mark> and the <mark>equilibrium constant</mark>, and what happens to E<sub>cell</sub> if [Cu<sup>2+</sup>] is lowered.</p>',
+diag:function(){var s='';
+  s+=card(10,44,'Eᵒcell ∝ ΔS total ∝ ln K','large positive Eᵒ → large positive ΔS total','card t',1);
+  s+=card(62,44,'K very large','reaction goes almost to completion','card g',2);
+  s+=card(114,44,'lower [Cu²⁺]','Cu²⁺ + 2e⁻ ⇌ Cu shifts left → E less positive','card o',3);
+  return svg(330,166,s)},
+lines:plan(['link to ΔS total','link to K','effect of concentration'])+
+ ans(1,'','','E<sup>⦵</sup><sub>cell</sub> is proportional to ΔS<sub>total</sub>, so ΔS<sub>total</sub> is <span class="hl">large and positive</span>.','M1')+
+ ans(2,'','','E<sup>⦵</sup><sub>cell</sub> is proportional to ln K, so <span class="hl">K is very large</span>: the reaction goes almost to completion.','M2')+
+ ans(3,'','','Lowering [Cu<sup>2+</sup>] shifts Cu<sup>2+</sup> + 2e<sup>−</sup> ⇌ Cu to the left, making E(Cu) <span class="hl">less positive</span>, so E<sub>cell</sub> <span class="hl">decreases</span>.','M3'),
+chips:[['M1','ΔS total large positive',1],['M2','K very large',2],['M3','E decreases',3]],
+steps:[
+{t:'Read and plan',x:'E<sup>⦵</sup><sub>cell</sub>, ΔS<sub>total</sub> and ln K all measure the same thing: how far a reaction tends to go.',tip:'A positive value for each means a feasible reaction.'},
+{t:'Total entropy',x:'A positive E<sup>⦵</sup><sub>cell</sub> means ΔS<sub>total</sub> is positive. The bigger the voltage, the bigger ΔS<sub>total</sub>.',tip:'The constant of proportionality is not needed at this level.'},
+{t:'Equilibrium constant',x:'Since ΔS<sub>total</sub> = R ln K, a large E<sup>⦵</sup><sub>cell</sub> means a very large K.',tip:'E<sup>⦵</sup><sub>cell</sub> above about +0.3 V usually means the reaction goes to completion.'},
+{t:'Changing concentration',x:'Electrode potentials are equilibria. Removing Cu<sup>2+</sup> moves the equilibrium to release electrons, so the potential becomes less positive.',tip:'This is why conditions must be standard when E<sup>⦵</sup> is measured.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying E<sup>⦵</sup> tells you the rate.','Linking E<sub>cell</sub> to K instead of ln K.','Getting the direction of the concentration effect wrong.','Saying E<sup>⦵</sup> changes with concentration (it is E that changes).'],
+your:{kind:'text',marks:2,q:'Why does the e.m.f. of a cell fall as the cell is used? (2)',
+ ms:['The concentrations of the ions change as the reaction proceeds (reactant ions used up, product ions build up).','So the electrode potentials move closer together until E<sub>cell</sub> = 0 at equilibrium.'],
+ warn:[[/electrons (run|are) out/i,'Explain using changing concentrations of ions.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 5 · Topic 16 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["16.1", "Understand oxidation and reduction as electron transfer and change in oxidation number, for s-, p- and d-block elements."], ["16.2", "Understand the term standard electrode potential, Eᵒ."], ["16.3", "Know the standard conditions for Eᵒ: 298 K, 100 kPa for gases, 1.00 mol dm<sup>−3</sup> ions."], ["16.4", "Describe the standard hydrogen electrode and why a reference electrode is needed."], ["16.5", "Describe how to measure Eᵒ for metal/ion, non-metal/ion and ion/ion half-cells."], ["16.6", "Core Practical 12: investigate electrochemical cells."], ["16.7", "Calculate a standard e.m.f. from two standard electrode potentials."], ["16.8", "Write cell diagrams using the conventional representation."], ["16.9", "Understand why conditions affect the measured electrode potential, E."], ["16.10", "Use standard electrode potentials to predict feasibility."], ["16.11", "Understand that Eᵒcell is proportional to ΔS<sub>total</sub> and to ln K."], ["16.12", "Understand the limitations of predictions: kinetics and non-standard conditions."], ["16.13", "Use the electrochemical series (standard reduction potentials)."], ["16.14", "Use Eᵒ values to predict whether disproportionation is feasible."], ["16.15", "Do redox titration calculations: iron(II)/manganate(VII) and iodine/thiosulfate."], ["16.16", "Discuss measurement uncertainty and its effect on validity."], ["16.17", "Core Practicals 13a and 13b: redox titrations."], ["16.18", "Understand how fuel cells generate a voltage from a fuel and oxygen."], ["16.19", "Write the electrode reactions for hydrogen–oxygen fuel cells (acid and alkaline)."]],KEY="ialchem-t16-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 16: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

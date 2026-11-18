@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alkanes Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Alkanes Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-4.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Organic chemistry and alkanes: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+var W=[];
+/* ---------- 1 isomers C5H12 ---------- */
+W.push({btn:'Structural isomers of C₅H₁₂',spec:[["4.11","isomers up to C6"],["4.10","structural isomerism"],["4.5 ii","skeletal formulae"]],type:'Draw',marks:3,
+title:'The structural isomers of C<sub>5</sub>H<sub>12</sub>',
+q:'<p><span class="mk">(3)</span>The molecular formula <mark>C<sub>5</sub>H<sub>12</sub></mark> has three <mark>structural isomers</mark>.</p><p><mark>Draw</mark> the <mark>skeletal formula</mark> of each isomer and give its <mark>IUPAC name</mark>.</p>',
+diag:function(){var s='';
+  s+=G(1,P(pts([[24,62],[50,46],[76,62],[102,46],[128,62]]),'sk')+T(150,60,'pentane','nm'));
+  s+=G(2,P(pts([[24,146],[50,130],[76,146],[102,130]]),'sk')+P(pts([[50,130],[50,100]]),'sk')+T(150,136,'2-methylbutane','nm'));
+  s+=G(3,P(pts([[36,222],[66,222],[96,222]]),'sk')+P(pts([[66,192],[66,252]]),'sk')+T(150,228,'2,2-dimethylpropane','nm'));
+  s+=G(1,T(150,78,'5 C in one chain','an'));
+  s+=G(2,T(150,152,'4 C chain + 1 branch','an'));
+  s+=G(3,T(150,244,'3 C chain + 2 branches','an'));
+  s+=G(4,T(165,280,'a bent chain is not a new isomer','an','text-anchor="middle"'));
+  return svg(330,290,s)},
+lines:plan(['longest chain first','shorten by 1, add a branch','shorten again','check for repeats'])+
+ ans(1,'','','Isomer 1: five carbons in a straight chain, <span class="hl">pentane</span>.','M1')+
+ ans(2,'3-methylbutane','The branch must get the lowest number. Count from the other end: it is on carbon 2.','Isomer 2: a four-carbon chain with a methyl branch on carbon 2, <span class="hl">2-methylbutane</span>.','M2')+
+ ans(3,'2-dimethylpropane','Two methyl groups need two numbers: 2,2-.','Isomer 3: a three-carbon chain with two methyl groups on carbon 2, <span class="hl">2,2-dimethylpropane</span>.','M3')+
+ ans(4,'','','Check: each structure has 5 C and 12 H. Bending a chain or moving a branch to the "other end" does <span class="hl">not</span> make a new isomer.',''),
+chips:[['M1','pentane',1],['M2','2-methylbutane',2],['M3','2,2-dimethylpropane',3]],
+steps:[
+{t:'Read the question',x:'Structural isomers have the <b>same molecular formula</b> but a <b>different structural formula</b>. In a skeletal formula, every line end and every corner is a carbon atom. H atoms on carbon are not shown.',tip:'Work in a fixed order: longest chain first, then shorten the chain one carbon at a time.'},
+{t:'The straight chain',x:'All five carbons in one chain. The name comes from the chain length: pent- for 5, -ane for an alkane.',tip:'A skeletal zig-zag of 5 carbons has 4 lines. Count the corners and ends, not the lines.'},
+{t:'Four-carbon chain, one branch',x:'Take one carbon off the chain and put it on as a methyl branch. It can only go on carbon 2; on carbon 1 it would just make the chain longer again.',tip:'Number the chain from the end nearest the branch so the number is as low as possible.'},
+{t:'Three-carbon chain, two branches',x:'With only three carbons in the chain, both extra carbons must go on the middle carbon.',tip:'Write every position: 2,2-dimethyl, not 2-dimethyl. Use commas between numbers and a hyphen between a number and a word.'},
+{t:'Check for repeats',x:'A bent chain is the same molecule. Before you finish, name every structure you drew. If two have the same name, cross one out.',tip:'Drawing the same isomer twice usually costs a mark.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Drawing the same isomer twice, for example a bent pentane chain.','Calling 2-methylbutane "3-methylbutane".','Writing "2-dimethylpropane" or "dimethylpropane" without both numbers.','Counting lines instead of carbon atoms in a skeletal formula.'],
+your:{kind:'text',marks:5,q:'Hexane, C<sub>6</sub>H<sub>14</sub>, has five structural isomers. <b>Name</b> all five. (5)',
+ ms:['hexane','2-methylpentane','3-methylpentane','2,2-dimethylbutane','2,3-dimethylbutane'],
+ warn:[[/4-methyl|1-methyl|2-ethyl/i,'Check your numbering. 4-methylpentane is really 2-methylpentane, and an ethyl group on carbon 2 just makes a longer chain.'],[/3,3-dimethyl/i,'3,3-dimethylbutane is 2,2-dimethylbutane numbered from the wrong end.']]}
+});
+/* ---------- 2 naming ---------- */
+W.push({btn:'IUPAC name of a branched alkane',spec:[["4.5 i","IUPAC naming"]],type:'Name',marks:3,
+title:'Naming a branched alkane',
+q:'<p><span class="mk">(3)</span>The skeletal formula of an alkane is shown in the stage below.</p><p><mark>Give</mark> the <mark>IUPAC name</mark> of this alkane.</p>',
+diag:function(){var s='',c=[[30,130],[72,108],[114,130],[156,108],[198,130],[240,108]];
+  s+=P(pts(c),'sk','','1')+P(pts([[72,108],[72,66]]),'sk','','3')+P(pts([[114,130],[114,172],[156,194]]),'sk','','3');
+  s+=G(1,c.map(function(p,i){return T(p[0],p[1]+(i%2?-12:24),i+1,'num','text-anchor="middle"')}).join(''));
+  s+=G(1,T(250,160,'6 C chain','an')+T(250,176,'→ hexane','an'));
+  s+=G(2,T(150,30,'from the left: 2, 3  ✓','an')+T(150,46,'from the right: 4, 5  ✗','an'));
+  s+=G(3,T(84,62,'methyl on C2','an')+T(164,214,'ethyl on C3','an'));
+  s+=G(4,T(165,250,'3-ethyl-2-methylhexane','big','text-anchor="middle"'));
+  return svg(330,262,s)},
+lines:plan(['find the longest chain','number for lowest locants','name the branches','alphabetical order'])+
+ ans(1,'pentane','The longest chain bends round the branch. Follow it through carbon 3 to the end: 6 carbons.','The longest chain has <span class="hl">6 carbons</span>, so the parent name is <span class="hl">hexane</span>.','M1')+
+ ans(2,'','','Number from the end that gives the branches the <span class="hl">lowest numbers</span>: from the left, the branches are on carbons <span class="hl">2 and 3</span>.','M2')+
+ ans(3,'','','The branches are a methyl group on C2 and an ethyl group on C3.','')+
+ ans(4,'2-methyl-3-ethylhexane','Branches go in alphabetical order: e (ethyl) before m (methyl).','Put the branches in <span class="hl">alphabetical order</span>: <span class="hl">3-ethyl-2-methylhexane</span>.','M3'),
+chips:[['M1','hexane chain',1],['M2','locants 2 and 3',2],['M3','3-ethyl-2-methylhexane',4]],
+steps:[
+{t:'Read the structure',x:'Each line end and corner is a carbon atom. Find all the carbons first; there are nine here.',tip:'The longest chain is not always drawn in a straight line.'},
+{t:'Find the longest chain',x:'Try every route from one end to another. The route through the lower branch gives only five carbons; the route to the right end gives six.',tip:'If two chains are the same length, choose the one with more branches.'},
+{t:'Number the chain',x:'Number from the end that gives the first branch the lowest number. From the left the branches are on 2 and 3. From the right they would be on 4 and 5.',tip:'Lowest numbers always win. Check both directions before you choose.'},
+{t:'Name the branches',x:'A one-carbon branch is methyl. A two-carbon branch is ethyl.',tip:'Use di-, tri- when the same branch appears more than once, e.g. 2,2-dimethyl.'},
+{t:'Put the name together',x:'Write the branches in alphabetical order, each with its number, then the parent chain. Ignore di- and tri- when you sort alphabetically.',tip:'Commas between numbers, hyphens between numbers and letters, no spaces: 3-ethyl-2-methylhexane.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Choosing a chain that is not the longest one.','Numbering from the wrong end (4-ethyl-5-methyl…).','Putting methyl before ethyl.','Missing hyphens, or adding spaces inside the name.'],
+your:{kind:'text',marks:3,q:'Iso-octane has the structure (CH<sub>3</sub>)<sub>3</sub>CCH<sub>2</sub>CH(CH<sub>3</sub>)<sub>2</sub>. <b>Give</b> its IUPAC name. (3)',
+ ms:['The longest chain has 5 carbons: pentane.','There are three methyl groups, on carbons 2, 2 and 4 (lowest numbers).','Name: 2,2,4-trimethylpentane.'],
+ warn:[[/2,4,4/i,'Number from the other end: 2,2,4 is lower than 2,4,4.'],[/octane/i,'Iso-octane is a common name. The IUPAC name is based on the longest chain, which has 5 carbons.']]}
+});
+/* ---------- 3 free radical mechanism ---------- */
+W.push({btn:'Free radical substitution: mechanism',spec:[["4.18 i–iii","free radical mechanism"],["4.7 i","homolytic fission"],["4.17 ii","alkanes + halogens"]],type:'Mechanism',marks:4,
+title:'The mechanism for the reaction of methane with chlorine',
+q:'<p><span class="mk">(4)</span>Methane reacts with chlorine in <mark>ultraviolet light</mark> to form chloromethane, CH<sub>3</sub>Cl.</p><p><mark>Give</mark> the <mark>mechanism</mark> for this reaction. Include the <mark>initiation</mark>, <mark>propagation</mark> and <mark>termination</mark> steps.</p>',
+diag:function(){var s=DEFS2;
+  s+=AT(130,36,'Cl')+AT(200,36,'Cl')+L(144,36,186,36,'bd','1');
+  s+=FH('M160 30C150 8 132 10 130 20',1)+FH('M170 30C180 8 198 10 200 20',1)+G(1,T(212,30,'UV light','an')+T(212,46,'homolytic fission','an'));
+  s+=G(2,box2(20,74,290,40,'card')+T(165,99,'CH₄ + Cl• → CH₃• + HCl','eq','text-anchor="middle"'));
+  s+=G(3,box2(20,134,290,40,'card')+T(165,159,'CH₃• + Cl₂ → CH₃Cl + Cl•','eq','text-anchor="middle"'));
+  s+=G(3,P('M300 154C326 154 326 94 312 94','loop')+T(160,129,'Cl• is made again: a chain reaction','an','text-anchor="middle"'));
+  s+=G(4,box2(20,200,290,44,'card t')+T(165,220,'two radicals meet:','an','text-anchor="middle"')+T(165,238,'CH₃• + Cl• → CH₃Cl','eq','text-anchor="middle"'));
+  return svg(330,256,s)},
+lines:plan(['initiation: UV splits Cl₂','propagation 1','propagation 2','termination'])+
+ wl(1,'<b>Initiation:</b> Cl<sub>2</sub> → 2Cl•  (UV light)<span class="mt">M1</span>')+
+ wl(2,'<b>Propagation:</b> CH<sub>4</sub> + Cl• → CH<sub>3</sub>• + HCl<span class="mt">M2</span>')+
+ wl(3,'<b>Propagation:</b> CH<sub>3</sub>• + Cl<sub>2</sub> → CH<sub>3</sub>Cl + Cl•<span class="mt">M3</span>')+
+ wl(4,'<b>Termination:</b> CH<sub>3</sub>• + Cl• → CH<sub>3</sub>Cl<span class="mt">M4</span>')+
+ wl(4,'<span style="font-family:var(--b);font-size:13.5px">(or 2Cl• → Cl<sub>2</sub>, or 2CH<sub>3</sub>• → C<sub>2</sub>H<sub>6</sub>)</span>'),
+chips:[['M1','initiation: Cl₂ → 2Cl•',1],['M2','CH₄ + Cl• → CH₃• + HCl',2],['M3','CH₃• + Cl₂ → CH₃Cl + Cl•',3],['M4','any termination step',4]],
+steps:[
+{t:'Read the question',x:'"Mechanism" means the individual steps, not just the overall equation. Free radical substitution always has three stages.',tip:'A free radical is a species with an unpaired electron. Show it with a dot: Cl•.'},
+{t:'Initiation',x:'UV light gives the Cl–Cl bond enough energy to break. It breaks <b>homolytically</b>: each Cl atom takes one electron from the bond.',tip:'If asked to show it, draw two half-headed (fish-hook) arrows from the bond, one to each Cl.'},
+{t:'Propagation step 1',x:'A chlorine radical takes a hydrogen atom from methane. This makes HCl and a methyl radical.',tip:'Common error: the first step makes HCl, not CH<sub>3</sub>Cl and H•.'},
+{t:'Propagation step 2',x:'The methyl radical reacts with a chlorine molecule. This makes chloromethane and a new chlorine radical, which can start step 1 again.',tip:'Each propagation step has one radical on each side. Check this.'},
+{t:'Termination',x:'When two radicals meet, they join and the chain stops. Any pair of radicals can do this.',tip:'A termination step has two radicals on the left and none on the right.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Writing H• in propagation step 1 (it is HCl that forms).','Leaving out the dot on radicals.','Forgetting UV light for initiation.','Writing a "termination" step that still has a radical on the right.'],
+your:{kind:'text',marks:4,q:'Ethane reacts with bromine in UV light to form bromoethane. <b>Give</b> the initiation, two propagation steps and one termination step. (4)',
+ ms:['Br<sub>2</sub> → 2Br• (UV light)','C<sub>2</sub>H<sub>6</sub> + Br• → C<sub>2</sub>H<sub>5</sub>• + HBr','C<sub>2</sub>H<sub>5</sub>• + Br<sub>2</sub> → C<sub>2</sub>H<sub>5</sub>Br + Br•','C<sub>2</sub>H<sub>5</sub>• + Br• → C<sub>2</sub>H<sub>5</sub>Br (or 2Br• → Br<sub>2</sub>, or 2C<sub>2</sub>H<sub>5</sub>• → C<sub>4</sub>H<sub>10</sub>)'],
+ warn:[[/H\s*•|H\./,'Check propagation step 1: the bromine radical takes an H atom to form HBr. No H• is made.']]}
+});
+/* ---------- 4 limited use in synthesis ---------- */
+W.push({btn:'Why free radical substitution gives a mixture',spec:[["4.18 iv","limited use in synthesis"]],type:'Explain',marks:3,
+title:'Why free radical substitution has limited use in synthesis',
+q:'<p><span class="mk">(3)</span>A chemist wants to make <mark>chloromethane</mark> by reacting methane with chlorine in UV light.</p><p><mark>Explain</mark> why this method gives a <mark>low yield</mark> of chloromethane and is of <mark>limited use</mark> in synthesis.</p>',
+diag:function(){var s=DEFS2,m=['CH₄','CH₃Cl','CH₂Cl₂','CHCl₃','CCl₄'];
+  m.forEach(function(x,i){var y=26+i*46;s+=G(i===0?0:(i===1?1:2),box2(40,y,96,30,i===1?'card hot2':'card')+T(88,y+20,x,'eq','text-anchor="middle"'));
+    if(i<4)s+=G(i===0?1:2,'<path class="dp" d="M88 '+(y+31)+'V'+(y+45)+'"/>'+T(100,y+42,'+ Cl•, Cl₂','sm'))});
+  s+=G(1,T(160,62,'the product you want','an'));
+  s+=G(2,T(160,114,'Cl• attacks CH₃Cl too','an')+T(160,130,'→ further substitution','an'));
+  s+=G(3,T(160,196,'a mixture of products','an')+T(160,212,'that must be separated','an'));
+  return svg(330,256,s)},
+lines:plan(['further substitution','example step','mixture → low yield'])+
+ ans(1,'The reaction is slow.','Speed is not the problem. The problem is what else forms.','Chlorine radicals can also react with the chloromethane: <span class="hl">further substitution</span> of H atoms by Cl.','M1')+
+ wl(2,'CH<sub>3</sub>Cl + Cl• → CH<sub>2</sub>Cl• + HCl')+
+ wl(2,'CH<sub>2</sub>Cl• + Cl<sub>2</sub> → CH<sub>2</sub>Cl<sub>2</sub> + Cl•<span class="mt">M2</span>')+
+ ans(3,'It makes by-products.','Name them, and say why that matters.','So a <span class="hl">mixture</span> of CH<sub>3</sub>Cl, CH<sub>2</sub>Cl<sub>2</sub>, CHCl<sub>3</sub> and CCl<sub>4</sub> forms. The products must be <span class="hl">separated</span>, and the yield of chloromethane is low.','M3'),
+chips:[['M1','further substitution',1],['M2','equation for further substitution',2],['M3','mixture of products, low yield',3]],
+steps:[
+{t:'Read and plan',x:'"Limited use in synthesis" means the method does not give one pure product. Explain why other products form.',tip:'Use an equation as evidence. Examiners like to see one.'},
+{t:'Further substitution',x:'Once chloromethane forms, a chlorine radical can take one of its hydrogens too, just as it did from methane.',tip:'Use the phrase "further substitution".'},
+{t:'Give an example',x:'Write the propagation steps that turn CH<sub>3</sub>Cl into CH<sub>2</sub>Cl<sub>2</sub>. The same steps can then make CHCl<sub>3</sub> and CCl<sub>4</sub>.',tip:'The pattern is the same as the methane steps: radical takes H → new radical reacts with Cl<sub>2</sub>.'},
+{t:'The consequence',x:'You get a mixture, so you need to separate it, and only part of the methane ends up as chloromethane.',tip:'For longer alkanes there is a second reason: substitution can happen at different carbon atoms, giving isomers.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the reaction is too slow or needs UV light.','Not saying what the other products are.','Writing an equation with H• as a product.','Forgetting to link the mixture to a low yield.'],
+your:{kind:'text',marks:3,q:'Propane reacts with chlorine in UV light. <b>Explain</b> why the product is a mixture that contains both 1-chloropropane and 2-chloropropane, as well as other compounds. (3)',
+ ms:['A chlorine radical can remove a hydrogen atom from carbon 1 or from carbon 2 of propane.','This gives two different radicals, so two isomers form: 1-chloropropane and 2-chloropropane.','Further substitution also happens, giving dichloropropanes and more highly substituted products.'],
+ warn:[[/electrophil|nucleophil/i,'This is a free radical reaction. Electrophiles and nucleophiles are not involved.']]}
+});
+/* ---------- 5 combustion & pollutants ---------- */
+W.push({btn:'Combustion and pollutants',spec:[["4.13","pollutants"],["4.14","CO toxicity, acidic oxides"],["4.17 i","combustion"]],type:'Explain',marks:4,
+title:'Combustion of octane and the pollutants it forms',
+q:'<p><span class="mk">(4)</span>Petrol contains octane, C<sub>8</sub>H<sub>18</sub>.</p><p>(a) Write a <mark>balanced equation</mark> for the <mark>complete combustion</mark> of octane. (1)</p><p>(b) <mark>Explain</mark> how <mark>carbon monoxide</mark> forms in a car engine and why it is <mark>toxic</mark>. (2)</p><p>(c) <mark>Explain</mark> why <mark>nitrogen oxides</mark> from car engines are harmful. (1)</p>',
+diag:function(){var s=DEFS2;
+  s+=box2(14,96,92,64,'card')+T(60,124,'engine','hd','text-anchor="middle"')+T(60,142,'C₈H₁₈ + air','sm','text-anchor="middle"');
+  s+='<path class="dp" d="M106 128H134"/>';
+  s+=G(1,box2(140,20,176,40,'card g')+T(228,38,'plenty of O₂:','sm','text-anchor="middle"')+T(228,53,'CO₂ + H₂O','eq','text-anchor="middle"'));
+  s+=G(2,box2(140,72,176,40,'card o')+T(228,90,'too little O₂:','sm','text-anchor="middle"')+T(228,105,'CO, C (soot)','eq','text-anchor="middle"'));
+  s+=G(3,box2(140,124,176,40,'card o')+T(228,142,'CO binds to haemoglobin','sm','text-anchor="middle"')+T(228,157,'→ less O₂ carried','sm','text-anchor="middle"'));
+  s+=G(4,box2(140,176,176,40,'card o')+T(228,194,'high T: N₂ + O₂ → 2NO','sm','text-anchor="middle"')+T(228,209,'acidic → acid rain','sm','text-anchor="middle"'));
+  s+=G(4,T(16,236,'also: SO₂ (sulfur impurities), unburned hydrocarbons','sm'));
+  return svg(330,250,s)},
+lines:plan(['balance C, H, then O','limited oxygen','haemoglobin','N₂ + O₂, acidic'])+
+ wl(1,'2C<sub>8</sub>H<sub>18</sub> + 25O<sub>2</sub> → 16CO<sub>2</sub> + 18H<sub>2</sub>O<span class="mt">M1</span>')+
+ wl(1,'<span style="font-family:var(--b);font-size:13.5px">(or C<sub>8</sub>H<sub>18</sub> + 12½O<sub>2</sub> → 8CO<sub>2</sub> + 9H<sub>2</sub>O)</span>')+
+ ans(2,'It forms when there is no oxygen.','Not none: there is not enough oxygen for complete combustion.','CO forms by <span class="hl">incomplete combustion</span>, when there is a <span class="hl">limited supply of oxygen</span>.','M2')+
+ ans(3,'CO is poisonous.','Explain why: say what it does in the blood.','CO <span class="hl">binds to haemoglobin</span> in red blood cells, so the blood <span class="hl">carries less oxygen</span>.','M3')+
+ ans(4,'NOx cause global warming.','The spec point is acidity. Talk about acid rain.','At the high temperature in the engine, N<sub>2</sub> and O<sub>2</sub> from the air react to form NO. Nitrogen oxides are <span class="hl">acidic</span> and dissolve in rain to form <span class="hl">acid rain</span>.','M4'),
+chips:[['M1','balanced equation',1],['M2','incomplete combustion, limited O₂',2],['M3','CO binds to haemoglobin',3],['M4','NOx acidic → acid rain',4]],
+steps:[
+{t:'Read and plan',x:'This is a three-part question. Do each part separately and keep an eye on the marks: 1, 2 and 1.',tip:'For an equation, check that each element balances before you move on.'},
+{t:'Balance the equation',x:'8 C atoms make 8 CO<sub>2</sub>. 18 H atoms make 9 H<sub>2</sub>O. Count the O atoms: 16 + 9 = 25, which is 12½ O<sub>2</sub>. Double everything to remove the half.',tip:'Balance C first, then H, then O last.'},
+{t:'How CO forms',x:'Inside a cylinder there is not always enough oxygen to turn all the carbon into CO<sub>2</sub>. Some carbon ends up as CO or soot.',tip:'Use the words "incomplete combustion" and "limited oxygen".'},
+{t:'Why CO is toxic',x:'Carbon monoxide attaches to haemoglobin more strongly than oxygen does. Less oxygen reaches the body\'s cells.',tip:'"CO is poisonous" does not score. Say what it does.'},
+{t:'Nitrogen oxides',x:'Nitrogen does not burn at normal temperatures. The very high temperature in an engine makes N<sub>2</sub> and O<sub>2</sub> react. The oxides are acidic.',tip:'NOx do not come from the fuel. They come from nitrogen in the air.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Leaving ½ or a wrong count of O<sub>2</sub> in the equation.','Saying CO forms when there is "no oxygen".','Writing "CO is poisonous" with no reason.','Saying nitrogen oxides come from the fuel.'],
+your:{kind:'num',q:'Nonane, C<sub>9</sub>H<sub>20</sub>, burns completely in oxygen. How many <b>moles of oxygen molecules, O<sub>2</sub></b>, are needed for 1 mol of nonane?',ans:14,tol:0.01,
+ ok:'Correct: C<sub>9</sub>H<sub>20</sub> + 14O<sub>2</sub> → 9CO<sub>2</sub> + 10H<sub>2</sub>O. O atoms needed = 18 + 10 = 28, which is 14 O<sub>2</sub>.',
+ wrong:[[28,0.01,'That is the number of O <b>atoms</b>. Divide by 2 to get O<sub>2</sub> molecules.'],[9,0.01,'That only burns the carbon. The hydrogen needs oxygen too (to make water).'],[19,0.01,'Check the water: 20 H atoms make 10 H<sub>2</sub>O, which needs 10 O atoms (5 O<sub>2</sub>).'],[13.5,0.01,'Recount the hydrogen: C<sub>9</sub>H<sub>20</sub> has 20 H atoms, so 10 H<sub>2</sub>O.']]}
+});
+/* ---------- 6 cracking & reforming ---------- */
+W.push({btn:'Cracking and reforming',spec:[["4.12","fractional distillation, cracking, reforming"]],type:'Explain',marks:3,
+title:'Why crude oil fractions are cracked and reformed',
+q:'<p><span class="mk">(3)</span>Decane, C<sub>10</sub>H<sub>22</sub>, can be <mark>cracked</mark> to form octane and ethene.</p><p>(a) Write an <mark>equation</mark> for this reaction. (1)</p><p>(b) <mark>Explain</mark> why oil companies crack long-chain alkanes, and why they <mark>reform</mark> straight-chain alkanes. (2)</p>',
+diag:function(){var s=DEFS2,ch=[];for(var i=0;i<10;i++)ch.push([20+i*30,i%2?40:58]);
+  s+=G(0,P(pts(ch),'sk')+T(165,22,'decane, C₁₀H₂₂','nm','text-anchor="middle"'));
+  s+=G(1,L(242,26,248,74,'cut')+T(180,92,'C–C bond breaks','an'));
+  var a=[];for(var i=0;i<8;i++)a.push([20+i*24,i%2?120:136]);
+  s+=G(1,P(pts(a),'sk')+T(100,158,'octane (petrol)','nm','text-anchor="middle"')+L(238,128,268,128,'sk')+L(238,134,268,134,'sk')+T(254,158,'ethene','nm','text-anchor="middle"'));
+  s+=G(2,T(14,184,'more demand for short chains','an')+T(14,200,'alkenes → polymers','an'));
+  s+=G(3,P(pts([[200,222],[222,208],[244,222],[266,208],[288,222]]),'sk')+P(pts([[222,208],[222,188]]),'sk')+P(pts([[266,208],[266,188]]),'sk')+T(244,246,'reforming → branched','an','text-anchor="middle"'));
+  return svg(330,256,s)},
+lines:plan(['balance C and H','supply vs demand','alkenes for polymers','reforming: branched/cyclic'])+
+ wl(1,'C<sub>10</sub>H<sub>22</sub> → C<sub>8</sub>H<sub>18</sub> + C<sub>2</sub>H<sub>4</sub><span class="mt">M1</span>')+
+ ans(2,'To make more fuel.','Say why short chains are wanted: demand, and the alkene product.','Cracking turns long-chain alkanes, which are in <span class="hl">low demand</span>, into <span class="hl">shorter alkanes</span> for petrol (high demand) and <span class="hl">alkenes</span> to make polymers.','M2')+
+ ans(3,'Reforming makes the alkane better.','Better in what way? Say what the products are and why they help.','Reforming turns straight-chain alkanes into <span class="hl">branched or cyclic</span> hydrocarbons, which <span class="hl">burn more efficiently</span> in engines (less knocking).','M3'),
+chips:[['M1','C₁₀H₂₂ → C₈H₁₈ + C₂H₄',1],['M2','long chains → useful shorter alkanes + alkenes',2],['M3','reforming → branched/cyclic, burn better',3]],
+steps:[
+{t:'Read and plan',x:'Part (a) is a balancing exercise. Part (b) needs one reason for cracking and one for reforming.',tip:'In a cracking equation, the carbons and hydrogens on the right must add up to those on the left.'},
+{t:'Write the cracking equation',x:'C: 8 + 2 = 10. H: 18 + 4 = 22. It balances with one molecule of each product.',tip:'Cracking always makes at least one alkene, because there are not enough H atoms for two alkanes.'},
+{t:'Why crack?',x:'Fractional distillation gives more long-chain fractions than people buy, and fewer short-chain fractions than they need. Cracking fixes the mismatch, and the alkenes are valuable too.',tip:'Mention both products: shorter alkanes for fuel and alkenes for polymers.'},
+{t:'Why reform?',x:'Branched and cyclic hydrocarbons burn more smoothly than straight chains, so they make better petrol.',tip:'Cracking makes molecules smaller. Reforming changes their shape but keeps the same number of carbons.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['An equation that does not balance for H.','Saying cracking "makes more crude oil" or "makes fuels cleaner".','Mixing up cracking and reforming.','Forgetting that cracking also makes alkenes.'],
+your:{kind:'num',q:'Dodecane, C<sub>12</sub>H<sub>26</sub>, is cracked to form one molecule of octane, C<sub>8</sub>H<sub>18</sub>, and some ethene, C<sub>2</sub>H<sub>4</sub>. How many molecules of <b>ethene</b> form from one molecule of dodecane?',ans:2,tol:0.01,
+ ok:'Correct: C<sub>12</sub>H<sub>26</sub> → C<sub>8</sub>H<sub>18</sub> + 2C<sub>2</sub>H<sub>4</sub>. C: 8 + 4 = 12; H: 18 + 8 = 26.',
+ wrong:[[4,0.01,'4 is the number of carbon atoms left over. Each ethene has 2 carbons, so that is 2 molecules.'],[1,0.01,'One ethene only uses 2 of the 4 carbons left over. Check your carbon count.']]}
+});
+/* ---------- 7 carbon neutrality ---------- */
+W.push({btn:'Carbon neutrality: bioethanol',spec:[["4.16","carbon neutrality"],["4.15","alternative fuels"]],type:'Explain',marks:3,
+title:'Is bioethanol a carbon-neutral fuel?',
+q:'<p><span class="mk">(3)</span>Bioethanol is made by fermenting sugar from crops. It is sometimes called a <mark>carbon-neutral</mark> fuel.</p><p>Use the <mark>equations</mark> in the stage to <mark>explain</mark> what this means, and why bioethanol is <mark>not completely</mark> carbon neutral.</p>',
+diag:function(){var s=DEFS2;
+  s+=G(0,box2(20,20,130,52,'card g')+T(85,40,'crop grows','hd','text-anchor="middle"')+T(85,58,'photosynthesis','sm','text-anchor="middle"'));
+  s+=G(0,box2(180,20,130,52,'card')+T(245,40,'fermentation','hd','text-anchor="middle"')+T(245,58,'sugar → ethanol','sm','text-anchor="middle"'));
+  s+=G(0,box2(180,122,130,52,'card')+T(245,142,'combustion','hd','text-anchor="middle"')+T(245,160,'ethanol burns','sm','text-anchor="middle"'));
+  s+=G(0,'<path class="dp" d="M150 46H178"/><path class="dp" d="M245 72V120"/>');
+  s+=G(1,'<path class="po" d="M180 150C110 150 85 120 85 74"/>'+T(60,112,'6CO₂ taken in','an'));
+  s+=G(2,T(196,92,'2CO₂ out','an')+T(196,196,'4CO₂ out','an')+T(60,136,'6 in = 6 out','big'));
+  s+=G(3,box2(20,212,290,36,'card o')+T(165,234,'fossil fuels: farm machines, transport, distilling','sm','text-anchor="middle"'));
+  return svg(330,256,s)},
+lines:wl(0,'6CO<sub>2</sub> + 6H<sub>2</sub>O → C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub>')+wl(0,'C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> → 2C<sub>2</sub>H<sub>5</sub>OH + 2CO<sub>2</sub>')+wl(0,'2C<sub>2</sub>H<sub>5</sub>OH + 6O<sub>2</sub> → 4CO<sub>2</sub> + 6H<sub>2</sub>O')+
+ ans(1,'Plants make oxygen.','True, but the mark is for the carbon dioxide they take in.','As the crop grows, <span class="hl">photosynthesis absorbs 6CO<sub>2</sub></span> for every glucose molecule.','M1')+
+ ans(2,'Bioethanol gives out no CO₂.','Wrong: it gives out CO<sub>2</sub>. The point is the balance.','Fermentation and combustion <span class="hl">release 2 + 4 = 6CO<sub>2</sub></span>: the same amount, so there is <span class="hl">no net CO<sub>2</sub></span> added to the air.','M2')+
+ ans(3,'It is not natural.','Say where extra CO<sub>2</sub> comes from.','But it is not fully carbon neutral: <span class="hl">fossil fuels are burned</span> to farm, transport and distil the ethanol, which <span class="hl">releases extra CO<sub>2</sub></span>.','M3'),
+chips:[['M1','photosynthesis absorbs 6CO₂',1],['M2','6CO₂ released: no net CO₂',2],['M3','fossil fuels used in production',3]],
+steps:[
+{t:'Read the equations',x:'Carbon neutral means: no <b>net</b> carbon dioxide is added to the atmosphere. Count the CO<sub>2</sub> in each equation.',tip:'When equations are given, use the numbers in them. That is where the marks are.'},
+{t:'CO₂ taken in',x:'The crop takes in 6 CO<sub>2</sub> to make one glucose molecule.',tip:'Name the process: photosynthesis.'},
+{t:'CO₂ given out',x:'Fermentation gives out 2 CO<sub>2</sub>. Burning the ethanol gives out 4 CO<sub>2</sub>. Total 6, the same as was taken in.',tip:'Say "net" or "overall". Bioethanol does release CO<sub>2</sub> when it burns.'},
+{t:'Why it is not completely neutral',x:'Tractors, fertiliser, lorries and the heat for distillation usually come from fossil fuels. That adds CO<sub>2</sub> that was not taken in by the crop.',tip:'One clear example of fossil-fuel use is enough for the mark.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying bioethanol releases no CO<sub>2</sub>.','Not using the numbers from the equations.','Talking about oxygen instead of carbon dioxide.','Not giving a reason why it is not completely neutral.'],
+your:{kind:'text',marks:3,q:'Hydrogen is suggested as a fuel for cars. <b>Explain</b> why it is better than petrol for reducing CO<sub>2</sub> emissions, and why it may still not be carbon neutral. (3)',
+ ms:['Hydrogen burns to form only water: 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O, so no CO<sub>2</sub> is released when it is used.','Most hydrogen is made from fossil fuels (e.g. methane), or by electrolysis using electricity from fossil fuels, which releases CO<sub>2</sub>.','It is only close to carbon neutral if renewable energy (e.g. solar or wind) is used to make it.'],
+ warn:[[/hydrogen (gives|releases|produces) (out )?co2/i,'Burning hydrogen makes only water. The CO<sub>2</sub> comes from how the hydrogen is made.']]}
+});
+/* ---------- 8 hazard and risk ---------- */
+W.push({btn:'Hazard and risk',spec:[["4.1","hazard vs risk"],["4.2","hazards of organic compounds"],["4.3","reducing risk"]],type:'Explain',marks:3,
+title:'Hazard, risk and working safely with hexane',
+q:'<p><span class="mk">(3)</span>Hexane is a <mark>highly flammable</mark> liquid. Its vapour is harmful if breathed in.</p><p><mark>Explain</mark> the difference between a <mark>hazard</mark> and a <mark>risk</mark>, and <mark>suggest two ways</mark> to reduce the risk when heating hexane in a school laboratory.</p>',
+diag:function(){var s='';
+  s+=G(1,box2(20,20,290,50,'card o')+T(34,42,'HAZARD','hd')+T(34,60,'hexane is flammable; vapour is harmful','sm'));
+  s+=G(2,box2(20,82,290,50,'card')+T(34,104,'RISK','hd')+T(34,122,'how likely harm is: high near a Bunsen flame','sm'));
+  s+=G(3,box2(20,144,290,98,'card g')+T(34,166,'REDUCE THE RISK','hd')+T(34,186,'• no naked flames: heat in a water bath','sm')+T(34,204,'• use a fume cupboard (vapour)','sm')+T(34,222,'• use a small volume','sm')+T(34,238,'• (or use a less hazardous solvent)','sm'));
+  return svg(330,252,s)},
+lines:plan(['hazard = potential to harm','risk = chance of harm','control linked to the hazard'])+
+ ans(1,'A hazard is something dangerous.','Too vague. Say "potential to cause harm".','A <span class="hl">hazard</span> is a substance or activity that has the <span class="hl">potential to cause harm</span>.','M1')+
+ ans(2,'Risk is how dangerous it is.','That is the hazard again. Risk is about chance.','A <span class="hl">risk</span> is the <span class="hl">chance (likelihood) that harm will happen</span>, which depends on how the substance is used.','M2')+
+ ans(3,'Wear goggles and a lab coat.','Goggles do not stop a fire. Link each control to the hazard.','Heat with a <span class="hl">water bath instead of a Bunsen flame</span>, and work in a <span class="hl">fume cupboard</span> so the vapour is not breathed in.','M3'),
+chips:[['M1','hazard: potential to cause harm',1],['M2','risk: chance of harm',2],['M3','two specific control measures',3]],
+steps:[
+{t:'Read and plan',x:'Two definitions, then two precautions. The precautions must match the hazards in the question: flammable and harmful vapour.',tip:'Generic answers like "be careful" or "wear goggles" rarely score.'},
+{t:'Define hazard',x:'A hazard is a property of the substance: it could cause harm. Hexane could catch fire.',tip:'The hazard does not change. Hexane is always flammable.'},
+{t:'Define risk',x:'Risk is how likely it is that the hazard actually causes harm. Heating hexane over a Bunsen flame is high risk; in a water bath it is much lower.',tip:'You can lower a risk without changing the hazard.'},
+{t:'Reduce the risk',x:'Remove sources of ignition, stop the vapour building up, and use smaller amounts. Each one targets a named hazard.',tip:'Other accepted ideas: work on a smaller scale, or use a less hazardous substance.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using "hazard" and "risk" as if they mean the same thing.','Giving goggles or a lab coat as the only precaution for a fire hazard.','Precautions that do not match the hazard.','Writing "be careful" or "follow the rules".'],
+your:{kind:'text',marks:3,q:'Bromine is toxic and corrosive. Students use it to test for alkenes. <b>Suggest</b> three ways to reduce the risk of this test. (3)',
+ ms:['Use dilute bromine water instead of pure bromine (less hazardous substance).','Work in a fume cupboard so the vapour is not breathed in.','Use small volumes (e.g. a few drops), and wear gloves to protect the skin.'],
+ warn:[[/^\s*(be careful|careful)/i,'"Be careful" does not score. Name a specific precaution that matches the hazard.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 1 · Topic 4 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["4.1", "Explain the difference between hazard and risk."], ["4.2", "Describe the hazards of organic compounds and why risk assessments are needed."], ["4.3", "Suggest ways to reduce risk: smaller scale, precautions for the hazard, less hazardous alternatives."], ["4.4", "Explain the terms homologous series and functional group."], ["4.5", "Use IUPAC rules to name compounds and draw structural, displayed and skeletal formulae (up to C10)."], ["4.6", "Classify reactions as addition, substitution, oxidation, reduction or polymerisation."], ["4.7", "Explain homolytic bond breaking (free radicals) and heterolytic bond breaking (ions)."], ["4.8", "Define the terms free radical and electrophile."], ["4.9", "Give the general formulae of alkanes and cycloalkanes; explain hydrocarbon and saturated."], ["4.10", "Explain structural isomerism and draw structural isomers from a molecular formula."], ["4.11", "Draw and name the structural isomers of alkanes and cycloalkanes with up to six carbons."], ["4.12", "Describe alkanes as fuels from fractional distillation, cracking and reforming; write equations."], ["4.13", "Name the pollutants from burning alkanes: CO, oxides of N and S, carbon particulates, unburned hydrocarbons."], ["4.14", "Explain why CO is toxic and why oxides of nitrogen and sulfur are a problem (acidity)."], ["4.15", "Discuss alternative fuels: sustainability, emissions, CO<sub>2</sub> and climate change."], ["4.16", "Apply carbon neutrality to fuels such as petrol, bioethanol and hydrogen."], ["4.17", "Describe the reactions of alkanes with oxygen (combustion) and with halogens."], ["4.18", "Give the free radical substitution mechanism (initiation, propagation, termination) and why it has limited use in synthesis."]],KEY="ialchem-t4-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 4: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>

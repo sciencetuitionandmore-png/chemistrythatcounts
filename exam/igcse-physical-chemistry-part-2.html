@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physical chemistry part 2</title>
+<meta name="description" content="How to answer exam questions, step by step: Physical chemistry part 2. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/igcse-physical-chemistry-part-2.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--good-soft:#e3f3e9;--bad:#b3261e;--bad-soft:#fbe9e7;--hl:#fff1c7;--amber:#e0a526;--amber-ink:#8a5a00;--amber-soft:#fff7e0;
+--disp:"Lexend",system-ui,"Segoe UI",Arial,sans-serif;--body:"Atkinson Hyperlegible",system-ui,"Segoe UI",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,"Courier New",monospace}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.5 var(--body);-webkit-text-size-adjust:100%}
+.wrap{max-width:1127px;margin:0 auto;padding:22px 16px 40px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.2;margin:0}
+h1{font-size:clamp(24px,3.4vw,32px)}
+.intro{margin:8px 0 18px;color:var(--muted)}
+.mono,.label{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+.label{color:var(--muted);overflow-wrap:anywhere}
+sub,sup{line-height:0;font-size:.72em}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:22px}
+.qc{text-align:left;background:var(--sheet);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;flex-direction:column;gap:4px;min-height:74px;transition:border-color .15s,background .15s}
+.qc:hover{border-color:var(--accent)}
+.qc b{font-family:var(--disp);font-weight:600;font-size:16px;line-height:1.25}
+.qc span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.qc[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.qc[aria-pressed=true] span{color:#dcdafc}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px}
+#walk{scroll-margin-top:10px}
+#qtitle{font-size:clamp(21px,2.6vw,26px);margin:6px 0 8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 10px;font-size:13.5px;font-weight:700}
+.qbox{background:var(--sheet);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.qbox p{margin:0 0 10px}.qbox p:last-child{margin-bottom:0}
+.hl{background:var(--hl);outline:1.5px solid var(--amber);border-radius:4px;padding:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.eq{font-family:var(--body);background:var(--paper);border-radius:8px;padding:6px 10px;display:inline-block;margin:2px 0}
+.data{color:var(--muted)}
+.tbl{overflow-x:auto;margin:6px 0 10px}
+table{border-collapse:collapse;font-size:15.5px}
+th,td{border:1px solid var(--line);padding:5px 10px;text-align:center}
+th{background:var(--paper);font-weight:700}
+.graph{display:block;width:100%;max-width:560px;height:auto;margin:6px 0 10px}
+.graph text{font-family:var(--body);font-size:13px;fill:var(--ink)}
+.graph .ax{stroke:var(--ink);stroke-width:1.5}
+.graph .gr{stroke:#e3e8ee;stroke-width:1}
+.ov{opacity:0;transition:opacity .4s}
+.ov.show{opacity:1}
+.cols{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:16px;align-items:start}
+fieldset.ans{margin:0;border:1.5px solid var(--line);border-radius:12px;background:var(--sheet);padding:10px 16px 16px;min-height:320px;min-width:0}
+fieldset.ans legend{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:0 6px}
+.line{padding:5px 0 5px 10px;border-left:3px solid transparent;margin:2px 0;overflow-wrap:anywhere}
+.line.new{border-left-color:var(--accent);background:linear-gradient(90deg,var(--accent-soft),transparent 70%)}
+.mk{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em;background:var(--good-soft);color:var(--good);border:1px solid var(--good);border-radius:6px;padding:0 6px;margin-left:6px;vertical-align:1px}
+.mk.wait{visibility:hidden}
+.final{border:2.5px solid var(--accent);border-radius:10px;padding:8px 12px;margin-top:8px;font-weight:700;background:#fbfbff}
+.callout{border:2px solid var(--amber);background:#fffaf0;border-radius:10px;padding:8px 12px;margin-top:14px;font-size:16px}
+.callout .mono{color:var(--amber-ink);display:block;margin-bottom:2px}
+.foot{margin-top:14px;font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.ctrl{display:flex;flex-direction:column;gap:12px;min-width:0}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--sheet);border:1.5px solid var(--line);border-radius:10px;padding:8px 13px;font-family:var(--disp);font-weight:600;font-size:15px}
+.btn:hover:not(:disabled){border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;flex:1 1 auto}
+.dots{display:flex;gap:6px;flex-wrap:wrap}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dot.done{background:var(--accent)}
+.dot.cur{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.speed{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:15px}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--sheet);padding:5px 11px;font-size:14px}
+.seg button[aria-pressed=true]{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.chips{display:flex;flex-direction:column;gap:6px}
+.mchip{border:1.5px solid var(--line);border-radius:10px;padding:5px 10px;font-size:15px;line-height:1.35;background:var(--sheet);color:var(--muted);transition:all .3s}
+.mchip b{font-family:var(--mono);font-size:12px;margin-right:6px}
+.mchip.on{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.mchip.on b::after{content:" \2713"}
+.stepcard{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stepcard h3{font-size:18px;margin:4px 0 6px}
+.stepcard p{margin:0 0 8px}
+.tip{border-left:4px solid var(--amber);background:var(--amber-soft);border-radius:8px;padding:8px 12px;font-size:15.5px;margin-top:8px}
+.tip b:first-child{color:var(--amber-ink)}
+.yt{border:2px dashed var(--accent);border-radius:14px;padding:18px;margin-top:20px;background:var(--sheet)}
+.yt h3{font-size:20px;margin-bottom:8px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.row input{font:inherit;width:150px;max-width:100%;padding:7px 10px;border:1.5px solid var(--line);border-radius:10px}
+textarea{font:inherit;width:100%;min-height:120px;padding:10px;border:1.5px solid var(--line);border-radius:10px;resize:vertical;margin-top:8px}
+.fb{margin-top:8px;font-weight:700}
+.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.worked{margin-top:10px}
+.worked .line{border-left-color:var(--accent)}
+.pts{list-style:none;padding:0;margin:10px 0 0}
+.pts li{margin:6px 0}
+.pts label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pts input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--good)}
+.score{font-family:var(--mono);font-size:13px;margin-top:6px;color:var(--good);font-weight:700}
+.check{margin-top:24px}
+.check h2{font-size:22px;margin-bottom:6px}
+.bar{display:flex;height:8px;border-radius:99px;background:var(--paper);overflow:hidden;margin:12px 0 6px;border:1px solid var(--line)}
+.bar i{display:block;height:100%;transition:width .3s}
+.counts{color:var(--muted);margin-bottom:8px;overflow-wrap:anywhere}
+.crow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.crow .num{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:700}
+.crow .pr{grid-column:2/4;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:15px}
+.link{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;font-weight:700;text-align:left}
+.rates{display:flex;gap:5px}
+.rate{border:1.5px solid var(--line);background:var(--sheet);border-radius:999px;padding:3px 10px;font-size:14px;white-space:nowrap}
+.rate[aria-pressed=true][data-v=n]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);font-weight:700}
+.rate[aria-pressed=true][data-v=m]{background:var(--amber-soft);border-color:var(--amber);color:var(--amber-ink);font-weight:700}
+.rate[aria-pressed=true][data-v=g]{background:var(--good-soft);border-color:var(--good);color:var(--good);font-weight:700}
+.note{font-size:14.5px;color:var(--muted);margin-top:12px}
+@media (max-width:900px){.picker{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:minmax(0,1fr)}fieldset.ans{min-height:0}}
+@media (max-width:560px){.card{padding:14px}.qbox{padding:12px 13px}.crow{grid-template-columns:34px minmax(0,1fr)}.crow .rates{grid-column:2}.crow .pr{grid-column:2}.qc b{font-size:15px}.yt{padding:14px}}
+
+</style>
+</head>
+<body><a href="../index.html#igcse-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE exam walkthroughs</a>
+
+<div class="wrap">
+<h1>Physical chemistry part 2: answer it mark by mark</h1>
+<p class="intro">Choose a question. Press <b>Next step</b> (or the &rarr; key) to build the answer one mark at a time.</p>
+<div class="picker" id="picker" role="group" aria-label="Choose a question"></div>
+<section class="card" id="walk" aria-live="off">
+<div class="label" id="qlabel"></div>
+<h2 id="qtitle"></h2>
+<div class="tags" id="tags"></div>
+<div class="qbox" id="qbox"></div>
+<div class="cols">
+<fieldset class="ans"><legend>Answer space</legend>
+<div id="lines" aria-live="polite"></div>
+<div class="callout" id="callout" hidden></div>
+<div class="foot" id="foot" hidden></div>
+</fieldset>
+<div class="ctrl">
+<div class="btns"><button class="btn" id="back" type="button">&larr; Back</button><button class="btn" id="replay" type="button">&#8635; Replay</button><button class="btn primary" id="next" type="button">Next step &rarr;</button></div>
+<div class="dots" id="dots" aria-hidden="true"></div>
+<div class="speed">Speed: <span class="seg" id="speed"><button type="button" data-s="slow" aria-pressed="false">Slow</button><button type="button" data-s="normal" aria-pressed="true">Normal</button><button type="button" data-s="fast" aria-pressed="false">Fast</button></span></div>
+<div class="chips" id="chips"></div>
+<div class="stepcard"><div class="label" id="stepn"></div><h3 id="steph"></h3><p id="stepp"></p><div class="tip" id="steptip" hidden></div></div>
+</div>
+</div>
+<div class="yt" id="yt"></div>
+</section>
+<section class="card check">
+<h2>Physical chemistry part 2: spec checklist</h2>
+<p style="margin:0">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p>
+<div class="bar" aria-hidden="true"><i id="bg" style="background:var(--good)"></i><i id="bm" style="background:var(--amber)"></i><i id="bn" style="background:var(--bad)"></i></div>
+<div class="counts mono" id="ccount"></div>
+<div id="crows"></div>
+<p class="note">Not on the double award paper (Chemistry only): 3.14C reaction profiles showing &Delta;H and activation energy; 3.19C&ndash;3.22C dynamic equilibrium, catalysts and equilibrium, and how temperature or pressure changes the position of equilibrium.</p>
+<button class="btn" id="clear" type="button">Clear my ratings</button>
+</section>
+</div>
+<script>
+(function(){
+function h(s){return '<span class="hl">'+s+'</span>'}
+function graphR(){
+  var X=function(t){return 60+t*470/300},Y=function(V){return 270-V};
+  var s='<svg class="graph" viewBox="0 0 560 320" role="img" aria-label="Graph of volume of carbon dioxide against time for experiments A and B. Curve A (powder) rises steeply and levels off at 240 cubic centimetres at about 100 s. Curve B (chips) rises less steeply and levels off at 240 cubic centimetres at about 280 s.">';
+  for(var t=0;t<=300;t+=50)s+='<line class="gr" x1="'+X(t)+'" y1="20" x2="'+X(t)+'" y2="270"/><text x="'+X(t)+'" y="288" text-anchor="middle">'+t+'</text>';
+  for(var V=0;V<=250;V+=50)s+='<line class="gr" x1="60" y1="'+Y(V)+'" x2="530" y2="'+Y(V)+'"/><text x="52" y="'+(Y(V)+4)+'" text-anchor="end">'+V+'</text>';
+  s+='<line class="ax" x1="60" y1="270" x2="530" y2="270"/><line class="ax" x1="60" y1="20" x2="60" y2="270"/>';
+  s+='<text x="295" y="312" text-anchor="middle">Time / s</text><text x="16" y="145" text-anchor="middle" transform="rotate(-90 16 145)">Volume of CO₂ / cm³</text>';
+  function curve(tau){var p=[];for(var t=0;t<=300;t+=5)p.push(X(t).toFixed(1)+','+Y(240*(1-Math.exp(-t/tau))).toFixed(1));return p.join(' ')}
+  s+='<polyline fill="none" stroke="#4a44b5" stroke-width="3" points="'+curve(20)+'"/><polyline fill="none" stroke="#b5651d" stroke-width="3" points="'+curve(60)+'"/>';
+  s+='<text x="'+X(4)+'" y="'+Y(225)+'" font-weight="700" fill="#4a44b5">A (powder)</text><text x="'+X(118)+'" y="'+Y(178)+'" font-weight="700" fill="#b5651d">B (chips)</text>';
+  s+='<g class="ov" data-ov="g1"><line x1="60" y1="270" x2="'+X(17)+'" y2="'+Y(204)+'" stroke="#4a44b5" stroke-width="2" stroke-dasharray="6 4"/><line x1="60" y1="270" x2="'+X(51)+'" y2="'+Y(204)+'" stroke="#b5651d" stroke-width="2" stroke-dasharray="6 4"/><text x="'+X(56)+'" y="'+Y(110)+'" font-size="12">steeper start = faster</text></g>';
+  s+='<g class="ov" data-ov="g2"><circle cx="'+X(100)+'" cy="'+Y(239)+'" r="6" fill="none" stroke="#e0a526" stroke-width="3"/><circle cx="'+X(280)+'" cy="'+Y(239)+'" r="6" fill="none" stroke="#e0a526" stroke-width="3"/><text x="'+X(100)+'" y="'+Y(222)+'" text-anchor="middle" font-size="12">A ends ≈100 s</text><text x="'+X(272)+'" y="'+Y(222)+'" text-anchor="middle" font-size="12">B ends ≈280 s</text></g>';
+  s+='<g class="ov" data-ov="g3"><line x1="60" y1="'+Y(240)+'" x2="530" y2="'+Y(240)+'" stroke="#1d7a46" stroke-width="2" stroke-dasharray="6 4"/><text x="'+X(160)+'" y="'+(Y(240)-8)+'" text-anchor="middle" font-weight="700" fill="#1d7a46">same final volume: 240 cm³</text></g>';
+  return s+'</svg>';
+}
+window.PAGE={
+key:"y11-physical-2",year:"YEAR 11",group:"PHYSICAL CHEMISTRY 2",
+questions:[
+{id:"mean",name:"Mean rate from a table",type:"Calculation",marks:3,
+title:"Calculating a mean rate of reaction",
+tags:["Spec 3.15 marble chips practical","Rate calculation"],
+q:'<p>A student adds marble chips to excess dilute hydrochloric acid. She collects the carbon dioxide in a gas syringe.</p><p><span class="eq">CaCO<sub>3</sub>(s) + 2HCl(aq) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>O(l) + CO<sub>2</sub>(g)</span></p><div class="tbl"><table><tr><th>Time / s</th><td>0</td><td>20</td><td>'+h('40')+'</td><td>60</td><td>80</td><td>100</td><td>120</td></tr><tr><th>Volume of CO<sub>2</sub> / cm³</th><td>0</td><td>28</td><td>'+h('48')+'</td><td>62</td><td>71</td><td>75</td><td>76</td></tr></table></div><p>'+h('Calculate')+' the mean rate of reaction in the '+h('first 40 s')+'. '+h('Give the unit')+'.</p><p class="data">(3 marks)</p>',
+mp:[["M1","Volume of gas in 40 s = 48 cm³"],["M2","48 ÷ 40"],["M3","1.2 cm³/s"]],
+foot:"mean rate = change in volume ÷ time taken · unit: cm³/s (or g/s for mass loss)",
+steps:[
+{t:"Write the expression",p:"Mean rate is the average rate over a time interval.",lines:[{h:"mean rate = change in volume of gas ÷ time taken"}],
+co:'<span class="mono">Expression</span>mean rate = Δvolume ÷ Δtime'},
+{t:"Read the change in volume",p:"The volume at 0 s is 0 cm³. Read the volume at 40 s.",earn:["M1"],
+lines:[{h:"Volume at 40 s − volume at 0 s = 48 − 0 = "+h("48 cm³"),m:"M1"}]},
+{t:"Divide by the time",p:"The time taken is 40 s.",earn:["M2"],lines:[{h:"mean rate = 48 ÷ 40",m:"M2"}]},
+{t:"Answer with the unit",p:"Volume unit ÷ time unit gives the rate unit.",earn:["M3"],
+lines:[{h:"mean rate = "+h("1.2 cm³/s"),m:"M3",f:1}],
+tip:"No unit, or a wrong unit like cm³, loses M3. Allow cm³ s<sup>−1</sup>."},
+{t:"Total: 3 marks",p:"The rate is fastest at the start: 28 cm³ in the first 20 s but only 1 cm³ between 100 s and 120 s. The reaction stops at 76 cm³. The most common reason for losing marks is leaving out the unit, or dividing a single volume by the wrong time.",lines:[]}
+],
+yt:{kind:"calc",q:'<p>Use the same table. '+h('Calculate')+' the mean rate of reaction '+h('between 20 s and 60 s')+'.</p>',
+label:"rate =",unit:"cm³/s",ans:0.85,tol:0.01,ok:"Change in volume = 62 − 28 = 34 cm³; time = 40 s; 34 ÷ 40 = 0.85 cm³/s.",no:"Subtract the two volumes first, then divide by the time between 20 s and 60 s (not by 60).",
+worked:["Volume at 60 s − volume at 20 s = 62 − 28 = 34 cm³","Time taken = 60 − 20 = 40 s","mean rate = 34 ÷ 40",{h:"mean rate = 0.85 cm³/s",f:1}]}},
+
+{id:"temp",name:"Temperature and collisions",type:"Explain",marks:6,
+title:"Explaining the effect of temperature on rate",
+tags:["Spec 3.11 collision theory","Spec 3.9 rate experiments","6-mark extended response"],
+q:'<p>A student investigates how temperature affects the rate of the reaction between sodium thiosulfate solution and dilute hydrochloric acid. A yellow precipitate of sulfur forms. She times how long it takes for a cross under the flask to disappear.</p><div class="tbl"><table><tr><th>Temperature / °C</th><td>20</td><td>30</td><td>40</td><td>50</td></tr><tr><th>Time for cross to disappear / s</th><td>'+h('96')+'</td><td>'+h('48')+'</td><td>25</td><td>13</td></tr></table></div><p>'+h('Explain')+' the effect of temperature on the rate of this reaction. '+h('Use the data and collision theory')+'.</p><p class="data">(6 marks)</p>',
+mp:[["M1","Higher temperature → shorter time → faster rate"],["M2","Data quoted (20 → 30 °C: 96 s → 48 s)"],["M3","Particles have more kinetic energy, move faster"],["M4","More frequent collisions"],["M5","More particles have energy ≥ activation energy"],["M6","More successful collisions per second"]],
+foot:"Collision theory: particles must collide, with at least the activation energy.",
+steps:[
+{t:"Describe the trend",p:"Link the time to the rate. A shorter time means a faster rate.",earn:["M1"],
+lines:[{h:"As the temperature increases, the time decreases, so the "+h("rate increases")+".",m:"M1"}],
+tip:"rate ∝ 1 ÷ time. Do not write 'the rate gets longer'."},
+{t:"Use the data",p:"Quote numbers from the table to support the trend.",earn:["M2"],
+lines:[{h:"From 20 °C to 30 °C the time "+h("halves from 96 s to 48 s")+".",m:"M2"}]},
+{t:"Particles and energy",p:"Start the collision theory part. Talk about particles.",earn:["M3"],
+lines:[{h:"At a higher temperature the particles have "+h("more kinetic energy")+" and move faster.",m:"M3"}]},
+{t:"Frequency of collisions",p:"Faster particles meet each other more often.",earn:["M4"],
+lines:[{h:"So the particles collide "+h("more frequently")+" (more collisions per second).",m:"M4"}],
+tip:"'More collisions' alone is often not enough. Say 'more frequent' or 'per second'."},
+{t:"Activation energy",p:"This is the most important idea for temperature.",earn:["M5"],
+lines:[{h:"More particles have energy "+h("equal to or greater than the activation energy")+".",m:"M5"}],
+co:'<span class="mono">Definition</span>activation energy = the minimum energy particles need to react when they collide'},
+{t:"Successful collisions",p:"Finish the chain: more successful collisions per second means a faster rate.",earn:["M6"],
+lines:[{h:"So there are "+h("more successful collisions per second")+" and the rate increases.",m:"M6"}]},
+{t:"Total: 6 marks",p:"For all six marks you need the data <b>and</b> the full chain of collision theory. The most common reason for losing marks is saying only 'particles move faster so they collide more' and leaving out activation energy.",lines:[]}
+],
+yt:{kind:"text",q:'<p>Magnesium ribbon reacts with dilute hydrochloric acid at 15 °C and at 35 °C. '+h('Explain')+', using collision theory, why the reaction is faster at 35 °C. <span class="data">(4 marks)</span></p>',
+points:["Particles have more kinetic energy / move faster at 35 °C","Particles collide more frequently","More particles have energy equal to or greater than the activation energy","More successful collisions per second, so the rate is faster"]}},
+
+{id:"cat",name:"How a catalyst works",type:"Explain",marks:4,
+title:"Explaining the evidence for a catalyst and how it works",
+tags:["Spec 3.12 catalysts","Spec 3.13 activation energy","Spec 3.16 hydrogen peroxide practical"],
+q:'<p>Hydrogen peroxide decomposes slowly at room temperature.</p><p><span class="eq">2H<sub>2</sub>O<sub>2</sub>(aq) → 2H<sub>2</sub>O(l) + O<sub>2</sub>(g)</span></p><p>A student adds '+h('0.50 g')+' of manganese(IV) oxide powder. Oxygen is given off '+h('much faster')+'. At the end she filters, washes and dries the solid. Its mass is '+h('still 0.50 g')+'.</p><p>'+h('Explain')+' how these results show that manganese(IV) oxide is a catalyst, and how it increases the rate.</p><p class="data">(4 marks)</p>',
+mp:[["M1","It increases the rate (oxygen faster)"],["M2","Same mass at the end: chemically unchanged"],["M3","Provides an alternative pathway"],["M4","With lower activation energy → more successful collisions"]],
+foot:"Catalyst: increases the rate, chemically unchanged at the end, alternative pathway with lower activation energy.",
+steps:[
+{t:"Recall the definition",p:"A catalyst has two features. Look for evidence of each in the question.",lines:[{h:"A catalyst increases the rate and is chemically unchanged at the end."}],
+co:'<span class="mono">Look for</span>① faster reaction ② same mass at the end'},
+{t:"Evidence 1",p:"The oxygen comes off faster.",earn:["M1"],
+lines:[{h:"Oxygen is given off faster, so manganese(IV) oxide "+h("increases the rate")+".",m:"M1"}]},
+{t:"Evidence 2",p:"The mass is the same, so it was not used up.",earn:["M2"],
+lines:[{h:"The mass is still 0.50 g, so it is "+h("chemically unchanged")+" (not used up).",m:"M2"}],
+tip:"Do not write 'it does not take part in the reaction'. A catalyst does take part, but it is unchanged at the end."},
+{t:"How it works",p:"Use the exact idea from the specification.",earn:["M3"],
+lines:[{h:"It provides an "+h("alternative pathway")+" (a different route) for the reaction",m:"M3"}]},
+{t:"Activation energy",p:"Link the lower activation energy to collisions.",earn:["M4"],
+lines:[{h:"with a "+h("lower activation energy")+", so more particles have enough energy and there are more successful collisions per second.",m:"M4"}],
+tip:"A catalyst does <b>not</b> give the particles more energy. Their energy is the same; the energy needed is lower."},
+{t:"Total: 4 marks",p:"Two pieces of evidence and two parts of the explanation. The most common reason for losing marks is saying the catalyst 'gives the particles energy' or 'makes them collide more'.",lines:[]}
+],
+yt:{kind:"text",q:'<p>'+h('Explain')+', in terms of activation energy, how a catalyst increases the rate of a reaction. <span class="data">(3 marks)</span></p>',
+points:["A catalyst provides an alternative pathway (route) for the reaction","The pathway has a lower activation energy","More particles have energy equal to or greater than the activation energy, so there are more successful collisions per second"]}},
+
+{id:"curves",name:"Comparing two curves",type:"Interpret graph",marks:4,
+title:"Interpreting two rate curves",
+tags:["Spec 3.10 effect of surface area","Spec 3.15 marble chips practical"],
+q:'<p>A student reacts '+h('1.00 g')+' of calcium carbonate with dilute hydrochloric acid. The acid is '+h('in excess')+'. In experiment A she uses powder. In experiment B she uses large chips.</p>'+graphR()+'<p>(a) '+h('State')+' which experiment has the faster rate. '+h('Give a reason from the graph')+'. <span class="data">(2)</span></p><p>(b) '+h('Explain')+' why both experiments produce the same final volume of gas. <span class="data">(2)</span></p>',
+mp:[["M1","A (powder) is faster"],["M2","A is steeper at the start / levels off sooner"],["M3","Same mass of calcium carbonate"],["M4","Acid in excess: all CaCO₃ reacts, same amount of CO₂"]],
+foot:"Gradient of the curve = rate. Flat line = reaction finished.",
+steps:[
+{t:"Read the graph",p:"The gradient (steepness) of a volume–time curve shows the rate.",show:["g1"],
+lines:[{h:"Steeper curve = faster rate."}],co:'<span class="mono">Key idea</span>gradient = rate'},
+{t:"State the faster one",p:"Name the experiment.",earn:["M1"],show:["g1"],
+lines:[{h:"Experiment "+h("A (powder)")+" is faster.",m:"M1"}]},
+{t:"Reason from the graph",p:"Your reason must come from the graph.",earn:["M2"],show:["g1","g2"],
+lines:[{h:"Curve A is "+h("steeper at the start")+" and levels off sooner (about 100 s, not 280 s).",m:"M2"}],
+tip:"'Powder has a larger surface area' is an explanation, not evidence from the graph. Here the question asks for the graph."},
+{t:"Same final volume: amount",p:"Look at what is the same in both experiments.",earn:["M3"],show:["g1","g2","g3"],
+lines:[{h:"Both experiments use the "+h("same mass (1.00 g) of calcium carbonate")+".",m:"M3"}]},
+{t:"Same final volume: excess acid",p:"The acid is in excess, so the calcium carbonate is used up in both.",earn:["M4"],show:["g1","g2","g3"],
+lines:[{h:"The acid is in excess, so "+h("all the calcium carbonate reacts")+" and the same amount of CO<sub>2</sub> (240 cm³) forms.",m:"M4"}],
+tip:"Surface area changes how <b>fast</b> the gas is made, not how <b>much</b>."},
+{t:"Total: 4 marks",p:"The most common reason for losing marks is in (b): writing 'because they are the same reaction' without saying the same mass of calcium carbonate is used up.",show:["g1","g2","g3"],lines:[]}
+],
+yt:{kind:"text",q:'<p>Experiment C uses 1.00 g of large chips, but the acid has '+h('half the concentration')+' (it is still in excess). '+h('Describe')+' how curve C compares with curve B, and '+h('explain')+' why. <span class="data">(4 marks)</span></p>',
+points:["Curve C is less steep at the start (slower rate)","Curve C levels off later","Curve C reaches the same final volume (240 cm³): same mass of calcium carbonate and acid still in excess","Fewer acid particles in the same volume, so collisions are less frequent"]}},
+
+{id:"method",name:"Marble chip method",type:"Describe · practical",marks:6,
+title:"Describing the marble chips and acid practical",
+tags:["Spec 3.15 marble chips practical","Spec 3.9 rate experiments","6-mark extended response"],
+q:'<p>A student wants to investigate how the '+h('concentration')+' of hydrochloric acid affects the rate of its reaction with marble chips.</p><p>She has: conical flask, bung and delivery tube, '+h('gas syringe')+', balance, stop clock, measuring cylinder, marble chips, hydrochloric acid of different concentrations.</p><p>'+h('Describe')+' a method she could use. '+h('Include the variables she should control')+'.</p><p class="data">(6 marks)</p>',
+mp:[["M1","Fixed volume of acid into a conical flask"],["M2","Known mass of chips; connect syringe; start clock"],["M3","Record gas volume at regular intervals"],["M4","Repeat with different concentrations"],["M5","Control: mass and size of chips, volume of acid, temperature"],["M6","Plot volume–time graphs; compare initial gradients"]],
+foot:"Independent: concentration · Dependent: volume of CO₂ · Control: chip mass and size, acid volume, temperature",
+steps:[
+{t:"Plan the variables",p:"Before writing, decide what you change, what you measure, and what you keep the same.",
+lines:[{h:"Change: concentration of acid. Measure: volume of carbon dioxide."}],
+co:'<span class="mono">Variables</span>IV: concentration · DV: volume of CO₂ · CV: mass and size of chips, volume of acid, temperature'},
+{t:"Measure the acid",p:"Give the equipment and a volume.",earn:["M1"],
+lines:[{h:"Use a measuring cylinder to put "+h("50 cm³ of acid")+" into a conical flask.",m:"M1"}]},
+{t:"Start the reaction",p:"Weigh the chips, add them, seal the flask and start timing at the same time.",earn:["M2"],
+lines:[{h:"Add "+h("5.0 g of marble chips")+", quickly put in the bung connected to the gas syringe and start the stop clock.",m:"M2"}]},
+{t:"Take readings",p:"Measure the dependent variable at regular times.",earn:["M3"],
+lines:[{h:"Record the "+h("volume of gas every 10 s")+" for a few minutes (or until the syringe is nearly full).",m:"M3"}],
+tip:"Also allow the mass-loss method: flask on a balance with cotton wool in the neck; record the mass every 10 s."},
+{t:"Change the concentration",p:"Repeat the whole method for each concentration.",earn:["M4"],
+lines:[{h:h("Repeat")+" with acid of different concentrations.",m:"M4"}]},
+{t:"Control variables",p:"Name at least two variables that stay the same.",earn:["M5"],
+lines:[{h:"Keep the same "+h("mass and size of chips")+", "+h("volume of acid")+" and "+h("temperature")+".",m:"M5"}],
+tip:"'Keep everything the same' is too vague. Name the variables."},
+{t:"Use the results",p:"Say how the results show the rate.",earn:["M6"],
+lines:[{h:"Plot volume against time for each concentration and "+h("compare the gradients at the start")+" (or the mean rate for the first 30 s).",m:"M6"}]},
+{t:"Total: 6 marks",p:"Each mark is a separate point: give a clear method in a logical order, with variables named. The most common reason for losing marks is no control variables, or a method with no measurements of time and volume.",lines:[]}
+],
+yt:{kind:"text",q:'<p>'+h('Describe')+' how a student could compare manganese(IV) oxide and copper(II) oxide as catalysts for the decomposition of hydrogen peroxide. <span class="data">(6 marks)</span></p>',
+points:["Measure a fixed volume of hydrogen peroxide (for example 25 cm³) into a conical flask","Add a fixed mass (for example 0.5 g) of the first solid, connect a gas syringe and start the timer","Record the volume of oxygen at regular intervals (or the time to collect 50 cm³)","Repeat with the same mass of the other solid","Keep the volume and concentration of hydrogen peroxide and the temperature the same","The best catalyst gives the fastest rate (steepest start / most gas in a set time)"]}},
+
+{id:"powder",name:"Why powder is faster",type:"Explain",marks:3,
+title:"Explaining the effect of surface area",
+tags:["Spec 3.11 collision theory","Spec 3.10 effect of surface area"],
+q:'<p>Calcium carbonate powder reacts faster with dilute hydrochloric acid than the '+h('same mass')+' of large marble chips.</p><p>'+h('Explain')+' why, '+h('in terms of particles')+'.</p><p class="data">(3 marks)</p>',
+mp:[["M1","Powder has a larger surface area"],["M2","More particles exposed to the acid"],["M3","More frequent collisions → faster rate"]],
+foot:"Surface area chain: smaller pieces → more surface → more exposed particles → more frequent collisions.",
+steps:[
+{t:"Identify the factor",p:"The mass is the same. Only the size of the pieces changes, so the factor is surface area.",
+lines:[{h:"Factor: surface area of the solid."}]},
+{t:"Surface area",p:"Smaller pieces have more surface in total.",earn:["M1"],
+lines:[{h:"The powder has a "+h("larger surface area")+".",m:"M1"}],
+tip:"Write 'larger surface area', not just 'smaller particles'. A powder grain is not a particle."},
+{t:"Exposed particles",p:"More calcium carbonate particles are on the surface, where acid particles can hit them.",earn:["M2"],
+lines:[{h:"So "+h("more particles are exposed")+" to the acid particles.",m:"M2"}]},
+{t:"Collisions",p:"Finish with collisions and rate.",earn:["M3"],
+lines:[{h:"So there are "+h("more frequent collisions")+" and the rate is faster.",m:"M3"}],
+co:'<span class="mono">Key phrase</span>more frequent collisions (more collisions per second)'},
+{t:"Total: 3 marks",p:"The most common reason for losing marks is writing 'more collisions' with no idea of time, or saying the particles have more energy. Surface area does not change the energy of the particles.",lines:[]}
+],
+yt:{kind:"text",q:'<p>'+h('Explain')+', in terms of particles, why increasing the pressure of a gas increases the rate of a reaction between two gases. <span class="data">(3 marks)</span></p>',
+points:["The gas particles are closer together (more particles in the same volume)","The particles collide more frequently","More successful collisions per second, so the rate increases"]}},
+
+{id:"cuso4",name:"Copper(II) sulfate, reversible",type:"Describe",marks:4,
+title:"Describing a reversible reaction: hydrated copper(II) sulfate",
+tags:["Spec 3.17 reversible reactions","Spec 3.18 copper(II) sulfate and ammonium chloride"],
+q:'<p>A student heats blue crystals of hydrated copper(II) sulfate in a boiling tube.</p><p><span class="eq">CuSO<sub>4</sub>·5H<sub>2</sub>O ⇌ CuSO<sub>4</sub> + 5H<sub>2</sub>O</span></p><p>When the solid is cool, she adds a few drops of water to it.</p><p>'+h('Describe')+' what she would see when she heats the crystals and when she adds the water. '+h('State')+' what the symbol ⇌ shows.</p><p class="data">(4 marks)</p>',
+mp:[["M1","Heating: blue crystals turn to white powder"],["M2","Colourless liquid (water) at the cool top of the tube"],["M3","Adding water: white turns blue (gets hot)"],["M4","⇌ means the reaction is reversible"]],
+foot:"Hydrated = contains water of crystallisation (blue). Anhydrous = without water (white).",
+steps:[
+{t:"Heating: colour change",p:"Give the colour before and after.",earn:["M1"],
+lines:[{h:"On heating, the "+h("blue crystals turn into a white powder")+".",m:"M1"}],
+tip:"'It turns white' alone may not score. Give both colours. Anhydrous copper(II) sulfate is white, not colourless."},
+{t:"Heating: water given off",p:"The water from the crystals leaves as steam and condenses where the tube is cooler.",earn:["M2"],
+lines:[{h:h("Drops of colourless liquid")+" (water) form near the top of the tube.",m:"M2"}]},
+{t:"Adding water",p:"The reaction goes backwards.",earn:["M3"],
+lines:[{h:"When water is added, the "+h("white powder turns blue")+" and gets hot.",m:"M3"}],
+co:'<span class="mono">Energy</span>Forward (heating) takes in heat: endothermic. Reverse (adding water) gives out heat: exothermic.'},
+{t:"The symbol ⇌",p:"Say what the symbol means in plain words.",earn:["M4"],
+lines:[{h:"⇌ shows the reaction is "+h("reversible")+": it can go in both directions.",m:"M4"}]},
+{t:"Total: 4 marks",p:"Two observations for heating, one for adding water, one for the symbol. The most common reason for losing marks is giving only the final colour, or saying 'colourless' instead of 'white'.",lines:[]}
+],
+yt:{kind:"text",q:'<p>Anhydrous copper(II) sulfate can be used to test for water. '+h('Describe')+' the test and the positive result, and '+h('explain')+' how this links to a reversible reaction. <span class="data">(3 marks)</span></p>',
+points:["Add a few drops of the liquid to white anhydrous copper(II) sulfate","It turns blue if water is present","This is the reverse of the reaction that happens on heating blue hydrated copper(II) sulfate (the reaction is reversible)"]}},
+
+{id:"nh4cl",name:"Heating ammonium chloride",type:"Equation",marks:4,
+title:"Writing the equation for heating ammonium chloride",
+tags:["Spec 3.17 reversible reactions","Spec 3.18 copper(II) sulfate and ammonium chloride"],
+q:'<p>When solid ammonium chloride is heated at the bottom of a test tube, it breaks down into two gases. Near the cooler top of the tube, the gases react to form ammonium chloride again.</p><p>(a) '+h('Complete')+' the equation. Include '+h('state symbols')+'. <span class="data">(2)</span></p><p><span class="eq">NH<sub>4</sub>Cl(s) ⇌ ............ + ............</span></p><p>(b) '+h('Describe')+' what you would see in the test tube. <span class="data">(2)</span></p>',
+mp:[["M1","Products NH₃ and HCl"],["M2","State symbols (g) for both gases"],["M3","White solid at the bottom disappears"],["M4","White solid forms near the cool top"]],
+foot:"Hot: NH₄Cl → NH₃ + HCl. Cool: NH₃ + HCl → NH₄Cl.",
+steps:[
+{t:"Name the products",p:"Ammonium chloride breaks into ammonia and hydrogen chloride.",earn:["M1"],
+lines:[{h:"NH<sub>4</sub>Cl ⇌ "+h("NH<sub>3</sub> + HCl"),m:"M1"}],
+tip:"Do not write H<sub>2</sub> or Cl<sub>2</sub>. Check that the atoms balance: N 1, H 4, Cl 1 on each side."},
+{t:"Add state symbols",p:"The question says both products are gases.",earn:["M2"],
+lines:[{h:"NH<sub>4</sub>Cl(s) ⇌ NH<sub>3</sub>"+h("(g)")+" + HCl"+h("(g)"),m:"M2",f:1}]},
+{t:"Observation at the bottom",p:"Describe what happens to the solid that is heated.",earn:["M3"],
+lines:[{h:"The "+h("white solid at the bottom disappears")+" (it decomposes into gases).",m:"M3"}]},
+{t:"Observation at the top",p:"The gases cool and react again.",earn:["M4"],
+lines:[{h:"A "+h("white solid forms near the cool top")+" of the tube.",m:"M4"}],
+co:'<span class="mono">Key idea</span>The reaction goes forward when hot and backward when cool: it is reversible.',
+tip:"It looks like sublimation, but it is a chemical change. Do not write 'it melts'."},
+{t:"Total: 4 marks",p:"Correct products, state symbols, two observations. The most common reason for losing marks is writing the wrong products (for example N<sub>2</sub> or H<sub>2</sub>) or 'it melts'.",lines:[]}
+],
+yt:{kind:"text",q:'<p>'+h('Explain')+' why the change when ammonium chloride is heated in a test tube is called a reversible reaction. <span class="data">(3 marks)</span></p>',
+points:["When heated, ammonium chloride breaks down into ammonia and hydrogen chloride","At the cooler top, ammonia and hydrogen chloride react to form ammonium chloride again","The reaction can go in both directions, shown by the symbol ⇌"]}}
+],
+check:[
+{n:"3.9",t:"Describe experiments to find how surface area, concentration, temperature and a catalyst change the rate.",q:["method","temp"]},
+{n:"3.10",t:"Describe how surface area, concentration, gas pressure, temperature and a catalyst change the rate.",q:["curves","powder"]},
+{n:"3.11",t:"Explain the effects of surface area, concentration, gas pressure and temperature using collision theory.",q:["temp","powder"]},
+{n:"3.12",t:"A catalyst increases the rate but is chemically unchanged at the end.",q:["cat"]},
+{n:"3.13",t:"A catalyst provides an alternative pathway with a lower activation energy.",q:["cat"]},
+{n:"3.15",t:"Practical: marble chips and hydrochloric acid, changing surface area and acid concentration.",q:["method","curves"]},
+{n:"3.16",t:"Practical: the effect of different solids on the decomposition of hydrogen peroxide.",q:["cat"]},
+{n:"",t:"Calculate a mean rate from a table or graph (cm³/s) and use gradients to compare rates.",q:["mean","curves"]},
+{n:"3.17",t:"Some reactions are reversible; this is shown by the symbol ⇌.",q:["cuso4","nh4cl"]},
+{n:"3.18",t:"Describe the reversible reactions of hydrated copper(II) sulfate and of heating ammonium chloride.",q:["cuso4","nh4cl"]}
+]};
+})();
+
+</script>
+<script>
+(function(){
+"use strict";
+var D=window.PAGE,Q=D.questions;
+function $(id){return document.getElementById(id)}
+function mk(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function each(list,fn){Array.prototype.forEach.call(list,fn)}
+var qi=0,si=0,speed="normal",timer=null,timerDone=null,SP={slow:[1,38],normal:[2,18],fast:[5,10]};
+var store=null;try{store=window.localStorage;store.setItem("_t","1");store.removeItem("_t")}catch(e){store=null}
+
+/* ---------- picker ---------- */
+var picker=$("picker");
+Q.forEach(function(q,i){
+  var b=mk("button","qc","<b>"+q.name+"</b><span>"+q.type+" · "+q.marks+" marks</span>");
+  b.type="button";b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",function(){select(i,false)});
+  picker.appendChild(b);
+});
+
+function select(i,scroll){
+  qi=i;si=0;stopType();
+  var q=Q[i];
+  each(picker.children,function(b,j){b.setAttribute("aria-pressed",j===i?"true":"false")});
+  $("qlabel").textContent="IGCSE CHEMISTRY · "+D.year+" · "+D.group+" · EXAM-STYLE QUESTION · "+q.marks+" MARKS";
+  $("qtitle").innerHTML=q.title;
+  $("tags").innerHTML=q.tags.map(function(t){return '<span class="tag">'+t+"</span>"}).join("");
+  $("qbox").innerHTML=q.q;
+  var ch=$("chips");ch.innerHTML="";
+  q.mp.forEach(function(m){var c=mk("div","mchip","<b>"+m[0]+"</b>"+m[1]);c.setAttribute("data-k",m[0]);ch.appendChild(c)});
+  var dots=$("dots");dots.innerHTML="";
+  q.steps.forEach(function(){dots.appendChild(mk("span","dot"))});
+  buildYT(q);
+  render(true);
+  if(scroll){var w=$("walk");if(w.scrollIntoView)w.scrollIntoView({behavior:"smooth",block:"start"})}
+}
+
+/* ---------- step rendering ---------- */
+function lineEl(l){
+  var d=mk("div","line"+(l.f?" final":""));
+  d.appendChild(mk("span","txt",l.h));
+  if(l.m)d.appendChild(mk("span","mk",l.m));
+  return d;
+}
+function earnedUpTo(k){var s={};for(var j=0;j<=k;j++)(Q[qi].steps[j].earn||[]).forEach(function(x){s[x]=1});return s}
+function lightChips(set){each($("chips").children,function(c){c.classList.toggle("on",!!set[c.getAttribute("data-k")])})}
+function render(animate){
+  stopType();
+  var q=Q[qi],st=q.steps,N=st.length,ans=$("lines"),fresh=[],j;
+  ans.innerHTML="";
+  for(j=0;j<=si;j++){
+    (st[j].lines||[]).forEach(function(l){
+      var e=lineEl(l);ans.appendChild(e);
+      if(j===si){e.classList.add("new");fresh.push(e)}
+    });
+  }
+  var co=null;for(j=0;j<=si;j++)if(st[j].co)co=st[j].co;
+  var cb=$("callout");
+  if(co){cb.innerHTML=co;cb.hidden=false}else cb.hidden=true;
+  var f=$("foot");if(q.foot){f.innerHTML=q.foot;f.hidden=false}else f.hidden=true;
+  var prev=si>0?earnedUpTo(si-1):{},now=earnedUpTo(si);
+  var shown={};for(j=0;j<=si;j++)(st[j].show||[]).forEach(function(x){shown[x]=1});
+  each($("qbox").querySelectorAll("[data-ov]"),function(e){
+    var on=!!shown[e.getAttribute("data-ov")];
+    var c=(e.getAttribute("class")||"").replace(/\s*show/g,"");e.setAttribute("class",on?c+" show":c);
+  });
+  each($("dots").children,function(d,k){d.className="dot"+(k<si?" done":k===si?" cur":"")});
+  var s=st[si];
+  $("stepn").textContent="STEP "+(si+1)+" OF "+N;
+  $("steph").innerHTML=s.t;
+  $("stepp").innerHTML=s.p;
+  var tip=$("steptip");if(s.tip){tip.innerHTML="<b>Exam tip:</b> "+s.tip;tip.hidden=false}else tip.hidden=true;
+  $("back").disabled=si===0;
+  $("next").disabled=si===N-1;
+  $("next").innerHTML=si===N-1?"Finished":"Next step →";
+  if(animate&&fresh.length){
+    lightChips(prev);
+    cb.style.opacity="0";
+    typeLines(fresh,function(){lightChips(now);cb.style.opacity="1"});
+  }else{lightChips(now);cb.style.opacity="1"}
+}
+function collect(node,arr){each(node.childNodes,function(c){if(c.nodeType===3){arr.push([c,c.nodeValue]);c.nodeValue=""}else collect(c,arr)})}
+function typeLines(lines,done){
+  var queue=lines.map(function(e){var a=[];collect(e.querySelector(".txt"),a);var m=e.querySelector(".mk");if(m)m.classList.add("wait");return {a:a,m:m}});
+  var li=0,ni=0,ci=0;
+  timerDone=function(){queue.forEach(function(L){L.a.forEach(function(t){t[0].nodeValue=t[1]});if(L.m)L.m.classList.remove("wait")});done()};
+  timer=setInterval(function(){
+    var n=SP[speed][0];
+    while(n>0){
+      if(li>=queue.length){stopType();done();return}
+      var L=queue[li];
+      if(ni>=L.a.length){if(L.m)L.m.classList.remove("wait");li++;ni=0;ci=0;continue}
+      var tn=L.a[ni];
+      if(ci>=tn[1].length){ni++;ci=0;continue}
+      ci++;tn[0].nodeValue=tn[1].slice(0,ci);n--;
+    }
+  },SP[speed][1]);
+}
+function stopType(){if(timer){clearInterval(timer);timer=null}timerDone=null}
+function finishType(){var f=timerDone;stopType();if(f)f()}
+function next(){if(timer){finishType();return}if(si<Q[qi].steps.length-1){si++;render(true)}}
+function back(){if(si>0)si--;render(false)}
+$("next").addEventListener("click",next);
+$("back").addEventListener("click",back);
+$("replay").addEventListener("click",function(){render(true)});
+each(document.querySelectorAll("#speed button"),function(b){
+  b.addEventListener("click",function(){speed=b.getAttribute("data-s");
+    each(document.querySelectorAll("#speed button"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+    if(timer)finishType()});
+});
+document.addEventListener("keydown",function(e){
+  var t=e.target&&e.target.tagName;if(t==="INPUT"||t==="TEXTAREA"||t==="SELECT")return;
+  if(e.key==="ArrowRight"){e.preventDefault();next()}
+  else if(e.key==="ArrowLeft"){e.preventDefault();back()}
+});
+
+/* ---------- your turn ---------- */
+function num(s){s=String(s).replace(/−/g,"-").replace(/,/g,"").replace(/\s/g,"").replace(/^\+/,"");return s===""?NaN:Number(s)}
+function buildYT(q){
+  var y=q.yt,box=$("yt");box.innerHTML="";
+  box.appendChild(mk("h3",null,"Your turn"));
+  box.appendChild(mk("div","qbox",y.q));
+  if(y.kind==="calc"){
+    var r=mk("div","row");
+    var lab=mk("label",null,y.label||"Answer");lab.setAttribute("for","ytin");
+    var inp=mk("input");inp.id="ytin";inp.type="text";inp.setAttribute("inputmode","decimal");inp.autocomplete="off";
+    var u=mk("span",null,y.unit||"");
+    var cbtn=mk("button","btn primary","Check");cbtn.type="button";cbtn.style.flex="0 0 auto";
+    var wbtn=mk("button","btn","Show worked answer");wbtn.type="button";
+    [lab,inp,u,cbtn,wbtn].forEach(function(x){r.appendChild(x)});box.appendChild(r);
+    var fb=mk("div","fb");fb.setAttribute("aria-live","polite");box.appendChild(fb);
+    var wk=mk("div","worked");box.appendChild(wk);
+    var check=function(){
+      var v=num(inp.value),a=y.ans,tol=y.tol;
+      if(isNaN(v)){fb.className="fb no";fb.textContent="Type a number first (digits only; use - for a negative sign).";return}
+      if(Math.abs(v-a)<=tol){fb.className="fb ok";fb.textContent="✓ Correct. "+y.ok;return}
+      fb.className="fb no";
+      if(a!==0&&Math.abs(-v-a)<=tol)fb.innerHTML="✗ Right size, wrong sign. "+(y.sign||"This quantity should not be negative.");
+      else if(/J/.test(y.unit||"")&&(Math.abs(v/1000-a)<=tol||Math.abs(v*1000-a)<=tol))fb.textContent="✗ Check your units: J or kJ? Divide J by 1000 to get kJ.";
+      else fb.innerHTML="✗ Not quite. "+y.no;
+    };
+    cbtn.addEventListener("click",check);
+    inp.addEventListener("keydown",function(e){if(e.key==="Enter")check()});
+    var shownN=0;
+    wbtn.addEventListener("click",function(){
+      if(shownN<y.worked.length){var l=y.worked[shownN];wk.appendChild(lineEl(typeof l==="string"?{h:l}:l));shownN++}
+      wbtn.textContent=shownN<y.worked.length?"Show next line ("+shownN+"/"+y.worked.length+")":"All steps shown";
+      wbtn.disabled=shownN>=y.worked.length;
+    });
+  }else{
+    var ta=mk("textarea");ta.setAttribute("aria-label","Write your answer");ta.placeholder="Write your answer here, then compare it with the model answer.";
+    box.appendChild(ta);
+    var r2=mk("div","row");var sb=mk("button","btn primary","Show model answer");sb.type="button";sb.style.flex="0 0 auto";r2.appendChild(sb);box.appendChild(r2);
+    var area=mk("div");area.hidden=true;box.appendChild(area);
+    area.appendChild(mk("p",null,"<b>Tick each point you made:</b>"));
+    var ul=mk("ul","pts"),sc=mk("div","score");
+    var upd=function(){sc.textContent=ul.querySelectorAll("input:checked").length+" / "+y.points.length+" marking points"};
+    y.points.forEach(function(p,k){var li=mk("li"),l=mk("label"),c=mk("input");c.type="checkbox";
+      l.appendChild(c);l.appendChild(mk("span",null,"<b class='mono'>M"+(k+1)+"</b> "+p));li.appendChild(l);ul.appendChild(li);
+      c.addEventListener("change",upd)});
+    area.appendChild(ul);area.appendChild(sc);
+    if(y.note)area.appendChild(mk("p","note",y.note));
+    upd();
+    sb.addEventListener("click",function(){area.hidden=!area.hidden;sb.textContent=area.hidden?"Show model answer":"Hide model answer"});
+  }
+}
+
+/* ---------- checklist ---------- */
+var KEY="howto-"+D.key,R={};
+try{if(store)R=JSON.parse(store.getItem(KEY)||"{}")||{}}catch(e){R={}}
+var rows=$("crows");
+D.check.forEach(function(c,i){
+  var r=mk("div","crow");
+  r.appendChild(mk("div","num",c.n||"•"));
+  r.appendChild(mk("div","st",c.t));
+  var g=mk("div","rates");g.setAttribute("role","group");g.setAttribute("aria-label","Rate yourself");
+  [["n","Not yet"],["m","Nearly"],["g","Got it"]].forEach(function(o){
+    var b=mk("button","rate",o[1]);b.type="button";b.setAttribute("data-v",o[0]);b.setAttribute("aria-pressed",R[i]===o[0]?"true":"false");
+    b.addEventListener("click",function(){if(R[i]===o[0])delete R[i];else R[i]=o[0];
+      each(g.children,function(x){x.setAttribute("aria-pressed",R[i]===x.getAttribute("data-v")?"true":"false")});save()});
+    g.appendChild(b)});
+  r.appendChild(g);
+  if(c.q&&c.q.length){var pr=mk("div","pr");
+    c.q.forEach(function(id){var k=-1;Q.forEach(function(qq,j){if(qq.id===id)k=j});if(k<0)return;
+      var a=mk("button","link","Practise: "+Q[k].name);a.type="button";a.addEventListener("click",function(){select(k,true)});pr.appendChild(a)});
+    r.appendChild(pr)}
+  rows.appendChild(r);
+});
+function save(){try{if(store)store.setItem(KEY,JSON.stringify(R))}catch(e){}counts()}
+function counts(){
+  var N=D.check.length,g=0,m=0,n=0,k;for(k in R){if(R[k]==="g")g++;else if(R[k]==="m")m++;else if(R[k]==="n")n++}
+  $("ccount").textContent=g+" got it · "+m+" nearly · "+n+" not yet · "+(N-g-m-n)+" not rated (of "+N+")";
+  $("bg").style.width=(100*g/N)+"%";$("bm").style.width=(100*m/N)+"%";$("bn").style.width=(100*n/N)+"%";
+}
+$("clear").addEventListener("click",function(){R={};each(rows.querySelectorAll(".rate"),function(b){b.setAttribute("aria-pressed","false")});save()});
+counts();
+select(0,false);
+})();
+
+</script>
+</body>
+</html>

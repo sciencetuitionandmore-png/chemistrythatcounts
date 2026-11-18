@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carbonyls, Acids and Chirality Walkthroughs</title>
+<meta name="description" content="How to answer exam questions, step by step: Carbonyls, Acids and Chirality Walkthroughs. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/exam/ial-topic-15.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--paper:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--accent:#0b5d75;--spark:#e08a00;--spark-soft:#fff1d6;--good:#1f7a4a;--good-soft:#dcf1e5;--bad:#b3261e;--bad-soft:#fbe4e2;
+--h:'Lexend',system-ui,'Segoe UI',Arial,sans-serif;--b:'Atkinson Hyperlegible',system-ui,'Segoe UI',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--b)}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 20px}
+h1,h2,h3{font-family:var(--h);margin:0;line-height:1.2}
+.top h1{font-size:19px;font-weight:700}
+.top p{margin:2px 0 10px;color:var(--muted);font-size:14px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.pick{font-family:var(--h);text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;cursor:pointer;color:var(--ink);font-size:13.5px;font-weight:600;line-height:1.25;min-height:54px}
+.pick small{display:block;font-family:var(--b);font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.pick:hover{border-color:var(--accent)}
+.pick[aria-pressed=true]{border-color:var(--accent);background:#e3eff3;box-shadow:inset 0 0 0 1px var(--accent)}
+.pick:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.eyebrow{font-family:var(--m);font-size:11.5px;letter-spacing:.02em;color:var(--accent);text-transform:uppercase}
+#title{font-size:20px;margin:3px 0 8px}
+.q{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;min-height:118px;font-size:15.5px}
+.q p{margin:0 0 5px}.q p:last-child{margin:0}
+.q .mk{float:right;font-family:var(--m);font-size:13px;color:var(--muted);margin-left:8px}
+mark{background:var(--spark-soft);color:inherit;border-radius:3px;padding:0 2px;transition:box-shadow .3s}
+mark.pulse{box-shadow:0 0 0 2px var(--spark)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 8px;min-height:30px}
+.chips .lb{font-family:var(--m);font-size:11.5px;color:var(--muted);margin-right:2px}
+.chip{font-size:12.5px;border:1.5px solid var(--line);border-radius:99px;padding:2px 9px 2px 6px;background:var(--paper);color:var(--muted);display:inline-flex;gap:5px;align-items:center}
+.chip b{font-family:var(--m);font-weight:500;font-size:12px}
+.chip i{font-style:normal;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--line);display:inline-grid;place-items:center;font-size:10px;line-height:1}
+.chip.on{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.chip.on i{background:var(--good);border-color:var(--good);color:#fff}
+.chip.on i::after{content:"\2713"}
+.chip.new{animation:pop .5s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.stage{background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:392px;display:grid;grid-template-columns:330px 1fr;gap:14px;position:relative;
+background-image:linear-gradient(transparent 27px,#f1f5f7 28px);background-size:100% 28px}
+#diag svg{width:100%;height:auto;display:block}
+#diag text{font-family:var(--b);font-size:12px;fill:var(--ink)}
+#diag .sm{font-size:10.5px;fill:var(--muted)}
+#diag .ax{stroke:var(--ink);stroke-width:1.3;fill:none}
+#diag .grid{stroke:#e2e9ec;stroke-width:1}
+#diag .bar{fill:var(--accent);transition:fill .3s}
+#diag .bar.hot,#diag .pt.hot{fill:var(--spark)}
+#diag .pt{fill:var(--accent);transition:fill .3s}
+#diag .ln{stroke:var(--accent);stroke-width:2;fill:none}
+#diag .an{fill:var(--spark)}#diag text.an{fill:#a86400;font-weight:700}
+#diag .anl{stroke:var(--spark);stroke-width:2;fill:none;stroke-dasharray:5 4}
+#diag .ring{fill:none;stroke:transparent;stroke-width:2.5;transition:stroke .3s}
+#diag .ring.hot{stroke:var(--spark)}
+#diag .bx{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .bx.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .e{stroke:var(--ink);stroke-width:1.6;fill:none}
+#diag .band{fill:var(--spark-soft);stroke:none}
+#diag .sh{fill:none;stroke:#9fb3bd;stroke-width:1.2}
+#diag .nuc{fill:var(--accent)}#diag text.nt{fill:#fff;font-weight:700;font-size:11px}
+#diag .el{fill:var(--ink)}#diag .el.hot{fill:var(--spark)}
+#diag [data-at]{opacity:0;transition:opacity calc(.8s*var(--sp,1))}
+#diag [data-at].on{opacity:1}
+#lines{font-size:15.5px;min-width:0}
+#lines [data-at]{display:none}
+#lines [data-at].on{display:block}
+#lines .now{animation:rise calc(.9s*var(--sp,1)) ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.plan{font-size:13px;color:var(--muted);margin-bottom:8px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+.plan span{display:inline-block;background:#e3eff3;color:var(--accent);border-radius:5px;padding:1px 7px;margin:2px 3px 0 0;font-weight:700}
+.wl{font-family:var(--m);font-size:14px;line-height:1.75;white-space:nowrap;overflow-x:auto}
+.wl.ans1{font-size:15px}
+.wl .box{border:2px solid var(--good);border-radius:5px;padding:1px 8px;background:var(--good-soft)}
+.wl .mt,.ans .mt{font-family:var(--m)}
+.mt{display:inline-block;font-size:11px;background:var(--good);color:#fff;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px;line-height:1.5}
+.ans{margin:0 0 8px}
+.ans p{margin:0}
+.hl{background:linear-gradient(var(--spark-soft),var(--spark-soft)) no-repeat 0 0/0 100%;transition:background-size .8s .15s;border-radius:3px;padding:0 1px;font-weight:700}
+.on .hl{background-size:100% 100%}
+.weak{display:none;font-size:13.5px;background:var(--bad-soft);border-radius:6px;padding:4px 8px;margin-bottom:5px}
+.weak s{color:var(--bad)}
+.weak em{font-style:normal;color:var(--ink)}
+.now .weak{display:block}
+.lab{font-family:var(--m);font-size:10.5px;text-transform:uppercase;border-radius:3px;padding:0 4px;margin-right:4px;color:#fff;vertical-align:1px}
+.lab.bad{background:var(--bad)}.lab.ok{background:var(--good)}
+.ans:not(.now) .lab.ok{display:none}
+.now.ans p{background:#f3faf6;border-radius:6px;padding:3px 6px;margin-left:-6px}
+.flyer{position:fixed;z-index:9;font-family:var(--m);font-size:14px;background:var(--spark);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+[data-fly]{transition:color .2s}
+[data-fly].wait{color:transparent}
+[data-fly].land{background:var(--spark-soft);border-radius:3px}
+.narr{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;min-height:150px}
+.stepc{font-family:var(--m);font-size:12px;color:var(--muted)}
+#stitle{font-size:16.5px;margin:2px 0 4px}
+#stext{margin:0 0 7px;font-size:15.5px}
+.tip{background:var(--spark-soft);border-left:4px solid var(--spark);border-radius:6px;padding:6px 10px;font-size:14.5px}
+.tip b{color:#9a5a00}
+.mis{margin:4px 0 0;padding-left:20px;font-size:14.5px}
+.mis li{margin-bottom:2px}
+.ctrl{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.btn{font-family:var(--h);font-size:14.5px;font-weight:600;border:1.5px solid var(--accent);background:var(--paper);color:var(--accent);border-radius:8px;padding:7px 14px;cursor:pointer;min-height:40px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.pri{background:var(--accent);color:#fff}
+.dots{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--line);border:0;padding:0;cursor:pointer}
+.dot.done{background:var(--accent)}.dot.cur{background:var(--spark);transform:scale(1.25)}
+.your{background:var(--paper);border:1.5px dashed var(--accent);border-radius:10px;padding:10px 14px;margin-top:12px;min-height:236px}
+.your h3{font-size:16px;color:var(--accent)}
+.your .yq{margin:4px 0 8px;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text]{font:15px var(--m);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;width:140px}
+textarea{width:100%;min-height:74px;font:15px/1.4 var(--b);padding:7px 9px;border:1.5px solid var(--line);border-radius:7px;resize:vertical}
+.fb{margin-top:7px;font-size:14.5px;border-radius:7px;padding:0}
+.fb.ok{background:var(--good-soft);color:var(--good);padding:6px 10px}
+.fb.no{background:var(--bad-soft);color:#7d1b15;padding:6px 10px}
+.ms{list-style:none;padding:0;margin:6px 0 0;font-size:14.5px}
+.ms li{margin:3px 0}
+.ms label{display:flex;gap:7px;align-items:flex-start;cursor:pointer}
+.ms input{margin-top:4px;width:17px;height:17px;accent-color:var(--good)}
+.warn{background:var(--spark-soft);border-radius:6px;padding:5px 9px;margin-top:6px;font-size:14px}
+.tally{font-family:var(--m);font-size:13px;color:var(--good);margin-top:4px}
+sub,sup{line-height:0}
+@media (max-width:720px){.stage{grid-template-columns:1fr}#diag{max-width:360px;margin:0 auto;width:100%}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:400px){.picker{grid-template-columns:1fr 1fr}.pick{font-size:12.5px}.dots{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.specs .sp{font-family:var(--m);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}
+.specs .sp b{color:var(--accent);font-weight:600;margin-right:3px}
+.ck{margin-top:16px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px}
+.ck h3{margin:0 0 2px;font-size:1.05rem}
+.ck .ckp{margin:0 0 10px;font-size:.92rem;color:var(--muted)}
+.ck .bar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#e6ecef;margin:4px 0 4px}
+.ck .bar i{display:block;height:100%;transition:width .4s}
+.ck .bar .g{background:#1f7a4a}.ck .bar .a{background:#e08a00}.ck .bar .r{background:#b9473a}
+.ck .sum{font-family:var(--m);font-size:12px;color:var(--muted);margin-bottom:8px}
+.ck ul{list-style:none;margin:0;padding:0}
+.ck li{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:7px 0;border-top:1px solid #e6ecef}
+.ck .no{font-family:var(--m);font-size:12px;color:var(--accent);min-width:38px;font-weight:600}
+.ck .tx{flex:1 1 260px;font-size:.92rem;min-width:0}
+.ck .rag{display:flex;gap:4px}
+.ck .rag button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:4px 9px;cursor:pointer;min-height:30px}
+.ck .rag button[aria-pressed=true][data-v=r]{background:#fbe4de;border-color:#b9473a;color:#8f2d22}
+.ck .rag button[aria-pressed=true][data-v=a]{background:#fff1d6;border-color:#e08a00;color:#8a5200}
+.ck .rag button[aria-pressed=true][data-v=g]{background:#dcf1e5;border-color:#1f7a4a;color:#1f7a4a}
+.ck .go{font:600 12px var(--h);border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:4px 2px}
+.ck .rag button:focus-visible,.ck .go:focus-visible{outline:3px solid #e08a00;outline-offset:2px}
+.ck .rst{margin-top:8px;font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+.specs{margin-top:6px}.wrap{max-width:1100px}
+.picker{grid-template-columns:repeat(4,1fr)}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start;margin-top:10px}
+.play .stage{grid-template-columns:minmax(200px,330px) minmax(0,1fr)}
+.play .wl{white-space:normal}
+.side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
+.side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
+.side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.play .stage{grid-template-columns:1fr}}
+.spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
+.spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
+.spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+
+#diag text.il{font-size:10px;font-weight:700;fill:var(--ink)}
+#diag text.hd{font-family:var(--h);font-size:12.5px;font-weight:700;fill:var(--ink)}
+#diag text.at{font-family:var(--h);font-size:17px;font-weight:700;fill:var(--ink)}
+#diag text.big{font-family:var(--h);font-size:15px;font-weight:700;fill:#a86400}
+#diag text.dl{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag text.xe{font-size:17px;font-weight:700;fill:var(--accent);transition:fill .3s}
+#diag .hot text.xe,#diag .hot .de{fill:var(--spark)}
+#diag .de{fill:var(--ink);transition:fill .3s}
+#diag .ip{fill:#d9ecf2;stroke:var(--accent);stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .in{fill:#fbe9d6;stroke:#b86a12;stroke-width:1.4;transition:stroke .3s,stroke-width .3s}
+#diag .ip.hot,#diag .in.hot{stroke:var(--spark);stroke-width:3}
+#diag .ghost{fill:none;stroke:#b8c6cd;stroke-width:1.2;stroke-dasharray:4 4}
+#diag path.in.on ~ .cl0{opacity:0}
+#diag .cl0{transition:opacity calc(.8s*var(--sp,1))}
+#diag .share{fill:rgba(224,138,0,.35)}
+#diag .dp{stroke:var(--accent);stroke-width:2;fill:none;marker-end:url(#ah)}
+#diag .po{stroke:var(--spark);stroke-width:2.2;fill:none;marker-end:url(#ao)}
+#diag .barr{stroke:var(--spark);stroke-width:3.5;fill:none;marker-end:url(#ao)}
+#diag .bd{stroke:var(--ink);stroke-width:2.4;transition:stroke .3s}
+#diag .bd.cv.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .wedge{fill:var(--ink)}
+#diag .brk{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .lobe{fill:#e3eff3;stroke:var(--accent);stroke-width:1.3;transition:fill .3s}
+#diag .lobe.hot{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .atn{fill:#2c4b57}#diag .atc{fill:#3f9a5a}#diag .ath{fill:#fff;stroke:var(--ink);stroke-width:1.3}
+#diag .ats{fill:#8a6d3b}#diag .ato{fill:#c8442f}
+#diag .atn+text.il,#diag .atc+text.il,#diag .ats+text.il,#diag .ato+text.il{fill:#fff}
+#diag .imf{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;transition:stroke .3s}
+#diag .imf.hot{stroke:var(--spark);stroke-width:2.4}
+#diag .sea{fill:#e8f1f4}
+
+#diag .sk{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;transition:stroke .3s}
+#diag .sk.hot{stroke:var(--spark);stroke-width:3.4}
+#diag .sk.dup{stroke:#9fb3bd;stroke-dasharray:5 4}
+#diag text.nm{font-family:var(--h);font-size:13px;font-weight:700;fill:var(--ink)}
+#diag text.num{font-family:var(--m);font-size:11px;fill:var(--accent);font-weight:700}
+#diag text.eq{font-family:var(--m);font-size:13px;fill:var(--ink)}
+#diag text.at2{font-family:var(--h);font-size:15px;font-weight:700;fill:var(--ink);transition:fill .3s}
+#diag text.at2.hot{fill:var(--spark)}
+#diag text.at2s{font-family:var(--h);font-size:11px;font-weight:700;fill:var(--muted)}
+#diag text.plus{font-size:18px;font-weight:700;fill:var(--spark)}
+#diag .cut{stroke:var(--spark);stroke-width:2.5;stroke-dasharray:4 3}
+#diag .card{fill:#fff;stroke:var(--line);stroke-width:1.4}
+#diag .card.g{fill:var(--good-soft);stroke:var(--good)}
+#diag .card.o{fill:var(--spark-soft);stroke:var(--spark)}
+#diag .card.t{fill:#e3eff3;stroke:var(--accent)}
+#diag .card.hot2{stroke:var(--spark);stroke-width:2.5}
+#diag .loop{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#ao)}
+#diag .ca{fill:none;stroke:var(--spark);stroke-width:2.2;marker-end:url(#ao)}
+#diag .fh{fill:none;stroke:var(--spark);stroke-width:2;marker-end:url(#hh)}
+#diag .glass{fill:none;stroke:var(--ink);stroke-width:2}
+#diag .liq{fill:#e8892b;opacity:.85}
+#diag .clear{fill:#f3f8fb}
+#diag .sig{fill:rgba(11,93,117,.25);stroke:var(--accent);stroke-width:1.2;transition:fill .3s}
+#diag .sig.hot{fill:rgba(224,138,0,.45)}
+#diag .pib{fill:rgba(224,138,0,.35)}
+#diag .bd.ext.hot{stroke:var(--spark)}
+
+#diag text.th{font-size:10.5px;font-weight:700;fill:var(--ink)}
+#diag .lvl{stroke:var(--ink);stroke-width:2.4}
+#diag .lvl.hot{stroke:var(--spark)}
+#diag text.sm2{font-size:11px;font-weight:700;fill:var(--accent)}
+#diag .card.hot{stroke:var(--spark);stroke-width:2.5;fill:var(--spark-soft)}
+#diag .ln2{stroke:var(--spark);stroke-width:2.2;fill:none}
+#diag .ln3{stroke:#3f9a5a;stroke-width:2.2;fill:none}
+#diag .band2{fill:rgba(63,154,90,.18)}
+#diag .pk{stroke:var(--accent);stroke-width:2.4}
+#diag .pk.hot{stroke:var(--spark)}
+#diag .spot{fill:#c8442f;opacity:.75}
+#diag .spot2{fill:#0b5d75;opacity:.75}
+</style>
+</head>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+
+<div class="wrap">
+<div class="top"><h1>Carbonyls, carboxylic acids and chirality: how to answer exam questions</h1>
+<p>Pick a question. Click <b>Next step</b> (or press →) to watch the answer build, mark by mark.</p></div>
+<div class="picker" id="picker" role="group" aria-label="Choose a walkthrough"></div>
+<div class="eyebrow" id="eyebrow"></div>
+<h2 id="title"></h2>
+<div class="specs" id="spec" aria-label="Specification points"></div>
+<div class="q" id="q"></div>
+<div class="play"><div class="stage" id="stage"><div id="diag"></div><div id="lines" aria-live="polite"></div></div>
+<div class="side"><div class="ctrl"><button class="btn" id="back">← Back</button><button class="btn" id="replay">Replay</button><button class="btn pri" id="next">Next step →</button><div class="dots" id="dots"></div><div class="spd" role="group" aria-label="Animation speed">Speed: <button type="button" data-sp="1.7">Slow</button><button type="button" data-sp="1">Normal</button><button type="button" data-sp="0.55">Fast</button></div></div>
+<div class="chips" id="chips"></div>
+<div class="narr"><div class="stepc" id="stepc"></div><h3 id="stitle"></h3><p id="stext"></p><div id="sextra"></div></div>
+</div></div>
+<div class="your" id="your"></div>
+</div>
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(id){return document.getElementById(id)}
+function T(x,y,s,c,ex){return '<text x="'+x+'" y="'+y+'"'+(c?' class="'+c+'"':'')+(ex?' '+ex:'')+'>'+s+'</text>'}
+function A(at){return at==null?'':' data-at="'+at+'"'}
+function svg(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="diagram">'+body+'</svg>'}
+
+/* mass spectrum */
+function spec(o){
+  var w=330,h=o.h||230,L=44,R=w-10,Tp=14,B=h-34,s='';
+  function X(m){return o.px?L+o.px[m]*(R-L):L+(m-o.min)/(o.max-o.min)*(R-L)}
+  function Y(v){return B-v/o.ymax*(B-Tp)}
+  for(var t=0;t<=o.ymax;t+=o.step){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>'+T(L-6,Y(t)+4,t,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.brk){var bx=L+o.brk*(R-L);s+='<path d="M'+(bx-6)+' '+(B+5)+'l6 -10M'+bx+' '+(B+5)+'l6 -10" stroke="#14313d" stroke-width="1.3"/><rect x="'+(bx-3)+'" y="'+(B-2)+'" width="6" height="4" fill="#fff"/>'}
+  o.bars.forEach(function(b){var x=X(b.m),y=Y(b.v);
+    s+='<rect class="bar"'+(b.hot?' data-hot="'+b.hot+'"':'')+' x="'+(x-7)+'" y="'+y+'" width="14" height="'+(B-y)+'"/>';
+    s+=T(x,B+15,b.m,'',b.km?'text-anchor="middle" data-k="'+b.km+'"':'text-anchor="middle"');
+    if(b.lab)s+=T(x,y-5,b.lab,'sm',(b.kv?'data-k="'+b.kv+'" ':'')+'text-anchor="middle"');});
+  s+=T((L+R)/2,h-3,'<tspan font-style="italic">m/z</tspan>','sm','text-anchor="middle"');
+  s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* line / point graph */
+function lineG(o){
+  var w=330,h=o.h||240,L=46,R=w-10,Tp=14,B=h-36,n=o.v.length,s='';
+  function X(i){return L+14+i*(R-L-28)/(n-1)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  for(var t=o.y0;t<=o.y1+1e-9;t+=o.step){var tt=Math.round(t*10)/10;s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(tt)+'" y2="'+Y(tt)+'"/>'+T(L-6,Y(tt)+4,tt,'sm','text-anchor="end"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  var d='';o.v.forEach(function(v,i){d+=(i?'L':'M')+X(i)+' '+Y(v)});
+  s+='<path class="ln" d="'+d+'"/>';
+  o.v.forEach(function(v,i){s+='<circle class="pt" r="4" cx="'+X(i)+'" cy="'+Y(v)+'"'+(o.hot&&o.hot[i]?' data-hot="'+o.hot[i]+'"':'')+'/>'+T(X(i),B+15,o.lab[i],'sm','text-anchor="middle"')});
+  s+=T((L+R)/2,h-4,o.xl,'sm','text-anchor="middle"');
+  s+=T(11,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 11 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,B:B};
+}
+/* orbital boxes */
+function arrow(x,y,up){return up?'<path class="e" d="M'+x+' '+(y+20)+'V'+(y+5)+'l-4 6"/>':'<path class="e" d="M'+x+' '+(y+5)+'V'+(y+20)+'l4 -6"/>'}
+function box(x,y,c,hot){var s='<rect class="bx"'+(hot?' data-hot="'+hot+'"':'')+' x="'+x+'" y="'+y+'" width="28" height="26"/>';
+  if(c==='u')s+=arrow(x+14,y,1);if(c==='ud')s+=arrow(x+9,y,1)+arrow(x+19,y,0);return s}
+function orbRow(y,el,cfg,s3,p3,ie,hot){
+  var s=T(6,y+18,el,'',' font-weight="700" font-size="15"')+T(36,y+18,'[Ne]','sm');
+  s+=box(72,y,s3,hot[0])+T(86,y-4,'3s','sm','text-anchor="middle"');
+  for(var i=0;i<3;i++)s+=box(116+i*28,y,p3[i]||'',hot[i+1]);
+  s+=T(158,y-4,'3p','sm','text-anchor="middle"')+T(214,y+11,cfg,'sm')+T(214,y+25,ie+' kJ mol<tspan dy="-4" font-size="8">−1</tspan>','sm');
+  return s;
+}
+/* shell diagram */
+function atom(cx,cy,z,sh,hotOuter){
+  var s='',r=16;
+  sh.forEach(function(n,k){var R=r+8+k*13;s+='<circle class="sh" cx="'+cx+'" cy="'+cy+'" r="'+R+'"/>';
+    for(var j=0;j<n;j++){var a=-Math.PI/2+j*2*Math.PI/n+(k%2?0.3:0);var last=k===sh.length-1;
+      s+='<circle class="el"'+(last&&hotOuter?' data-hot="'+hotOuter+'"':'')+' r="3.2" cx="'+(cx+R*Math.cos(a)).toFixed(1)+'" cy="'+(cy+R*Math.sin(a)).toFixed(1)+'"/>'}});
+  s+='<circle class="nuc" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+T(cx,cy+4,z+'+','nt','text-anchor="middle"');
+  return s;
+}
+function S(t){return '<sup>'+t+'</sup>'}
+function iso(m){return S(m)+'Cl'}
+function ans(at,weak,why,strong,m){return '<div class="ans"'+A(at)+'>'+(weak?'<div class="weak"><span class="lab bad">Weak</span><s>'+weak+'</s> <em>'+why+'</em></div>':'')+'<p><span class="lab ok">Strong</span>'+strong+(m?' <span class="mt">'+m+'</span>':'')+'</p></div>'}
+function wl(at,h,cls){return '<div class="wl'+(cls?' '+cls:'')+'"'+A(at)+'>'+h+'</div>'}
+function F(k,t){return '<span data-fly="'+k+'">'+t+'</span>'}
+function plan(items){return '<div class="plan"'+A(0)+'>Plan: '+items.map(function(i){return '<span>'+i+'</span>'}).join('')+'</div>'}
+var KJ='kJ mol<sup>−1</sup>';
+
+/* ---------- Topic 3 helpers ---------- */
+function C(cx,cy,r,cls,lab,hot,ex){return '<circle class="'+cls+'"'+(hot?' data-hot="'+hot+'"':'')+' cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>'+(lab?T(cx,cy+4,lab,'il','text-anchor="middle"'+(ex||'')):'')}
+var DEFS='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker></defs>';
+function lattice(x0,y0,rc,ra,cl,al,hc,ha){var s='',d=rc+ra+2;for(var i=0;i<4;i++)for(var j=0;j<4;j++){var c=(i+j)%2===0;s+=C(x0+i*d,y0+j*d,c?rc:ra,c?'ip':'in',c?cl:al,c?hc:ha)}return s}
+function X(x,y){return T(x,y+5,'×','xe','text-anchor="middle"')}
+function D(x,y){return '<circle class="de" cx="'+x+'" cy="'+y+'" r="3"/>'}
+function arr(x1,y1,x2,y2,c,at){return '<path class="'+(c||'dp')+'"'+A(at)+' d="M'+x1+' '+y1+'L'+x2+' '+y2+'"/>'}
+function metal(x0,y0,lab,r,ne,hot){var s='<rect class="sea" x="'+(x0-18)+'" y="'+(y0-18)+'" width="142" height="142" rx="10"/>';
+  var k=0;for(var i=0;i<4;i++)for(var j=0;j<4;j++){s+=C(x0+i*35,y0+j*35,r,'ip',lab,hot)}
+  var pts=[];for(var i=0;i<3;i++)for(var j=0;j<3;j++){pts.push([x0+17+i*35,y0+17+j*35])}
+  for(var i=0;i<4;i++){pts.push([x0+i*35,y0-12]);}
+  var e=ne===2?pts.concat(pts.map(function(p){return [p[0]+8,p[1]-7]})):pts;
+  e.slice(0,ne===2?26:13).forEach(function(p){s+='<circle class="de" cx="'+p[0]+'" cy="'+p[1]+'" r="2.6"/>'});return s}
+
+/* ---------- organic helpers ---------- */
+var DEFS2='<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b5d75"/></marker><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e08a00"/></marker><marker id="hh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L2 5z" fill="#e08a00"/></marker></defs>';
+function P(d,cls,at,hot){return '<path class="'+cls+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function CA(d,at){return '<path class="ca"'+A(at)+' d="'+d+'"/>'}
+function FH(d,at){return '<path class="fh"'+A(at)+' d="'+d+'"/>'}
+function AT(x,y,s,cls,ex){return T(x,y+5,s,cls||'at2','text-anchor="middle"'+(ex?' '+ex:''))}
+function G(at,inner){return '<g'+A(at)+'>'+inner+'</g>'}
+function L(x1,y1,x2,y2,cls,hot){return '<line class="'+(cls||'bd')+'"'+(hot?' data-hot="'+hot+'"':'')+' x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>'}
+function box2(x,y,w,h,cls,at){return '<rect class="'+(cls||'card')+'"'+A(at)+' x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8"/>'}
+function pts(a){return a.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join('')}
+/* ---------- Unit 4 helpers ---------- */
+function fmt(v){var r=Math.round(v*1000)/1000;return String(r).replace('-','−')}
+function gax(o){var L=o.L||48,R=(o.w||330)-(o.r||12),Tp=o.t||14,B=(o.h||230)-(o.b||38),s='',t;
+  function X(v){return L+(v-o.x0)/(o.x1-o.x0)*(R-L)}
+  function Y(v){return B-(v-o.y0)/(o.y1-o.y0)*(B-Tp)}
+  if(o.ys)for(t=o.y0;t<=o.y1+1e-9;t+=o.ys){s+='<line class="grid" x1="'+L+'" x2="'+R+'" y1="'+Y(t)+'" y2="'+Y(t)+'"/>';if(!o.noyl)s+=T(L-6,Y(t)+4,(o.yf?o.yf(t):fmt(t)),'sm','text-anchor="end"')}
+  if(o.xs)for(t=o.x0;t<=o.x1+1e-9;t+=o.xs){if(!o.noxl)s+=T(X(t),B+14,(o.xf?o.xf(t):fmt(t)),'sm','text-anchor="middle"')}
+  s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H'+R+'"/>';
+  if(o.xl)s+=T((L+R)/2,B+(o.noxl?16:30),o.xl,'sm','text-anchor="middle"');
+  if(o.yl)s+=T(12,(Tp+B)/2,o.yl,'sm','text-anchor="middle" transform="rotate(-90 12 '+(Tp+B)/2+')"');
+  return {s:s,X:X,Y:Y,L:L,R:R,Tp:Tp,B:B}}
+function pth(a,X,Y){return a.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join('')}
+function fpath(f,a,b,X,Y,n){n=n||60;var d='';for(var i=0;i<=n;i++){var x=a+(b-a)*i/n;d+=(i?'L':'M')+X(x).toFixed(1)+' '+Y(f(x)).toFixed(1)}return d}
+function PL(d,cls,at,hot){return '<path class="'+(cls||'ln')+'"'+A(at)+(hot?' data-hot="'+hot+'"':'')+' d="'+d+'"/>'}
+function dot(x,y,cls,at){return '<circle class="'+(cls||'pt')+'"'+A(at)+' cx="'+x+'" cy="'+y+'" r="4"/>'}
+/* table: rows of cells; first row is the header */
+function tbl(x,y,cw,rh,rows,hot){var s='';rows.forEach(function(r,i){var cx=x;r.forEach(function(c,j){var w=cw[j];
+  s+='<rect class="'+(i===0?'card t':'card')+'"'+(hot&&hot[i]?' data-hot="'+hot[i]+'"':'')+' x="'+cx+'" y="'+(y+i*rh)+'" width="'+w+'" height="'+rh+'" rx="0"/>';
+  s+=T(cx+w/2,y+i*rh+rh/2+4,c,i===0?'th':'','text-anchor="middle"');cx+=w})});return s}
+function lev(x1,x2,y,lab,at,cls,ly){return G(at,'<line class="lvl'+(cls?' '+cls:'')+'" x1="'+x1+'" x2="'+x2+'" y1="'+y+'" y2="'+y+'"/>'+(lab?T((x1+x2)/2,ly!=null?ly:y-5,lab,'eq','text-anchor="middle"'):''))}
+function va(x,y1,y2,lab,at,cls,side){return G(at,'<path class="'+(cls||'dp')+'" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'+(lab?T(x+(side==='l'?-6:6),(y1+y2)/2+4,lab,'sm2',side==='l'?'text-anchor="end"':''):''))}
+function wedge(x1,y1,x2,y2,hot){var dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l*4.5,ny=dx/l*4.5;return '<path class="wedge"'+(hot?' data-hot="'+hot+'"':'')+' d="M'+x1+' '+y1+'L'+(x2+nx).toFixed(1)+' '+(y2+ny).toFixed(1)+'L'+(x2-nx).toFixed(1)+' '+(y2-ny).toFixed(1)+'z"/>'}
+function hash(x1,y1,x2,y2){var s='',dx=x2-x1,dy=y2-y1,l=Math.sqrt(dx*dx+dy*dy),nx=-dy/l,ny=dx/l;for(var i=1;i<=6;i++){var f=i/6,cx=x1+dx*f,cy=y1+dy*f,h=1+3.5*f;s+='<line class="bd" style="stroke-width:1.6" x1="'+(cx+nx*h).toFixed(1)+'" y1="'+(cy+ny*h).toFixed(1)+'" x2="'+(cx-nx*h).toFixed(1)+'" y2="'+(cy-ny*h).toFixed(1)+'"/>'}return s}
+var W=[];
+function mol3(cx,cy,g,mir,hot){var m=mir?-1:1,s='';
+  s+=L(cx,cy-12,cx,cy-38,'bd')+AT(cx,cy-50,g[0],'at2');
+  s+=L(cx-10*m,cy+6,cx-36*m,cy+26,'bd')+AT(cx-50*m,cy+32,g[1],'at2');
+  s+=wedge(cx+8*m,cy+6,cx+32*m,cy+28)+AT(cx+46*m,cy+36,g[2],'at2');
+  s+=hash(cx,cy+12,cx,cy+40)+AT(cx,cy+56,g[3],'at2');
+  s+=AT(cx,cy,'C','at2',hot?'data-hot="'+hot+'"':'');return s}
+function rbox(x,y,w,h,l1,l2,cls,at){return G(at,box2(x,y,w,h,cls||'card')+T(x+w/2,y+(l2?18:h/2+5),l1,'hd','text-anchor="middle"')+(l2?T(x+w/2,y+34,l2,'sm','text-anchor="middle"'):''))}
+/* ---------- 1 optical isomers ---------- */
+W.push({btn:'Drawing optical isomers',spec:[["15.1","chiral centre"],["15.2","enantiomers in 3D"],["15.3","optical activity"]],type:'Draw',marks:3,
+title:'The optical isomers of 2-hydroxypropanoic acid',
+q:'<p><span class="mk">(3)</span>2-Hydroxypropanoic acid (lactic acid) is CH<sub>3</sub>CH(OH)COOH.</p><p><mark>Identify</mark> the <mark>chiral centre</mark>, and <mark>draw</mark> the two <mark>optical isomers</mark> in 3D.</p>',
+diag:function(){var s='';
+  s+=G(1,T(165,22,'CH₃–C*H(OH)–COOH','big','text-anchor="middle"')+T(165,40,'4 different groups: H, CH₃, OH, COOH','an','text-anchor="middle"'));
+  s+=G(2,mol3(86,120,['COOH','H₃C','OH','H'],0,'1'));
+  s+=G(3,'<path class="anl" d="M165 66V200"/>'+T(165,214,'mirror','sm','text-anchor="middle"')+mol3(244,120,['COOH','CH₃','HO','H'],1));
+  s+=G(4,T(165,236,'non-superimposable mirror images','an','text-anchor="middle"'));
+  return svg(330,246,s)},
+lines:plan(['find the carbon with 4 different groups','draw one isomer in 3D','draw its mirror image'])+
+ ans(1,'','','The chiral centre is the <span class="hl">second carbon</span>: it has four different groups, H, CH<sub>3</sub>, OH and COOH.','M1')+
+ ans(2,'','','Draw it as a tetrahedron: two bonds in the plane, <span class="hl">one wedge</span> (towards you) and <span class="hl">one hashed bond</span> (away from you).','M2')+
+ ans(3,'Draw the second isomer by swapping H and OH in a flat drawing.','A flat (2D) drawing cannot show optical isomers. Draw the mirror image in 3D.','Draw the second isomer as the <span class="hl">mirror image</span> of the first, with a mirror line between them.','M3'),
+chips:[['M1','chiral C identified',1],['M2','3D tetrahedral drawing',2],['M3','correct mirror image',3]],
+steps:[
+{t:'Read and plan',x:'<b>Optical isomers</b> (enantiomers) are non-superimposable mirror images. They exist when a molecule has a <b>chiral centre</b>: a carbon atom with four different groups attached.',tip:'Mark the chiral centre with an asterisk (*) in your answer.'},
+{t:'Find the chiral centre',x:'Check each carbon. The CH<sub>3</sub> carbon has three H atoms, and the COOH carbon has only three groups. The middle carbon has H, CH<sub>3</sub>, OH and COOH.',tip:'Two identical groups (for example two CH<sub>3</sub>) on a carbon means it is not chiral.'},
+{t:'Draw in 3D',x:'Show the tetrahedral shape: two bonds as lines in the plane of the paper, one as a solid wedge and one as a hashed wedge.',tip:'Bond angles of about 109.5° should look right. Do not draw a flat cross.'},
+{t:'The mirror image',x:'Reflect the whole molecule in a mirror line. Every group swaps sides: what was on the left is now on the right.',tip:'Draw the bonds from the C to the correct atom: for example HO–C, not OH–C, on the left-hand side.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Two drawings that are actually the same molecule.','Flat 2D drawings with no wedges.','Bonds drawn to the wrong atom of a group (for example to the H of OH).','Choosing a carbon with two identical groups as the chiral centre.'],
+your:{kind:'text',marks:2,q:'Explain why butan-2-ol has optical isomers but propan-2-ol does not. (2)',
+ ms:['In butan-2-ol, C2 has four different groups: H, OH, CH<sub>3</sub> and C<sub>2</sub>H<sub>5</sub>, so it is a chiral centre.','In propan-2-ol, C2 has two CH<sub>3</sub> groups, so there is no chiral centre (its mirror image is superimposable).'],
+ warn:[[/double bond|E\/Z|cis/i,'That is geometric isomerism. Optical isomerism needs a chiral centre.']]}
+});
+/* ---------- 2 optical activity as mechanism evidence ---------- */
+W.push({btn:'Optical activity: S<sub>N</sub>1 or S<sub>N</sub>2?',spec:[["15.5","optical activity as mechanism evidence"],["15.4","racemic mixture"],["15.3","plane-polarised light"]],type:'Explain',marks:4,
+title:'Using optical activity to tell S<sub>N</sub>1 from S<sub>N</sub>2',
+q:'<p><span class="mk">(4)</span>A single optical isomer of 2-bromobutane is hydrolysed with aqueous hydroxide ions.</p><p><mark>Explain</mark> how the <mark>optical activity</mark> of the product would show whether the mechanism is <mark>S<sub>N</sub>1</mark> or <mark>S<sub>N</sub>2</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=G(1,T(20,24,'SN2: OH⁻ attacks from the back','hd')+T(20,42,'→ one isomer (inverted): optically active','an'));
+  s+=G(2,AT(165,108,'C⁺','at2')+L(165,96,165,68,'bd')+AT(165,58,'CH₃','at2s')+L(154,114,126,130,'bd')+AT(112,138,'C₂H₅','at2s')+L(176,114,204,130,'bd')+AT(214,138,'H','at2s'));
+  s+=G(2,T(165,160,'planar carbocation','an','text-anchor="middle"'));
+  s+=G(3,AT(44,108,'HO⁻','at2')+CA('M62 104C90 96 120 96 148 104',3)+AT(290,108,'⁻OH','at2')+CA('M272 104C246 96 210 96 184 104',3));
+  s+=G(3,T(165,190,'SN1: attack from either side equally','hd','text-anchor="middle"'));
+  s+=G(4,T(165,212,'→ 50 : 50 racemic mixture: not optically active','an','text-anchor="middle"'));
+  return svg(330,222,s)},
+lines:plan(['what optical activity is','S<sub>N</sub>2 result','S<sub>N</sub>1: planar intermediate','S<sub>N</sub>1 result'])+
+ ans(1,'','','A single optical isomer <span class="hl">rotates the plane of plane-polarised light</span>.','')+
+ ans(1,'','','S<sub>N</sub>2: OH<sup>−</sup> attacks from the side opposite the Br, in one step, so <span class="hl">one optical isomer forms</span>: the product <span class="hl">is optically active</span>.','M1')+
+ ans(2,'','','S<sub>N</sub>1: the C–Br bond breaks first, giving a <span class="hl">planar carbocation</span>.','M2')+
+ ans(3,'','','OH<sup>−</sup> can attack <span class="hl">from either side with equal probability</span>.','M3')+
+ ans(4,'The product rotates light in both directions.','The two isomers rotate light equally in opposite directions, so the effects cancel.','This gives a <span class="hl">racemic mixture</span> (equal amounts of both enantiomers), which is <span class="hl">not optically active</span>.','M4'),
+chips:[['M1','SN2: one isomer, optically active',1],['M2','SN1: planar carbocation',2],['M3','attack from both sides equally',3],['M4','racemic: no rotation',4]],
+steps:[
+{t:'Read and plan',x:'<b>Optically active</b> substances rotate the plane of plane-polarised light. A <b>racemic mixture</b> contains equal amounts of the two enantiomers and has no overall effect.',tip:'Plane-polarised light, not "polarised light".'},
+{t:'S<sub>N</sub>2',x:'In one step, OH<sup>−</sup> attacks from the back as Br<sup>−</sup> leaves. The molecule turns inside out, and only one product isomer forms. The product rotates plane-polarised light.',tip:'The starting material was a single isomer, so its product is also a single isomer.'},
+{t:'S<sub>N</sub>1: the intermediate',x:'In the slow step, Br<sup>−</sup> leaves first. The carbocation has three groups around the C<sup>+</sup> in a flat (trigonal planar) arrangement.',tip:'Say "planar" in your answer. It is the key word.'},
+{t:'S<sub>N</sub>1: the attack',x:'The OH<sup>−</sup> can approach the flat carbocation from above or below. Both directions are equally likely.',tip:'Draw arrows from both sides if you are asked for a diagram.'},
+{t:'S<sub>N</sub>1: the product',x:'Equal amounts of both enantiomers form, so the rotations cancel. The product mixture does not rotate plane-polarised light.',tip:'The same reasoning applies to nucleophilic addition of HCN to a planar C=O group.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying the racemic product is not chiral (each molecule is chiral; the mixture is inactive).','Not saying the carbocation is planar.','Saying S<sub>N</sub>2 gives a racemic mixture.','Writing "polarised light" instead of "plane-polarised light".'],
+your:{kind:'text',marks:2,q:'<b>Define</b> a racemic mixture and <b>explain</b> why it has no effect on plane-polarised light. (2)',
+ ms:['A racemic mixture contains equal amounts (50 : 50) of the two enantiomers.','The enantiomers rotate plane-polarised light by equal amounts in opposite directions, so the effects cancel.'],
+ warn:[[/not chiral|achiral/i,'Each molecule in a racemic mixture is still chiral. It is the mixture that is inactive.']]}
+});
+/* ---------- 3 HCN addition ---------- */
+W.push({btn:'Mechanism: HCN + ethanal',spec:[["15.8 iii","nucleophilic addition of HCN"],["15.5","optical activity and carbonyl addition"]],type:'Mechanism',marks:4,
+title:'The nucleophilic addition of hydrogen cyanide to ethanal',
+q:'<p><span class="mk">(4)</span>Ethanal reacts with hydrogen cyanide in the presence of potassium cyanide.</p><p><mark>Draw</mark> the <mark>mechanism</mark>, showing <mark>curly arrows</mark>, <mark>lone pairs</mark> and relevant <mark>dipoles</mark>. Explain why the product is <mark>not optically active</mark>.</p>',
+diag:function(){var s=DEFS2;
+  s+=AT(130,90,'C','at2')+L(142,86,174,86,'bd')+L(142,94,174,94,'bd')+AT(188,90,'O','at2')+L(124,80,106,60,'bd')+AT(96,50,'H₃C','at2')+L(124,100,108,118,'bd')+AT(102,128,'H','at2');
+  s+=G(1,T(120,76,'δ+','dl')+T(196,74,'δ−','dl'));
+  s+=AT(40,90,'⁻CN','at2')+X(24,104);
+  s+=CA('M58 92C80 106 104 104 120 96',1);
+  s+=CA('M160 84C166 66 182 64 188 76',2);
+  s+=G(3,AT(130,190,'C','at2')+L(142,190,178,190,'bd')+AT(196,190,'O⁻','at2')+X(196,206)+L(130,180,130,160,'bd')+AT(130,150,'CN','at2')+L(118,190,94,190,'bd')+AT(74,190,'H₃C','at2')+L(130,200,130,220,'bd')+AT(130,232,'H','at2'));
+  s+=G(3,AT(262,190,'H','at2')+L(272,190,292,190,'bd')+AT(310,190,'CN','at2'));
+  s+=G(4,CA('M206 182C226 168 246 168 256 180',4)+CA('M282 196C290 212 304 212 310 202',4));
+  s+=G(4,T(20,262,'→ CH₃CH(OH)CN  +  CN⁻ (regenerated)','big'));
+  s+=G(5,T(20,284,'planar C=O: CN⁻ attacks either face → racemic','an'));
+  return svg(330,294,s)},
+lines:plan(['dipole on C=O','CN⁻ lone pair → C','π bond → O','O⁻ takes H⁺ from HCN','racemic product'])+
+ ans(1,'','','Show the dipole C<sup>δ+</sup>=O<sup>δ−</sup>. A curly arrow goes from the <span class="hl">lone pair on the C of CN<sup>−</sup></span> to the δ+ carbon.','M1')+
+ ans(2,'','','A curly arrow from the <span class="hl">C=O double bond to the oxygen</span>.','M2')+
+ ans(3,'','','The intermediate has an <span class="hl">O<sup>−</sup> with a lone pair</span>.','')+
+ ans(4,'The O⁻ picks up H from water.','Under these conditions it takes H<sup>+</sup> from HCN, which regenerates CN<sup>−</sup>.','The O<sup>−</sup> uses a lone pair to take <span class="hl">H<sup>+</sup> from HCN</span>, forming 2-hydroxypropanenitrile and CN<sup>−</sup>.','M3')+
+ ans(5,'The product is not optically active because it has no chiral centre.','It does have a chiral centre. It is a racemic mixture.','The C=O group is <span class="hl">planar</span>, so CN<sup>−</sup> attacks from either side equally: a <span class="hl">racemic mixture</span> forms, which is not optically active.','M4'),
+chips:[['M1','arrow from CN⁻ lone pair to C (with dipole)',1],['M2','arrow from C=O bond to O',2],['M3','O⁻ takes H⁺ from HCN',4],['M4','planar C=O → racemic',5]],
+steps:[
+{t:'Read and plan',x:'This is <b>nucleophilic addition</b>. The nucleophile is the cyanide ion. KCN supplies the CN<sup>−</sup>; HCN supplies the H<sup>+</sup> at the end.',tip:'The CN<sup>−</sup> attacks through its carbon atom. Draw the lone pair on the C.'},
+{t:'The first arrow',x:'Oxygen is more electronegative than carbon, so the carbonyl carbon is δ+. The lone pair on the carbon of CN<sup>−</sup> attacks it.',tip:'The arrow starts at the lone pair, not at the minus sign.'},
+{t:'The second arrow',x:'At the same time, the π bond in C=O breaks and its electrons move onto the oxygen.',tip:'Start this arrow on the double bond and end it on the O.'},
+{t:'The intermediate',x:'The oxygen now carries a negative charge and lone pairs. The carbon has four groups, including the new C–CN bond.',tip:'Show the lone pair you will use in the next step.'},
+{t:'Protonation',x:'A lone pair on O<sup>−</sup> takes H<sup>+</sup> from an HCN molecule. The H–C bond in HCN breaks, giving back a CN<sup>−</sup> ion.',tip:'CN<sup>−</sup> is regenerated, so it acts like a catalyst.'},
+{t:'Optical activity',x:'The product has a chiral centre. But the C=O carbon is planar, so CN<sup>−</sup> attacks from above and below equally. Equal amounts of both enantiomers form: a racemic mixture.',tip:'Use "planar" and "equal probability from either side".'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Arrow from the N of CN<sup>−</sup> instead of the C.','Calling the reaction electrophilic addition.','The final arrow coming from H to O.','Saying the product has no chiral centre.'],
+your:{kind:'text',marks:2,q:'Propanone also reacts with HCN. <b>Explain</b> why its product, 2-hydroxy-2-methylpropanenitrile, has <b>no</b> optical isomers. (2)',
+ ms:['The central carbon has two identical CH<sub>3</sub> groups (and OH and CN).','So it is not a chiral centre; attack from either side gives the same molecule.'],
+ warn:[[/racemic/i,'A racemic mixture needs a chiral product. This product has no chiral centre at all.']]}
+});
+/* ---------- 4 carbonyl tests ---------- */
+W.push({btn:'Tests for aldehydes and ketones',spec:[["15.8 i","Fehling’s, Benedict’s, Tollens’"],["15.8 iv","2,4-DNPH"],["15.8 v","iodine in alkali"]],type:'Describe',marks:4,
+title:'Using chemical tests to tell propanal from propanone',
+q:'<p><span class="mk">(4)</span>Propanal and propanone are both colourless liquids, C<sub>3</sub>H<sub>6</sub>O.</p><p><mark>Describe</mark> <mark>chemical tests</mark> that would show both are carbonyl compounds, and that would <mark>distinguish</mark> between them. Give the <mark>observations</mark>.</p>',
+diag:function(){var s='';
+  s+=tbl(3,10,[110,107,107],30,[['test','propanal','propanone'],['2,4-DNPH','orange ppt','orange ppt'],['Tollens’ (warm)','silver mirror','no change'],['Fehling’s (warm)','brick-red ppt','stays blue'],['I₂ / NaOH (warm)','no change','yellow ppt']],{1:'1',2:'2',3:'3',4:'4'});
+  s+=G(1,T(20,180,'both carbonyls: C=O present','an'));
+  s+=G(2,T(20,200,'aldehyde is oxidised → propanoic acid','an'));
+  s+=G(4,T(20,220,'CH₃CO– group → CHI₃ (iodoform)','an'));
+  return svg(330,232,s)},
+lines:plan(['test for C=O','test for an aldehyde','second aldehyde test','test for CH₃CO–'])+
+ ans(1,'','','Add <span class="hl">2,4-DNPH</span> (Brady’s reagent): both give an <span class="hl">orange (yellow-orange) precipitate</span>, showing C=O.','M1')+
+ ans(2,'','','Warm with <span class="hl">Tollens’ reagent</span>: propanal gives a <span class="hl">silver mirror</span>; propanone shows no change.','M2')+
+ ans(3,'Fehling’s turns red with propanone.','Ketones are not easily oxidised, so they do not react with Fehling’s.','Or warm with <span class="hl">Fehling’s or Benedict’s</span>: propanal turns it from blue to a <span class="hl">brick-red precipitate</span>; propanone stays blue.','M3')+
+ ans(4,'','','Warm with <span class="hl">iodine in sodium hydroxide</span>: propanone gives a <span class="hl">pale yellow precipitate</span> of CHI<sub>3</sub> (it has a CH<sub>3</sub>CO– group); propanal does not.','M4'),
+chips:[['M1','2,4-DNPH: orange ppt for both',1],['M2','Tollens’: silver mirror (propanal)',2],['M3','Fehling’s: brick-red (propanal)',3],['M4','iodoform: yellow ppt (propanone)',4]],
+steps:[
+{t:'Read and plan',x:'You need a test that both compounds pass (C=O) and tests that only one passes. Aldehydes can be oxidised; ketones cannot easily be oxidised.',tip:'Give the reagent, the conditions (warm) and the observation for each compound.'},
+{t:'2,4-DNPH',x:'2,4-Dinitrophenylhydrazine reacts with any C=O group in an aldehyde or ketone to give an orange precipitate. The melting point of the purified crystals can identify the exact compound.',tip:'This is a test for the carbonyl group, not for aldehydes only.'},
+{t:'Tollens’ reagent',x:'Ammoniacal silver nitrate oxidises the aldehyde to a carboxylic acid. The Ag<sup>+</sup> ions are reduced to silver metal, which coats the tube.',tip:'Warm in a water bath, not over a flame.'},
+{t:'Fehling’s or Benedict’s solution',x:'The blue Cu<sup>2+</sup> complex oxidises the aldehyde and is reduced to Cu<sub>2</sub>O, a brick-red precipitate.',tip:'Acidified dichromate(VI) also works: orange to green with the aldehyde.'},
+{t:'Iodine in alkali',x:'Compounds with a CH<sub>3</sub>CO– group (methyl ketones and ethanal) give a pale yellow precipitate of triiodomethane, CHI<sub>3</sub>, with an antiseptic smell.',tip:'Propanal has CH<sub>3</sub>CH<sub>2</sub>CO–, not CH<sub>3</sub>CO–, so it does not react.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Not saying "warm" for Tollens’ and Fehling’s.','Saying the ketone gives a red precipitate.','Missing the observation for the compound that does not react.','Colour words like "it goes darker" instead of the exact colour.'],
+your:{kind:'text',marks:3,q:'Compound <b>Q</b>, C<sub>4</sub>H<sub>8</sub>O, gives an orange precipitate with 2,4-DNPH, no change with Tollens’ reagent, and a yellow precipitate with iodine in alkali. <b>Identify</b> Q and explain each result. (3)',
+ ms:['Orange precipitate with 2,4-DNPH: Q has a C=O group.','No silver mirror: Q is not an aldehyde, so it is a ketone.','Yellow precipitate (CHI<sub>3</sub>): Q has a CH<sub>3</sub>CO– group, so Q is butanone, CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub>.'],
+ warn:[[/butanal/i,'Butanal is an aldehyde: it would give a silver mirror.']]}
+});
+/* ---------- 5 carboxylic acid reactions ---------- */
+W.push({btn:'Reactions of carboxylic acids',spec:[["15.12","reactions of carboxylic acids"],["15.11","preparing carboxylic acids"]],type:'State',marks:4,
+title:'Four reactions of ethanoic acid',
+q:'<p><span class="mk">(4)</span><mark>Give</mark> the <mark>organic product</mark> and the <mark>reagent and conditions</mark> for the reaction of ethanoic acid with:</p><p>(i) lithium tetrahydridoaluminate(III)<br>(ii) sodium hydroxide<br>(iii) phosphorus(V) chloride<br>(iv) ethanol</p>',
+diag:function(){var s=DEFS;
+  s+=box2(110,104,110,34,'card t')+T(165,126,'CH₃COOH','hd','text-anchor="middle"');
+  s+=G(1,rbox(4,10,140,44,'CH₃CH₂OH','LiAlH₄, dry ether','card g')+arr(126,104,100,58,'dp'));
+  s+=G(2,rbox(186,10,140,44,'CH₃COO⁻ Na⁺','NaOH(aq), + H₂O','card g')+arr(204,104,230,58,'dp'));
+  s+=G(3,rbox(4,190,140,44,'CH₃COCl','PCl₅: steamy fumes','card g')+arr(126,140,100,186,'dp'));
+  s+=G(4,rbox(186,190,140,44,'CH₃COOC₂H₅','C₂H₅OH, conc H₂SO₄, heat','card g')+arr(204,140,230,186,'dp'));
+  return svg(330,244,s)},
+lines:plan(['reduction','neutralisation','chlorination','esterification'])+
+ ans(1,'','','(i) <span class="hl">LiAlH<sub>4</sub> in dry ether</span> reduces it to <span class="hl">ethanol</span>, CH<sub>3</sub>CH<sub>2</sub>OH.','M1')+
+ ans(2,'','','(ii) NaOH(aq) at room temperature gives <span class="hl">sodium ethanoate</span>, CH<sub>3</sub>COONa, and water.','M2')+
+ ans(3,'','','(iii) PCl<sub>5</sub> at room temperature gives <span class="hl">ethanoyl chloride</span>, CH<sub>3</sub>COCl (plus POCl<sub>3</sub> and HCl: steamy fumes).','M3')+
+ ans(4,'Ethanol and dilute acid at room temperature.','Esterification needs a concentrated acid catalyst and heat, and it is reversible.','(iv) Ethanol with a few drops of <span class="hl">concentrated H<sub>2</sub>SO<sub>4</sub></span>, <span class="hl">heated</span>, gives <span class="hl">ethyl ethanoate</span>, CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub>, and water.','M4'),
+chips:[['M1','LiAlH₄ / dry ether → ethanol',1],['M2','NaOH → sodium ethanoate',2],['M3','PCl₅ → ethanoyl chloride',3],['M4','ethanol + conc H₂SO₄, heat → ester',4]],
+steps:[
+{t:'Read and plan',x:'For each reaction, give the reagent, the conditions and the organic product. Name and formula together is safest.',tip:'"Dry ether" is part of the conditions for LiAlH<sub>4</sub>. It reacts violently with water.'},
+{t:'Reduction',x:'LiAlH<sub>4</sub> is a powerful reducing agent. It reduces carboxylic acids all the way to primary alcohols.',tip:'NaBH<sub>4</sub> is not strong enough to reduce a carboxylic acid.'},
+{t:'With a base',x:'Carboxylic acids are weak acids. With NaOH they form a salt and water. With carbonates they also fizz, giving CO<sub>2</sub>.',tip:'The carbonate fizz is a test for a carboxylic acid (alcohols do not do this).'},
+{t:'With PCl<sub>5</sub>',x:'The OH group is replaced by Cl, giving an acyl chloride. Steamy fumes of HCl are seen.',tip:'Alcohols also give steamy fumes with PCl<sub>5</sub>, so this tests for an OH group.'},
+{t:'With an alcohol',x:'Heating with an alcohol and a concentrated sulfuric acid catalyst gives an ester and water. The reaction is reversible.',tip:'The ester has a fruity smell.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Leaving out "dry ether" for LiAlH<sub>4</sub>.','Saying LiAlH<sub>4</sub> gives an aldehyde.','Missing the acid catalyst or heat in esterification.','Giving the product of PCl<sub>5</sub> as a chloroalkane.'],
+your:{kind:'text',marks:2,q:'Give two different ways to <b>prepare</b> propanoic acid, with reagents and conditions. (2)',
+ ms:['Oxidise propan-1-ol (or propanal) with acidified potassium dichromate(VI), heated under reflux.','Hydrolyse propanenitrile, CH<sub>3</sub>CH<sub>2</sub>CN, by heating under reflux with dilute acid (e.g. HCl).'],
+ warn:[[/distil/i,'Distilling during oxidation of a primary alcohol gives the aldehyde. Use reflux to get the acid.']]}
+});
+/* ---------- 6 acyl chlorides ---------- */
+W.push({btn:'Reactions of acyl chlorides',spec:[["15.14","acyl chlorides with water, alcohols, ammonia, amines"],["15.13","naming acyl chlorides"]],type:'State',marks:4,
+title:'Four reactions of ethanoyl chloride',
+q:'<p><span class="mk">(4)</span><mark>Give</mark> the <mark>organic product</mark> of the reaction of ethanoyl chloride with:</p><p>(i) water   (ii) ethanol   (iii) concentrated ammonia   (iv) methylamine.</p><p>State one <mark>observation</mark> for (i).</p>',
+diag:function(){var s=DEFS;
+  s+=box2(110,104,110,34,'card t')+T(165,126,'CH₃COCl','hd','text-anchor="middle"');
+  s+=G(1,rbox(6,10,140,44,'CH₃COOH + HCl','H₂O: steamy fumes','card g')+arr(126,104,100,58,'dp'));
+  s+=G(2,rbox(184,10,140,44,'CH₃COOC₂H₅ + HCl','C₂H₅OH','card g')+arr(204,104,230,58,'dp'));
+  s+=G(3,rbox(6,190,140,44,'CH₃CONH₂','NH₃ (conc): + NH₄Cl','card g')+arr(126,140,100,186,'dp'));
+  s+=G(4,rbox(184,190,140,44,'CH₃CONHCH₃','CH₃NH₂: + CH₃NH₃⁺Cl⁻','card g')+arr(204,140,230,186,'dp'));
+  return svg(330,244,s)},
+lines:plan(['water','alcohol','ammonia','amine'])+
+ ans(1,'','','(i) Water: <span class="hl">ethanoic acid</span> + HCl. Observation: a <span class="hl">violent reaction with steamy fumes</span> (HCl).','M1')+
+ ans(2,'','','(ii) Ethanol: <span class="hl">ethyl ethanoate</span> + HCl.','M2')+
+ ans(3,'','','(iii) Concentrated ammonia: <span class="hl">ethanamide</span>, CH<sub>3</sub>CONH<sub>2</sub> (with NH<sub>4</sub>Cl).','M3')+
+ ans(4,'CH₃COCH₂NH₂','The CH<sub>3</sub>NH– group replaces the Cl on the carbonyl carbon.','(iv) Methylamine: <span class="hl"><i>N</i>-methylethanamide</span>, CH<sub>3</sub>CONHCH<sub>3</sub>.','M4'),
+chips:[['M1','ethanoic acid + steamy fumes',1],['M2','ethyl ethanoate',2],['M3','ethanamide',3],['M4','N-methylethanamide',4]],
+steps:[
+{t:'Read and plan',x:'Acyl chlorides are very reactive. In each reaction, the Cl is replaced by the other molecule’s O or N group, and HCl is released.',tip:'Pattern: CH<sub>3</sub>COCl + H–X → CH<sub>3</sub>CO–X + HCl.'},
+{t:'With water',x:'X = OH. The product is ethanoic acid. The reaction is fast and exothermic, with steamy fumes of HCl.',tip:'This is why acyl chlorides must be kept dry.'},
+{t:'With an alcohol',x:'X = OC<sub>2</sub>H<sub>5</sub>. The product is an ester. Unlike making an ester from an acid, this is fast, not reversible and needs no catalyst.',tip:'This makes acyl chlorides a better way to get a high yield of ester.'},
+{t:'With ammonia',x:'X = NH<sub>2</sub>. The product is a primary amide. The HCl reacts with more ammonia, forming ammonium chloride.',tip:'The equation uses 2NH<sub>3</sub>: CH<sub>3</sub>COCl + 2NH<sub>3</sub> → CH<sub>3</sub>CONH<sub>2</sub> + NH<sub>4</sub>Cl.'},
+{t:'With an amine',x:'X = NHCH<sub>3</sub>. The product is an N-substituted amide. Extra amine reacts with the HCl.',tip:'The "N-" in the name shows the methyl group is on the nitrogen.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying "white fumes" or "gas given off" instead of steamy fumes.','Giving the amine product as an amine, not an amide.','Forgetting the N- in N-methylethanamide.','Saying the reaction with ethanol needs a catalyst.'],
+your:{kind:'text',marks:2,q:'<b>Give two reasons</b> why a chemist might make an ester from an acyl chloride rather than from a carboxylic acid. (2)',
+ ms:['The reaction is faster (no heating or catalyst needed).','The reaction is not reversible / goes to completion, so the yield is higher.'],
+ warn:[[/cheaper|safer/i,'Acyl chlorides are not cheaper or safer: they react violently with water. Focus on rate and yield.']]}
+});
+/* ---------- 7 esters: hydrolysis and polyesters ---------- */
+W.push({btn:'Ester hydrolysis and polyesters',spec:[["15.15","acid and alkaline hydrolysis"],["15.16","polyesters"]],type:'Explain',marks:4,
+title:'Hydrolysing an ester in acid and in alkali',
+q:'<p><span class="mk">(4)</span>Ethyl ethanoate can be hydrolysed by heating it under reflux with dilute sulfuric acid or with sodium hydroxide solution.</p><p><mark>Write equations</mark> for both reactions and <mark>explain</mark> why <mark>alkaline hydrolysis</mark> gives a <mark>better yield</mark>.</p>',
+diag:function(){var s='';
+  s+=T(20,24,'CH₃COOC₂H₅','hd');
+  s+=G(1,box2(10,38,310,58,'card')+T(20,60,'acid: + H₂O ⇌ CH₃COOH + C₂H₅OH','')+T(20,80,'reversible: equilibrium mixture','an'));
+  s+=G(2,box2(10,108,310,58,'card g')+T(20,130,'alkali: + NaOH → CH₃COO⁻Na⁺ + C₂H₅OH','')+T(20,150,'goes to completion','an'));
+  s+=G(3,T(20,190,'the carboxylate ion cannot react','sm')+T(20,206,'with ethanol, so no reverse reaction','sm'));
+  s+=G(4,T(20,234,'add acid afterwards → CH₃COOH','an'));
+  return svg(330,246,s)},
+lines:plan(['acid hydrolysis','alkaline hydrolysis','why alkali is better','getting the acid'])+
+ ans(1,'','','Acid: <span class="hl">CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O ⇌ CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH</span>','M1')+
+ ans(2,'','','Alkali: <span class="hl">CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + NaOH → CH<sub>3</sub>COONa + C<sub>2</sub>H<sub>5</sub>OH</span>','M2')+
+ ans(3,'Alkali is a stronger catalyst.','OH<sup>−</sup> is used up, not a catalyst. The point is that the reaction is not reversible.','Acid hydrolysis is <span class="hl">reversible</span>, so an equilibrium mixture forms. Alkaline hydrolysis <span class="hl">goes to completion</span> because the carboxylate ion does not react with the alcohol.','M3')+
+ ans(4,'','','To get the free carboxylic acid, <span class="hl">acidify</span> the sodium ethanoate afterwards with a strong acid.','M4'),
+chips:[['M1','acid hydrolysis equation (⇌)',1],['M2','alkaline hydrolysis equation',2],['M3','alkaline: not reversible, complete',3],['M4','acidify to get the acid',4]],
+steps:[
+{t:'Read and plan',x:'<b>Hydrolysis</b> means breaking a bond using water. An ester splits into a carboxylic acid (or its salt) and an alcohol.',tip:'Heat under reflux so the volatile ester is not lost.'},
+{t:'Acid hydrolysis',x:'This is the reverse of esterification. The H<sup>+</sup> is a catalyst. Because it is an equilibrium, some ester is always left.',tip:'Use ⇌ in this equation.'},
+{t:'Alkaline hydrolysis',x:'The OH<sup>−</sup> is a reactant. The products are the sodium salt of the acid and the alcohol.',tip:'The alkaline hydrolysis of fats is used to make soap.'},
+{t:'Why alkali is better',x:'The carboxylate ion, CH<sub>3</sub>COO<sup>−</sup>, has no H<sup>+</sup> to give and does not react with ethanol, so the reverse reaction cannot happen.',tip:'"Goes to completion" or "not reversible" is the key phrase.'},
+{t:'Getting the acid',x:'Adding a strong acid such as HCl turns the carboxylate salt into the carboxylic acid.',tip:'Polyesters such as Terylene can be hydrolysed in the same way, which breaks the polymer chain.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using → for acid hydrolysis.','Giving ethanoic acid (not its salt) as the product with NaOH.','Calling OH<sup>−</sup> a catalyst.','Forgetting the alcohol as a product.'],
+your:{kind:'text',marks:3,q:'Terylene is a polyester made from benzene-1,4-dicarboxylic acid and ethane-1,2-diol. <b>Describe</b> how it forms and what type of polymerisation this is. (3)',
+ ms:['Each monomer has two functional groups (two COOH groups; two OH groups).','A COOH group reacts with an OH group to form an ester link, –COO–, and a molecule of water is eliminated.','This is condensation polymerisation; the chain keeps growing from both ends.'],
+ warn:[[/addition/i,'Polyesters form by condensation polymerisation, not addition.']]}
+});
+/* ---------- 8 1H NMR ---------- */
+W.push({btn:'Interpreting a ¹H NMR spectrum',spec:[["15.20","¹H NMR: shifts, areas, splitting"],["15.19","¹³C NMR environments"]],type:'Deduce',marks:4,
+title:'Using a high-resolution <sup>1</sup>H NMR spectrum to confirm ethyl ethanoate',
+q:'<p><span class="mk">(4)</span>The high-resolution <sup>1</sup>H NMR spectrum of an ester, C<sub>4</sub>H<sub>8</sub>O<sub>2</sub>, is shown in the stage. The relative peak areas are 3 : 3 : 2.</p><p>Use the <mark>chemical shifts</mark>, <mark>peak areas</mark> and <mark>splitting patterns</mark> to show that the ester is <mark>ethyl ethanoate</mark>, CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>3</sub>.</p>',
+diag:function(){var s='',L0=24,R0=316,B0=170,X=function(d){return R0-(d/5)*(R0-L0)};
+  s+='<path class="ax" d="M'+L0+' '+B0+'H'+R0+'"/>';
+  for(var d=0;d<=5;d++)s+=L(X(d),B0,X(d),B0+5,'bd')+T(X(d),B0+18,d,'sm','text-anchor="middle"');
+  s+=T(165,B0+34,'chemical shift, δ / ppm','sm','text-anchor="middle"');
+  var pk=function(c,rel,h,hot){var o='';var n=rel.length;rel.forEach(function(r,i){var x=X(c+(i-(n-1)/2)*0.07);o+='<line class="pk" data-hot="'+hot+'" x1="'+x+'" x2="'+x+'" y1="'+B0+'" y2="'+(B0-h*r)+'"/>'});return o};
+  s+=pk(1.3,[1,2,1],48,'1 3');s+=pk(2.0,[1],110,'1 2');s+=pk(4.1,[1,3,3,1],26,'1 4');
+  s+=G(2,T(X(2.0),52,'singlet, 3H','an','text-anchor="middle"')+T(X(2.0),38,'CH₃–C=O','sm','text-anchor="middle"'));
+  s+=G(3,T(X(1.3)+6,102,'triplet, 3H','an')+T(X(1.3)+6,88,'CH₃ next to CH₂','sm'));
+  s+=G(4,T(X(4.1),80,'quartet, 2H','an','text-anchor="middle"')+T(X(4.1),66,'O–CH₂ next to CH₃','sm','text-anchor="middle"'));
+  return svg(330,212,s)},
+lines:plan(['count environments from areas','singlet at 2.0','triplet at 1.3','quartet at 4.1'])+
+ ans(1,'','','Three peaks in the ratio 3 : 3 : 2 mean <span class="hl">three proton environments</span>: CH<sub>3</sub>, CH<sub>3</sub> and CH<sub>2</sub>.','M1')+
+ ans(2,'','','δ 2.0, <span class="hl">singlet</span>, 3H: a CH<sub>3</sub> next to C=O with <span class="hl">no H on the neighbouring carbon</span>.','M2')+
+ ans(3,'The triplet is a CH₂ group because it has 3 lines.','The number of lines tells you about the <b>neighbours</b>: n + 1 lines means n H on the adjacent carbon.','δ 1.3, <span class="hl">triplet</span>, 3H: a CH<sub>3</sub> next to a CH<sub>2</sub> (2 + 1 = 3 lines).','M3')+
+ ans(4,'','','δ 4.1, <span class="hl">quartet</span>, 2H: a CH<sub>2</sub> next to a CH<sub>3</sub> (3 + 1 = 4 lines), shifted high because it is bonded to O.','M4'),
+chips:[['M1','3 environments, ratio 3 : 3 : 2',1],['M2','singlet: CH₃CO',2],['M3','triplet: CH₃ next to CH₂',3],['M4','quartet: OCH₂ next to CH₃',4]],
+steps:[
+{t:'Read and plan',x:'Each peak is one <b>proton environment</b>. The <b>area</b> gives the number of H atoms, the <b>chemical shift</b> shows what the H is near, and the <b>splitting</b> shows how many H atoms are on neighbouring carbons.',tip:'n + 1 rule: a peak is split into n + 1 lines by n H atoms on adjacent carbons.'},
+{t:'Count environments',x:'Three peaks, with areas 3 : 3 : 2, add up to 8 H, matching C<sub>4</sub>H<sub>8</sub>O<sub>2</sub>.',tip:'Use the data sheet for chemical shift ranges.'},
+{t:'The singlet',x:'At δ 2.0 there is a single line with 3H. A CH<sub>3</sub> group next to a C=O has no H on its neighbour, so it is not split.',tip:'Singlet = 0 neighbouring H.'},
+{t:'The triplet',x:'At δ 1.3, a 3H peak split into 3 lines. This CH<sub>3</sub> is next to a CH<sub>2</sub>.',tip:'Peak heights in a triplet are 1 : 2 : 1.'},
+{t:'The quartet',x:'At δ 4.1, a 2H peak split into 4 lines. This CH<sub>2</sub> is next to a CH<sub>3</sub>. Its high shift shows it is attached to the oxygen: –O–CH<sub>2</sub>–.',tip:'In the isomer methyl propanoate, the quartet would be near 2.3 and the singlet near 3.7.'},
+{t:'Check against the mark scheme',x:'All four marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Saying a triplet means 3 H on that carbon.','Ignoring the chemical shifts.','Not matching peak areas to numbers of H.','Forgetting to check the total H against the molecular formula.'],
+your:{kind:'num',q:'How many peaks would you expect in the <b><sup>13</sup>C NMR</b> spectrum of ethyl ethanoate, CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>3</sub>?',ans:4,tol:0.01,
+ ok:'Correct: <b>4</b>. All four carbons are in different environments: CH<sub>3</sub>–C=O, C=O, O–CH<sub>2</sub> and CH<sub>2</sub>–CH<sub>3</sub>.',
+ wrong:[[3,0.01,'That is the number of <sup>1</sup>H environments. The C=O carbon has no hydrogen but still gives a <sup>13</sup>C peak.'],[2,0.01,'The two CH<sub>3</sub> carbons are in different environments: one is next to C=O, the other next to CH<sub>2</sub>.']]}
+});
+/* ---------- 9 chromatography ---------- */
+W.push({btn:'R<sub>f</sub> values in chromatography',spec:[["15.22","Rf values"],["15.21","mobile and stationary phases"],["15.23","HPLC and GC"]],type:'Calculate',marks:3,
+title:'Calculating and explaining R<sub>f</sub> values on a TLC plate',
+q:'<p><span class="mk">(3)</span>A mixture was separated by thin-layer chromatography. The plate is shown in the stage.</p><p><mark>Calculate</mark> the <mark>R<sub>f</sub> value</mark> of spot <b>A</b> and <mark>explain</mark> why spots A and B travel different distances.</p>',
+diag:function(){var s='',y0=196,sc=18.75,Y=function(c){return y0-c*sc};
+  s+='<rect class="card" x="40" y="22" width="90" height="196"/>';
+  s+='<line class="bd" style="stroke-width:1.4;stroke-dasharray:4 3" x1="40" x2="130" y1="'+y0+'" y2="'+y0+'"/>'+T(136,y0+4,'baseline','sm');
+  s+='<line class="ln" x1="40" x2="130" y1="'+Y(8)+'" y2="'+Y(8)+'"/>'+T(136,Y(8)+4,'solvent front','sm');
+  s+='<ellipse class="spot" cx="70" cy="'+Y(3.2)+'" rx="9" ry="6"/>'+T(56,Y(3.2)+4,'A','hd','text-anchor="end"');
+  s+='<ellipse class="spot2" cx="100" cy="'+Y(6.4)+'" rx="9" ry="6"/>'+T(116,Y(6.4)+4,'B','hd');
+  s+=G(1,'<path class="po" d="M24 '+y0+'V'+(Y(8)+2)+'"/>'+T(20,Y(4),'8.0 cm','an','text-anchor="end" transform="rotate(-90 20 '+Y(4)+')"'));
+  s+=G(1,'<path class="dp" d="M70 '+y0+'V'+(Y(3.2)+8)+'"/>'+T(76,Y(1.5),'3.2 cm','sm2'));
+  s+=G(2,T(190,110,'Rf = 3.2 ÷ 8.0','eq')+T(190,134,'Rf = 0.40','big'));
+  s+=G(3,T(190,166,'A: held more by the','an')+T(190,182,'stationary phase','an'));
+  return svg(330,226,s)},
+lines:plan(['measure both distances','Rf = spot ÷ solvent','explain the difference'])+
+ ans(1,'','','Distance moved by A = <span class="hl">3.2 cm</span>; distance moved by the solvent front = <span class="hl">8.0 cm</span> (both from the baseline).','M1')+
+ ans(2,'Rf = 8.0 ÷ 3.2 = 2.5','An R<sub>f</sub> value can never be more than 1.','R<sub>f</sub> = 3.2 ÷ 8.0 = <span class="hl">0.40</span>','M2')+
+ ans(3,'','','Substances are separated by the balance between <span class="hl">adsorption to the stationary phase</span> and <span class="hl">solubility in the mobile phase</span>. A is held more strongly by the stationary phase (or is less soluble in the solvent) than B, so it moves less.','M3'),
+chips:[['M1','both distances from baseline',1],['M2','Rf = 0.40',2],['M3','stationary vs mobile phase',3]],
+steps:[
+{t:'Read and plan',x:'R<sub>f</sub> = distance moved by the spot ÷ distance moved by the solvent front. Measure both from the baseline.',tip:'Measure to the centre of the spot.'},
+{t:'Measure',x:'The solvent front is 8.0 cm above the baseline. Spot A is 3.2 cm above it.',tip:'Mark the solvent front as soon as you take the plate out, before it evaporates.'},
+{t:'Calculate R<sub>f</sub>',x:'3.2 ÷ 8.0 = 0.40. R<sub>f</sub> values have no units and are always between 0 and 1.',tip:'For B: 6.4 ÷ 8.0 = 0.80.'},
+{t:'Explain the separation',x:'In TLC, the stationary phase is the solid coating on the plate and the mobile phase is the solvent. The more strongly a substance adsorbs onto the stationary phase, the less it moves.',tip:'In HPLC and GC, the same idea gives each substance its own retention time in a column.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Dividing the solvent distance by the spot distance.','Measuring from the bottom of the plate instead of the baseline.','Giving R<sub>f</sub> units.','Saying B is "lighter" or "smaller" instead of using the two phases.'],
+your:{kind:'num',q:'In a different chromatogram, a spot moves 5.1 cm and the solvent front moves 6.0 cm. Calculate the R<sub>f</sub> value.',ans:0.85,tol:0.006,
+ ok:'Correct: R<sub>f</sub> = 5.1 ÷ 6.0 = <b>0.85</b>.',
+ wrong:[[1.18,0.01,'Upside down: spot distance ÷ solvent distance.'],[0.9,0.001,'Keep 2 significant figures: 0.85.']]}
+});
+/* ---------- 10 accurate mass ---------- */
+W.push({btn:'Accurate relative molecular mass',spec:[["15.17","high-resolution mass spectrometry"]],type:'Deduce',marks:3,
+title:'Using an accurate molecular ion peak to identify a compound',
+q:'<p><span class="mk">(3)</span>A compound gives a molecular ion peak at <mark><i>m/z</i> = 44.0261</mark> in a high-resolution mass spectrum. Three possible formulae all have <i>M</i><sub>r</sub> = 44 to the nearest whole number: <b>CO<sub>2</sub></b>, <b>C<sub>3</sub>H<sub>8</sub></b> and <b>C<sub>2</sub>H<sub>4</sub>O</b>.</p><p>Use the <mark>precise atomic masses</mark> to <mark>identify</mark> the compound. H = 1.0078, C = 12.0000, O = 15.9949.</p>',
+diag:function(){var s='';
+  s+=tbl(10,10,[90,150,70],30,[['formula','precise mass','match?'],['CO₂','43.9898','✗'],['C₃H₈','44.0624','✗'],['C₂H₄O','44.0261','✓']],{1:'1',2:'2',3:'3'});
+  s+=G(3,T(20,156,'measured 44.0261 → C₂H₄O','big'));
+  s+=G(3,T(20,180,'for example ethanal, CH₃CHO','an'));
+  return svg(330,192,s)},
+lines:plan(['CO₂','C₃H₈','C₂H₄O'])+
+ ans(1,'','','CO<sub>2</sub>: 12.0000 + 2 × 15.9949 = <span class="hl">43.9898</span>','')+
+ ans(2,'','','C<sub>3</sub>H<sub>8</sub>: 3 × 12.0000 + 8 × 1.0078 = <span class="hl">44.0624</span>','M1')+
+ ans(3,'','','C<sub>2</sub>H<sub>4</sub>O: 24.0000 + 4 × 1.0078 + 15.9949 = <span class="hl">44.0261</span>','M2')+
+ ans(3,'','','This matches the measured value, so the compound is <span class="hl">C<sub>2</sub>H<sub>4</sub>O</span> (for example ethanal).','M3'),
+chips:[['M1','precise masses calculated',2],['M2','C₂H₄O = 44.0261',3],['M3','identified as C₂H₄O',3]],
+steps:[
+{t:'Read and plan',x:'A <b>high-resolution</b> mass spectrometer measures <i>m/z</i> to four decimal places. Different formulae with the same whole-number <i>M</i><sub>r</sub> have slightly different precise masses.',tip:'Show the calculation for every option, not just the right one.'},
+{t:'Carbon dioxide',x:'12.0000 + 31.9898 = 43.9898. This is too low.',tip:'Carbon-12 is exactly 12.0000 by definition.'},
+{t:'Propane',x:'36.0000 + 8.0624 = 44.0624. This is too high.',tip:'Hydrogen atoms add a bit more than 1 each.'},
+{t:'C<sub>2</sub>H<sub>4</sub>O',x:'24.0000 + 4.0312 + 15.9949 = 44.0261, an exact match.',tip:'The molecular formula does not tell you the structure. Use NMR or IR to decide between ethanal and other isomers.'},
+{t:'Check against the mark scheme',x:'All three marks earned. These mistakes lose marks most often:',end:1}],
+mis:['Using whole-number masses.','Only calculating the mass of the correct answer.','Rounding to fewer than 4 decimal places.','Choosing the closest value without checking it matches exactly.'],
+your:{kind:'num',q:'Calculate the precise relative molecular mass of ethanol, C<sub>2</sub>H<sub>6</sub>O, to 4 decimal places.',ans:46.0417,tol:0.00015,
+ ok:'Correct: 2(12.0000) + 6(1.0078) + 15.9949 = <b>46.0417</b>.',
+ wrong:[[46,0.001,'Use the precise atomic masses given, not whole numbers.'],[44.0261,0.0002,'That is C<sub>2</sub>H<sub>4</sub>O. Ethanol has 6 H atoms.']]}
+});
+
+/* ---------- engine ---------- */
+var SP=1;try{var _s=parseFloat(localStorage.getItem("ialchem-speed"));if(_s>0)SP=_s}catch(e){}
+function setSP(v){SP=v;document.documentElement.style.setProperty("--sp",v);try{localStorage.setItem("ialchem-speed",v)}catch(e){}[].forEach.call(document.querySelectorAll(".spd button"),function(b){b.setAttribute("aria-pressed",String(+b.getAttribute("data-sp")===v))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".spd button");if(b)setSP(+b.getAttribute("data-sp"))});
+setTimeout(function(){setSP(SP)},0);
+var cur=0,n=0,w=null;
+var pk=$('picker');
+W.forEach(function(x,i){var b=document.createElement('button');b.className='pick';b.innerHTML=(i+1)+'. '+x.btn+'<small>'+x.type+' · '+x.marks+' marks</small>';b.onclick=function(){load(i)};pk.appendChild(b)});
+function load(i){
+  cur=i;w=W[i];n=0;
+  [].forEach.call(pk.children,function(b,k){b.setAttribute('aria-pressed',k===i)});
+  $('eyebrow').textContent='IAL Chemistry · Unit 4 · Topic 15 · Exam-style question · '+w.marks+' marks';
+  $('title').innerHTML=w.title;$('spec').innerHTML=(w.spec||[]).map(function(c){return '<span class="sp"><b>Spec '+c[0]+'</b>'+c[1]+'</span>'}).join('');$('q').innerHTML=w.q;
+  $('diag').innerHTML=w.diag();$('lines').innerHTML=w.lines;
+  $('chips').innerHTML='<span class="lb">MARK SCHEME</span>'+w.chips.map(function(c){return '<span class="chip" data-c="'+c[2]+'"><i></i><b>'+c[0]+'</b>'+c[1]+'</span>'}).join('');
+  var d='';for(var k=0;k<w.steps.length;k++)d+='<button class="dot" aria-label="Go to step '+(k+1)+'" data-k="'+k+'"></button>';$('dots').innerHTML=d;
+  buildYour();update(true);
+}
+var FL=[];
+function update(quiet){
+  FL.forEach(function(a){try{a.finish()}catch(e){}});FL=[];
+  var st=w.steps[n],root=document.querySelector('.wrap');
+  [].forEach.call(document.querySelectorAll('#stage [data-at]'),function(e){var a=+e.getAttribute('data-at');e.classList.toggle('on',a<=n);e.classList.toggle('now',a===n&&!quiet)});
+  [].forEach.call(document.querySelectorAll('#stage [data-hot]'),function(e){e.classList.toggle('hot',e.getAttribute('data-hot').split(' ').indexOf(String(n))>=0)});
+  var nw=document.querySelectorAll('#lines .now');[].forEach.call(nw,function(e,k){e.style.animationDelay=(RM?0:k*1.1*SP)+'s'});[].forEach.call(document.querySelectorAll('#diag .now'),function(e){e.style.transitionDelay=(RM?0:0.3*SP)+'s'});var cd=(quiet||RM)?0:((Math.max(nw.length,1)*1.1+0.3)*SP);(window.__ct||[]).forEach(clearTimeout);window.__ct=[];[].forEach.call(document.querySelectorAll('#chips .chip'),function(c){var a=+c.getAttribute('data-c'),fresh=a===n&&!quiet;c.classList.remove('new');if(fresh&&cd>0){c.classList.remove('on');window.__ct.push(setTimeout(function(){c.classList.add('on');void c.offsetWidth;c.classList.add('new')},cd*1000))}else{c.classList.toggle('on',a<=n);if(fresh){void c.offsetWidth;c.classList.add('new')}}});
+  $('stepc').textContent='Step '+(n+1)+' of '+w.steps.length;
+  $('stitle').innerHTML=st.t;$('stext').innerHTML=st.x;
+  $('sextra').innerHTML=st.end?'<ul class="mis">'+w.mis.map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>':'<div class="tip"><b>Exam tip:</b> '+st.tip+'</div>';
+  [].forEach.call(document.querySelectorAll('#dots .dot'),function(d,k){d.className='dot'+(k<n?' done':'')+(k===n?' cur':'')});
+  $('back').disabled=n===0;
+  var last=n===w.steps.length-1;$('next').innerHTML=last?'Start again':'Next step →';
+  [].forEach.call(document.querySelectorAll('#q mark'),function(m){m.classList.remove('pulse')});
+  if(!quiet)flyAll();
+}
+function flyAll(){
+  var targets=document.querySelectorAll('#lines [data-at="'+n+'"] [data-fly]');
+  [].forEach.call(targets,function(t,i){
+    var src=document.querySelector('[data-k="'+t.getAttribute('data-fly')+'"]');
+    if(!src)return;
+    if(src.tagName==='MARK')src.classList.add('pulse');
+    if(RM||!t.animate){t.classList.add('land');return}
+    var a=src.getBoundingClientRect(),b=t.getBoundingClientRect();
+    if(!a.width||!b.width){t.classList.add('land');return}
+    var f=document.createElement('span');f.className='flyer';f.textContent=t.textContent;f.style.left=a.left+'px';f.style.top=a.top+'px';
+    t.classList.add('wait');document.body.appendChild(f);
+    var an=f.animate([{transform:'translate(0,0)',opacity:.3},{transform:'translate(0,0)',opacity:1,offset:.15},{transform:'translate('+(b.left-a.left)+'px,'+(b.top-a.top)+'px)',opacity:1}],{duration:1200*SP,delay:((function(){var l=t.closest('[data-at]');return l?(parseFloat(l.style.animationDelay)||0)*1000:0})())+(350+(i%3)*300)*SP,easing:'ease-in-out',fill:'both'});
+    FL.push(an);an.onfinish=function(){f.remove();t.classList.remove('wait');t.classList.add('land')};
+  });
+}
+function go(k){if(!w)return;k=Math.max(0,Math.min(w.steps.length-1,k));if(k===n)return;n=k;update()}
+$('next').onclick=function(){if(n===w.steps.length-1){n=0;update()}else go(n+1)};
+$('back').onclick=function(){go(n-1)};
+$('replay').onclick=function(){n=0;update()};
+$('dots').onclick=function(e){var k=e.target.getAttribute('data-k');if(k!==null)go(+k)};
+document.addEventListener('keydown',function(e){var tg=e.target.tagName;if(tg==='INPUT'||tg==='TEXTAREA')return;if(e.key==='ArrowRight'){go(n+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(n-1);e.preventDefault()}});
+var tx=null;$('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+$('stage').addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(n+(dx<0?1:-1))});
+
+function buildYour(){
+  var y=w.your,h='<h3>Your turn</h3><p class="yq">'+y.q+'</p>';
+  if(y.kind==='num'){h+='<div class="row"><label for="yin" style="font-size:14px">Answer:</label><input type="text" id="yin" inputmode="decimal" autocomplete="off"><button class="btn pri" id="ychk">Check</button><button class="btn" id="yshow">Show answer</button></div><div class="fb" id="yfb" aria-live="polite"></div>';}
+  else{h+='<label for="yta" class="sr" style="position:absolute;left:-9999px">Your answer</label><textarea id="yta" placeholder="Write your answer here, one idea per sentence…"></textarea><div class="row" style="margin-top:6px"><button class="btn pri" id="yms">Show mark scheme</button></div><div id="yfb" aria-live="polite"></div>';}
+  $('your').innerHTML=h;
+  if(y.kind==='num'){
+    var chk=function(){var raw=$('yin').value.replace(',', '.').replace(/[^\d.\-]/g,''),v=parseFloat(raw),fb=$('yfb');
+      if(isNaN(v)){fb.className='fb no';fb.textContent='Type a number first.';return}
+      for(var i=0;i<y.wrong.length;i++){if(Math.abs(v-y.wrong[i][0])<=y.wrong[i][1]){fb.className='fb no';fb.innerHTML=y.wrong[i][2];return}}
+      if(Math.abs(v-y.ans)<=y.tol){fb.className='fb ok';fb.innerHTML=y.ok;return}
+      fb.className='fb no';fb.innerHTML='Not quite. Go back through the walkthrough steps and check each line of working.';};
+    $('ychk').onclick=chk;$('yin').onkeydown=function(e){if(e.key==='Enter')chk()};
+    $('yshow').onclick=function(){$('yfb').className='fb ok';$('yfb').innerHTML=y.ok};
+  }else{
+    $('yms').onclick=function(){var txt=$('yta').value,fb=$('yfb'),s='<ul class="ms">';
+      y.ms.forEach(function(m,i){s+='<li><label><input type="checkbox" data-i="'+i+'"><span><b class="mt" style="margin:0 4px 0 0">M'+(i+1)+'</b>'+m+'</span></label></li>'});
+      s+='</ul><div class="tally" id="ytal">Tick the points you made: 0 / '+y.marks+'</div>';
+      var warns=y.warn.filter(function(x){return x[0].test(txt)});
+      if(!txt.trim())s+='<div class="warn">Tip: write your answer first, then mark it. You learn more that way.</div>';
+      warns.forEach(function(x){s+='<div class="warn"><b>Watch out:</b> '+x[1]+'</div>'});
+      fb.innerHTML=s;
+      fb.onchange=function(){var c=fb.querySelectorAll('input:checked').length;$('ytal').textContent='Tick the points you made: '+c+' / '+y.marks+(c===y.marks?' — full marks!':'')};
+    };
+  }
+}
+
+/* ---------- spec checklist ---------- */
+(function(){
+var IT=[["15.1", "Understand that optical isomerism comes from a chiral centre (a carbon with four different groups)."], ["15.2", "Draw optical isomers (enantiomers) as non-superimposable mirror images in 3D."], ["15.3", "Understand optical activity: a single optical isomer rotates plane-polarised light."], ["15.4", "Define a racemic mixture."], ["15.5", "Use optical activity as evidence for S<sub>N</sub>1, S<sub>N</sub>2 and nucleophilic addition mechanisms."], ["15.6", "Name aldehydes and ketones and draw their formulae."], ["15.7", "Explain the physical properties of carbonyls: no hydrogen bonding between molecules, but hydrogen bonds with water."], ["15.8", "Reactions of carbonyls: Fehling’s or Benedict’s, Tollens’, acidified dichromate(VI), LiAlH<sub>4</sub>, HCN/KCN (mechanism), 2,4-DNPH and iodine in alkali."], ["15.9", "Name carboxylic acids and draw their formulae."], ["15.10", "Explain how hydrogen bonding affects the boiling points and solubility of carboxylic acids."], ["15.11", "Prepare carboxylic acids by oxidising alcohols or aldehydes, and by hydrolysing nitriles."], ["15.12", "Reactions of carboxylic acids with LiAlH<sub>4</sub>, bases, PCl<sub>5</sub> and alcohols (acid catalyst)."], ["15.13", "Name acyl chlorides and esters and draw their formulae."], ["15.14", "Reactions of acyl chlorides with water, alcohols, concentrated ammonia and amines."], ["15.15", "Hydrolysis of esters in acidic and alkaline conditions."], ["15.16", "Polyesters such as Terylene from condensation polymerisation."], ["15.17", "Use high-resolution mass spectra and accurate relative molecular masses."], ["15.18", "Understand that <sup>13</sup>C NMR gives information about carbon atoms in a molecule."], ["15.19", "Use <sup>13</sup>C NMR chemical shifts and the number of peaks to deduce carbon environments."], ["15.20", "Use <sup>1</sup>H NMR: chemical shifts, peak areas, the n+1 splitting rule, and predicting spectra."], ["15.21", "Understand that chromatography separates using a mobile phase and a stationary phase."], ["15.22", "Calculate R<sub>f</sub> values from paper and thin-layer chromatography and explain differences."], ["15.23", "Understand HPLC and GC as column chromatography, using retention times, often with mass spectrometry."]],KEY="ialchem-t15-checklist",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var box=document.createElement("section");box.className="ck";box.setAttribute("aria-labelledby","ckh");
+box.innerHTML='<h3 id="ckh">Topic 15: spec checklist</h3><p class="ckp">Rate yourself on every spec point. Where there is a walkthrough, press <b>Practise</b> to open it.</p><div class="bar" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div><div class="sum" id="cksum" aria-live="polite"></div><ul id="ckl"></ul><button type="button" class="rst" id="ckr">Clear my ratings</button>';
+document.querySelector('.wrap').appendChild(box);
+var ul=box.querySelector("#ckl"),L={r:"Not yet",a:"Nearly",g:"Got it"};
+function covers(no){var r=[];W.forEach(function(w,i){(w.spec||[]).forEach(function(s){if(s[0].split(" ")[0]===no&&r.indexOf(i)<0)r.push(i)})});return r}
+IT.forEach(function(it){
+ var li=document.createElement("li");var cv=covers(it[0]);
+ li.innerHTML='<span class="no">'+it[0]+'</span><span class="tx">'+it[1]+'</span><span class="rag" role="group" aria-label="Rate spec '+it[0]+'">'+["r","a","g"].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(st[it[0]]===v)+'">'+L[v]+'</button>'}).join("")+'</span>'+cv.map(function(i){return '<button type="button" class="go" data-w="'+i+'">Practise: '+W[i].btn+'</button>'}).join("");
+ li.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.v){st[it[0]]=st[it[0]]===b.dataset.v?undefined:b.dataset.v;[].forEach.call(li.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed",String(st[it[0]]===x.dataset.v))});save();sum()}
+  else if(b.dataset.w){load(+b.dataset.w);try{document.querySelector("h1").scrollIntoView({behavior:"smooth",block:"start"})}catch(_){}}});
+ ul.appendChild(li)});
+function sum(){var c={r:0,a:0,g:0};IT.forEach(function(it){if(st[it[0]])c[st[it[0]]]++});var n=IT.length;
+ ["g","a","r"].forEach(function(k){box.querySelector(".bar ."+k).style.width=(c[k]/n*100)+"%"});
+ box.querySelector("#cksum").textContent=c.g+" got it · "+c.a+" nearly · "+c.r+" not yet · "+(n-c.g-c.a-c.r)+" not rated (of "+n+")"}
+box.querySelector("#ckr").addEventListener("click",function(){st={};save();[].forEach.call(ul.querySelectorAll(".rag button"),function(x){x.setAttribute("aria-pressed","false")});sum()});
+sum();
+})();
+
+load(0);
+})();
+</script>
+</body>
+</html>
