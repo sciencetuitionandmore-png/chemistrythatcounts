@@ -1,0 +1,348 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Le Chatelier's Principle</title>
+<meta name="description" content="Interactive animation: Le Chatelier&#x27;s Principle. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-le-chateliers-principle.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--arrow:#c4421a;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:18px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--ink)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:6px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:6px;position:relative;outline:none}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.6em;border-radius:10px;padding:10px 14px;background:var(--accent-soft);font-size:.98rem}
+.cap .sn{font:700 .8rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.player{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.pbtns,.pspeed{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pind{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:600 .88rem var(--display);color:var(--muted)}
+.dots{display:flex;gap:4px}
+.dots button{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:#fff;cursor:pointer;padding:0;position:relative}
+.dots button::after{content:"";position:absolute;inset:-6px}
+.dots button.done{background:var(--accent-soft)}
+.dots button[aria-current="step"]{background:var(--accent)}
+.dots button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:40px}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:34px}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.mini.ok{border:2px solid var(--good);background:#eef8f2}
+.mini.wrong{border:2px solid var(--bad);background:#fdf1f0}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lbl{font:600 .86rem var(--display);color:var(--muted)}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:10px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.95rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#a6f3c0;border-radius:8px;padding:3px 10px;display:inline-block;min-width:4.5em;text-align:center}
+select{font:inherit;font-size:.93rem;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+input[type=range]{accent-color:var(--accent);width:min(320px,100%)}
+.tsvg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+ol.qs{margin:0;padding-left:1.3em;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px 26px}
+@media(max-width:420px){ol.qs{grid-template-columns:minmax(0,1fr)}}
+ol.qs li{min-width:0}
+.mcq{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:3px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer;font-size:.95rem}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.mcq label.ok{border-color:var(--good);background:#eef8f2}
+.mcq label.wrong{border-color:var(--bad);background:#fdf1f0}
+.why{font-size:.88rem;margin-top:4px;padding:4px 8px;border-left:3px solid var(--line)}
+.why.good{border-color:var(--good)}.why.bad{border-color:var(--bad)}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+aside.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:14px 20px}
+aside.tip h3{color:#7a4a00}
+aside.tip ul{margin:6px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+footer.key{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+footer.key b{color:var(--ink)}
+/* SVG */
+.s{opacity:0;transition:opacity .6s ease}
+.s.vis{opacity:1}
+.ca path{fill:none;stroke:var(--arrow);stroke-width:2.6;stroke-linecap:round;stroke-dashoffset:var(--L);transition:stroke-dashoffset 1.1s ease calc(var(--dl,0s) + .4s)}
+.ca.vis path{stroke-dashoffset:0}
+.ca .hd{fill:var(--arrow);stroke:var(--arrow);stroke-width:1;stroke-linejoin:round;opacity:0;transition:opacity .2s ease calc(var(--dl,0s) + 1.45s)}
+.ca.vis .hd{opacity:1}
+.at{font:600 21px var(--display);fill:var(--ink);dominant-baseline:central}
+.at .sb{font-size:14px}
+.lp circle{fill:var(--ink)}
+.chg{font:700 17px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.dl{font:700 15px var(--body);fill:var(--accent);text-anchor:middle;dominant-baseline:central}
+.atom{transition:opacity .6s ease}
+.atom.hid{opacity:0}
+.bd line{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+.bd .wedge{fill:var(--ink)}
+.bd{transition:opacity .6s ease}
+.bd.off{opacity:0}
+.t{font:16px var(--body);fill:var(--ink)}
+.tm{font:14px var(--body);fill:var(--muted)}
+.tb{font:600 17px var(--display);fill:var(--ink)}
+.th{font:700 19px var(--display);fill:var(--accent)}
+.ax{stroke:var(--ink);stroke-width:2;fill:none}
+.br{fill:none;stroke:var(--ink);stroke-width:2.2}
+.mid{text-anchor:middle}
+@media(max-width:520px){body{font-size:16px}.cap{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.bar{transform-box:fill-box;transform-origin:center bottom;transition:transform 1.2s ease}
+.ghost{fill:none;stroke:#7d8fa3;stroke-width:1.6;stroke-dasharray:4 3}
+.bN{fill:#4a44b5}.bH{fill:#8fb3d9}.bA{fill:#1d7a46}.bO{fill:#a0521c}.bD{fill:#e3c9a8}
+.gas{transition:fill-opacity 1.4s ease}
+.jig{animation:jig 1.6s ease-in-out infinite alternate}
+@keyframes jig{from{transform:translate(0,0)}to{transform:translate(3px,-4px)}}
+.dirR,.dirL,.dirN{font:700 20px var(--display)}
+.dirR{fill:#1d7a46}.dirL{fill:#b3261e}.dirN{fill:#4a44b5}
+.cv{fill:none;stroke-width:3}
+.tgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px;align-items:start}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.opts{display:flex;flex-wrap:wrap;gap:6px}</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Dynamic equilibrium and Le Chatelier's principle</h1><p class="meta">IAL Chemistry · Unit 2 · Equilibria</p><p class="lede"><b>In this animation</b>: see what dynamic equilibrium means, and predict how the position of equilibrium moves when you change concentration, pressure or temperature, or add a catalyst.</p></header>
+<section class="sheet" aria-labelledby="hw"><h2 id="hw"><span class="step">Watch it</span>How an equilibrium responds to change</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step, Space to play or pause."><svg id="sv" viewBox="0 0 640 350" role="img" aria-label="Animated flask, rate graphs, bar charts of amounts and tubes of nitrogen dioxide">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker></defs>
+<g id="root"></g>
+</svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player" id="player"></div>
+</section>
+<section class="sheet" aria-labelledby="ht"><h2 id="ht"><span class="step">Try it</span>Make a change and predict the shift</h2>
+<div class="tgrid"><div class="side" style="display:flex;flex-direction:column;gap:10px">
+<div><span class="lbl">1. Choose a system</span><div class="opts" id="ySys"></div></div>
+<div><span class="lbl">2. Choose a change</span><div class="opts" id="yChg"></div></div>
+<div><span class="lbl">3. Predict: the position of equilibrium moves…</span><div class="opts" id="yPred"></div></div>
+</div>
+<svg class="tsvg" id="ysv" viewBox="0 0 400 300" role="img" aria-label="Result of the change"></svg></div>
+<div class="say" id="ySay" aria-live="polite">Choose a system and a change, then make your prediction.</div>
+</section>
+<section class="sheet" aria-labelledby="hc"><h2 id="hc"><span class="step">Check it</span>Four quick questions</h2><div id="quiz"></div></section>
+<aside class="tip" aria-labelledby="hx"><h3 id="hx">Exam tip</h3><ul>
+<li>Always give the <b>direction</b> and the <b>reason</b>: "the position moves to the right, the side with <b>fewer moles of gas</b>, to <b>reduce the pressure</b>".</li>
+<li>For temperature, first say whether the <b>forward reaction is exothermic or endothermic</b>. Raising the temperature moves the position in the <b>endothermic</b> direction.</li>
+<li>A catalyst <b>does not change the position</b> of equilibrium. It speeds up the forward and backward reactions <b>equally</b>, so equilibrium is reached faster.</li>
+<li>At equilibrium the concentrations are <b>constant</b>, not equal. Do not write "the reaction has stopped".</li>
+</ul></aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Methanol is made from carbon monoxide and hydrogen.<br>CO(g) + 2H<sub>2<\/sub>(g) ⇌ CH<sub>3<\/sub>OH(g) ΔH = −91 kJ mol<sup>−1<\/sup><br>Which change increases the equilibrium yield of methanol?", "m": 1, "o": ["increasing the temperature", "adding a catalyst", "increasing the pressure", "decreasing the pressure"], "a": 2, "why": "C is correct because there are 3 mol of gas on the left and 1 mol on the right, so higher pressure moves the position to the right."}, {"t": "mc", "q": "Yellow chromate(VI) ions are in equilibrium with orange dichromate(VI) ions.<br>2CrO<sub>4<\/sub><sup>2−<\/sup>(aq) + 2H<sup>+<\/sup>(aq) ⇌ Cr<sub>2<\/sub>O<sub>7<\/sub><sup>2−<\/sup>(aq) + H<sub>2<\/sub>O(l)<br>Dilute sulfuric acid is added. The solution becomes", "m": 1, "o": ["more orange, because the position moves to the right.", "more yellow, because the position moves to the left.", "more orange, because the position moves to the left.", "more yellow, because the position moves to the right."], "a": 0, "why": "A is correct because adding H<sup>+<\/sup> ions moves the position to the right to remove them, forming more orange Cr<sub>2<\/sub>O<sub>7<\/sub><sup>2−<\/sup>."}, {"t": "w", "q": "In the Contact process, sulfur dioxide reacts with oxygen.<br>2SO<sub>2<\/sub>(g) + O<sub>2<\/sub>(g) ⇌ 2SO<sub>3<\/sub>(g) ΔH = −196 kJ mol<sup>−1<\/sup><br>Explain the effect of increasing the temperature on the equilibrium yield of sulfur trioxide.", "m": 3, "ms": ["the forward reaction is exothermic (1)", "the position of equilibrium moves to the left / in the endothermic direction, to oppose the increase in temperature (1)", "so the yield of SO<sub>3<\/sub> decreases (1)"], "note": "Allow 'to absorb the extra heat energy' for 'to oppose the increase'. Third mark can be awarded from a correct direction of shift."}, {"t": "w", "q": "The Contact process uses a temperature of about 450 °C, although a lower temperature would give a higher equilibrium yield of SO<sub>3<\/sub>.<br>Suggest why 450 °C is used.", "m": 2, "ms": ["at a lower temperature the rate of reaction would be too slow (1)", "450 °C is a compromise that gives an acceptable rate with a reasonable yield (1)"], "note": "Allow 'equilibrium reached too slowly at low temperature'. Do not award answers about the catalyst being used up."}, {"t": "w", "q": "Hydrogen is made by steam reforming of methane.<br>CH<sub>4<\/sub>(g) + H<sub>2<\/sub>O(g) ⇌ CO(g) + 3H<sub>2<\/sub>(g)<br>Deduce the effect of increasing the pressure on the equilibrium yield of hydrogen. Give a reason.", "m": 3, "ms": ["2 mol of gas on the left and 4 mol of gas on the right (1)", "the position of equilibrium moves to the left (1)", "to the side with fewer moles of gas, to reduce the pressure, so the yield of H<sub>2<\/sub> decreases (1)"], "note": "Allow 'molecules' for 'moles of gas'. Do not award the third mark for a shift to the right."}, {"t": "w", "q": "In methanol production, CO(g) + 2H<sub>2<\/sub>(g) ⇌ CH<sub>3<\/sub>OH(g), the methanol is condensed and removed from the reaction mixture.<br>Explain how this increases the yield of methanol.", "m": 2, "ms": ["removing CH<sub>3<\/sub>OH lowers its concentration, so the position of equilibrium moves to the right to oppose the change (1)", "so more CO and H<sub>2<\/sub> are converted into methanol (1)"], "note": "Allow 'to replace the methanol removed'. Do not award 'the equilibrium constant increases'."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer class="key"><b>Key fact:</b> if a system at equilibrium is changed, the position of equilibrium moves to oppose the change; only a change in temperature changes the value of the equilibrium constant.</footer>
+</div>
+<script>
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+function E(tag,a,p){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+/* label with numeric subscripts: CH3 -> CH<sub>3 */
+function L(s){return s.replace(/(\d+)/g,'<tspan class="sb" dy="5">$1</tspan><tspan dy="-5">​</tspan>')}
+/* lone pair at angle a (deg, 0 = up), distance d */
+function lp(a,d,id){d=d||16;return `<g class="lp${id?' s':''}"${id?` id="${id}"`:''} transform="rotate(${a})"><circle cx="-3.4" cy="-${d}" r="2.1"/><circle cx="3.4" cy="-${d}" r="2.1"/></g>`}
+function ch(t,x,y,id,c){return `<text class="${c||'chg'}${id?' s':''}"${id?` id="${id}"`:''} x="${x}" y="${y}">${t}</text>`}
+/* curly arrow: pts=[x1,y1,c1x,c1y,c2x,c2y,x2,y2] */
+function arrow(parent,id,pts,o){o=o||{};const g=E('g',{id,class:'s ca'},typeof parent==='string'?$(parent):parent);
+ if(o.dl)g.style.setProperty('--dl',o.dl+'s');
+ const [x1,y1,a,b,c,d,x2,y2]=pts;const p=E('path',{d:`M${x1} ${y1}C${a} ${b} ${c} ${d} ${x2} ${y2}`},g);
+ let dx=x2-c,dy=y2-d;const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;const nx=-dy,ny=dx,h=12,w=6,bx=x2-dx*h,by=y2-dy*h;
+ const pts2=o.half?`${x2},${y2} ${bx+nx*w},${by+ny*w} ${bx},${by}`:`${x2},${y2} ${bx+nx*w},${by+ny*w} ${bx-nx*w},${by-ny*w}`;
+ E('polygon',{points:pts2,class:'hd'},g);const len=p.getTotalLength()+2;p.style.strokeDasharray=len;p.style.setProperty('--L',len);return g}
+/* ---------- molecule engine ---------- */
+const MOL={};
+function defMol(name,parent,atoms,bonds){const P=typeof parent==='string'?$(parent):parent;const m={atoms:{},bonds:{},raf:0};
+ const gb=E('g',{},P),ga=E('g',{},P);
+ for(const id in bonds){const [a,b]=bonds[id];const g=E('g',{class:'bd off'},gb);m.bonds[id]={a,b,g,l:[0,1,2].map(()=>E('line',{},g)),w:E('polygon',{class:'wedge'},g),t:''}}
+ for(const id in atoms){const [lab,r,dec,al]=atoms[id];const g=E('g',{class:'atom hid'},ga);
+  if(lab){const t=E('text',{class:'at'},g);t.innerHTML=L(lab);if(al==='l'){t.setAttribute('x',-7.5)}else if(al==='r'){t.setAttribute('x',7.5);t.setAttribute('text-anchor','end')}else t.setAttribute('text-anchor','middle')}
+  if(dec)g.insertAdjacentHTML('beforeend',dec);m.atoms[id]={g,r:r==null?11:r,x:0,y:0}}
+ MOL[name]=m;return m}
+function drawBond(m,b){const A=m.atoms[b.a],B=m.atoms[b.b];let dx=B.x-A.x,dy=B.y-A.y;const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;
+ const x1=A.x+dx*A.r,y1=A.y+dy*A.r,x2=B.x-dx*B.r,y2=B.y-dy*B.r,nx=-dy,ny=dx,t=b.t;
+ const offs=t==='2'?[-3.6,3.6]:t==='3'?[-5.5,0,5.5]:[0];
+ b.l.forEach((l,i)=>{if(i<offs.length&&t!=='w'){const o=offs[i];l.setAttribute('x1',x1+nx*o);l.setAttribute('y1',y1+ny*o);l.setAttribute('x2',x2+nx*o);l.setAttribute('y2',y2+ny*o);l.style.display=''}else l.style.display='none'});
+ const L0=b.l[0];L0.style.strokeDasharray=t==='p'?'5 5':t==='h'?'2.2 3.2':'';L0.style.strokeWidth=t==='h'?'6':t==='p'?'2':'';
+ if(t==='w'){b.w.setAttribute('points',`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`);b.w.style.display=''}else b.w.style.display='none'}
+function molGo(name,st,instant){const m=MOL[name];cancelAnimationFrame(m.raf);const hid=new Set((st.h||'').split(' '));
+ const from={},to={};for(const id in m.atoms){const a=m.atoms[id],p=st.p[id];from[id]=[a.x,a.y];to[id]=p?p:[a.x,a.y];a.g.classList.toggle('hid',!p||hid.has(id))}
+ for(const id in m.bonds){const b=m.bonds[id],t=(st.b&&st.b[id])||'';b.g.classList.toggle('off',!t);if(t)b.t=t;}
+ const set=k=>{for(const id in m.atoms){const a=m.atoms[id];a.x=from[id][0]+(to[id][0]-from[id][0])*k;a.y=from[id][1]+(to[id][1]-from[id][1])*k;a.g.setAttribute('transform',`translate(${a.x.toFixed(1)},${a.y.toFixed(1)})`)}for(const id in m.bonds)drawBond(m,m.bonds[id])};
+ if(instant||RM||!m.drawn){m.drawn=1;set(1);return}
+ const t0=performance.now(),D=1100;const f=now=>{let k=Math.min(1,(now-t0)/D);k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;set(k);if(k<1)m.raf=requestAnimationFrame(f)};m.raf=requestAnimationFrame(f)}
+/* ---------- player ---------- */
+function Player(steps,opt){opt=opt||{};const P=$('#player'),cap=$('#cap'),stage=$('#stage');let i=0,playing=false,timer=0,slow=false;const n=steps.length;
+ P.innerHTML=`<div class="pbtns"><button class="btn ghost" type="button" data-a="re">Restart</button><button class="btn ghost" type="button" data-a="bk">Back</button><button class="btn" type="button" data-a="pl" aria-pressed="false">Play</button><button class="btn ghost" type="button" data-a="nx">Next</button></div>
+ <div class="pind"><span id="sind" aria-live="polite"></span><span class="dots" id="dots"></span></div>
+ <div class="pspeed"><span class="lbl">Speed</span><button class="mini" type="button" data-a="slow" aria-pressed="false">Slow</button><button class="mini" type="button" data-a="norm" aria-pressed="true">Normal</button></div>`;
+ const dots=$('#dots');steps.forEach((s,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Go to step '+(k+1));b.onclick=()=>{go(k)};dots.appendChild(b)});
+ const pl=$('[data-a=pl]',P);
+ function setPlay(v){playing=v;pl.textContent=v?'Pause':'Play';pl.setAttribute('aria-pressed',v);sched()}
+ function sched(){clearTimeout(timer);if(!playing)return;if(i>=n-1){timer=setTimeout(()=>setPlay(false),100);return}timer=setTimeout(()=>go(i+1,false,true),(slow?8500:5200)*(steps[i].t||1))}
+ function go(k,instant,auto){i=Math.max(0,Math.min(n-1,k));const st=steps[i];const on=new Set(st.on||[]);
+  $$('#stage .s').forEach(e=>e.classList.toggle('vis',on.has(e.id)));
+  if(st.mol)for(const m in st.mol)molGo(m,st.mol[m],instant);
+  if(st.fn)st.fn(instant);if(opt.onStep)opt.onStep(i,instant);
+  cap.innerHTML=`<span class="sn">Step ${i+1}</span>`+st.cap;$('#sind').textContent=`Step ${i+1} of ${n}`;
+  $$('button',dots).forEach((b,j)=>{if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('done',j<i)});
+  $('[data-a=bk]',P).disabled=i===0;$('[data-a=nx]',P).disabled=i===n-1;if(!auto&&playing)sched();else if(auto)sched()}
+ P.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.a;
+  if(a==='re'){go(0,true);}else if(a==='bk')go(i-1);else if(a==='nx')go(i+1);
+  else if(a==='pl'){if(!playing&&i>=n-1)go(0,true);setPlay(!playing)}
+  else if(a==='slow'||a==='norm'){slow=a==='slow';$('[data-a=slow]',P).setAttribute('aria-pressed',slow);$('[data-a=norm]',P).setAttribute('aria-pressed',!slow);sched()}});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '||e.key==='Enter'){pl.click();e.preventDefault()}});
+ go(0,true);return{go,get i(){return i}}}
+/* ---------- quiz ---------- */
+function Quiz(qs){const R=$('#quiz');let h='<ol class="qs">';qs.forEach((q,k)=>{h+=`<li><div>${q.q}</div><div class="mcq" role="radiogroup">`+q.o.map((o,j)=>`<label><input type="radio" name="q${k}" value="${j}"><span>${o}</span></label>`).join('')+`</div><p class="why" id="why${k}" hidden></p></li>`});
+ h+='</ol><div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="qscore" aria-live="polite"></span></div>';R.innerHTML=h;
+ $('#chk').onclick=()=>{let sc=0;qs.forEach((q,k)=>{const c=$(`input[name="q${k}"]:checked`);const ok=c&&+c.value===q.a;if(ok)sc++;
+  $$(`input[name="q${k}"]`).forEach(i=>{const l=i.closest('label');l.classList.remove('ok','wrong');if(+i.value===q.a&&c)l.classList.add('ok');else if(i===c)l.classList.add('wrong')});
+  const w=$('#why'+k);w.hidden=false;w.className='why '+(ok?'good':'bad');w.innerHTML=(c?(ok?'<b>Correct.</b> ':'<b>Not quite.</b> ')+q.w:'<b>Choose an answer first.</b>')});
+  const s=$('#qscore');s.textContent=`Score: ${sc} / ${qs.length}`;s.className='score '+(sc>=3?'good':'bad')}}
+/* formula text for SVG: N_2, cm^3, kJ mol^−1 */
+const f=s=>s.replace(/_\{([^}]*)\}|_(\d+)/g,(m,a,b)=>'<tspan dy="5" font-size="75%">'+(a||b)+'</tspan><tspan dy="-5">​</tspan>').replace(/\^([−+\w]+)/g,'<tspan dy="-7" font-size="70%">$1</tspan><tspan dy="7">​</tspan>');
+const T=(x,y,s,c,extra)=>`<text x="${x}" y="${y}" class="${c||'t'}" ${extra||''}>${f(s)}</text>`;
+
+const root=$('#root');
+const NO2c='#a0521c';
+function flask(x,y,id){return `<g transform="translate(${x} ${y})"><rect x="-14" y="-122" width="28" height="18" rx="3" fill="#6b7684"/><path d="M-10 -104V-60A60 60 0 1 0 10 -60V-104" fill="#fff" stroke="#7d8fa3" stroke-width="3"/>
+<path id="${id}" class="gas" d="M-10 -104V-60A60 60 0 1 0 10 -60V-104Z" fill="${NO2c}" fill-opacity=".45"/></g>`}
+function mols(cx,cy){let s='';const P=[[-30,-10],[20,-30],[0,20],[35,15],[-25,35],[10,-5],[-40,10],[30,40]];P.forEach((p,k)=>{const x=cx+p[0],y=cy+p[1];s+=k%3===2?`<g class="jig" style="animation-delay:-${k*.3}s"><circle cx="${x}" cy="${y}" r="6" fill="#efe3d3" stroke="#a0521c"/><circle cx="${x+11}" cy="${y}" r="6" fill="#efe3d3" stroke="#a0521c"/></g>`:`<g class="jig" style="animation-delay:-${k*.3}s"><circle cx="${x}" cy="${y}" r="6" fill="${NO2c}"/></g>`});return s}
+function curve(x0,x1,ya,yb,k){let d='';for(let i=0;i<=60;i++){const t=i/60,x=x0+(x1-x0)*t,y=yb+(ya-yb)*Math.exp(-k*t);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}return d}
+/* bars */
+const BU=20,BB=300;
+function bars(id,x0,names,cls){let s=`<g id="${id}">`;names.forEach((n,k)=>{const x=x0+k*78;s+=`<rect class="ghost" id="${id}g${k}" x="${x}" width="50" y="${BB}" height="0"/><rect class="bar ${cls[k]}" id="${id}b${k}" x="${x}" y="${BB-10*BU}" width="50" height="${10*BU}" style="transform:scaleY(0)"/>`+T(x+25,BB+22,n,'tb mid')});return s+`<line x1="${x0-12}" y1="${BB}" x2="${x0+3*78-14}" y2="${BB}" class="ax"/></g>`}
+function setBars(id,v,g){v.forEach((a,k)=>{$(`#${id}b${k}`).style.transform=`scaleY(${a/10})`;const gh=$(`#${id}g${k}`);if(g){gh.setAttribute('y',BB-g[k]*BU);gh.setAttribute('height',g[k]*BU);gh.style.display=''}else gh.style.display='none'})}
+const banner=(s)=>T(320,26,s,'tb mid');
+root.innerHTML=`
+<g id="scEq" class="s">${banner('2NO_2(g) ⇌ N_2O_4(g)')}
+${flask(120,300,'fl1')}${mols(120,240)}
+${T(120,326,'closed flask: nothing gets in or out','tm mid')}
+${T(40,62,'brown','tm')}${T(150,62,'colourless','tm')}
+<g id="eqBal" class="s">${T(120,92,'forward rate = backward rate','t mid','style="font-weight:700"')}</g>
+<g id="gR" class="s"><path class="ax" d="M300 44V160H620"/>${T(286,102,'Rate','tm','text-anchor="end"')}${T(460,178,'Time / s','tm mid')}
+<path class="cv" stroke="#4a44b5" d="${curve(300,600,58,108,5)}"/><path class="cv" stroke="#d17a00" d="${curve(300,600,158,108,5)}"/>
+${T(345,70,'forward','tm','style="fill:#4a44b5"')}${T(345,150,'backward','tm','style="fill:#d17a00"')}
+<line x1="470" y1="44" x2="470" y2="160" class="gl" stroke="#9aa6b2" stroke-dasharray="4 4"/>${T(476,56,'equilibrium reached','tm')}</g>
+<g id="gC" class="s"><path class="ax" d="M300 200V316H620"/>${T(286,244,'Conc.','tm','text-anchor="end"')}${T(286,262,'/ mol dm^−3','tm','text-anchor="end"')}${T(460,336,'Time / s','tm mid')}
+<path class="cv" stroke="${NO2c}" d="${curve(300,600,206,262,5)}"/><path class="cv" stroke="#7d8fa3" d="${curve(300,600,314,284,5)}"/>
+${T(540,256,'[NO_2]','tm')}${T(540,302,'[N_2O_4]','tm')}<line x1="470" y1="200" x2="470" y2="316" stroke="#9aa6b2" stroke-dasharray="4 4"/></g>
+</g>
+<g id="scH" class="s">${banner('N_2(g) + 3H_2(g) ⇌ 2NH_3(g)\u00a0\u00a0\u00a0ΔH = −92 kJ mol^−1')}
+${T(26,200,'Amount / mol','tm mid','transform="rotate(-90 26 200)"')}
+${bars('hb',70,['N_2','H_2','NH_3'],['bN','bH','bA'])}
+<g id="pC" class="s">${T(330,80,'Add more N_2','th')}${T(330,112,'The system opposes the change.')}${T(330,134,'It uses up some of the extra N_2')}${T(330,156,'(and some H_2) to make more NH_3.')}
+${T(330,206,'Position moves to the RIGHT →','dirR')}${T(330,238,'Dashed outlines show the amounts','tm')}${T(330,256,'before the change.','tm')}</g>
+<g id="pP" class="s">${T(330,80,'Increase the pressure','th')}
+<rect x="330" y="98" width="130" height="58" rx="8" fill="#e7e6fb"/>${T(395,122,'N_2 + 3H_2','tb mid')}${T(395,145,'4 mol of gas','tm mid')}
+<rect x="490" y="98" width="130" height="58" rx="8" fill="#e3f3e9"/>${T(555,122,'2NH_3','tb mid')}${T(555,145,'2 mol of gas','tm mid')}
+${T(475,132,'⇌','tb mid')}${T(330,188,'The position moves to the side with')}${T(330,210,'fewer gas molecules, to reduce the pressure.')}
+${T(330,250,'Position moves to the RIGHT →','dirR')}</g>
+<g id="pT" class="s">${T(330,80,'Increase the temperature','th')}${T(330,112,'The forward reaction is exothermic.')}${T(330,134,'The position moves in the endothermic')}${T(330,156,'direction, to take in the extra heat.')}
+${T(330,206,'← Position moves to the LEFT','dirL')}${T(330,238,'Less NH_3 at equilibrium (lower yield).','t')}</g>
+<g id="pK" class="s">${T(330,80,'Add a catalyst','th')}${T(330,108,'Forward and backward rates increase')}${T(330,128,'by the same amount.')}
+<path class="ax" d="M340 150V282H610"/>${T(475,300,'Time / s','tm mid')}${T(332,216,'[NH_3]','tm','text-anchor="end"')}
+<path class="cv" stroke="#1d7a46" stroke-dasharray="7 5" d="${curve(340,600,280,180,12)}"/><path class="cv" stroke="#1d7a46" d="${curve(340,600,280,180,4)}"/>
+${T(392,172,'with catalyst','tm','style="fill:#1d7a46"')}${T(520,230,'without','tm','style="fill:#1d7a46"')}
+${T(330,330,'No shift: same position, reached faster','dirN')}</g>
+</g>
+<g id="scN" class="s">${banner('2NO_2(g) ⇌ N_2O_4(g)\u00a0\u00a0\u00a0ΔH = −57 kJ mol^−1')}${T(160,52,'brown','tm mid')}${T(470,52,'colourless','tm mid')}
+<g id="nT" class="s">
+<rect x="40" y="150" width="150" height="140" rx="8" fill="#ffd9c7" stroke="#d98060" stroke-width="2"/>${T(115,312,'hot water, 80 °C','tm mid')}
+<rect x="245" y="150" width="150" height="140" rx="8" fill="#f4f6f8" stroke="#9aa6b2" stroke-width="2"/>${T(320,312,'room temperature','tm mid')}
+<rect x="450" y="150" width="150" height="140" rx="8" fill="#dcefff" stroke="#6aa5d6" stroke-width="2"/>${T(525,312,'ice water, 0 °C','tm mid')}
+${[[115,.85],[320,.45],[525,.12]].map(([x,o])=>`<path d="M${x-14} 90V250A14 14 0 0 0 ${x+14} 250V90" fill="#fff" stroke="#7d8fa3" stroke-width="2.5"/><path class="gas" d="M${x-14} 96V250A14 14 0 0 0 ${x+14} 250V96Z" fill="${NO2c}" fill-opacity="${o}"/><rect x="${x-17}" y="80" width="34" height="14" rx="3" fill="#6b7684"/>`).join('')}
+${T(115,340,'darker: moves LEFT','dirL','text-anchor="middle" style="font-size:15px"')}${T(525,340,'paler: moves RIGHT','dirR','text-anchor="middle" style="font-size:15px"')}</g>
+<g id="nP" class="s">
+${[[80,200,.45,'before'],[300,130,.8,'just after pushing'],[520,130,.62,'a few seconds later']].map(([x,w,o,l],k)=>`<g class="s" id="sy${k}" style="transition-delay:${k*1.3}s"><rect x="${x-90}" y="150" width="200" height="56" rx="6" fill="#fff" stroke="#7d8fa3" stroke-width="2.5"/>
+<rect class="gas" x="${x-88}" y="152" width="${w}" height="52" fill="${NO2c}" fill-opacity="${o}"/><rect x="${x-90+w}" y="148" width="8" height="60" fill="#6b7684"/><rect x="${x-90+w+8}" y="174" width="${200-w+12}" height="8" fill="#6b7684"/>
+${T(x+10,236,l,'tm mid')}</g>`).join('')}
+${T(320,290,'Darker at once (gas squashed: higher concentration),','t mid')}${T(320,312,'then a little paler: the position moves RIGHT, to fewer moles.','t mid')}</g>
+</g>`;
+const base=[3,5,4];let bT=0;const sb=(v,g)=>{clearTimeout(bT);setBars('hb',v,g)};
+const steps=[
+{on:['scEq'],cap:'In a <b>closed system</b> a reversible reaction goes both ways at once. Brown NO<sub>2</sub> molecules join to make colourless N<sub>2</sub>O<sub>4</sub>, and N<sub>2</sub>O<sub>4</sub> splits back into NO<sub>2</sub>.'},
+{on:['scEq','eqBal','gR','gC'],t:1.2,cap:'The forward rate falls and the backward rate rises until they are <b>equal</b>. This is <b>dynamic equilibrium</b>: both reactions continue, so the concentrations stay <b>constant</b> (but not equal).'},
+{on:['scH','pC'],t:1.2,fn:i=>{sb([6,5,4],base);bT=setTimeout(()=>setBars('hb',[5.3,2.9,5.4],base),i||RM?0:1400)},cap:'<b>Le Chatelier\'s principle</b>: the position of equilibrium moves to <b>oppose</b> a change. Add N<sub>2</sub> and the position moves <b>right</b> to use it up.'},
+{on:['scH','pP'],fn:()=>sb([2.5,3.5,5],base),cap:'Pressure: count the <b>moles of gas</b>. 4 mol on the left, 2 mol on the right. Higher pressure moves the position to the side with <b>fewer gas molecules</b>: the right.'},
+{on:['scH','pT'],fn:()=>sb([3.5,6.5,3],base),cap:'Temperature: the forward reaction is <b>exothermic</b> (ΔH = −92 kJ mol<sup>−1</sup>). Raising the temperature moves the position in the <b>endothermic direction</b>: left.'},
+{on:['scH','pK'],fn:()=>sb(base,base),cap:'A <b>catalyst</b> speeds up the forward and backward reactions <b>equally</b>. The position does <b>not</b> move, but equilibrium is reached <b>faster</b>.'},
+{on:['scN','nT'],t:1.2,cap:'2NO<sub>2</sub> ⇌ N<sub>2</sub>O<sub>4</sub> is exothermic in the forward direction. <b>Heating</b> moves it <b>left</b>: more brown NO<sub>2</sub>, <b>darker</b>. <b>Cooling</b> moves it <b>right</b>: <b>paler</b>.'},
+{on:['scN','nP','sy0','sy1','sy2'],t:1.3,cap:'Push in a syringe of the gas mixture. It goes <b>darker</b> at once, then slowly a little <b>paler</b>: the position moves <b>right</b>, to the side with <b>fewer moles of gas</b> (2 mol → 1 mol).'}];
+Player(steps);
+/* ---- Try it ---- */
+const SYS={h:{n:'N₂ + 3H₂ ⇌ 2NH₃ (ΔH −92)',eq:'N_2 + 3H_2 ⇌ 2NH_3',names:['N_2','H_2','NH_3'],cls:['bN','bH','bA'],v:[3,5,4],r:2,rm:'4',pm:'2',add:'N₂',rem:'NH₃'},
+ n:{n:'2NO₂ ⇌ N₂O₄ (ΔH −57)',eq:'2NO_2 ⇌ N_2O_4',names:['NO_2','N_2O_4'],cls:['bO','bD'],v:[5,4],r:1,rm:'2',pm:'1',add:'NO₂',rem:'N₂O₄'}};
+const CH=[['add','Add more '],['rem','Remove some '],['pu','Increase the pressure'],['pd','Decrease the pressure'],['tu','Increase the temperature'],['td','Decrease the temperature'],['cat','Add a catalyst']];
+let ys='h',yc=null;
+function ybtns(){const s=SYS[ys];$('#ySys').innerHTML=Object.keys(SYS).map(k=>`<button class="mini" type="button" data-s="${k}" aria-pressed="${k===ys}">${SYS[k].n}</button>`).join('');
+ $('#yChg').innerHTML=CH.map(([k,l])=>`<button class="mini" type="button" data-c="${k}" aria-pressed="${k===yc}">${l}${k==='add'?s.add:k==='rem'?s.rem:''}</button>`).join('');
+ $('#yPred').innerHTML=[['L','← to the left'],['N','does not move'],['R','to the right →']].map(([k,l])=>`<button class="mini" type="button" data-p="${k}">${l}</button>`).join('')}
+function answer(c){const s=SYS[ys];const d={add:'R',rem:'R',pu:'R',pd:'L',tu:'L',td:'R',cat:'N'}[c];
+ const why={add:`The system uses up some of the extra ${s.add}, so the position moves right.`,rem:`The system makes more ${s.rem} to replace what was removed, so the position moves right.`,
+ pu:`There are ${s.rm} mol of gas on the left and ${s.pm} on the right. Higher pressure moves the position to the side with fewer gas molecules: the right.`,pd:`Lower pressure moves the position to the side with more gas molecules (${s.rm} mol on the left): the left.`,
+ tu:'The forward reaction is exothermic. Raising the temperature moves the position in the endothermic direction: the left.',td:'The forward reaction is exothermic. Lowering the temperature moves the position in the exothermic direction: the right.',
+ cat:'A catalyst speeds up the forward and backward reactions equally. The position does not move; equilibrium is just reached faster.'}[c];
+ let col='';if(ys==='n')col={add:' The colour gets darker at first, then a little paler.',rem:' The mixture becomes paler.',pu:' The colour goes darker at once (gas squashed), then a little paler.',pd:' The colour goes paler at once, then a little darker.',tu:' The mixture goes darker brown.',td:' The mixture goes paler.',cat:' The colour does not change.'}[c];
+ return{d,why:why+col}}
+function ydraw(res){const s=SYS[ys],sv=$('#ysv');const v0=s.v.slice();let v=v0.slice();const n=s.names.length;
+ if(res){const k=res.d==='R'?1:res.d==='L'?-1:0;v=v0.map((a,i)=>Math.max(.6,a*(1+(i<s.r?-.28:.4)*k)));if(yc==='add')v[0]=v0[0]*1.35;if(yc==='rem')v[n-1]=v0[n-1]*.8}
+ let h=T(200,24,s.eq,'tb mid');const x0=n===3?40:60,gap=n===3?62:80;
+ s.names.forEach((nm,i)=>{const x=x0+i*gap;h+=`<rect class="ghost" x="${x}" width="44" y="${260-v0[i]*20}" height="${v0[i]*20}"/><rect class="bar ${s.cls[i]}" x="${x}" width="44" y="${260-v[i]*20}" height="${v[i]*20}"/>`+T(x+22,284,nm,'tm mid')});
+ h+=`<line x1="${x0-8}" y1="260" x2="${x0+n*gap-10}" y2="260" class="ax"/>`;
+ if(ys==='n'){const o=res?{add:.6,rem:.35,pu:.62,pd:.33,tu:.78,td:.2,cat:.45}[yc]:.45;h+=`<path d="M306 60V220A20 20 0 0 0 346 220V60" fill="#fff" stroke="#7d8fa3" stroke-width="2.5"/><path d="M306 66V220A20 20 0 0 0 346 220V66Z" fill="${NO2c}" fill-opacity="${o}"/><rect x="302" y="52" width="48" height="14" rx="3" fill="#6b7684"/>`+T(326,270,'colour','tm mid')}
+ if(res)h+=T(ys==='n'?140:290,60,res.d==='R'?'RIGHT →':res.d==='L'?'← LEFT':'NO SHIFT',res.d==='R'?'dirR':res.d==='L'?'dirL':'dirN','text-anchor="middle"');
+ h+=T(ys==='n'?140:290,ys==='n'?80:84,'dashed = before','tm mid');sv.innerHTML=h}
+document.querySelector('#ySys').closest('.tgrid').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.s){ys=b.dataset.s;yc=null;ybtns();ydraw();$('#ySay').className='say';$('#ySay').textContent='Now choose a change.'}
+ else if(b.dataset.c){yc=b.dataset.c;ybtns();ydraw();$('#ySay').className='say';$('#ySay').textContent='Now predict which way the position moves.'}
+ else if(b.dataset.p){if(!yc){$('#ySay').className='say bad';$('#ySay').textContent='Choose a change first.';return}const r=answer(yc),ok=b.dataset.p===r.d;
+  $$('#yPred button').forEach(x=>x.classList.remove('ok','wrong'));b.classList.add(ok?'ok':'wrong');ydraw(r);
+  $('#ySay').className='say '+(ok?'good':'bad');$('#ySay').innerHTML=(ok?'<b>Correct.</b> ':'<b>Not this time.</b> ')+r.why}});
+ybtns();ydraw();
+Quiz([
+{q:'Which statement about a system at <b>dynamic equilibrium</b> is correct?',o:['The forward and backward reactions have stopped.','The rates of the forward and backward reactions are equal.','The concentrations of reactants and products are equal.'],a:1,w:'Both reactions continue at the same rate, so concentrations stay constant. They are not usually equal.'},
+{q:'2SO<sub>2</sub>(g) + O<sub>2</sub>(g) ⇌ 2SO<sub>3</sub>(g). The pressure is increased. The position of equilibrium moves',o:['to the right','to the left','does not move'],a:0,w:'3 mol of gas on the left, 2 mol on the right. Higher pressure favours the side with fewer gas moles.'},
+{q:'H<sub>2</sub>(g) + I<sub>2</sub>(g) ⇌ 2HI(g). The pressure is increased. The position of equilibrium',o:['moves to the right','moves to the left','does not move'],a:2,w:'There are 2 mol of gas on each side, so pressure has no effect on the position.'},
+{q:'N<sub>2</sub>O<sub>4</sub>(g) ⇌ 2NO<sub>2</sub>(g), ΔH = +57 kJ mol<sup>−1</sup>. The mixture is heated. It becomes',o:['darker, because the position moves right','paler, because the position moves left','darker, because the position moves left'],a:0,w:'The forward reaction is endothermic. Heating moves the position in the endothermic direction (right), making more brown NO<sub>2</sub>.'}]);
+</script></body></html>

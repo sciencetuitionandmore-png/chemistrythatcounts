@@ -1,0 +1,276 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Carboxylic Acid Derivatives</title>
+<meta name="description" content="Interactive animation: Carboxylic Acid Derivatives. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-esters-and-acyl-chlorides.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--warn:#b25e00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;outline:none;position:relative}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.6em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:8px 12px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between}
+.pbtns,.spd{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.dots{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);background:#fff;cursor:pointer;padding:0;font:700 .7rem var(--display);color:var(--muted)}
+.dot[aria-current="step"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.dot.seen{border-color:var(--accent)}
+.ind{font:600 .9rem var(--display);color:var(--muted);white-space:nowrap}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.dot:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.84rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.say{min-height:2.8em;border-radius:10px;padding:8px 12px;background:#fff;border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.say.mid{border-color:var(--warn);background:#fff6e8}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.lbl{font-size:.88rem;color:var(--muted);font-weight:700}
+.panel{background:var(--paper);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:78ch}
+.mcq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:minmax(0,1fr)}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer;font-size:.95rem}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.ex{font-size:.9rem;margin-top:6px;padding:6px 10px;border-radius:8px}
+.ex.good{background:#eef8f2;color:#14532f}.ex.bad{background:#fdf1f0;color:#7d1a14}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:14px 18px}
+.tip h2{color:#7a4a00;font-size:1.1rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font:600 .92rem var(--display);color:var(--muted);text-align:center;padding:6px 0}
+.at{font-family:var(--body);fill:var(--ink);font-weight:700}
+.sm{font-family:var(--body);fill:var(--muted);font-size:14px}
+.lab{font-family:var(--display);fill:var(--ink);font-size:15px;font-weight:600}
+.dl{fill:var(--accent);font-family:var(--body);font-weight:700}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ca{stroke:#c0392b;stroke-width:2.4;fill:none;stroke-linecap:round}
+.dr{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gd{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.pick{cursor:pointer}
+@media(max-width:520px){body{font-size:16px}.dot{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@keyframes fume{0%{transform:translateY(0) scale(.6);opacity:.85}100%{transform:translateY(-70px) scale(1.4);opacity:0}}
+.fm{animation:fume 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Carboxylic acids, esters and acyl chlorides</h1><p class="meta">IAL Chemistry · Unit 4 · Further organic chemistry: carboxylic acids and derivatives</p><p><b>In this animation</b>: see how esters are made and hydrolysed, why acyl chlorides react so vigorously with water, alcohols, ammonia and amines, and how to name the products.</p></header>
+<section class="sheet" aria-labelledby="hw"><h2 id="hw"><span class="step">Watch it</span>Making and breaking esters and amides</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step, space to play or pause."><svg viewBox="0 0 800 400" role="img" aria-label="Carboxylic Acid Derivatives animation"><g id="defs"></g><g id="scene"></g></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><div class="pbtns"><button class="btn ghost" type="button" id="bRestart">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay" aria-pressed="false">Play</button><button class="btn ghost" type="button" id="bNext">Next</button></div>
+<span class="ind" id="ind" aria-live="polite"></span><div class="dots" id="dots"></div>
+<div class="spd" id="spd" role="group" aria-label="Speed"><span class="lbl">Speed</span><button type="button" class="mini" data-s="slow" aria-pressed="false">Slow</button><button type="button" class="mini" data-s="normal" aria-pressed="true">Normal</button></div></div>
+</section>
+<section class="sheet" aria-labelledby="ht"><h2 id="ht"><span class="step">Try it</span>Predict the product</h2>
+<p>Choose two reactants. Then pick the organic product and press <b>Check</b>.</p>
+<div class="row"><label class="lbl">Reactant 1 <select id="rA"></select></label><span aria-hidden="true">+</span><label class="lbl">Reactant 2 <select id="rB"></select></label></div>
+<div class="panel"><span class="lbl">Organic product(s):</span><div class="mcq" id="pOpts" role="radiogroup" aria-label="Possible products"></div><div class="toolbar"><button class="btn" type="button" id="pChk">Check</button></div></div>
+<div class="say" id="sayP" aria-live="polite">Choose your reactants.</div>
+</section>
+<section class="sheet" aria-labelledby="hc"><h2 id="hc"><span class="step">Check it</span>Four quick questions</h2>
+<ol class="qs" id="qs"></ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><button class="btn ghost" type="button" id="rstQs">Clear</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<aside class="tip" aria-labelledby="hx"><h2 id="hx">Exam tip</h2><ul><li>Name an ester <b>alcohol part first</b> (methyl, ethyl…) then <b>acid part</b> (…anoate). CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>3</sub> is <b>ethyl ethanoate</b>.</li>
+<li>Give conditions in full: esterification needs <b>concentrated</b> H<sub>2</sub>SO<sub>4</sub> and heat; acid hydrolysis needs <b>dilute</b> acid and heat under reflux.</li>
+<li>Alkaline hydrolysis goes to <b>completion</b> and gives the <b>carboxylate salt</b>, not the acid.</li>
+<li>The observation for acyl chlorides with water, alcohols or ammonia is <b>steamy (misty) fumes</b> of HCl. Do not just write "gas".</li></ul></aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Ethanoic acid is heated with propan-1-ol and a few drops of concentrated sulfuric acid. What is the name of the ester formed?", "m": 1, "o": ["ethyl propanoate", "propyl ethanoate", "propyl propanoate", "ethyl ethanoate"], "a": 1, "why": "B is correct because the alcohol part (propyl) is named first and the acid part (ethanoate) second: CH<sub>3<\/sub>COOCH<sub>2<\/sub>CH<sub>2<\/sub>CH<sub>3<\/sub>."}, {"t": "mc", "q": "Which compound reacts most vigorously with cold water?", "m": 1, "o": ["ethanoic acid", "ethyl ethanoate", "chloroethane", "ethanoyl chloride"], "a": 3, "why": "D is correct because the carbonyl carbon in an acyl chloride is bonded to both O and Cl, so it is very δ+ and is attacked rapidly by water."}, {"t": "w", "q": "Propanoyl chloride, CH<sub>3<\/sub>CH<sub>2<\/sub>COCl, reacts with ammonia. Give the structural formula and the name of the organic product.", "m": 2, "ms": ["CH<sub>3<\/sub>CH<sub>2<\/sub>CONH<sub>2<\/sub> (1)", "propanamide (1)"], "note": "Allow displayed or skeletal formula. Do not award propylamine or propanamine."}, {"t": "w", "q": "Ethanoyl chloride reacts with ethanol to form an ester.<br>(a) Give the equation for this reaction.<br>(b) State <b>one<\/b> advantage of using ethanoyl chloride rather than ethanoic acid to make this ester.", "m": 2, "ms": ["CH<sub>3<\/sub>COCl + CH<sub>3<\/sub>CH<sub>2<\/sub>OH → CH<sub>3<\/sub>COOCH<sub>2<\/sub>CH<sub>3<\/sub> + HCl (1)", "reaction is not reversible so higher yield / faster / no catalyst or heat needed (1)"], "note": "Allow C<sub>2<\/sub>H<sub>5<\/sub>OH and CH<sub>3<\/sub>COOC<sub>2<\/sub>H<sub>5<\/sub>. Do not award 'cheaper'."}, {"t": "w", "q": "Ethyl propanoate is heated under reflux with excess sodium hydroxide solution.<br>(a) Give the names of the <b>two<\/b> organic products.<br>(b) State how propanoic acid can be obtained from the reaction mixture.", "m": 3, "ms": ["sodium propanoate (1)", "ethanol (1)", "add excess dilute (strong) acid, e.g. HCl(aq) or H<sub>2<\/sub>SO<sub>4<\/sub>(aq) (1)"], "note": "Allow CH<sub>3<\/sub>CH<sub>2<\/sub>COONa / CH<sub>3<\/sub>CH<sub>2<\/sub>COO<sup>−<\/sup>. Do not award 'propanoic acid' for the first mark."}, {"t": "w", "q": "6.00 g of ethanoic acid is heated with excess ethanol and concentrated sulfuric acid. 5.28 g of ethyl ethanoate, CH<sub>3<\/sub>COOCH<sub>2<\/sub>CH<sub>3<\/sub>, is obtained.<br>Calculate the percentage yield. [<i>M<\/i><sub>r<\/sub>: CH<sub>3<\/sub>COOH = 60.0, CH<sub>3<\/sub>COOCH<sub>2<\/sub>CH<sub>3<\/sub> = 88.0]", "m": 3, "ms": ["mol ethanoic acid = 6.00 ÷ 60.0 = 0.100 mol (1)", "mol ethyl ethanoate = 5.28 ÷ 88.0 = 0.0600 mol (1)", "percentage yield = 0.0600 ÷ 0.100 × 100 = 60.0% (1)"], "note": "Allow mass method: theoretical mass 8.80 g, 5.28 ÷ 8.80 × 100 = 60.0%. Correct answer with no working scores 3. Examiner comment: the yield is low because esterification is reversible."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>  '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> · tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer>Acyl chlorides are the most reactive: the carbonyl carbon is bonded to two electronegative atoms, O and Cl.</footer>
+</div>
+<script>
+"use strict";
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+const esc=s=>String(s).replace(/&/g,'&').replace(/</g,'<').replace(/>/g,'>');
+/* formula text: digits after a letter or ) ] are subscripts; ^xyz is superscript (+ − δ digits) */
+function fm(s,fs){fs=fs||18;let out='',cur=0,buf='',bt=0;const off=[0,fs*.3,-fs*.4];
+ const flush=()=>{if(!buf)return;const dy=off[bt]-cur;cur=off[bt];out+='<tspan'+(dy?' dy="'+dy.toFixed(1)+'"':'')+(bt?' font-size="'+(fs*.68).toFixed(1)+'"':'')+'>'+esc(buf)+'</tspan>';buf=''};
+ for(let i=0;i<s.length;i++){const c=s[i];let t;
+  if(c==='`'){flush();bt=0;buf+=s[i+1]||'';i++;flush();continue}
+  if(c==='^'){flush();bt=2;i++;while(i<s.length&&/[+\-−δ0-9a-z•]/.test(s[i])){buf+=s[i];i++}i--;continue}
+  if(/\d/.test(c)&&(bt===1||/[A-Za-z\)\]]/.test(s[i-1]||'')))t=1;else t=0;
+  if(t!==bt){flush();bt=t}buf+=c}
+ flush();return out}
+function T(x,y,s,o){o=o||{};const fs=o.fs||20;return `<text x="${x}" y="${y}" class="${o.c||'at'}" font-size="${fs}" text-anchor="${o.a||'middle'}" dominant-baseline="central"${o.f?` fill="${o.f}" style="fill:${o.f}"`:''}${o.w?` font-weight="${o.w}"`:''}${o.x||''}>${fm(s,fs)}</text>`}
+function trim(x1,y1,x2,y2,a,b){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;return[x1+ux*a,y1+uy*a,x2-ux*b,y2-uy*b,ux,uy]}
+function bd(x1,y1,x2,y2,a,b,o){a=a==null?13:a;b=b==null?13:b;const[p,q,r,s]=trim(x1,y1,x2,y2,a,b);return `<line class="bd" x1="${p.toFixed(1)}" y1="${q.toFixed(1)}" x2="${r.toFixed(1)}" y2="${s.toFixed(1)}"${o||''}/>`}
+function db(x1,y1,x2,y2,a,b,g){g=g||3.6;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?13:a,b==null?13:b);const nx=-uy*g,ny=ux*g;return `<line class="bd" x1="${p+nx}" y1="${q+ny}" x2="${r+nx}" y2="${s+ny}"/><line class="bd" x1="${p-nx}" y1="${q-ny}" x2="${r-nx}" y2="${s-ny}"/>`}
+function tb(x1,y1,x2,y2,a,b){return db(x1,y1,x2,y2,a,b,5)+bd(x1,y1,x2,y2,a,b)}
+function lp(x,y,ang,r){r=r||15;const a=ang*Math.PI/180,cx=x+Math.cos(a)*r,cy=y+Math.sin(a)*r,px=-Math.sin(a)*4,py=Math.cos(a)*4;return `<circle class="lpd" cx="${(cx+px).toFixed(1)}" cy="${(cy+py).toFixed(1)}" r="2.3"/><circle class="lpd" cx="${(cx-px).toFixed(1)}" cy="${(cy-py).toFixed(1)}" r="2.3"/>`}
+function wedge(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);return `<polygon fill="#1c2736" points="${p},${q} ${r-uy*w},${s+ux*w} ${r+uy*w},${s-ux*w}"/>`}
+function hash(x1,y1,x2,y2,a,b,w){w=w||5;const[p,q,r,s,ux,uy]=trim(x1,y1,x2,y2,a==null?11:a,b==null?13:b);let o='';for(let i=0;i<=6;i++){const t=i/6,cx=p+(r-p)*t,cy=q+(s-q)*t,h=0.8+w*t;o+=`<line stroke="#1c2736" stroke-width="1.8" x1="${(cx-uy*h).toFixed(1)}" y1="${(cy+ux*h).toFixed(1)}" x2="${(cx+uy*h).toFixed(1)}" y2="${(cy-ux*h).toFixed(1)}"/>`}return o}
+function ca(d,dl,col){return `<path class="ca" d="${d}" marker-end="url(#ah)" data-d="${dl||0}"${col?` style="stroke:${col}"`:''}/>`}
+function rarr(x1,y,x2,o){return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#1c2736" stroke-width="2" marker-end="url(#rh)"/>`+(o?T((x1+x2)/2,y-16,o,{fs:14,c:'sm'}):'')}
+function eqm(x1,y,x2){return `<path d="M${x1} ${y-4}H${x2}l-9 -6" stroke="#1c2736" stroke-width="2" fill="none"/><path d="M${x2} ${y+4}H${x1}l9 6" stroke="#1c2736" stroke-width="2" fill="none"/>`}
+function brk(x1,y1,x2,y2,dag){return `<path d="M${x1+8} ${y1}h-8v${y2-y1}h8M${x2-8} ${y1}h8v${y2-y1}h-8" stroke="#1c2736" stroke-width="2" fill="none"/>`+(dag?T(x2+12,y1+6,'‡',{fs:20}):'')}
+function G(inner,o){return `<g${o||''}>${inner}</g>`}
+const IN=(d,inner)=>`<g class="in" data-d="${d}">${inner}</g>`;
+const MV=(dx,dy,inner,d)=>`<g data-from="${dx},${dy}" data-d="${d||0}">${inner}</g>`;
+const DEFS=`<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="rh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker><marker id="kh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c2736"/></marker></defs>`;
+/* graph axes: box x,y (top-left), w,h; returns {s,X,Y} */
+function axes(x,y,w,h,xl,yl,xr,yr,o){o=o||{};const X=v=>x+(v-xr[0])/(xr[1]-xr[0])*w,Y=v=>y+h-(v-yr[0])/(yr[1]-yr[0])*h;let s='';
+ (o.xt||[]).forEach(v=>{s+=`<line class="gd" x1="${X(v)}" y1="${y}" x2="${X(v)}" y2="${y+h}"/>`+T(X(v),y+h+12,String(v),{fs:12,c:'sm'})});
+ (o.yt||[]).forEach(v=>{s+=`<line class="gd" x1="${x}" y1="${Y(v)}" x2="${x+w}" y2="${Y(v)}"/>`+T(x-6,Y(v),String(v),{fs:12,c:'sm',a:'end'})});
+ s+=`<path class="ax" d="M${x} ${y-6}V${y+h}H${x+w+6}" marker-end="url(#kh)"/><path class="ax" d="M${x} ${y+h}V${y-6}" marker-end="url(#kh)"/>`;
+ s+=T(x+w/2,y+h+(o.xt?32:18),xl,{fs:13,c:'lab'})+`<g transform="translate(${x-(o.yt?38:16)} ${y+h/2}) rotate(-90)">${T(0,0,yl,{fs:13,c:'lab'})}</g>`;
+ return{s,X,Y}}
+function plotPath(X,Y,f,a,b,n){n=n||80;let d='';for(let i=0;i<=n;i++){const v=a+(b-a)*i/n;d+=(i?'L':'M')+X(v).toFixed(1)+' '+Y(f(v)).toFixed(1)}return d}
+/* animate new scene contents */
+function animIn(root,k,later){if(RM)return;
+ $$('.dr,.ca',root).forEach(p=>{let L=0;try{L=p.getTotalLength()}catch(e){}if(!L)return;const d=(+p.dataset.d||0)*k,du=(+(p.dataset.u||0.9))*k,m=p.getAttribute('marker-end');if(m){p.removeAttribute('marker-end');later(()=>p.setAttribute('marker-end',m),(d+du)*1000)}p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;later(()=>{p.style.transition=`stroke-dashoffset ${du}s ease ${d}s`;p.style.strokeDashoffset=0},30)});
+ $$('[data-from]',root).forEach(e=>{const[a,b]=e.dataset.from.split(','),d=(+e.dataset.d||0)*k;e.style.transform=`translate(${a}px,${b}px)`;later(()=>{e.style.transition=`transform ${1.1*k}s ease ${d}s`;e.style.transform='translate(0px,0px)'},30)});
+ $$('.in',root).forEach(e=>{const d=(+e.dataset.d||0)*k;e.style.opacity=0;later(()=>{e.style.transition=`opacity ${.6*k}s ease ${d}s`;e.style.opacity=1},30)})}
+/* player */
+function Player(steps){const N=steps.length,sc=$('#scene'),cap=$('#cap'),ind=$('#ind'),dots=$('#dots'),bP=$('#bPlay'),bB=$('#bBack'),bN=$('#bNext'),stg=$('#stage');
+ let i=0,playing=false,slow=false,auto=null,pend=[],cleanup=null;const seen=new Set();
+ const later=(f,ms)=>{pend.push(setTimeout(f,ms))};const k=()=>slow?1.6:1;
+ dots.innerHTML=steps.map((s,j)=>`<button type="button" class="dot" data-j="${j}" aria-label="Go to step ${j+1}">${j+1}</button>`).join('');
+ function sched(){clearTimeout(auto);if(!playing)return;auto=setTimeout(()=>{if(i<N-1)go(i+1);else setPlay(false)},((slow?7800:5200)+(steps[i].t||0))*(1))}
+ function go(n){n=Math.max(0,Math.min(N-1,n));i=n;pend.forEach(clearTimeout);pend=[];if(cleanup){try{cleanup()}catch(e){}cleanup=null}
+  sc.innerHTML=steps[n].svg();animIn(sc,k(),later);if(steps[n].on)cleanup=steps[n].on(sc,k(),later)||null;
+  cap.innerHTML=steps[n].cap;ind.textContent=`Step ${n+1} of ${N}`;seen.add(n);
+  $$('.dot',dots).forEach((d,j)=>{d.toggleAttribute('aria-current',false);if(j===n)d.setAttribute('aria-current','step');d.classList.toggle('seen',seen.has(j))});
+  bB.disabled=n===0;bN.disabled=n===N-1;sched()}
+ function setPlay(p){playing=p;bP.textContent=p?'Pause':'Play';bP.setAttribute('aria-pressed',p);if(p&&i===N-1){go(0);return}sched()}
+ $('#bRestart').onclick=()=>{go(0)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);bP.onclick=()=>setPlay(!playing);
+ dots.onclick=e=>{const b=e.target.closest('.dot');if(b)go(+b.dataset.j)};
+ $$('#spd .mini').forEach(b=>b.onclick=()=>{slow=b.dataset.s==='slow';$$('#spd .mini').forEach(x=>x.setAttribute('aria-pressed',x===b));sched()});
+ stg.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){setPlay(!playing);e.preventDefault()}});
+ go(0);return{go}}
+/* quiz */
+function Quiz(qs){const el=$('#qs');
+ el.innerHTML=qs.map((q,k)=>`<li><p>${q.q}</p><div class="mcq">${q.o.map((t,j)=>`<label><input type="radio" name="q${k}" value="${j}"><span>${t}</span></label>`).join('')}</div><p class="ex" id="ex${k}" hidden></p></li>`).join('');
+ $('#chkQs').onclick=()=>{let sc=0;qs.forEach((q,k)=>{const ch=$(`input[name=q${k}]:checked`),ex=$('#ex'+k);$$(`input[name=q${k}]`).forEach(r=>r.parentElement.classList.remove('ok','wrong'));
+  const v=ch?+ch.value:-1,good=v===q.a;if(good)sc++;if(ch)ch.parentElement.classList.add(good?'ok':'wrong');if(ch&&!good)$$(`input[name=q${k}]`)[q.a].parentElement.classList.add('ok');
+  ex.hidden=false;ex.className='ex '+(good?'good':'bad');ex.innerHTML=(good?'<b>Correct.</b> ':ch?'<b>Not quite.</b> ':'<b>No answer.</b> ')+q.x});
+  const s=$('#qScore');s.textContent=`Score: ${sc} / ${qs.length}`;s.className='score '+(sc>=3?'good':'bad')};
+ $('#rstQs').onclick=()=>{$$('#qs input').forEach(r=>{r.checked=false;r.parentElement.classList.remove('ok','wrong')});$$('#qs .ex').forEach(e=>e.hidden=true);$('#qScore').textContent=''}}
+
+$('#defs').innerHTML=DEFS;
+
+const ACC='#4a44b5',RED='#c0392b',GRN='#1d7a46',BLU='#2f6fd6',ORG='#b25e00';
+/* R–C(=O)–X…  r=[[label,x,colour]] chain to the right of C */
+function acyl(x,y,L,r,o){o=o||{};let s=T(x-78,y,L,{fs:20,f:o.lc})+bd(x-78,y,x,y,22,12)+T(x,y,'C',{fs:22})+db(x,y,x,y-72,12,12)+T(x,y-84,'O',{fs:22})+lp(x,y-84,-150)+lp(x,y-84,-30);let px=x,pl='C';
+ r.forEach(q=>{const w=l=>l.length>2?l.length*6.2:12;s+=bd(px,y,q[1],y,w(pl),w(q[0]))+T(q[1],y,q[0],{fs:q[0].length>3?19:22,f:q[2]});px=q[1];pl=q[0]});return s}
+function fumes(x,y){let s='';for(let i=0;i<6;i++)s+=`<circle class="fm" cx="${x-14+i*6}" cy="${y}" r="${7+i%3*2}" fill="#c9d3dd" style="animation-delay:${(i*.4).toFixed(1)}s"/>`;return s}
+function tubeS(x,y,liq){return `<path d="M${x-18} ${y}v120a18 18 0 0 0 36 0v-120" fill="#fff" stroke="#7d8fa3" stroke-width="2.5"/><path d="M${x-16} ${y+60}v60a16 16 0 0 0 32 0v-60z" fill="${liq}" opacity=".8"/>`}
+const STEPS=[
+{cap:'Three related families. A <b>carboxylic acid</b> has –COOH. In an <b>ester</b> the H of the OH is replaced by an alkyl group (–COOR). In an <b>acyl chloride</b> the OH is replaced by Cl (–COCl).',svg:()=>acyl(110,170,'CH3',[['O',176,RED],['H',228]])+T(150,250,'ethanoic acid',{fs:16,c:'lab'})+T(150,276,'carboxylic acid',{fs:14,c:'sm'})+
+ IN(.7,acyl(370,170,'CH3',[['O',436,RED],['CH2CH3',530,GRN]])+T(420,250,'ethyl ethanoate',{fs:16,c:'lab'})+T(420,276,'ester',{fs:14,c:'sm'}))+IN(1.4,acyl(700,170,'CH3',[['Cl',766,ORG]])+T(700,250,'ethanoyl chloride',{fs:16,c:'lab'})+T(700,276,'acyl chloride',{fs:14,c:'sm'}))+IN(2,T(400,340,'All contain the C=O group bonded to an electronegative atom',{fs:16,c:'lab',f:ACC}))},
+{cap:'<b>Esterification</b>: carboxylic acid + alcohol ⇌ ester + water. Heat with a few drops of <b>concentrated H<sub>2</sub>SO<sub>4</sub></b> (catalyst). The OH from the acid and the H from the alcohol form <b>water</b>. The reaction is <b>reversible</b>.',t:1200,svg:()=>acyl(110,110,'CH3',[['O',176,RED],['H',226,RED]])+`<rect x="160" y="88" width="84" height="44" rx="12" fill="none" stroke="${RED}" stroke-width="2.5" stroke-dasharray="5 4"/>`+T(400,110,'+',{fs:24})+T(470,110,'H',{fs:22,f:RED})+`<circle cx="470" cy="110" r="18" fill="none" stroke="${RED}" stroke-width="2.5" stroke-dasharray="5 4"/>`+bd(470,110,525,110,12,12)+T(525,110,'O',{fs:22,f:BLU})+bd(525,110,572,110,12,2)+T(612,110,'CH2CH3',{fs:19,f:BLU})+T(110,160,'ethanoic acid',{fs:14,c:'sm'})+T(560,160,'ethanol',{fs:14,c:'sm'})+
+ IN(.8,eqm(360,210,440)+T(400,190,'conc. H2SO4, heat',{fs:14,c:'sm'}))+
+ MV(0,-150,acyl(130,300,'CH3',[['O',196,BLU],['CH2CH3',290,BLU]]),1.2)+IN(1.2,T(170,350,'ethyl ethanoate',{fs:15,c:'lab',f:ACC}))+T(430,300,'+',{fs:24})+MV(-250,-190,T(530,300,'H2O',{fs:22,f:RED}),1.2)+IN(1.2,T(530,350,'water',{fs:15,c:'lab'}))+
+ IN(2.4,T(620,260,'reversible (⇌)',{fs:15,a:'start',c:'lab'})+T(620,286,'H2SO4 = catalyst',{fs:15,a:'start',c:'lab'})+T(620,312,'esters smell fruity',{fs:15,a:'start',c:'lab'}))},
+{cap:'<b>Naming esters</b>: the <b>alcohol</b> part comes first as an alkyl name (methyl, ethyl, propyl). The <b>acid</b> part comes second, ending in <b>-oate</b>. Watch the formula: the acid part is written first.',t:1000,svg:()=>{const R=[['CH3CH2COO','CH3','methyl','propanoate','propanoic acid','methanol'],['CH3COO','CH2CH3','ethyl','ethanoate','ethanoic acid','ethanol'],['HCOO','CH2CH2CH3','propyl','methanoate','methanoic acid','propan-1-ol']];
+ return T(250,40,'formula',{fs:15,c:'lab'})+T(600,40,'name',{fs:15,c:'lab'})+R.map((r,j)=>IN(j*1,T(250,100+j*95,r[0],{fs:24,f:BLU,a:'end'})+T(252,100+j*95,r[1],{fs:24,f:GRN,a:'start'})+T(250,132+j*95,'from '+r[4]+'  |  from '+r[5],{fs:13,c:'sm'})+rarr(420,100+j*95,480)+T(500,100+j*95,r[2],{fs:24,f:GRN,a:'start'})+T(510+r[2].length*13,100+j*95,r[3],{fs:24,f:BLU,a:'start'}))).join('')}},
+{cap:'<b>Acid hydrolysis</b>: heat the ester under reflux with <b>dilute acid</b> (e.g. dilute H<sub>2</sub>SO<sub>4</sub>). This is the reverse of esterification, so it is <b>reversible</b> and does <b>not</b> go to completion.',svg:()=>T(400,90,'CH3COOCH2CH3  +  H2O',{fs:24})+IN(.6,eqm(360,160,440)+T(400,138,'dilute H^+, heat under reflux',{fs:15,c:'sm'}))+IN(1.2,T(400,230,'CH3COOH  +  CH3CH2OH',{fs:24})+T(400,266,'ethanoic acid           ethanol',{fs:15,c:'sm'}))+IN(2,`<rect x="190" y="310" width="420" height="50" rx="10" fill="#fff6e8" stroke="${ORG}"/>`+T(400,335,'equilibrium mixture: incomplete reaction',{fs:17,c:'lab',f:ORG}))},
+{cap:'<b>Alkaline hydrolysis</b>: heat under reflux with <b>NaOH(aq)</b>. It goes to <b>completion</b>, because the carboxylate ion formed cannot react with the alcohol. Add excess dilute acid afterwards to get the free carboxylic acid.',svg:()=>T(400,90,'CH3COOCH2CH3  +  NaOH',{fs:24})+IN(.6,rarr(360,160,440)+T(400,138,'heat under reflux',{fs:15,c:'sm'}))+IN(1.2,T(400,230,'CH3COO^−Na^+  +  CH3CH2OH',{fs:24})+T(400,266,'sodium ethanoate             ethanol',{fs:15,c:'sm'}))+IN(2,`<rect x="190" y="310" width="420" height="50" rx="10" fill="#eef8f2" stroke="${GRN}"/>`+T(400,335,'one-way arrow: goes to completion',{fs:17,c:'lab',f:GRN}))},
+{cap:'<b>Acyl chlorides</b> react <b>vigorously</b> with cold <b>water</b>. The products are the carboxylic acid and <b>hydrogen chloride</b>, seen as <b>steamy (misty) fumes</b>.',svg:()=>T(400,60,'CH3COCl  +  H2O  →  CH3COOH  +  HCl',{fs:24})+IN(.6,tubeS(330,170,'#dbe9f6')+fumes(330,160)+T(330,330,'add water',{fs:14,c:'sm'})+`<path d="M420 230H500" stroke="#1c2736" stroke-width="2" marker-end="url(#kh)"/>`+T(560,200,'steamy fumes',{fs:18,c:'lab',f:ORG,a:'start'})+T(560,226,'of HCl',{fs:18,c:'lab',f:ORG,a:'start'})+T(560,256,'(turn damp blue litmus red)',{fs:14,c:'sm',a:'start'}))+IN(1.4,T(400,370,'fast at room temperature: no heating, no catalyst',{fs:16,c:'lab',f:ACC}))},
+{cap:'With an <b>alcohol</b>, an acyl chloride gives an <b>ester</b> and HCl. Compared with acid + alcohol, this is <b>faster</b>, needs <b>no catalyst or heat</b>, and is <b>not reversible</b>, so the yield is higher.',svg:()=>acyl(120,150,'CH3',[['Cl',186,ORG]])+T(250,150,'+',{fs:24})+T(300,150,'H',{fs:22,f:RED})+bd(300,150,350,150,12,12)+T(350,150,'O',{fs:22,f:BLU})+bd(350,150,388,150,12,2)+T(428,150,'CH2CH3',{fs:19,f:BLU})+
+ IN(.8,rarr(530,150,600)+T(690,150,'HCl  +',{fs:22,f:ORG}))+IN(1.4,acyl(200,300,'CH3',[['O',266,BLU],['CH2CH3',360,BLU]])+T(570,300,'ethyl ethanoate',{fs:18,c:'lab',f:ACC})+T(570,330,'room temperature, not reversible',{fs:15,c:'sm'}))},
+{cap:'With <b>ammonia</b> an acyl chloride gives an <b>amide</b>: ethanoyl chloride → <b>ethanamide</b>. With a primary <b>amine</b> it gives an <b>N-substituted amide</b>: with methylamine → <b>N-methylethanamide</b>. HCl is also formed.',t:800,svg:()=>T(400,40,'CH3COCl  +  NH3  →  CH3CONH2  +  HCl',{fs:22})+IN(.6,acyl(150,170,'CH3',[['N',216,BLU]])+bd(216,170,216,226,12,12)+T(216,236,'H',{fs:20,f:BLU})+bd(216,170,266,170,12,12)+T(270,170,'H',{fs:20,f:BLU})+T(170,270,'ethanamide',{fs:16,c:'lab',f:ACC}))+
+ IN(1.4,T(560,110,'CH3COCl + CH3NH2 →',{fs:18})+T(560,136,'CH3CONHCH3 + HCl',{fs:18})+acyl(530,250,'CH3',[['N',596,BLU],['CH3',660,BLU]])+bd(596,250,596,300,12,12)+T(596,310,'H',{fs:20,f:BLU})+T(600,350,'N-methylethanamide',{fs:16,c:'lab',f:ACC}))+
+ IN(2.2,T(170,330,'excess NH3 + HCl → NH4Cl',{fs:15,c:'sm'})+T(170,352,'(white smoke)',{fs:15,c:'sm'}))},
+{cap:'Why are acyl chlorides so reactive? The carbonyl carbon is joined to <b>two electronegative atoms</b> (O and Cl), so it is <b>very δ+</b>. Nucleophiles such as H<sub>2</sub>O, ROH and NH<sub>3</sub> attack it easily, and Cl<sup>−</sup> is lost easily.',t:800,svg:()=>acyl(330,220,'CH3',[['Cl',410,ORG]])+T(352,206,'δ+',{fs:16,f:BLU})+T(354,128,'δ−',{fs:16,f:RED})+T(426,196,'δ−',{fs:16,f:ORG})+
+ IN(.6,T(200,90,'H2O',{fs:22,f:GRN})+lp(200,90,90,18)+ca('M204 112C230 170 290 210 316 214',.2))+
+ IN(1.6,T(470,90,'Nucleophile: lone pair',{fs:16,c:'lab',a:'start'})+T(470,116,'attacks the δ+ carbon',{fs:16,c:'lab',a:'start'})+T(470,200,'C–Cl breaks easily:',{fs:16,c:'lab',a:'start'})+T(470,226,'Cl^− leaves',{fs:16,c:'lab',a:'start'}))+
+ IN(2.4,`<rect x="80" y="300" width="640" height="70" rx="12" fill="#e7e6fb"/>`+T(400,322,'reactivity:  acyl chloride  >  carboxylic acid',{fs:18,c:'lab',f:ACC})+T(400,350,'(in RCOOH, OH^− is a poor leaving group and the C is less δ+)',{fs:15,c:'sm'}))}];
+Player(STEPS);
+/* Try it */
+const STEM=['','meth','eth','prop'],ALK=['','methyl','ethyl','propyl'],RG=['','H','CH3','CH3CH2'],RA=['','CH3','CH2CH3','CH2CH2CH3'],ALC=['','methanol','ethanol','propan-1-ol'],ALCF=['','CH3OH','CH3CH2OH','CH3CH2CH2OH'];
+const sb=s=>s.replace(/([A-Za-z\)])(\d+)/g,'$1<sub>$2</sub>').replace(/\^([+−-]+)/g,'<sup>$1</sup>');
+const A=[{t:'acid',c:2,n:'ethanoic acid'},{t:'acid',c:3,n:'propanoic acid'},{t:'chl',c:2,n:'ethanoyl chloride'},{t:'chl',c:3,n:'propanoyl chloride'},{t:'est',c:2,a:2,n:'ethyl ethanoate'},{t:'est',c:3,a:1,n:'methyl propanoate'}];
+const BS={acid:[['alc',1],['alc',2],['alc',3],['naoh']],chl:[['water'],['alc',1],['alc',2],['alc',3],['nh3'],['amine']],est:[['water'],['naoh']]};
+const BN={water:'water',naoh:'NaOH(aq)',nh3:'ammonia',amine:'methylamine'};
+$('#rA').innerHTML=A.map((a,i)=>`<option value="${i}">${a.n}</option>`).join('');
+const acidN=c=>STEM[c]+'anoic acid',ester=(c,a)=>ALK[a]+' '+STEM[c]+'anoate',salt=c=>'sodium '+STEM[c]+'anoate',amide=c=>STEM[c]+'anamide',nme=c=>'N-methyl'+STEM[c]+'anamide';
+function fillB(){const a=A[+$('#rA').value];$('#rB').innerHTML=BS[a.t].map((b,i)=>`<option value="${i}">${b[0]==='alc'?ALC[b[1]]:BN[b[0]]}</option>`).join('');fillP()}
+let cur=null;
+function result(a,b){const c=a.c,R=RG[c],k=b[0];let ok,eq,note,pool;
+ if(a.t==='acid'){if(k==='alc'){const r=b[1];ok=ester(c,r);eq=`${R}COOH + ${ALCF[r]} ⇌ ${R}COO${RA[r]} + H2O`;note='Heat with concentrated H<sub>2</sub>SO<sub>4</sub> (catalyst). Reversible.';pool=[ester(r,c),ester(c,r===1?2:1),STEM[c]+'anal',amide(c)]}
+  else{ok=salt(c);eq=`${R}COOH + NaOH → ${R}COO^−Na^+ + H2O`;note='Neutralisation: an acid reacts with an alkali to give a salt and water.';pool=[ALK[2]+' '+STEM[c]+'anoate',STEM[c]+'anol',amide(c),'sodium '+STEM[c]+'oxide']}}
+ else if(a.t==='chl'){const fu=' Steamy fumes of HCl.';
+  if(k==='water'){ok=acidN(c);eq=`${R}COCl + H2O → ${R}COOH + HCl`;note='Vigorous at room temperature.'+fu;pool=[STEM[c]+'anal',STEM[c]+'an-1-ol',salt(c)]}
+  else if(k==='alc'){const r=b[1];ok=ester(c,r);eq=`${R}COCl + ${ALCF[r]} → ${R}COO${RA[r]} + HCl`;note='Fast at room temperature, no catalyst, not reversible.'+fu;pool=[ester(r,c),ester(c,r===1?2:1),acidN(c),amide(c)]}
+  else if(k==='nh3'){ok=amide(c);eq=`${R}COCl + NH3 → ${R}CONH2 + HCl`;note='Vigorous. With excess NH<sub>3</sub>, the HCl forms NH<sub>4</sub>Cl (white solid).';pool=[nme(c),STEM[c]+'anamine','ammonium '+STEM[c]+'anoate']}
+  else{ok=nme(c);eq=`${R}COCl + CH3NH2 → ${R}CONHCH3 + HCl`;note='Vigorous. The product is an N-substituted amide.'+fu;pool=[amide(c),'methyl '+STEM[c]+'anoate','N-methyl'+STEM[c]+'anamine']}}
+ else{const r=a.a;if(k==='water'){ok=acidN(c)+' + '+ALC[r];eq=`${R}COO${RA[r]} + H2O ⇌ ${R}COOH + ${ALCF[r]}`;note='Heat under reflux with dilute acid. Reversible, so it does not go to completion.';pool=[salt(c)+' + '+ALC[r],acidN(r)+' + '+ALC[c===3?3:c],STEM[c]+'anal + '+ALC[r],acidN(c)+' + '+ALC[r===1?2:1]]}
+  else{ok=salt(c)+' + '+ALC[r];eq=`${R}COO${RA[r]} + NaOH → ${R}COO^−Na^+ + ${ALCF[r]}`;note='Heat under reflux. Goes to completion: the carboxylate ion does not react with the alcohol.';pool=[acidN(c)+' + '+ALC[r],'sodium '+STEM[r]+'anoate + '+ALC[c],salt(c)+' + water',salt(c)+' + '+ALC[r===1?2:1]]}}
+ const opts=[ok];pool.forEach(p=>{if(!opts.includes(p)&&opts.length<4)opts.push(p)});return{ok,eq,note,opts}}
+function fillP(){const a=A[+$('#rA').value],b=BS[a.t][+$('#rB').value];cur=result(a,b);const o=cur.opts.slice().sort(()=>Math.random()-.5);
+ $('#pOpts').innerHTML=o.map((t,i)=>`<label><input type="radio" name="prod" value="${t}"><span>${t}</span></label>`).join('');const s=$('#sayP');s.className='say';s.innerHTML='Reaction: <b>'+a.n+'</b> + <b>'+(b[0]==='alc'?ALC[b[1]]:BN[b[0]])+'</b>. Pick the organic product.'}
+$('#rA').onchange=fillB;$('#rB').onchange=fillP;
+$('#pChk').onclick=()=>{const ch=$('input[name=prod]:checked'),s=$('#sayP');$$('#pOpts label').forEach(l=>l.classList.remove('ok','wrong'));if(!ch){s.className='say mid';s.innerHTML='Pick one of the products first.';return}
+ const good=ch.value===cur.ok;ch.parentElement.classList.add(good?'ok':'wrong');if(!good)$$('#pOpts input').find(i=>i.value===cur.ok).parentElement.classList.add('ok');
+ s.className='say '+(good?'good':'bad');s.innerHTML=(good?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is <b>'+cur.ok+'</b>. ')+'<br>'+sb(cur.eq)+'<br><span class="hint">'+cur.note+'</span>'};
+fillB();
+Quiz([
+{q:'What is the name of CH<sub>3</sub>CH<sub>2</sub>COOCH<sub>3</sub>?',o:['ethyl ethanoate','methyl propanoate','propyl methanoate','methyl ethanoate'],a:1,x:'CH<sub>3</sub>CH<sub>2</sub>COO– comes from propanoic acid; –CH<sub>3</sub> comes from methanol. Alcohol part first: methyl propanoate.'},
+{q:'Why is alkaline hydrolysis of an ester often preferred to acid hydrolysis?',o:['It is faster at room temperature','It goes to completion','It gives the carboxylic acid directly','It needs no heating'],a:1,x:'The carboxylate ion cannot react with the alcohol, so the reaction is not reversible.'},
+{q:'What do you see when ethanoyl chloride is added to water?',o:['A silver mirror','A white precipitate','Steamy fumes','An orange precipitate'],a:2,x:'CH<sub>3</sub>COCl + H<sub>2</sub>O → CH<sub>3</sub>COOH + HCl. The HCl forms steamy (misty) fumes in moist air.'},
+{q:'Ethanoyl chloride reacts with methylamine, CH<sub>3</sub>NH<sub>2</sub>. What is the organic product?',o:['ethanamide','methyl ethanoate','N-methylethanamide','ethylamine'],a:2,x:'CH<sub>3</sub>COCl + CH<sub>3</sub>NH<sub>2</sub> → CH<sub>3</sub>CONHCH<sub>3</sub> + HCl. The product is an N-substituted amide.'}]);
+</script></body></html>

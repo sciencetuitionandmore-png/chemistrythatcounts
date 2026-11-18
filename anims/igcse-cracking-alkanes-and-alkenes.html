@@ -1,0 +1,661 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cracking Alkanes</title>
+<meta name="description" content="Interactive animation: Cracking Alkanes. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-cracking-alkanes-and-alkenes.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--water:#cfe6f7;--brom:#e9821c;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:10px 20px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:620px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;font-size:.92rem;border-radius:12px}}
+.layout{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+@media (max-width:780px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--bench);border-radius:14px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.lab{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;font-family:var(--display)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn.warnb{border-color:var(--bad);background:#fff;color:var(--bad)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.xtab:focus-visible,input:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pick{font:inherit;font-size:.9rem;padding:7px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-align:left}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.eq{font-weight:700;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:1rem}
+.note{font-size:.86rem;color:var(--muted)}
+input[type=range]{accent-color:var(--accent);width:100%}
+label.chk{display:flex;gap:8px;align-items:center;font-size:.92rem;cursor:pointer}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+svg text{font-family:var(--body);fill:var(--ink)}
+.nolabels .lb{display:none}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.t-s{font-size:13px;fill:var(--muted)}
+.t-b{font-weight:700}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+ol.qs legend{font-weight:700;padding:0;margin-bottom:4px}
+ol.qs label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+ol.qs input{margin-top:5px;accent-color:var(--accent)}
+.fb{font-size:.92rem;font-weight:700}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+.score{font:700 1.05rem var(--display)}
+.key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem}
+.key span{display:inline-flex;gap:6px;align-items:center}
+.sw{width:14px;height:14px;border-radius:4px;display:inline-block;border:1px solid #0002}
+@media (max-width:520px){body{font-size:16px}}
+[hidden]{display:none!important}
+
+/* ---- top tabs + exam practice (from lab pages; renamed to avoid clashing with concept tabs) ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;margin-top:8px;max-width:100%}
+.ex-tbl{border-collapse:collapse;font-size:.92rem;background:#fff}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--paper);font-weight:700}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in,.ex-drow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-sel{font:inherit;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+.ex-sel:focus-visible,.ex-in input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-corr{font-size:.9rem;font-weight:700;color:var(--good)}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Organic chemistry: cracking</div>
+<h1>Cracking: alkanes and alkenes</h1>
+<p>Choose a tab. Press <b>Play</b> and watch, or use <b>Step</b> to go one stage at a time. Read the "What's happening" card for the exam words.</p>
+</header>
+<div class="toptabs" id="toptabRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" role="tab" id="t0" aria-selected="true" aria-controls="p0">1 · Why crack?</button>
+<button class="xtab" role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">2 · Lab cracking</button>
+<button class="xtab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">3 · Molecule view</button>
+<button class="xtab" role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">4 · Bromine water test</button>
+</div>
+
+<!-- TAB 1 -->
+<section class="sheet" role="tabpanel" id="p0" aria-labelledby="t0">
+<h2>Supply and demand for crude oil fractions</h2>
+<div class="layout">
+<div class="stage"><svg id="sv0" viewBox="0 0 600 390" role="img" aria-label="Bar chart of supply and demand for each fraction"></svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<label for="crk">Surplus long chains cracked: <b id="crkv">0%</b></label>
+<input type="range" id="crk" min="0" max="100" value="0">
+<div class="row"><button class="btn" id="pl0">Play</button><button class="btn ghost" id="st0">Step</button><button class="btn ghost" id="rp0">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb0" checked> Show labels</label>
+<p class="note">Figures are illustrative (percentage of crude oil).</p>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m0"></div></div>
+</div></div>
+</section>
+
+<!-- TAB 2 -->
+<section class="sheet" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+<h2>Cracking liquid paraffin in the lab</h2>
+<div class="layout">
+<div class="stage"><svg id="sv1" viewBox="0 0 720 400" role="img" aria-label="Cracking apparatus">
+<defs><pattern id="wool" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#e8d59a"/><path d="M0 4 Q2 0 4 4 T8 4" fill="none" stroke="#c4a956" stroke-width="1.2"/></pattern></defs>
+<rect x="0" y="372" width="720" height="28" fill="#cbb08a"/>
+<!-- stand -->
+<rect x="30" y="360" width="170" height="12" rx="3" fill="#6f7d8c"/><rect x="56" y="60" width="8" height="300" fill="#8a97a5"/>
+<rect x="60" y="116" width="300" height="7" fill="#8a97a5"/><rect x="344" y="122" width="30" height="56" rx="4" fill="none" stroke="#6f7d8c" stroke-width="4"/>
+<!-- boiling tube contents -->
+<rect x="96" y="132" width="78" height="36" rx="12" fill="url(#wool)"/>
+<rect id="ctGlow" x="222" y="150" width="88" height="20" rx="6" fill="#ff7a1a" opacity="0"/>
+<g id="cat" fill="#f4f1ea" stroke="#9aa3ad" stroke-width="1.2"><path d="M226 170l6-12 10 3 2 9z"/><path d="M242 170l5-15 12 2 1 13z"/><path d="M259 170l3-11 11-1 4 12z"/><path d="M276 170l4-13 10 1 3 12z"/><path d="M292 170l3-10 10 2 1 8z"/><path d="M236 157l7-6 8 4-4 4z"/><path d="M266 158l8-7 8 5-6 3z"/></g>
+<rect id="sbIn" x="400" y="150" width="0" height="20" fill="var(--water)" opacity=".95"/>
+<path class="glass" d="M400 128H112A22 22 0 0 0 112 172H400"/>
+<path id="crack" d="M262 128l6 8-5 6 7 9-4 8 6 6" fill="none" stroke="var(--bad)" stroke-width="3" opacity="0"/>
+<rect x="398" y="126" width="26" height="48" rx="4" fill="#4b4f57"/>
+<!-- bunsen -->
+<g id="flame" opacity="0"><path id="fo" d="M252 262C246 230 258 205 265 176C272 205 284 230 278 262Z" fill="#7aa2ff" opacity=".55"/><path d="M258 262C256 242 261 226 265 210C269 226 274 242 272 262Z" fill="#2f5fe0" opacity=".8"/></g>
+<rect x="255" y="262" width="20" height="84" fill="#9aa5b1" stroke="#6f7d8c" stroke-width="2"/><rect x="258" y="320" width="14" height="8" fill="#4b4f57"/><rect x="232" y="346" width="66" height="14" rx="3" fill="#6f7d8c"/>
+<!-- trough -->
+<rect x="450" y="245" width="260" height="125" fill="var(--water)"/>
+<g id="col"><rect x="602" y="100" width="36" height="212" fill="var(--water)"/><rect id="colGas" x="602" y="100" width="36" height="0" fill="#fff"/>
+<path class="glass" d="M600 312V112A20 20 0 0 1 640 112V312"/></g>
+<path class="glass" d="M450 220V370H710V220" stroke-width="4"/>
+<line x1="450" y1="245" x2="710" y2="245" stroke="#7fb1d6" stroke-width="2"/>
+<!-- delivery tube -->
+<g id="dt"><path id="dtO" fill="none" stroke="var(--glass)" stroke-width="9" stroke-linejoin="round"/><path id="dtI" fill="none" stroke="#f7fbff" stroke-width="4" stroke-linejoin="round"/><path id="dtW" fill="none" stroke="#5aa6e0" stroke-width="4.5" pathLength="100" stroke-dasharray="0 100"/></g>
+<g id="parts"></g>
+<g id="kept" opacity="0"><rect x="660" y="40" width="22" height="70" rx="8" fill="#fff" stroke="var(--glass)" stroke-width="2.5"/><rect x="658" y="34" width="26" height="12" rx="3" fill="#4b4f57"/><text x="671" y="128" text-anchor="middle" class="t-s lb">gas kept</text></g>
+<g class="lb">
+<text x="96" y="92" class="t-s">mineral wool soaked in</text><text x="96" y="107" class="t-s">liquid paraffin</text>
+<text x="288" y="196" class="t-s">catalyst: broken porcelain</text><text x="288" y="210" class="t-s">or aluminium oxide</text>
+<text x="300" y="300" class="t-s">heat strongly</text>
+<text x="380" y="100" class="t-s">boiling tube</text>
+<text x="430" y="140" class="t-s">delivery tube</text>
+<text x="700" y="360" class="t-s" text-anchor="end">water</text>
+<text x="590" y="82" class="t-s" text-anchor="end">gas collected</text><text x="590" y="96" class="t-s" text-anchor="end">over water</text>
+</g>
+<text id="warnT" x="360" y="40" text-anchor="middle" font-size="22" font-weight="700" style="fill:var(--bad)" opacity="0">SUCK-BACK! Hot glass may crack</text>
+</svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Do the practical</div>
+<div class="row"><button class="btn" id="bHeat">1 · Heat the catalyst</button></div>
+<div class="row"><button class="btn" id="bRem" disabled>Remove delivery tube from water</button></div>
+<div class="row"><button class="btn warnb" id="bStop" disabled>Stop heating</button></div>
+<div class="row"><button class="btn ghost" id="pl1">Pause</button><button class="btn ghost" id="st1">Step</button><button class="btn ghost" id="rp1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb1" checked> Show labels</label>
+<div class="key"><span><i class="sw" style="background:#b5651d"></i>paraffin vapour (long chains)</span><span><i class="sw" style="background:#2e9e5b"></i>cracked gas (short chains)</span></div>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m1"></div></div>
+</div></div>
+</section>
+
+<!-- TAB 3 -->
+<section class="sheet" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+<h2>Cracking at the molecule level</h2>
+<div class="layout">
+<div class="stage"><svg id="sv2" viewBox="0 0 760 270" role="img" aria-label="Alkane molecule cracking"></svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Choose an example</div>
+<div class="row" id="exs"></div>
+<div class="row"><button class="pick" id="vD" aria-pressed="true">Displayed formula</button><button class="pick" id="vB" aria-pressed="false">Ball-and-stick</button></div>
+<div class="row"><button class="btn" id="pl2">Play</button><button class="btn ghost" id="st2">Step</button><button class="btn ghost" id="rp2">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb2" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m2"></div></div>
+</div></div>
+</section>
+
+<!-- TAB 4 -->
+<section class="sheet" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+<h2>Testing for an alkene with bromine water</h2>
+<div class="layout">
+<div class="stage"><svg id="sv3" viewBox="0 0 720 380" role="img" aria-label="Bromine water test and addition reaction">
+<g id="tubeA"></g><g id="tubeB"></g>
+<line x1="345" y1="20" x2="345" y2="360" stroke="var(--line)" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="530" y="34" text-anchor="middle" class="t-b" font-size="15">Particle view: addition of bromine</text>
+<g id="mol4"></g>
+</svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<div class="row"><button class="btn" id="shA">Shake A with an alkane</button></div>
+<div class="row"><button class="btn" id="shB">Shake B with an alkene</button></div>
+<div class="row"><button class="btn ghost" id="pl3">Play</button><button class="btn ghost" id="st3">Step</button><button class="btn ghost" id="rp3">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb3" checked> Show labels</label>
+<div class="key"><span><i class="sw" style="background:#39424e"></i>C</span><span><i class="sw" style="background:#fff"></i>H</span><span><i class="sw" style="background:#a2341a"></i>Br</span></div>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m3"></div></div>
+</div></div>
+</section>
+
+<section class="sheet">
+<h2>Key points</h2>
+<ul class="kp">
+<li><b>Cracking</b> breaks long-chain alkanes into <b>shorter-chain alkanes</b> and <b>alkenes</b>.</li>
+<li>It is needed because crude oil gives <b>more</b> long-chain fractions (fuel oil, bitumen) than we need, and <b>not enough</b> short-chain fractions such as petrol (gasoline). Alkenes are used to make <b>polymers</b>.</li>
+<li>Industrial cracking uses a <b>catalyst of silica or alumina</b> at about <b>600–700 °C</b>.</li>
+<li>Alkanes have the general formula C<sub>n</sub>H<sub>2n+2</sub> and are <b>saturated</b> (C–C single bonds only). Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub> and are <b>unsaturated</b> (they contain a C=C double bond).</li>
+<li>A cracking equation must balance: the numbers of C and H atoms are the same on both sides, e.g. C<sub>10</sub>H<sub>22</sub> → C<sub>8</sub>H<sub>18</sub> + C<sub>2</sub>H<sub>4</sub>.</li>
+<li><b>Bromine water</b> turns from <b>orange to colourless</b> with an alkene (bromine adds across the C=C). With an alkane it stays orange.</li>
+</ul>
+</section>
+
+<section class="sheet">
+<h2>Quick check</h2>
+<ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const lerp=(a,b,t)=>a+(b-a)*t,cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const sub=s=>s.replace(/(\d+)/g,'<sub>$1</sub>');
+const usub=s=>s.replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[d]);
+function lbl(cb,svg){$(cb).addEventListener('change',e=>$(svg).classList.toggle('nolabels',!e.target.checked))}
+['lb0','lb1','lb2','lb3'].forEach((c,i)=>lbl(c,'sv'+i));
+
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll('.xtab')];let active=0;
+function showTab(i){active=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;$('p'+j).hidden=j!==i})}
+tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(i+(e.key==='ArrowRight'?1:3))%4;showTab(n);tabs[n].focus()}}});
+
+/* ---------- TAB 1: supply & demand ---------- */
+const S1=(()=>{
+ const F=[['Refinery gases','C1–C4',3,5,2],['Petrol (gasoline)','C5–C10',15,30,15],['Kerosene','C10–C16',12,12,0],['Diesel','C14–C20',20,18,-2],['Fuel oil','C20–C40',30,18,-12],['Bitumen','over C40',20,7,-13],['Alkenes','for polymers',0,10,10]];
+ const sv=$('sv0'),X0=190,SC=10,Y0=72,RH=44;let c=0,play=false,stopAt=1,dots=[],acc=0;
+ el('rect',{x:X0,y:14,width:16,height:12,fill:'#4a44b5'},sv);el('text',{x:X0+22,y:25,'font-size':14},sv).textContent='Supply (from distillation)';
+ el('rect',{x:X0+210,y:14,width:16,height:12,fill:'#f7d9a8',stroke:'#c06d12','stroke-width':2},sv);el('text',{x:X0+232,y:25,'font-size':14},sv).textContent='Demand';
+ el('line',{x1:X0,y1:40,x2:X0,y2:Y0+RH*7-10,stroke:'#8a97a5','stroke-width':2},sv);
+ el('line',{x1:8,y1:Y0+RH*6-24,x2:592,y2:Y0+RH*6-24,stroke:'#b9c4cf','stroke-dasharray':'5 5'},sv);
+ const R=F.map((f,i)=>{const y=Y0+i*RH;
+  const t=el('text',{x:8,y:y-2,'font-size':15,'font-weight':700},sv);t.textContent=f[0];
+  const tc=el('text',{x:8,y:y+15,class:'t-s'},sv);
+  const d=el('rect',{x:X0,y:y+2,height:13,width:f[3]*SC,fill:'#f7d9a8',stroke:'#c06d12','stroke-width':2,rx:2},sv);
+  const s=el('rect',{x:X0,y:y-14,height:14,width:0,fill:'#4a44b5',rx:2},sv);
+  const vs=el('text',{x:0,y:y-3,'font-size':12,class:'lb'},sv),vd=el('text',{x:X0+f[3]*SC+6,y:y+13,'font-size':12,class:'lb'},sv);vd.textContent=f[3]+'%';
+  return {f,y,s,vs,tc}});
+ el('text',{x:300,y:Y0+RH*7-6,'font-size':13,'text-anchor':'middle',class:'t-s'},sv).textContent='longer chains lower down: higher boiling point';
+ const dg=el('g',{},sv);
+ const sl=$('crk'),pb=$('pl0');
+ function sup(r){return r.f[2]+r.f[4]*c}
+ function draw(){R.forEach(r=>{const v=sup(r);r.s.setAttribute('width',v*SC);r.vs.setAttribute('x',X0+v*SC+6);r.vs.textContent=(Math.round(v*10)/10)+'%';
+  const gap=v-r.f[3],w=Math.abs(gap)<.3?'matched':gap>0?'surplus':'shortage';r.tc.textContent=usub(r.f[1])+' · '+w;r.tc.style.fill=Math.abs(gap)<.3?'#1d7a46':gap>0?'#5a6878':'#b3261e'});
+  sl.value=Math.round(c*100);$('crkv').textContent=Math.round(c*100)+'%';
+  let m;if(c<.02)m='<span>Fractional distillation gives <b>too much</b> of the long-chain fractions (diesel, fuel oil, bitumen).</span><span>There is <b>not enough</b> petrol or refinery gas to meet demand. The long chains are less useful.</span>';
+  else if(c<.98)m='<span><b>Cracking</b> breaks the surplus long-chain alkanes into shorter molecules.</span><span>Supply of petrol and refinery gas goes up. <b>Alkenes</b> are also made.</span>';
+  else m='<span>Supply now matches demand. The shorter alkanes are used as <b>fuels</b> (petrol).</span><span>The alkenes are used to make <b>polymers</b>, e.g. ethene makes poly(ethene).</span>';
+  $('m0').innerHTML=m+'<div class="eq">long-chain alkane → shorter alkane + alkene</div>'}
+ const src=[3,4,5],dst=[0,1,6],pick=(ix)=>{let tot=ix.reduce((a,i)=>a+Math.abs(F[i][4]),0),r=Math.random()*tot;for(const i of ix){r-=Math.abs(F[i][4]);if(r<=0)return i}return ix[0]};
+ function tick(dt){if(play){const dc=Math.min(dt/5,stopAt-c);c+=dc;acc+=dc*60;while(acc>1){acc--;const a=R[pick(src)],b=R[pick(dst)];dots.push({x0:X0+sup(a)*SC,y0:a.y-7,x1:X0+sup(b)*SC,y1:b.y-7,t:0,e:el('circle',{r:4,fill:'#b5651d'},dg)})}
+   if(c>=stopAt-1e-6){play=false;pb.textContent='Play'}}
+  dots=dots.filter(d=>{d.t+=dt/1.1;if(d.t>=1){d.e.remove();return false}const k=ease(d.t);d.e.setAttribute('cx',lerp(d.x0,d.x1,k)+Math.sin(k*Math.PI)*40);d.e.setAttribute('cy',lerp(d.y0,d.y1,k));d.e.setAttribute('fill',k>.5?'#4a44b5':'#b5651d');return true});
+  draw()}
+ function go(to){if(c>=.999)c=0;stopAt=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(1)};
+ $('st0').onclick=()=>go(Math.min(1,Math.floor(c*4+1e-6)/4+.25));
+ $('rp0').onclick=()=>{c=0;dots.forEach(d=>d.e.remove());dots=[];go(1)};
+ sl.oninput=()=>{play=false;pb.textContent='Play';c=sl.value/100};
+ draw();return {tick}})();
+
+/* ---------- TAB 2: lab apparatus ---------- */
+const S2=(()=>{
+ const A=[422,150],P0=[[540,150],[540,330],[620,330],[620,312]];
+ let st='ready',heat=0,flame=false,r=0,sb=0,gas=0,pause=false,parts=[],bubs=[],sp=0,T=0,coolT=0;
+ const pg=$('parts'),bH=$('bHeat'),bR=$('bRem'),bS=$('bStop'),pb=$('pl1');
+ function rot(p,a){const dx=p[0]-A[0],dy=p[1]-A[1],c=Math.cos(a),s=Math.sin(a);return [A[0]+dx*c-dy*s,A[1]+dx*s+dy*c]}
+ function pts(){const a=-0.7*ease(cl((r-.45)/.55));return [A,...P0.map(p=>rot(p,a))]}
+ function along(P,d){const Q=[[140,150],[400,150],...P];for(let i=0;i<Q.length-1;i++){const L=Math.hypot(Q[i+1][0]-Q[i][0],Q[i+1][1]-Q[i][1]);if(d<=L){const k=d/L;return [lerp(Q[i][0],Q[i+1][0],k),lerp(Q[i][1],Q[i+1][1],k),false]}d-=L}const e=Q[Q.length-1];return [e[0],e[1],true]}
+ function setBtns(){bH.disabled=st!=='ready';bR.disabled=st!=='heating';bS.disabled=!(st==='heating'||st==='removed')}
+ const ind='<div class="note">Industry: catalyst of <b>silica or alumina</b> at about <b>600–700 °C</b>.</div>';
+ function msg(){const m=$('m1');m.className='msg';let h;
+  if(st==='ready')h='<span>The boiling tube holds mineral wool soaked in <b>liquid paraffin</b> (a mixture of long-chain alkanes).</span><span>Broken porcelain (or aluminium oxide) is the <b>catalyst</b>. Press "Heat the catalyst".</span>';
+  else if(st==='heating')h=heat<.5?'<span>The Bunsen heats the catalyst <b>strongly</b>. Wait for it to get hot.</span>':'<span>The paraffin <b>vaporises</b>. The vapour passes over the <b>hot catalyst</b> and the long chains <b>crack</b>.</span><span>The short-chain gas (including alkenes such as ethene) is <b>collected over water</b>. The first bubbles are mostly air.</span>';
+  else if(st==='removed')h='<span>The collected gas is kept. The delivery tube is now <b>out of the water</b>.</span><span>Now it is safe to stop heating.</span>';
+  else if(st==='safe'){m.className='msg ok';h='<span><b>Safe order:</b> delivery tube out of the water first, then stop heating. No suck-back.</span><span>Test the gas with bromine water: it turns colourless, so the gas contains an <b>alkene</b>.</span>'}
+  else{m.className='msg warn';h='<span><b>Suck-back!</b> You stopped heating with the delivery tube still in the water.</span><span>The gas inside cools and contracts, so cold water is <b>sucked back</b> into the hot boiling tube. The glass can crack.</span><span>Always <b>remove the delivery tube from the water before you stop heating</b>.</span>'}
+  m.innerHTML=h+'<div class="eq">long-chain alkane → shorter alkane + alkene<br>e.g. C<sub>10</sub>H<sub>22</sub> → C<sub>8</sub>H<sub>18</sub> + C<sub>2</sub>H<sub>4</sub></div>'+ind}
+ function act(a){if(a==='heat'&&st==='ready'){st='heating';flame=true}
+  else if(a==='rem'&&st==='heating'){st='removed'}
+  else if(a==='stop'&&(st==='heating'||st==='removed')){flame=false;st=st==='removed'?'safe':'suck';coolT=0}
+  pause=false;pb.textContent='Pause';setBtns();msg()}
+ bH.onclick=()=>act('heat');bR.onclick=()=>act('rem');bS.onclick=()=>act('stop');
+ $('st1').onclick=()=>act(st==='ready'?'heat':st==='heating'?'rem':'stop');
+ pb.onclick=()=>{pause=!pause;pb.textContent=pause?'Play':'Pause'};
+ $('rp1').onclick=()=>{st='ready';heat=0;flame=false;r=0;sb=0;gas=0;parts.forEach(p=>p.e.remove());bubs.forEach(b=>b.e.remove());parts=[];bubs=[];pause=false;pb.textContent='Pause';setBtns();msg()};
+ const ptsStr=P=>'M'+P.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join('L');
+ function tick(dt){if(pause)return;T+=dt;
+  heat=cl(heat+(flame?dt/3:-dt/4));
+  if(st==='removed'||st==='safe')r=cl(r+dt/2);
+  if(st==='suck'){coolT+=dt;if(coolT>1)sb=cl(sb+dt/3.5)}
+  const P=pts(),d=ptsStr(P);$('dtO').setAttribute('d',d);$('dtI').setAttribute('d',d);
+  const W=ptsStr([...P].reverse());$('dtW').setAttribute('d',W);$('dtW').setAttribute('stroke-dasharray',cl(sb*1.4)*100+' 100');
+  $('sbIn').setAttribute('width',cl(sb*1.4-1)*250);$('sbIn').setAttribute('x',400-cl(sb*1.4-1)*250);
+  $('crack').setAttribute('opacity',sb>=.99?1:0);$('warnT').setAttribute('opacity',st==='suck'&&sb>.3?.5+.5*Math.sin(T*6):0);
+  const f=$('flame');f.setAttribute('opacity',flame?1:0);$('fo').setAttribute('transform','translate(265 262) scale(1 '+(1+.06*Math.sin(T*23))+') translate(-265 -262)');
+  $('ctGlow').setAttribute('opacity',heat*.55);
+  const cr=cl(r/.45);$('col').setAttribute('transform','translate(0 '+(-150*ease(cr))+')');$('col').setAttribute('opacity',1-cr);$('kept').setAttribute('opacity',cr);
+  $('colGas').setAttribute('height',gas);
+  const tubeIn=r<.6;
+  if(flame&&heat>.5){sp+=dt;while(sp>.13){sp-=.13;parts.push({d:Math.random()*20,e:el('circle',{r:4},pg),o:Math.random()*10-5})}}
+  parts=parts.filter(p=>{p.d+=dt*150;const q=along(P,p.d);
+   if(q[2]){p.e.remove();if(tubeIn&&r<.01)bubs.push({x:q[0],y:q[1],e:el('circle',{r:5,fill:'#fff',stroke:'#7fb1d6','stroke-width':1.5},pg)});else bubs.push({x:q[0],y:q[1],puff:1,e:el('circle',{r:4,fill:'#2e9e5b',opacity:.6},pg)});return false}
+   const y=q[1]+(q[0]<400?p.o*.6:0);p.e.setAttribute('cx',q[0]);p.e.setAttribute('cy',y);p.e.setAttribute('fill',q[0]<296&&q[1]<=151?'#b5651d':'#2e9e5b');return true});
+  bubs=bubs.filter(b=>{if(b.puff){b.puff-=dt;b.y-=dt*30;b.e.setAttribute('cx',b.x);b.e.setAttribute('cy',b.y);b.e.setAttribute('r',4+(1-b.puff)*10);b.e.setAttribute('opacity',cl(b.puff)*.5);if(b.puff<=0){b.e.remove();return false}return true}
+   b.y-=dt*90;b.x=lerp(b.x,620,dt*3);b.e.setAttribute('cx',b.x+Math.sin(b.y/6)*2);b.e.setAttribute('cy',b.y);if(b.y<100+gas){gas=Math.min(185,gas+3.2);b.e.remove();return false}return true});
+  if(st==='heating'&&heat>=.5&&heat-dt/3<.5)msg()}
+ setBtns();msg();return {tick}})();
+
+/* ---------- molecule drawing helper ---------- */
+const COL={C:'#39424e',H:'#fff',Br:'#a2341a'};
+function drawMol(g,atoms,bonds,ball){let s='';
+ for(const b of bonds){if(b.o<=0.01)continue;const a=atoms[b.a],c=atoms[b.b];const dx=c.x-a.x,dy=c.y-a.y,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L;
+  const col=b.hl?'#b3261e':(ball?'#8a97a5':'#1c2736'),w=b.hl?4:(ball?6:2.6);
+  const offs=b.dbl>0?[[-5*b.dbl,1],[5*b.dbl,b.dbl]]:[[0,1]];
+  for(const [o,op] of offs)s+=`<line x1="${(a.x+nx*o).toFixed(1)}" y1="${(a.y+ny*o).toFixed(1)}" x2="${(c.x+nx*o).toFixed(1)}" y2="${(c.y+ny*o).toFixed(1)}" stroke="${col}" stroke-width="${w}" stroke-linecap="round" opacity="${(b.o*op).toFixed(2)}"/>`}
+ for(const a of atoms){if(a.o===0)continue;const op=a.o??1;
+  if(ball){const r=a.t==='H'?8:a.t==='C'?13:15;s+=`<circle cx="${a.x.toFixed(1)}" cy="${a.y.toFixed(1)}" r="${r}" fill="${COL[a.t]}" stroke="${a.t==='H'?'#8794a3':'#0005'}" stroke-width="1.5" opacity="${op}"/>`}
+  else{s+=`<circle cx="${a.x.toFixed(1)}" cy="${a.y.toFixed(1)}" r="${a.t==='Br'?14:10}" fill="#e4eaf0" opacity="${op}"/><text x="${a.x.toFixed(1)}" y="${(a.y+6).toFixed(1)}" text-anchor="middle" font-size="${a.t==='H'?16:18}" font-weight="700" opacity="${op}" style="fill:${a.t==='Br'?'#a2341a':a.t==='H'?'#5a6878':'#1c2736'}">${a.t}</text>`}}
+ g.innerHTML=s}
+
+/* ---------- TAB 3: molecule cracking ---------- */
+const S3=(()=>{
+ const EX=[{n:10,k:8,N:'decane',A:'octane',E:'ethene'},{n:10,k:7,N:'decane',A:'heptane',E:'propene'},{n:12,k:10,N:'dodecane',A:'decane',E:'ethene'}];
+ const sv=$('sv2'),g=el('g',{},sv),tg=el('g',{class:'lb'},sv),PH=[0,2.6,3.8,5.3,6.4];
+ let ex=0,ball=false,t=0,play=false,stopAt=PH[4],mol;
+ const f=(c,h)=>'C'+c+'H'+h;
+ function build(){const e=EX[ex],n=e.n,k=e.k,s=n===12?50:56,h=36,y0=118,x0=(760-(n-1)*s)/2,atoms=[],bonds=[];
+  for(let i=0;i<n;i++){const fr=i<k?'L':'R';atoms.push({t:'C',x:x0+i*s,y:y0,fr,i});}
+  const H=(x,y,c,fr)=>{atoms.push({t:'H',x,y,fr,i:atoms.length});bonds.push({a:c,b:atoms.length-1,o:1})};
+  for(let i=0;i<n;i++){const fr=i<k?'L':'R';H(x0+i*s,y0-h,i,fr);if(i===k+1)mol={hT:atoms.length-1};H(x0+i*s,y0+h,i,fr)}
+  H(x0-h,y0,0,'L');H(x0+(n-1)*s+h,y0,n-1,'R');
+  for(let i=0;i<n-1;i++)bonds.push({a:i,b:i+1,o:1,brk:i===k-1,dblb:i===k});
+  const hT=mol.hT,hb=bonds.find(b=>b.b===hT);hb.tr=1;
+  bonds.push({a:k-1,b:hT,o:0,nw:1});
+  mol={atoms,bonds,hT,k,n,s,h,y0,x0,e};
+  const w=x=>x0+x*s;
+  tg.innerHTML='';
+  mol.lab=[el('text',{x:380,y:215,'text-anchor':'middle','font-size':17,'font-weight':700},tg),el('text',{x:380,y:238,'text-anchor':'middle',class:'t-s'},tg),
+   el('text',{'text-anchor':'middle','font-size':16,'font-weight':700,y:215},tg),el('text',{'text-anchor':'middle',class:'t-s',y:238},tg),
+   el('text',{'text-anchor':'middle','font-size':16,'font-weight':700,y:215,style:'fill:#b3261e'},tg),el('text',{'text-anchor':'middle',class:'t-s',y:238},tg),
+   el('text',{'text-anchor':'middle','font-size':15,'font-weight':700,y:40,style:'fill:#b3261e'},tg)];
+  mol.lab[0].textContent=e.N+', '+usub(f(n,2*n+2))+' (alkane)';mol.lab[1].textContent='long chain: only C–C single bonds (saturated)';
+  mol.lab[2].textContent=e.A+', '+usub(f(k,2*k+2));mol.lab[3].textContent='alkane: saturated';
+  mol.lab[4].textContent=e.E+', '+usub(f(n-k,2*(n-k)));mol.lab[5].textContent='alkene: unsaturated';mol.lab[6].textContent='C=C double bond';
+  mol.lab[2].setAttribute('x',(w(0)+w(k-1))/2-30);mol.lab[3].setAttribute('x',(w(0)+w(k-1))/2-30);
+  [4,5].forEach(i=>mol.lab[i].setAttribute('x',(w(k)+w(n-1))/2+30));mol.lab[6].setAttribute('x',(w(k)+w(k+1))/2+30)}
+ function frame(){const M=mol,{atoms,bonds,k,s,h,y0,x0}=M;
+  const amp=t<PH[1]?1+5*t/PH[1]:2.2,sep=ease(cl((t-PH[1])/(PH[2]-PH[1]))),tr=ease(cl((t-PH[2])/(PH[3]-PH[2]))),db=cl((t-PH[3])/(PH[4]-PH[3]));
+  const P=atoms.map((a,j)=>{const dx=a.fr==='L'?-30*sep:30*sep;return {t:a.t,x:a.x+dx+amp*Math.sin(t*31+j*1.7),y:a.y+amp*Math.cos(t*27+j*2.3)}});
+  const ht=atoms[M.hT],sx=ht.x+30,sy=ht.y,ex=x0+(k-1)*s+h-30,ey=y0;
+  const hp=P[M.hT],jx=hp.x-(ht.x+30*sep),jy=hp.y-ht.y;
+  if(tr>0){hp.x=lerp(sx,ex,tr)+jx;hp.y=lerp(sy,ey,tr)-Math.sin(tr*Math.PI)*60+jy}
+  const B=bonds.map(b=>{let o=b.o,hl=false,dbl=0;
+   if(b.brk){o=t<PH[1]-.4?1:t<PH[1]?(Math.sin(t*40)>0?1:.25):1-sep;hl=t>PH[1]-.8&&t<PH[2]}
+   if(b.tr)o=1-cl(tr*3);if(b.nw)o=cl(tr*2-1);if(b.dblb){dbl=db;hl=db>0}
+   return {a:b.a,b:b.b,o,hl,dbl}});
+  drawMol(g,P,B,ball);
+  const L=M.lab,pre=t<PH[1],post=t>=PH[3]+.6;
+  L[0].style.display=L[1].style.display=pre?'':'none';[2,3,4,5,6].forEach(i=>L[i].style.display=post?'':'none');
+  L[6].setAttribute('y',y0-52)}
+ function msg(){const e=mol.e,n=e.n,k=e.k,m=n-k;let h;
+  if(t<PH[1])h='<span>A long-chain alkane molecule is <b>heated</b>. Its atoms vibrate more and more.</span><span>It is <b>saturated</b>: every C–C bond is a single bond.</span>';
+  else if(t<PH[2])h='<span>The molecule vibrates so much that a <b>C–C bond breaks</b>. The chain splits into two parts.</span>';
+  else if(t<PH[3])h='<span>A <b>hydrogen atom</b> moves from the short piece to the long piece.</span><span>The long piece becomes a complete alkane.</span>';
+  else h='<span>The short piece forms a <b>C=C double bond</b>, so it is an <b>alkene</b> (unsaturated, C<sub>n</sub>H<sub>2n</sub>).</span><span>The long piece is an <b>alkane</b> (saturated, C<sub>n</sub>H<sub>2n+2</sub>).</span>';
+  $('m2').innerHTML=h+`<div class="eq">${sub(f(n,2*n+2))} → ${sub(f(k,2*k+2))} + ${sub(f(m,2*m))}<br><span class="note">${e.N} → ${e.A} + ${e.E}</span></div><div class="note">Check: C ${n} = ${k} + ${m}; H ${2*n+2} = ${2*k+2} + ${2*m}</div>`}
+ const exs=$('exs'),pb=$('pl2');
+ EX.forEach((e,i)=>{const b=document.createElement('button');b.className='pick';b.innerHTML=sub(f(e.n,2*e.n+2))+' → '+sub(f(e.k,2*e.k+2))+' + '+sub(f(e.n-e.k,2*(e.n-e.k)));b.setAttribute('aria-pressed',i===0);b.onclick=()=>{ex=i;[...exs.children].forEach((c,j)=>c.setAttribute('aria-pressed',j===i));build();t=0;go(PH[4])};exs.appendChild(b)});
+ $('vD').onclick=()=>{ball=false;$('vD').setAttribute('aria-pressed',true);$('vB').setAttribute('aria-pressed',false)};
+ $('vB').onclick=()=>{ball=true;$('vB').setAttribute('aria-pressed',true);$('vD').setAttribute('aria-pressed',false)};
+ function go(to){if(t>=PH[4]-1e-3)t=0;stopAt=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(PH[4])};
+ $('st2').onclick=()=>{if(t>=PH[4]-1e-3)t=0;go(PH.find(p=>p>t+1e-3)??PH[4])};
+ $('rp2').onclick=()=>{t=0;go(PH[4])};
+ let ph=-1;
+ function tick(dt){if(play){t=Math.min(stopAt,t+dt);if(t>=stopAt){play=false;pb.textContent='Play'}}
+  frame();const p=PH.filter(x=>x<=t+1e-3).length;if(p!==ph){ph=p;msg()}}
+ build();msg();return {tick}})();
+
+/* ---------- TAB 4: bromine water ---------- */
+const S4=(()=>{
+ const T={A:{cx:110,sh:0,col:0,done:false},B:{cx:250,sh:0,col:0,done:false}};
+ const ORG=[233,130,28],CLR=[236,244,250];
+ function tube(id,o,name,sub1){const g=$(id),x=o.cx;
+  g.innerHTML=`<g id="${id}r"><rect x="${x-24}" y="50" width="48" height="14" rx="3" fill="#4b4f57"/><rect id="${id}gas" x="${x-21}" y="64" width="42" height="96" fill="#fff"/><path id="${id}liq" d="M${x-21} 160V292A21 21 0 0 0 ${x+21} 292V160Z"/><path class="glass" d="M${x-23} 60V292A23 23 0 0 0 ${x+23} 292V60"/></g>
+  <text x="${x}" y="345" text-anchor="middle" font-weight="700" font-size="15">${name}</text><text x="${x}" y="364" text-anchor="middle" class="t-s">${sub1}</text>
+  <text id="${id}res" x="${x}" y="30" text-anchor="middle" font-weight="700" font-size="14" class="lb"></text>`;
+  o.g=$(id+'r');o.liq=$(id+'liq');o.res=$(id+'res')}
+ tube('tubeA',T.A,'A: alkane','e.g. hexane');tube('tubeB',T.B,'B: alkene','e.g. ethene');
+ el('text',{x:180,y:215,'text-anchor':'middle',class:'t-s lb'},$('sv3')).textContent='bromine';el('text',{x:180,y:230,'text-anchor':'middle',class:'t-s lb'},$('sv3')).textContent='water';
+ const mg=$('mol4'),tl=el('g',{class:'lb'},$('sv3')),PH=[0,1.6,2.6,3.6];let t=0,play=false,stopAt=0,ball=false;
+ const lt=(x,y,s,c)=>{const e=el('text',{x,y,'text-anchor':'middle','font-size':14,'font-weight':700},tl);if(c)e.style.fill=c;return e};
+ const L1=lt(530,320,''),L2=lt(530,60,'');
+ const cx1=490,cx2=570,cy=240,S=[ // start, end positions
+  ['C',cx1,cy,cx1,cy],['C',cx2,cy,cx2,cy],
+  ['H',cx1-36,cy-36,cx1-48,cy],['H',cx1-36,cy+36,cx1,cy+48],['H',cx2+36,cy-36,cx2+48,cy],['H',cx2+36,cy+36,cx2,cy+48],
+  ['Br',cx1-10,80,cx1,cy-52],['Br',cx2+10,80,cx2,cy-52]];
+ function frame(){const ap=ease(cl(t/PH[1])),op=ease(cl((t-PH[1])/(PH[2]-PH[1]))),bd=ease(cl((t-PH[2])/(PH[3]-PH[2])));
+  const P=S.map((s,i)=>{let k=i>=6?(ap*.55+op*.25+bd*.2):op*.5+bd*.5;return {t:s[0],x:lerp(s[1],s[3],k),y:lerp(s[2],s[4],k)}});
+  const B=[{a:0,b:1,o:1,dbl:1-op,hl:op<1},{a:0,b:2,o:1},{a:0,b:3,o:1},{a:1,b:4,o:1},{a:1,b:5,o:1},{a:6,b:7,o:1-op,hl:op>0&&op<1},{a:0,b:6,o:bd,hl:bd>0&&bd<1},{a:1,b:7,o:bd,hl:bd>0&&bd<1}];
+  drawMol(mg,P,B,ball);
+  if(t<PH[1]-.01){L1.textContent='ethene, C₂H₄ (C=C double bond)';L1.style.fill='';L2.textContent='bromine, Br₂';L2.setAttribute('y',60)}
+  else if(t<PH[3]-.01){L1.textContent='C=C opens to C–C';L1.style.fill='#b3261e';L2.textContent='Br–Br bond breaks';L2.setAttribute('y',60)}
+  else{L1.textContent='1,2-dibromoethane, C₂H₄Br₂';L1.style.fill='#1d7a46';L2.textContent='saturated: single bonds only';L2.setAttribute('y',140)}}
+ const pb=$('pl3');let state='none';
+ function msg(){const m=$('m3');let h;
+  if(state==='none')h='<span>Both tubes contain <b>orange</b> bromine water. Shake each one with a hydrocarbon.</span>';
+  else{h='';if(T.A.done)h+='<span><b>Tube A (alkane):</b> stays <b>orange</b>. No reaction: alkanes are saturated and have no C=C.</span>';
+   if(T.B.done)h+='<span><b>Tube B (alkene):</b> orange → <b>colourless</b>. Bromine <b>adds across the C=C double bond</b> (an addition reaction).</span>';
+   if(!T.B.done)h+='<span>Now shake tube B with an alkene.</span>';else if(!T.A.done)h+='<span>Now shake tube A with an alkane to compare.</span>'}
+  m.innerHTML=h+'<div class="eq">C<sub>2</sub>H<sub>4</sub> + Br<sub>2</sub> → C<sub>2</sub>H<sub>4</sub>Br<sub>2</sub><br><span class="note">ethene + bromine → 1,2-dibromoethane</span></div><div class="note">Test for an alkene: bromine water turns from orange to colourless.</div>'}
+ function shake(o){o.sh=1.6;o.done=true;state='go';msg()}
+ $('shA').onclick=()=>shake(T.A);
+ $('shB').onclick=()=>{shake(T.B);t=0;go(PH[3])};
+ function go(to){if(t>=PH[3]-1e-3)t=0;stopAt=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(PH[3])};
+ $('st3').onclick=()=>{if(t>=PH[3]-1e-3)t=0;go(PH.find(p=>p>t+1e-3)??PH[3])};
+ $('rp3').onclick=()=>{T.A.col=T.B.col=0;T.A.done=T.B.done=false;T.A.sh=T.B.sh=0;state='none';t=0;stopAt=0;play=false;pb.textContent='Play';msg()};
+ let clk=0;
+ function tick(dt){clk+=dt;if(play){t=Math.min(stopAt,t+dt);if(t>=stopAt){play=false;pb.textContent='Play'}}
+  for(const k of ['A','B']){const o=T[k];if(o.sh>0)o.sh=Math.max(0,o.sh-dt);
+   const a=o.sh>0?14*Math.sin(clk*22)*Math.min(1,o.sh):0;o.g.setAttribute('transform',`rotate(${a.toFixed(1)} ${o.cx} 200)`);
+   if(k==='B'&&o.done)o.col=Math.min(1,o.col+dt/2.2);
+   const c=ORG.map((v,i)=>Math.round(lerp(v,CLR[i],o.col)));o.liq.setAttribute('fill',`rgb(${c})`);
+   o.res.textContent=!o.done||o.sh>0?'':k==='A'?'stays orange':o.col>.95?'colourless':'';o.res.style.fill=k==='A'?'#b5651d':'#1d7a46'}
+  frame()}
+ msg();return {tick}})();
+
+/* ---------- main loop ---------- */
+const SC=[S1,S2,S3,S4];let lastT=performance.now();
+function loop(now){const dt=Math.min(.05,(now-lastT)/1000);lastT=now;SC[active].tick(dt);requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+/* ---------- quiz ---------- */
+const Q=[
+ ['Why is cracking carried out?',['Demand for short-chain fractions such as petrol is greater than supply','Long-chain alkanes burn more easily than short-chain alkanes','It turns alkenes into alkanes for fuel','It separates crude oil into fractions'],0,'Crude oil gives too many long chains and not enough short ones, so long chains are cracked into more useful short molecules.'],
+ ['Complete the equation: C<sub>14</sub>H<sub>30</sub> → C<sub>10</sub>H<sub>22</sub> + ?',['C<sub>4</sub>H<sub>10</sub>','C<sub>4</sub>H<sub>8</sub>','C<sub>2</sub>H<sub>4</sub>','C<sub>4</sub>H<sub>6</sub>'],1,'C: 14 − 10 = 4 and H: 30 − 22 = 8, so C<sub>4</sub>H<sub>8</sub> (an alkene, C<sub>n</sub>H<sub>2n</sub>).'],
+ ['Bromine water is shaken with an alkene. What is seen?',['Colourless to orange','Stays orange','Orange to colourless','Orange to green'],2,'Bromine adds across the C=C double bond, so the orange colour disappears.'],
+ ['In the lab, why must the delivery tube be removed from the water before you stop heating?',['To let the catalyst cool faster','To stop cold water being sucked back into the hot tube','To collect more gas','To stop the paraffin catching fire'],1,'If heating stops first, the gas contracts and water is sucked back into the hot boiling tube, which can crack.']];
+const qs=$('qs');Q.forEach((q,i)=>{const li=document.createElement('li');li.innerHTML=`<fieldset><legend>${q[0]}</legend>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}</fieldset><div class="fb" id="fb${i}" aria-live="polite"></div>`;qs.appendChild(li)});
+$('chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('fb'+i);
+ if(!c){f.className='fb bad';f.textContent='Choose an answer.';return}
+ const ok=+c.value===q[2];if(ok)s++;f.className='fb '+(ok?'good':'bad');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+ $('score').textContent=`Score: ${s} / ${Q.length}`};
+</script>
+<script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'In industry, long-chain alkanes are broken down by catalytic cracking.',
+ stem:'Which conditions are used for catalytic cracking?',
+ opts:['A temperature of about 60 °C and a nickel catalyst.','A temperature of about 600–700 °C and a catalyst of silica or alumina.','A temperature of about 450 °C and an iron catalyst.','Room temperature and ultraviolet light.'],
+ ans:1,why:'The alkane is vaporised and passed over a hot catalyst of silica (SiO<sub>2</sub>) or alumina (Al<sub>2</sub>O<sub>3</sub>) at about 600–700 °C.'},
+{ref:'Q1(b)',marks:1,type:'mcq',
+ stem:'Which type of reaction is cracking?',
+ opts:['Combustion','Neutralisation','Thermal decomposition','Addition'],
+ ans:2,why:'Heat breaks large molecules down into smaller ones, so cracking is a thermal decomposition.'},
+{ref:'Q2',marks:3,type:'drop',ctx:'Cracking a long-chain alkane makes a shorter alkane and at least one alkene.',
+ stem:'Complete each equation by choosing the missing formula or number.',
+ items:[{pre:'C₁₀H₂₂ → C₈H₁₈ +',opts:['C₂H₆','C₂H₄','CH₄','C₃H₆'],ans:1,aria:'Missing product in equation 1'},
+  {pre:'C₁₂H₂₆ → C₆H₁₄ + 2',opts:['C₃H₈','C₂H₄','C₃H₆','C₆H₁₂'],ans:2,aria:'Missing product in equation 2'},
+  {pre:'C₁₆H₃₄ → C₁₀H₂₂ +',opts:['1','2','3','4'],ans:2,post:'C₂H₄',aria:'Number of ethene molecules in equation 3'}],
+ why:'Count the atoms: the numbers of C and H atoms must be the same on both sides. For example, C<sub>16</sub>H<sub>34</sub> − C<sub>10</sub>H<sub>22</sub> leaves C<sub>6</sub>H<sub>12</sub>, which is 3C<sub>2</sub>H<sub>4</sub>.'},
+{ref:'Q3(a)',marks:2,type:'calc',
+ ctx:'The table shows the mass of each fraction obtained from 100 tonnes of crude oil, and the mass of each fraction that people want to buy.<div class="ex-tblwrap"><table class="ex-tbl"><thead><tr><th>fraction</th><th>supply / tonnes</th><th>demand / tonnes</th></tr></thead><tbody><tr><td>refinery gases</td><td>3</td><td>5</td></tr><tr><td>gasoline</td><td>20</td><td>32</td></tr><tr><td>kerosene</td><td>13</td><td>10</td></tr><tr><td>diesel</td><td>18</td><td>24</td></tr><tr><td>fuel oil and bitumen</td><td>46</td><td>29</td></tr></tbody></table></div>',
+ stem:'Calculate the percentage of the demand for gasoline that is met by the supply from crude oil.',
+ inputs:[{lab:'percentage of demand met =',unit:'%',ans:62.5,tol:0.6,m:2}],
+ work:'<ol><li>Percentage = (supply ÷ demand) × 100 (1 mark)</li><li>= (20 ÷ 32) × 100 = <b>62.5 %</b> (1 mark; 62 % or 63 % also accepted)</li></ol>'},
+{ref:'Q3(b)',marks:3,type:'written',
+ stem:'Use the data in the table to explain why oil companies crack some of the fuel oil and bitumen.',
+ points:['the supply of fuel oil and bitumen (46 t) is greater than the demand (29 t) / there is a surplus of long-chain fractions','the demand for gasoline (or diesel / refinery gases) is greater than the supply / there is not enough of the short-chain fractions','cracking converts long-chain alkanes into shorter-chain alkanes (that are more useful / can be sold as fuels such as gasoline)','cracking also makes alkenes (which are used to make polymers)'],
+ note:'Credit use of figures from the table'},
+{ref:'Q4',marks:1,type:'mcq',
+ stem:'Which formula is an alkene?',
+ opts:['C<sub>3</sub>H<sub>8</sub>','C<sub>4</sub>H<sub>8</sub>','C<sub>6</sub>H<sub>14</sub>','C<sub>2</sub>H<sub>6</sub>'],
+ ans:1,why:'Alkenes have the general formula C<sub>n</sub>H<sub>2n</sub>. The others fit C<sub>n</sub>H<sub>2n+2</sub>, so they are alkanes.'},
+{ref:'Q5',marks:2,type:'written',ctx:'A student collects the gas made by cracking liquid paraffin.',
+ stem:'Describe a test to show that the gas contains an alkene. Give the result.',
+ points:['add / shake with bromine water','the bromine water turns from orange to colourless'],
+ note:'Do not accept "clear" for colourless'},
+{ref:'Q6',marks:1,type:'mcq',
+ stem:'Cracking decane, C<sub>10</sub>H<sub>22</sub>, makes octane, C<sub>8</sub>H<sub>18</sub>, and ethene, C<sub>2</sub>H<sub>4</sub>. Which statement is correct?',
+ opts:['Octane is unsaturated, so it decolourises bromine water.','Ethene is saturated because it contains only single bonds.','Ethene contains a C=C double bond, so it is unsaturated.','Both products are alkenes.'],
+ ans:2,why:'Ethene is an alkene: it has a carbon–carbon double bond, so it is unsaturated and decolourises bromine water. Octane is a saturated alkane with only single bonds.'},
+{ref:'Q7',marks:6,type:'written',
+ stem:'Describe how a student could crack liquid paraffin in the laboratory and collect the gas made. Include one safety precaution and explain why it is needed.',
+ points:['mineral wool soaked in liquid paraffin is put at the bottom of a boiling tube','a catalyst of broken porcelain / aluminium oxide is placed in the middle of the tube','the catalyst is heated strongly','then the paraffin is warmed so that it vaporises and the vapour passes over the hot catalyst','the gas is collected over water in an upturned test tube (filled with water)','the first tube of gas is thrown away because it is mostly air from the apparatus','precaution: remove the delivery tube from the water before stopping heating / wear eye protection','reason: otherwise cold water is sucked back into the hot tube, which could crack (shatter) it'],
+ note:'Up to 2 marks for the safety precaution and reason'}
+];
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('toptabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var d=el('div','ex-drop'), sels=[], cors=[];
+      q.items.forEach(function(it,k){
+        var row=el('div','ex-drow'); if(it.pre) row.appendChild(el('span','',it.pre));
+        var sl=document.createElement('select'); sl.className='ex-sel'; sl.setAttribute('aria-label',it.aria||('Answer '+(k+1)));
+        sl.appendChild(new Option('Choose…',''));
+        it.opts.forEach(function(o,j){sl.appendChild(new Option(o,String(j)));});
+        row.appendChild(sl); if(it.post) row.appendChild(el('span','',it.post));
+        var cr=el('span','ex-corr'); cr.hidden=true; row.appendChild(cr);
+        d.appendChild(row); sels.push(sl); cors.push(cr);
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); d.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.items[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');
+          if(!ok){cors[k].textContent='✓ '+q.items[k].opts[q.items[k].ans]; cors[k].hidden=false;}});
+        var sc=Math.min(n,q.marks); s.score=sc; s.marked=true; bt3.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(q.why||'')); upd();
+      });
+      c.appendChild(d); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

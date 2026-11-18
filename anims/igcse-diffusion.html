@@ -1,0 +1,581 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diffusion and dilution</title>
+<meta name="description" content="Interactive animation: Diffusion and dilution. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-diffusion.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.tab{font:700 1rem var(--display);padding:11px 22px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.tab[aria-selected="true"]{background:var(--accent);color:#fff}
+.tab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:620px){.tabs{border-radius:16px;align-self:stretch}.tab{padding:9px 12px;font-size:.92rem;border-radius:12px}}
+.layout{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+.layout.wide{grid-template-columns:1fr}.layout.wide .side{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+@media (max-width:780px){.layout{grid-template-columns:1fr}.layout.wide .side{grid-template-columns:1fr}}
+.stagecol{display:flex;flex-direction:column;gap:10px;min-width:0}
+.stage{position:relative;width:100%;background:#fbfcfe;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stage canvas,.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lab{font:700 .78rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:600 .95rem var(--display);padding:8px 15px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.pick{font:inherit;font-size:.92rem;padding:7px 14px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+label.chk{display:flex;gap:8px;align-items:center;cursor:pointer;font-size:.95rem}
+label.chk input{width:18px;height:18px;accent-color:var(--accent)}
+.status{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.eq{font:700 1rem var(--display);background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;color:var(--muted)}
+.legend span{display:inline-block}
+.sw{width:14px;height:14px;border-radius:50%;display:inline-block;vertical-align:-2px;margin-right:6px;border:1px solid rgba(0,0,0,.25)}
+.safety{background:#fff7e8;border:1px solid #edd29b;border-radius:10px;padding:8px 12px;font-size:.92rem}
+.note{font-size:.86rem;color:var(--muted)}
+svg text{font-family:var(--body);fill:var(--ink)}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.lbl{transition:opacity .2s}
+.nolabels .lbl{opacity:0!important}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.q{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.q p{font-weight:700}
+.q label{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer}
+.q label input{margin-top:5px;accent-color:var(--accent)}
+.q label.right{border-color:var(--good);background:#eef8f2}
+.q label.wrong{border-color:var(--bad);background:#fdf0ef}
+.fb{font-size:.93rem;border-left:4px solid var(--line);padding:6px 10px;border-radius:6px}
+.fb.good{border-color:var(--good);background:#e6f4ec}.fb.bad{border-color:var(--bad);background:#fdecea}
+.score{font:700 1.05rem var(--display);color:var(--accent)}
+[hidden]{display:none!important}
+/* ---- top tabs + exam practice ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;max-width:100%;margin-top:8px}
+.ex-tbl{border-collapse:collapse;width:auto;min-width:0;font-size:.92rem}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:5px 10px;text-align:left;vertical-align:top}
+.ex-tbl thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+.ex-tbl tbody th,.ex-tbl td{white-space:nowrap}
+.ex-act .btn:disabled{opacity:.45;cursor:default}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-in select.ok{border-color:var(--good)}.ex-in input.wrong,.ex-in select.wrong{border-color:var(--bad)}
+.ex-in select{font:inherit;max-width:100%;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-unit{font-weight:700}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE CHEMISTRY · PRINCIPLES: DIFFUSION</div>
+<h1>Diffusion and dilution</h1>
+<p>Choose an experiment. Press <b>Play</b> and watch how the particles spread out. Turn on <b>Particle view</b> to see what the particles are doing.</p>
+</header>
+<div class="toptabs" id="topTabRow" role="tablist" aria-label="Sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="tabs" role="tablist" aria-label="Experiments">
+<button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="p0">1 · Ammonia and hydrogen chloride</button>
+<button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">2 · Potassium manganate(VII) in water</button>
+<button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">3 · Bromine gas</button>
+</div>
+
+<!-- TAB 1 -->
+<section class="sheet" role="tabpanel" id="p0" aria-labelledby="t0">
+<h2>Ammonia and hydrogen chloride in a long tube</h2>
+<div class="layout wide">
+<div class="stagecol">
+<div class="stage" id="st0" style="aspect-ratio:800/320"><canvas></canvas>
+<svg viewBox="0 0 800 320" aria-label="Long glass tube with cotton wool at each end">
+<rect x="60" y="116" width="680" height="48" rx="6" fill="none"/>
+<g id="ring0"></g>
+<rect x="34" y="108" width="28" height="64" rx="4" fill="#8a5a44"/><rect x="738" y="108" width="28" height="64" rx="4" fill="#8a5a44"/>
+<rect x="63" y="119" width="33" height="42" rx="12" fill="#fff" stroke="#b8c3ce" stroke-dasharray="3 3" opacity=".45"/>
+<rect x="704" y="119" width="33" height="42" rx="12" fill="#fff" stroke="#b8c3ce" stroke-dasharray="3 3" opacity=".45"/>
+<rect x="60" y="116" width="680" height="48" rx="6" class="glass"/>
+<line x1="70" y1="122" x2="730" y2="122" stroke="#fff" stroke-width="3" opacity=".8"/>
+<g class="lbl" font-size="17">
+<text x="40" y="40">Cotton wool soaked in</text><text x="40" y="58">concentrated ammonia solution</text>
+<text x="760" y="40" text-anchor="end">Cotton wool soaked in</text><text x="760" y="58" text-anchor="end">concentrated hydrochloric acid</text>
+<line x1="80" y1="64" x2="80" y2="118" stroke="#5a6878"/><line x1="720" y1="64" x2="720" y2="118" stroke="#5a6878"/>
+<text x="100" y="106" font-weight="700" style="fill:#1f63c9">NH<tspan font-size="11" dy="4">3</tspan><tspan dy="-4">(g) →</tspan></text>
+<text x="700" y="106" text-anchor="end" font-weight="700" style="fill:#c24d0a">← HCl(g)</text>
+<text x="20" y="190" font-size="13" fill="#5a6878">bung</text>
+</g>
+<g id="ringlbl" opacity="0"><text id="ringtx" y="100" text-anchor="middle" font-weight="700" font-size="15">white ring of NH<tspan font-size="11" dy="4">4</tspan><tspan dy="-4">Cl(s)</tspan></text></g>
+<g id="ruler0"></g>
+<line id="arN" y1="262" y2="262" stroke="#1f63c9" stroke-width="4" marker-end="url(#ahN)"/>
+<line id="arH" y1="292" y2="292" stroke="#c24d0a" stroke-width="4" marker-end="url(#ahH)"/>
+<defs><marker id="ahN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f63c9"/></marker>
+<marker id="ahH" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c24d0a"/></marker></defs>
+<text id="tN" y="256" font-size="15" font-weight="700" style="fill:#1f63c9"></text>
+<text id="tH" y="286" font-size="15" font-weight="700" text-anchor="end" style="fill:#c24d0a"></text>
+<rect x="330" y="4" width="140" height="30" rx="7" fill="#1f2a36"/><text id="clk0" x="400" y="25" text-anchor="middle" font-weight="700" font-size="16" style="fill:#b9f5c8">0 min 00 s</text>
+</svg></div>
+<div class="legend"><span><i class="sw" style="background:#2f74e0"></i>NH<sub>3</sub> particle (M<sub>r</sub> 17)</span><span><i class="sw" style="background:#f07a2a"></i>HCl particle (M<sub>r</sub> 36.5)</span><span><i class="sw" style="background:#c3ccd6"></i>air particle</span><span><i class="sw" style="background:#fff"></i>NH<sub>4</sub>Cl solid</span></div>
+<div class="safety"><b>Safety:</b> do this in a fume cupboard. Ammonia and hydrogen chloride are toxic and corrosive gases. Wear eye protection and gloves when soaking the cotton wool.</div>
+</div>
+<div class="side">
+<div class="card" data-tab="0"><div class="lab">Controls</div>
+<div class="row"><button class="btn" data-act="play">Play</button><button class="btn ghost" data-act="step">Step +30 s</button><button class="btn ghost" data-act="replay">Replay</button></div>
+<label class="chk"><input type="checkbox" data-opt="pv" checked> Particle view</label>
+<label class="chk"><input type="checkbox" data-opt="lb" checked> Show labels</label>
+<p class="note">Time is speeded up. In the lab the ring takes a few minutes to form.</p></div>
+<div class="card"><div class="lab">What's happening</div><div class="status"><p id="s0"></p><div class="eq">NH<sub>3</sub>(g) + HCl(g) → NH<sub>4</sub>Cl(s)</div></div></div>
+</div></div></section>
+
+<!-- TAB 2 -->
+<section class="sheet" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+<h2>Potassium manganate(VII) in water</h2>
+<div class="layout">
+<div class="stagecol">
+<div class="stage" id="st1" style="aspect-ratio:800/480"><canvas></canvas>
+<svg viewBox="0 0 800 480" aria-label="Beaker of water, or five test tubes for dilution">
+<g id="vDif">
+<line x1="150" y1="411" x2="650" y2="411" stroke="#b9c4cf" stroke-width="4"/>
+<path class="glass" d="M238 76 L248 86 V396 Q248 408 260 408 H540 Q552 408 552 396 V86 L562 76"/>
+<line x1="250" y1="120" x2="550" y2="120" stroke="#8fb6d6" stroke-width="2"/>
+<path d="M556 140 H572 M556 200 H566 M556 260 H572 M556 320 H566" stroke="#7d8fa3" stroke-width="2"/>
+<g class="lbl" font-size="15"><text x="580" y="126">water (still, not stirred)</text><text x="580" y="146">beaker</text>
+<text id="crlbl" x="40" y="396">crystal of potassium</text><text x="40" y="414" id="crlbl2">manganate(VII)</text></g>
+<rect x="20" y="10" width="170" height="30" rx="7" fill="#1f2a36"/><text id="clk1" x="105" y="31" text-anchor="middle" font-weight="700" font-size="16" style="fill:#b9f5c8">0 h 00 min</text>
+</g>
+<g id="vDil" hidden>
+<rect x="80" y="276" width="640" height="16" rx="3" fill="#d8c3a0"/><rect x="80" y="372" width="640" height="10" rx="3" fill="#cbb48d"/>
+<g id="tubes"></g>
+<g id="pip"><rect x="-5" y="-150" width="10" height="150" rx="3" fill="none" stroke="#7d8fa3" stroke-width="2"/><rect id="pipliq" x="-3" y="-40" width="6" height="0" fill="#7a1f96"/><ellipse cx="0" cy="-160" rx="12" ry="14" fill="#d65a5a"/></g>
+<line id="stream" x1="0" y1="140" x2="0" y2="200" stroke="#5aa6e6" stroke-width="4" opacity="0"/>
+<text id="dilmsg" x="400" y="40" text-anchor="middle" font-weight="700" font-size="17"></text>
+<text x="400" y="472" text-anchor="middle" font-size="13" id="magcap" class="note">Magnified view (not to scale)</text>
+</g>
+</svg></div>
+<div class="legend" id="lg1"><span><i class="sw" style="background:#7a1f96"></i>potassium manganate(VII) particle</span><span><i class="sw" style="background:#a9d3f2"></i>water particle</span></div>
+</div>
+<div class="side">
+<div class="card" data-tab="1"><div class="lab">Controls</div>
+<div class="row"><button class="pick" data-part="0" aria-pressed="true">Part 1: Diffusion</button><button class="pick" data-part="1" aria-pressed="false">Part 2: Dilution</button></div>
+<div class="row"><button class="btn" data-act="play">Play</button><button class="btn ghost" data-act="step">Step</button><button class="btn ghost" data-act="replay">Replay</button></div>
+<label class="chk"><input type="checkbox" data-opt="pv"> Particle view</label>
+<label class="chk"><input type="checkbox" data-opt="lb" checked> Show labels</label>
+<p class="note" id="n1">Time is speeded up. In the lab this takes hours.</p></div>
+<div class="card"><div class="lab">What's happening</div><div class="status"><p id="s1"></p><div class="eq" id="e1"></div></div></div>
+</div></div></section>
+
+<!-- TAB 3 -->
+<section class="sheet" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+<h2>Bromine gas in two gas jars</h2>
+<div class="layout">
+<div class="stagecol">
+<div class="stage" id="st2" style="aspect-ratio:800/470"><canvas></canvas>
+<svg viewBox="0 0 800 470" aria-label="Two gas jars, one on top of the other">
+<line x1="200" y1="444" x2="600" y2="444" stroke="#b9c4cf" stroke-width="4"/>
+<path class="glass" d="M304 230 H316 V52 Q316 36 332 36 H468 Q484 36 484 52 V230 H496"/>
+<path class="glass" d="M304 240 H316 V420 Q316 436 332 436 H468 Q484 436 484 420 V240 H496"/>
+<g id="plate"><rect x="294" y="230.5" width="212" height="9" rx="2" fill="rgba(190,215,235,.75)" stroke="#7d8fa3" stroke-width="1.5"/></g>
+<g class="lbl" font-size="15">
+<text x="296" y="130" text-anchor="end" id="uplbl">air</text><text x="296" y="148" text-anchor="end">upper gas jar</text>
+<text x="296" y="330" text-anchor="end">bromine vapour</text><text x="296" y="348" text-anchor="end">lower gas jar</text>
+<text x="400" y="262" text-anchor="middle" id="pllbl">glass plate</text>
+</g>
+<rect x="20" y="10" width="150" height="30" rx="7" fill="#1f2a36"/><text id="clk2" x="95" y="31" text-anchor="middle" font-weight="700" font-size="16" style="fill:#b9f5c8">0 min 00 s</text>
+<text id="tmp2" x="20" y="64" font-size="15" font-weight="700"></text>
+<g font-size="14"><text x="710" y="60" text-anchor="middle">brown colour</text><text x="710" y="77" text-anchor="middle">in upper jar</text>
+<rect x="690" y="88" width="40" height="300" rx="5" fill="#fff" stroke="#7d8fa3"/><rect id="bar2" x="692" y="386" width="36" height="0" fill="#9a4a1c"/>
+<line x1="684" y1="88" x2="736" y2="88" stroke="#1c2736" stroke-dasharray="4 3"/><text x="740" y="92" font-size="12">evenly</text><text x="740" y="106" font-size="12">mixed</text>
+<text id="pct2" x="710" y="410" text-anchor="middle" font-weight="700">0%</text></g>
+</svg></div>
+<div class="legend" id="lg2"><span><i class="sw" style="background:#9a4a1c"></i>bromine particle, Br<sub>2</sub></span><span><i class="sw" style="background:#a9bed2"></i>air particle</span></div>
+</div>
+<div class="side">
+<div class="card" data-tab="2"><div class="lab">Controls</div>
+<div class="row"><button class="btn" data-act="play">Play</button><button class="btn ghost" data-act="step">Step +1 min</button><button class="btn ghost" data-act="replay">Replay</button></div>
+<div class="lab">Temperature</div>
+<div class="row"><button class="pick" data-temp="0" aria-pressed="true">Cool</button><button class="pick" data-temp="1" aria-pressed="false">Warm</button></div>
+<div class="lab">Upper jar contains</div>
+<div class="row"><button class="pick" data-vac="0" aria-pressed="true">Air</button><button class="pick" data-vac="1" aria-pressed="false">Vacuum (no air)</button></div>
+<label class="chk"><input type="checkbox" data-opt="pv" checked> Particle view</label>
+<label class="chk"><input type="checkbox" data-opt="lb" checked> Show labels</label>
+<p class="note">Play removes the glass plate. Time is speeded up.</p></div>
+<div class="card"><div class="lab">What's happening</div><div class="status"><p id="s2"></p><div class="eq">Br<sub>2</sub>(g): higher concentration → lower concentration</div></div></div>
+</div></div></section>
+
+<section class="sheet"><h2>Key points</h2><ul class="kp">
+<li><b>Diffusion</b> is the net movement of particles from a region of higher concentration to a region of lower concentration. It is caused by the random motion of the particles.</li>
+<li>Diffusion is <b>faster in gases than in liquids</b>. Gas particles move faster and are far apart. In a liquid the particles are close together and collide very often.</li>
+<li>Diffusion is <b>faster at a higher temperature</b>, because the particles have more kinetic energy and move faster.</li>
+<li><b>Lighter particles diffuse faster.</b> NH<sub>3</sub> (M<sub>r</sub> 17) moves faster than HCl (M<sub>r</sub> 36.5), so the white ring of ammonium chloride forms nearer the hydrochloric acid end.</li>
+<li>Gas particles collide with air particles, so diffusion in air is slow. In a vacuum there is nothing to collide with, so the gas spreads almost instantly.</li>
+<li>Potassium manganate(VII) solution is still coloured after many <b>dilutions</b>. This shows there are a very large number of very small particles.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><div id="quiz" style="display:flex;flex-direction:column;gap:12px"></div>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const NS='http://www.w3.org/2000/svg',TAU=6.2832;
+function el(t,a,p,tx){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(tx!=null)e.textContent=tx;if(p)p.appendChild(e);return e;}
+const rn=()=>(Math.random()+Math.random()+Math.random()-1.5)*2;
+const R=(a,b)=>a+Math.random()*(b-a);
+function fmtS(s){s=Math.floor(s);return Math.floor(s/60)+' min '+String(s%60).padStart(2,'0')+' s';}
+function fmtH(s){const m=Math.floor(s/60);return Math.floor(m/60)+' h '+String(m%60).padStart(2,'0')+' min';}
+function walk(p,s,q){if(Math.random()<q)p.a=Math.random()*TAU;p.x+=Math.cos(p.a)*s;p.y+=Math.sin(p.a)*s;}
+function bound(p,x0,x1,y0,y1){if(p.x<x0){p.x=2*x0-p.x;p.a=Math.PI-p.a;}else if(p.x>x1){p.x=2*x1-p.x;p.a=Math.PI-p.a;}
+if(p.y<y0){p.y=2*y0-p.y;p.a=-p.a;}else if(p.y>y1){p.y=2*y1-p.y;p.a=-p.a;}
+p.x=Math.min(x1,Math.max(x0,p.x));p.y=Math.min(y1,Math.max(y0,p.y));}
+function dot(c,x,y,r,f,s){c.beginPath();c.arc(x,y,r,0,TAU);c.fillStyle=f;c.fill();if(s){c.strokeStyle=s;c.lineWidth=1;c.stroke();}}
+function mk(x0,x1,y0,y1){return{x:R(x0,x1),y:R(y0,y1),a:Math.random()*TAU};}
+function Stage(id,W,H){const st=$(id),cv=st.querySelector('canvas'),ctx=cv.getContext('2d');
+return{W,H,ctx,st,fit(){const r=cv.getBoundingClientRect();if(!r.width)return;const d=window.devicePixelRatio||1;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(cv.width/W,0,0,cv.height/H,0,0);},clear(){ctx.clearRect(0,0,W,H);}};}
+function setTxt(id,h){const e=$(id);if(e._h!==h){e._h=h;e.innerHTML=h;}}
+const sub=(a,n)=>a+'<sub>'+n+'</sub>';
+
+/* ---------- TAB 1: NH3 + HCl ---------- */
+const T0=(()=>{const S=Stage('#st0',800,320),c=S.ctx;
+const PX=6.76,X=cm=>62+cm*PX,TM=300,f=Math.sqrt(36.5/17),GAP=90,dN=GAP*f/(1+f),dH=GAP-dN,RING=5+dN;
+const kN=dN/Math.sqrt(TM),kH=dH/Math.sqrt(TM),y0=120,y1=160;
+// ruler
+const g=$('#ruler0');el('rect',{x:62,y:186,width:676,height:34,rx:3,fill:'#f6e7c1',stroke:'#c7ad74'},g);
+for(let i=0;i<=100;i+=5){el('line',{x1:X(i),x2:X(i),y1:186,y2:i%10?196:202,stroke:'#6b5a3a','stroke-width':1.5},g);if(i%10===0)el('text',{x:X(i),y:216,'text-anchor':'middle','font-size':14},g,String(i));}
+el('text',{x:756,y:216,'font-size':12},g,'cm');
+const ring=el('rect',{x:X(RING)-7,y:117,width:14,height:46,rx:4,fill:'#fff',stroke:'#9aa6b2','stroke-width':1.5,opacity:0},$('#ring0'));
+$('#ringtx').setAttribute('x',X(RING));el('line',{x1:X(RING),x2:X(RING),y1:104,y2:116,stroke:'#1c2736'},$('#ringlbl'));
+const o={playing:false,pv:true};let t,nh,hc,air,dep,met;
+o.reset=()=>{t=0;met=false;dep=[];nh=[];hc=[];air=[];for(let i=0;i<55;i++){nh.push(mk(X(.6),X(5),y0,y1));hc.push(mk(X(95),X(99.4),y0,y1));}
+for(let i=0;i<50;i++)air.push(mk(X(.5),X(99.5),y0,y1));};
+const fN=()=>Math.min(RING,5+kN*Math.sqrt(t)),fH=()=>Math.max(RING,95-kH*Math.sqrt(t));
+o.tick=()=>{t+=.5;if(t>=TM)met=true;const a=X(fN()),b=X(fH());
+for(const p of nh){walk(p,5,.15);bound(p,X(.6),a,y0,y1);if(met&&p.x>a-6&&Math.random()<.06){if(dep.length<60)dep.push({x:X(RING)+rn()*3,y:R(y0,y1)});Object.assign(p,mk(X(.6),X(5),y0,y1));}}
+for(const p of hc){walk(p,3.41,.15);bound(p,b,X(99.4),y0,y1);if(met&&p.x<b+6&&Math.random()<.06){Object.assign(p,mk(X(95),X(99.4),y0,y1));}}
+for(const p of air){walk(p,4,.15);bound(p,X(.5),X(99.5),y0,y1);}
+if(t>=TM+180){o.playing=false;o.sync();}};
+o.draw=()=>{S.clear();c.fillStyle='#eef3f8';c.fillRect(60,116,680,48);const ra=met?Math.min(1,(t-TM)/90):0;ring.setAttribute('opacity',ra);$('#ringlbl').setAttribute('opacity',ra);
+if(o.pv){for(const p of air)dot(c,p.x,p.y,2.5,'#c3ccd6');for(const p of nh)dot(c,p.x,p.y,4,'#2f74e0');for(const p of hc)dot(c,p.x,p.y,5,'#f07a2a');for(const p of dep)dot(c,p.x,p.y,4,'#fff','#8894a0');}
+const a=fN(),b=fH(),aN=$('#arN'),aH=$('#arH');aN.setAttribute('x1',X(5));aN.setAttribute('x2',Math.max(X(5)+1,X(a)));aH.setAttribute('x1',X(95));aH.setAttribute('x2',Math.min(X(95)-1,X(b)));
+const tN=$('#tN'),tH=$('#tH'),dn=Math.round(a-5),dh=Math.round(95-b);tN.setAttribute('x',X(5));tH.setAttribute('x',X(95));
+tN.textContent='NH₃ has spread '+dn+' cm';tH.textContent='HCl has spread '+dh+' cm';$('#clk0').textContent=fmtS(t);
+let s;if(t===0)s='The tube is sealed with bungs. Ammonia gas, '+sub('NH','3')+', comes off the cotton wool at the left end. Hydrogen chloride gas, HCl, comes off at the right end. Both gases are colourless. Press Play.';
+else if(!met)s='The '+sub('NH','3')+' and HCl particles move randomly and collide with air particles, so they spread slowly along the tube by diffusion. In the same time, '+sub('NH','3')+' has spread '+dn+' cm but HCl only '+dh+' cm. '+sub('NH','3')+' particles have a lower mass, so they move faster.';
+else s='The gases meet and react to make a <b>white ring of ammonium chloride</b>, a solid. The ring is '+Math.round(dn)+' cm from the ammonia end and '+Math.round(dh)+' cm from the hydrochloric acid end, so it is <b>nearer the HCl end</b>. '+sub('NH','3')+' (M<sub>r</sub> 17) is lighter than HCl (M<sub>r</sub> 36.5), so it diffuses faster.';
+setTxt('#s0',s);};
+o.step=()=>{for(let i=0;i<60&&t<TM+180;i++)o.tick();};
+o.sync=()=>{};o.S=S;return o;})();
+
+/* ---------- TAB 2: KMnO4 ---------- */
+const T1=(()=>{const S=Stage('#st1',800,480),c=S.ctx;
+const NX=37,NY=36,CS=8,GX=252,GY=120,r=.2,IT=3,M0=420,SM=1.6,src=[17,18,19].map(i=>(NY-1)*NX+i);
+let C=new Float32Array(NX*NY),N=new Float32Array(NX*NY);
+const oc=document.createElement('canvas');oc.width=NX;oc.height=NY;const ox=oc.getContext('2d'),img=ox.createImageData(NX,NY);
+const o={playing:false,pv:false,part:0};let f,mass,cy,pp,wp,dil;
+function iter(){for(let j=0;j<NY;j++)for(let i=0;i<NX;i++){const k=j*NX+i,v=C[k];
+N[k]=v+r*((i>0?C[k-1]:v)+(i<NX-1?C[k+1]:v)+(j>0?C[k-NX]:v)+(j<NY-1?C[k+NX]:v)-4*v);}
+const t=C;C=N;N=t;if(mass>0)for(const k of src){const ad=Math.min(mass,Math.max(0,SM-C[k]));C[k]+=ad;mass-=ad;}}
+// dilution tubes
+const TX=[160,280,400,520,640],tg=$('#tubes'),liq=[],tl=[];
+const LV=v=>370-v*17;
+const conc=['1','1/10','1/100','1/1000','1/10 000'];
+TX.forEach((x,i)=>{const cp=el('clipPath',{id:'tc'+i},tg);el('path',{d:`M${x-20} 170 V350 A20 20 0 0 0 ${x+20} 350 V170 Z`},cp);
+liq.push(el('rect',{x:x-20,y:370,width:40,height:0,'clip-path':`url(#tc${i})`,fill:'#7a1f96'},tg));
+el('path',{class:'glass',d:`M${x-24} 166 H${x-20} V350 A20 20 0 0 0 ${x+20} 350 V170 H${x+24}`},tg);
+el('text',{x,y:398,'text-anchor':'middle','font-weight':700,'font-size':15},tg,'Tube '+(i+1));
+tl.push(el('text',{x,y:417,'text-anchor':'middle','font-size':14,class:'lbl'},tg,i?'':'concentration 1'));});
+const aOf=k=>k<=0?0:Math.max(.08,.86*(1+Math.log10(k)/5.4));
+function setT(i,v,k){liq[i].setAttribute('y',LV(v));liq[i].setAttribute('height',v*17+2);liq[i].setAttribute('fill-opacity',aOf(k));}
+function pip(x,tip,amt,k){$('#pip').setAttribute('transform',`translate(${x},${tip})`);const p=$('#pipliq');p.setAttribute('y',-amt*40);p.setAttribute('height',amt*40);p.setAttribute('fill-opacity',aOf(k));}
+o.reset=()=>{f=0;C.fill(0);mass=M0;cy=50;pp=[];wp=[];for(let i=0;i<150;i++)pp.push({x:0,y:0,a:0,on:0});for(let i=0;i<130;i++)wp.push(mk(255,545,124,396));
+dil={vol:[10,0,0,0,0],k:[1,0,0,0,0],n:0,u:-1,wait:0};for(let i=0;i<5;i++){setT(i,dil.vol[i],dil.k[i]);tl[i].textContent=i?'':'concentration 1';}pip(TX[0],160,0,1);$('#stream').setAttribute('opacity',0);};
+const lerp=(a,b,u)=>a+(b-a)*Math.max(0,Math.min(1,u));
+function dilFrame(){const D=dil;if(D.n>=4)return;const n=D.n,u=D.u,a=TX[n],b=TX[n+1],kk=D.k[n];
+const st=$('#stream');st.setAttribute('opacity',0);let x=a,tip=160,amt=0;
+if(u<.15)tip=lerp(160,330,u/.15);else if(u<.25){tip=330;amt=(u-.15)/.1;D.vol[n]=10-amt;}else if(u<.35){tip=lerp(330,160,(u-.25)/.1);amt=1;}
+else if(u<.5){x=lerp(a,b,(u-.35)/.15);amt=1;}else if(u<.6){x=b;tip=lerp(160,345,(u-.5)/.1);amt=1;}
+else if(u<.68){x=b;tip=345;amt=1-(u-.6)/.08;D.vol[n+1]=1-amt;D.k[n+1]=kk;}else if(u<.78){x=b;tip=lerp(345,160,(u-.68)/.1);D.vol[n+1]=1;}
+else{x=b;tip=160;const v=lerp(1,10,(u-.78)/.2);D.vol[n+1]=v;D.k[n+1]=kk/v;st.setAttribute('x1',b+8);st.setAttribute('x2',b+8);st.setAttribute('y1',60);st.setAttribute('y2',LV(v));st.setAttribute('opacity',u<.98?1:0);}
+if(u<.78)pip(x,tip,amt,kk);else pip(x,tip,0,kk);setT(n,D.vol[n],D.k[n]);setT(n+1,D.vol[n+1],D.k[n+1]);}
+function finishDil(){const D=dil,n=D.n;D.vol[n]=9;D.vol[n+1]=10;D.k[n+1]=D.k[n]/10;setT(n,9,D.k[n]);setT(n+1,10,D.k[n+1]);tl[n+1].textContent=conc[n+1];D.n++;D.u=-1;pip(TX[D.n],160,0,1);$('#stream').setAttribute('opacity',0);}
+o.tick=()=>{if(o.part===0){f++;if(cy<396){cy+=7;if(cy>=120){const i=18,j=Math.min(NY-1,Math.floor((cy-GY)/CS));C[j*NX+i]+=.015;}}else for(let i=0;i<IT;i++)iter();
+const rel=Math.round(pp.length*(1-mass/M0));for(let i=0;i<pp.length;i++){const p=pp[i];if(!p.on&&i<rel){p.on=1;p.x=R(392,408);p.y=394;p.a=Math.random()*TAU;}if(p.on){walk(p,4,.2);bound(p,253,547,123,397);}}
+for(const p of wp){walk(p,1.3,.3);bound(p,253,547,123,397);}if(f>1500){o.playing=false;o.sync();}}
+else{const D=dil;if(D.n>=4){o.playing=false;o.sync();return;}if(D.u<0){if(D.wait-->0)return;D.u=0;}D.u+=1/200;if(D.u>=1){finishDil();D.wait=40;}else dilFrame();}};
+o.step=()=>{if(o.part===0){for(let i=0;i<60;i++)o.tick();}else if(dil.n<4)finishDil();};
+o.draw=()=>{S.clear();if(o.part===0){c.fillStyle='#e3f1fb';c.fillRect(250,120,300,286);
+const d=img.data;for(let k=0;k<NX*NY;k++){const a=1-Math.exp(-2.6*C[k]);d[k*4]=112;d[k*4+1]=26;d[k*4+2]=140;d[k*4+3]=a*255;}ox.putImageData(img,0,0);c.imageSmoothingEnabled=true;c.drawImage(oc,GX,GY,NX*CS,NY*CS-2);
+if(o.pv){for(const p of wp)dot(c,p.x,p.y,2.5,'#a9d3f2');for(const p of pp)if(p.on)dot(c,p.x,p.y,3.5,'#7a1f96');}
+const sz=mass>0?3+9*Math.sqrt(mass/M0):0;if(sz){c.save();c.translate(400,Math.min(cy,404-sz*.6));c.rotate(.6);c.fillStyle='#3d0a52';c.fillRect(-sz/2,-sz/2,sz,sz*.8);c.restore();}
+$('#clk1').textContent=fmtH(f*18);
+let s;if(f===0)s='A crystal of potassium manganate(VII) is about to be dropped into a beaker of still water. Press Play.';
+else if(cy<396)s='The crystal sinks to the bottom of the beaker.';
+else if(f<1100)s='The crystal dissolves. Its particles move randomly between the water particles. There is a net movement from where the concentration is high (near the crystal) to where it is low. Nobody stirs the water: this is <b>diffusion</b>. It is slow because in a liquid the particles are close together and collide very often.';
+else s='The purple colour has spread through all the water, so the concentration is the same everywhere. The particles still move randomly, but there is no longer a net movement.';
+setTxt('#s1',s);setTxt('#e1','Diffusion: higher concentration → lower concentration');}
+else{if(o.pv){TX.forEach((x,i)=>{c.beginPath();c.arc(x,446,18,0,TAU);c.fillStyle='#eef6fc';c.fill();c.strokeStyle='#7d8fa3';c.lineWidth=1.5;c.stroke();
+const k=dil.k[i],v=dil.vol[i];if(v>0){const n=[34,16,8,4,2][Math.round(-Math.log10(k))]||2;for(let j=0;j<n;j++){const a=(j*2.4+f*.01*(j%3+1))%TAU,rr=13*Math.sqrt((j+.5)/n);dot(c,x+Math.cos(a)*rr,446+Math.sin(a)*rr,2.2,'#7a1f96');}}});f++;}
+const n=dil.n;$('#dilmsg').textContent=n>=4?'Tube 5 is still pale pink after four dilutions':dil.u>=0?'Take 1 cm³ of solution and add 9 cm³ of water':'Press Play or Step to dilute';
+let s;if(n===0&&dil.u<0)s='Tube 1 contains 10 cm³ of purple potassium manganate(VII) solution. We will take 1 cm³ of it and add 9 cm³ of water. This dilutes it by 10 times. Then we repeat with the next tube.';
+else if(n<4)s='Each tube is 10 times more dilute than the one before. The particles are spread through more water, so the colour gets paler. After '+n+' dilution'+(n===1?'':'s')+' the solution is '+conc[n]+' of the starting concentration.';
+else s='Tube 5 is only 1/10 000 of the starting concentration, but you can still see the colour. So even 1 cm³ of the crystal\'s solution must contain a <b>very large number of very tiny particles</b>.';
+setTxt('#s1',s);setTxt('#e1','Dilution: 1 cm³ solution + 9 cm³ water → 10 times more dilute');}};
+o.setPart=p=>{o.part=p;o.playing=false;$('#vDif').toggleAttribute('hidden',p!==0);$('#vDil').toggleAttribute('hidden',p!==1);$('#magcap').style.display=o.pv?'':'none';
+$('#n1').textContent=p?'Each step: take 1 cm³ with a pipette, put it in the next tube, add 9 cm³ of water.':'Time is speeded up. In the lab this takes hours.';
+$$('[data-part]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.part===p));o.sync();};
+o.sync=()=>{};o.S=S;return o;})();
+
+/* ---------- TAB 3: bromine ---------- */
+const T2=(()=>{const S=Stage('#st2',800,470),c=S.ctx;
+const NY=40,Y0=36,RH=10,r=.45;let C=new Float32Array(NY),N=new Float32Array(NY);
+const oc=document.createElement('canvas');oc.width=1;oc.height=NY;const ox=oc.getContext('2d'),img=ox.createImageData(1,NY);
+const o={playing:false,pv:true,warm:0,vac:0};let f,phase,px,br,air,acc,mixed;
+o.reset=()=>{f=0;phase=0;px=0;acc=0;mixed=false;for(let j=0;j<NY;j++)C[j]=j>=20?1:0;br=[];air=[];
+for(let i=0;i<70;i++)br.push(mk(322,478,246,430));if(!o.vac)for(let i=0;i<70;i++)air.push(mk(322,478,i<35?246:42,i<35?430:224));};
+function iter(){for(let j=0;j<NY;j++){const v=C[j];const up=(j>0&&!(phase<2&&j===20))?C[j-1]:v,dn=(j<NY-1&&!(phase<2&&j===19))?C[j+1]:v;N[j]=v+r*(up+dn-2*v);}const t=C;C=N;N=t;}
+o.tick=()=>{if(phase===0)phase=1;if(phase===1){px+=5;if(px>=180)phase=2;}
+f++;const ips=o.vac?40:(o.warm?2:1);if(phase===2){acc+=ips;while(acc>=1){iter();acc--;}}
+const s=o.vac?9:(o.warm?4.24:3),q=o.vac?0:.1,open=phase===2;
+for(const p of br){walk(p,s,q);if(open)bound(p,322,478,42,430);else bound(p,322,478,246,430);}
+for(const p of air){walk(p,s,q);if(open)bound(p,322,478,42,430);else if(p.y>235)bound(p,322,478,246,430);else bound(p,322,478,42,224);}};
+o.step=()=>{if(phase<2){phase=2;px=180;}for(let i=0;i<60;i++)o.tick();};
+o.draw=()=>{S.clear();const d=img.data;for(let j=0;j<NY;j++){const a=.92*(1-Math.exp(-1.5*C[j]));d[j*4]=150;d[j*4+1]=66;d[j*4+2]=22;d[j*4+3]=a*255;}
+ox.putImageData(img,0,0);c.save();c.beginPath();c.rect(318,38,164,192);c.rect(318,240,164,194);if(phase===2)c.rect(318,228,164,14);c.clip();c.imageSmoothingEnabled=true;c.drawImage(oc,318,Y0,164,NY*RH);c.restore();
+if(o.pv){for(const p of air)dot(c,p.x,p.y,3.5,'#a9bed2');for(const p of br)dot(c,p.x,p.y,5,'#9a4a1c','#5d2a0c');}
+$('#plate').setAttribute('transform',`translate(${px},0)`);$('#pllbl').setAttribute('x',400+px);
+let up=0,lo=0;for(let j=0;j<20;j++){up+=C[j];lo+=C[j+20];}const pc=Math.min(100,Math.round(up/10*100));if(phase===2&&Math.abs(up-lo)<.6)mixed=true;
+$('#bar2').setAttribute('height',pc*1.5*2);$('#bar2').setAttribute('y',388-pc*3);$('#pct2').textContent=pc+'%';
+$('#clk2').textContent=fmtS(f*(o.vac?1:1));$('#tmp2').textContent=o.vac?'Upper jar: vacuum':(o.warm?'Warm: particles move faster':'Cool');
+$('#uplbl').textContent=o.vac?'vacuum (no particles)':'air';
+let s;if(phase===0)s='The lower gas jar contains brown bromine vapour. The upper jar contains '+(o.vac?'no particles at all (a vacuum)':'air')+'. A glass plate keeps them apart. Press Play to remove the plate.';
+else if(phase===1)s='The glass plate is being slid out.';
+else if(mixed)s='The brown colour is now <b>evenly spread</b> through both jars. The particles still move randomly, but there is no net movement, because the concentration is the same everywhere.';
+else if(o.vac)s='There are <b>no air particles</b> to collide with, so the bromine particles move straight across the jar. The brown colour fills the upper jar almost instantly.';
+else s='The bromine particles move randomly and collide with air particles, so the brown colour spreads up slowly. There is a net movement of bromine from higher concentration (bottom) to lower concentration (top).'+(o.warm?' The gas is <b>warm</b>: the particles have more kinetic energy, so they move faster and diffusion is faster.':' Try <b>Warm</b> to see the effect of temperature.');
+setTxt('#s2',s);};
+o.sync=()=>{};o.S=S;return o;})();
+
+/* ---------- wiring ---------- */
+const TABS=[T0,T1,T2];let cur=0;
+TABS.forEach((T,i)=>{const card=$(`[data-tab="${i}"]`),pb=card.querySelector('[data-act=play]');
+T.sync=()=>{pb.textContent=T.playing?'Pause':'Play';};
+pb.onclick=()=>{T.playing=!T.playing;T.sync();};
+card.querySelector('[data-act=step]').onclick=()=>{T.playing=false;T.step();T.sync();};
+card.querySelector('[data-act=replay]').onclick=()=>{T.reset();T.playing=true;T.sync();};
+card.querySelector('[data-opt=pv]').onchange=e=>{T.pv=e.target.checked;if(i===1)$('#magcap').style.display=T.pv?'':'none';};
+card.querySelector('[data-opt=lb]').onchange=e=>T.S.st.classList.toggle('nolabels',!e.target.checked);
+T.reset();});
+$$('[data-part]').forEach(b=>b.onclick=()=>{T1.reset();T1.setPart(+b.dataset.part);});T1.setPart(0);
+$$('[data-temp]').forEach(b=>b.onclick=()=>{T2.warm=+b.dataset.temp;$$('[data-temp]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
+$$('[data-vac]').forEach(b=>b.onclick=()=>{T2.vac=+b.dataset.vac;$$('[data-vac]').forEach(x=>x.setAttribute('aria-pressed',x===b));T2.playing=false;T2.reset();T2.sync();});
+const tabs=$$('.tab');
+function show(i){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;$('#p'+j).hidden=j!==i;});TABS.forEach((T,j)=>{if(j!==i&&T.playing){T.playing=false;T.sync();}});TABS[i].S.fit();}
+tabs.forEach((t,i)=>{t.onclick=()=>show(i);t.onkeydown=e=>{const k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){const n=(i+k+3)%3;show(n);tabs[n].focus();}};});
+addEventListener('resize',()=>TABS[cur].S.fit());
+TABS[0].S.fit();
+(function loop(){const T=TABS[cur];if(T.playing)T.tick();T.draw();requestAnimationFrame(loop);})();
+
+/* ---------- quiz ---------- */
+const Q=[
+['What is diffusion?',['The movement of particles from low to high concentration','The net movement of particles from higher to lower concentration, caused by random motion','Particles getting bigger when they are heated','Mixing a liquid by stirring it'],1,'Diffusion is a net movement from higher to lower concentration, caused by the random motion of particles. No stirring is needed.'],
+['In the long tube, the white ring of ammonium chloride forms nearer the hydrochloric acid end. Why?',['HCl particles are lighter, so they move faster','NH₃ particles are lighter, so they move faster and travel further','The ammonia solution is more concentrated','Ammonium chloride is attracted to the acid'],1,'NH₃ (Mr 17) is lighter than HCl (Mr 36.5), so its particles move faster and diffuse further in the same time.'],
+['Which change makes the brown bromine spread into the upper jar faster?',['Cooling the gas jars','Warming the gas jars','Putting the glass plate back','Using taller gas jars'],1,'At a higher temperature the particles have more kinetic energy, so they move faster and diffusion is faster.'],
+['A potassium manganate(VII) solution is diluted many times but is still pink. What does this show?',['The particles are very large','The particles have stopped moving','There are a very large number of very small particles','Water is purple'],2,'Even after many dilutions there are still enough particles to see the colour, so there must be a huge number of tiny particles.']];
+const qz=$('#quiz');Q.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<p>${i+1}. ${q[0]}</p>`+q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')+`<div class="fb" hidden></div>`;qz.appendChild(d);});
+$('#chk').onclick=()=>{let sc=0;$$('.q').forEach((d,i)=>{const q=Q[i],sel=d.querySelector('input:checked'),fb=d.querySelector('.fb');d.querySelectorAll('label').forEach(l=>l.className='');
+if(!sel){fb.hidden=false;fb.className='fb bad';fb.textContent='Choose an answer. '+q[3];return;}const ok=+sel.value===q[2];if(ok)sc++;
+sel.closest('label').className=ok?'right':'wrong';d.querySelectorAll('label')[q[2]].className='right';fb.hidden=false;fb.className='fb '+(ok?'good':'bad');fb.textContent=(ok?'Correct. ':'Not quite. ')+q[3];});
+$('#score').textContent='Score: '+sc+' / '+Q.length;};
+</script>
+<script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:2,type:'drop',ctx:'A student sets up a long glass tube, 120 cm long. A piece of cotton wool soaked in concentrated ammonia solution is put in one end. A piece of cotton wool soaked in concentrated hydrochloric acid is put in the other end. The ends are sealed. After a few minutes a white solid forms inside the tube.',
+ stem:'Complete the equation for the reaction that makes the white solid.',
+ rows:[{lab:'NH<sub>3</sub>(g) + HCl(g) →',opts:['NH₃Cl','NH₄Cl','NH₄Cl₂','NH₂Cl'],ans:1},
+       {lab:'State symbol of the product:',opts:['(s)','(l)','(g)','(aq)'],ans:0},
+       {lab:'Name of the product:',opts:['ammonium chloride','ammonia chloride','ammonium hydrochloride','nitrogen chloride'],ans:0}],
+ why:'Ammonia and hydrogen chloride gases react to form solid ammonium chloride, NH<sub>4</sub>Cl(s). Two marks for all three correct; one mark for two correct.'},
+{ref:'Q1(b)',marks:2,type:'calc',ctx:'The white solid forms as a ring 71 cm from the ammonia end of the 120 cm tube. It takes 5.0 minutes to appear.',
+ stem:'Calculate the mean rate at which the hydrogen chloride diffused along the tube, in cm/min.',
+ inputs:[{lab:'distance travelled by hydrogen chloride =',unit:'cm',ans:49,tol:0.5,m:1},{lab:'mean rate =',unit:'cm/min',ans:9.8,tol:0.05,m:1}],
+ work:'<ol><li>Distance from the hydrochloric acid end = 120 − 71 = <b>49 cm</b> (1 mark)</li><li>Mean rate = distance ÷ time = 49 ÷ 5.0 = <b>9.8 cm/min</b> (1 mark)</li></ol><p class="note">Full marks are given for the correct final answer. The ammonia travelled 71 cm in the same time: 14.2 cm/min.</p>'},
+{ref:'Q1(c)',marks:3,type:'written',stem:'Explain why the white ring forms nearer to the hydrochloric acid end of the tube.',
+ points:['ammonia has a lower relative formula mass (M<sub>r</sub> 17) than hydrogen chloride (M<sub>r</sub> 36.5) / ammonia particles are lighter','ammonia particles move faster (at the same temperature) / ammonia diffuses faster','so ammonia particles travel further along the tube in the same time (before the gases meet)'],note:'Do not accept "ammonia is less dense" without reference to particles'},
+{ref:'Q1(d)',marks:1,type:'mcq',ctx:'The student repeats the experiment with the tube in a warmer room. Everything else is the same.',
+ stem:'Which row describes how the white ring forms in the warmer room?',
+ opts:['It forms more slowly, in the same position.','It forms more quickly, in about the same position.','It forms more quickly, nearer the ammonia end.','It forms in the same time, nearer the middle of the tube.'],
+ ans:1,why:'At a higher temperature both kinds of particle have more kinetic energy and move faster, so they meet sooner. Ammonia is still faster, so the ring still forms nearer the hydrochloric acid end.'},
+{ref:'Q2',marks:1,type:'mcq',ctx:'Gas particles at room temperature move at several hundred metres per second, but the white ring takes minutes to form.',
+ stem:'Which of these is the best explanation?',
+ opts:['The gas particles stick to the walls of the tube.','The gas particles collide with air particles and keep changing direction.','The gas particles slow down as they move along the tube.','The gas particles must first turn into a liquid.'],
+ ans:1,why:'The tube is full of air. The ammonia and hydrogen chloride particles collide many times with air particles, so they move randomly and make slow net progress along the tube.'},
+{ref:'Q3(a)',marks:2,type:'written',ctx:'A student places one purple crystal of potassium manganate(VII) at the bottom of a beaker of water. The beaker is not stirred or moved.',
+ stem:'Describe what the student would see over the next few hours.',
+ points:['the purple colour spreads out (from the crystal) through the water','the crystal gets smaller / dissolves / disappears','eventually all the water is the same (pale) purple colour'],note:'"It diffuses" is not an observation'},
+{ref:'Q3(b)',marks:2,type:'calc',ctx:'The student dissolves 0.50 g of potassium manganate(VII) in water to make 100 cm³ of solution. The student then takes 10 cm³ of this solution and adds water to make it up to 100 cm³.',
+ stem:'Calculate the concentration of the diluted solution in g/dm³.',
+ inputs:[{lab:'concentration of the first solution =',unit:'g/dm³',ans:5.0,tol:0.05,m:1},{lab:'concentration of the diluted solution =',unit:'g/dm³',ans:0.50,tol:0.005,m:1}],
+ work:'<ol><li>100 cm³ = 0.100 dm³, so concentration = 0.50 ÷ 0.100 = <b>5.0 g/dm³</b> (1 mark)</li><li>The solution is diluted 10 times (10 cm³ made up to 100 cm³), so concentration = 5.0 ÷ 10 = <b>0.50 g/dm³</b> (1 mark)</li></ol><p class="note">Another method: 10 cm³ contains 0.050 g; 0.050 g ÷ 0.100 dm³ = 0.50 g/dm³.</p>'},
+{ref:'Q3(c)',marks:2,type:'written',ctx:'The student repeats the dilution in Q3(b) several more times. Each new solution is paler, but the purple colour can still be seen after five dilutions.',
+ stem:'What does this tell you about the particles in potassium manganate(VII)? Give a reason for your answer.',
+ points:['there is a very large number of particles (in the crystal)','the particles are very small','(even after dilution) there are still enough particles in the solution to give a colour that can be seen'],note:'Any two points'},
+{ref:'Q4',marks:5,type:'written',ctx:'A few drops of liquid bromine are placed at the bottom of a gas jar of air. A lid is put on the jar. After a few minutes a brown vapour is seen just above the liquid. After about an hour the brown colour is evenly spread through the whole jar.',
+ stem:'Explain these observations in terms of the arrangement and movement of particles.',
+ points:['in the liquid the particles are close together and move around (slide past each other) randomly','some bromine particles at the surface have enough energy to overcome the forces between particles and escape / the liquid evaporates','in the vapour the bromine particles are far apart and move quickly and randomly','bromine particles collide with air particles (so the spreading is slow)','there is a net movement of bromine particles from a higher concentration to a lower concentration / bromine diffuses','eventually the bromine particles are evenly mixed with the air particles, so the colour is the same everywhere (but the particles keep moving)'],note:'Any five points'}
+];
+
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('topTabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var wd=el('div','ex-calc'), sels=[];
+      q.rows.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var sl=document.createElement('select'); sl.appendChild(el('option','','Choose…')); sl.options[0].value='';
+        p.opts.forEach(function(o,k){var op=el('option','',o); op.value=k; sl.appendChild(op);});
+        row.appendChild(sl); if(p.after) row.appendChild(el('span','ex-unit',p.after)); wd.appendChild(row); sels.push(sl);
+      });
+      var bd=el('button','btn','Check'); bd.type='button'; var bwd=el('div','ex-act'); bwd.appendChild(bd); wd.appendChild(bwd);
+      var wk=el('div','ex-work'); wk.hidden=true;
+      bd.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.rows[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');}); bd.disabled=true;
+        var sc=Math.floor(n*q.marks/q.rows.length+1e-9); s.score=sc; s.marked=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' mark'+(q.marks>1?'s':'')+'.</b> '+n+' of '+q.rows.length+' correct.');
+        wk.innerHTML='<b>Answers</b><ol>'+q.rows.map(function(r){return '<li>'+r.lab+' <b>'+r.opts[r.ans]+'</b>'+(r.after?' '+r.after:'')+'</li>';}).join('')+'</ol>'+(q.why?'<p>'+q.why+'</p>':''); wk.hidden=false; upd();
+      });
+      c.appendChild(wd); c.appendChild(box); c.appendChild(wk);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script></body></html>

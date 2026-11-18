@@ -1,0 +1,331 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Shapes of Molecules</title>
+<meta name="description" content="Interactive animation: Shapes of Molecules. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-shapes-of-molecules.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.xe{stroke:#b3261e;stroke-width:2.2;stroke-linecap:round}
+.oe{fill:#fff;stroke:var(--ink);stroke-width:1.8}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.lobe{fill:#e7e6fb;stroke:#4a44b5;stroke-width:1.2;stroke-opacity:.6}
+.mbtn{font-size:.95rem}
+.fld{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:6px 8px;align-items:center}
+.fld label{font:600 .88rem var(--display);color:var(--muted)}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Shapes of molecules</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Bonding and structure</p>
+<p><b>In this animation</b>: draw dot-and-cross diagrams for molecules and ions (including NH<sub>4</sub><sup>+</sup>, H<sub>3</sub>O<sup>+</sup>, BF<sub>4</sub><sup>−</sup> and PCl<sub>6</sub><sup>−</sup>), then use electron-pair repulsion theory to work out their shapes and bond angles.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 400" role="img" aria-label="Three-dimensional drawings of molecules with bond angles"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Choose a molecule or ion. Count the electron pairs around the central atom, then predict the shape and bond angle. Stuck? Press <b>Dot-and-cross</b> to see the electrons.</p>
+<div class="row" id="mBtns"></div>
+<div class="tgrid">
+<div class="tbox"><svg class="tsv" id="tsv" viewBox="0 0 500 360" role="img" aria-label="Drawing of the chosen molecule"></svg></div>
+<div class="tside">
+<p class="readout" id="tHint"></p>
+<div class="fld">
+<label for="fBp">Bonding pairs</label><select id="fBp"><option value="">choose…</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+<label for="fLp">Lone pairs</label><select id="fLp"><option value="">choose…</option><option>0</option><option>1</option><option>2</option><option>3</option></select>
+<label for="fSh">Shape</label><select id="fSh"><option value="">choose…</option><option value="lin">linear</option><option value="tp">trigonal planar</option><option value="tet">tetrahedral</option><option value="pyr">pyramidal</option><option value="bent">bent (V-shaped)</option><option value="tbp">trigonal bipyramidal</option><option value="oct">octahedral</option></select>
+<label for="fAn">Bond angle</label><select id="fAn"><option value="">choose…</option><option>180°</option><option>120°</option><option>109.5°</option><option>107°</option><option>104.5°</option><option>90° and 120°</option><option>90°</option></select>
+</div>
+<div class="toolbar"><button class="btn" type="button" id="tChk">Check</button><button class="btn ghost" type="button" id="tDnc">Dot-and-cross</button><button class="btn ghost" type="button" id="tAns">Show answer</button></div>
+<div class="say" id="tSay" aria-live="polite">Fill in all four boxes, then press Check.</div>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>The shape of an ammonia molecule, NH<sub>3</sub>, is
+<select data-a="b" aria-label="Answer 1"><option value="">choose…</option><option value="a">trigonal planar</option><option value="b">pyramidal</option><option value="c">tetrahedral</option><option value="d">bent</option></select>.
+<p class="why" hidden>N has 3 bonding pairs and 1 lone pair. Four pairs point to the corners of a tetrahedron, but only 3 have atoms: pyramidal.</p></li>
+<li>The H–O–H bond angle in water is
+<select data-a="c" aria-label="Answer 2"><option value="">choose…</option><option value="a">109.5°</option><option value="b">107°</option><option value="c">104.5°</option><option value="d">90°</option></select>.
+<p class="why" hidden>Two lone pairs repel more than bonding pairs, so the angle closes from 109.5° to 104.5°.</p></li>
+<li>The bond angle in NH<sub>3</sub> is smaller than in CH<sub>4</sub> because
+<select data-a="a" aria-label="Answer 3"><option value="">choose…</option><option value="a">a lone pair repels more strongly than a bonding pair</option><option value="b">N atoms are smaller than C atoms</option><option value="c">N–H bonds are longer than C–H bonds</option></select>.
+<p class="why" hidden>The lone pair is closer to the nucleus and repels the bonding pairs more, pushing the N–H bonds together.</p></li>
+<li>PCl<sub>5</sub> has five bonding pairs around P. Its bond angles are
+<select data-a="d" aria-label="Answer 4"><option value="">choose…</option><option value="a">all 90°</option><option value="b">all 120°</option><option value="c">109.5°</option><option value="d">90° and 120°</option></select>.
+<p class="why" hidden>Trigonal bipyramidal: 120° between the three equatorial bonds and 90° between axial and equatorial bonds.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>Say that <b>electron pairs</b> repel and get <b>as far apart as possible</b>. Do not say that atoms or bonds repel.</li>
+<li>Always state the number of <b>bonding pairs and lone pairs</b> before you name the shape.</li>
+<li>Lone pairs repel more than bonding pairs, so each lone pair closes the bond angle by about 2.5°.</li>
+<li>For ions, adjust the electrons for the charge: NH<sub>4</sub><sup>+</sup> has 4 bonding pairs and no lone pairs, so it is tetrahedral, 109.5°.</li>
+<li>In a dot-and-cross diagram of an ion, draw <b>square brackets</b> round the whole ion and write the <b>charge</b> outside. A dative bond has <b>both</b> electrons from the same atom.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 13 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Which species has a bond angle of 109.5°?", "m": 1, "o": ["H<sub>3<\/sub>O<sup>+<\/sup>", "NH<sub>2<\/sub><sup>−<\/sup>", "PCl<sub>4<\/sub><sup>+<\/sup>", "BCl<sub>3<\/sub>"], "a": 2, "why": "C is correct because P in PCl<sub>4<\/sub><sup>+<\/sup> has 4 bonding pairs and no lone pairs, so it is tetrahedral."}, {"t": "mc", "q": "Which ion has the same shape as an ammonia molecule, NH<sub>3<\/sub>?", "m": 1, "o": ["H<sub>3<\/sub>O<sup>+<\/sup>", "BF<sub>4<\/sub><sup>−<\/sup>", "NH<sub>4<\/sub><sup>+<\/sup>", "NH<sub>2<\/sub><sup>−<\/sup>"], "a": 0, "why": "A is correct because O in H<sub>3<\/sub>O<sup>+<\/sup> has 3 bonding pairs and 1 lone pair, so it is pyramidal like NH<sub>3<\/sub>."}, {"t": "w", "q": "Aluminium chloride reacts with a chloride ion to form the ion AlCl<sub>4<\/sub><sup>−<\/sup>.<br>Draw a dot-and-cross diagram for AlCl<sub>4<\/sub><sup>−<\/sup>, showing outer electrons only. Sketch it on paper, then describe what it shows.", "m": 3, "ms": ["four Al–Cl bonding pairs, one of which (the dative bond) has both electrons from the same Cl (1)", "each Cl atom has three lone pairs (1)", "square brackets round the whole ion with the 1− charge outside (1)"], "note": "Allow the extra electron shown with a different symbol on Al instead of a dative pair. No lone pairs on Al."}, {"t": "w", "q": "Predict the shape of the AlCl<sub>4<\/sub><sup>−<\/sup> ion and its Cl–Al–Cl bond angle. Explain your answer.", "m": 3, "ms": ["4 bonding pairs and 0 lone pairs around Al (1)", "electron pairs repel and get as far apart as possible (1)", "tetrahedral, 109.5° (1)"], "note": "Reject 'bonds repel' or 'atoms repel'. Allow 109° to 109.5°."}, {"t": "w", "q": "Silicon forms the ion SiF<sub>6<\/sub><sup>2−<\/sup>.<br>Deduce its shape and F–Si–F bond angle.", "m": 2, "ms": ["Si has 4 + 2 = 6 electrons to use, so 6 bonding pairs and 0 lone pairs (1)", "octahedral, 90° (1)"], "note": "Allow 90° and 180°."}, {"t": "w", "q": "The H–O–H bond angle in water is 104.5°, but in the oxonium ion, H<sub>3<\/sub>O<sup>+<\/sup>, it is about 107°.<br>Explain this difference.", "m": 3, "ms": ["H<sub>2<\/sub>O has 2 bonding pairs and 2 lone pairs; H<sub>3<\/sub>O<sup>+<\/sup> has 3 bonding pairs and 1 lone pair (1)", "lone pairs repel more than bonding pairs (1)", "H<sub>2<\/sub>O has more lone pairs, so its bonding pairs are pushed closer together (1)"], "note": "Allow 'lone pair–lone pair repulsion is greatest' for mark 2."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> lone pair–lone pair repulsion &gt; lone pair–bond pair &gt; bond pair–bond pair.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const GEO={lin:{L:[[180,'p'],[0,'p']],lp:[],A:[[0,180,'180°']],nm:'linear',an:'180°'},
+ tp:{L:[[90,'p'],[210,'p'],[330,'p']],lp:[],A:[[210,330,'120°']],nm:'trigonal planar',an:'120°'},
+ tet:{L:[[90,'p'],[210,'p'],[325,'w'],[265,'h']],lp:[],A:[[90,210,'109.5°']],nm:'tetrahedral',an:'109.5°'},
+ pyr:{L:[[210,'p'],[325,'w'],[265,'h']],lp:[90],A:[[210,265,'107°',237]],nm:'pyramidal',an:'107°'},
+ bent:{L:[[215,'p'],[325,'p']],lp:[55,125],A:[[215,325,'104.5°']],nm:'bent (V-shaped)',an:'104.5°'},
+ tbp:{L:[[90,'p'],[270,'p'],[180,'p'],[330,'w'],[30,'h']],lp:[],A:[[90,180,'90°'],[330,30,'120°']],nm:'trigonal bipyramidal',an:'90° and 120°'},
+ oct:{L:[[90,'p'],[270,'p'],[200,'w'],[340,'w'],[160,'h'],[20,'h']],lp:[],A:[[90,160,'90°',125]],nm:'octahedral',an:'90°'}};
+const MOL=[{f:'BeCl_2',h:'BeCl<sub>2</sub>',c:'Be',x:'Cl',g:'lin',e:2},{f:'BF_3',h:'BF<sub>3</sub>',c:'B',x:'F',g:'tp',e:3},{f:'CH_4',h:'CH<sub>4</sub>',c:'C',x:'H',g:'tet',e:4},{f:'NH_3',h:'NH<sub>3</sub>',c:'N',x:'H',g:'pyr',e:5},{f:'H_2O',h:'H<sub>2</sub>O',c:'O',x:'H',g:'bent',e:6},{f:'PCl_5',h:'PCl<sub>5</sub>',c:'P',x:'Cl',g:'tbp',e:5},{f:'SF_6',h:'SF<sub>6</sub>',c:'S',x:'F',g:'oct',e:6},{f:'NH_4^+',h:'NH<sub>4</sub><sup>+</sup>',c:'N',x:'H',g:'tet',e:5,q:1},{f:'SiCl_4',h:'SiCl<sub>4</sub>',c:'Si',x:'Cl',g:'tet',e:4},{f:'AlCl_3',h:'AlCl<sub>3</sub>',c:'Al',x:'Cl',g:'tp',e:3},{f:'H_3O^+',h:'H<sub>3</sub>O<sup>+</sup>',c:'O',x:'H',g:'pyr',e:6,q:1},{f:'NH_2^-',h:'NH<sub>2</sub><sup>−</sup>',c:'N',x:'H',g:'bent',e:5,q:-1},{f:'BF_4^-',h:'BF<sub>4</sub><sup>−</sup>',c:'B',x:'F',g:'tet',e:3,q:-1},{f:'AlCl_4^-',h:'AlCl<sub>4</sub><sup>−</sup>',c:'Al',x:'Cl',g:'tet',e:3,q:-1},{f:'PCl_4^+',h:'PCl<sub>4</sub><sup>+</sup>',c:'P',x:'Cl',g:'tet',e:5,q:1},{f:'PCl_6^-',h:'PCl<sub>6</sub><sup>−</sup>',c:'P',x:'Cl',g:'oct',e:5,q:-1}];
+MOL.forEach(m=>{const G0=GEO[m.g];m.bp=G0.L.length;m.lp=G0.lp.length});
+function mol(p,m,cx,cy,R,d){d=d||0;const G0=GEO[m.g],tr=[m.c.length>1?20:15,m.x.length>1?20:14];
+ T(G(p,'fi',d),cx,cy,m.c,'at',24);
+ G0.L.forEach(([a,t],i)=>{const g=G(p,'fi',d+.3+i*.3),[ux,uy]=ang(a),b=[cx+ux*R,cy+uy*R];if(t==='p')bond(g,[cx,cy],b,1,tr);else(t==='w'?wedge:hash)(g,[cx,cy],b,tr);T(g,b[0],b[1],m.x,'at',22)});
+ G0.lp.forEach((a,i)=>{const g=G(p,'fi',d+.4+G0.L.length*.3+i*.3),[ux,uy]=ang(a),r=34;E(g,'ellipse',{cx:0,cy:0,rx:22,ry:13,class:'lobe',transform:`translate(${cx+ux*r} ${cy+uy*r}) rotate(${-a})`});lp(g,cx+ux*(r+2),cy+uy*(r+2),a)});
+ if(m.q){const g=G(p,'fi',d+.2);const h=R+12,l=cx-R-34,r=cx+R+34;E(g,'path',{d:`M${l+10} ${cy-h}H${l}V${cy+h}H${l+10}M${r-10} ${cy-h}H${r}V${cy+h}H${r-10}`,class:'bd'});T(g,r+14,cy-h+6,m.q>0?'+':'−','at',22)}
+ G0.A.forEach(A0=>arc(G(p,'fi',d+.6+G0.L.length*.3+G0.lp.length*.3),cx,cy,R*.45,A0[0],A0[1],A0[2],R*.45+24,A0[3]))}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const[c,t]=Array.isArray(l)?l:['sm',l];T(g,x,yy,t,c,c==='tt'?18:c==='lb'?16:15,'start');yy+=c==='tt'?28:22}}return g}
+function info(m){const G0=GEO[m.g];return[['tt',m.f],['sm',`Bonding pairs: ${m.bp}`],['sm',`Lone pairs: ${m.lp}`],['lb',G0.nm],['lb',G0.an]]}
+
+/* dot-and-cross: dots = central atom electrons, crosses = outer atom electrons, open circle = extra electron from a negative charge */
+const POS={2:[0,180],3:[90,210,330],4:[90,0,180,270],5:[90,162,234,306,18],6:[90,30,330,270,210,150]};
+function xmk(p,x,y){const g=E(p,'g');L(g,x-3.6,y-3.6,x+3.6,y+3.6,'xe');L(g,x-3.6,y+3.6,x+3.6,y-3.6,'xe');return g}
+function el(p,x,y,k){return k==='x'?xmk(p,x,y):k==='o'?E(p,'circle',{cx:x,cy:y,r:3.6,class:'oe'}):dot(p,x,y)}
+function pairAt(p,x,y,a,k1,k2){const[ux,uy]=ang(a),nx=-uy,ny=ux;el(p,x+nx*5.5,y+ny*5.5,k1);el(p,x-nx*5.5,y-ny*5.5,k2)}
+function dncSpec(m){const q=m.q||0,bp=m.bp,lp=m.lp,H=m.x==='H';let dat=0,extra=0;
+ if(q>0&&H)dat=q;else if(q<0)extra=-q;
+ const bonds=[];for(let i=0;i<bp;i++)bonds.push(i<dat?'d':'n');return{bonds,lp,extra,H}}
+function dnc(p,m,cx,cy,R,d){d=d||0;const S=dncSpec(m),n=S.bonds.length+S.lp,P=POS[n].slice();let ex=S.extra;
+ const lpA=P.slice(0,S.lp),bA=P.slice(S.lp);
+ T(G(p,'fi',d),cx,cy,m.c,'at',24);
+ bA.forEach((a,i)=>{const g=G(p,'fi',d+.3+i*.25),[ux,uy]=ang(a),bx=cx+ux*R,by2=cy+uy*R;T(g,bx,by2,m.x,'at',22);
+  const mx=cx+ux*R*.5,my=cy+uy*R*.5,t=S.bonds[i];let k1='d',k2='x';if(t==='d'){k2='d'}else if(ex>0){k1='o';ex--}
+  pairAt(g,mx,my,a,k1,k2);
+  if(!S.H){const r2=m.x.length>1?24:20;[a,a+90,a-90].forEach(b=>{const[vx,vy]=ang(b);pairAt(g,bx+vx*r2,by2+vy*r2,b,'x','x')})}});
+ lpA.forEach((a,i)=>{const g=G(p,'fi',d+.3+bA.length*.25+i*.25),[ux,uy]=ang(a),r=24;let k2='d';if(ex>0){k2='o';ex--}pairAt(g,cx+ux*r,cy+uy*r,a,'d',k2)});
+ if(m.q){const g=G(p,'fi',d+.2),ext=R+(S.H?18:42),l=cx-ext,r=cx+ext,t=cy-ext,b=cy+ext;E(g,'path',{d:`M${l+10} ${t}H${l}V${b}H${l+10}M${r-10} ${t}H${r}V${b}H${r-10}`,class:'bd'});T(g,r+14,t+8,m.q>0?'+':'−','at',22)}}
+function key(p,x,y,d,withO){const g=G(p,'fi',d||0);dot(g,x,y);T(g,x+12,y,'electron from the central atom','sm',14,'start').setAttribute('dominant-baseline','central');
+ xmk(g,x+250,y);T(g,x+262,y,'electron from an outer atom','sm',14,'start').setAttribute('dominant-baseline','central');
+ if(withO){E(g,'circle',{cx:x+480,cy:y,r:3.6,class:'oe'});T(g,x+492,y,'extra electron (− charge)','sm',14,'start').setAttribute('dominant-baseline','central')}return g}
+const by=f=>MOL.find(m=>m.f===f);
+const steps=[
+{t:6500,cap:'The electron pairs around a central atom <b>repel each other</b>. They move <b>as far apart as possible</b>, to give the least repulsion. Count <b>all</b> the electron pairs: bonding pairs and lone pairs.',draw(p){
+ [[140,[0,180],'2 pairs','180°'],[400,[90,210,330],'3 pairs','120°'],[660,[90,210,330,265],'4 pairs','109.5° (3D)']].forEach(([cx,as,l1,l2],k)=>{const cy=190,d=k*1.4;
+  const o=E(p,'g',{transform:`translate(${cx} ${cy})`});as.forEach((a,i)=>{const g=G(o,'rot',d,{'--r0':(-30-i*14)+'deg','--r1':(-a)+'deg'});g.style.transform=`rotate(${-a}deg)`;E(g,'ellipse',{cx:46,cy:0,rx:38,ry:17,class:'lobe'});lp(g,52,0,0)});
+  E(p,'circle',{cx,cy,r:15,fill:'#fff',stroke:'#1c2736','stroke-width':2});T(p,cx,cy,'A','at',16);
+  const g=G(p,'fi',d+1.2);T(g,cx,cy+120,l1,'lb',17).setAttribute('text-anchor','middle');T(g,cx,cy+144,l2,'tt',17).setAttribute('text-anchor','middle')})}},
+{t:6500,cap:'<b>BeCl<sub>2</sub></b> has 2 bonding pairs and no lone pairs: <b>linear, 180°</b>. <b>BF<sub>3</sub></b> has 3 bonding pairs and no lone pairs: <b>trigonal planar, 120°</b>. All atoms in BF<sub>3</sub> are in one flat plane.',draw(p){
+ mol(p,by('BeCl_2'),160,190,88,.2);mol(p,by('BF_3'),395,210,88,1.6);
+ panel(p,560,80,[['tt','BeCl_2'],'2 bonding, 0 lone pairs',['lb','linear, 180°'],'',['tt','BF_3'],'3 bonding, 0 lone pairs',['lb','trigonal planar, 120°']],.6)}},
+{t:7000,cap:'<b>CH<sub>4</sub></b> has 4 bonding pairs: <b>tetrahedral, 109.5°</b>. The <b>wedge</b> bond points towards you and the <b>dashed</b> bond points away. <b>NH<sub>4</sub><sup>+</sup></b> also has 4 bonding pairs (one is a dative bond), so it is tetrahedral too.',draw(p){
+ mol(p,by('CH_4'),160,200,90,.2);mol(p,by('NH_4^+'),395,200,80,1.8);
+ panel(p,565,80,[['tt','CH_4 and NH_4^+'],'4 bonding pairs',"0 lone pairs",'',['lb','tetrahedral'],['lb','109.5°'],'','Wedge: towards you.','Dashes: away from you.'],.6)}},
+{t:8000,cap:'<b>Dot-and-cross diagrams of ions.</b> In <b>NH<sub>4</sub><sup>+</sup></b> the N lone pair forms a <b>dative bond</b> to H<sup>+</sup> (both electrons are dots). In <b>H<sub>3</sub>O<sup>+</sup></b> O forms one dative bond and keeps <b>one lone pair</b>. Put <b>square brackets</b> round the ion and the charge outside.',draw(p){
+ dnc(p,by('NH_4^+'),150,190,62,.2);dnc(p,by('H_3O^+'),420,190,62,1.6);
+ panel(p,600,110,[['tt','NH_4^+'],'4 bonding pairs, 0 lone',['lb','tetrahedral, 109.5°'],'',['tt','H_3O^+'],'3 bonding pairs, 1 lone',['lb','pyramidal, 107°']],2.8);key(p,40,372,3.2,false)}},
+{t:8500,cap:'In negative ions the <b>extra electron</b> (open circle) is added to the central atom. <b>BF<sub>4</sub><sup>−</sup></b>: B (3) + 1 = 4 electrons, so 4 bonding pairs, <b>tetrahedral</b>. <b>NH<sub>2</sub><sup>−</sup></b>: N (5) + 1 = 6, so 2 bonding pairs and <b>2 lone pairs</b>, <b>bent</b>. <b>PCl<sub>6</sub><sup>−</sup></b>: P (5) + 1 = 6 bonding pairs, <b>octahedral</b>.',draw(p){
+ dnc(p,by('BF_4^-'),135,180,64,.2);dnc(p,by('NH_2^-'),395,180,60,1.8);dnc(p,by('PCl_6^-'),655,178,80,3.2);
+ [[135,'tetrahedral, 109.5°'],[395,'bent, 104.5°'],[655,'octahedral, 90°']].forEach(([x,t],i)=>{const g=G(p,'fi',1.2+i*1.5);T(g,x,316,t,'lb',16).setAttribute('text-anchor','middle')});key(p,40,372,4.4,true)}},
+{t:7000,cap:'<b>NH<sub>3</sub></b> has 3 bonding pairs and <b>1 lone pair</b>. A lone pair <b>repels more strongly</b> than a bonding pair, so it pushes the N–H bonds closer together: <b>pyramidal, 107°</b>.',draw(p){
+ mol(p,by('NH_3'),240,215,105,.2);panel(p,500,70,[['tt','NH_3'],'N has 5 outer electrons.','3 are used in N–H bonds.','2 left over = 1 lone pair.','',['lb','pyramidal, 107°'],'',['lb','Repulsion:'],'lone pair–lone pair','  > lone pair–bond pair','  > bond pair–bond pair'],1.4)}},
+{t:6500,cap:'<b>H<sub>2</sub>O</b> has 2 bonding pairs and <b>2 lone pairs</b>. Two lone pairs push the bonds even closer: <b>bent (V-shaped), 104.5°</b>. Each lone pair closes the angle by about 2.5°.',draw(p){
+ mol(p,by('H_2O'),240,190,105,.2);panel(p,500,80,[['tt','H_2O'],'O has 6 outer electrons.','2 are used in O–H bonds.','4 left over = 2 lone pairs.','',['lb','bent, 104.5°'],'','109.5° → 107° → 104.5°','(0, 1, 2 lone pairs)'],1.6)}},
+{t:6500,cap:'<b>PCl<sub>5</sub></b> has 5 bonding pairs: <b>trigonal bipyramidal</b>. The three bonds around the middle are at <b>120°</b>. The top and bottom bonds are at <b>90°</b> to them.',draw(p){
+ mol(p,by('PCl_5'),240,200,110,.2);panel(p,500,90,[['tt','PCl_5'],'5 bonding pairs','0 lone pairs','',['lb','trigonal bipyramidal'],['lb','90° and 120°'],'','P can use more than 8','outer electrons.'],2)}},
+{t:6500,cap:'<b>SF<sub>6</sub></b> has 6 bonding pairs: <b>octahedral</b>. Every bond is at <b>90°</b> to its neighbours.',draw(p){
+ mol(p,by('SF_6'),240,200,110,.2);panel(p,500,90,[['tt','SF_6'],'6 bonding pairs','0 lone pairs','',['lb','octahedral'],['lb','90°']],2.2)}},
+{t:8000,cap:'<b>Summary.</b> Count the bonding pairs and lone pairs around the central atom. The total number of pairs gives the basic arrangement. Lone pairs then <b>close the bond angle</b>.',draw(p){
+ const X=[30,140,250,490,640],H=['Bonding','Lone','Shape','Bond angle','Example'];H.forEach((h,i)=>T(p,X[i],40,h,'tt',16,'start'));L(p,25,56,780,56,'ax');
+ MOL.slice(0,7).sort((a,b)=>(a.bp+a.lp)-(b.bp+b.lp)||b.bp-a.bp).forEach((m,i)=>{const y=86+i*44,g=G(p,'fi',.3+i*.45),G0=GEO[m.g];if(i%2)E(g,'rect',{x:25,y:y-20,width:755,height:42,fill:'#f2f5f8'});
+  T(g,X[0]+20,y,String(m.bp),'lb',16,'start');T(g,X[1]+15,y,String(m.lp),'lb',16,'start');T(g,X[2],y,G0.nm,'lb',16,'start');T(g,X[3],y,G0.an,'lb',16,'start');T(g,X[4],y,m.f+(m.f==='CH_4'?', NH_4^+':''),'lb',16,'start')})}}
+];
+Player(steps);Quiz();
+/* Try it */
+const tsv=$('tsv');let cur=MOL[3];
+const mb=$('mBtns');MOL.forEach(m=>{const b=document.createElement('button');b.type='button';b.className='mini mbtn';b.innerHTML=m.h;b.onclick=()=>pick(m,b);mb.appendChild(b)});
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+function blank(){tsv.replaceChildren();T(tsv,250,150,cur.f,'at',40);const t=T(tsv,250,215,'Central atom: '+cur.c,'lb',17);t.setAttribute('text-anchor','middle');const u=T(tsv,250,245,'Draw your own dot-and-cross diagram first.','sm',15);u.setAttribute('text-anchor','middle')}
+function pick(m,b){cur=m;mb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));['fBp','fLp','fSh','fAn'].forEach(id=>{$(id).value='';$(id).classList.remove('ok','wrong')});
+ $('tHint').innerHTML=`${m.h}: central atom <b>${m.c}</b> has <b>${m.e}</b> outer electrons${m.q>0?', minus 1 for the + charge':m.q<0?', plus 1 for the − charge':''}.`;blank();say('Fill in all four boxes, then press Check.','')}
+function reveal(){tsv.replaceChildren();mol(tsv,cur,250,180,105,0)}
+$('tChk').onclick=()=>{const v={fBp:String(cur.bp),fLp:String(cur.lp),fSh:cur.g,fAn:GEO[cur.g].an};let n=0;const miss=[];
+ for(const id in v){const ok=$(id).value===v[id];$(id).classList.toggle('ok',ok);$(id).classList.toggle('wrong',!ok);if(ok)n++;else miss.push(id)}
+ if(n===4){reveal();say(`<b>Correct!</b> ${cur.h}: ${cur.bp} bonding pairs and ${cur.lp} lone pair${cur.lp===1?'':'s'}, so it is <b>${GEO[cur.g].nm}</b>, ${GEO[cur.g].an}.`,'good');return}
+ let h='Not yet. ';if(miss.includes('fBp')||miss.includes('fLp'))h+=`Each bond to ${cur.x} uses one of ${cur.c}'s ${cur.e-(cur.q||0)} electrons. Electrons left over pair up as lone pairs. `;
+ else if(miss.includes('fSh'))h+=`Use the total number of pairs (${cur.bp+cur.lp}) for the arrangement, then name the shape from the atoms only. `;
+ if(miss.includes('fAn')&&!miss.includes('fSh'))h+='Each lone pair closes the angle by about 2.5°.';say(h,'bad')};
+$('tDnc').onclick=()=>{tsv.replaceChildren();dnc(tsv,cur,250,165,cur.bp>4?78:72,0);const t=T(tsv,250,345,'dot = '+cur.c+' electron · cross = '+cur.x+' electron'+(cur.q<0?' · circle = extra electron':''),'sm',14);t.setAttribute('text-anchor','middle')};
+$('tAns').onclick=()=>{$('fBp').value=cur.bp;$('fLp').value=cur.lp;$('fSh').value=cur.g;$('fAn').value=GEO[cur.g].an;$('tChk').click()};
+pick(cur,mb.children[3]);
+</script></body></html>

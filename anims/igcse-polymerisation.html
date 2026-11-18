@@ -1,0 +1,591 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Addition Polymerisation</title>
+<meta name="description" content="Interactive animation: Addition Polymerisation. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-polymerisation.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:10px 20px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:620px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;font-size:.92rem;border-radius:12px}}
+.layout{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+@media (max-width:780px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--bench);border-radius:14px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.lab{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;font-family:var(--display)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.xtab:focus-visible,input:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pick{font:inherit;font-size:.9rem;padding:7px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-align:left}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick.right{border-color:var(--good);background:#e6f4ec}.pick.wrong{border-color:var(--bad);background:#fdecea}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.eq{font-weight:700;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:1rem}
+.note{font-size:.86rem;color:var(--muted)}
+input[type=range]{accent-color:var(--accent);width:100%}
+label.chk{display:flex;gap:8px;align-items:center;font-size:.92rem;cursor:pointer}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+svg text{font-family:var(--body);fill:var(--ink)}
+.nolabels .lb{display:none}
+.t-s{font-size:13px;fill:var(--muted)}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding:0;list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:16px}
+ol.qs legend::before{counter-increment:q;content:counter(q) ". "}
+.nw{white-space:nowrap}
+ol.qs fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+ol.qs legend{font-weight:700;padding:0;margin-bottom:4px}
+ol.qs label{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+ol.qs input{margin-top:5px;accent-color:var(--accent)}
+.qsvg{background:var(--bench);border-radius:10px;width:220px;max-width:100%;display:block;margin:4px 0 6px}
+.fb{font-size:.92rem;font-weight:700}
+.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}
+.score{font:700 1.05rem var(--display)}
+@media (max-width:520px){body{font-size:16px}}
+/* ---- top tabs + exam practice ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input,.ex-in select{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in select{width:auto;max-width:100%}
+.ex-in .ok{border-color:var(--good)}.ex-in .wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+[hidden]{display:none!important}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Organic chemistry: polymers</div>
+<h1>Addition polymerisation</h1>
+<p>Choose a tab. Press <b>Play</b> and watch, or use <b>Step</b> to go one stage at a time. Read the "What's happening" card for the exam words.</p>
+</header>
+<div class="toptabs" id="topRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="topLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="topExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="topLearn">
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" role="tab" id="t0" aria-selected="true" aria-controls="p0">1 · Making a polymer</button>
+<button class="xtab" role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">2 · Monomer ↔ repeat unit</button>
+<button class="xtab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">3 · Disposal and recycling</button>
+</div>
+
+<!-- TAB 1 -->
+<section class="sheet" role="tabpanel" id="p0" aria-labelledby="t0">
+<h2>Ethene monomers join to make poly(ethene)</h2>
+<div class="layout">
+<div class="stage"><svg id="sv0" viewBox="0 0 760 360" role="img" aria-label="Ethene molecules joining into a poly(ethene) chain"></svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<label for="nm">Number of monomers: <b id="nmv">6</b></label>
+<input type="range" id="nm" min="3" max="12" value="6">
+<div class="row"><button class="btn" id="pl0">Pause</button><button class="btn ghost" id="st0">Step</button><button class="btn ghost" id="rp0">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb0" checked> Show labels</label>
+<p class="note">Red bonds are the bonds that change.</p>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m0"></div></div>
+</div></div>
+</section>
+
+<!-- TAB 2 -->
+<section class="sheet" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+<h2>From monomer to repeat unit, and back</h2>
+<div class="layout">
+<div class="stage"><svg id="sv1" viewBox="0 0 600 330" role="img" aria-label="Monomer and repeat unit displayed formulae"></svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<div class="row"><button class="pick" id="dF" aria-pressed="true">Monomer → repeat unit</button><button class="pick" id="dR" aria-pressed="false">Repeat unit → monomer</button></div>
+<div class="row" id="mons"></div>
+<div id="gq" hidden><div class="lab">Which monomer made it?</div><div class="row" id="gopts"></div><div class="fb" id="gfb" aria-live="polite"></div></div>
+<div class="row"><button class="btn" id="pl1">Pause</button><button class="btn ghost" id="st1">Step</button><button class="btn ghost" id="rp1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lb1" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m1"></div></div>
+</div></div>
+</section>
+
+<!-- TAB 3 -->
+<section class="sheet" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+<h2>Getting rid of addition polymers: disposal and recycling</h2>
+<p>Compare three ways to deal with used plastic: <b>landfill</b>, <b>burning</b> and <b>recycling</b>.</p>
+<div class="layout">
+<div class="stage"><svg id="sv2" viewBox="0 0 720 380" role="img" aria-label="Landfill, burning and recycling of polymers">
+<g id="gLand"></g><g id="gBurn"></g><g id="gRec"></g>
+</svg></div>
+<div class="side">
+<div class="panel"><div class="lab">Controls</div>
+<div class="row"><button class="pick" id="scL" aria-pressed="true">Landfill</button><button class="pick" id="scB" aria-pressed="false">Burning</button><button class="pick" id="scR" aria-pressed="false">Recycling</button></div>
+<div id="cL">
+<label for="yr">Time in landfill: <b id="yrv">0 years</b></label>
+<input type="range" id="yr" min="0" max="100" value="0">
+<div class="row" style="margin-top:8px"><button class="btn" id="pl2">Play</button><button class="btn ghost" id="st2">Step</button><button class="btn ghost" id="rp2">Replay</button></div>
+<p class="note">Times are rough guides only.</p>
+</div>
+<div id="cB" hidden>
+<div class="row"><button class="pick" id="wPE" aria-pressed="true">poly(ethene)</button><button class="pick" id="wPV" aria-pressed="false">PVC</button></div>
+<div class="row" style="margin-top:8px"><button class="pick" id="oP" aria-pressed="true">Plenty of oxygen</button><button class="pick" id="oL" aria-pressed="false">Limited oxygen</button></div>
+<div class="row" style="margin-top:8px"><button class="btn" id="pl3">Pause</button><button class="btn ghost" id="rp3">Replay</button></div>
+</div>
+<div id="cR" hidden>
+<div class="row"><button class="btn" id="pl4">Play</button><button class="btn ghost" id="st4">Step</button><button class="btn ghost" id="rp4">Replay</button></div>
+<p class="note">After sorting, follow the poly(ethene) bottles.</p>
+</div>
+<label class="chk"><input type="checkbox" id="lb2" checked> Show labels</label>
+</div>
+<div class="panel"><div class="lab">What's happening</div><div class="msg" id="m2"></div></div>
+</div></div>
+</section>
+
+<section class="sheet">
+<h2>Key points</h2>
+<ul class="kp">
+<li>An <b>addition polymer</b> is made when many small molecules called <b>monomers</b> join together to make one very long molecule (the <b>polymer</b>).</li>
+<li>The monomers are <b>alkenes</b>. One bond of the <b>C=C double bond opens</b> and the monomers join with new C–C single bonds. The polymer is <b>saturated</b>, and it is the <b>only product</b>.</li>
+<li><b>Repeat unit:</b> change C=C to C–C, draw a bond out from each of these carbons, put <b>brackets across those bonds</b> and write <b><i>n</i></b>. Side groups (H, CH<sub>3</sub>, Cl, F) stay on the same carbon.</li>
+<li><b>Monomer from a repeat unit:</b> remove the brackets, <i>n</i> and the extension bonds, then put the C=C back between the two carbons.</li>
+<li>Names: ethene → poly(ethene); propene → poly(propene); chloroethene → poly(chloroethene), <b>PVC</b>; tetrafluoroethene → poly(tetrafluoroethene), <b>PTFE</b>.</li>
+<li><b>Disposal problems:</b> addition polymers are <b>inert</b> and <b>non-biodegradable</b>, so they stay in landfill for hundreds of years. Burning them gives <b>toxic gases</b>, e.g. carbon monoxide (incomplete combustion) and hydrogen chloride (from PVC).</li>
+<li><b>Recycling:</b> used polymers are collected, <b>sorted by type</b>, washed, shredded, melted and moulded into new products. It <b>reduces landfill</b>, <b>saves crude oil</b> (a finite resource) and energy, and avoids toxic gases from burning. But sorting and cleaning cost money and energy, and the quality drops each time.</li>
+</ul>
+</section>
+
+<section class="sheet">
+<h2>Quick check</h2>
+<ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="topExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const lerp=(a,b,t)=>a+(b-a)*t,cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const f1=v=>v.toFixed(1),f2=v=>v.toFixed(2);
+const usub=s=>s.replace(/<sub>(.*?)<\/sub>/g,(m,x)=>x.replace(/<i>n<\/i>/g,'ₙ').replace(/\d/g,d=>'₀₁₂₃₄₅₆₇₈₉'[d])).replace(/<[^>]+>/g,'');
+['lb0','lb1','lb2'].forEach((c,i)=>$(c).addEventListener('change',e=>$('sv'+i).classList.toggle('nolabels',!e.target.checked)));
+const phase=(PH,t)=>t>=PH[PH.length-1]-1e-3?PH.length:Math.max(1,PH.filter(x=>x<t-1e-3).length);
+function press(ids,on){ids.forEach(i=>$(i).setAttribute('aria-pressed',i===on))}
+
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll('.xtab')];let active=0;
+function showTab(i){active=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;$('p'+j).hidden=j!==i})}
+tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(i+(e.key==='ArrowRight'?1:2))%3;showTab(n);tabs[n].focus()}}});
+
+/* ---------- displayed formula drawing ---------- */
+const ACOL={C:'#1c2736',H:'#5a6878',Cl:'#1d7a46',F:'#0e7490',CH3:'#1c2736'};
+function molStr(A,B,o={}){const fs=o.fs||18,bg=o.bg||'#e4eaf0',w=o.w||2.6,d=o.d||fs*.25;let s='';
+ for(const b of B){if(b.o<=.01)continue;const a=A[b.a],c=A[b.b];let x2=c.x,y2=c.y;if(b.f!=null){x2=lerp(a.x,c.x,b.f);y2=lerp(a.y,c.y,b.f)}
+  const dx=x2-a.x,dy=y2-a.y,L=Math.hypot(dx,dy)||1,nx=-dy/L,ny=dx/L,col=b.hl?'#b3261e':'#1c2736',ww=b.hl?w+1.4:w,dl=b.dbl||0;
+  const offs=dl>0?[[-d*dl,1],[d*dl,dl]]:[[0,1]];
+  for(const [q,op] of offs)s+=`<line x1="${f1(a.x+nx*q)}" y1="${f1(a.y+ny*q)}" x2="${f1(x2+nx*q)}" y2="${f1(y2+ny*q)}" stroke="${col}" stroke-width="${ww}" stroke-linecap="round" opacity="${f2(b.o*op)}"/>`}
+ for(const a of A){const op=a.o??1;if(!a.t||op<=0)continue;
+  if(a.t==='CH3'){s+=`<rect x="${f1(a.x-fs*.5)}" y="${f1(a.y-fs*.65)}" width="${f1(fs*2)}" height="${f1(fs*1.35)}" rx="5" fill="${bg}" opacity="${op}"/><text x="${f1(a.x-fs*.36)}" y="${f1(a.y+fs*.35)}" font-size="${fs}" font-weight="700" opacity="${op}">CH<tspan font-size="${f1(fs*.7)}" dy="${f1(fs*.22)}">3</tspan></text>`;continue}
+  s+=`<circle cx="${f1(a.x)}" cy="${f1(a.y)}" r="${f1(fs*(a.t.length>1?.78:.6))}" fill="${bg}" opacity="${op}"/><text x="${f1(a.x)}" y="${f1(a.y+fs*.35)}" text-anchor="middle" font-size="${f1(a.t==='H'?fs*.9:fs)}" font-weight="700" opacity="${op}" style="fill:${ACOL[a.t]}">${a.t}</text>`}
+ return s}
+const brk=(x,y1,y2,dir,o,w=9)=>o>.01?`<path d="M${f1(x+dir*w)} ${f1(y1)}H${f1(x)}V${f1(y2)}H${f1(x+dir*w)}" fill="none" stroke="#4a44b5" stroke-width="3" opacity="${f2(o)}"/>`:'';
+
+/* ---------- TAB 1: making poly(ethene) ---------- */
+let clk=0;
+const S1=(()=>{
+ const sv=$('sv0'),g=el('g',{},sv),tg=el('g',{class:'lb'},sv),PH=[0,1.8,3.6,7.2,8.8],sl=$('nm'),pb=$('pl0');
+ const top=el('text',{x:380,y:28,'text-anchor':'middle','font-size':17,'font-weight':700},tg);
+ let N=6,t=0,play=true,stopAt=PH[4],L,ph=-1;
+ function build(){N=+sl.value;$('nmv').textContent=N;
+  const s=Math.min(80,680/(2*N)),fs=s>=60?26:s<40?16:20,h=Math.min(fs*2,s*.65+14),Yc=282,x0=380-(2*N-1)*s/2,cols=Math.min(N,6),rows=Math.ceil(N/cols),cw=720/cols,M=[];
+  for(let i=0;i<N;i++){const r=Math.floor(i/cols),c=i%cols;M.push({sx:20+cw*(c+.5)-s/2,sy:rows===1?120:78+r*98,ex:x0+2*i*s,ey:Yc,ph:Math.random()*6})}
+  L={s,h,fs,Yc,x0,M};ph=-1}
+ function frame(p){const {s,h,fs,Yc,M}=L,op=ease(cl((t-PH[1])/(PH[2]-PH[1]))),dur=1.1,gap=(PH[3]-PH[2]-dur-.3)/Math.max(1,N-1),A=[],B=[],ks=[];
+  const hlOpen=t>PH[1]-.3&&t<PH[2]+.5;
+  M.forEach((m,i)=>{const k=ease(cl((t-PH[2]-i*gap)/dur));ks.push(k);const amp=(1-k)*2+.5,jx=amp*Math.sin(clk*3+m.ph),jy=amp*Math.cos(clk*2.6+m.ph*1.3);
+   const x=lerp(m.sx,m.ex,k)+jx,y=lerp(m.sy,m.ey,k)-Math.sin(k*Math.PI)*24+jy,b=A.length;
+   A.push({t:'C',x,y},{t:'C',x:x+s,y},{t:'H',x,y:y-h},{t:'H',x,y:y+h},{t:'H',x:x+s,y:y-h},{t:'H',x:x+s,y:y+h});
+   B.push({a:b,b:b+1,o:1,dbl:1-op,hl:hlOpen},{a:b,b:b+2,o:1},{a:b,b:b+3,o:1},{a:b+1,b:b+4,o:1},{a:b+1,b:b+5,o:1})});
+  for(let i=0;i<N-1;i++)B.push({a:i*6+1,b:(i+1)*6,o:cl((ks[i+1]-.85)/.15),hl:t<PH[3]+.3});
+  const eo=cl((t-PH[3]+.3)/.5),last=(N-1)*6+1;
+  A.push({t:'',x:A[0].x-s*.75,y:A[0].y},{t:'',x:A[last].x+s*.75,y:A[last].y});
+  B.push({a:0,b:A.length-2,o:eo,f:eo},{a:last,b:A.length-1,o:eo,f:eo});
+  const bo=ease(cl((t-PH[3]-.2)/1)),j=Math.floor((N-1)/2),bx=M[j].ex,y1=Yc-h-14,y2=Yc+h+14;
+  let s0=bo>.01?`<rect x="${f1(bx-s*.5)}" y="${f1(y1)}" width="${f1(s*2)}" height="${f1(y2-y1)}" rx="6" fill="#e7e6fb" opacity="${f2(bo)}"/>`:'';
+  s0+=molStr(A,B,{fs});
+  s0+=brk(bx-s*.5,y1,y2,1,bo)+brk(bx+s*1.5,y1,y2,-1,bo);
+  if(bo>.01)s0+=`<text x="${f1(bx+s*1.5+5)}" y="${f1(y2+8)}" font-size="20" font-style="italic" font-weight="700" opacity="${f2(bo)}" style="fill:#4a44b5">n</text><text class="lb" x="${f1(bx+s*.5)}" y="${f1(y1-8)}" text-anchor="middle" font-size="14" font-weight="700" opacity="${f2(bo)}" style="fill:#4a44b5">repeat unit</text>`;
+  if(eo>.5)s0+=`<text class="lb t-s" x="${f1(A[0].x-s*.75)}" y="${f1(Yc+5)}" text-anchor="end">…</text><text class="lb t-s" x="${f1(A[last].x+s*.8)}" y="${f1(Yc+5)}">…</text>`;
+  g.innerHTML=s0;
+  top.textContent=p<2?'Ethene monomers: each has a C=C double bond':p<3?'One bond of each C=C opens':p<4?'The monomers join with new C–C single bonds':'Poly(ethene): a long saturated chain';
+  top.style.fill=p<2?'':p<4?'#b3261e':'#1d7a46'}
+ function msg(p){let h;
+  if(p<=1)h='<span>These are <b>ethene</b> molecules, the <b>monomers</b>.</span><span>Ethene is an <b>alkene</b>. It has a C=C double bond, so it is <b>unsaturated</b>.</span>';
+  else if(p===2)h='<span>In <b>addition polymerisation</b>, one bond of each C=C double bond <b>opens</b>.</span><span>Each carbon atom can now make a new bond.</span>';
+  else if(p===3)h='<span>The monomers <b>join together</b> into a long chain.</span><span>New C–C single bonds form between them.</span>';
+  else h='<span>The product is <b>poly(ethene)</b>. It is <b>saturated</b>: only single bonds.</span><span>The <b>repeat unit</b> is in brackets. <i>n</i> is a very large number.</span><span>The polymer is the <b>only product</b>.</span>';
+  $('m0').innerHTML=h+`<div class="eq"><i>n</i> CH<sub>2</sub>=CH<sub>2</sub> → –[CH<sub>2</sub>–CH<sub>2</sub>]<sub><i>n</i></sub>–<br><span class="note">ethene → poly(ethene)</span></div><div class="note">Here: ${N} monomers → 1 chain with ${2*N} carbon atoms. A real chain has thousands of monomers.</div>`}
+ function go(to){if(t>=PH[4]-1e-3)t=0;stopAt=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(PH[4])};
+ $('st0').onclick=()=>{if(t>=PH[4]-1e-3)t=0;if(t<PH[1])t=PH[1];go(PH.find(p=>p>t+1e-3)??PH[4])};
+ $('rp0').onclick=()=>{t=0;go(PH[4])};
+ sl.oninput=()=>{build();t=0;go(PH[4])};
+ function tick(dt){if(play){t=Math.min(stopAt,t+dt);if(t>=stopAt){play=false;pb.textContent='Play'}}
+  const p=phase(PH,t);frame(p);if(p!==ph){ph=p;msg(p)}}
+ if(matchMedia('(max-width:620px)').matches)sl.value=4;
+ build();return {tick}})();
+
+/* ---------- TAB 2: monomer <-> repeat unit ---------- */
+const MON=[
+ {n:'ethene',s:['H','H','H','H'],m:'CH<sub>2</sub>=CH<sub>2</sub>',r:'–[CH<sub>2</sub>–CH<sub>2</sub>]<sub><i>n</i></sub>–',p:'poly(ethene)',u:'plastic bags, bottles, cling film'},
+ {n:'propene',s:['H','H','H','CH3'],m:'CH<sub>2</sub>=CHCH<sub>3</sub>',r:'–[CH<sub>2</sub>–CH(CH<sub>3</sub>)]<sub><i>n</i></sub>–',p:'poly(propene)',u:'crates, ropes, food tubs'},
+ {n:'chloroethene',s:['H','H','H','Cl'],m:'CH<sub>2</sub>=CHCl',r:'–[CH<sub>2</sub>–CHCl]<sub><i>n</i></sub>–',p:'poly(chloroethene), PVC',u:'water pipes, window frames, cable insulation'},
+ {n:'tetrafluoroethene',s:['F','F','F','F'],m:'CF<sub>2</sub>=CF<sub>2</sub>',r:'–[CF<sub>2</sub>–CF<sub>2</sub>]<sub><i>n</i></sub>–',p:'poly(tetrafluoroethene), PTFE',u:'non-stick coating on pans'}];
+function unitStr(sub,u,o={}){const X1=o.x1??255,X2=o.x2??345,Y=o.y??165,V=o.v??58,E=o.e??90,fs=o.fs??22;
+ const op=ease(cl((u-1.2)/1.2)),ex=ease(cl((u-2.4)/1.2)),br=ease(cl((u-3.6)/1.2));
+ const A=[{t:'C',x:X1,y:Y},{t:'C',x:X2,y:Y},{t:sub[0],x:X1,y:Y-V},{t:sub[1],x:X1,y:Y+V},{t:sub[2],x:X2,y:Y-V},{t:sub[3],x:X2,y:Y+V},{t:'',x:X1-E,y:Y},{t:'',x:X2+E,y:Y}];
+ const B=[{a:0,b:1,o:1,dbl:1-op,hl:op>0&&op<1},{a:0,b:2,o:1},{a:0,b:3,o:1},{a:1,b:4,o:1},{a:1,b:5,o:1},{a:0,b:6,o:ex>0?1:0,f:ex,hl:ex<1},{a:1,b:7,o:ex>0?1:0,f:ex,hl:ex<1}];
+ const bx1=X1-E*.55,bx2=X2+E*.55,y1=Y-V-fs,y2=Y+V+fs;
+ let s=molStr(A,B,{fs,bg:o.bg,w:o.w})+brk(bx1,y1,y2,1,br,fs*.45)+brk(bx2,y1,y2,-1,br,fs*.45);
+ if(br>.01)s+=`<text x="${f1(bx2+5)}" y="${f1(y2+fs*.4)}" font-size="${fs}" font-style="italic" font-weight="700" opacity="${f2(br)}" style="fill:#4a44b5">n</text>`;
+ return s}
+const S2=(()=>{
+ const sv=$('sv1'),g=el('g',{},sv),tg=el('g',{class:'lb'},sv),PH=[0,1.2,2.4,3.6,4.8],pb=$('pl1');
+ const T1=el('text',{x:300,y:34,'text-anchor':'middle','font-size':18,'font-weight':700},tg),T2=el('text',{x:300,y:308,'text-anchor':'middle','font-size':20,'font-weight':700},tg);
+ const RORD=[2,3,1,0];let mi=0,rev=false,t=0,play=true,stopAt=PH[4],ph=-1,guessed=false;
+ const mons=$('mons'),gopts=$('gopts');
+ function picks(){mons.innerHTML='';const ord=rev?RORD:[0,1,2,3];
+  ord.forEach((k,j)=>{const b=document.createElement('button');b.className='pick';b.innerHTML=rev?'Repeat unit '+'ABCD'[j]:MON[k].n;b.setAttribute('aria-pressed',k===mi);b.onclick=()=>{mi=k;picks();reset()};mons.appendChild(b)});
+  gopts.innerHTML='';$('gfb').textContent='';
+  MON.forEach((m,k)=>{const b=document.createElement('button');b.className='pick';b.innerHTML=m.m;b.onclick=()=>guess(k,b);gopts.appendChild(b)})}
+ function guess(k,b){if(guessed)return;const ok=k===mi,f=$('gfb');b.classList.add(ok?'right':'wrong');
+  if(ok){guessed=true;f.className='fb good';f.textContent='Correct. Watch how to check it.';t=0;go(PH[4])}
+  else{f.className='fb bad';f.textContent='Not quite. Look at the side groups on each carbon.'}}
+ function reset(){t=0;guessed=false;ph=-1;$('gfb').textContent='';[...gopts.children].forEach(c=>c.className='pick');
+  if(rev){play=false;stopAt=0;pb.textContent='Play'}else go(PH[4])}
+ function u(){return rev?(t<PH[1]?PH[4]:t>=PH[4]-1e-3?0:6-t):t}
+ function frame(p){const m=MON[mi];g.innerHTML=unitStr(m.s,u());const q0=rev&&!guessed&&t<1e-3,pn=m.p.split(',')[0];
+  const TT=rev?[,q0?'Repeat unit: which monomer?':'Repeat unit of '+pn,'Step 1: remove the brackets and n','Step 2: remove the extension bonds','Step 3: put the C=C back','Monomer: '+m.n]:[,'Monomer: '+m.n,'Step 1: C=C becomes C–C','Step 2: draw the extension bonds','Step 3: brackets and n','Repeat unit of '+pn];
+  T1.textContent=TT[p];T1.style.fill=p>1&&p<5?'#b3261e':(rev?p===1:p===5)?'#4a44b5':'';
+  T2.textContent=q0?'?':p===1?usub(rev?m.r:m.m):p===5?usub(rev?m.m:m.r):'';T2.style.fill=q0?'#4a44b5':''}
+ function msg(p){const m=MON[mi];let h,cls='msg';
+  if(!rev){h=[,'<span>This is the monomer, <b>'+m.n+'</b> ('+m.m+').</span><span>It is an alkene: it has a <b>C=C double bond</b>.</span>',
+   '<span><b>Step 1:</b> change the C=C double bond into a C–C <b>single bond</b>.</span>',
+   '<span><b>Step 2:</b> draw a bond out from each of these two carbon atoms. These bonds join to the next repeat units.</span>',
+   '<span><b>Step 3:</b> put <b>brackets</b> across the two extension bonds. Write <b><i>n</i></b> after the bracket.</span>',
+   '<span>This is the <b>repeat unit</b> of <b>'+m.p+'</b>.</span><span>The side groups stay on the same carbon atoms. Only the C=C changes.</span>'][p];if(p===5)cls='msg ok'}
+  else{h=[,'<span>This is a <b>repeat unit</b>. Which monomer made it?</span><span>Tap your answer, or press Play or Step.</span>',
+   '<span><b>Step 1:</b> remove the brackets and the <i>n</i>.</span>',
+   '<span><b>Step 2:</b> remove the two extension bonds.</span>',
+   '<span><b>Step 3:</b> put a <b>C=C double bond</b> back between the two carbon atoms.</span>',
+   '<span>The monomer is <b>'+m.n+'</b> ('+m.m+'). It is an alkene.</span><span>The polymer is <b>'+m.p+'</b>.</span>'][p];if(p===5)cls='msg ok';
+   if(p===1&&!(t<1e-3&&!guessed))h='<span>This is the <b>repeat unit</b>. Watch how to find the monomer.</span>'}
+  const ans=!rev||p===5;
+  $('m1').className=cls;$('m1').innerHTML=h+(ans?`<div class="eq"><i>n</i> <span class="nw">${m.m}</span> → <span class="nw">${m.r}</span><br><span class="note">${m.n} → ${m.p}</span></div><div class="note">Uses: ${m.u}.</div>`:'<div class="note">Hint: the two carbons inside the brackets were joined by C=C in the monomer.</div>')}
+ function go(to){if(t>=PH[4]-1e-3)t=0;stopAt=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(PH[4])};
+ $('st1').onclick=()=>{if(t>=PH[4]-1e-3)t=0;if(t<PH[1])t=PH[1];go(PH.find(p=>p>t+1e-3)??PH[4])};
+ $('rp1').onclick=()=>{t=0;go(PH[4])};
+ function dir(r){rev=r;press(['dF','dR'],r?'dR':'dF');$('gq').hidden=!r;mi=r?RORD[0]:0;picks();reset()}
+ $('dF').onclick=()=>dir(false);$('dR').onclick=()=>dir(true);
+ let key='';
+ function tick(dt){if(play){t=Math.min(stopAt,t+dt);if(t>=stopAt){play=false;pb.textContent='Play'}}
+  const p=phase(PH,t);frame(p);const k=p+'|'+(t<1e-3)+guessed+mi+rev;if(k!==key){key=k;msg(p)}}
+ const mq=matchMedia('(max-width:620px)'),vb=()=>sv.setAttribute('viewBox',mq.matches?'115 0 370 330':'0 0 600 330');vb();mq.addEventListener('change',vb);
+ picks();return {tick}})();
+
+/* ---------- TAB 3: disposal ---------- */
+const S3=(()=>{
+ const gL=$('gLand'),gB=$('gBurn');let scene='L';
+ /* landfill */
+ gL.innerHTML=`<rect width="720" height="72" fill="#eaf3fb"/><rect y="72" width="720" height="308" fill="#a9845a"/><rect y="72" width="720" height="12" fill="#6a9a4a"/>
+ <path d="M0 150Q180 140 360 152T720 148" fill="none" stroke="#97734c" stroke-width="2"/><path d="M0 310Q180 300 360 314T720 306" fill="none" stroke="#97734c" stroke-width="2"/>
+ <text id="yrT" x="20" y="46" font-size="22" font-weight="700"></text><text class="lb t-s" x="700" y="46" text-anchor="end">landfill site (cut-away view)</text>`;
+ const IT=[{n:'apple core',a:.08,b:.6,x:85,d:'<path d="M-20-26Q0-40 20-26Q24-12 8-4Q4 6 8 14Q24 24 16 34Q0 42-16 34Q-24 24-8 14Q-4 6-8-4Q-24-12-20-26Z" fill="#c8402e"/><path d="M-8-4Q-4 6-8 14H8Q4 6 8-4Z" fill="#f1e2b0"/><path d="M0-30V-44" stroke="#6b4a2b" stroke-width="3"/>'},
+  {n:'newspaper',a:.4,b:4,x:215,d:'<rect x="-30" y="-24" width="60" height="48" fill="#ebe6da" stroke="#9a9384" stroke-width="1.5" transform="rotate(-8)"/><path d="M-22-14H18M-22-4H22M-22 6H14M-22 16H20" stroke="#8a8478" stroke-width="2" transform="rotate(-8)"/>'},
+  {n:'wooden stick',a:3,b:30,x:345,d:'<rect x="-38" y="-8" width="76" height="16" rx="6" fill="#9b6b3a" stroke="#6b4a2b" stroke-width="1.5" transform="rotate(14)"/>'},
+  {n:'poly(ethene) bag',x:480,pl:1,d:'<path d="M-26-16H26L30 34H-30Z" fill="#f4f7fa" stroke="#7d8fa3" stroke-width="2" opacity=".95"/><path d="M-16-16Q-16-38-4-38Q0-30-4-16M16-16Q16-38 4-38Q0-30 4-16" fill="none" stroke="#7d8fa3" stroke-width="2"/>'},
+  {n:'poly(propene) tub',x:620,pl:1,d:'<path d="M-28-20H28L22 30H-22Z" fill="#5b8fd6" stroke="#2f5f9e" stroke-width="2"/><rect x="-32" y="-28" width="64" height="9" rx="3" fill="#2f5f9e"/>'}];
+ IT.forEach(o=>{o.g=el('g',{},gL);o.g.innerHTML=o.d;o.t1=el('text',{x:o.x,y:290,'text-anchor':'middle','font-size':14,'font-weight':700,class:'lb'},gL);o.t1.textContent=o.n;o.t2=el('text',{x:o.x,y:308,'text-anchor':'middle','font-size':13,'font-weight':700,class:'lb'},gL)});
+ el('text',{x:550,y:350,'text-anchor':'middle','font-size':14,'font-weight':700,class:'lb',style:'fill:#b3261e'},gL).textContent='addition polymers: non-biodegradable';
+ el('text',{x:150,y:350,'text-anchor':'middle','font-size':14,'font-weight':700,class:'lb',style:'fill:#1d7a46'},gL).textContent='biodegradable';
+ el('line',{x1:412,y1:110,x2:412,y2:360,stroke:'#7a5a3a','stroke-dasharray':'6 6','stroke-width':2},gL);
+ const mg=el('g',{},gL),MB=[];for(let i=0;i<26;i++)MB.push({x:40+Math.random()*640,y:110+Math.random()*190,ph:Math.random()*7,tg:i%3,e:el('ellipse',{rx:4.5,ry:2.6,fill:'#2e9e5b',stroke:'#1d6a3c','stroke-width':.8},mg)});
+ const MS=[0,.5,2,15,100,500],sl=$('yr'),pb=$('pl2');let v=0,play=false,stopV=100;
+ const yrs=v=>v<=0?0:.05*Math.pow(10,4*v/100),vOf=y=>y<=0?0:25*Math.log10(y/.05);
+ const left=(o,y)=>o.pl?1:y<=o.a?1:y>=o.b?0:1-Math.log(y/o.a)/Math.log(o.b/o.a);
+ const fmt=y=>y<=0?'0 years':y<1?Math.max(1,Math.round(y*12))+' month'+(Math.round(y*12)>1?'s':''):Math.round(y)+' year'+(Math.round(y)===1?'':'s');
+ let lastMsg='';
+ function landMsg(y){const gone=IT.filter(o=>!o.pl&&left(o,y)<=0).map(o=>o.n);
+  let h='<span>Food, paper and wood are <b>biodegradable</b>. Microorganisms (bacteria and fungi) break them down.</span>';
+  h+=y<=0?'<span>Press Play to let time pass.</span>':gone.length?'<span>After '+fmt(y)+': the '+(gone.length>1?gone.slice(0,-1).join(', ')+' and '+gone[gone.length-1]+' have':gone[0]+' has')+' rotted away.</span>':'<span>After '+fmt(y)+': the waste is starting to rot.</span>';
+  h+='<span>The poly(ethene) bag and poly(propene) tub do <b>not change</b>. Addition polymers are <b>inert</b> and <b>non-biodegradable</b>. They can last hundreds of years.</span>';
+  if(h!==lastMsg){lastMsg=h;$('m2').className='msg';$('m2').innerHTML=h+'<div class="note">Landfill sites fill up and the land cannot be used for other things.</div>'}}
+ function goL(to){if(v>=99.9)v=0;stopV=to;play=true;pb.textContent='Pause'}
+ pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else goL(100)};
+ $('st2').onclick=()=>{const y=yrs(v);goL(Math.min(100,vOf(MS.find(m=>m>y*1.001)??500)))};
+ $('rp2').onclick=()=>{v=0;goL(100)};
+ sl.oninput=()=>{play=false;pb.textContent='Play';v=+sl.value};
+ function tickL(dt){if(play){v=Math.min(stopV,v+dt*11);if(v>=stopV-1e-6){play=false;pb.textContent='Play'}}
+  const y=yrs(v);sl.value=v;$('yrv').textContent=fmt(y);$('yrT').textContent='Time in landfill: '+fmt(y);
+  IT.forEach(o=>{const f=left(o,y),wob=o.pl?0:(1-f)*2;o.g.setAttribute('transform',`translate(${o.x} 225) scale(${f2(.25+.75*f)}) rotate(${f1(wob*Math.sin(clk*2))})`);o.g.setAttribute('opacity',f2(f<=0?0:.35+.65*f));
+   o.t2.textContent=o.pl?'unchanged':f>=.999?'':f>0?'rotting':'gone';o.t2.style.fill=o.pl?'#b3261e':'#1d7a46'});
+  const org=IT.filter(o=>!o.pl&&left(o,y)>0);
+  MB.forEach((m,i)=>{let tx,ty;if(org.length&&y>0){const o=org[m.tg%org.length];tx=o.x+Math.cos(m.ph+clk*.8)*34;ty=225+Math.sin(m.ph*1.7+clk*.9)*30}else{tx=50+((i*97)%320);ty=130+((i*53)%110)+Math.sin(clk+m.ph)*20}
+   m.x+=(tx-m.x)*dt*1.4+Math.sin(clk*5+m.ph)*.6;m.y+=(ty-m.y)*dt*1.4+Math.cos(clk*4+m.ph)*.6;if(m.x>395&&tx<400)m.x=395;
+   m.e.setAttribute('cx',f1(m.x));m.e.setAttribute('cy',f1(m.y));m.e.setAttribute('transform',`rotate(${f1((clk*60+i*40)%360)} ${f1(m.x)} ${f1(m.y)})`)});
+  landMsg(y)}
+ el('text',{x:150,y:368,'text-anchor':'middle',class:'lb t-s'},gL).textContent='green dots: microorganisms';
+ /* burning */
+ gB.innerHTML=`<rect width="720" height="380" fill="#eef2f6"/><rect y="340" width="720" height="40" fill="#b9c2cc"/>
+ <g transform="translate(30 0)"><rect x="232" y="52" width="40" height="140" fill="#8a97a5" stroke="#6f7d8c" stroke-width="2"/><rect x="226" y="46" width="52" height="10" rx="2" fill="#6f7d8c"/>
+ <rect x="50" y="170" width="250" height="170" rx="10" fill="#6f7d8c"/><rect x="80" y="220" width="190" height="96" rx="6" fill="#2b1a12"/>
+ <g id="waste"></g><g id="fl"></g>
+ <text class="lb" x="175" y="205" text-anchor="middle" font-size="14" font-weight="700" style="fill:#fff">incinerator</text></g>
+ <path id="air" d="M0 300H100" stroke="#4a90c8" stroke-linecap="round" fill="none"/><path d="M100 288L116 300L100 312Z" fill="#4a90c8"/>
+ <text class="lb" x="6" y="262" font-size="14" font-weight="700" style="fill:#2f6e9e">air</text><text class="lb" x="6" y="280" font-size="14" font-weight="700" style="fill:#2f6e9e">(oxygen)</text>
+ <g id="puffs"></g><g id="leg"></g>`;
+ const GAS={CO2:{f:'#d3d9e0',s:'#8a97a5',t:'CO₂',n:'carbon dioxide',x:'greenhouse gas'},H2O:{f:'#cfe6f7',s:'#6aa5d0',t:'H₂O',n:'water vapour',x:''},CO:{f:'#fde2e0',s:'#b3261e',t:'CO',n:'carbon monoxide',x:'TOXIC'},C:{f:'#3a3a3a',s:'#222',t:'C',n:'soot (carbon)',x:''},HCl:{f:'#e8f3c4',s:'#7a8c1f',t:'HCl',n:'hydrogen chloride',x:'TOXIC, acidic'}};
+ const leg=$('leg'),LR={};let ly=196;
+ el('text',{x:370,y:ly-14,'font-size':15,'font-weight':700},leg).textContent='Gases from the chimney';
+ for(const k in GAS){const o=GAS[k],r=el('g',{},leg);el('circle',{cx:384,cy:ly+6,r:11,fill:o.f,stroke:o.s,'stroke-width':2},r);
+  const tx=el('text',{x:404,y:ly+11,'font-size':14},r);tx.innerHTML=`<tspan font-weight="700">${o.t}</tspan> ${o.n}${o.x?` <tspan font-weight="700" style="fill:${o.x[0]==='T'?'#b3261e':'#5a6878'}">· ${o.x}</tspan>`:''}`;LR[k]=r;ly+=30}
+ let waste='PE',oxy='P',bplay=true,puffs=[],sp=0;const pg=$('puffs'),fl=$('fl'),pb3=$('pl3');
+ for(let i=0;i<5;i++)el('path',{fill:i%2?'#ffb03a':'#ff7a1a',opacity:.9},fl);
+ function wasteDraw(){$('waste').innerHTML=waste==='PE'?'<path d="M110 300l20-14 20 14 20-14 20 14 20-14 20 14 20-14" fill="none" stroke="#e8edf2" stroke-width="5"/>':'<rect x="105" y="288" width="140" height="18" rx="9" fill="#d9dde2" stroke="#9aa3ad" stroke-width="2"/>'}
+ function mix(){const w={CO2:oxy==='P'?3:1,H2O:3};if(oxy==='L'){w.CO=3;w.C=2}if(waste==='PV')w.HCl=3;return w}
+ function burnMsg(){const pv=waste==='PV',lim=oxy==='L',nm=pv?'PVC, poly(chloroethene),':'Poly(ethene)';let h='';
+  h+=lim?`<span>${nm} burns with <b>limited oxygen</b>. This is <b>incomplete combustion</b>.</span><span>Toxic <b>carbon monoxide</b> and soot (carbon) are made. Carbon monoxide stops the blood carrying oxygen.</span>`:`<span>${nm} burns with <b>plenty of oxygen</b>. Carbon dioxide and water are made. Carbon dioxide is a greenhouse gas.</span>`;
+  if(pv)h+='<span>PVC contains <b>chlorine</b>. Burning it releases <b>hydrogen chloride</b>, a <b>toxic</b>, acidic gas.</span>';
+  const pr=lim?'carbon monoxide + carbon + water':'carbon dioxide + water';
+  $('m2').className=pv||lim?'msg warn':'msg';$('m2').innerHTML=h+`<div class="eq">${pv?'poly(chloroethene)':'poly(ethene)'} + oxygen → ${pr}${pv?' + hydrogen chloride':''}</div><div class="note">Burning gets rid of the plastic, but the gases must be cleaned before they leave the chimney.</div>`;
+  const w=mix();for(const k in LR)LR[k].setAttribute('opacity',w[k]?1:.22);$('air').setAttribute('stroke-width',lim?3:11);wasteDraw()}
+ function pickGas(){const w=mix(),tot=Object.values(w).reduce((a,b)=>a+b,0);let r=Math.random()*tot;for(const k in w){r-=w[k];if(r<=0)return k}return 'H2O'}
+ pb3.onclick=()=>{bplay=!bplay;pb3.textContent=bplay?'Pause':'Play'};
+ $('rp3').onclick=()=>{puffs.forEach(p=>p.e.remove());puffs=[];bplay=true;pb3.textContent='Pause'};
+ $('wPE').onclick=()=>{waste='PE';press(['wPE','wPV'],'wPE');burnMsg()};$('wPV').onclick=()=>{waste='PV';press(['wPE','wPV'],'wPV');burnMsg()};
+ $('oP').onclick=()=>{oxy='P';press(['oP','oL'],'oP');burnMsg()};$('oL').onclick=()=>{oxy='L';press(['oP','oL'],'oL');burnMsg()};
+ let bt=0;
+ function tickB(dt){if(!bplay)return;bt+=dt;
+  [...fl.children].forEach((p,i)=>{const x=100+i*36,hh=(oxy==='L'?34:50)+10*Math.sin(bt*(9+i)+i*2);p.setAttribute('d',`M${x-16} 312Q${x-14} ${312-hh*.6} ${x} ${312-hh}Q${x+14} ${312-hh*.6} ${x+16} 312Z`)});
+  fl.setAttribute('opacity',oxy==='L'?.75:1);
+  sp+=dt;if(sp>.42){sp=0;const k=pickGas(),o=GAS[k],e=el('g',{},pg);el('circle',{r:k==='C'?9:17,fill:o.f,stroke:o.s,'stroke-width':2},e);const tx=el('text',{y:5,'text-anchor':'middle','font-size':k==='C'?11:13,'font-weight':700},e);tx.textContent=o.t;if(k==='C')tx.style.fill='#fff';
+   puffs.push({x:282,y:40,vx:34+Math.random()*30,vy:-6+Math.random()*22,l:0,e,k})}
+  puffs=puffs.filter(p=>{p.l+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt+Math.sin(p.l*2+p.x)*.15;if(p.y<26)p.vy=Math.abs(p.vy)*.5;if(p.y>150)p.vy=-Math.abs(p.vy)*.5;if(p.x>700||p.l>14){p.e.remove();return false}
+   p.e.setAttribute('transform',`translate(${f1(p.x)} ${f1(p.y)}) scale(${f2(Math.min(1,.4+p.l))})`);p.e.setAttribute('opacity',f2(cl(1-(p.l-10)/4)));return true})}
+ /* recycling */
+ const gR=$('gRec'),BOT='M168 170h24v18l22 20v104q0 10-10 10h-48q-10 0-10-10v-104l22-20z',BUK='M332 205H428L416 322H344Z';
+ gR.innerHTML=`<rect width="720" height="380" fill="#eef2f6"/><rect y="350" width="720" height="30" fill="#b9c2cc"/><defs><clipPath id="cpB"><path d="${BOT}"/></clipPath><clipPath id="cpK"><path d="${BUK}"/></clipPath></defs><g id="rDyn"></g>`;
+ const rD=$('rDyn'),RPH=[0,3,6,9,12,15,18],REND=18,pb4=$('pl4');let rt=0,rplay=false,rstop=REND,rph=-1,rstarted=false;
+ const rnd=i=>{const x=Math.sin(i*12.9898+.7)*43758.5453;return x-Math.floor(x)};
+ const tri=(n,x,y,s)=>`<g transform="translate(${x} ${y})"><path d="M0 ${-s}L${f1(s*.95)} ${f1(s*.7)}H${f1(-s*.95)}Z" fill="#fff" stroke="#1d7a46" stroke-width="1.6" stroke-linejoin="round"/><text y="${f1(s*.55)}" text-anchor="middle" font-size="${f1(s*1.05)}" font-weight="700">${n}</text></g>`;
+ const RT={E:{c:2,n:'poly(ethene)',x:140,d:'<rect x="-6" y="-25" width="12" height="6" fill="#a8811a"/><path d="M-6-20h12v6l8 6v24q0 4-4 4h-20q-4 0-4-4v-24l8-6z" fill="#f2c94c" stroke="#a8811a" stroke-width="1.5"/>'},
+  V:{c:3,n:'PVC',x:360,d:'<rect x="-20" y="-7" width="40" height="14" rx="3" fill="#a3acb6" stroke="#5f6b78" stroke-width="1.5"/><ellipse cx="20" cy="0" rx="3" ry="7" fill="#5f6b78"/>'},
+  P:{c:5,n:'poly(propene)',x:580,d:'<path d="M-16-10H16L12 18H-12Z" fill="#5b8fd6" stroke="#2f5f9e" stroke-width="1.5"/><rect x="-18" y="-15" width="36" height="6" rx="2" fill="#2f5f9e"/>'}};
+ const itm=(k,x,y,s=1,dirt=0,o=1)=>`<g transform="translate(${f1(x)} ${f1(y)}) scale(${f2(s)})" opacity="${f2(o)}">${RT[k].d}${dirt>.01?`<g opacity="${f2(dirt)}" fill="#7a5a3a"><circle cx="-9" cy="10" r="2.6"/><circle cx="9" cy="-4" r="2.2"/><circle cx="5" cy="12" r="1.8"/></g>`:''}${tri(RT[k].c,0,3,9)}</g>`;
+ const TY='EPVEPEVPE',SP=[[60,120],[150,215],[70,300],[650,120],[560,215],[650,300],[240,300],[480,300],[360,112]];
+ const pile=i=>[300+(i%5)*30,178-Math.floor(i/5)*26],slot=i=>{const k=TY[i],j=[...TY.slice(0,i)].filter(c=>c===k).length;return [RT[k].x-45+j*30,268]};
+ const PEi=[...TY].map((c,i)=>c==='E'?i:-1).filter(i=>i>=0),tankP=j=>[245+j*77,222];
+ const FL=[];for(let i=0;i<44;i++){const tx=360+(rnd(i)-.5)*190;FL.push({tx,ty:334-rnd(i+100)*26*(1-Math.abs(tx-360)/100),r:rnd(i+200)*180,cx:540+(rnd(i+300)-.5)*100,cy:312-rnd(i+400)*22})}
+ const flk=(x,y,r,o=1)=>`<rect x="-4" y="-2.5" width="8" height="5" transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(r)})" fill="#f2c94c" stroke="#a8811a" stroke-width=".8" opacity="${f2(o)}"/>`;
+ const gear=(cx,cy,a)=>{let d='';for(let i=0;i<16;i++){const r=i%2?16:22,q=a+i*Math.PI/8;d+=(i?'L':'M')+f1(cx+r*Math.cos(q))+' '+f1(cy+r*Math.sin(q))}return `<path d="${d}Z" fill="#c3ccd5" stroke="#3d4855" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="5" fill="#3d4855"/>`};
+ const RCAP=['Used plastic is collected','Sorted by type: each polymer into its own bin','Washed: food, dirt and labels are removed','Shredded into small flakes','Heated: the flakes melt','Moulded into new products','New products. The quality drops each time.'];
+ const crucible=lv=>`<rect x="474" y="${f1(320-lv)}" width="132" height="${f1(lv)}" fill="#f0a830"/><path d="M470 200V300Q470 322 492 322H588Q610 322 610 300V200" fill="none" stroke="#5f6b78" stroke-width="5"/><ellipse cx="540" cy="338" rx="70" ry="9" fill="#ff7a1a" opacity="${f2(.3+.2*Math.sin(clk*6))}"/><path d="M485 338l11-7 11 7 11-7 11 7 11-7 11 7 11-7 11 7 11-7 11 7" fill="none" stroke="#d9481c" stroke-width="3"/><text class="lb" x="622" y="343" font-size="14" font-weight="700" style="fill:#d9481c">heat</text>`;
+ function recFrame(p){const st=rt<=1e-3?1:Math.min(6,Math.ceil(rt/3-1e-6)),lt=rt-RPH[st-1];let s='';
+  /* progress strip */
+  ['Collect','Sort','Wash','Shred','Melt','Remould'].forEach((n,i)=>{const done=i+1<st||p===7,on=i+1===st&&p<7,x=11+i*118;
+   s+=`<rect x="${x}" y="12" width="108" height="36" rx="18" fill="${on?'#4a44b5':done?'#e6f4ec':'#fff'}" stroke="${on?'#4a44b5':done?'#1d7a46':'#cdd6df'}" stroke-width="2"/><text x="${x+54}" y="36" text-anchor="middle" font-size="15" font-weight="700" style="fill:${on?'#fff':done?'#1d7a46':'#5a6878'}">${i+1} ${n}</text>`});
+  s+=`<text class="lb" x="360" y="80" text-anchor="middle" font-size="17" font-weight="700" style="fill:#4a44b5">${RCAP[p===7?6:st-1]}</text>`;
+  if(st<=2){s+=`<rect x="270" y="122" width="180" height="82" rx="6" fill="#cfe0d4" stroke="#1d7a46" stroke-width="2.5"/><text class="lb" x="360" y="221" text-anchor="middle" font-size="14" font-weight="700" style="fill:#1d7a46">collection box</text>`;
+   if(st===2){const bo=cl(lt/.4);for(const k in RT){const x=RT[k].x;s+=`<g opacity="${f2(bo)}"><path d="M${x-75} 242V345H${x+75}V242" fill="#fff" stroke="#7d8fa3" stroke-width="3"/>${tri(RT[k].c,x,316,16)}<text class="lb" x="${x}" y="372" text-anchor="middle" font-size="15" font-weight="700">${RT[k].c} · ${RT[k].n}</text></g>`}}
+   [...TY].forEach((k,i)=>{const a=st===1?SP[i]:pile(i),b=st===1?pile(i):slot(i),q=ease(cl((lt-.2-i*.18)/1.1));s+=itm(k,lerp(a[0],b[0],q),lerp(a[1],b[1],q)-Math.sin(q*Math.PI)*40,1,1)})}
+  else if(st===3){const d=1-cl((lt-.9)/1.8);
+   s+=`<path d="M220 150H500" stroke="#5f6b78" stroke-width="6" stroke-linecap="round"/>`;for(let i=0;i<8;i++){const x=235+i*37,y=158+((clk*120+i*17)%45);s+=`<circle cx="${x}" cy="${f1(y)}" r="2.5" fill="#4a90c8"/>`}
+   PEi.forEach((i,j)=>{const a=slot(i),b=tankP(j),q=ease(cl((lt-j*.15)/.8)),x=lerp(a[0]-100,b[0],q),y=lerp(a[1],b[1],q)-Math.sin(q*Math.PI)*50+(q>=1?3*Math.sin(clk*2.5+j):0);
+    s+=itm('E',x,y,1.25,d);for(let m=0;m<3;m++)if(d<1)s+=`<circle cx="${f1(b[0]-10+m*10)}" cy="${f1(lerp(240,326,1-d)+m*3)}" r="2.2" fill="#7a5a3a" opacity="${f2(.9*Math.min(1,(1-d)*4))}"/>`});
+   for(let i=0;i<12;i++){const y=330-((clk*40+i*23)%120);s+=`<circle cx="${f1(215+i*25+4*Math.sin(clk*3+i))}" cy="${f1(y)}" r="3" fill="none" stroke="#fff" stroke-width="1.5"/>`}
+   s+=`<rect x="220" y="205" width="280" height="128" fill="#9ccbec" opacity=".55"/><path d="M220 180V335H500V180" fill="none" stroke="#7d8fa3" stroke-width="3"/><text class="lb" x="515" y="270" font-size="14" font-weight="700" style="fill:#2f6e9e">water</text>`}
+  else if(st===4){const a=clk*3;
+   PEi.forEach((i,j)=>{const b=tankP(j),q=ease(cl((lt-j*.3)/.8));if(q<1)s+=itm('E',lerp(b[0],360,q),lerp(b[1]-60,118,q)-Math.sin(q*Math.PI)*30,lerp(1.25,.6,q))});
+   s+=`<path d="M300 110H420L395 150H325Z" fill="#c3ccd5" stroke="#5f6b78" stroke-width="2"/><rect x="300" y="150" width="120" height="95" rx="6" fill="#8a97a5" stroke="#5f6b78" stroke-width="2"/>${gear(338,196,a)}${gear(382,196,-a+.2)}<rect x="342" y="245" width="36" height="16" fill="#6f7d8c"/><text class="lb" x="360" y="238" text-anchor="middle" font-size="13" font-weight="700" style="fill:#fff">shredder</text><rect x="250" y="338" width="220" height="8" rx="3" fill="#6f7d8c"/>`;
+   FL.forEach((f,i)=>{const q=cl((lt-.8-i*.04)/.35);if(q>0)s+=flk(lerp(360+(rnd(i+500)-.5)*20,f.tx,q),lerp(262,f.ty,q*q),f.r)});
+   if(lt>1.2)s+=`<text class="lb" x="480" y="330" font-size="14" font-weight="700">flakes</text>`}
+  else{const mf=st===5?cl((lt-1.3)/1.4):1;
+   if(st===5)s+=`<rect x="240" y="338" width="220" height="8" rx="3" fill="#6f7d8c"/>`;
+   if(st===5){s+=crucible(55*ease(mf));FL.forEach((f,i)=>{const q=ease(cl((lt-i*.022)/.6));if(mf<1)s+=flk(lerp(f.tx,f.cx,q),lerp(f.ty,f.cy,q)-Math.sin(q*Math.PI)*120,f.r+q*90,1-mf)});
+    if(mf>.5)s+=`<text class="lb" x="540" y="190" text-anchor="middle" font-size="14" font-weight="700" style="fill:#b5651d">molten poly(ethene)</text>`}
+   else{const u=lt/3,fb=cl((u-.04)/.36),fk=cl((u-.5)/.32),mo=ease(cl((u-.85)/.15)),nx=u<.42?180:u<.5?lerp(180,380,ease((u-.42)/.08)):380,lv=55-42*(fb*.45+fk*.55);
+    s+=crucible(lv)+`<path d="M540 300V112H${f1(nx)}V140" fill="none" stroke="#5f6b78" stroke-width="12" stroke-linejoin="round"/><path d="M540 300V112H${f1(nx)}V140" fill="none" stroke="#f0a830" stroke-width="5" stroke-linejoin="round"/>`;
+    const pour=(fb>0&&fb<1)?[180,322-fb*152]:(fk>0&&fk<1)?[380,322-fk*117]:null;if(pour)s+=`<path d="M${f1(nx)} 140V${f1(pour[1])}" stroke="#f0a830" stroke-width="6"/>`;
+    [[120,240,160,330],[320,440,190,330]].forEach(([x1,x2,y1,y2])=>{const mx=(x1+x2)/2,o=f2(1-mo);s+=`<rect x="${f1(x1-mo*45)}" y="${y1}" width="${mx-x1}" height="${y2-y1}" fill="#9aa3ad" stroke="#5f6b78" stroke-width="2" opacity="${o}"/><rect x="${f1(mx+mo*45)}" y="${y1}" width="${x2-mx}" height="${y2-y1}" fill="#9aa3ad" stroke="#5f6b78" stroke-width="2" opacity="${o}"/>`});
+    s+=`<path d="${BOT}" fill="#fff" opacity="${f2(1-mo)}"/><path d="${BUK}" fill="#fff" opacity="${f2(1-mo)}"/><rect x="140" y="${f1(322-fb*152)}" width="80" height="${f1(fb*152)}" fill="${mo>0?'#f2c94c':'#f0a830'}" clip-path="url(#cpB)"/><rect x="330" y="${f1(322-fk*117)}" width="100" height="${f1(fk*117)}" fill="${mo>0?'#f2c94c':'#f0a830'}" clip-path="url(#cpK)"/><path d="${BOT}" fill="none" stroke="#a8811a" stroke-width="2"/><path d="${BUK}" fill="none" stroke="#a8811a" stroke-width="2"/>`;
+    if(mo>0)s+=`<g opacity="${f2(mo)}"><path d="M336 212Q380 170 424 212" fill="none" stroke="#a8811a" stroke-width="3"/>${tri(2,180,270,14)}${tri(2,380,270,14)}<text class="lb" x="180" y="372" text-anchor="middle" font-size="15" font-weight="700">new bottle</text><text class="lb" x="380" y="372" text-anchor="middle" font-size="15" font-weight="700">new bucket</text></g>`;
+    else s+=`<text class="lb" x="280" y="372" text-anchor="middle" font-size="15" font-weight="700">moulds</text>`}}
+  rD.innerHTML=s}
+ function recMsg(p){const M=[,
+  '<span>Used plastic is <b>collected</b> from homes, schools and shops.</span><span>This means less plastic goes to <b>landfill</b>.</span>',
+  '<span>The plastics are <b>sorted by type</b>, using the recycling code. Each polymer goes into a separate bin.</span><span><b>Mixed plastics are hard to recycle.</b> Different polymers do not mix well when they melt.</span>',
+  '<span>The plastic is <b>washed</b> to remove food, dirt and labels.</span><span>Collecting, sorting and cleaning <b>cost money</b> and <b>use energy</b>.</span>',
+  '<span>The clean plastic is <b>shredded</b> into small <b>flakes</b>.</span>',
+  '<span>The flakes are <b>heated</b> until they <b>melt</b>.</span>',
+  '<span>The melted polymer is <b>moulded</b> into <b>new products</b>.</span><span>We do not need to make new polymer from crude oil.</span>',
+  '<span><b>Good points:</b> less plastic goes to <b>landfill</b>. It <b>saves crude oil</b> (a <b>finite resource</b>) and saves energy. There are no toxic gases from burning.</span><span><b>Problems:</b> polymers must be <b>sorted by type</b>. Collecting, sorting and cleaning cost money and energy. The <b>quality drops</b> each time, so a polymer can only be recycled a few times.</span>'][p];
+  $('m2').className=p===7?'msg ok':'msg';$('m2').innerHTML=M+'<div class="eq">collect → sort → wash → shred → melt → remould</div>'+(p<7?'<div class="note">Recycling: less landfill, saves crude oil and energy, and no toxic gases from burning.</div>':'')}
+ function goR(to){if(rt>=REND-1e-3)rt=0;rstop=to;rplay=true;pb4.textContent='Pause'}
+ pb4.onclick=()=>{if(rplay){rplay=false;pb4.textContent='Play'}else goR(REND)};
+ $('st4').onclick=()=>{if(rt>=REND-1e-3)rt=0;goR(RPH.find(x=>x>rt+1e-3)??REND)};
+ $('rp4').onclick=()=>{rt=0;goR(REND)};
+ function tickR(dt){if(rplay){rt=Math.min(rstop,rt+dt);if(rt>=rstop){rplay=false;pb4.textContent='Play'}}
+  const p=phase(RPH,rt);recFrame(p);if(p!==rph){rph=p;recMsg(p)}}
+ function setScene(s){scene=s;press(['scL','scB','scR'],'sc'+s);gL.style.display=s==='L'?'':'none';gB.style.display=s==='B'?'':'none';gR.style.display=s==='R'?'':'none';$('cL').hidden=s!=='L';$('cB').hidden=s!=='B';$('cR').hidden=s!=='R';
+  if(s==='L'){lastMsg='';landMsg(yrs(v))}else if(s==='B')burnMsg();else{rph=-1;if(!rstarted){rstarted=true;goR(REND)}}}
+ $('scL').onclick=()=>setScene('L');$('scB').onclick=()=>setScene('B');$('scR').onclick=()=>setScene('R');
+ setScene('L');goL(100);
+ return {tick:dt=>scene==='L'?tickL(dt):scene==='B'?tickB(dt):tickR(dt)}})();
+
+/* ---------- main loop ---------- */
+const SC=[S1,S2,S3];let lastT=performance.now();
+function loop(now){const dt=Math.min(.05,(now-lastT)/1000);lastT=now;clk+=dt;SC[active].tick(dt);requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+/* ---------- quiz ---------- */
+const qSvg=`<svg class="qsvg" viewBox="150 60 300 210" role="img" aria-label="Repeat unit with one H and one Cl on each carbon">${unitStr(['H','Cl','H','Cl'],4.8,{fs:22})}</svg>`;
+const Q=[
+ ['Why do poly(ethene) bags last for hundreds of years in landfill?',['They are biodegradable','They are inert and non-biodegradable','They still contain C=C double bonds','They react slowly with oxygen in the soil'],1,'Addition polymers are unreactive, and microorganisms cannot break them down.'],
+ ['Propene is CH<sub>2</sub>=CHCH<sub>3</sub>. Which is the repeat unit of poly(propene)?',['–[CH<sub>2</sub>–CH(CH<sub>3</sub>)]<sub><i>n</i></sub>–','–[CH<sub>2</sub>=CH(CH<sub>3</sub>)]<sub><i>n</i></sub>–','–[CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>]<sub><i>n</i></sub>–','–[CH(CH<sub>3</sub>)–CH(CH<sub>3</sub>)]<sub><i>n</i></sub>–'],0,'Only the two C=C carbons join the chain. The C=C becomes C–C and the CH<sub>3</sub> stays as a side group.'],
+ ['This is the repeat unit of a polymer. Which monomer made it?'+qSvg,['CH<sub>2</sub>Cl–CH<sub>2</sub>Cl','CH<sub>2</sub>=CCl<sub>2</sub>','CHCl=CHCl','CCl<sub>2</sub>=CCl<sub>2</sub>'],2,'Remove the brackets and extension bonds, then put C=C back. Each carbon keeps one H and one Cl.'],
+ ['Which toxic gas is made when PVC, poly(chloroethene), is burned?',['Oxygen','Sulfur dioxide','Hydrogen','Hydrogen chloride'],3,'PVC contains chlorine atoms, so burning it releases hydrogen chloride, a toxic, acidic gas.']];
+const qs=$('qs');Q.forEach((q,i)=>{const li=document.createElement('li');li.innerHTML=`<fieldset><legend>${q[0]}</legend>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}</fieldset><div class="fb" id="fb${i}" aria-live="polite"></div>`;qs.appendChild(li)});
+$('chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('fb'+i);
+ if(!c){f.className='fb bad';f.textContent='Choose an answer.';return}
+ const ok=+c.value===q[2];if(ok)s++;f.className='fb '+(ok?'good':'bad');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+ $('score').textContent=`Score: ${s} / ${Q.length}`};
+/* ---------- exam practice ---------- */
+const EXQ=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'Poly(ethene) is made from ethene.',stem:'What type of reaction turns ethene into poly(ethene)?',opts:['Cracking','Addition polymerisation','Combustion','Neutralisation'],ans:1,why:'Many ethene monomers add together to make one long molecule, and nothing else is made.'},
+{ref:'Q1(b)',marks:3,type:'drop',stem:'Complete the table by choosing the correct answer in each row.',rows:[
+ {lab:'Name of the polymer made from chloroethene:',opts:['poly(ethene)','poly(chloroethene)','poly(propene)','poly(tetrafluoroethene)'],ans:1},
+ {lab:'Repeat unit of poly(propene):',opts:['–[CH<sub>2</sub>–CH(CH<sub>3</sub>)]<sub>n</sub>–','–[CH<sub>2</sub>=CH(CH<sub>3</sub>)]<sub>n</sub>–','–[CH<sub>2</sub>–CH<sub>2</sub>–CH<sub>2</sub>]<sub>n</sub>–'],ans:0},
+ {lab:'Monomer that makes PTFE:',opts:['CF<sub>3</sub>–CF<sub>3</sub>','CH<sub>2</sub>=CF<sub>2</sub>','CF<sub>2</sub>=CF<sub>2</sub>'],ans:2}],
+ why:'Chloroethene → poly(chloroethene) (PVC). In a repeat unit the C=C becomes C–C and side groups stay on the same carbon. PTFE is made from tetrafluoroethene, CF<sub>2</sub>=CF<sub>2</sub>.'},
+{ref:'Q2',marks:1,type:'mcq',stem:'A polymer has the repeat unit –[CH<sub>2</sub>–CH(CH<sub>3</sub>)]<sub><i>n</i></sub>–. Which monomer was used to make it?',opts:['CH<sub>3</sub>CH=CHCH<sub>3</sub>','CH<sub>2</sub>=CHCH<sub>3</sub>','CH<sub>3</sub>CH<sub>2</sub>CH<sub>3</sub>','CH<sub>2</sub>=CH<sub>2</sub>'],ans:1,why:'Remove the brackets and extension bonds and put C=C back between the two main-chain carbons: CH<sub>2</sub>=CHCH<sub>3</sub>, propene.'},
+{ref:'Q3',marks:3,type:'text',stem:'Explain why ethene can form an addition polymer but ethane cannot.',points:['ethene has a C=C double bond','ethene is unsaturated','one bond of the C=C breaks / opens','so monomers can join together with new C–C single bonds','ethane has only single bonds / is saturated, so it cannot add on'],note:'Credit any 3 points'},
+{ref:'Q4',marks:2,type:'calc',ctx:'A molecule of poly(ethene) has a relative formula mass (M<sub>r</sub>) of 56 000. Relative atomic masses: C = 12, H = 1.',stem:'Calculate the number of ethene monomers, C<sub>2</sub>H<sub>4</sub>, that joined to make this molecule.',inputs:[{lab:'M<sub>r</sub> of C<sub>2</sub>H<sub>4</sub> =',unit:'',ans:28,tol:0,m:1},{lab:'Number of monomers =',unit:'',ans:2000,tol:0}],
+ work:'<ol><li>M<sub>r</sub> of C<sub>2</sub>H<sub>4</sub> = (2 × 12) + (4 × 1) = 28 (1 mark)</li><li>number of monomers = 56 000 ÷ 28 = 2000 (1 mark)</li></ol>'},
+{ref:'Q5',marks:1,type:'calc',ctx:'A factory reacts 500 g of propene. All of the propene turns into poly(propene).',stem:'State the mass of poly(propene) made.',inputs:[{lab:'Mass =',unit:'g',ans:500,tol:0}],
+ work:'<p style="margin:6px 0 0">The polymer is the <b>only product</b> of addition polymerisation, so mass is conserved: 500 g of propene → 500 g of poly(propene).</p>'},
+{ref:'Q6(a)',marks:1,type:'mcq',ctx:'Poly(ethene) waste is burned in a small amount of air.',stem:'Which toxic gas is produced?',opts:['Carbon dioxide','Carbon monoxide','Water vapour','Nitrogen'],ans:1,why:'In limited oxygen there is incomplete combustion, which makes carbon monoxide (and soot).'},
+{ref:'Q6(b)',marks:2,type:'text',ctx:'Poly(ethene) bottles can be recycled.',stem:'Give two disadvantages of recycling polymers.',points:['polymers must be sorted by type / mixed plastics are hard to recycle','collecting, sorting or cleaning costs money','collecting, sorting or cleaning (or transport) uses energy','the quality of the polymer drops each time / it can only be recycled a few times'],note:'Credit any 2 points'},
+{ref:'Q7',marks:6,type:'text',ctx:'Used poly(ethene) and PVC, poly(chloroethene), can be put in landfill, burned or recycled.',stem:'Evaluate these three methods of disposal.',points:['landfill: addition polymers are inert / non-biodegradable','landfill: they last for hundreds of years / landfill sites fill up and use land','burning: heat energy released can be used (e.g. to generate electricity)','burning: carbon dioxide is made, a greenhouse gas','burning: incomplete combustion makes toxic carbon monoxide','burning PVC releases toxic / acidic hydrogen chloride','recycling: reduces landfill and avoids toxic gases from burning','recycling: saves crude oil, a finite resource (and energy)','recycling: polymers must be sorted / costs money and energy / quality drops each time','a justified conclusion, e.g. recycling is best where possible'],note:'Award up to 6 marks. Include points about at least two methods for full marks'}
+];
+(function(){
+const $=id=>document.getElementById(id);
+const tabs=[$('topLearn'),$('topExam')],panels=[$('panelLearn'),$('panelExam')],topRow=$('topRow');
+function show(i){tabs.forEach((t,j)=>{const on=j===i;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;panels[j].hidden=!on});
+ const top=topRow.getBoundingClientRect().top+window.scrollY-8;window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)))}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>show(i));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const n=(i+1)%2;tabs[n].focus();show(n)}})});
+const QS=EXQ,host=$('exList'),L='ABCD';let S=[];
+function upd(){let sc=0,T=0,N=0;QS.forEach((q,i)=>{T+=q.marks;sc+=S[i].score;if(S[i].marked)N++});$('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked'}
+function mk(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no');box.innerHTML=html;box.hidden=false}
+function render(){host.innerHTML='';S=[];
+ QS.forEach((q,i)=>{const s={score:0,marked:false};S.push(s);
+  const c=mk('article','ex-card');c.setAttribute('aria-labelledby','exs'+i);
+  const top=mk('div','ex-top');top.appendChild(mk('span','ex-ref',q.ref));top.appendChild(mk('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')'));c.appendChild(top);
+  if(q.ctx)c.appendChild(mk('div','ex-ctx',q.ctx));
+  const stem=mk('p','ex-stem',q.stem);stem.id='exs'+i;c.appendChild(stem);
+  const box=mk('div','ex-fb');box.hidden=true;box.setAttribute('aria-live','polite');
+  if(q.type==='mcq'){const g=mk('div','ex-opts'),labs=[];g.setAttribute('role','radiogroup');g.setAttribute('aria-labelledby','exs'+i);
+   q.opts.forEach((o,k)=>{const lb=mk('label','ex-opt'),r=document.createElement('input');r.type='radio';r.name='exq'+i;r.value=k;
+    lb.appendChild(r);lb.appendChild(mk('span','ex-let',L[k]));lb.appendChild(mk('span','',o));g.appendChild(lb);labs.push(lb);
+    r.addEventListener('change',()=>{if(s.marked)return;s.marked=true;const ok=k===q.ans;s.score=ok?q.marks:0;
+     g.querySelectorAll('input').forEach(x=>x.disabled=true);g.classList.add('locked');labs[q.ans].classList.add('right');if(!ok)lb.classList.add('wrongpick');
+     fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why);upd()})});
+   c.appendChild(g);c.appendChild(box)}
+  else if(q.type==='drop'){const w=mk('div','ex-calc'),sels=[];
+   q.rows.forEach(r=>{const row=mk('label','ex-in');row.appendChild(mk('span','',r.lab));const se=document.createElement('select');
+    se.innerHTML='<option value="">Choose…</option>'+r.opts.map((o,k)=>`<option value="${k}">${usub(o.replace(/<sub>n<\/sub>/g,'<sub><i>n</i></sub>'))}</option>`).join('');row.appendChild(se);w.appendChild(row);sels.push(se)});
+   const bt=mk('button','btn','Check');bt.type='button';const bw=mk('div','ex-act');bw.appendChild(bt);w.appendChild(bw);
+   bt.addEventListener('click',()=>{if(sels.some(x=>x.value===''))return fb(box,false,'Choose an answer in each row first.');
+    let sc=0;sels.forEach((x,k)=>{const ok=+x.value===q.rows[k].ans;if(ok)sc++;x.disabled=true;x.classList.add(ok?'ok':'wrong')});bt.disabled=true;
+    s.score=sc;s.marked=true;fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> Answers: '+q.rows.map(r=>r.opts[r.ans]).join('; ')+'. '+q.why);upd()});
+   c.appendChild(w);c.appendChild(box)}
+  else if(q.type==='calc'){const w=mk('div','ex-calc'),ins=[];
+   q.inputs.forEach(pp=>{const row=mk('label','ex-in');row.appendChild(mk('span','',pp.lab));const inp=document.createElement('input');inp.type='number';inp.step='any';inp.inputMode='decimal';row.appendChild(inp);row.appendChild(mk('span','ex-unit',pp.unit));w.appendChild(row);ins.push(inp)});
+   const bt=mk('button','btn','Check');bt.type='button';const bw=mk('div','ex-act');bw.appendChild(bt);w.appendChild(bw);const work=mk('div','ex-work');work.hidden=true;
+   bt.addEventListener('click',()=>{const vals=ins.map(x=>parseFloat(x.value));
+    if(vals.some(isNaN))return fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.');
+    const oks=vals.map((v,k)=>Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9);let sc;
+    if(oks[oks.length-1])sc=q.marks;else{sc=0;oks.forEach((o,k)=>{if(o&&k<oks.length-1)sc+=q.inputs[k].m});sc=Math.min(sc,q.marks-1)}
+    s.score=sc;s.marked=true;ins.forEach((x,k)=>{x.disabled=true;x.classList.add(oks[k]?'ok':'wrong')});bt.disabled=true;
+    fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' mark'+(q.marks>1?'s':'')+'.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+    work.innerHTML='<b>Working</b>'+q.work;work.hidden=false;upd()});
+   c.appendChild(w);c.appendChild(box);c.appendChild(work)}
+  else{const ta=document.createElement('textarea');ta.className='ex-ta';ta.placeholder='Write your answer here, then press Show mark scheme.';ta.setAttribute('aria-labelledby','exs'+i);ta.rows=q.marks>3?7:4;
+   const bt2=mk('button','btn ghost','Show mark scheme');bt2.type='button';const bw2=mk('div','ex-act');bw2.appendChild(bt2);
+   const ms=mk('div','ex-ms');ms.hidden=true;ms.appendChild(mk('p','ex-mshead','Tick each point you made'));const cbs=[];
+   q.points.forEach(pp=>{const lb=mk('label','ex-pt'),cb=document.createElement('input');cb.type='checkbox';lb.appendChild(cb);lb.appendChild(mk('span','',pp));ms.appendChild(lb);cbs.push(cb);
+    cb.addEventListener('change',()=>{s.score=Math.min(cbs.filter(x=>x.checked).length,q.marks);upd()})});
+   ms.appendChild(mk('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+   bt2.addEventListener('click',()=>{ms.hidden=false;bt2.disabled=true;bt2.textContent='Mark scheme shown';s.marked=true;upd()});
+   c.appendChild(ta);c.appendChild(bw2);c.appendChild(ms)}
+  host.appendChild(c)});
+ upd()}
+render();
+$('exReset').addEventListener('click',()=>{render();const top=topRow.getBoundingClientRect().top+window.scrollY-8;window.scrollTo(0,Math.max(0,top))});
+})();
+</script>
+</body></html>

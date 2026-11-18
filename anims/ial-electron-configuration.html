@@ -1,0 +1,326 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orbitals and Electron Configuration</title>
+<meta name="description" content="Interactive animation: Orbitals and Electron Configuration. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-electron-configuration.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.eup{stroke:#1c2736;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cfg{font:600 1.05rem var(--display);color:var(--accent)}
+</style><style>.spec{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}.spec .chip{font:500 12px "JetBrains Mono",ui-monospace,Menlo,monospace;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--sheet)}.spec .chip b{color:var(--accent);font-weight:600;margin-right:4px}</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Orbitals and electronic configuration</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Atomic structure and the periodic table</p><div class="spec" aria-label="Specification points"><span class="chip"><b>2.9</b>orbitals</span><span class="chip"><b>2.12</b>s and p orbital shapes</span><span class="chip"><b>2.13</b>filling and pairing</span><span class="chip"><b>2.14</b>configurations H to Kr and ions</span><span class="chip"><b>2.16</b>s, p and d blocks</span></div>
+<p><b>In this animation</b>: see how electrons fill s, p and d sub-shells in order of energy, and how this places each element in the s, p or d block.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 420" role="img" aria-label="Diagram of sub-shells, orbitals and electrons in boxes"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Pick an element. Tap an orbital box to add an electron (tap again to pair it, a third time to empty it). Then press <b>Check</b>.</p>
+<div class="row"><span class="lbl">Element</span><button class="mini" type="button" id="zPrev" aria-label="Previous element">&lt;</button><select id="zSel" aria-label="Choose an element"></select><button class="mini" type="button" id="zNext" aria-label="Next element">&gt;</button><button class="mini" type="button" id="zRand">Random</button></div>
+<div class="tgrid">
+<div class="tbox"><svg class="tsv" id="tsv" viewBox="0 88 540 330" role="group" aria-label="Orbital boxes. Each box is a button."></svg></div>
+<div class="tside">
+<div class="readout" id="tCount"></div>
+<div class="readout">Your configuration:<br><span class="cfg" id="tCfg">–</span></div>
+<div class="toolbar"><button class="btn" type="button" id="tChk">Check</button><button class="btn ghost" type="button" id="tClr">Clear</button><button class="btn ghost" type="button" id="tAns">Show answer</button></div>
+<div class="say" id="tSay" aria-live="polite">Fill the boxes, starting from the lowest energy (1s).</div>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>The maximum number of electrons in a 3d sub-shell is
+<select data-a="d" aria-label="Answer 1"><option value="">choose…</option><option value="a">2</option><option value="b">6</option><option value="c">8</option><option value="d">10</option></select>.
+<p class="why" hidden>A d sub-shell has 5 orbitals and each orbital holds 2 electrons: 5 × 2 = 10.</p></li>
+<li>The electronic configuration of copper (Z = 29) is
+<select data-a="b" aria-label="Answer 2"><option value="">choose…</option><option value="a">[Ar] 3d⁹ 4s²</option><option value="b">[Ar] 3d¹⁰ 4s¹</option><option value="c">[Ar] 3d¹⁰ 4s²</option><option value="d">[Ar] 4s² 4p⁹</option></select>.
+<p class="why" hidden>Copper is an exception: a full 3d<sup>10</sup> sub-shell is more stable, so one 4s electron goes into 3d.</p></li>
+<li>The Fe<sup>2+</sup> ion (iron, Z = 26) has the configuration
+<select data-a="c" aria-label="Answer 3"><option value="">choose…</option><option value="a">[Ar] 3d⁴ 4s²</option><option value="b">[Ar] 3d⁵ 4s¹</option><option value="c">[Ar] 3d⁶</option><option value="d">[Ar] 3d⁶ 4s²</option></select>.
+<p class="why" hidden>Fe is [Ar] 3d<sup>6</sup> 4s<sup>2</sup>. When the ion forms, the two <b>4s</b> electrons are lost first.</p></li>
+<li>Germanium is [Ar] 3d¹⁰ 4s² 4p². It is in the
+<select data-a="p" aria-label="Answer 4"><option value="">choose…</option><option value="s">s block</option><option value="p">p block</option><option value="d">d block</option></select>.
+<p class="why" hidden>The highest-energy electrons are in a <b>p</b> sub-shell (4p), so germanium is in the p block.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>Write every sub-shell with the number of electrons as a superscript: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup>… You may use [Ar] for the first 18 electrons unless the question asks for the full configuration.</li>
+<li>4s fills <b>before</b> 3d, but 4s electrons are <b>lost first</b> when a transition metal forms an ion.</li>
+<li>Learn the two exceptions: Cr is [Ar] 3d<sup>5</sup> 4s<sup>1</sup> and Cu is [Ar] 3d<sup>10</sup> 4s<sup>1</sup>.</li>
+<li>In box diagrams, put one arrow in each orbital before pairing (Hund's rule). Paired arrows must point in opposite directions.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 11 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "How many unpaired electrons are in a phosphorus atom (Z = 15) in its ground state?", "m": 1, "o": ["1", "2", "3", "5"], "a": 2, "why": "C is correct because P is [Ne] 3s<sup>2<\/sup> 3p<sup>3<\/sup> and the three 3p electrons go into separate orbitals."}, {"t": "mc", "q": "Which ion has the electronic configuration [Ar] 3d<sup>5<\/sup>?", "m": 1, "o": ["Fe<sup>2+<\/sup>", "Cr<sup>3+<\/sup>", "Co<sup>2+<\/sup>", "Fe<sup>3+<\/sup>"], "a": 3, "why": "D is correct because Fe is [Ar] 3d<sup>6<\/sup> 4s<sup>2<\/sup>; Fe<sup>3+<\/sup> loses both 4s electrons and one 3d electron."}, {"t": "w", "q": "Give the full electronic configuration of a chromium atom (Z = 24) and of a Cr<sup>3+<\/sup> ion.", "m": 2, "ms": ["Cr: 1s<sup>2<\/sup> 2s<sup>2<\/sup> 2p<sup>6<\/sup> 3s<sup>2<\/sup> 3p<sup>6<\/sup> 3d<sup>5<\/sup> 4s<sup>1<\/sup> (1)", "Cr<sup>3+<\/sup>: 1s<sup>2<\/sup> 2s<sup>2<\/sup> 2p<sup>6<\/sup> 3s<sup>2<\/sup> 3p<sup>6<\/sup> 3d<sup>3<\/sup> (1)"], "note": "The full configuration is asked for, so do not award [Ar]. Allow 4s<sup>1<\/sup> written before 3d<sup>5<\/sup>. Reject 3d<sup>4<\/sup> 4s<sup>2<\/sup>."}, {"t": "w", "q": "Describe the shape of an s orbital and of a p orbital. You may sketch them on paper.", "m": 2, "ms": ["s orbital: spherical (1)", "p orbital: dumbbell-shaped (1)"], "note": "Allow 'figure of eight' or 'two lobes' for dumbbell."}, {"t": "w", "q": "Draw the electrons-in-boxes diagram for a carbon atom (1s, 2s and 2p). Describe what your diagram shows and explain the arrangement of the 2p electrons.", "m": 3, "ms": ["1s and 2s boxes each contain two arrows pointing in opposite directions (1)", "the two 2p electrons are in separate 2p boxes with parallel spins (1)", "this gives less repulsion than two electrons paired in the same orbital (1)"], "note": "Allow arrows in either direction for the 2p electrons as long as they are parallel. Allow reference to Hund's rule for mark 3 only if repulsion is mentioned."}, {"t": "w", "q": "Element X forms an ion X<sup>2−<\/sup> with the configuration 1s<sup>2<\/sup> 2s<sup>2<\/sup> 2p<sup>6<\/sup> 3s<sup>2<\/sup> 3p<sup>6<\/sup>.<br>Identify X and state which block of the Periodic Table it is in.", "m": 2, "ms": ["sulfur / S (1)", "p block (1)"], "note": "X has 18 − 2 = 16 electrons. Allow the block mark for a Group 6 element if X is wrong."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> sub-shells fill in order of energy: 1s 2s 2p 3s 3p 4s 3d 4p.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const SUB=[{k:'1s',m:1,x:110,y:380},{k:'2s',m:1,x:110,y:318},{k:'2p',m:3,x:210,y:300},{k:'3s',m:1,x:110,y:250},{k:'3p',m:3,x:210,y:232},{k:'4s',m:1,x:110,y:180},{k:'3d',m:5,x:350,y:162},{k:'4p',m:3,x:210,y:110}];
+const SYM='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr'.split(' ');
+const NAME='hydrogen helium lithium beryllium boron carbon nitrogen oxygen fluorine neon sodium magnesium aluminium silicon phosphorus sulfur chlorine argon potassium calcium scandium titanium vanadium chromium manganese iron cobalt nickel copper zinc gallium germanium arsenic selenium bromine krypton'.split(' ');
+const WR=['1s','2s','2p','3s','3p','3d','4s','4p'];
+function conf(Z){const c={};let r=Z;for(const s of SUB){const n=Math.min(r,s.m*2);c[s.k]=n;r-=n}if(Z===24){c['3d']=5;c['4s']=1}if(Z===29){c['3d']=10;c['4s']=1}return c}
+function cstr(c,ar,html){let ks=WR.filter(k=>c[k]>0),pre='';const tot=WR.reduce((a,k)=>a+(c[k]||0),0);
+ if(ar&&tot>18){pre='[Ar] ';ks=ks.filter(k=>k[0]==='4'||k==='3d')}
+ return pre+ks.map(k=>html?`${k}<sup>${c[k]}</sup>`:`${k}^${c[k]}`).join(' ')}
+function boxFill(c,m){const a=[];for(let j=0;j<m;j++)a.push(c-m>j?2:c>j?1:0);return a}
+function eUp(p,x,y){return E(p,'path',{d:`M${x} ${y+25}V${y+4}l-7 9`,class:'eup'})}
+function eDn(p,x,y){return E(p,'path',{d:`M${x} ${y+5}V${y+26}l7 -9`,class:'eup'})}
+function ladder(p,c,o){o=o||{};const d0=o.d0||0,dt=o.dt||.14;let n=0;
+ if(!o.noAxis){E(p,'path',{d:'M34 405V96',class:'ax'});E(p,'path',{d:'M28 104l6 -12 6 12z',fill:'#1c2736'});const t=T(p,22,250,'Energy','lb',15);t.setAttribute('transform','rotate(-90 22 250)');t.setAttribute('text-anchor','middle')}
+ const out={};
+ for(const s of SUB){T(p,s.x-10,s.y+21,s.k,'lb',16,'end');out[s.k]=[];
+  for(let j=0;j<s.m;j++){const bx=s.x+j*34,g=E(p,'g');E(g,'rect',{x:bx,y:s.y,width:34,height:30,fill:(o.hl||[]).includes(s.k)?'#fff3c4':'#fff',stroke:'#1c2736','stroke-width':1.6});out[s.k].push({g,bx,by:s.y})}
+  if(c){const f=boxFill(c[s.k]||0,s.m);
+   for(let j=0;j<s.m;j++)if(f[j]>0){const a=G(p,'fi',d0+dt*n++);eUp(a,s.x+j*34+11,s.y)}
+   for(let j=0;j<s.m;j++)if(f[j]>1){const a=G(p,'fi',d0+dt*n++);eDn(a,s.x+j*34+23,s.y)}}}
+ return out}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const [cls,txt]=Array.isArray(l)?l:['sm',l];T(g,x,yy,txt,cls,cls==='tt'?18:cls==='lb'?16:15,'start');yy+=cls==='tt'?28:22}}return g}
+function cfgPanel(p,Z,extra,d){const c=conf(Z),w=cstr(c,false).split(' ');const lines=[['tt',`${NAME[Z-1][0].toUpperCase()+NAME[Z-1].slice(1)}, Z = ${Z}`],['lb',w.slice(0,5).join(' ')]];if(w.length>5)lines.push(['lb',w.slice(5).join(' ')]);if(Z>18)lines.push(['lb','= '+cstr(c,true)]);lines.push('');panel(p,548,120,lines.concat(extra),d)}
+const steps=[
+{t:6000,cap:'Electrons are arranged in <b>shells</b> (n = 1, 2, 3 …). Each shell is split into <b>sub-shells</b>: s, p, d and f. Each sub-shell is made of <b>orbitals</b>, and each orbital holds up to <b>2 electrons</b>.',draw(p){
+ T(p,40,46,'Shell','lb',15,'start');T(p,130,46,'Sub-shells (maximum electrons)','lb',15,'start');T(p,640,46,'Shell total','lb',15,'start');
+ const col={s:'#e7e6fb',p:'#dff1e6',d:'#fdebd5',f:'#eef1f4'},cap={s:2,p:6,d:10,f:14},tot=[2,8,18,32];
+ for(let n=1;n<=4;n++){const y=40+n*68,g=G(p,'fi',.3+n*.5);T(g,40,y+5,'n = '+n,'lb',17,'start');
+  'spdf'.slice(0,n).split('').forEach((l,i)=>{const x=130+i*118;E(g,'rect',{x,y:y-22,width:104,height:46,rx:10,fill:col[l],stroke:'#cdd6df'});T(g,x+52,y-7,n+l,'at',19);T(g,x+52,y+17,'max '+cap[l],'sm',13).setAttribute('text-anchor','middle')});
+  T(g,640,y+5,tot[n-1]+' electrons','lb',16,'start')}
+ panel(p,40,370,[['lb','s = 1 orbital    p = 3 orbitals    d = 5 orbitals    f = 7 orbitals'],['sm','Each orbital holds a maximum of 2 electrons.']],2.6)}},
+{t:6500,cap:'An <b>s orbital</b> is spherical. A <b>p orbital</b> is dumbbell-shaped, and there are three p orbitals at right angles (p<sub>x</sub>, p<sub>y</sub>, p<sub>z</sub>). Two electrons in the same orbital must have <b>opposite spins</b>.',draw(p){
+ let g=G(p,'fi',.2);E(g,'circle',{cx:130,cy:200,r:72,fill:'#c9c6f5','fill-opacity':.75,stroke:'#4a44b5','stroke-width':1.5});E(g,'circle',{cx:130,cy:200,r:4,fill:'#1c2736'});T(g,130,310,'s orbital','lb',17).setAttribute('text-anchor','middle');T(g,130,332,'spherical','sm',15).setAttribute('text-anchor','middle');
+ const cx=390,cy=200;g=G(p,'fi',.9);L(g,290,cy,490,cy,'gr').setAttribute('stroke','#9aa7b4');L(g,cx,100,cx,300,'gr').setAttribute('stroke','#9aa7b4');L(g,320,270,460,130,'gr').setAttribute('stroke','#9aa7b4');
+ const lobes=[['#c9c6f5',0,'p_x',492,200],['#bfe0cc',90,'p_y',390,92],['#f6d2a8',45,'p_z',470,128]];
+ lobes.forEach((l,i)=>{const h=G(p,'fi',1.4+i*.7),q=E(h,'g',{transform:`rotate(${-l[1]} ${cx} ${cy})`});for(const s of[-1,1])E(q,'ellipse',{cx:cx+s*40,cy,rx:40,ry:15,fill:l[0],'fill-opacity':.8,stroke:'#5a6878','stroke-width':1});T(h,l[3],l[4],l[2],'lb',15,'start')});
+ E(p,'circle',{cx,cy,r:4,fill:'#1c2736'});g=G(p,'fi',3.4);T(g,cx,310,'p orbitals','lb',17).setAttribute('text-anchor','middle');T(g,cx,332,'dumbbell-shaped, 3 at 90°','sm',15).setAttribute('text-anchor','middle');
+ g=G(p,'fi',4);T(g,560,110,'d sub-shell: 5 orbitals','lb',16,'start');for(let j=0;j<5;j++)E(g,'rect',{x:560+j*34,y:124,width:34,height:30,fill:'#fff',stroke:'#1c2736','stroke-width':1.6});
+ g=G(p,'fi',4.6);T(g,560,210,'One orbital, 2 electrons:','lb',16,'start');E(g,'rect',{x:560,y:224,width:34,height:30,fill:'#fff',stroke:'#1c2736','stroke-width':1.6});eUp(g,571,224);eDn(g,583,224);
+ panel(g,606,236,['opposite spins'],0);panel(g,560,290,['(Pauli exclusion principle)'],0)}},
+{t:6500,cap:'The sub-shells have different energies. Electrons go into the <b>lowest energy sub-shell first</b> (the Aufbau principle). Notice that <b>4s is lower in energy than 3d</b>, so 4s fills before 3d.',draw(p){
+ ladder(p,null);SUB.forEach((s,i)=>{const g=G(p,'fi',.4+i*.45),x=s.x-50;E(g,'circle',{cx:x,cy:s.y+15,r:11,fill:'#4a44b5'});const t=T(g,x,s.y+15,String(i+1),'at',13);t.style.fill='#fff'});
+ panel(p,560,120,[['tt','Filling order'],['lb','1s 2s 2p 3s 3p'],['lb','4s 3d 4p'],'',['sm','Lowest energy first.'],['sm','4s fills before 3d.']],4)}},
+{t:6500,cap:'<b>Nitrogen</b> has 7 electrons: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup>. In the 2p sub-shell the three electrons go into <b>separate orbitals</b> with parallel spins before any pairing (<b>Hund\'s rule</b>). This keeps repulsion low.',draw(p){
+ ladder(p,conf(7),{hl:['2p'],d0:.4,dt:.35});cfgPanel(p,7,[['sm','2p: one electron in each'],['sm','orbital, same spin'],['sm','(Hund\'s rule).']],3)}},
+{t:6500,cap:'<b>Oxygen</b> has 8 electrons: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>4</sup>. The fourth 2p electron must <b>pair up</b>, with <b>opposite spin</b>. Two electrons in one orbital repel each other more.',draw(p){
+ ladder(p,conf(8),{hl:['2p'],d0:.4,dt:.3});cfgPanel(p,8,[['sm','The 4th 2p electron pairs'],['sm','up with opposite spin.'],['sm','Paired electrons repel.']],3);
+ const g=G(p,'pulse');E(g,'circle',{cx:227,cy:315,r:24,fill:'none',stroke:'#b3261e','stroke-width':2})}},
+{t:7000,cap:'<b>Iron</b> has 26 electrons: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>6</sup> 4s<sup>2</sup>, or [Ar] 3d<sup>6</sup> 4s<sup>2</sup>. <b>4s fills before 3d</b>. When iron forms Fe<sup>2+</sup>, the <b>4s electrons are lost first</b>: Fe<sup>2+</sup> is [Ar] 3d<sup>6</sup>.',draw(p){
+ ladder(p,conf(26),{hl:['4s','3d'],d0:.3,dt:.1});cfgPanel(p,26,[['sm','4s fills before 3d.'],['sm','But 4s empties first:'],['lb','Fe^2+ = [Ar] 3d^6']],3)}},
+{t:7500,cap:'Two exceptions: <b>chromium</b> is [Ar] 3d<sup>5</sup> 4s<sup>1</sup> and <b>copper</b> is [Ar] 3d<sup>10</sup> 4s<sup>1</sup>. One 4s electron moves into 3d because a <b>half-filled</b> or <b>full</b> 3d sub-shell is more stable.',draw(p){
+ [[24,'Chromium, Cr','3d^5 4s^1','not 3d^4 4s^2',70],[29,'Copper, Cu','3d^10 4s^1','not 3d^9 4s^2',230]].forEach(([Z,nm,cf,nt,y],r)=>{const c=conf(Z),f=boxFill(c['3d'],5),g=G(p,'fi',r*2.2);
+  T(g,40,y+10,nm,'tt',18,'start');T(g,40,y+66,'4s','lb',16,'start');T(g,150,y+66,'3d','lb',16,'start');
+  E(g,'rect',{x:70,y:y+46,width:34,height:30,fill:'#fff',stroke:'#1c2736','stroke-width':1.6});
+  for(let j=0;j<5;j++)E(g,'rect',{x:180+j*34,y:y+46,width:34,height:30,fill:'#fff3c4',stroke:'#1c2736','stroke-width':1.6});
+  eUp(g,81,y+46);for(let j=0;j<5;j++){if(f[j]>0&&!(Z===24&&j===4))eUp(g,191+j*34,y+46);if(f[j]>1&&!(Z===29&&j===4))eDn(g,203+j*34,y+46)}
+  const tx=Z===24?191+4*34:203+4*34,mv=M(p,r*2.2+1,93-tx,0,1);(Z===24?eUp:eDn)(mv,tx,y+46);
+  T(g,400,y+56,'[Ar] '+cf,'lb',19,'start');const t=T(g,400,y+84,nt,'sm',15,'start');t.style.textDecoration='line-through';
+  T(g,560,y+56,Z===24?'half-filled 3d':'full 3d','lb',16,'start');T(g,560,y+80,'= more stable','sm',15,'start')})}},
+{t:7000,cap:'The <b>block</b> of an element is the sub-shell that its <b>highest-energy electron</b> goes into. Groups 1 and 2 are the <b>s block</b>, the transition metals are the <b>d block</b>, and Groups 3 to 0 are the <b>p block</b>.',draw(p){
+ const col={s:'#c9c6f5',p:'#bfe0cc',d:'#f6d2a8'},x0=58,y0=110,w=38,h=44;
+ function pos(Z){if(Z===1)return[1,1];if(Z===2)return[1,18];if(Z<=18){const r=Z<=10?2:3,i=Z-(r===2?2:10);return[r,i<=2?i:i+10]}return[4,Z-18]}
+ function blk(Z){const[r,c]=pos(Z);return Z===2||c<=2?'s':c>=13?'p':'d'}
+ const dl={s:.3,d:1.6,p:2.9};
+ for(let Z=1;Z<=36;Z++){const[r,c]=pos(Z),b=blk(Z),g=G(p,'fi',dl[b]+(c%6)*.05);E(g,'rect',{x:x0+(c-1)*w,y:y0+(r-1)*h,width:w-2,height:h-2,rx:4,fill:col[b],stroke:'#fff'});T(g,x0+(c-1)*w+18,y0+(r-1)*h+21,SYM[Z-1],'at',15)}
+ [['s block',x0+38,y0-18,.3],['d block',x0+6.5*38+18,y0+2*h-14,1.6],['p block',x0+14.5*38+18,y0+h-14,2.9]].forEach(([s,x,y,d])=>{const t=T(G(p,'fi',d),x,y,s,'tt',17);t.setAttribute('text-anchor','middle')});
+ panel(p,58,325,[['lb','s block: outer electron in an s sub-shell (and He, 1s^2)'],['lb','d block: highest-energy electron in 3d'],['lb','p block: highest-energy electron in a p sub-shell']],3.6)}}
+];
+Player(steps);Quiz();
+/* Try it */
+const zSel=$('zSel'),tsv=$('tsv');let Z=7,user={};
+SYM.forEach((s,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=`${s} — ${NAME[i]} (Z = ${i+1})`;zSel.appendChild(o)});
+function resetUser(){user={};SUB.forEach(s=>user[s.k]=new Array(s.m).fill(0))}
+function uConf(){const c={};SUB.forEach(s=>c[s.k]=user[s.k].reduce((a,b)=>a+b,0));return c}
+function drawTry(){tsv.replaceChildren();const boxes=ladder(tsv,null,{});
+ SUB.forEach(s=>boxes[s.k].forEach((b,j)=>{const g=b.g;g.setAttribute('class','click');g.setAttribute('tabindex','0');g.setAttribute('role','button');const v=user[s.k][j];g.setAttribute('aria-label',`${s.k} orbital ${j+1}: ${v} electron${v===1?'':'s'}`);
+  if(v>0)eUp(g,b.bx+11,b.by);if(v>1)eDn(g,b.bx+23,b.by);
+  const act=()=>{user[s.k][j]=(v+1)%3;drawTry();const f=tsv.querySelector(`[aria-label^="${s.k} orbital ${j+1}:"]`);if(f)f.focus()};
+  g.addEventListener('click',act);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}})}));
+ const c=uConf(),n=Object.values(c).reduce((a,b)=>a+b,0);$('tCount').textContent=`Electrons placed: ${n} of ${Z}`;$('tCfg').innerHTML=n?cstr(c,false,true):'–'}
+function setZ(z){Z=Math.max(1,Math.min(36,z));zSel.value=Z;resetUser();drawTry();say('Fill the boxes, starting from the lowest energy (1s).','')}
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+zSel.onchange=()=>setZ(+zSel.value);$('zPrev').onclick=()=>setZ(Z-1);$('zNext').onclick=()=>setZ(Z+1);$('zRand').onclick=()=>setZ(1+Math.floor(Math.random()*36));
+$('tClr').onclick=()=>{resetUser();drawTry();say('Cleared. Start again from 1s.','')};
+$('tAns').onclick=()=>{const c=conf(Z);SUB.forEach(s=>user[s.k]=boxFill(c[s.k],s.m));drawTry();say(`Answer for ${SYM[Z-1]}: ${cstr(c,false,true)}${Z>18?' = '+cstr(c,true,true):''}.`,'')};
+function blockOf(c){let last=null;for(const s of SUB)if(c[s.k]>0)last=s.k;return Z===2?'s':last[1]}
+$('tChk').onclick=()=>{const u=uConf(),c=conf(Z),n=Object.values(u).reduce((a,b)=>a+b,0),sym=SYM[Z-1];
+ if(n!==Z)return say(`You have placed <b>${n}</b> electrons. ${sym} has Z = ${Z}, so the atom has <b>${Z}</b> electrons.`,'bad');
+ for(const s of SUB){const a=user[s.k];if(a.includes(2)&&a.includes(0))return say(`<b>Hund's rule:</b> in ${s.k}, put one electron in each orbital before you pair any of them.`,'bad')}
+ if(SUB.every(s=>u[s.k]===c[s.k]))return say(`<b>Correct!</b> ${sym}: ${cstr(c,false,true)}${Z>18?' = '+cstr(c,true,true):''}. ${sym} is in the <b>${blockOf(c)} block</b>.${Z===24||Z===29?' Well done on the exception.':''}`,'good');
+ if((Z===24||Z===29)&&u['4s']===2)return say(`${sym} is an <b>exception</b>. One 4s electron moves into 3d to give a ${Z===24?'half-filled':'full'} 3d sub-shell. Use 4s<sup>1</sup>.`,'bad');
+ for(let i=0;i<SUB.length;i++){const s=SUB[i];if(u[s.k]<c[s.k]){const later=SUB.slice(i+1).find(t=>u[t.k]>0);if(later)return say(`<b>Aufbau:</b> fill ${s.k} completely before you put electrons in ${later.k} (lower energy first).`,'bad')}}
+ say('Not quite. Check the number of electrons in each sub-shell.','bad')};
+setZ(7);
+</script></body></html>

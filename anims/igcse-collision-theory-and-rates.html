@@ -1,0 +1,598 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collision Theory</title>
+<meta name="description" content="Interactive animation: Collision Theory. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-collision-theory-and-rates.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--warm:#c25e00;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:8px}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{flex:1 1 200px;min-height:48px;font:700 1rem var(--display);padding:10px 18px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.tab[aria-selected=true]{background:var(--accent);color:#fff}
+.tab:focus-visible,.btn:focus-visible,input:focus-visible,.chip:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:780px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--bench);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.cards{display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.lbl{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+canvas,svg.fig{display:block;width:100%;height:auto;background:#fff;border-radius:10px;border:1px solid var(--line)}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:600 .88rem var(--display);padding:7px 11px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.status p{font-size:.95rem}
+.status p+p{margin-top:6px}
+.eq{font-size:.9rem;background:var(--paper);border-radius:8px;padding:6px 10px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:.78rem;color:var(--muted);line-height:1.25}
+.stat b{display:block;font:700 1.15rem var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.stat.hi b{color:var(--good)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.dot{width:13px;height:13px;border-radius:50%;display:inline-block;border:1.5px solid rgba(0,0,0,.35)}
+label.ck{display:flex;gap:8px;align-items:center;font-size:.93rem;cursor:pointer}
+input[type=checkbox],input[type=radio]{width:18px;height:18px;accent-color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.sl{display:flex;flex-direction:column;gap:2px}
+.sl .top{display:flex;justify-content:space-between;font-size:.92rem;font-weight:700;gap:8px}
+.sl .top output{font-weight:400;color:var(--muted)}
+.note{font-size:.85rem;color:var(--muted)}
+[hidden]{display:none!important}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.q{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.q p{font-weight:700;margin-bottom:6px}
+.q label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer;font-size:.95rem}
+.q .fb{font-size:.9rem;margin-top:4px}
+.q.right{border-color:var(--good);background:#f1f9f4}.q.right .fb{color:var(--good)}
+.q.wrong{border-color:var(--bad);background:#fdf3f2}.q.wrong .fb{color:var(--bad)}
+svg text{font-family:var(--body)}
+
+/* ---- top tabs + exam practice (from lab pages; renamed to avoid clashing with concept tabs) ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;margin-top:8px;max-width:100%}
+.ex-tbl{border-collapse:collapse;font-size:.92rem;background:#fff}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--paper);font-weight:700}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in,.ex-drow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-sel{font:inherit;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+.ex-sel:focus-visible,.ex-in input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-corr{font-size:.9rem;font-weight:700;color:var(--good)}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Physical chemistry: rates</div>
+<h1>Rates of reaction and collision theory</h1>
+<p>Press Play and watch the particles. A reaction only happens when particles collide with enough energy. Then use the other tabs to change one factor at a time and to read rate graphs.</p>
+</header>
+<div class="toptabs" id="toptabRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">1. Collisions</button>
+<button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">2. Change a factor</button>
+<button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">3. Reading rate graphs</button>
+</div>
+
+<!-- TAB 1 -->
+<section class="sheet" role="tabpanel" id="p1" aria-labelledby="t1">
+<h2>Successful and unsuccessful collisions</h2>
+<div class="layout">
+<div class="stage">
+<canvas id="c1" aria-label="Particle box: acid particles colliding with the surface of a solid"></canvas>
+<div class="legend"><span><i class="dot" style="background:#7a4fd6"></i>acid particle</span><span><i class="dot" style="background:#c9b08a;border-radius:3px"></i>particle in the solid</span><span><i class="dot" style="background:#2f9e5b"></i><em style="font-style:normal">product (CO<sub>2</sub> gas)</em></span><span><i class="dot" style="background:#ffd23f"></i>successful collision</span><span><i class="dot" style="background:#fff;border-color:#8a96a3"></i>bounce (not enough energy)</span></div>
+<div class="stats" id="s1"></div>
+<canvas id="g1" aria-label="Graph of amount of product against time"></canvas>
+</div>
+<div class="cards">
+<div class="panel"><div class="lbl">Controls</div>
+<div class="row"><button class="btn" id="play1">Pause</button><button class="btn ghost" id="reset1">Replay</button></div>
+<label class="ck"><input type="checkbox" id="mark1"><em style="font-style:normal">Ring particles with energy ≥ E<sub>a</sub></em></label>
+<label class="ck"><input type="checkbox" id="slow1">Slow motion</label>
+<label class="ck"><input type="checkbox" id="lab1" checked>Show labels</label>
+</div>
+<div class="panel status"><div class="lbl">What's happening</div><div id="st1"></div>
+<div class="eq">hydrochloric acid + calcium carbonate → calcium chloride + water + carbon dioxide<br>2HCl(aq) + CaCO<sub>3</sub>(s) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>O(l) + CO<sub>2</sub>(g)</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TAB 2 -->
+<section class="sheet" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+<h2>Change one factor at a time</h2>
+<div class="layout">
+<div class="stage">
+<canvas id="c2" aria-label="Particle box with the chosen conditions"></canvas>
+<div class="legend"><span><i class="dot" style="background:#7a4fd6"></i>acid particle</span><span><i class="dot" style="background:#c9b08a;border-radius:3px"></i>solid</span><span><i class="dot" style="background:#2f9e5b"></i>product</span><span><i class="dot" style="background:#55606e;border-radius:2px;transform:rotate(45deg) scale(.8)"></i>catalyst</span></div>
+<div class="stats" id="s2"></div>
+<canvas id="g2" aria-label="Graph of amount of product against time for this run and the previous run"></canvas>
+<svg class="fig" id="es" viewBox="0 0 600 230" role="img" aria-label="Sketch of how much energy the particles have"></svg>
+</div>
+<div class="cards">
+<div class="panel"><div class="lbl">Factors</div>
+<div class="sl"><div class="top"><label for="temp">Temperature</label><output id="tempo">20 °C</output></div><input type="range" id="temp" min="20" max="60" step="10" value="20"></div>
+<div class="sl"><div class="top"><label for="conc">Concentration of acid</label><output id="conco">standard</output></div><input type="range" id="conc" min="20" max="60" step="10" value="40"></div>
+<div class="lbl" style="margin-top:4px">Surface area (same mass of solid)</div>
+<div class="row" id="sa"><button class="chip" data-v="lump" aria-pressed="true">One lump</button><button class="chip" data-v="pieces" aria-pressed="false">Small pieces</button><button class="chip" data-v="powder" aria-pressed="false">Powder</button></div>
+<div class="lbl" style="margin-top:4px">Catalyst</div>
+<div class="row" id="cat"><button class="chip" data-v="0" aria-pressed="true">No catalyst</button><button class="chip" data-v="1" aria-pressed="false">Add catalyst</button></div>
+<div class="msg" id="fair"></div>
+<div class="row"><button class="btn" id="play2">Pause</button><button class="btn ghost" id="reset2">Replay</button><button class="btn ghost" id="std2">Back to standard</button></div>
+<label class="ck"><input type="checkbox" id="mark2"><em style="font-style:normal">Ring particles with energy ≥ E<sub>a</sub></em></label>
+<label class="ck"><input type="checkbox" id="lab2" checked>Show labels</label>
+</div>
+<div class="panel status"><div class="lbl">What's happening</div><div id="st2"></div></div>
+</div>
+</div>
+</section>
+
+<!-- TAB 3 -->
+<section class="sheet" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+<h2>Volume of gas against time</h2>
+<div class="layout">
+<div class="stage">
+<svg class="fig" id="vg" viewBox="0 0 600 380" role="img" aria-label="Graph of volume of carbon dioxide against time for two runs"></svg>
+<svg class="fig" id="sy" viewBox="0 0 600 100" role="img" aria-label="Two gas syringes collecting the gas"></svg>
+<div class="stats" id="s3"></div>
+</div>
+<div class="cards">
+<div class="panel"><div class="lbl">Compare run 1 (marble lumps, 20 °C) with</div>
+<div class="row" id="cmp"><button class="chip" data-v="hot" aria-pressed="true">Higher temperature</button><button class="chip" data-v="powder" aria-pressed="false">Powder</button><button class="chip" data-v="half" aria-pressed="false">Half the acid</button></div>
+<div class="row"><button class="btn" id="play3">Pause</button><button class="btn ghost" id="step3">Step +10 s</button><button class="btn ghost" id="reset3">Replay</button></div>
+<div class="sl"><div class="top"><label for="gt">Measure the gradient at</label><output id="gto">0 s (start)</output></div><input type="range" id="gt" min="0" max="170" step="5" value="0"></div>
+<label class="ck"><input type="checkbox" id="tan3" checked>Show gradient (tangent)</label>
+<label class="ck"><input type="checkbox" id="lev3" checked>Show final volumes</label>
+</div>
+<div class="panel status"><div class="lbl">What's happening</div><div id="st3"></div></div>
+</div>
+</div>
+</section>
+
+<section class="sheet"><h2>Key points</h2>
+<ul class="kp">
+<li>Particles must <b>collide</b> with at least the <b>activation energy (E<sub>a</sub>)</b> to react. E<sub>a</sub> is the minimum energy needed. Other collisions are unsuccessful: the particles just bounce off.</li>
+<li><b>Concentration:</b> more particles in the same volume, so <b>more frequent collisions</b> (more collisions per second).</li>
+<li><b>Surface area:</b> smaller pieces or powder expose more particles of the solid, so <b>more frequent collisions</b>.</li>
+<li><b>Temperature:</b> particles move faster, so <b>more frequent collisions</b>, and a greater proportion of particles have energy ≥ E<sub>a</sub>, so a greater proportion of collisions are successful.</li>
+<li><b>Catalyst:</b> provides an alternative pathway with a <b>lower activation energy</b>, so more collisions are successful. The catalyst is not used up.</li>
+<li>On a graph of product against time, the <b>gradient is the rate</b>. It is steepest at the start and levels off when a reactant is used up. The final amount of product depends on the amount of reactant, not on the rate.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><div id="quiz" style="display:flex;flex-direction:column;gap:10px"></div>
+<div class="row"><button class="btn" id="check">Check</button><span id="score" style="font:700 1rem var(--display)"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const W=600,H=340,GW=600,GH=210,R=8,EA0=3.0,EAC=1.5,VS=220,TMAX=60;
+const STD={T:20,c:40,sa:'lump',cat:false};
+const COL={A:'#7a4fd6',B:'#c9b08a',Bs:'#8a7350',P:'#2f9e5b',cat:'#55606e'};
+const kT=T=>0.8*(1+(T-20)/40);
+function randn(){return Math.sqrt(-2*Math.log(1-Math.random()))*Math.cos(6.2832*Math.random())}
+function sampleE(k){let s=0;for(let i=0;i<3;i++){const z=randn();s+=z*z}return s*k/2}
+function erfc(x){const t=1/(1+.3275911*x);return t*(.254829592+t*(-.284496736+t*(1.421413741+t*(-1.453152027+t*1.061405429))))*Math.exp(-x*x)}
+function frac(ea,k){const x=ea/k;return erfc(Math.sqrt(x))+2*Math.sqrt(x/Math.PI)*Math.exp(-x)}
+function setupCanvas(cv,w,h){const d=Math.min(2,window.devicePixelRatio||1);cv.width=w*d;cv.height=h*d;const c=cv.getContext('2d');c.setTransform(d,0,0,d,0,0);return c}
+const concName=c=>c<30?'low':c<40?'lower':c==40?'standard':c<60?'higher':'high';
+const saName={lump:'one lump',pieces:'small pieces',powder:'powder'};
+
+function Sim(cv,gv,stats,opts){
+ this.ctx=setupCanvas(cv,W,H);this.g=setupCanvas(gv,GW,GH);this.stats=stats;
+ this.o=Object.assign({},STD,opts||{});this.mark=false;this.labels=true;this.ghost=null;this.reset();
+ stats.innerHTML=['Collisions per second','Successful collisions per second','Collisions that are successful','Product made','Rate (product per second)','Time'].map((t,i)=>`<div class="stat${i==4?' hi':''}"><b>0</b>${t}</div>`).join('');
+ this.sb=stats.querySelectorAll('b');
+}
+Sim.prototype.reset=function(){
+ const o=this.o,k=kT(o.T);this.time=0;this.made=0;this.col=[];this.suc=[];this.fx=[];this.P=[];this.data=[[0,0]];this.last=0;this.nCol=0;this.nSuc=0;
+ const blocks={lump:[[12,6,300,0]],pieces:[[6,3,80,0],[6,3,226,0],[6,3,373,0],[6,3,520,0]],powder:[]}[o.sa];
+ if(o.sa=='powder')for(let i=0;i<9;i++)blocks.push([2,2,34+66*i,0],[2,2,67+66*i,i%2?70:105]);
+ this.B=[];const fl=H-R-1;
+ blocks.forEach(([c,r,cx,up])=>{const x0=cx-(c-1)*R;for(let i=0;i<c;i++)for(let j=0;j<r;j++)this.B.push({x:x0+i*2*R,y:fl-up-j*2*R,on:1})});
+ this.A=[];for(let i=0;i<o.c;i++){const E=sampleE(k),s=VS*Math.sqrt(E),a=Math.random()*6.2832;this.A.push({x:R+Math.random()*(W-2*R),y:R+Math.random()*(H-150),vx:s*Math.cos(a),vy:s*Math.sin(a),E,cool:0,on:1})}
+ this.C=[];if(o.cat)for(let i=0;i<5;i++){const a=Math.random()*6.28;this.C.push({x:60+i*120,y:60+Math.random()*120,vx:30*Math.cos(a),vy:30*Math.sin(a)})}
+ this.nA=o.c;
+};
+Sim.prototype.step=function(dt){
+ const o=this.o,ea=o.cat?EAC:EA0,k=kT(o.T),r2=4*R*R;this.time+=dt;const t=this.time;
+ for(const a of this.A){if(!a.on)continue;a.cool-=dt;
+  if(Math.random()<dt*2.5){a.E=sampleE(k);const s=VS*Math.sqrt(a.E),an=Math.atan2(a.vy,a.vx)+(Math.random()-.5);a.vx=s*Math.cos(an);a.vy=s*Math.sin(an)}
+  a.x+=a.vx*dt;a.y+=a.vy*dt;
+  if(a.x<R){a.x=R;a.vx=Math.abs(a.vx)}if(a.x>W-R){a.x=W-R;a.vx=-Math.abs(a.vx)}if(a.y<R){a.y=R;a.vy=Math.abs(a.vy)}if(a.y>H-R){a.y=H-R;a.vy=-Math.abs(a.vy)}
+  for(const b of this.B){if(!b.on)continue;const dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;if(d2>=r2)continue;
+   const d=Math.sqrt(d2)||1,nx=dx/d,ny=dy/d,vn=a.vx*nx+a.vy*ny;a.x=b.x+nx*2*R;a.y=b.y+ny*2*R;
+   if(vn<0){a.vx-=2*vn*nx;a.vy-=2*vn*ny;
+    if(a.cool<=0){a.cool=.15;this.col.push(t);this.nCol++;const fx=(a.x+b.x)/2,fy=(a.y+b.y)/2;
+     if(a.E>=ea){b.on=0;a.on=0;this.made++;this.nA--;this.nSuc++;this.suc.push(t);this.fx.push({x:fx,y:fy,t:0,ok:1});this.P.push({x:b.x,y:b.y,ph:Math.random()*6});break}
+     else this.fx.push({x:fx,y:fy,t:0,ok:0})}}}
+ }
+ for(const c of this.C){c.x+=c.vx*dt;c.y+=c.vy*dt;if(c.x<10||c.x>W-10)c.vx*=-1;if(c.y<45||c.y>H-130)c.vy*=-1}
+ for(const p of this.P){p.y-=55*dt;p.x+=Math.sin(t*3+p.ph)*25*dt}
+ this.P=this.P.filter(p=>p.y>-10);
+ for(const f of this.fx)f.t+=dt;this.fx=this.fx.filter(f=>f.t<(f.ok?.7:.35));
+ while(this.col.length&&this.col[0]<t-5)this.col.shift();while(this.suc.length&&this.suc[0]<t-5)this.suc.shift();
+ if(t-this.last>=.25&&t<=TMAX+.01){this.last=t;this.data.push([t,this.made])}
+};
+Sim.prototype.rates=function(){const w=Math.min(5,Math.max(this.time,1));return{col:this.col.length/w,suc:this.suc.length/w}};
+Sim.prototype.draw=function(){
+ const c=this.ctx,o=this.o,ea=o.cat?EAC:EA0;c.clearRect(0,0,W,H);
+ const gr=c.createLinearGradient(0,0,0,H);gr.addColorStop(0,'#f3f8fd');gr.addColorStop(1,'#e3eef8');c.fillStyle=gr;c.fillRect(0,0,W,H);
+ c.lineWidth=1.5;
+ for(const b of this.B){if(!b.on)continue;c.fillStyle=COL.B;c.strokeStyle=COL.Bs;c.beginPath();c.rect(b.x-R+.5,b.y-R+.5,2*R-1,2*R-1);c.fill();c.stroke()}
+ for(const p of this.P){c.fillStyle=COL.P;c.strokeStyle='#1d6b3c';c.beginPath();c.arc(p.x,p.y,6,0,6.2832);c.fill();c.stroke()}
+ for(const k of this.C){c.save();c.translate(k.x,k.y);c.rotate(.785);c.fillStyle=COL.cat;c.fillRect(-6,-6,12,12);c.restore()}
+ for(const a of this.A){if(!a.on)continue;c.fillStyle=COL.A;c.strokeStyle='#4a2a99';c.beginPath();c.arc(a.x,a.y,R-1,0,6.2832);c.fill();c.stroke();
+  if(this.mark&&a.E>=ea){c.strokeStyle='#e07b00';c.lineWidth=2.5;c.beginPath();c.arc(a.x,a.y,R+3,0,6.2832);c.stroke();c.lineWidth=1.5}}
+ let ls=null,lb=null;
+ for(const f of this.fx){if(f.ok){const s=1-f.t/.7,rr=6+18*(f.t/.7);c.fillStyle=`rgba(255,210,63,${s})`;c.strokeStyle=`rgba(224,123,0,${s})`;c.beginPath();for(let i=0;i<16;i++){const q=i*Math.PI/8,rad=i%2?rr*.45:rr;c.lineTo(f.x+rad*Math.cos(q),f.y+rad*Math.sin(q))}c.closePath();c.fill();c.stroke();ls=f}
+  else{c.strokeStyle=`rgba(110,124,140,${1-f.t/.35})`;c.lineWidth=2;c.beginPath();c.arc(f.x,f.y,5+10*f.t/.35,0,6.2832);c.stroke();c.lineWidth=1.5;lb=f}}
+ c.font='700 13px "Atkinson Hyperlegible",sans-serif';c.textBaseline='middle';
+ const tag=(x,y,s,col)=>{c.textAlign=x>W-140?'right':'left';const tx=x>W-140?x-14:x+14;const w=c.measureText(s).width;c.fillStyle='rgba(255,255,255,.88)';c.fillRect(c.textAlign=='left'?tx-3:tx-w-3,y-26,w+6,18);c.fillStyle=col;c.fillText(s,tx,y-17)};
+ if(this.labels){if(ls)tag(ls.x,ls.y,'successful collision!','#9a5200');if(lb)tag(lb.x,lb.y,'bounce: not enough energy','#4d5966');
+  c.textAlign='left';c.fillStyle='#5a6878';c.fillText('solution of acid',10,14);c.textAlign='right';c.fillText('CO₂ escapes ↑',W-10,14);
+  if(o.cat){c.textAlign='left';c.fillText('catalyst: '+this.C.length+' at start, '+this.C.length+' now (not used up)',10,32)}}
+ if(this.nA==0){c.textAlign='center';c.fillStyle='#1d7a46';c.font='700 17px Lexend,sans-serif';c.fillText('All the acid is used up: reaction finished',W/2,H/2-30)}
+ const rt=this.rates(),sb=this.sb,pc=this.nCol?Math.round(100*this.nSuc/this.nCol):0;
+ sb[0].textContent=rt.col.toFixed(1);sb[1].textContent=rt.suc.toFixed(1);sb[2].textContent=pc+'%';sb[3].textContent=this.made+' / '+o.c;sb[4].textContent=rt.suc.toFixed(1);sb[5].textContent=Math.min(this.time,999).toFixed(0)+' s';
+ this.drawGraph();
+};
+Sim.prototype.drawGraph=function(){
+ const g=this.g,x0=50,y0=GH-36,w=GW-70,h=GH-56,ym=60,X=t=>x0+t/TMAX*w,Y=v=>y0-v/ym*h;
+ g.clearRect(0,0,GW,GH);g.fillStyle='#fff';g.fillRect(0,0,GW,GH);
+ g.strokeStyle='#e6ebf0';g.lineWidth=1;g.font='12px "Atkinson Hyperlegible",sans-serif';g.fillStyle='#5a6878';g.textBaseline='middle';
+ for(let t=0;t<=TMAX;t+=10){g.beginPath();g.moveTo(X(t),y0);g.lineTo(X(t),y0-h);g.stroke();g.textAlign='center';g.fillText(t,X(t),y0+12)}
+ for(let v=0;v<=ym;v+=20){g.beginPath();g.moveTo(x0,Y(v));g.lineTo(x0+w,Y(v));g.stroke();g.textAlign='right';g.fillText(v,x0-6,Y(v))}
+ g.strokeStyle='#1c2736';g.lineWidth=1.5;g.beginPath();g.moveTo(x0,y0-h);g.lineTo(x0,y0);g.lineTo(x0+w,y0);g.stroke();
+ g.textAlign='center';g.fillText('time / s',x0+w/2,y0+28);g.save();g.translate(14,y0-h/2);g.rotate(-Math.PI/2);g.fillText('product made',0,0);g.restore();
+ const line=(d,col,dash)=>{g.strokeStyle=col;g.lineWidth=3;g.setLineDash(dash);g.beginPath();d.forEach(([t,v],i)=>i?g.lineTo(X(t),Y(v)):g.moveTo(X(t),Y(v)));g.stroke();g.setLineDash([])};
+ g.textAlign='left';g.font='700 12px "Atkinson Hyperlegible",sans-serif';
+ if(this.ghost){line(this.ghost.data,'#9aa6b2',[6,5]);g.fillStyle='#7d8995';g.fillText('previous run: '+this.ghost.label,x0+8,y0-h+8)}
+ line(this.data,'#4a44b5',[]);g.fillStyle='#4a44b5';g.fillText('this run',x0+8,y0-h+(this.ghost?24:8));
+};
+
+/* ---------- loop ---------- */
+const sims={},play={1:true,2:true,3:true};let active=1,lastT=performance.now();
+sims[1]=new Sim($('c1'),$('g1'),$('s1'));sims[2]=new Sim($('c2'),$('g2'),$('s2'));
+function frame(now){let dt=Math.min(.05,(now-lastT)/1000);lastT=now;
+ if(active<3){const s=sims[active];if(play[active]){let d=dt*(active==1&&$('slow1').checked?.3:1);const n=Math.ceil(d/.008);for(let i=0;i<n;i++)s.step(d/n)}s.draw();active==1?status1():status2()}
+ else{if(play[3]&&tt<180){tt=Math.min(180,tt+dt*30);drawVG()}}
+ requestAnimationFrame(frame)}
+function pbtn(n){$('play'+n).textContent=play[n]?'Pause':'Play'}
+[1,2,3].forEach(n=>{$('play'+n).onclick=()=>{play[n]=!play[n];if(n==3&&play[3]&&tt>=180)tt=0;pbtn(n)}});
+$('reset1').onclick=()=>{sims[1].reset();play[1]=true;pbtn(1)};
+$('reset2').onclick=()=>{sims[2].reset();play[2]=true;pbtn(2)};
+$('mark1').onchange=e=>sims[1].mark=e.target.checked;$('mark2').onchange=e=>sims[2].mark=e.target.checked;
+$('lab1').onchange=e=>sims[1].labels=e.target.checked;$('lab2').onchange=e=>sims[2].labels=e.target.checked;
+
+/* tabs */
+const tabs=[...document.querySelectorAll('.tab')];
+function sel(i){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',i==j);t.tabIndex=i==j?0:-1;$('p'+(j+1)).hidden=i!=j});active=i+1;if(active==2)drawES();if(active==3)drawVG()}
+tabs.forEach((t,i)=>{t.onclick=()=>sel(i);t.onkeydown=e=>{if(e.key=='ArrowRight'||e.key=='ArrowLeft'){const n=(i+(e.key=='ArrowRight'?1:2))%3;sel(n);tabs[n].focus()}}});
+
+/* status tab 1 */
+let st1prev='';
+function status1(){const s=sims[1],r=s.rates(),pc=s.nCol?Math.round(100*s.nSuc/s.nCol):0;let a;
+ if(s.nA==0)a=`<p>All the acid particles have reacted. There are no more collisions, so the rate is zero and the graph is flat.</p>`;
+ else if(s.time<4)a=`<p>The acid particles move randomly and collide with particles on the <b>surface</b> of the solid.</p><p>A collision is only <b>successful</b> if the particles collide with at least the <b>activation energy (E<sub>a</sub>)</b>. Most collisions do not have enough energy, so the particles just bounce off.</p>`;
+ else if(s.made<s.o.c*.6)a=`<p>About <b>${r.col.toFixed(0)} collisions per second</b>, but only about ${pc}% are successful. Each successful collision makes product, so <b>rate = successful collisions per second</b>.</p><p>Tick "Ring particles" to see which particles have enough energy.</p>`;
+ else a=`<p>Acid particles are being used up. There are fewer acid particles in the same volume, so collisions are <b>less frequent</b> and the rate falls. The graph gets less steep.</p>`;
+ if(a!=st1prev){$('st1').innerHTML=a;st1prev=a}}
+
+/* tab 2 controls */
+const s2=sims[2];let lastF=null;
+function desc(o){return `${o.T} °C, ${concName(o.c)} conc., ${saName[o.sa]}, ${o.cat?'catalyst':'no catalyst'}`}
+function apply(f){if(s2.time>2)s2.ghost={data:s2.data.slice(),label:desc(s2.o)};lastF=f;
+ s2.o.T=+$('temp').value;s2.o.c=+$('conc').value;s2.reset();play[2]=true;pbtn(2);fair();drawES();st2prev=''}
+function chips(id,cb){const box=$(id);box.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{box.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x==b));cb(b.dataset.v)})}
+chips('sa',v=>{s2.o.sa=v;apply('sa')});chips('cat',v=>{s2.o.cat=v=='1';apply('cat')});
+$('temp').oninput=()=>$('tempo').textContent=$('temp').value+' °C';$('temp').onchange=()=>apply('T');
+$('conc').oninput=()=>$('conco').textContent=concName(+$('conc').value)+' ('+$('conc').value+' particles)';$('conc').onchange=()=>apply('c');
+$('conco').textContent='standard (40 particles)';
+$('std2').onclick=()=>{$('temp').value=20;$('conc').value=40;$('temp').oninput();$('conc').oninput();s2.o.sa='lump';s2.o.cat=false;
+ $('sa').querySelectorAll('.chip').forEach((x,i)=>x.setAttribute('aria-pressed',i==0));$('cat').querySelectorAll('.chip').forEach((x,i)=>x.setAttribute('aria-pressed',i==0));apply(null)};
+const FN={T:'temperature',c:'concentration',sa:'surface area',cat:'catalyst'};
+function changed(){const o=s2.o;return Object.keys(FN).filter(k=>o[k]!=STD[k])}
+function fair(){const ch=changed(),m=$('fair');
+ if(!ch.length){m.className='msg';m.innerHTML='<b>Standard conditions:</b> 20 °C, standard concentration, one lump, no catalyst. Change <b>one</b> factor and compare with this run.'}
+ else if(ch.length==1){m.className='msg ok';m.innerHTML=`<b>Fair test:</b> only the ${FN[ch[0]]} is changed. ${Object.keys(FN).filter(k=>k!=ch[0]).map(k=>FN[k]).join(', ').replace(/, ([^,]*)$/,' and $1')} are kept the same.`}
+ else{m.className='msg warn';m.innerHTML=`<b>Not a fair test:</b> you changed the ${ch.map(k=>FN[k]).join(' and the ')}. You cannot tell which factor changed the rate. Press "Back to standard".`}}
+fair();
+let st2prev='';
+function status2(){const o=s2.o,r=s2.rates();let a='';
+ const f=lastF&&o[lastF]!=STD[lastF]?lastF:changed()[0];
+ if(!f)a='<p>Standard run. Note the collisions per second and the rate. Then change one factor and compare the new graph with the dashed "previous run".</p>';
+ else if(f=='T')a=`<p><b>Higher temperature:</b> the particles have more kinetic energy and move faster, so there are <b>more frequent collisions</b>.</p><p>Also, a <b>greater proportion of particles have energy ≥ E<sub>a</sub></b> (the shaded area on the energy sketch is bigger), so a greater proportion of collisions are successful.</p>`;
+ else if(f=='c')a=o.c>STD.c?`<p><b>Higher concentration:</b> there are more acid particles in the same volume, so there are <b>more frequent collisions</b> (more collisions per second).</p><p>The particles have the same energy, so the same proportion of collisions are successful.</p>`:`<p><b>Lower concentration:</b> fewer acid particles in the same volume, so <b>less frequent collisions</b> and a lower rate. Less product is made because there is less acid.</p>`;
+ else if(f=='sa')a=`<p><b>Larger surface area:</b> the same mass of solid is cut into ${saName[o.sa]}. More particles of the solid are exposed to the acid, so there are <b>more frequent collisions</b>.</p><p>The particles have the same energy, so the same proportion of collisions are successful.</p>`;
+ else a=`<p><b>Catalyst:</b> it provides an <b>alternative pathway with a lower activation energy</b>. More particles have energy ≥ the new E<sub>a</sub>, so a greater proportion of collisions are successful.</p><p>The collisions are not more frequent. The catalyst is <b>not used up</b>: there are still 5 catalyst particles.</p>`;
+ if(s2.nA==0)a+='<p>All the acid has reacted, so the graph is flat.</p>';
+ if(lastF==='c')a+='<p class="note">Changing the amount of acid also changes how much product is made in total.</p>';
+ if(a!=st2prev){$('st2').innerHTML=a;st2prev=a}}
+
+/* energy sketch */
+function drawES(){const o=s2.o,k=kT(o.T),k0=kT(20),x0=46,y0=180,w=520,h=140,Em=7,X=E=>x0+E/Em*w,Y=v=>y0-v/.62*h;
+ const f=(E,k)=>Math.sqrt(E)*Math.exp(-E/k)/Math.pow(k,1.5);
+ const pts=k=>{let s='';for(let i=0;i<=140;i++){const E=i/140*Em;s+=(i?'L':'M')+X(E).toFixed(1)+','+Y(f(E,k)).toFixed(1)}return s};
+ const ea=o.cat?EAC:EA0;let sh=`M${X(ea)},${y0}`;for(let i=0;i<=80;i++){const E=ea+i/80*(Em-ea);sh+=`L${X(E).toFixed(1)},${Y(f(E,k)).toFixed(1)}`}sh+=`L${X(Em)},${y0}Z`;
+ const pc=Math.round(100*frac(ea,k));let s=`<text x="300" y="20" text-anchor="middle" font-weight="700" font-size="15" fill="#1c2736">How much energy the particles have</text>`;
+ s+=`<path d="${sh}" fill="${o.cat?'#bfe6cd':'#ffd9a8'}"/>`;
+ if(o.T!=20)s+=`<path d="${pts(k0)}" fill="none" stroke="#9aa6b2" stroke-width="2.5" stroke-dasharray="6 5"/><text x="${X(.55)}" y="${Y(f(.4,k0))-8}" font-size="12" fill="#6b7785">20 °C</text>`;
+ s+=`<path d="${pts(k)}" fill="none" stroke="#4a44b5" stroke-width="3"/><text x="${X(k*.5+.7)}" y="${Y(f(k*.5,k))-4}" font-size="12" font-weight="700" fill="#4a44b5">${o.T} °C</text>`;
+ s+=`<line x1="${X(EA0)}" y1="${y0}" x2="${X(EA0)}" y2="40" stroke="#b3261e" stroke-width="2.5"/><text x="${X(EA0)+5}" y="50" font-size="13" font-weight="700" fill="#b3261e">E<tspan dy="3" font-size="10">a</tspan><tspan dy="-3">${o.cat?' without catalyst':''}</tspan></text>`;
+ if(o.cat)s+=`<line x1="${X(EAC)}" y1="${y0}" x2="${X(EAC)}" y2="40" stroke="#1d7a46" stroke-width="2.5" stroke-dasharray="7 4"/><text x="${X(EAC)-5}" y="50" text-anchor="end" font-size="13" font-weight="700" fill="#1d7a46">E<tspan dy="3" font-size="10">a</tspan><tspan dy="-3"> with catalyst</tspan></text>`;
+ s+=`<text x="${X(4.6)}" y="${y0-40}" font-size="13" fill="#1c2736">shaded: particles with</text><text x="${X(4.6)}" y="${y0-24}" font-size="13" fill="#1c2736">energy ≥ E<tspan dy="3" font-size="10">a</tspan><tspan dy="-3"> (about ${pc}%)</tspan></text>`;
+ s+=`<path d="M${x0},34V${y0}H${x0+w+6}" fill="none" stroke="#1c2736" stroke-width="1.8"/><text x="${x0+w/2}" y="${y0+22}" text-anchor="middle" font-size="13" fill="#5a6878">energy →</text><text transform="translate(28 ${y0-h/2+10}) rotate(-90)" text-anchor="middle" font-size="13" fill="#5a6878">number of particles →</text>`;
+ $('es').innerHTML=s}
+
+/* ---------- tab 3 ---------- */
+const RUN1={Vm:60,k:.03,lab:'Run 1: lumps, 20 °C'};
+const CMP={hot:{Vm:60,k:.07,lab:'Run 2: lumps, 40 °C'},powder:{Vm:60,k:.09,lab:'Run 2: powder, 20 °C'},half:{Vm:30,k:.06,lab:'Run 2: half the volume of acid'}};
+let cmp='hot',tt=0;
+const V=(r,t)=>r.Vm*(1-Math.exp(-r.k*t)),G=(r,t)=>r.Vm*r.k*Math.exp(-r.k*t);
+chips('cmp',v=>{cmp=v;tt=0;play[3]=true;pbtn(3);drawVG()});
+$('step3').onclick=()=>{play[3]=false;pbtn(3);tt=Math.min(180,tt+10);drawVG()};
+$('reset3').onclick=()=>{tt=0;play[3]=true;pbtn(3);drawVG()};
+$('gt').oninput=()=>{const v=+$('gt').value;$('gto').textContent=v?v+' s':'0 s (start)';drawVG()};
+$('tan3').onchange=$('lev3').onchange=drawVG;
+$('s3').innerHTML=['Run 1 volume','Run 2 volume','Run 1 rate at chosen time','Run 2 rate at chosen time'].map(t=>`<div class="stat"><b>0</b>${t}</div>`).join('');
+const s3b=$('s3').querySelectorAll('b');
+let st3prev='';
+function drawVG(){const r2=CMP[cmp],x0=62,y0=322,w=510,h=290,X=t=>x0+t/180*w,Y=v=>y0-v/70*h,c1='#4a44b5',c2='#c25e00';
+ let s='';
+ for(let t=0;t<=180;t+=30)s+=`<line x1="${X(t)}" y1="${y0}" x2="${X(t)}" y2="${y0-h}" stroke="#e6ebf0"/><text x="${X(t)}" y="${y0+18}" text-anchor="middle" font-size="13" fill="#5a6878">${t}</text>`;
+ for(let v=0;v<=70;v+=10)s+=`<line x1="${x0}" y1="${Y(v)}" x2="${x0+w}" y2="${Y(v)}" stroke="#e6ebf0"/><text x="${x0-8}" y="${Y(v)+4}" text-anchor="end" font-size="13" fill="#5a6878">${v}</text>`;
+ s+=`<path d="M${x0},${y0-h}V${y0}H${x0+w}" fill="none" stroke="#1c2736" stroke-width="1.8"/><text x="${x0+w/2}" y="${y0+40}" text-anchor="middle" font-size="14" fill="#1c2736">time / s</text><text transform="translate(20 ${y0-h/2}) rotate(-90)" text-anchor="middle" font-size="14" fill="#1c2736">volume of CO<tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> / cm³</tspan></text>`;
+ if($('lev3').checked){[[RUN1,c1],[r2,c2]].forEach(([r,c],i)=>{if(i&&r.Vm==RUN1.Vm)return;s+=`<line x1="${x0}" y1="${Y(r.Vm)}" x2="${x0+w}" y2="${Y(r.Vm)}" stroke="${c}" stroke-dasharray="3 5" stroke-width="1.5"/>`});
+  s+=`<text x="${X(178)}" y="${Y(60)-8}" text-anchor="end" font-size="12.5" fill="#1c2736">levels off at ${RUN1.Vm} cm³${r2.Vm==60?' (both runs)':''}: acid used up</text>`;
+  if(r2.Vm!=60)s+=`<text x="${X(178)}" y="${Y(r2.Vm)-8}" text-anchor="end" font-size="12.5" fill="${c2}">run 2 levels off at ${r2.Vm} cm³ (half)</text>`}
+ const path=r=>{let p='';for(let t=0;t<=tt;t+=1)p+=(t?'L':'M')+X(t).toFixed(1)+','+Y(V(r,t)).toFixed(1);return p+`L${X(tt).toFixed(1)},${Y(V(r,tt)).toFixed(1)}`};
+ s+=`<path d="${path(RUN1)}" fill="none" stroke="${c1}" stroke-width="3.5"/><path d="${path(r2)}" fill="none" stroke="${c2}" stroke-width="3.5" stroke-dasharray="${cmp=='half'?'9 5':'none'}"/>`;
+ s+=`<circle cx="${X(tt)}" cy="${Y(V(RUN1,tt))}" r="5" fill="${c1}"/><circle cx="${X(tt)}" cy="${Y(V(r2,tt))}" r="5" fill="${c2}"/>`;
+ const gt=+$('gt').value;
+ if($('tan3').checked&&tt>=gt){[[RUN1,c1],[r2,c2]].forEach(([r,c])=>{const v=V(r,gt),g=G(r,gt),dt=Math.min(40,gt+40),ta=Math.max(0,gt-dt),tb=Math.min(180,gt+40);
+  s+=`<line x1="${X(ta)}" y1="${Y(v+g*(ta-gt))}" x2="${X(tb)}" y2="${Y(Math.min(75,v+g*(tb-gt)))}" stroke="${c}" stroke-width="2" stroke-dasharray="2 4"/><circle cx="${X(gt)}" cy="${Y(v)}" r="4" fill="#fff" stroke="${c}" stroke-width="2"/>`});
+  s+=`<text x="${X(gt)+10}" y="${y0-8}" font-size="12.5" fill="#1c2736">tangent: gradient = rate</text>`}
+ s+=`<rect x="${x0+10}" y="${y0-h+4}" width="236" height="44" rx="6" fill="#fff" stroke="#cdd6df"/><line x1="${x0+20}" y1="${y0-h+18}" x2="${x0+44}" y2="${y0-h+18}" stroke="${c1}" stroke-width="3.5"/><text x="${x0+50}" y="${y0-h+22}" font-size="13">${RUN1.lab}</text><line x1="${x0+20}" y1="${y0-h+36}" x2="${x0+44}" y2="${y0-h+36}" stroke="${c2}" stroke-width="3.5" stroke-dasharray="${cmp=='half'?'7 4':'none'}"/><text x="${x0+50}" y="${y0-h+40}" font-size="13">${r2.lab}</text>`;
+ $('vg').innerHTML=s;
+ /* syringes */
+ let y='';[[RUN1,c1,6],[r2,c2,52]].forEach(([r,c,yy])=>{const v=V(r,tt),bx=150,bw=400,px=bx+v/70*bw;
+  y+=`<text x="8" y="${yy+24}" font-size="13" fill="${c}" font-weight="700">${r==RUN1?'Run 1':'Run 2'}: ${v.toFixed(0)} cm³</text><rect x="${bx}" y="${yy+8}" width="${px-bx}" height="24" fill="${c}" opacity=".18"/><rect x="${bx}" y="${yy+8}" width="${bw}" height="24" rx="4" fill="none" stroke="#7d8fa3" stroke-width="2.5"/><line x1="${bx-14}" y1="${yy+20}" x2="${bx}" y2="${yy+20}" stroke="#7d8fa3" stroke-width="4"/><rect x="${px}" y="${yy+9}" width="6" height="22" fill="#5a6878"/><line x1="${px+6}" y1="${yy+20}" x2="${px+40}" y2="${yy+20}" stroke="#5a6878" stroke-width="4"/>`;
+  for(let i=0;i<=70;i+=10)y+=`<line x1="${bx+i/70*bw}" y1="${yy+8}" x2="${bx+i/70*bw}" y2="${yy+14}" stroke="#7d8fa3"/>`});
+ $('sy').innerHTML=y+`<text x="8" y="92" font-size="11.5" fill="#5a6878">gas syringes (scale 0–70 cm³)</text>`;
+ s3b[0].textContent=V(RUN1,tt).toFixed(0)+' cm³';s3b[1].textContent=V(r2,tt).toFixed(0)+' cm³';
+ const show=tt>=gt;s3b[2].textContent=show?G(RUN1,gt).toFixed(2)+' cm³/s':'–';s3b[3].textContent=show?G(r2,gt).toFixed(2)+' cm³/s':'–';
+ let a=cmp=='hot'?`<p>Both runs use the <b>same amounts</b> of acid and marble, so both make the <b>same final volume</b> (60 cm³).</p><p>Run 2 is hotter: its curve is <b>steeper at the start</b> (higher rate) and it <b>levels off sooner</b>, because the acid is used up sooner.</p>`
+ :cmp=='powder'?`<p>Powder has a larger surface area, so run 2 is <b>steeper at the start</b> and finishes sooner.</p><p>The amounts are the same, so the <b>final volume is the same</b> (60 cm³).</p>`
+ :`<p>Run 2 uses <b>half the volume</b> of the same acid (marble in excess). The concentration is the same, so the gradient at the start is the same.</p><p>There is only half as much acid to react, so it makes <b>half the final volume</b> (30 cm³).</p>`;
+ a+=tt<15?'<p>The gradient is steepest at the start, when there are the most reactant particles.</p>':tt<180?'<p>As acid is used up, collisions are less frequent, so the gradient (rate) gets smaller.</p>':'<p>The curves are flat: the reaction has stopped because a reactant (the acid) is used up.</p>';
+ a+='<p class="note">Rate = gradient = volume of gas ÷ time (cm³/s). Use the slider to draw a tangent.</p>';
+ if(a!=st3prev){$('st3').innerHTML=a;st3prev=a}}
+
+/* ---------- quiz ---------- */
+const Q=[
+['Why does increasing the temperature increase the rate of reaction?',['The activation energy becomes lower.','Particles move faster, so there are more frequent collisions, and more collisions have energy ≥ the activation energy.','There are more particles in the same volume.','The particles become bigger, so they hit each other more.'],1,'Faster particles collide more often, and a greater proportion have at least E<sub>a</sub>. Temperature does not change E<sub>a</sub>.'],
+['The same mass of marble is used as one lump and then as powder. Why is the powder faster?',['Powder has a larger surface area, so more particles are exposed and there are more frequent collisions.','Powder particles have more energy.','Powder lowers the activation energy.','Powder makes more carbon dioxide in total.'],0,'Smaller pieces expose more particles to the acid, so collisions are more frequent. The total gas made is the same.'],
+['How does a catalyst increase the rate of a reaction?',['It gives the particles more energy.','It increases the concentration.','It provides an alternative pathway with a lower activation energy.','It is used up in the reaction.'],2,'With a lower E<sub>a</sub>, more collisions are successful. The catalyst is not used up.'],
+['Marble chips (in excess) react with acid. The volume of acid is halved but the concentration stays the same. What happens to the final volume of gas?',['It doubles.','It stays the same.','It halves.','It becomes zero.'],2,'The acid is the reactant that gets used up, so half the acid makes half the volume of gas.']];
+$('quiz').innerHTML=Q.map((q,i)=>`<div class="q" id="q${i}"><p>${i+1}. ${q[0]}</p>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}<div class="fb"></div></div>`).join('');
+$('check').onclick=()=>{let sc=0;Q.forEach((q,i)=>{const el=$('q'+i),c=el.querySelector('input:checked'),fb=el.querySelector('.fb');el.classList.remove('right','wrong');
+ if(!c){fb.textContent='Choose an answer.';return}const ok=+c.value==q[2];if(ok)sc++;el.classList.add(ok?'right':'wrong');fb.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});$('score').textContent=`Score: ${sc} / ${Q.length}`};
+
+drawES();drawVG();requestAnimationFrame(frame);
+})();
+</script><script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'Particles must collide before they can react.',
+ stem:'Which of these is the meaning of the term <i>activation energy</i>?',
+ opts:['The energy given out when the particles react.','The minimum energy that colliding particles need for a reaction to happen.','The total kinetic energy of all the particles in the mixture.','The energy needed to break all the bonds in the products.'],
+ ans:1,why:'Collisions with less energy than the activation energy are unsuccessful: the particles just bounce apart.'},
+{ref:'Q1(b)',marks:1,type:'mcq',
+ stem:'Why does using more concentrated hydrochloric acid increase the rate of its reaction with magnesium?',
+ opts:['The acid particles move faster.','The activation energy of the reaction is lower.','There are more acid particles in the same volume, so collisions are more frequent.','Each collision between particles has more energy.'],
+ ans:2,why:'Concentration changes how often particles collide (collisions per second). It does not change the energy of the particles or the activation energy.'},
+{ref:'Q2',marks:3,type:'drop',ctx:'A student repeats a reaction at a higher temperature.',
+ stem:'Complete the sentences by choosing the correct word or phrase in each box.',
+ items:[{pre:'At the higher temperature the particles move',opts:['faster','more slowly','at the same speed'],ans:0,post:'.',aria:'How the particles move'},
+  {pre:'Collisions between particles are',opts:['more frequent','less frequent','equally frequent'],ans:0,post:'.',aria:'Frequency of collisions'},
+  {pre:'A greater proportion of the collisions have energy',opts:['less than','equal to or greater than'],ans:1,post:'the activation energy, so more collisions are successful.',aria:'Energy compared with activation energy'}],
+ why:'A higher temperature increases the rate for two reasons: more frequent collisions, and a greater proportion of collisions that are successful.'},
+{ref:'Q3(a)',marks:2,type:'calc',
+ ctx:'A student added excess marble chips to 50 cm³ of dilute hydrochloric acid and collected the carbon dioxide in a gas syringe.<div class="ex-tblwrap"><table class="ex-tbl"><tbody><tr><th>time / s</th><td>0</td><td>30</td><td>60</td><td>90</td><td>120</td><td>150</td><td>180</td><td>210</td></tr><tr><th>volume of CO<sub>2</sub> / cm³</th><td>0</td><td>24</td><td>40</td><td>51</td><td>57</td><td>60</td><td>60</td><td>60</td></tr></tbody></table></div>',
+ stem:'Use the results to find the time taken for the reaction to finish. Then calculate the mean rate of reaction, in cm³/s, over this time.',
+ inputs:[{lab:'time taken for the reaction to finish =',unit:'s',ans:150,tol:0.5,m:1},{lab:'mean rate =',unit:'cm³/s',ans:0.40,tol:0.011,m:1}],
+ work:'<ol><li>The volume stops changing at 60 cm³ after <b>150 s</b> (1 mark)</li><li>Mean rate = volume ÷ time = 60 ÷ 150 = <b>0.40 cm³/s</b> (1 mark)</li></ol>'},
+{ref:'Q3(b)',marks:3,type:'written',
+ stem:'Describe how the rate of reaction changes during the experiment in Q3(a). Explain this change in terms of particles.',
+ points:['the rate is highest at the start / the rate decreases as the reaction goes on','the rate becomes zero / the reaction stops at 150 s (the volume stays at 60 cm³)','acid particles are used up / the concentration of the acid decreases','so there are fewer collisions per second / collisions become less frequent'],
+ note:'For the last point, "fewer collisions" must be linked to time (per second / less frequent)'},
+{ref:'Q4',marks:1,type:'mcq',ctx:'The student repeats the experiment in Q3(a). Only one thing is changed each time.',
+ stem:'Which change gives a steeper curve at the start but the same final volume of carbon dioxide?',
+ opts:['Using 25 cm³ of the same acid instead of 50 cm³.','Using powdered marble instead of marble chips.','Adding 50 cm³ of water to the acid.','Doing the experiment in an ice bath.'],
+ ans:1,why:'Powder has a larger surface area, so the rate is higher. The amount of acid (the limiting reactant) is unchanged, so the final volume is still 60 cm³. Option A halves the final volume; C and D lower the rate.'},
+{ref:'Q5',marks:3,type:'written',ctx:'Hydrogen peroxide decomposes slowly to form water and oxygen. Adding manganese(IV) oxide makes it decompose much faster.',
+ stem:'Explain how a catalyst increases the rate of a reaction.',
+ points:['a catalyst provides an alternative pathway / route for the reaction','with a lower activation energy','so a greater proportion of particles / collisions have energy equal to or greater than the activation energy','so there are more successful collisions per second'],
+ note:'Do not accept "the catalyst gives the particles more energy"'},
+{ref:'Q6',marks:1,type:'mcq',ctx:'A student adds 0.50 g of manganese(IV) oxide to hydrogen peroxide solution. When the reaction stops, the student filters, washes and dries the solid.',
+ stem:'Which result shows that manganese(IV) oxide is acting as a catalyst?',
+ opts:['The mass of dry solid is 0.50 g.','The mass of dry solid is 0.00 g.','The solution gets warm.','Bubbles of gas are given off.'],
+ ans:0,why:'A catalyst speeds up a reaction but is not used up, so the same mass is recovered at the end. Bubbles and warming happen with or without a catalyst.'},
+{ref:'Q7',marks:6,type:'written',
+ ctx:'A student reacts 1.0 g of marble chips with excess dilute hydrochloric acid at 20 °C and then at 40 °C. Everything else is kept the same. The student measures the volume of carbon dioxide made.',
+ stem:'Explain, in terms of particles, why the reaction is faster at 40 °C, and explain why the same total volume of carbon dioxide is made at both temperatures.',
+ points:['at 40 °C the particles have more (kinetic) energy / move faster','so there are more collisions per second / collisions are more frequent','a greater proportion of the particles have energy equal to or greater than the activation energy','so a greater proportion of collisions are successful / more successful collisions per second','the same mass of marble (calcium carbonate) is used each time and the acid is in excess','so the marble is the limiting reactant: all of it reacts at both temperatures, giving the same amount of carbon dioxide','at 40 °C the reaction finishes sooner (the graph levels off earlier)'],
+ note:'At least one mark should come from each part of the question'}
+];
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('toptabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var d=el('div','ex-drop'), sels=[], cors=[];
+      q.items.forEach(function(it,k){
+        var row=el('div','ex-drow'); if(it.pre) row.appendChild(el('span','',it.pre));
+        var sl=document.createElement('select'); sl.className='ex-sel'; sl.setAttribute('aria-label',it.aria||('Answer '+(k+1)));
+        sl.appendChild(new Option('Choose…',''));
+        it.opts.forEach(function(o,j){sl.appendChild(new Option(o,String(j)));});
+        row.appendChild(sl); if(it.post) row.appendChild(el('span','',it.post));
+        var cr=el('span','ex-corr'); cr.hidden=true; row.appendChild(cr);
+        d.appendChild(row); sels.push(sl); cors.push(cr);
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); d.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.items[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');
+          if(!ok){cors[k].textContent='✓ '+q.items[k].opts[q.items[k].ans]; cors[k].hidden=false;}});
+        var sc=Math.min(n,q.marks); s.score=sc; s.marked=true; bt3.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(q.why||'')); upd();
+      });
+      c.appendChild(d); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

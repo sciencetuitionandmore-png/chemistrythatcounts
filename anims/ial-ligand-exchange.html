@@ -1,0 +1,259 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ligand Exchange</title>
+<meta name="description" content="Interactive animation: Ligand Exchange. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-ligand-exchange.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#f7f9fb;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--arrow:#4a44b5;--glass:#7d8fa3;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--muted)}.lede strong{color:var(--ink)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.stage{background:var(--bench);border:1px solid var(--line);border-radius:12px;padding:6px;outline:none}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.8em;background:var(--accent-soft);border-radius:10px;padding:10px 14px;max-width:none}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.stepn{font:600 .9rem var(--display);color:var(--muted);min-width:6.5em}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--accent);background:#fff;font:600 .75rem var(--display);color:var(--accent);cursor:pointer;padding:0}
+.dot.on{background:var(--accent);color:#fff}
+.seg{display:inline-flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden;margin-left:auto}
+.seg button{font:600 .85rem var(--display);border:0;background:#fff;color:var(--accent);padding:7px 11px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:#fff}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.dot:focus-visible,.seg button:focus-visible,.mini:focus-visible,.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent)}
+.mini:disabled{opacity:.4;cursor:not-allowed}
+.controls{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+select{font:inherit;font-size:.95rem;padding:5px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.say{border-radius:10px;padding:10px 14px;background:var(--sheet);border:2px solid var(--line)}
+.say.good{border-color:var(--good);background:#eef8f2}.say.bad{border-color:var(--bad);background:#fdf1f0}
+.score{font:700 1rem var(--display)}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+.mcq{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:1fr}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:5px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer}
+.mcq label:hover{border-color:var(--accent)}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.mcq label.ok{border-color:var(--good);background:#eef8f2}.mcq label.wrong{border-color:var(--bad);background:#fdf1f0}
+.ex{font-size:.93rem;margin-top:6px}.ex .g{color:var(--good)}.ex .r{color:var(--bad)}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:16px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00}.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font-size:.92rem;color:var(--muted);text-align:center}
+footer strong{color:var(--ink)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+/* svg */
+.at{font:500 20px var(--display);fill:var(--ink)}
+.lb{font:15px var(--body);fill:var(--muted)}
+.lk{font:700 15px var(--body);fill:var(--ink)}
+.ti{font:600 17px var(--display);fill:var(--accent)}
+.sb{font-size:70%}
+.bd{stroke:var(--ink);stroke-width:2;stroke-linecap:round;fill:none}
+.gl{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.ap{fill:none;stroke:var(--arrow);stroke-width:2.3;stroke-linecap:round}
+.ah{fill:var(--arrow);stroke:var(--arrow);stroke-width:1.2;stroke-linejoin:round}
+.half .ah{fill:none;stroke-width:2.3}
+.hl{fill:#fff3c4;stroke:#d9a400;stroke-width:1.5;stroke-dasharray:4 3}
+.lp{fill:var(--ink)}
+[data-s],[data-mv]{transition:opacity .6s ease,transform 1.1s ease}
+.dl:not(.off){transition-delay:1.1s,0s}
+.off{opacity:0!important;pointer-events:none}
+@media(max-width:520px){body{font-size:16px}.seg{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.liq{transition:fill 1.2s ease}
+#ppt,#tppt{transition:opacity 1s ease}
+@keyframes drip{from{transform:translateY(0);opacity:1}to{transform:translateY(60px);opacity:0}}
+.drop{animation:drip 1.4s linear infinite}
+.tgrid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;align-items:start}
+@media(max-width:600px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tgrid svg{width:100%;max-width:200px;height:auto;background:var(--bench);border:1px solid var(--line);border-radius:10px}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.lbl{font:600 .85rem var(--display);color:var(--muted);min-width:5.5em}
+.tcol{display:flex;flex-direction:column;gap:10px;min-width:0}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Ligand Exchange</h1><p class="meta">IAL Chemistry · Unit 5 · Transition metals</p><p class="lede"><strong>In this animation</strong>: see how ligands form dative bonds, how Cl<sup>−</sup> and NH<sub>3</sub> replace water around copper(II), and why multidentate ligands make very stable complexes.</p></header>
+<section class="sheet" aria-labelledby="wh"><h2 id="wh"><span class="step">Watch it</span><span>Ligand exchange with copper(II)</span></h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 420" role="img" aria-label="Structures of copper(II) complexes and a test tube showing colour changes"></svg></div>
+<p class="cap" id="cap" aria-live="polite"></p>
+<div class="player" role="group" aria-label="Animation controls"><button class="btn ghost" id="pRs">Restart</button><button class="btn ghost" id="pBk">Back</button><button class="btn" id="pPl" aria-pressed="false">Play</button><button class="btn ghost" id="pNx">Next</button><span class="stepn" id="pSt" aria-live="polite">Step 1</span><span class="dots" id="pDots"></span><span class="seg" role="group" aria-label="Speed"><button id="spS" aria-pressed="false">Slow</button><button id="spN" aria-pressed="true">Normal</button></span></div>
+</section>
+<section class="sheet" aria-labelledby="th"><h2 id="th"><span class="step">Try it</span><span>Predict the result</span></h2>
+<p class="hint">Choose a starting solution and a reagent. Predict what you will see, then add the reagent.</p>
+<div class="tgrid"><svg id="tsv" viewBox="0 0 200 260" role="img" aria-label="Test tube"></svg>
+<div class="tcol"><div class="controls"><span class="lbl">Start with</span><span class="tools" id="tst"></span></div>
+<div class="controls"><span class="lbl">Reagent</span><span class="tools" id="trg"></span></div>
+<div class="controls"><label for="tpr" class="lbl">Prediction</label><select id="tpr"></select><button class="btn" id="tgo">Add reagent</button></div>
+<div class="say" id="tout" aria-live="polite">Make a prediction, then press <b>Add reagent</b>.</div></div></div>
+</section>
+<section class="sheet" aria-labelledby="ch"><h2 id="ch"><span class="step">Check it</span>Four quick questions</h2><ol class="qs" id="qs"></ol><div class="controls"><button class="btn" id="chk">Check my answers</button><button class="btn ghost" id="rst">Try again</button><span class="score" id="score" aria-live="polite"></span></div></section>
+<section class="tip" aria-labelledby="xh"><h2 id="xh">Exam tip</h2><ul><li>Show a dative bond as an arrow from the ligand's lone pair to the metal ion, or say <b>both electrons come from the ligand</b>.</li><li>With NH<sub>3</sub>(aq), give <b>both</b> observations: a pale blue precipitate first, then a deep blue solution in excess.</li><li>Explain the change from 6 to 4 ligands with Cl<sup>−</sup> by <b>size</b>: Cl<sup>−</sup> is larger than H<sub>2</sub>O.</li><li>For the chelate effect, <b>count the particles</b> on each side and say entropy increases. ΔH is about zero.</li></ul></section>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Concentrated hydrochloric acid is added to a solution containing [Co(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup>. What colour change is seen?", "m": 1, "o": ["blue to pink", "pink to blue", "green to yellow", "pale blue to deep blue"], "a": 1, "why": "B is correct because pink [Co(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup> changes to blue tetrahedral [CoCl<sub>4<\/sub>]<sup>2−<\/sup>."}, {"t": "mc", "q": "Which ligand is bidentate?", "m": 1, "o": ["Cl<sup>−<\/sup>", "NH<sub>3<\/sub>", "EDTA<sup>4−<\/sup>", "H<sub>2<\/sub>NCH<sub>2<\/sub>CH<sub>2<\/sub>NH<sub>2<\/sub>"], "a": 3, "why": "D is correct because ethane-1,2-diamine has two N atoms, each with a lone pair, that form two dative bonds; EDTA<sup>4−<\/sup> is hexadentate."}, {"t": "w", "q": "Aqueous ammonia is added drop by drop to [Cu(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup>(aq) until it is in excess.<br>(i) Give the formula of the pale blue precipitate that forms first.<br>(ii) Write an equation for the ligand exchange reaction that forms the deep blue solution, starting from [Cu(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup>.", "m": 3, "ms": ["(i) [Cu(H<sub>2<\/sub>O)<sub>4<\/sub>(OH)<sub>2<\/sub>] or Cu(OH)<sub>2<\/sub> (1)", "(ii) product [Cu(NH<sub>3<\/sub>)<sub>4<\/sub>(H<sub>2<\/sub>O)<sub>2<\/sub>]<sup>2+<\/sup> (1)", "[Cu(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup> + 4NH<sub>3<\/sub> → [Cu(NH<sub>3<\/sub>)<sub>4<\/sub>(H<sub>2<\/sub>O)<sub>2<\/sub>]<sup>2+<\/sup> + 4H<sub>2<\/sub>O, balanced (1)"], "note": "Allow ⇌. Do not award [Cu(NH<sub>3<\/sub>)<sub>6<\/sub>]<sup>2+<\/sup> for the product mark. The balancing mark depends on a correct product."}, {"t": "w", "q": "[Cu(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup> + 3H<sub>2<\/sub>NCH<sub>2<\/sub>CH<sub>2<\/sub>NH<sub>2<\/sub> → [Cu(H<sub>2<\/sub>NCH<sub>2<\/sub>CH<sub>2<\/sub>NH<sub>2<\/sub>)<sub>3<\/sub>]<sup>2+<\/sup> + 6H<sub>2<\/sub>O<br>The enthalpy change for this reaction is close to zero. Explain why the reaction is still thermodynamically feasible.", "m": 3, "ms": ["4 particles on the left form 7 particles on the right (1)", "so the entropy of the system increases / ΔS<sub>system<\/sub> is positive (1)", "ΔH ≈ 0 because similar bonds (six Cu–O replaced by six Cu–N dative bonds) are broken and made, so ΔG = ΔH − TΔS is negative (1)"], "note": "Allow 'more moles of particles'. Do not award 'more molecules of product' without numbers or reference to particles. Reject 'stronger bonds form' as the main reason."}, {"t": "w", "q": "In a solution of cobalt(II) chloride the following equilibrium is set up:<br>[Co(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup> + 4Cl<sup>−<\/sup> ⇌ [CoCl<sub>4<\/sub>]<sup>2−<\/sup> + 6H<sub>2<\/sub>O<br>Water is added to a blue solution of [CoCl<sub>4<\/sub>]<sup>2−<\/sup>. Deduce what is seen and explain your answer.", "m": 2, "ms": ["the solution turns pink (1)", "adding water moves the position of equilibrium to the left, forming more [Co(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup> (1)"], "note": "Allow 'blue to pink'. Allow the dilution argument (lower [Cl<sup>−<\/sup>]). The colour mark is independent."}, {"t": "w", "q": "The anticancer drug cisplatin is [Pt(NH<sub>3<\/sub>)<sub>2<\/sub>Cl<sub>2<\/sub>].<br>State the shape of cisplatin and the Cl–Pt–Cl bond angle.", "m": 2, "ms": ["square planar (1)", "90° (1)"], "note": "Do not award 'tetrahedral' or 109.5°. Allow 'the two Cl atoms are cis / next to each other' as extra information, not as a mark."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>  '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> · tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><strong>Key fact:</strong> ligand exchange can change the colour, the coordination number and the shape of a complex ion.</footer>
+</div><script>"use strict";
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+function fm(s){let o='',sh=0;String(s).replace(/([_^])\{([^}]*)\}|([^_^]+)/g,(m,k,v,t)=>{if(t!==undefined){o+=sh?'<tspan dy="'+(-sh)+'">'+t+'</tspan>':t;sh=0}else{const d=k=='_'?5:-8;o+='<tspan class="sb" dy="'+(d-sh)+'">'+v+'</tspan>';sh=d}return''});return o}
+function T(x,y,s,c,a,ex){return '<text x="'+x+'" y="'+y+'" class="'+(c||'at')+'" text-anchor="'+(a||'middle')+'"'+(ex||'')+'>'+fm(s)+'</text>'}
+function Ln(x1,y1,x2,y2,c,ex){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" class="'+(c||'bd')+'"'+(ex||'')+'/>'}
+function G(s,h,inner,ex){return '<g data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+(ex||'')+'>'+inner+'</g>'}
+function A(d,s,h,ex){return '<g class="arr'+(ex&&ex.indexOf('half')>=0?' half':'')+'" data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+'><path class="ap" d="'+d+'"/></g>'}
+function LP(x,y,v){const dx=v?0:4,dy=v?4:0;return '<circle class="lp" cx="'+(x-dx)+'" cy="'+(y-dy)+'" r="2.3"/><circle class="lp" cx="'+(x+dx)+'" cy="'+(y+dy)+'" r="2.3"/>'}
+function initArrows(){document.querySelectorAll('#sv .arr').forEach(g=>{const p=g.querySelector('.ap'),L=p.getTotalLength(),e=p.getPointAtLength(L),b=p.getPointAtLength(Math.max(0,L-6));let ux=e.x-b.x,uy=e.y-b.y;const m=Math.hypot(ux,uy)||1;ux/=m;uy/=m;const bx=e.x-12*ux,by=e.y-12*uy,px=-uy*5.5,py=ux*5.5,half=g.classList.contains('half');const h=document.createElementNS('http://www.w3.org/2000/svg',half?'polyline':'polygon');h.setAttribute('points',half?(bx+px)+','+(by+py)+' '+e.x+','+e.y:e.x+','+e.y+' '+(bx+px)+','+(by+py)+' '+(bx-px)+','+(by-py));h.setAttribute('class','ah');g.appendChild(h);g._L=L})}
+function drawA(g,anim){const p=g.querySelector('.ap'),h=g.querySelector('.ah'),L=g._L;if(!anim){p.style.transition='none';p.style.strokeDasharray='none';p.style.strokeDashoffset=0;h.style.transition='none';h.style.opacity=1;return}p.style.transition='none';p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;h.style.transition='none';h.style.opacity=0;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 1.1s ease .3s';p.style.strokeDashoffset=0;h.style.transition='opacity .2s ease 1.35s';h.style.opacity=1}
+let cur=1,playing=false,slow=false,tm=null,N=1;
+function apply(n,anim){anim=anim&&!RM;
+document.querySelectorAll('#sv [data-s]').forEach(el=>{const s=+el.dataset.s,h=el.dataset.h?+el.dataset.h:99,on=n>=s&&n<h;el.classList.toggle('off',!on);if(on&&el.classList.contains('arr'))drawA(el,anim&&n==s)});
+document.querySelectorAll('#sv [data-mv]').forEach(el=>{let v='0,0';el.dataset.mv.split('|').forEach(k=>{const q=k.split(':');if(n>=+q[0])v=q[1]});const q=v.split(',');el.style.transform='translate('+q[0]+'px,'+q[1]+'px)'});
+$('cap').innerHTML=CAPS[n-1];if(typeof onStep=='function')onStep(n,anim)}
+function ui(){$('pSt').textContent='Step '+cur+' of '+N;$('pPl').textContent=playing?'Pause':'Play';$('pPl').setAttribute('aria-pressed',playing?'true':'false');$('pBk').disabled=cur==1;$('pNx').disabled=cur==N;[...$('pDots').children].forEach((d,i)=>{d.classList.toggle('on',i+1==cur);if(i+1==cur)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')})}
+function sched(){clearTimeout(tm);if(playing){if(cur<N)tm=setTimeout(()=>go(cur+1,true),slow?9000:5500);else{playing=false;ui()}}}
+function go(n,anim){cur=Math.max(1,Math.min(N,n));apply(cur,anim);ui();sched()}
+function initPlayer(){N=CAPS.length;const d=$('pDots');for(let i=1;i<=N;i++){const b=document.createElement('button');b.className='dot';b.textContent=i;b.setAttribute('aria-label','Go to step '+i);b.onclick=()=>{playing=false;go(i,true)};d.appendChild(b)}
+$('pRs').onclick=()=>go(1,true);$('pBk').onclick=()=>{playing=false;go(cur-1,true)};$('pNx').onclick=()=>{playing=false;go(cur+1,true)};
+$('pPl').onclick=()=>{if(playing){playing=false;clearTimeout(tm);ui()}else{playing=true;go(cur==N?1:cur,true)}};
+const sp=v=>{slow=v;$('spS').setAttribute('aria-pressed',v?'true':'false');$('spN').setAttribute('aria-pressed',v?'false':'true');sched()};$('spS').onclick=()=>sp(true);$('spN').onclick=()=>sp(false);
+$('stage').addEventListener('keydown',e=>{if(e.key=='ArrowRight'){e.preventDefault();playing=false;go(cur+1,true)}else if(e.key=='ArrowLeft'){e.preventDefault();playing=false;go(cur-1,true)}})}
+function initQuiz(){const ol=$('qs');ol.innerHTML=QS.map((q,i)=>'<li><p>'+q.q+'</p><div class="mcq">'+q.o.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"><span>'+o+'</span></label>').join('')+'</div><p class="ex" hidden></p></li>').join('');
+$('chk').onclick=()=>{let sc=0;QS.forEach((q,i)=>{const li=ol.children[i],ls=li.querySelectorAll('label');let pk=-1;ls.forEach((l,j)=>{l.classList.remove('ok','wrong');if(l.querySelector('input').checked)pk=j});ls[q.a].classList.add('ok');if(pk>=0&&pk!=q.a)ls[pk].classList.add('wrong');if(pk==q.a)sc++;const ex=li.querySelector('.ex');ex.hidden=false;ex.innerHTML=(pk==q.a?'<b class="g">Correct.</b> ':pk<0?'<b class="r">No answer.</b> ':'<b class="r">Not quite.</b> ')+q.ex});const s=$('score');s.textContent='Score: '+sc+' / '+QS.length;s.className='score '+(sc>=3?'good':'bad')};
+$('rst').onclick=()=>{ol.querySelectorAll('input').forEach(i=>i.checked=false);ol.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));ol.querySelectorAll('.ex').forEach(e=>e.hidden=true);$('score').textContent=''}}
+
+const CAPS=[
+"A <b>ligand</b> is a molecule or ion with a <b>lone pair</b> it can donate to a metal ion. It forms a <b>dative (coordinate) bond</b>: both electrons in the bond come from the ligand. H<sub>2</sub>O, NH<sub>3</sub> and Cl<sup>−</sup> are ligands.",
+"In water, Cu<sup>2+</sup> forms <b>[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup></b>: six dative bonds, <b>coordination number 6</b>, <b>octahedral</b> (bond angles 90°). The solution is <b>blue</b>.",
+"Add <b>concentrated HCl</b>. Cl<sup>−</sup> ions replace the water ligands: [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> + 4Cl<sup>−</sup> ⇌ [CuCl<sub>4</sub>]<sup>2−</sup> + 6H<sub>2</sub>O. The solution turns <b>green</b> (a mixture of both) and then <b>yellow</b>.",
+"Cl<sup>−</sup> is <b>larger</b> than H<sub>2</sub>O, so only four fit around Cu<sup>2+</sup>. <b>Coordination number 6 → 4</b>; shape <b>octahedral → tetrahedral</b> (109.5°). Adding water reverses the change: it is an equilibrium.",
+"Start again with blue [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>. Add a <b>few drops of NH<sub>3</sub>(aq)</b>. NH<sub>3</sub> acts as a <b>base</b> and removes H<sup>+</sup> from two water ligands. A <b>pale blue precipitate</b> of [Cu(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>] forms.",
+"Add <b>excess NH<sub>3</sub>(aq)</b>. The precipitate dissolves to give a <b>deep blue</b> solution of <b>[Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup></b>. NH<sub>3</sub> and H<sub>2</sub>O are similar in size, so it stays <b>octahedral</b> (coordination number 6).",
+"<b>Bidentate</b> ligands such as ethane-1,2-diamine (<b>en</b>) have two lone pairs that both bond. [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> + 3en → [Cu(en)<sub>3</sub>]<sup>2+</sup> + 6H<sub>2</sub>O. <b>4 particles become 7</b>, so entropy increases.",
+"<b>EDTA<sup>4−</sup></b> is <b>hexadentate</b>: one ion makes six dative bonds. 2 particles become 7, so <b>ΔS is positive</b>. ΔH is about zero (similar bonds broken and made), so ΔG is negative. This is the <b>chelate effect</b>."];
+function octa(cx,cy,L,M,q,br){let s='';const t=(x,y,str,a)=>T(x,y,str,'at',a);
+s+=Ln(cx,cy-16,cx,cy-66)+t(cx-7,cy-74,L[0],'start')+Ln(cx,cy+16,cx,cy+66)+t(cx-7,cy+90,L[1],'start')+Ln(cx-18,cy,cx-66,cy)+t(cx-70,cy+7,L[2],'end')+Ln(cx+18,cy,cx+66,cy)+t(cx+70,cy+7,L[3],'start');
+s+='<polygon points="'+(cx-10)+','+(cy+10)+' '+(cx-46)+','+(cy+54)+' '+(cx-54)+','+(cy+46)+'" fill="#1c2736"/>'+t(cx-56,cy+72,L[4],'end');
+for(let i=0;i<6;i++){const f=.25+i*.15,px=cx+10+40*f,py=cy-10-40*f,h=1+4.5*f;s+=Ln(px-h*.7,py-h*.7,px+h*.7,py+h*.7,'bd',' style="stroke-width:1.6"')}
+s+=t(cx+52,cy-54,L[5],'start')+t(cx,cy+7,M);
+if(br!==0)s+='<path class="bd" d="M'+(cx-118)+','+(cy-100)+' h-8 v210 h8 M'+(cx+118)+','+(cy-100)+' h8 v210 h-8"/>'+T(cx+130,cy-104,q,'at','start');return s}
+function tetra(cx,cy,L,M,q){let s=Ln(cx,cy-16,cx,cy-66)+T(cx,cy-74,L[0])+Ln(cx-16,cy+8,cx-62,cy+36)+T(cx-66,cy+54,L[1],'at','end')+'<polygon points="'+(cx+6)+','+(cy+14)+' '+(cx+36)+','+(cy+64)+' '+(cx+46)+','+(cy+58)+'" fill="#1c2736"/>'+T(cx+50,cy+84,L[2],'at','start');
+for(let i=0;i<6;i++){const f=.2+i*.16,px=cx+16+52*f,py=cy-2-14*f,h=1+4.5*f;s+=Ln(px-h*.26,py-h*.96,px+h*.26,py+h*.96,'bd',' style="stroke-width:1.6"')}
+return s+T(cx+76,cy-12,L[3],'at','start')+T(cx,cy+7,M)+'<path class="bd" d="M'+(cx-110)+','+(cy-100)+' h-8 v210 h8 M'+(cx+112)+','+(cy-100)+' h8 v210 h-8"/>'+T(cx+124,cy-104,q,'at','start')}
+function tube(x,y,w,h,fill,id){const r=w/2;return '<path class="liq"'+(id?' id="'+id+'"':'')+' d="M'+x+','+(y+h*.25)+' V'+(y+h-r)+' A'+r+','+r+' 0 0 0 '+(x+w)+','+(y+h-r)+' V'+(y+h*.25)+' Z" fill="'+fill+'"/><path class="gl" d="M'+(x-4)+','+y+' H'+x+' V'+(y+h-r)+' A'+r+','+r+' 0 0 0 '+(x+w)+','+(y+h-r)+' V'+y+' H'+(x+w+4)+'"/>'}
+function ppt(x,y,w,id,col){return '<path id="'+id+'" d="M'+(x+4)+','+(y)+' q'+(w*.15)+',-14 '+(w*.3)+',-4 q'+(w*.2)+',-12 '+(w*.4)+',0 q'+(w*.15)+',-8 '+(w*.22)+',4 a'+(w/2-4)+','+(w/2-4)+' 0 0 1 '+(-(w-8))+',0 Z" fill="'+col+'" stroke="#6d9cc4" stroke-width="1.2"/>'}
+function dropper(lab,s,h){return G(s,h,'<ellipse cx="600" cy="38" rx="13" ry="16" fill="#8a96a3"/><path class="gl" d="M594,52 V92 L600,104 L606,92 V52" fill="#fff"/>'+[0,1].map(i=>'<circle class="drop" style="animation-delay:'+(i*.7)+'s" cx="600" cy="108" r="4" fill="#9fb8d0"/>').join('')+T(578,44,lab,'lk','end'))}
+function parts(x,y,n,col){let s='';for(let i=0;i<n;i++)s+='<circle cx="'+(x+i*22)+'" cy="'+y+'" r="8" fill="'+(i==0?col:'#9fb8d0')+'" stroke="#1c2736" stroke-width="1.2"/>';return s}
+function build(){let s='';
+// step 1
+s+=G(1,2,T(110,207,'O')+Ln(100,214,80,240)+Ln(120,214,140,240)+T(72,256,'H')+T(148,256,'H')+LP(110,184)+LP(128,198,1)+T(320,207,'Cu^{2+}')+A('M134,196 C180,168 250,170 292,194',1,0)+
+T(200,290,'dative (coordinate) bond:','lk')+T(200,312,'both electrons come from the ligand','lb')+
+T(600,60,'Ligands have a lone pair to donate','ti')+
+T(520,150,'N')+Ln(520,158,520,182)+Ln(510,156,490,176)+Ln(530,156,550,176)+T(520,200,'H')+T(484,192,'H')+T(556,192,'H')+LP(520,124)+T(520,232,'ammonia','lb')+
+T(680,150,'Cl^{−}')+LP(674,124)+LP(674,160)+LP(652,138,1)+LP(702,138,1)+T(680,232,'chloride ion','lb')+
+T(400,380,'complex ion = central metal ion + ligands joined by dative bonds','lk'));
+// structures
+s+=G(2,4,octa(190,215,['OH_{2}','OH_{2}','H_{2}O','OH_{2}','H_{2}O','OH_{2}'],'Cu','2+'));
+s+=G(3,4,[[30,70],[330,70],[30,370],[330,370]].map(p=>T(p[0],p[1],'Cl^{−}','at','middle',' style="fill:#1d7a46"')).join(''));
+s+=G(4,5,tetra(190,215,['Cl','Cl','Cl','Cl'],'Cu','2−'));
+s+=G(5,6,octa(190,215,['OH_{2}','OH_{2}','HO','OH','H_{2}O','OH_{2}'],'Cu',''));
+s+=G(6,7,octa(190,215,['OH_{2}','OH_{2}','H_{3}N','NH_{3}','H_{3}N','NH_{3}'],'Cu','2+'));
+// middle labels
+const mid=(a,b,c,st,h)=>G(st,h,T(440,150,a,'ti')+T(440,180,b,'lk')+(c?T(440,206,c,'lb'):''));
+s+=mid('octahedral','coordination number 6','bond angles 90°',2,3)+mid('Cl^{−} replaces H_{2}O','ligand exchange','',3,4)+mid('tetrahedral','coordination number 4','Cl^{−} is larger than H_{2}O',4,5)+mid('NH_{3} acts as a base','removes H^{+} from 2 H_{2}O','neutral complex: precipitate',5,6)+mid('octahedral','coordination number 6','4 NH_{3} + 2 H_{2}O ligands',6,7);
+// tube
+s+=G(2,7,tube(570,110,60,230,'#8ec5ee','liq')+ppt(570,336,60,'ppt','#a9d3f2')+'<text id="tlab" x="600" y="378" class="lk" text-anchor="middle">blue solution</text>');
+s+=dropper('conc. HCl',3,4)+dropper('NH_{3}(aq), a few drops',5,6)+dropper('excess NH_{3}(aq)',6,7);
+// en
+const cx=190,cy=215;
+s+=G(7,8,octa(cx,cy,['N','N','N','N','N','N'],'Cu','2+')+'<path d="M'+(cx+8)+','+(cy-92)+' Q'+(cx+92)+','+(cy-96)+' '+(cx+92)+','+(cy-18)+' M'+(cx-12)+','+(cy+100)+' Q'+(cx-60)+','+(cy+118)+' '+(cx-76)+','+(cy+80)+' M'+(cx-92)+','+(cy-12)+' Q'+(cx-70)+','+(cy-120)+' '+(cx+56)+','+(cy-76)+'" fill="none" stroke="#8a96a3" stroke-width="3.5" stroke-dasharray="7 4"/>'+
+T(455,80,'H_{2}N','at','end')+Ln(460,73,478,73)+T(505,80,'CH_{2}')+Ln(532,73,550,73)+T(577,80,'CH_{2}')+Ln(604,73,622,73)+T(626,80,'NH_{2}','at','start')+LP(447,56)+LP(634,56)+T(545,118,'en: bidentate, 2 lone pairs, 2 dative bonds','lk')+
+T(565,188,'[Cu(H_{2}O)_{6}]^{2+} + 3en → [Cu(en)_{3}]^{2+} + 6H_{2}O','lk')+parts(400,240,4,'#4a44b5')+T(545,246,'→','at')+parts(590,240,7,'#4a44b5')+T(433,275,'4 particles','lb')+T(656,275,'7 particles','lb')+T(565,320,'entropy increases: ΔS > 0','ti'));
+// EDTA
+const P=[[cx,cy-82],[cx+56,cy-62],[cx+82,cy],[cx,cy+84],[cx-64,cy+66],[cx-84,cy]];
+s+=G(8,0,octa(cx,cy,['O','N','O','N','O','O'],'Cu','2−')+'<path d="M'+P.map(p=>p[0]+','+p[1]).join(' L')+'" fill="none" stroke="#4a44b5" stroke-opacity=".35" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>'+
+T(565,70,'EDTA^{4−}: hexadentate ligand','ti')+T(565,96,'2 N and 4 O lone pairs: 6 dative bonds','lk')+
+T(565,170,'[Cu(H_{2}O)_{6}]^{2+} + EDTA^{4−} → [Cu(EDTA)]^{2−} + 6H_{2}O','lk')+parts(440,220,2,'#4a44b5')+T(520,226,'→','at')+parts(570,220,7,'#4a44b5')+T(451,255,'2 particles','lb')+T(636,255,'7 particles','lb')+
+T(565,300,'ΔH ≈ 0 (similar bonds broken and made)','lk')+T(565,326,'ΔS > 0, so ΔG = ΔH − TΔS < 0','lk')+T(565,362,'chelate effect: a very stable complex','ti'));
+return s}
+let t3=null;
+function onStep(n,anim){const L=$('liq'),p=$('ppt'),tl=$('tlab');clearTimeout(t3);const C={2:'#8ec5ee',3:'#8fbf6a',4:'#e2cf3a',5:'#b9dcf5',6:'#2443b8'},TX={2:'blue solution',3:'green, then yellow',4:'yellow solution',5:'pale blue precipitate',6:'deep blue solution'};
+if(C[n]){L.style.fill=C[n];tl.textContent=TX[n]}if(n==3)t3=setTimeout(()=>{L.style.fill='#e2cf3a'},anim?1800:0);p.style.opacity=n==5?1:0}
+const fh=s=>s.replace(/_\{([^}]*)\}/g,'<sub>$1</sub>').replace(/\^\{([^}]*)\}/g,'<sup>$1</sup>');
+const RG={hcl:'conc. HCl',nf:'NH_{3}(aq), a few drops',nx:'NH_{3}(aq), excess',ed:'EDTA^{4−}(aq)'};
+const ST={Cu:{n:'[Cu(H_{2}O)_{6}]^{2+} (blue)',c:'#8ec5ee',r:{
+hcl:['yellow solution; tetrahedral','#e2cf3a',0,'[Cu(H_{2}O)_{6}]^{2+} + 4Cl^{−} ⇌ [CuCl_{4}]^{2−} + 6H_{2}O','Cl^{−} is larger than H_{2}O, so coordination number 6 → 4.'],
+nf:['pale blue precipitate','#b9dcf5',1,'[Cu(H_{2}O)_{6}]^{2+} + 2NH_{3} → [Cu(OH)_{2}(H_{2}O)_{4}] + 2NH_{4}^{+}','NH_{3} acts as a base, not a ligand. The neutral complex is insoluble.'],
+nx:['deep blue solution; octahedral','#2443b8',0,'[Cu(H_{2}O)_{6}]^{2+} + 4NH_{3} → [Cu(NH_{3})_{4}(H_{2}O)_{2}]^{2+} + 4H_{2}O','Four NH_{3} ligands replace four H_{2}O. Still 6-coordinate.'],
+ed:['blue solution; octahedral, one hexadentate ligand','#4f7fd8',0,'[Cu(H_{2}O)_{6}]^{2+} + EDTA^{4−} → [Cu(EDTA)]^{2−} + 6H_{2}O','2 particles → 7 particles: ΔS > 0 (chelate effect).']}},
+Co:{n:'[Co(H_{2}O)_{6}]^{2+} (pink)',c:'#f2a7c3',r:{
+hcl:['blue solution; tetrahedral','#2f5fd0',0,'[Co(H_{2}O)_{6}]^{2+} + 4Cl^{−} ⇌ [CoCl_{4}]^{2−} + 6H_{2}O','Cl^{−} is larger than H_{2}O, so coordination number 6 → 4.'],
+nf:['blue precipitate','#6f8fd8',1,'[Co(H_{2}O)_{6}]^{2+} + 2NH_{3} → [Co(OH)_{2}(H_{2}O)_{4}] + 2NH_{4}^{+}','NH_{3} acts as a base, not a ligand. The neutral complex is insoluble.'],
+nx:['straw-coloured solution; octahedral','#e3cf8f',0,'[Co(H_{2}O)_{6}]^{2+} + 6NH_{3} → [Co(NH_{3})_{6}]^{2+} + 6H_{2}O','All six water ligands are replaced. It darkens in air as Co(II) is oxidised to Co(III).'],
+ed:['pink solution; octahedral, one hexadentate ligand','#e8a8c0',0,'[Co(H_{2}O)_{6}]^{2+} + EDTA^{4−} → [Co(EDTA)]^{2−} + 6H_{2}O','2 particles → 7 particles: ΔS > 0 (chelate effect).']}}};
+let tS='Cu',tR='hcl';
+function tdraw(fill,p,pc){$('tsv').innerHTML=tube(70,20,60,210,fill,'tl2')+ppt(70,226,60,'tppt',pc||'#b9dcf5');$('tppt').style.opacity=p?1:0}
+function initTry(){const a=$('tst'),b=$('trg');
+Object.keys(ST).forEach(k=>{const e=document.createElement('button');e.className='mini';e.innerHTML=fh(ST[k].n);e.dataset.k=k;e.onclick=()=>{tS=k;tset()};a.appendChild(e)});
+Object.keys(RG).forEach(k=>{const e=document.createElement('button');e.className='mini';e.innerHTML=fh(RG[k]);e.dataset.k=k;e.onclick=()=>{tR=k;tset()};b.appendChild(e)});
+$('tgo').onclick=tgo;tset()}
+function tset(){[...$('tst').children].forEach(e=>e.setAttribute('aria-pressed',e.dataset.k==tS?'true':'false'));[...$('trg').children].forEach(e=>e.setAttribute('aria-pressed',e.dataset.k==tR?'true':'false'));
+const r=ST[tS].r,ks=Object.keys(r),sel=$('tpr');sel.innerHTML='<option value="">choose…</option>'+['nx','hcl','ed','nf'].map(k=>'<option value="'+k+'">'+r[k][0]+'</option>').join('');
+tdraw(ST[tS].c,0);const o=$('tout');o.className='say';o.innerHTML='Start: '+fh(ST[tS].n)+'. Add <b>'+fh(RG[tR])+'</b>. Make a prediction, then press <b>Add reagent</b>.'}
+function tgo(){const r=ST[tS].r[tR],v=$('tpr').value,o=$('tout');if(!v){o.className='say bad';o.innerHTML='Choose a prediction first.';return}
+const L=$('tl2');L.style.fill=r[1];$('tppt').style.fill=r[1];$('tppt').style.opacity=r[2]?1:0;if(r[2])L.style.fill=ST[tS].c;
+const ok=v==tR;o.className='say '+(ok?'good':'bad');o.innerHTML=(ok?'<b>Correct.</b> ':'<b>Not quite.</b> You see: <b>'+r[0]+'</b>. ')+fh(r[3])+'<br>'+fh(r[4])}
+const QS=[
+{q:'What must a molecule or ion have to act as a ligand?',o:['A lone pair of electrons it can donate','A positive charge','An empty d orbital','A C=C double bond'],a:0,ex:'The ligand donates a lone pair to the metal ion, forming a dative bond.'},
+{q:'What are the shape and coordination number of [CuCl<sub>4</sub>]<sup>2−</sup>?',o:['Octahedral, 6','Tetrahedral, 4','Linear, 2','Octahedral, 4'],a:1,ex:'Four large Cl<sup>−</sup> ligands fit around Cu<sup>2+</sup>: tetrahedral, coordination number 4.'},
+{q:'Excess NH<sub>3</sub>(aq) is added to [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>(aq). What is seen?',o:['A yellow solution forms','A pale blue precipitate forms and stays','A pale blue precipitate forms, then dissolves to give a deep blue solution','No change'],a:2,ex:'First [Cu(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>] precipitates, then [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup> forms in excess.'},
+{q:'Why does [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> react with EDTA<sup>4−</sup> to form a very stable complex?',o:['The Cu–O bonds formed are much stronger','The number of particles increases from 2 to 7, so ΔS is positive','ΔH is very positive','EDTA<sup>4−</sup> is a smaller ligand than water'],a:1,ex:'This is the chelate effect: a large entropy increase makes ΔG negative.'}];
+
+$('sv').insertAdjacentHTML('beforeend',build());initArrows();initPlayer();initQuiz();if(typeof initTry=='function')initTry();go(1,false);
+</script></body></html>

@@ -1,0 +1,253 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>d-Orbital Splitting and Colour</title>
+<meta name="description" content="Interactive animation: d-Orbital Splitting and Colour. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-colour-of-complexes.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#f7f9fb;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--arrow:#4a44b5;--glass:#7d8fa3;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--muted)}.lede strong{color:var(--ink)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.stage{background:var(--bench);border:1px solid var(--line);border-radius:12px;padding:6px;outline:none}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.8em;background:var(--accent-soft);border-radius:10px;padding:10px 14px;max-width:none}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.stepn{font:600 .9rem var(--display);color:var(--muted);min-width:6.5em}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--accent);background:#fff;font:600 .75rem var(--display);color:var(--accent);cursor:pointer;padding:0}
+.dot.on{background:var(--accent);color:#fff}
+.seg{display:inline-flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden;margin-left:auto}
+.seg button{font:600 .85rem var(--display);border:0;background:#fff;color:var(--accent);padding:7px 11px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:#fff}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.dot:focus-visible,.seg button:focus-visible,.mini:focus-visible,.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent)}
+.mini:disabled{opacity:.4;cursor:not-allowed}
+.controls{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+select{font:inherit;font-size:.95rem;padding:5px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.say{border-radius:10px;padding:10px 14px;background:var(--sheet);border:2px solid var(--line)}
+.say.good{border-color:var(--good);background:#eef8f2}.say.bad{border-color:var(--bad);background:#fdf1f0}
+.score{font:700 1rem var(--display)}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+.mcq{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:1fr}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:5px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer}
+.mcq label:hover{border-color:var(--accent)}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.mcq label.ok{border-color:var(--good);background:#eef8f2}.mcq label.wrong{border-color:var(--bad);background:#fdf1f0}
+.ex{font-size:.93rem;margin-top:6px}.ex .g{color:var(--good)}.ex .r{color:var(--bad)}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:16px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00}.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font-size:.92rem;color:var(--muted);text-align:center}
+footer strong{color:var(--ink)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+/* svg */
+.at{font:500 20px var(--display);fill:var(--ink)}
+.lb{font:15px var(--body);fill:var(--muted)}
+.lk{font:700 15px var(--body);fill:var(--ink)}
+.ti{font:600 17px var(--display);fill:var(--accent)}
+.sb{font-size:70%}
+.bd{stroke:var(--ink);stroke-width:2;stroke-linecap:round;fill:none}
+.gl{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.ap{fill:none;stroke:var(--arrow);stroke-width:2.3;stroke-linecap:round}
+.ah{fill:var(--arrow);stroke:var(--arrow);stroke-width:1.2;stroke-linejoin:round}
+.half .ah{fill:none;stroke-width:2.3}
+.hl{fill:#fff3c4;stroke:#d9a400;stroke-width:1.5;stroke-dasharray:4 3}
+.lp{fill:var(--ink)}
+[data-s],[data-mv]{transition:opacity .6s ease,transform 1.1s ease}
+.dl:not(.off){transition-delay:1.1s,0s}
+.off{opacity:0!important;pointer-events:none}
+@media(max-width:520px){body{font-size:16px}.seg{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.tgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+@media(max-width:720px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tgrid svg{width:100%;height:auto;max-width:460px;background:var(--bench);border:1px solid var(--line);border-radius:10px}
+.lbl{font:600 .85rem var(--display);color:var(--muted);min-width:4em}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.ec{stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.liq{transition:fill 1s ease}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>d-Orbital Splitting and Colour</h1><p class="meta">IAL Chemistry · Unit 5 · Transition metals</p><p class="lede"><strong>In this animation</strong>: see why transition metal ions are coloured: ligands split the d orbitals, an electron absorbs light, and we see the complementary colour.</p></header>
+<section class="sheet" aria-labelledby="wh"><h2 id="wh"><span class="step">Watch it</span><span>Why is [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> blue?</span></h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 420" role="img" aria-label="Diagram of d-orbital splitting in an octahedral copper(II) complex and the colour wheel"></svg></div>
+<p class="cap" id="cap" aria-live="polite"></p>
+<div class="player" role="group" aria-label="Animation controls"><button class="btn ghost" id="pRs">Restart</button><button class="btn ghost" id="pBk">Back</button><button class="btn" id="pPl" aria-pressed="false">Play</button><button class="btn ghost" id="pNx">Next</button><span class="stepn" id="pSt" aria-live="polite">Step 1</span><span class="dots" id="pDots"></span><span class="seg" role="group" aria-label="Speed"><button id="spS" aria-pressed="false">Slow</button><button id="spN" aria-pressed="true">Normal</button></span></div>
+</section>
+<section class="sheet" aria-labelledby="th"><h2 id="th"><span class="step">Try it</span><span>Choose an ion and a ligand</span></h2>
+<p class="hint">Pick a metal ion and a ligand. See the complex, the light it absorbs and the colour you see.</p>
+<div class="controls"><span class="lbl">Ion</span><span class="tools" id="ions"></span></div>
+<div class="controls"><span class="lbl">Ligand</span><span class="tools" id="ligs"></span></div>
+<div class="tgrid"><svg id="tsv" viewBox="0 0 460 240" role="img" aria-label="Test tube and colour wheel"></svg><div class="say" id="tout" aria-live="polite"></div></div>
+</section>
+<section class="sheet" aria-labelledby="ch"><h2 id="ch"><span class="step">Check it</span>Four quick questions</h2><ol class="qs" id="qs"></ol><div class="controls"><button class="btn" id="chk">Check my answers</button><button class="btn ghost" id="rst">Try again</button><span class="score" id="score" aria-live="polite"></span></div></section>
+<section class="tip" aria-labelledby="xh"><h2 id="xh">Exam tip</h2><ul><li>Colour comes from a d electron <b>absorbing</b> light and moving to a higher d orbital. Do not say the electron "gives out" the colour.</li><li>Say we see the <b>complementary</b> colour, because the light that is <b>not absorbed</b> is transmitted or reflected.</li><li>Explain colourless Sc<sup>3+</sup> and Zn<sup>2+</sup> using 3d<sup>0</sup> and 3d<sup>10</sup>: no d–d transitions are possible.</li><li>Remove the <b>4s</b> electrons first: Fe<sup>2+</sup> is [Ar] 3d<sup>6</sup>, not [Ar] 3d<sup>4</sup> 4s<sup>2</sup>.</li></ul></section>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "In an octahedral complex ion, how are the five 3d orbitals split by the ligands?", "m": 1, "o": ["all five stay at the same energy", "one lower energy orbital and four higher energy orbitals", "three lower energy orbitals and two higher energy orbitals", "two lower energy orbitals and three higher energy orbitals"], "a": 2, "why": "C is correct because in an octahedral field the two orbitals pointing at the ligands are raised in energy and three are lowered."}, {"t": "mc", "q": "Which ion forms a <b>colourless<\/b> aqueous complex?", "m": 1, "o": ["Cr<sup>3+<\/sup>", "Fe<sup>2+<\/sup>", "V<sup>3+<\/sup>", "Cu<sup>+<\/sup>"], "a": 3, "why": "D is correct because Cu<sup>+<\/sup> is [Ar] 3d<sup>10<\/sup>: the d sub-shell is full, so no d–d transition is possible."}, {"t": "w", "q": "Aqueous copper(II) sulfate contains the complex ion [Cu(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>2+<\/sup>, which is blue.<br>Explain why this complex ion is coloured.", "m": 4, "ms": ["the water ligands cause the 3d orbitals to split into two energy levels (1)", "a d electron absorbs energy from visible light and is promoted to a higher energy d orbital (1)", "the frequency of light absorbed corresponds to the energy gap, ΔE = hf (in the red/orange region) (1)", "the remaining frequencies are transmitted/reflected, so the complementary colour (blue) is seen (1)"], "note": "Do not award marks for electrons 'emitting' or 'giving out' light. Reject 'the ion absorbs blue light'."}, {"t": "w", "q": "In [Ti(H<sub>2<\/sub>O)<sub>6<\/sub>]<sup>3+<\/sup>, the energy gap between the split 3d orbitals is 3.98 × 10<sup>−19<\/sup> J.<br>Calculate the wavelength, in nm, of the light absorbed.<br>[h = 6.63 × 10<sup>−34<\/sup> J s, c = 3.00 × 10<sup>8<\/sup> m s<sup>−1<\/sup>]<br>Then state why only one d–d absorption is seen for Ti<sup>3+<\/sup>.", "m": 3, "ms": ["f = ΔE ÷ h = 3.98 × 10<sup>−19<\/sup> ÷ 6.63 × 10<sup>−34<\/sup> = 6.00 × 10<sup>14<\/sup> Hz (1)", "λ = c ÷ f = 5.00 × 10<sup>−7<\/sup> m = 500 nm (1)", "Ti<sup>3+<\/sup> is [Ar] 3d<sup>1<\/sup>: it has only one d electron (1)"], "note": "Allow λ = hc ÷ ΔE in one step. Allow 499–501 nm. Correct answer with no working scores both calculation marks."}, {"t": "w", "q": "(i) Give the electronic configuration of V<sup>3+<\/sup>, using [Ar] notation.<br>(ii) V<sup>3+<\/sup>(aq) is green but V<sup>2+<\/sup>(aq) is violet. Both are hexaaqua ions. Explain why their colours are different.", "m": 3, "ms": ["(i) [Ar] 3d<sup>2<\/sup> (1)", "(ii) the ions have different oxidation states / different numbers of d electrons, so the size of the d-orbital splitting (ΔE) is different (1)", "so different frequencies of light are absorbed, and a different complementary colour is seen (1)"], "note": "Reject [Ar] 3d<sup>1<\/sup> 4s<sup>1<\/sup> for (i). Do not award 'different ligands' in (ii): the ligand is the same."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>  '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> · tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><strong>Key fact:</strong> ΔE = hf. The size of the d-orbital split decides which frequency of light is absorbed, and so the colour we see.</footer>
+</div><script>"use strict";
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+function fm(s){let o='',sh=0;String(s).replace(/([_^])\{([^}]*)\}|([^_^]+)/g,(m,k,v,t)=>{if(t!==undefined){o+=sh?'<tspan dy="'+(-sh)+'">'+t+'</tspan>':t;sh=0}else{const d=k=='_'?5:-8;o+='<tspan class="sb" dy="'+(d-sh)+'">'+v+'</tspan>';sh=d}return''});return o}
+function T(x,y,s,c,a,ex){return '<text x="'+x+'" y="'+y+'" class="'+(c||'at')+'" text-anchor="'+(a||'middle')+'"'+(ex||'')+'>'+fm(s)+'</text>'}
+function Ln(x1,y1,x2,y2,c,ex){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" class="'+(c||'bd')+'"'+(ex||'')+'/>'}
+function G(s,h,inner,ex){return '<g data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+(ex||'')+'>'+inner+'</g>'}
+function A(d,s,h,ex){return '<g class="arr'+(ex&&ex.indexOf('half')>=0?' half':'')+'" data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+'><path class="ap" d="'+d+'"/></g>'}
+function LP(x,y,v){const dx=v?0:4,dy=v?4:0;return '<circle class="lp" cx="'+(x-dx)+'" cy="'+(y-dy)+'" r="2.3"/><circle class="lp" cx="'+(x+dx)+'" cy="'+(y+dy)+'" r="2.3"/>'}
+function initArrows(){document.querySelectorAll('#sv .arr').forEach(g=>{const p=g.querySelector('.ap'),L=p.getTotalLength(),e=p.getPointAtLength(L),b=p.getPointAtLength(Math.max(0,L-6));let ux=e.x-b.x,uy=e.y-b.y;const m=Math.hypot(ux,uy)||1;ux/=m;uy/=m;const bx=e.x-12*ux,by=e.y-12*uy,px=-uy*5.5,py=ux*5.5,half=g.classList.contains('half');const h=document.createElementNS('http://www.w3.org/2000/svg',half?'polyline':'polygon');h.setAttribute('points',half?(bx+px)+','+(by+py)+' '+e.x+','+e.y:e.x+','+e.y+' '+(bx+px)+','+(by+py)+' '+(bx-px)+','+(by-py));h.setAttribute('class','ah');g.appendChild(h);g._L=L})}
+function drawA(g,anim){const p=g.querySelector('.ap'),h=g.querySelector('.ah'),L=g._L;if(!anim){p.style.transition='none';p.style.strokeDasharray='none';p.style.strokeDashoffset=0;h.style.transition='none';h.style.opacity=1;return}p.style.transition='none';p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;h.style.transition='none';h.style.opacity=0;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 1.1s ease .3s';p.style.strokeDashoffset=0;h.style.transition='opacity .2s ease 1.35s';h.style.opacity=1}
+let cur=1,playing=false,slow=false,tm=null,N=1;
+function apply(n,anim){anim=anim&&!RM;
+document.querySelectorAll('#sv [data-s]').forEach(el=>{const s=+el.dataset.s,h=el.dataset.h?+el.dataset.h:99,on=n>=s&&n<h;el.classList.toggle('off',!on);if(on&&el.classList.contains('arr'))drawA(el,anim&&n==s)});
+document.querySelectorAll('#sv [data-mv]').forEach(el=>{let v='0,0';el.dataset.mv.split('|').forEach(k=>{const q=k.split(':');if(n>=+q[0])v=q[1]});const q=v.split(',');el.style.transform='translate('+q[0]+'px,'+q[1]+'px)'});
+$('cap').innerHTML=CAPS[n-1];if(typeof onStep=='function')onStep(n,anim)}
+function ui(){$('pSt').textContent='Step '+cur+' of '+N;$('pPl').textContent=playing?'Pause':'Play';$('pPl').setAttribute('aria-pressed',playing?'true':'false');$('pBk').disabled=cur==1;$('pNx').disabled=cur==N;[...$('pDots').children].forEach((d,i)=>{d.classList.toggle('on',i+1==cur);if(i+1==cur)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')})}
+function sched(){clearTimeout(tm);if(playing){if(cur<N)tm=setTimeout(()=>go(cur+1,true),slow?9000:5500);else{playing=false;ui()}}}
+function go(n,anim){cur=Math.max(1,Math.min(N,n));apply(cur,anim);ui();sched()}
+function initPlayer(){N=CAPS.length;const d=$('pDots');for(let i=1;i<=N;i++){const b=document.createElement('button');b.className='dot';b.textContent=i;b.setAttribute('aria-label','Go to step '+i);b.onclick=()=>{playing=false;go(i,true)};d.appendChild(b)}
+$('pRs').onclick=()=>go(1,true);$('pBk').onclick=()=>{playing=false;go(cur-1,true)};$('pNx').onclick=()=>{playing=false;go(cur+1,true)};
+$('pPl').onclick=()=>{if(playing){playing=false;clearTimeout(tm);ui()}else{playing=true;go(cur==N?1:cur,true)}};
+const sp=v=>{slow=v;$('spS').setAttribute('aria-pressed',v?'true':'false');$('spN').setAttribute('aria-pressed',v?'false':'true');sched()};$('spS').onclick=()=>sp(true);$('spN').onclick=()=>sp(false);
+$('stage').addEventListener('keydown',e=>{if(e.key=='ArrowRight'){e.preventDefault();playing=false;go(cur+1,true)}else if(e.key=='ArrowLeft'){e.preventDefault();playing=false;go(cur-1,true)}})}
+function initQuiz(){const ol=$('qs');ol.innerHTML=QS.map((q,i)=>'<li><p>'+q.q+'</p><div class="mcq">'+q.o.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"><span>'+o+'</span></label>').join('')+'</div><p class="ex" hidden></p></li>').join('');
+$('chk').onclick=()=>{let sc=0;QS.forEach((q,i)=>{const li=ol.children[i],ls=li.querySelectorAll('label');let pk=-1;ls.forEach((l,j)=>{l.classList.remove('ok','wrong');if(l.querySelector('input').checked)pk=j});ls[q.a].classList.add('ok');if(pk>=0&&pk!=q.a)ls[pk].classList.add('wrong');if(pk==q.a)sc++;const ex=li.querySelector('.ex');ex.hidden=false;ex.innerHTML=(pk==q.a?'<b class="g">Correct.</b> ':pk<0?'<b class="r">No answer.</b> ':'<b class="r">Not quite.</b> ')+q.ex});const s=$('score');s.textContent='Score: '+sc+' / '+QS.length;s.className='score '+(sc>=3?'good':'bad')};
+$('rst').onclick=()=>{ol.querySelectorAll('input').forEach(i=>i.checked=false);ol.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));ol.querySelectorAll('.ex').forEach(e=>e.hidden=true);$('score').textContent=''}}
+
+const CAPS=[
+"A <b>transition metal</b> is a d-block element that forms one or more <b>stable ions with an incomplete d sub-shell</b>. Copper is one: Cu<sup>2+</sup> is [Ar] 3d<sup>9</sup>. The <b>4s electrons are lost first</b>.",
+"In a free Cu<sup>2+</sup> ion, the five 3d orbitals all have the <b>same energy</b>. Cu<sup>2+</sup> has <b>9 d electrons</b>.",
+"In water, six H<sub>2</sub>O ligands form <b>dative bonds</b> to Cu<sup>2+</sup>: an <b>octahedral</b> complex, [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>. The ligands' lone pairs repel the d electrons, so the d orbitals <b>split</b>: two higher, three lower. The energy gap is <b>ΔE</b>.",
+"White light shines on the solution. An electron in a lower d orbital <b>absorbs a photon</b> with energy equal to ΔE and is <b>promoted</b> to the higher level. Because <b>ΔE = hf</b>, only light of one frequency (colour) is absorbed.",
+"The light that is <b>not absorbed</b> passes through. We see the <b>complementary colour</b>, opposite on the colour wheel. [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup> absorbs red-orange light, so it looks <b>blue</b>.",
+"<b>Sc<sup>3+</sup></b> (3d<sup>0</sup>) has no d electrons to promote. <b>Zn<sup>2+</sup></b> (3d<sup>10</sup>) has no space in the upper level. No d–d transition can happen, so both ions are <b>colourless</b>.",
+"Change the <b>ligand</b>, the <b>coordination number</b> or the <b>oxidation state</b> and ΔE changes. A different frequency of light is absorbed, so the <b>colour changes</b>."];
+function ob(x,y,k,sz){sz=sz||34;let s='<rect x="'+x+'" y="'+y+'" width="'+sz+'" height="'+sz+'" fill="#fff" stroke="#1c2736" stroke-width="1.8"/>';const a=sz*.32,b=sz*.68;if(k>0)s+=up(x+a,y,sz);if(k>1)s+=dn(x+b,y,sz);return s}
+function up(x,y,sz){sz=sz||34;return '<path class="ec" d="M'+x+','+(y+sz*.82)+' V'+(y+sz*.18)+' M'+(x-4)+','+(y+sz*.18+6)+' L'+x+','+(y+sz*.18)+' L'+(x+4)+','+(y+sz*.18+6)+'"/>'}
+function dn(x,y,sz){sz=sz||34;return '<path class="ec" d="M'+x+','+(y+sz*.18)+' V'+(y+sz*.82)+' M'+(x-4)+','+(y+sz*.82-6)+' L'+x+','+(y+sz*.82)+' L'+(x+4)+','+(y+sz*.82-6)+'"/>'}
+function row(x,y,ks,sz){sz=sz||34;return ks.map((k,i)=>ob(x+i*sz,y,k,sz)).join('')}
+function octa(cx,cy,L,M,q){let s='';const t=(x,y,str,a)=>T(x,y,str,'at',a);
+s+=Ln(cx,cy-16,cx,cy-66)+t(cx-7,cy-74,L[0],'start')+Ln(cx,cy+16,cx,cy+66)+t(cx-7,cy+90,L[1],'start')+Ln(cx-18,cy,cx-66,cy)+t(cx-70,cy+7,L[2],'end')+Ln(cx+18,cy,cx+66,cy)+t(cx+70,cy+7,L[3],'start');
+s+='<polygon points="'+(cx-10)+','+(cy+10)+' '+(cx-46)+','+(cy+54)+' '+(cx-54)+','+(cy+46)+'" fill="#1c2736"/>'+t(cx-56,cy+72,L[4],'end');
+for(let i=0;i<6;i++){const f=.25+i*.15,px=cx+10+40*f,py=cy-10-40*f,h=1+4.5*f;s+=Ln(px-h*.7,py-h*.7,px+h*.7,py+h*.7,'bd',' style="stroke-width:1.6"')}
+s+=t(cx+52,cy-54,L[5],'start')+t(cx,cy+7,M);
+s+='<path class="bd" d="M'+(cx-118)+','+(cy-100)+' h-8 v210 h8 M'+(cx+118)+','+(cy-100)+' h8 v210 h-8"/>'+T(cx+130,cy-104,q,'at','start');return s}
+function tube(x,y,w,h,fill,id){const r=w/2;return '<path class="liq"'+(id?' id="'+id+'"':'')+' d="M'+x+','+(y+h*.25)+' V'+(y+h-r)+' A'+r+','+r+' 0 0 0 '+(x+w)+','+(y+h-r)+' V'+(y+h*.25)+' Z" fill="'+fill+'"/><path class="gl" d="M'+(x-4)+','+y+' H'+x+' V'+(y+h-r)+' A'+r+','+r+' 0 0 0 '+(x+w)+','+(y+h-r)+' V'+y+' H'+(x+w+4)+'"/>'}
+const WC=['#e53935','#fb8c00','#fdd835','#43a047','#1e66d0','#8e44ad'],WN=['red','orange','yellow','green','blue','violet'];
+const pt=(cx,cy,r,a)=>[cx+r*Math.sin(a*Math.PI/180),cy-r*Math.cos(a*Math.PI/180)];
+function wheel(cx,cy,r,lab){let s='';WC.forEach((c,i)=>{const a=i*60,p=pt(cx,cy,r,a-30),q=pt(cx,cy,r,a+30);s+='<path d="M'+cx+','+cy+' L'+p[0].toFixed(1)+','+p[1].toFixed(1)+' A'+r+','+r+' 0 0 1 '+q[0].toFixed(1)+','+q[1].toFixed(1)+' Z" fill="'+c+'" stroke="#fff" stroke-width="2"/>';if(lab){const m=pt(cx,cy,r*.66,a);s+='<text x="'+m[0].toFixed(1)+'" y="'+(m[1]+5).toFixed(1)+'" text-anchor="middle" style="font:700 13px var(--body);fill:'+(i==2?'#1c2736':'#fff')+'">'+WN[i]+'</text>'}});return s+'<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*.3)+'" fill="#fff"/>'}
+function mark(cx,cy,r,a,txt,col){const p=pt(cx,cy,r+4,a),q=pt(cx,cy,r+18,a),u=pt(cx,cy,r+24,a),sn=Math.sin(a*Math.PI/180);return '<line x1="'+p[0].toFixed(1)+'" y1="'+p[1].toFixed(1)+'" x2="'+q[0].toFixed(1)+'" y2="'+q[1].toFixed(1)+'" stroke="'+col+'" stroke-width="3"/><circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="5" fill="'+col+'"/><text x="'+u[0].toFixed(1)+'" y="'+(u[1]+5).toFixed(1)+'" class="lk" text-anchor="'+(Math.abs(sn)<.3?'middle':sn>0?'start':'end')+'" style="fill:'+col+'">'+txt+'</text>'}
+function split(x,y,u,l,sz){return row(x+sz/2,y,u,sz)+row(x,y+80,l,sz)+'<path class="ec" d="M'+(x+3.5*sz+14)+','+(y+sz+4)+' V'+(y+76)+' M'+(x+3.5*sz+10)+','+(y+sz+10)+' l4,-6 l4,6 M'+(x+3.5*sz+10)+','+(y+70)+' l4,6 l4,-6"/>'+T(x+3.5*sz+24,y+62,'ΔE','lk','start')}
+function build(){let s='';
+// step 1
+s+=G(1,2,T(30,50,'A transition metal is a d-block element that forms','lk','start')+T(30,74,'one or more stable ions with an incomplete d sub-shell.','lk','start')+
+T(30,132,'Cu atom','lk','start')+T(30,152,'[Ar]','lb','start')+row(150,118,[2,2,2,2,2])+ob(350,118,1)+T(235,108,'3d','lb')+T(367,108,'4s','lb')+
+T(30,212,'Cu^{2+} ion','lk','start')+T(30,232,'[Ar]','lb','start')+row(150,198,[2,2,2,2,1])+ob(350,198,0)+T(470,220,'3d^{9}: incomplete','ti','start')+T(470,244,'so Cu is a transition metal','lb','start')+
+['Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn'].map((e,i)=>{const x=50+i*70,o=i==0||i==9;return '<rect x="'+x+'" y="290" width="64" height="50" rx="6" fill="'+(o?'#f2f5f8':'#e7e6fb')+'" stroke="'+(o?'#8a96a3':'#4a44b5')+'" stroke-width="1.6"'+(o?' stroke-dasharray="5 4"':'')+'/>'+T(x+32,322,e,'at')}).join('')+
+T(82,368,'Sc^{3+}: 3d^{0}','lb')+T(712,368,'Zn^{2+}: 3d^{10}','lb')+T(400,400,'Sc and Zn are d-block elements but not transition metals','lb'));
+// left: Cu2+ alone and complex
+s+=G(2,3,T(165,228,'Cu^{2+}','at','middle',' style="font-size:30px"'));
+s+=G(3,5,octa(165,220,['OH_{2}','OH_{2}','H_{2}O','OH_{2}','H_{2}O','OH_{2}'],'Cu','2+'));
+// energy diagram
+let ed='<path class="ec" d="M440,390 V80 M434,90 l6,-10 l6,10"/>'+T(430,96,'energy','lb','end');
+ed+='<g data-mv="3:20,82">'+row(480,208,[2,2,1])+'<g data-mv="4:-27,-160" data-s="1">'+dn(480+2*34+34*.68,208)+'</g></g>';
+ed+='<g data-mv="3:-75,-78">'+row(480+3*34,208,[2,1])+'</g>';
+s+=G(2,6,ed);
+s+=G(2,3,T(565,190,'3d orbitals (free ion): same energy','lb'));
+s+=G(3,6,'<g class="dl">'+'<path class="ec" d="M660,168 V286 M656,174 l4,-6 l4,6 M656,280 l4,6 l4,-6"/>'+T(672,234,'ΔE','ti','start')+T(600,120,'2 orbitals, higher','lb','start')+T(610,350,'3 orbitals, lower','lb','start')+'</g>');
+s+=G(4,5,'<path d="M300,236 q10,-14 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0" fill="none" stroke="#fb8c00" stroke-width="3.5"/><polygon points="452,236 440,229 440,243" fill="#fb8c00"/>'+T(380,268,'photon: ΔE = hf','lk','middle',' style="fill:#b55d00"'));
+s+=G(5,6,wheel(165,215,105,1)+mark(165,215,105,30,'absorbed','#1c2736')+mark(165,215,105,210,'seen','#1c2736'));
+// step 6
+s+=G(6,7,T(200,50,'Sc^{3+}  [Ar] 3d^{0}','ti')+split(110,90,[0,0],[0,0,0],34)+tube(330,90,40,150,'#f6f8fb')+T(200,300,'no d electrons to promote','lk')+T(200,326,'colourless','lb')+
+T(600,50,'Zn^{2+}  [Ar] 3d^{10}','ti')+split(510,90,[2,2],[2,2,2],34)+tube(730,90,40,150,'#f6f8fb')+T(600,300,'upper level full: no space','lk')+T(600,326,'colourless','lb')+Ln(400,40,400,340,'bd',' style="stroke:#cdd6df"'));
+// step 7
+const TB=[['[Cu(H_{2}O)_{6}]^{2+}','','#8ec5ee','pale blue','starting complex'],['[Cu(NH_{3})_{4}','(H_{2}O)_{2}]^{2+}','#2443b8','deep blue','new ligand'],['[CuCl_{4}]^{2−}','','#c8cc3a','yellow-green','4 ligands, tetrahedral'],['[Fe(H_{2}O)_{6}]^{2+}','','#c3e0a8','pale green','Fe(II)'],['[Fe(H_{2}O)_{6}]^{3+}','','#d9a441','yellow-brown','Fe(III)']];
+s+=G(7,0,T(400,36,'Different ligand, coordination number or oxidation state: different ΔE, different colour','lk')+TB.map((t,i)=>{const x=90+i*155;return T(x,t[1]?78:96,t[0],'lk')+(t[1]?T(x,98,t[1],'lk'):'')+tube(x-22,110,44,170,t[2])+T(x,310,t[3],'ti')+T(x,334,t[4],'lb')}).join('')+'<path class="bd" d="M548,352 v10 H717 v-10" style="stroke:#8a96a3"/>'+T(632,384,'change of oxidation state','lb'));
+return s}
+const ION={Cu:['Cu<sup>2+</sup>',9],Co:['Co<sup>2+</sup>',7],Ni:['Ni<sup>2+</sup>',8],Fe:['Fe<sup>2+</sup>',6],Cr:['Cr<sup>3+</sup>',3],Sc:['Sc<sup>3+</sup>',0],Zn:['Zn<sup>2+</sup>',10]};
+const LIG={w:'H<sub>2</sub>O',a:'NH<sub>3</sub> (excess)',c:'Cl<sup>−</sup> (conc. HCl)'};
+const s_=x=>x.replace(/(\d)/g,'<sub>$1</sub>');
+const CX={
+'Cu.w':['[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','pale blue','#8ec5ee',30,'red-orange'],
+'Cu.a':['[Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>','octahedral, 6 ligands','deep blue','#2443b8',90,'orange-yellow'],
+'Cu.c':['[CuCl<sub>4</sub>]<sup>2−</sup>','tetrahedral, 4 ligands','yellow-green','#c8cc3a',315,'violet'],
+'Co.w':['[Co(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','pink','#f2a7c3',180,'green'],
+'Co.a':['[Co(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','straw (pale yellow-brown)','#e3cf8f',290,'blue-violet'],
+'Co.c':['[CoCl<sub>4</sub>]<sup>2−</sup>','tetrahedral, 4 ligands','blue','#2f5fd0',60,'orange'],
+'Ni.w':['[Ni(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','green','#7cc68a',0,'red'],
+'Ni.a':['[Ni(NH<sub>3</sub>)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','lilac-blue','#8a86e0',100,'yellow'],
+'Fe.w':['[Fe(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','pale green','#c3e0a8',0,'red'],
+'Fe.a':['[Fe(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>4</sub>]','a green <b>precipitate</b>: here NH<sub>3</sub> acts as a base, not as a ligand','green (precipitate)','#9fbf86',0,'red',1],
+'Cr.w':['[Cr(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>','octahedral, 6 ligands','violet (often looks green if other ligands replace some water)','#9b7fc4',120,'yellow-green'],
+'Cr.a':['[Cr(NH<sub>3</sub>)<sub>6</sub>]<sup>3+</sup>','octahedral, 6 ligands','purple','#8e5aa8',110,'yellow'],
+'Sc.w':['[Sc(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup>','octahedral, 6 ligands','colourless','#f6f8fb',-1,''],
+'Zn.w':['[Zn(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>','octahedral, 6 ligands','colourless','#f6f8fb',-1,''],
+'Zn.a':['[Zn(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup>','tetrahedral, 4 ligands','colourless','#f6f8fb',-1,'']};
+let tI='Cu',tL='w';
+function initTry(){const io=$('ions'),lg=$('ligs');
+Object.keys(ION).forEach(k=>{const b=document.createElement('button');b.className='mini';b.innerHTML=ION[k][0];b.dataset.k=k;b.onclick=()=>{tI=k;if(!CX[tI+'.'+tL])tL='w';tr()};io.appendChild(b)});
+Object.keys(LIG).forEach(k=>{const b=document.createElement('button');b.className='mini';b.innerHTML=LIG[k];b.dataset.k=k;b.onclick=()=>{tL=k;tr()};lg.appendChild(b)});tr()}
+function tr(){[...$('ions').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.k==tI?'true':'false'));[...$('ligs').children].forEach(b=>{b.setAttribute('aria-pressed',b.dataset.k==tL?'true':'false');b.disabled=!CX[tI+'.'+b.dataset.k]});
+const c=CX[tI+'.'+tL],d=ION[tI][1];let sv=tube(40,20,60,190,c[3],'tl')+wheel(280,118,70,1);
+if(c[6])sv+='<ellipse cx="70" cy="190" rx="26" ry="14" fill="#6f8f5a"/>';
+if(c[4]>=0)sv+=mark(280,118,70,c[4],'absorbed','#1c2736')+mark(280,118,70,(c[4]+180)%360,'seen','#1c2736');else sv+=T(280,228,'nothing absorbed in the visible','lb');
+$('tsv').innerHTML=sv;
+const why=d==0?'3d<sup>0</sup>: no d electrons, so no d–d transitions. Colourless.':d==10?'3d<sup>10</sup>: the upper d level is full, so no d–d transitions. Colourless.':'3d<sup>'+d+'</sup>: an incomplete d sub-shell, so an electron can absorb a photon and move to the higher d level.';
+$('tout').innerHTML='<p><b>Complex:</b> '+c[0]+'</p><p><b>Shape:</b> '+c[1]+'</p><p><b>d electrons:</b> '+why+'</p>'+(c[4]>=0?'<p><b>Light absorbed:</b> '+c[5]+'</p>':'')+'<p><b>Colour seen:</b> '+c[2]+'</p>'}
+const QS=[
+{q:'Why is zinc <b>not</b> classed as a transition metal?',o:['Zn<sup>2+</sup> has a full 3d sub-shell (3d<sup>10</sup>)','Zinc has no d electrons','Zinc is not in the d-block','Zn<sup>2+</sup> has lost all its 3d electrons'],a:0,ex:'Its only ion, Zn<sup>2+</sup>, is [Ar] 3d<sup>10</sup>: the d sub-shell is complete.'},
+{q:'What is the electronic configuration of Fe<sup>3+</sup>?',o:['[Ar] 3d<sup>3</sup> 4s<sup>2</sup>','[Ar] 3d<sup>6</sup>','[Ar] 3d<sup>5</sup>','[Ar] 3d<sup>4</sup> 4s<sup>1</sup>'],a:2,ex:'Fe is [Ar] 3d<sup>6</sup> 4s<sup>2</sup>. Remove the two 4s electrons first, then one 3d electron.'},
+{q:'A complex ion absorbs orange light. What colour does its solution look?',o:['Orange','Blue','Red','Yellow'],a:1,ex:'We see the complementary colour. Blue is opposite orange on the colour wheel.'},
+{q:'Which change would <b>not</b> change the colour of a complex ion?',o:['Swapping H<sub>2</sub>O ligands for NH<sub>3</sub>','Oxidising the metal ion','Changing from 6 to 4 ligands','Diluting the solution with water'],a:3,ex:'Dilution makes the colour paler, but ΔE is the same, so the same light is absorbed.'}];
+
+$('sv').insertAdjacentHTML('beforeend',build());initArrows();initPlayer();initQuiz();if(typeof initTry=='function')initTry();go(1,false);
+</script></body></html>

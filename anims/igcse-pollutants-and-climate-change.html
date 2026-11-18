@@ -1,0 +1,673 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pollutants from burning fuels</title>
+<meta name="description" content="Interactive animation: Pollutants from burning fuels. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-pollutants-and-climate-change.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .78rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lbl{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.exam{background:#e6f4ec;border-left:4px solid var(--good);padding:8px 12px;border-radius:8px;font-size:.92rem}
+.btn{font:600 .95rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:focus-visible,.pick:focus-visible,input:focus-visible,.xtab:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pick{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+input[type=range]{accent-color:var(--accent);width:100%}
+.ends{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.readout{font:700 1rem var(--display);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 10px;display:inline-block;font-variant-numeric:tabular-nums}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:10px 22px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:520px){body{font-size:16px}.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;border-radius:12px;font-size:.95rem}}
+svg text{font-family:var(--body);fill:var(--ink)}
+.t-s{font-size:12px;fill:var(--muted)}.t-b{font:700 13px var(--display)}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs label{display:block;padding:2px 0;cursor:pointer}
+.fb{font-size:.92rem;font-weight:700}.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.score{font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:34px;height:12px;display:inline-block}
+.chk{display:flex;gap:8px;align-items:center;font-size:.95rem;cursor:pointer}
+[hidden]{display:none!important}
+
+/* ---- top tabs + exam practice (from lab pages; renamed to avoid clashing with concept tabs) ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;margin-top:8px;max-width:100%}
+.ex-tbl{border-collapse:collapse;font-size:.92rem;background:#fff}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--paper);font-weight:700}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in,.ex-drow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-sel{font:inherit;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+.ex-sel:focus-visible,.ex-in input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-corr{font-size:.9rem;font-weight:700;color:var(--good)}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
+.eq{font-weight:700;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.92rem}
+.warn{background:#fdf0ef;border-left:4px solid var(--bad);padding:8px 12px;border-radius:8px;font-size:.92rem}
+.legend .dot{width:14px;height:14px}
+.t-w{fill:#fff!important}.t-r{fill:#b3261e!important;font-weight:700}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Fuels and the atmosphere</div>
+<h1>Pollutants from burning fuels</h1>
+<p>Fuels such as petrol, diesel, coal and natural gas contain <b>hydrocarbons</b>. When they burn, they make gases that can harm people and the environment.</p>
+<p>Choose a tab. Press <b>Play</b>, move the sliders and watch what happens to the particles.</p>
+</header>
+<div class="toptabs" id="toptabRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" type="button" role="tab" id="tb1" aria-selected="true" aria-controls="p1">1 · Burning fuels</button>
+<button class="xtab" type="button" role="tab" id="tb2" aria-selected="false" aria-controls="p2" tabindex="-1">2 · Acid rain</button>
+<button class="xtab" type="button" role="tab" id="tb3" aria-selected="false" aria-controls="p3" tabindex="-1">3 · Greenhouse effect</button>
+<button class="xtab" type="button" role="tab" id="tb4" aria-selected="false" aria-controls="p4" tabindex="-1">4 · Climate change</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="layout" id="p1" role="tabpanel" aria-labelledby="tb1">
+<div class="stage"><svg id="s1" viewBox="0 0 640 430" role="img" aria-label="Fuel burning in an engine, with a view of carbon monoxide in the blood">
+<g id="g1e">
+<text x="290" y="36" text-anchor="middle" class="t-b">Combustion chamber (engine)</text>
+<rect x="150" y="50" width="280" height="250" rx="18" fill="#f6f8fb" stroke="#7d8fa3" stroke-width="3"/>
+<path d="M10 90H152" stroke="#7d8fa3" stroke-width="28"/><path d="M10 90H156" stroke="#fbeec2" stroke-width="22"/>
+<path d="M10 250H152" stroke="#7d8fa3" stroke-width="28"/><path d="M10 250H156" stroke="#e3eefb" stroke-width="22"/>
+<path d="M428 175H640" stroke="#7d8fa3" stroke-width="34"/><path d="M424 175H640" stroke="#eef1f4" stroke-width="28"/>
+<g class="lab1"><text x="12" y="66" class="t-b">fuel (hydrocarbon)</text><text x="12" y="290" class="t-b">air (contains oxygen)</text><text x="536" y="148" text-anchor="middle" class="t-b">exhaust gases →</text></g>
+<path id="fl1o" fill="#4f8ff7"/><path id="fl1i" fill="#cfe0ff"/>
+<g id="m1"></g>
+<g id="tal"></g>
+</g>
+<g id="g1b" style="display:none">
+<rect x="30" y="18" width="230" height="86" rx="12" fill="#eef5fc" stroke="#7d8fa3" stroke-width="2"/>
+<text x="40" y="36" class="t-b">Air breathed in</text><g id="air1"></g>
+<rect x="10" y="120" width="620" height="170" rx="40" fill="#f9dcd8" stroke="#c0504d" stroke-width="3"/>
+<rect x="40" y="128" width="200" height="154" rx="16" fill="#eaf3fb" opacity=".55"/>
+<rect x="410" y="128" width="200" height="154" rx="16" fill="#fff3d6" opacity=".6"/>
+<text x="140" y="148" text-anchor="middle" class="t-b">In the lungs</text>
+<text x="510" y="148" text-anchor="middle" class="t-b">In body tissues</text>
+<path d="M150 104V124" stroke="#4a44b5" stroke-width="3" marker-end="url(#ar)"/>
+<text x="320" y="276" text-anchor="middle" class="t-s">blood flow →</text>
+<g id="cells"></g>
+<rect x="410" y="318" width="200" height="56" rx="10" fill="#fff3d6" stroke="#c79410" stroke-width="2"/>
+<text x="510" y="340" text-anchor="middle" class="t-b">body cells</text><text x="510" y="358" text-anchor="middle" class="t-s">need oxygen for respiration</text>
+<g id="fre"></g>
+<text id="bread" x="20" y="404" class="t-b"></text><text id="bread2" x="20" y="422" class="t-s"></text>
+</g>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4a44b5"/></marker></defs>
+</svg>
+<div class="legend" id="lg1" style="padding:4px 8px 6px"></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<div class="row" role="group" aria-label="View"><button class="pick" id="v1e" aria-pressed="true">Engine</button><button class="pick" id="v1b" aria-pressed="false">In the blood</button></div>
+<div id="oxBox"><label class="lbl" for="ox">Oxygen supply: <span class="readout" id="oxv"></span></label>
+<input type="range" id="ox" min="10" max="100" step="5" value="100"><div class="ends"><span>limited</span><span>plenty</span></div></div>
+<div id="coBox" hidden><div class="lbl">Air breathed in</div><div class="row"><button class="pick" id="ca0" aria-pressed="true">Clean air</button><button class="pick" id="ca1" aria-pressed="false">Air with carbon monoxide</button></div></div>
+<div class="row"><button class="btn" id="play1">Pause</button><button class="btn ghost" id="step1">Step</button><button class="btn ghost" id="rep1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lab1" checked> Show labels</label>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st1"></div></div>
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="layout" id="p2" role="tabpanel" aria-labelledby="tb2" hidden>
+<div class="stage"><svg id="s2" viewBox="0 0 640 430" role="img" aria-label="Sulfur dioxide and nitrogen oxides from a power station and a car form acid rain">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d6e8f8"/><stop offset="1" stop-color="#f4f8fc"/></linearGradient></defs>
+<rect width="640" height="345" fill="url(#sky)"/><rect y="340" width="640" height="90" fill="#cfe3b4"/>
+<rect x="140" y="336" width="120" height="12" fill="#9aa5b1"/>
+<rect x="28" y="262" width="92" height="78" fill="#c8ced6" stroke="#7d8fa3" stroke-width="2"/><rect x="92" y="172" width="20" height="92" fill="#aeb7c2" stroke="#7d8fa3" stroke-width="2"/>
+<rect x="40" y="282" width="16" height="16" fill="#fff"/><rect x="64" y="282" width="16" height="16" fill="#fff"/>
+<g><path d="M156 336v-14l12-12h40l14 12h12v14z" fill="#4a44b5"/><circle cx="172" cy="338" r="8" fill="#1c2736"/><circle cx="218" cy="338" r="8" fill="#1c2736"/><rect x="146" y="328" width="12" height="5" fill="#5a6878"/></g>
+<g id="cloud"></g>
+<g id="rain"></g>
+<g id="trees"></g>
+<rect x="398" y="318" width="50" height="24" fill="#d9d2bd" stroke="#8c8370" stroke-width="1.5"/>
+<path id="stat" d="M410 318v-36q0-8 6-10h14q6 2 6 10v36z" fill="#ece5d1" stroke="#8c8370" stroke-width="1.5"/><circle id="sthd" cx="423" cy="262" r="10" fill="#ece5d1" stroke="#8c8370" stroke-width="1.5"/>
+<g id="pits"></g>
+<ellipse cx="545" cy="384" rx="88" ry="30" fill="#7fb6e0" stroke="#5a8fbd" stroke-width="2"/>
+<g id="fish"></g>
+<g id="bub"></g>
+<g id="em"></g>
+<g class="lab2"><text x="74" y="364" text-anchor="middle" class="t-s">power station</text><text x="74" y="378" text-anchor="middle" class="t-s">(burns coal)</text><text x="196" y="364" text-anchor="middle" class="t-s">car engine</text>
+<text id="phl" x="450" y="126" text-anchor="middle" class="t-b"></text>
+<g id="efl"><text x="306" y="358" text-anchor="middle" class="t-r">trees damaged</text><text x="423" y="244" text-anchor="middle" class="t-r">limestone</text><text x="423" y="358" text-anchor="middle" class="t-r">corrodes</text><text x="545" y="424" text-anchor="middle" class="t-r">lake acidic: fish die</text></g></g>
+<rect x="8" y="8" width="256" height="112" rx="10" fill="#fff" stroke="#cdd6df" stroke-width="1.5"/><text x="18" y="26" class="t-b">Particle view</text>
+<g id="ins"></g>
+</svg>
+<div class="legend" id="lg2" style="padding:4px 8px 6px"></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<div class="lbl">Stage: <span class="readout" id="stgv"></span></div>
+<div class="row"><button class="btn" id="play2">Pause</button><button class="btn ghost" id="step2">Step</button><button class="btn ghost" id="rep2">Replay</button></div>
+<div class="lbl">Reduce pollution</div>
+<label class="chk"><input type="checkbox" id="ds"> Remove sulfur from the fuel</label>
+<label class="chk"><input type="checkbox" id="cc"> Catalytic converter on the car</label>
+<label class="chk"><input type="checkbox" id="lab2" checked> Show labels</label>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st2"></div></div>
+</div>
+</div>
+
+<!-- TAB 3 -->
+<div class="layout" id="p3" role="tabpanel" aria-labelledby="tb3" hidden>
+<div class="stage"><svg id="s3" viewBox="0 0 640 430" role="img" aria-label="Radiation from the Sun warms the Earth; greenhouse gases absorb and re-emit heat">
+<defs><linearGradient id="atm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe2f6"/><stop offset="1" stop-color="#eef5fc"/></linearGradient></defs>
+<rect width="640" height="92" fill="#1f2a44"/><rect y="90" width="640" height="245" fill="url(#atm)"/>
+<path id="gnd" d="M0 340Q320 322 640 340V430H0z" fill="#8fbf72"/><path d="M0 392Q320 378 640 392V430H0z" fill="#a8865f"/>
+<circle cx="64" cy="46" r="44" fill="#ffd23f" opacity=".25"/><circle cx="64" cy="46" r="30" fill="#ffd23f" stroke="#f0a500" stroke-width="2"/>
+<g class="lab3"><text x="120" y="26" class="t-b t-w">Sun</text><text x="630" y="22" text-anchor="end" class="t-s t-w">space</text><text x="630" y="112" text-anchor="end" class="t-s">atmosphere</text><text x="320" y="420" text-anchor="middle" class="t-b">Earth's surface</text></g>
+<g id="gm"></g><g id="ph"></g>
+<rect x="590" y="140" width="16" height="160" rx="8" fill="#fff" stroke="#7d8fa3" stroke-width="2"/><rect id="thf" x="593" y="200" width="10" height="100" rx="5" fill="#d6402b"/><circle cx="598" cy="306" r="12" fill="#d6402b" stroke="#7d8fa3" stroke-width="2"/>
+<text id="tht" x="598" y="132" text-anchor="middle" class="t-b"></text>
+<text id="cnt1" x="200" y="22" class="t-s t-w"></text><text id="cnt2" x="200" y="40" class="t-s t-w"></text>
+</svg>
+<div class="legend" id="lg3" style="padding:4px 8px 6px"></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<div class="row" role="group" aria-label="Greenhouse gases"><button class="pick" id="gh1" aria-pressed="true">Greenhouse gases present</button><button class="pick" id="gh0" aria-pressed="false">No greenhouse gases</button></div>
+<label class="lbl" for="ppm">Carbon dioxide level: <span class="readout" id="ppmv"></span></label>
+<input type="range" id="ppm" min="180" max="800" step="10" value="420"><div class="ends"><span>180 ppm</span><span>800 ppm</span></div>
+<div class="row"><button class="pick" id="pp280">280 ppm (1750)</button><button class="pick" id="pp420">420 ppm (today)</button></div>
+<div class="row"><button class="btn" id="play3">Pause</button><button class="btn ghost" id="step3">Step</button><button class="btn ghost" id="rep3">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lab3" checked> Show labels</label>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st3"></div></div>
+</div>
+</div>
+
+<!-- TAB 4 -->
+<div class="layout" id="p4" role="tabpanel" aria-labelledby="tb4" hidden>
+<div class="stage"><svg id="s4" viewBox="0 0 640 430" role="img" aria-label="Graph of carbon dioxide level and temperature rising since 1850, with effects of climate change">
+<g id="gr"></g>
+<rect y="232" width="640" height="198" fill="#eef5fb"/>
+<g id="sc4"></g>
+</svg>
+<div class="legend" style="padding:4px 8px 6px"><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#4a44b5" stroke-width="3"/></svg>carbon dioxide (ppm, left axis)</span><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#d6402b" stroke-width="3"/></svg>temperature rise (°C, right axis)</span><span>Approximate values. Scene not to scale.</span></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<label class="lbl" for="yr">Year: <span class="readout" id="yrv"></span></label>
+<input type="range" id="yr" min="1850" max="2024" step="1" value="1850"><div class="ends"><span>1850</span><span>2024</span></div>
+<div class="row"><button class="btn" id="play4">Pause</button><button class="btn ghost" id="step4">Step +10 years</button><button class="btn ghost" id="rep4">Replay</button></div>
+<div class="lbl">Effect to look at</div>
+<div class="row"><button class="pick" id="ef0" aria-pressed="true">Sea level</button><button class="pick" id="ef1" aria-pressed="false">Extreme weather</button><button class="pick" id="ef2" aria-pressed="false">Habitats and crops</button></div>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st4"></div>
+<div class="exam"><b>Ways to reduce CO<sub>2</sub>:</b> burn less fossil fuel; use renewable energy (wind, solar, hydroelectric); save energy; stop cutting down forests and plant more trees.</div></div>
+</div>
+</div>
+
+<section class="sheet"><h2>Key points</h2><ul class="kp">
+<li><b>Complete combustion</b> of a hydrocarbon (plenty of oxygen) makes <b>carbon dioxide and water</b>. With a <b>limited</b> supply of oxygen, <b>incomplete combustion</b> also makes <b>carbon monoxide</b> and <b>carbon (soot)</b>.</li>
+<li><b>Carbon monoxide is toxic.</b> It is colourless and odourless. It <b>combines with haemoglobin</b> in red blood cells and <b>reduces the ability of the blood to carry oxygen</b>.</li>
+<li>Fuels such as coal contain <b>sulfur impurities</b>. These burn to make <b>sulfur dioxide</b>: S + O<sub>2</sub> → SO<sub>2</sub>.</li>
+<li>In hot car engines, <b>nitrogen and oxygen from the air</b> react to make <b>nitrogen oxides</b> (NO<sub>x</sub>). The nitrogen does not come from the fuel.</li>
+<li>SO<sub>2</sub> and NO<sub>x</sub> dissolve in rain water to make <b>acid rain</b>. It damages trees, makes lakes acidic so fish die, and corrodes limestone buildings and metal structures.</li>
+<li><b>Greenhouse gases</b> (carbon dioxide, methane, water vapour) absorb heat given out by the Earth and re-emit some back. Burning fossil fuels and deforestation increase CO<sub>2</sub>, so more heat is kept in: <b>global warming</b> leads to <b>climate change</b>.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function T(x,y,s,c,p,a){const e=E('text',Object.assign({x,y,class:c||''},a||{}),p);e.textContent=s;return e}
+function setF(e,s){e.textContent='';s.split(/(_\d+|_x)/).forEach(q=>{if(!q)return;const sub=q[0]=='_';const sp=E('tspan',sub?{'baseline-shift':'sub','font-size':'72%'}:{},e);sp.textContent=sub?q.slice(1):q})}
+function F(x,y,s,c,p,a){const e=E('text',Object.assign({x,y,class:c||''},a||{}),p);setF(e,s);return e}
+const $=id=>document.getElementById(id);
+const lerp=(a,b,t)=>a+(b-a)*t,cl=(v,a,b)=>Math.max(a,Math.min(b,v)),R=Math.random;
+function lc(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16)),A=p(a),B=p(b);return'rgb('+A.map((v,i)=>Math.round(lerp(v,B[i],t))).join(',')+')'}
+function tf(g,x,y,s,r){g.setAttribute('transform',`translate(${x.toFixed(1)},${y.toFixed(1)})`+(s&&s!=1?` scale(${s})`:'')+(r?` rotate(${r.toFixed(0)})`:''))}
+const RAD={H:4,C:6.5,O:6,N:6,S:7.5,K:4.5},COL={H:'#ffffff',C:'#3a4656',O:'#d6402b',N:'#3b6fd1',S:'#e8b90c',K:'#111111'};
+const MOLS={CH4:[['H',-7,-7],['H',7,-7],['H',-7,7],['H',7,7],['C',0,0]],O2:[['O',-5,0],['O',5,0]],CO2:[['O',-11,0],['O',11,0],['C',0,0]],H2O:[['H',-7,5],['H',7,5],['O',0,0]],CO:[['C',-5,0],['O',6,0]],C:[['K',-4,-3],['K',4,-3],['K',0,4]],S:[['S',0,0]],SO2:[['O',-10,5],['O',10,5],['S',0,0]],N2:[['N',-5,0],['N',5,0]],NO:[['N',-5,0],['O',6,0]],NO2:[['O',-10,5],['O',10,5],['N',0,0]]};
+function M(k,p){const g=E('g',{},p);MOLS[k].forEach(([e,x,y])=>E('circle',{cx:x,cy:y,r:RAD[e],fill:COL[e],stroke:'#22303f','stroke-width':1},g));return g}
+const ENAME={C:'carbon',H:'hydrogen',O:'oxygen',S:'sulfur',N:'nitrogen',K:'soot (carbon)'};
+function leg(id,els,extra){$(id).innerHTML=els.map(e=>`<span><svg class="dot" viewBox="-8 -8 16 16"><circle r="${Math.min(7,RAD[e]+1)}" fill="${COL[e]}" stroke="#22303f"/></svg>${ENAME[e]} atom</span>`).join('')+(extra||'')}
+const EQ=s=>'<p class="eq">'+s+'</p>';
+/* ---------- TAB 1 ---------- */
+leg('lg1',['C','H','O','K']);
+const m1=$('m1'),fo=$('fl1o'),fi=$('fl1i'),tal=$('tal');
+let ox=100,run1=true,view1='E',fT=0,oT=0,P1=[],t1=0,coAir=false;
+const TK=['CO2','H2O','CO','C'],TN=['carbon dioxide','water','carbon monoxide','carbon (soot)'],cnt={CO2:0,H2O:0,CO:0,C:0},bar={},ctx={};
+TK.forEach((k,i)=>{const x=12+i*157,g=E('g',{},tal);E('rect',{x,y:318,width:148,height:100,rx:10,fill:'#fff',stroke:'#cdd6df','stroke-width':1.5},g);
+ tf(M(k,g),x+22,344);T(x+44,348,TN[i],'t-s',g);F(x+10,376,k=='C'?'C':k.replace(/(\d)/,'_$1'),'t-b',g);
+ ctx[k]=T(x+138,376,'0','t-b',g,{'text-anchor':'end'});E('rect',{x:x+10,y:390,width:128,height:12,rx:6,fill:'#e4eaf0'},g);bar[k]=E('rect',{x:x+10,y:390,width:0,height:12,rx:6,fill:k=='CO'||k=='C'?'#b3261e':'#1d7a46'},g)});
+function probs(){const pc=cl((ox-35)/45,0,1),r=1-pc,ps=r*cl((60-ox)/60,0,.6);return[pc,r-ps,ps]}
+let N1=[];function sp1(k,x,y,w,v){const g=M(k,m1);N1.push({k,g,x,y,w,v,ph:R()*6})}
+function react(){const[pc,pco]=probs(),r=R(),k=r<pc?'CO2':r<pc+pco?'CO':'C';const y=()=>160+R()*30;
+ sp1(k,300,y(),[[430,175+(R()-.5)*16],[660,175+(R()-.5)*16]],80);sp1('H2O',290,y(),[[430,175+(R()-.5)*16],[660,175+(R()-.5)*16]],80);sp1('H2O',280,y(),[[430,175+(R()-.5)*16],[660,175+(R()-.5)*16]],80)}
+function upd1e(dt){t1+=dt;fT-=dt;oT-=dt;
+ if(fT<=0){fT=.8;sp1('CH4',10,90+(R()-.5)*10,[[150,90],[290+(R()-.5)*20,175]],75)}
+ if(oT<=0){oT=.8/(2*ox/100);sp1('O2',10,250+(R()-.5)*10,[[150,250],[290+(R()-.5)*20,180]],85)}
+ P1=P1.filter(p=>{p.ph+=dt*4;const w=p.w[0];const dx=w[0]-p.x,dy=w[1]-p.y,d=Math.hypot(dx,dy),s=p.v*dt;
+  if(d<=s){p.x=w[0];p.y=w[1];p.w.shift();if(!p.w.length){p.g.remove();if(p.k=='CH4')react();else if(p.k!='O2'){cnt[p.k]++;drawT()}return false}}else{p.x+=dx/d*s;p.y+=dy/d*s}
+  tf(p.g,p.x,p.y+(p.x>150&&p.x<430?2.5*Math.sin(p.ph):0),1,p.k=='C'?0:20*Math.sin(p.ph*.5));return true});P1=P1.concat(N1);N1=[];
+ const[pc,,ps]=probs(),H=(46-ps*8)*(1+.08*Math.sin(t1*13)+.05*Math.sin(t1*7)),W=16+(1-pc)*6,x=290,y=200;
+ const fp=(w,h)=>`M${x-w} ${y}Q${x-w} ${y-h*.45} ${x} ${y-h}Q${x+w} ${y-h*.45} ${x+w} ${y}Z`;
+ fo.setAttribute('d',fp(W,H));fi.setAttribute('d',fp(W*.5,H*.55));fo.setAttribute('fill',lc('#4f8ff7','#f39c27',1-pc));fi.setAttribute('fill',lc('#cfe0ff','#ffe27a',1-pc))}
+function drawT(){const mx=Math.max(10,...TK.map(k=>cnt[k]));TK.forEach(k=>{ctx[k].textContent=cnt[k];bar[k].setAttribute('width',(128*cnt[k]/mx).toFixed(1))})}
+/* blood */
+const cells=[],fre=$('fre'),air=$('air1'),airM=[];let O2f=[],deliv=0;
+for(let i=0;i<8;i++){const k=i<5?'O2':'CO',g=M(k,air);airM.push({g,k,x:50+R()*190,y:50+R()*44,ph:R()*6})}
+for(let i=0;i<5;i++){const g=E('g',{},$('cells'));E('ellipse',{rx:34,ry:22,fill:'#d43c3c',stroke:'#9e2424','stroke-width':2},g);E('ellipse',{rx:16,ry:8,fill:'#b8302f'},g);
+ const sites=[[-18,-8],[18,-8],[-18,9],[18,9]].map(([x,y])=>{E('circle',{cx:x,cy:y,r:4,fill:'#f2a6a6'},g);const o=M('O2',g),c=M('CO',g);[o,c].forEach(m=>{m.setAttribute('transform',`translate(${x},${y}) scale(.7)`);m.style.display='none'});return{st:0,o,c,x,y}});
+ cells.push({g,x:i*130+20,sites})}
+function setSite(s,v){s.st=v;s.o.style.display=v==1?'':'none';s.c.style.display=v==2?'':'none'}
+function upd1b(dt){t1+=dt;airM.forEach(m=>{m.ph+=dt;m.g.style.display=m.k=='CO'&&!coAir?'none':'';tf(m.g,m.x+8*Math.sin(m.ph*1.3),m.y+5*Math.cos(m.ph))});
+ cells.forEach((c,i)=>{c.x+=45*dt;if(c.x>660)c.x-=650;tf(c.g,c.x,205+8*Math.sin(c.x/60+i));
+  c.sites.forEach(s=>{if(c.x>60&&c.x<230&&s.st==0&&R()<dt*3)setSite(s,coAir&&R()<.55?2:1);
+   if(c.x>430&&c.x<600&&s.st==1&&R()<dt*2.5){setSite(s,0);const g=M('O2',fre);O2f.push({g,x:c.x+s.x,y:205+s.y,a:1})}})});
+ O2f=O2f.filter(o=>{o.y+=55*dt;if(o.y>330){o.a-=dt*3}if(o.a<=0){o.g.remove();deliv++;return false}tf(o.g,o.x,o.y,.7);o.g.setAttribute('opacity',o.a);return true});
+ let n1=0,n2=0;cells.forEach(c=>c.sites.forEach(s=>{if(s.st==1)n1++;if(s.st==2)n2++}));
+ $('bread').textContent=`Haemoglobin sites: ${n1} carry oxygen, ${n2} blocked by carbon monoxide (of 20)`;
+ $('bread2').textContent=`Oxygen molecules delivered to body cells: ${deliv}`}
+function st1(){const s=$('st1');
+ if(view1=='B'){s.innerHTML=coAir?'<p>Carbon monoxide <b>combines with haemoglobin</b> in red blood cells. It does <b>not</b> let go easily.</p><p>These sites can no longer carry oxygen. This <b>reduces the ability of the blood to carry oxygen</b>. Body cells get less oxygen.</p><p>This causes headaches, sleepiness, then unconsciousness and death.</p><p class="warn">Watch the number of sites carrying oxygen fall.</p>':
+  '<p>Red blood cells contain <b>haemoglobin</b>. In the lungs, haemoglobin picks up <b>oxygen</b>.</p><p>The blood carries the oxygen around the body. In the body tissues the oxygen is released to the cells for respiration.</p><p>Choose <b>Air with carbon monoxide</b> to see what CO does.</p>';return}
+ const[pc,pco,ps]=probs();let h;
+ if(pc>.97)h='<p>There is <b>plenty of oxygen</b>. The fuel burns completely. This is <b>complete combustion</b>.</p><p>The carbon in the fuel becomes <b>carbon dioxide</b>. The hydrogen becomes <b>water</b>. The flame is blue.</p>'+EQ('methane + oxygen → carbon dioxide + water<br>CH<sub>4</sub>(g) + 2O<sub>2</sub>(g) → CO<sub>2</sub>(g) + 2H<sub>2</sub>O(l)');
+ else if(ps<.05)h='<p>The oxygen supply is <b>limited</b>. Some of the fuel burns <b>incompletely</b>.</p><p><b>Incomplete combustion</b> makes <b>carbon monoxide</b>, CO, as well as water. The flame becomes more yellow.</p>'+EQ('methane + oxygen → carbon monoxide + water<br>2CH<sub>4</sub>(g) + 3O<sub>2</sub>(g) → 2CO(g) + 4H<sub>2</sub>O(l)');
+ else h='<p>There is <b>very little oxygen</b>. Incomplete combustion makes carbon monoxide and also <b>carbon</b> (soot): tiny black particles.</p><p>The flame is yellow and smoky. Soot makes buildings dirty.</p>'+EQ('methane + oxygen → carbon + water<br>CH<sub>4</sub>(g) + O<sub>2</sub>(g) → C(s) + 2H<sub>2</sub>O(l)');
+ if(pc<.97)h+='<p class="warn"><b>Carbon monoxide is toxic.</b> It has no colour and no smell, so you cannot detect it. Choose <b>In the blood</b> to see why it is dangerous.</p>';
+ s.innerHTML=h}
+function v1(v){view1=v;$('v1e').setAttribute('aria-pressed',v=='E');$('v1b').setAttribute('aria-pressed',v=='B');$('g1e').style.display=v=='E'?'':'none';$('g1b').style.display=v=='B'?'':'none';$('oxBox').hidden=v=='B';$('coBox').hidden=v=='E';
+ leg('lg1',v=='E'?['C','H','O','K']:['C','O'],v=='B'?'<span><svg class="dot" viewBox="-8 -8 16 16"><circle r="7" fill="#f2a6a6"/></svg>empty haemoglobin site</span>':'');st1()}
+$('v1e').onclick=()=>v1('E');$('v1b').onclick=()=>v1('B');
+function co(v){coAir=v;$('ca0').setAttribute('aria-pressed',!v);$('ca1').setAttribute('aria-pressed',v);st1()}
+$('ca0').onclick=()=>co(false);$('ca1').onclick=()=>co(true);
+$('ox').oninput=e=>{ox=+e.target.value;$('oxv').textContent=ox+'%';st1()};$('oxv').textContent='100%';
+$('play1').onclick=()=>{run1=!run1;$('play1').textContent=run1?'Pause':'Play'};
+$('step1').onclick=()=>{run1=false;$('play1').textContent='Play';for(let i=0;i<20;i++)view1=='E'?upd1e(1/40):upd1b(1/40)};
+$('rep1').onclick=()=>{if(view1=='E'){P1.forEach(p=>p.g.remove());P1=[];TK.forEach(k=>cnt[k]=0);drawT();fT=oT=0}else{cells.forEach(c=>c.sites.forEach(s=>setSite(s,0)));O2f.forEach(o=>o.g.remove());O2f=[];deliv=0}};
+$('lab1').onchange=e=>document.querySelectorAll('.lab1').forEach(g=>g.style.display=e.target.checked?'':'none');
+for(let i=0;i<60;i++)upd1e(.1);drawT();st1();
+/* ---------- TAB 2 ---------- */
+leg('lg2',['S','O','N']);
+const s2=$('s2'),emG=$('em'),rainG=$('rain'),ins=$('ins');
+[[400,78,34],[440,62,40],[490,70,36],[530,82,28],[360,90,24],[455,96,34]].forEach(([x,y,r])=>E('circle',{cx:x,cy:y,r,fill:'#e9eef3',stroke:'#b9c4cf','stroke-width':1.5},$('cloud')));
+E('rect',{x:340,y:80,width:220,height:32,rx:16,fill:'#e9eef3'},$('cloud'));
+const trees=[300,348].map(x=>{const g=E('g',{},$('trees'));E('rect',{x:x-4,y:290,width:9,height:52,fill:'#7a5a3a'},g);const cr=E('g',{},g);[[0,-6,22],[-14,8,16],[14,8,16]].forEach(([a,b,r])=>E('circle',{cx:a,cy:b,r,fill:'#4f9a3a'},cr));return{cr,x}});
+const fish=[0,1,2,3].map(i=>{const g=E('g',{},$('fish'));E('ellipse',{rx:9,ry:5,fill:'#f39c27'},g);E('path',{d:'M8 0l7-5v10z',fill:'#f39c27'},g);return{g,ph:i*1.6,y:378+(i%2)*12}});
+const pits=[[416,294],[428,304],[420,312],[430,286],[418,268],[426,258],[414,300],[431,270]].map(([x,y])=>E('circle',{cx:x,cy:y,r:2.6,fill:'#9b9077',opacity:0},$('pits')));
+let stg=0,run2=true,t2=0,t2s=0,ems=[],drops=[],bubs=[],dmg=0,aS=0,so2T=0,noT=0,dT=0,insI=[],insT=0;
+const STN=['1 of 4: sulfur dioxide','2 of 4: nitrogen oxides','3 of 4: acid rain','4 of 4: effects'];
+function it(k,a,b,mv,vis,s){const g=k?M(k,ins):E('g',{},ins);insI.push({g,a,b,mv,vis,s:s||1});return g}
+function buildIns(){ins.textContent='';insI=[];let e1,e2;
+ if(stg==0){it('S',[34,52],[64,52],[.05,.4],[0,.5]);it('O2',[110,52],[82,52],[.05,.4],[0,.5]);it('SO2',[200,52],[200,52],[0,1],[.5,1],1.3);e1='S + O_2 → SO_2';e2='sulfur (impurity in the fuel) + oxygen'}
+ else if(stg==1){it('N2',[34,52],[66,52],[.05,.4],[0,.5]);it('O2',[112,52],[84,52],[.05,.4],[0,.5]);it('NO',[180,52],[180,52],[0,1],[.5,1],1.2);it('NO',[222,52],[222,52],[0,1],[.5,1],1.2);
+  const f=E('path',{d:'M136 80q-7-8 0-18q2 6 6 2q6 8-6 16z',fill:'#f39c27'},ins);insI.push({g:f,a:[0,0],b:[0,0],mv:[0,1],vis:[.3,.6]});e1='N_2 + O_2 → 2NO';e2='nitrogen + oxygen (both from the air), very hot'}
+ else if(stg==2){const d=E('path',{d:'M180 24q-20 26-20 38a20 20 0 0 0 40 0q0-12-20-38z',stroke:'#3b78b8','stroke-width':2},ins);insI.push({g:d,drop:1,a:[0,0],b:[0,0],mv:[0,1],vis:[0,1]});
+  it('SO2',[40,44],[172,62],[.05,.55],[0,1],.8);it('NO2',[40,74],[188,72],[.1,.6],[0,1],.9);e1='SO_2 and NO_x + water → acids';e2='the gases dissolve in water droplets in clouds'}
+ else{E('rect',{x:120,y:64,width:120,height:20,fill:'#ece5d1',stroke:'#8c8370'},ins);T(180,78,'limestone','t-s',ins,{'text-anchor':'middle'});
+  const d=E('path',{d:'M0 -10q-6 8-6 12a6 6 0 0 0 12 0q0-4-6-12z',fill:'#e0662f'},ins);insI.push({g:d,a:[180,26],b:[180,62],mv:[0,.4],vis:[0,.42]});
+  [-22,0,20].forEach((dx,j)=>{const b=E('circle',{r:4,fill:'none',stroke:'#3b78b8','stroke-width':1.5},ins);insI.push({g:b,a:[180+dx,62],b:[184+dx,30-j*5],mv:[.45,1],vis:[.45,1]})});
+  e1='acid + limestone → fizzing (CO_2)';e2='acid rain reacts with limestone and with metals'}
+ E('path',{d:'M128 52h18',stroke:'#1c2736','stroke-width':2,'marker-end':'url(#ar)'},ins).style.display=stg<2?'':'none';
+ F(18,98,e1,'t-b',ins);T(18,112,e2,'t-s',ins)}
+function updIns(dt){insT+=dt;const p=(insT%3.6)/3.6;insI.forEach(o=>{const q=cl((p-o.mv[0])/(o.mv[1]-o.mv[0]),0,1),e=q*q*(3-2*q);
+ o.g.style.display=p>=o.vis[0]&&p<o.vis[1]?'':'none';if(o.drop){o.g.setAttribute('fill',lc('#bcd9f2','#f2b08a',cl((p-.5)*3,0,1)));return}
+ if(o.a[0]||o.b[0])tf(o.g,lerp(o.a[0],o.b[0],e),lerp(o.a[1],o.b[1],e),o.s*(o.vis[0]>=.5?.6+.4*cl((p-.5)*8,0,1):1))})}
+function spE(k,x,y){const g=M(k,emG);ems.push({g,x,y,ph:R()*6,a:1})}
+function upd2(dt){t2+=dt;t2s+=dt;if(t2s>7&&stg<3){stg++;t2s=0;setStg()}
+ const ds=$('ds').checked,cc=$('cc').checked;
+ so2T-=dt;if(so2T<=0){so2T=ds?3.5:.55;spE('SO2',102,166)}
+ noT-=dt;if(stg>=1&&noT<=0){noT=cc?3.5:.6;spE(R()<.5?'NO':'NO2',146,328)}
+ ems=ems.filter(m=>{m.ph+=dt;const dx=385-m.x,dy=96-m.y,d=Math.hypot(dx,dy);m.x+=dx/d*42*dt+6*Math.sin(m.ph*2)*dt;m.y+=dy/d*42*dt;
+  if(d<70){m.a-=dt*1.5}if(m.a<=0){m.g.remove();return false}tf(m.g,m.x,m.y,.9,15*Math.sin(m.ph));m.g.setAttribute('opacity',m.a.toFixed(2));return true});
+ const aT=stg>=2?(ds?.08:.6)+(cc?.06:.4):0;aS=lerp(aS,aT,Math.min(1,dt*.8));
+ dT-=dt;while(dT<=0){dT+=.05;const x=300+R()*300;drops.push({e:E('line',{x1:0,y1:0,x2:-2,y2:9,'stroke-width':2,'stroke-linecap':'round'},rainG),x,y:108+R()*8})}
+ const dc=lc('#5b9bd5','#e0662f',cl(aS,0,1));
+ drops=drops.filter(d=>{d.y+=230*dt;const gy=d.x>455&&d.x<635?372:342;if(d.y>gy||(d.x>405&&d.x<442&&d.y>256)){if(d.x>405&&d.x<442&&aS>.3&&R()<.3)bubs.push({e:E('circle',{r:2.5,fill:'none',stroke:'#5a6878'},$('bub')),x:d.x,y:d.y,a:1});d.e.remove();return false}
+  d.e.setAttribute('transform',`translate(${d.x.toFixed(1)},${d.y.toFixed(1)})`);d.e.setAttribute('stroke',dc);return true});
+ bubs=bubs.filter(b=>{b.y-=25*dt;b.a-=dt*1.5;if(b.a<=0){b.e.remove();return false}b.e.setAttribute('cx',b.x);b.e.setAttribute('cy',b.y.toFixed(1));b.e.setAttribute('opacity',b.a.toFixed(2));return true});
+ if(stg>=2)dmg=Math.min(1,dmg+dt*aS*(stg>=3?.13:.04));
+ trees.forEach(tr=>{tr.cr.setAttribute('transform',`translate(${tr.x},282) scale(${(1-.35*dmg).toFixed(3)})`);tr.cr.querySelectorAll('circle').forEach(c=>c.setAttribute('fill',lc('#4f9a3a','#9a7b3a',dmg)))});
+ fish.forEach((f,i)=>{f.ph+=dt*.6;const vis=i<Math.ceil(4*(1-dmg)-.01);f.g.style.display=vis?'':'none';const x=545+60*Math.sin(f.ph+i);tf(f.g,x,f.y,1);f.g.setAttribute('transform',f.g.getAttribute('transform')+(Math.cos(f.ph+i)<0?' scale(-1 1)':''))});
+ pits.forEach((p,i)=>p.setAttribute('opacity',dmg>i/9?1:0));$('stat').setAttribute('fill',lc('#ece5d1','#cfc4a6',dmg));$('sthd').setAttribute('r',(10-3*dmg).toFixed(1));$('sthd').setAttribute('fill',lc('#ece5d1','#cfc4a6',dmg));
+ const ph=(5.6-1.6*aS).toFixed(1);$('phl').textContent=aS>.15?`acid rain: pH about ${ph}`:'rain: pH about 5.6';$('phl').style.fill=aS>.15?'#b3261e':'#1c2736';
+ $('efl').style.display=stg>=3?'':'none';updIns(dt);
+ if(Math.floor(t2*2)!==Math.floor((t2-dt)*2))st2()}
+let last2='';
+function st2(){const ds=$('ds').checked,cc=$('cc').checked;let h=['<p>Fossil fuels such as coal and oil contain <b>sulfur</b> as an impurity. When the fuel burns, the sulfur reacts with oxygen.</p><p>This makes <b>sulfur dioxide</b>, SO<sub>2</sub>. Power stations that burn coal give out a lot of SO<sub>2</sub>.</p>'+EQ('sulfur + oxygen → sulfur dioxide<br>S(s) + O<sub>2</sub>(g) → SO<sub>2</sub>(g)'),
+ '<p>Inside a car engine the temperature is <b>very high</b>. At this temperature, <b>nitrogen and oxygen from the air</b> react together.</p><p>They make <b>nitrogen oxides</b> (NO<sub>x</sub>), such as NO and NO<sub>2</sub>. The nitrogen comes from the <b>air</b>, not from the fuel.</p>'+EQ('nitrogen + oxygen → nitrogen monoxide<br>N<sub>2</sub>(g) + O<sub>2</sub>(g) → 2NO(g)')+'<p>NO then reacts with more oxygen to make NO<sub>2</sub>.</p>',
+ '<p>Sulfur dioxide and nitrogen oxides rise into the air. They <b>dissolve in water</b> droplets in the clouds and make <b>acids</b>.</p><p>The rain that falls is <b>acid rain</b>. Normal rain is slightly acidic (about pH 5.6). Acid rain has a <b>lower pH</b>.</p>',
+ '<p>Effects of acid rain:</p><p>• it <b>damages and kills trees</b> and other plants<br>• it makes <b>lakes and rivers acidic</b>, so fish and other water animals die<br>• it <b>corrodes limestone</b> buildings and statues (the acid reacts with calcium carbonate)<br>• it <b>corrodes metal</b> structures such as iron bridges</p>'][stg];
+ if(ds)h+='<p>Removing sulfur from the fuel before it is burned means much less SO<sub>2</sub> is made.</p>';
+ if(cc&&stg>=1)h+='<p>A catalytic converter changes most of the nitrogen oxides into harmless nitrogen before the exhaust leaves the car.</p>';
+ if(stg>=2&&ds&&cc)h+='<p><b>The rain is now much less acidic.</b></p>';
+ if(h!==last2){$('st2').innerHTML=h;last2=h}}
+function setStg(){$('stgv').textContent=STN[stg];buildIns();insT=0;st2()}
+$('play2').onclick=()=>{run2=!run2;$('play2').textContent=run2?'Pause':'Play'};
+$('step2').onclick=()=>{if(stg<3){stg++;t2s=0;setStg()}else{for(let i=0;i<20;i++)upd2(1/20)}};
+$('rep2').onclick=()=>{stg=0;t2s=0;dmg=0;aS=0;ems.forEach(m=>m.g.remove());ems=[];run2=true;$('play2').textContent='Pause';setStg()};
+$('ds').onchange=$('cc').onchange=st2;
+$('lab2').onchange=e=>document.querySelectorAll('.lab2').forEach(g=>g.style.display=e.target.checked?'':'none');
+setStg();
+/* ---------- TAB 3 ---------- */
+leg('lg3',['C','O','H'],'<span><svg width="34" height="12"><path d="M2 6q3-5 6 0t6 0 6 0 6 0 6 0" fill="none" stroke="#e8a400" stroke-width="2.5"/></svg>radiation from the Sun</span><span><svg width="34" height="12"><path d="M2 6q5-6 10 0t10 0 10 0" fill="none" stroke="#d6402b" stroke-width="2.5"/></svg>heat (infrared) from the Earth</span><span><svg class="dot" viewBox="-8 -8 16 16"><circle r="6" fill="#b9c4cf"/></svg><em style="font-style:normal">N<sub>2</sub> and O<sub>2</sub> (not greenhouse gases)</em></span>');
+const gm=$('gm'),phG=$('ph');let ppm=420,ghOn=true,run3=true,P3=[],N3=[],sunT=0,esc=0,back=0,t3=0;
+const GH=[];
+function addG(k,n,pale){for(let i=0;i<n;i++){const g=M(k,gm);if(pale)g.querySelectorAll('circle').forEach(c=>{c.setAttribute('fill','#b9c4cf');c.setAttribute('stroke','#9aa7b4')});GH.push({g,k,pale,x:20+R()*550,y:112+R()*200,ph:R()*6,busy:0,ring:null})}}
+addG('N2',6,1);addG('O2',3,1);addG('CO2',23);addG('H2O',4);addG('CH4',2);
+GH.forEach(m=>{m.ring=E('circle',{r:14,fill:'none',stroke:'#d6402b','stroke-width':2.5,opacity:0},m.g)});
+function nCO2(){return Math.round(ppm/35)}
+function act(m){if(m.pale)return false;if(!ghOn)return false;if(m.k=='CO2')return GH.filter(q=>q.k=='CO2').indexOf(m)<nCO2();return true}
+const wave=(n,wl,amp)=>{let d=`M${-n*wl/2} 0`;for(let i=0;i<n;i++)d+=`q${wl/4} ${-amp} ${wl/2} 0t${wl/2} 0`;return d};
+const WS=wave(4,9,4),WI=wave(3,16,5);
+function sp3(ir,x,y,a){const g=E('path',{d:ir?WI:WS,fill:'none',stroke:ir?'#d6402b':'#e8a400','stroke-width':2.5,'stroke-linecap':'round'},phG);N3.push({g,ir,x,y,a,v:ir?95:150,src:null,age:0,tx:0})}
+function upd3(dt){t3+=dt;sunT-=dt;if(sunT<=0&&P3.length<70){sunT=.32;const tx=150+R()*380;const a=Math.atan2(338-70,tx-80);sp3(0,80,70,a)}
+ GH.forEach(m=>{m.ph+=dt;const on=m.pale||act(m);m.g.style.display=on?'':'none';tf(m.g,m.x+6*Math.sin(m.ph*.7),m.y+4*Math.cos(m.ph*.9),1,30*Math.sin(m.ph*.4));
+  if(m.busy>0){m.busy-=dt;m.ring.setAttribute('opacity',(m.busy/.5).toFixed(2));if(m.busy<=0){const up=R()<.5,a=(up?-1:1)*(Math.PI/2+(R()-.5)*1.6);sp3(1,m.x,m.y,a);N3[N3.length-1].src=m}}});
+ P3=P3.filter(p=>{if(p.emit!=null){p.emit-=dt;if(p.emit<=0){sp3(1,p.x,330,-Math.PI/2+(R()-.5)*1.1);return false}return true}
+  p.age+=dt;p.x+=Math.cos(p.a)*p.v*dt;p.y+=Math.sin(p.a)*p.v*dt;
+  if(!p.ir&&p.y>=333+((p.x-320)/320)**2*10){p.g.remove();N3.push({g:null,emit:.25,x:p.x});return false}
+  if(p.ir){if(p.y<90&&!p.out){p.out=1;esc++}
+   if(p.y>334&&Math.sin(p.a)>0){p.g.remove();back++;N3.push({g:null,emit:.25,x:p.x});return false}
+   if(!p.out)for(const m of GH){if(m.busy>0||m===p.src||!act(m))continue;if(Math.hypot(m.x-p.x,m.y-p.y)<15&&R()<.9){m.busy=.5;p.g.remove();return false}}}
+  if(p.y<-20||p.x<-20||p.x>660){p.g.remove();return false}
+  p.g.setAttribute('transform',`translate(${p.x.toFixed(1)},${p.y.toFixed(1)}) rotate(${(p.a*57.3).toFixed(0)})`);return true});P3=P3.concat(N3);N3=[];
+ $('cnt1').textContent='Heat escaped to space: '+esc;$('cnt2').textContent='Heat sent back to Earth by greenhouse gases: '+back}
+function temp(){return ghOn?14+3*Math.log2(ppm/280):-18}
+function sync3(){$('ppmv').textContent=ghOn?ppm+' ppm':'0 (none)';const T=temp();$('tht').textContent=(T>0?'+':'')+T.toFixed(1)+' °C';
+ const h=cl((T+20)/45,0,1)*150+6;$('thf').setAttribute('y',(300-h).toFixed(1));$('thf').setAttribute('height',h.toFixed(1));
+ $('gnd').setAttribute('fill',lc('#a9c7d6','#c2b56a',cl((T+18)/40,0,1)));
+ $('pp280').setAttribute('aria-pressed',ghOn&&ppm==280);$('pp420').setAttribute('aria-pressed',ghOn&&ppm==420);
+ $('gh1').setAttribute('aria-pressed',ghOn);$('gh0').setAttribute('aria-pressed',!ghOn);$('ppm').disabled=!ghOn;st3()}
+function st3(){const T=temp().toFixed(1);let h;
+ if(!ghOn)h='<p>With <b>no greenhouse gases</b>, the heat (infrared) given out by the surface goes straight back into space.</p><p>Very little heat is kept in. The Earth would be very cold: about <b>−18 °C</b> on average.</p><p>Greenhouse gases are important: they keep the Earth warm enough for life.</p>';
+ else{h='<p>1. Radiation from the <b>Sun</b> passes through the atmosphere. The Earth\'s surface <b>absorbs</b> it and warms up.</p><p>2. The warm surface gives out <b>heat</b> (infrared radiation).</p><p>3. <b>Greenhouse gases</b> (carbon dioxide, methane, water vapour) <b>absorb</b> some of this heat. They <b>re-emit</b> it in all directions, so some goes <b>back towards the Earth</b>.</p>';
+  h+=ppm<300?`<p>At ${ppm} ppm of CO<sub>2</sub> (about the level before 1750) the average temperature is about ${T} °C.</p>`:ppm<=440?`<p>At ${ppm} ppm (about today's level) more heat is kept in. Average temperature about ${T} °C.</p>`:`<p><b>More CO<sub>2</sub> → more heat absorbed and sent back → less heat escapes → the average temperature rises.</b> This is <b>global warming</b>. About ${T} °C here.</p>`}
+ h+='<p style="font-size:.85rem;color:var(--muted)">Temperatures are illustrative.</p>';$('st3').innerHTML=h}
+$('ppm').oninput=e=>{ppm=+e.target.value;sync3()};$('pp280').onclick=()=>{ghOn=true;ppm=280;$('ppm').value=280;sync3()};$('pp420').onclick=()=>{ghOn=true;ppm=420;$('ppm').value=420;sync3()};
+$('gh1').onclick=()=>{ghOn=true;sync3()};$('gh0').onclick=()=>{ghOn=false;sync3()};
+$('play3').onclick=()=>{run3=!run3;$('play3').textContent=run3?'Pause':'Play'};
+$('step3').onclick=()=>{run3=false;$('play3').textContent='Play';for(let i=0;i<20;i++)upd3(1/40)};
+$('rep3').onclick=()=>{P3.concat(N3).forEach(p=>p.g&&p.g.remove());P3=[];N3=[];esc=back=0;GH.forEach(m=>m.busy=0)};
+$('lab3').onchange=e=>document.querySelectorAll('.lab3').forEach(g=>g.style.display=e.target.checked?'':'none');
+sync3();
+/* ---------- TAB 4 ---------- */
+const YR=[1850,1870,1890,1910,1930,1950,1960,1970,1980,1990,2000,2010,2020,2024],CO=[285,288,294,300,307,311,317,325,339,354,369,389,413,423],TA=[0,0,-.05,-.1,0,0,.05,.05,.25,.45,.6,.85,1.2,1.5];
+const gx=y=>70+(y-1850)/175*500,gC=v=>200-(v-260)/180*170,gT=v=>200-(v+.4)/2*170,gr=$('gr');
+E('rect',{x:70,y:30,width:500,height:170,fill:'#fff',stroke:'#cdd6df'},gr);
+[260,300,340,380,420].forEach(v=>{E('line',{x1:70,x2:570,y1:gC(v),y2:gC(v),stroke:'#e4eaf0'},gr);T(64,gC(v)+4,v,'t-s',gr,{'text-anchor':'end',style:'fill:#4a44b5'})});
+[-.4,0,.4,.8,1.2,1.6].forEach(v=>T(576,gT(v)+4,(v>0?'+':'')+v.toFixed(1),'t-s',gr,{style:'fill:#b3261e'}));
+[1850,1900,1950,2000].forEach(y=>T(gx(y),216,y,'t-s',gr,{'text-anchor':'middle'}));
+F(10,20,'CO_2 / ppm','t-b',gr,{style:'fill:#4a44b5'});T(630,20,'temperature rise / °C','t-b',gr,{'text-anchor':'end',style:'fill:#b3261e'});
+E('line',{x1:70,x2:570,y1:gC(280),y2:gC(280),stroke:'#4a44b5','stroke-dasharray':'4 4',opacity:.6},gr);T(564,gC(280)+13,'pre-industrial: 280 ppm','t-s',gr,{'text-anchor':'end'});
+const plC=E('polyline',{fill:'none',stroke:'#4a44b5','stroke-width':3,'stroke-linejoin':'round'},gr),plT=E('polyline',{fill:'none',stroke:'#d6402b','stroke-width':3,'stroke-linejoin':'round'},gr);
+const dC=E('circle',{r:5,fill:'#4a44b5'},gr),dTm=E('circle',{r:5,fill:'#d6402b'},gr),yl=E('line',{y1:30,y2:200,stroke:'#5a6878','stroke-dasharray':'2 3'},gr),ylt=T(0,46,'','t-b',gr,{'text-anchor':'middle'});
+function ip(A,y){for(let i=1;i<YR.length;i++)if(y<=YR[i])return lerp(A[i-1],A[i],(y-YR[i-1])/(YR[i]-YR[i-1]));return A[A.length-1]}
+const sc=$('sc4');
+const sea=E('rect',{x:0,width:640,height:60,fill:'#7fb6e0'},sc);
+const ice=E('path',{fill:'#fff',stroke:'#9fb7cc','stroke-width':2},sc);
+E('path',{d:'M400 430V386Q440 372 470 366L640 352V430z',fill:'#d9c79a',stroke:'#b39f6f'},sc);
+[[470,366],[515,361]].forEach(([x,y])=>{E('rect',{x:x-14,y:y-22,width:28,height:22,fill:'#fff',stroke:'#7d8fa3','stroke-width':1.5},sc);E('path',{d:`M${x-18} ${y-22}L${x} ${y-36}L${x+18} ${y-22}z`,fill:'#c0612b'},sc)});
+const crops=[];for(let i=0;i<9;i++){const x=566+i*8;crops.push(E('path',{d:`M${x} 356v-16m0 6l-4-4m4 8l4-4`,stroke:'#4f9a3a','stroke-width':2,fill:'none'},sc))}
+const sun=E('circle',{cx:612,cy:256,r:12,fill:'#f6b73c'},sc);
+const storm=E('g',{},sc);[[240,258,18],[262,250,22],[286,258,17]].forEach(([x,y,r])=>E('circle',{cx:x,cy:y,r,fill:'#7d8a99'},storm));
+const rl=[];for(let i=0;i<6;i++)rl.push(E('line',{stroke:'#5b9bd5','stroke-width':2},storm));const bolt=E('path',{d:'M266 270l-8 16h8l-6 16',stroke:'#f6c445','stroke-width':3,fill:'none'},storm);
+const lab4=[T(90,252,'ice melts','t-b',sc,{'text-anchor':'middle'}),T(200,410,'sea level rises','t-b',sc,{'text-anchor':'middle'}),T(262,332,'storms and floods','t-b',sc,{'text-anchor':'middle'}),T(634,392,'droughts: crops fail','t-b',sc,{'text-anchor':'end'})];
+const hl=E('rect',{fill:'none',stroke:'#4a44b5','stroke-width':3,'stroke-dasharray':'8 5',rx:12},sc);
+const HL=[[4,238,470,188],[200,236,130,104],[536,238,100,170]];
+let year=1850,run4=true,ef=0,t4=0;
+function draw4(){const y=year;let pc=[],pt=[];YR.forEach((Y,i)=>{if(Y<=y){pc.push(gx(Y)+','+gC(CO[i]).toFixed(1));pt.push(gx(Y)+','+gT(TA[i]).toFixed(1))}});
+ const c=ip(CO,y),ta=ip(TA,y);pc.push(gx(y)+','+gC(c).toFixed(1));pt.push(gx(y)+','+gT(ta).toFixed(1));plC.setAttribute('points',pc.join(' '));plT.setAttribute('points',pt.join(' '));
+ dC.setAttribute('cx',gx(y));dC.setAttribute('cy',gC(c));dTm.setAttribute('cx',gx(y));dTm.setAttribute('cy',gT(ta));yl.setAttribute('x1',gx(y));yl.setAttribute('x2',gx(y));ylt.setAttribute('x',cl(gx(y),100,540));ylt.textContent=Math.round(y);
+ const k=cl(ta/1.5,0,1),sy=395-26*k;sea.setAttribute('y',sy.toFixed(1));sea.setAttribute('height',(430-sy).toFixed(1));
+ const w=180*(1-.7*k);ice.setAttribute('d',`M8 ${sy+6}L8 ${270+30*k}L${(8+w*.6).toFixed(0)} ${276+30*k}L${(8+w).toFixed(0)} ${sy+6}z`);lab4[0].setAttribute('y',262+30*k);
+ crops.forEach(p=>p.setAttribute('stroke',lc('#4f9a3a','#b08a3a',k)));sun.setAttribute('r',(10+8*k).toFixed(1));storm.setAttribute('opacity',(.12+.88*k).toFixed(2));
+ $('yrv').textContent=Math.round(y);$('yr').value=Math.round(y);hl.setAttribute('x',HL[ef][0]);hl.setAttribute('y',HL[ef][1]);hl.setAttribute('width',HL[ef][2]);hl.setAttribute('height',HL[ef][3]);st4(c,ta)}
+let last4='';
+function st4(c,ta){let h=`<p><b>${Math.round(year)}:</b> CO<sub>2</sub> about <b>${Math.round(c)} ppm</b>. Temperature rise about <b>${ta<=0?'0':'+'+ta.toFixed(1)} °C</b> (compared with 1850–1900).</p>`;
+ h+=year<1950?'<p>People begin to burn more <b>fossil fuels</b> (coal, oil, gas) in factories, power stations and vehicles. Burning these fuels releases carbon dioxide.</p>':'<p>Burning fossil fuels and <b>deforestation</b> (fewer trees to absorb CO<sub>2</sub>) increase the CO<sub>2</sub> level. This increases the <b>greenhouse effect</b>, so the average temperature rises: <b>global warming</b>. This causes <b>climate change</b>.</p>';
+ h+=['<p><b>Sea level:</b> land ice and glaciers melt, and sea water expands as it warms. Sea levels rise, so low-lying land and coastal homes can flood.</p>','<p><b>Extreme weather:</b> more storms, heavy rain and floods in some places, and more heatwaves and droughts in others.</p>','<p><b>Habitats and crops:</b> some plants and animals lose their habitats or must move. In some areas crops grow less well, so there may be food shortages.</p>'][ef];
+ if(h!==last4){$('st4').innerHTML=h;last4=h}}
+function upd4(dt){t4+=dt;if(run4&&year<2024){year=Math.min(2024,year+dt*12);if(year>=2024){run4=false;$('play4').textContent='Play'}draw4()}
+ const k=cl(ip(TA,year)/1.5,0,1);rl.forEach((l,i)=>{const x=232+i*11,q=((t4*1.6+i*.37)%1);l.setAttribute('x1',x-q*6);l.setAttribute('x2',x-q*6-3);l.setAttribute('y1',272+q*36);l.setAttribute('y2',280+q*36)});
+ bolt.style.display=k>.3&&(t4%2.4)<.15?'':'none'}
+$('yr').oninput=e=>{year=+e.target.value;run4=false;$('play4').textContent='Play';draw4()};
+$('play4').onclick=()=>{if(!run4&&year>=2024)year=1850;run4=!run4;$('play4').textContent=run4?'Pause':'Play';draw4()};
+$('step4').onclick=()=>{run4=false;$('play4').textContent='Play';year=Math.min(2024,Math.floor(year/10)*10+10);draw4()};
+$('rep4').onclick=()=>{year=1850;run4=true;$('play4').textContent='Pause';draw4()};
+[0,1,2].forEach(i=>$('ef'+i).onclick=()=>{ef=i;[0,1,2].forEach(j=>$('ef'+j).setAttribute('aria-pressed',i==j));last4='';draw4()});
+draw4();
+/* ---------- tabs + loop ---------- */
+const tabs=[1,2,3,4].map(i=>$('tb'+i)),pans=[1,2,3,4].map(i=>$('p'+i));let cur=0;
+function showTab(i){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j==i);t.tabIndex=j==i?0:-1;pans[j].hidden=j!=i})}
+tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{const d=e.key=='ArrowRight'?1:e.key=='ArrowLeft'?-1:0;if(d){const n=(i+d+4)%4;showTab(n);tabs[n].focus()}}});
+let last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+ if(cur==0){if(run1)view1=='E'?upd1e(dt):upd1b(dt)}else if(cur==1){if(run2)upd2(dt)}else if(cur==2){if(run3)upd3(dt)}else upd4(dt);
+ requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+/* ---------- quiz ---------- */
+const Q=[
+['In a car engine, nitrogen oxides are formed. Where does the nitrogen come from?',['The petrol','The air','The catalytic converter','The water vapour in the exhaust'],1,'At the very high temperature in the engine, nitrogen and oxygen from the air react together.'],
+['Why is carbon monoxide toxic?',['It dissolves in the blood to make an acid','It combines with haemoglobin and reduces the amount of oxygen the blood can carry','It is a greenhouse gas','It turns into soot in the lungs'],1,'CO combines with haemoglobin in red blood cells, so less oxygen can be carried to body cells.'],
+['Which gas is made when sulfur impurities in coal burn?',['Carbon monoxide','Hydrogen sulfide','Sulfur dioxide','Nitrogen dioxide'],2,'S + O<sub>2</sub> → SO<sub>2</sub>. Sulfur dioxide dissolves in rain water to make acid rain.'],
+['How do greenhouse gases keep the Earth warm?',['They reflect sunlight back into space','They absorb heat given out by the Earth and re-emit some of it back towards the Earth','They react with oxygen and release heat','They stop sunlight reaching the Earth'],1,'The Earth\'s surface gives out heat (infrared). Greenhouse gases absorb it and send some back.']];
+const qs=$('qs');Q.forEach((q,i)=>{const li=document.createElement('li');li.innerHTML=`<p><b>${q[0]}</b></p>`+q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')+`<div class="fb" id="fb${i}"></div>`;qs.appendChild(li)});
+$('chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('fb'+i);
+ if(!c){f.className='fb no';f.textContent='Choose an answer.';return}const ok=+c.value===q[2];if(ok)s++;f.className='fb '+(ok?'ok':'no');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+ const sc=$('score');sc.textContent=`Score: ${s} / ${Q.length}`;sc.style.color=s==Q.length?'var(--good)':'var(--ink)'};
+</script><script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',
+ stem:'Which substances are produced when a hydrocarbon burns in a plentiful supply of oxygen?',
+ opts:['carbon monoxide and water','carbon dioxide and water','carbon dioxide and hydrogen','carbon and water'],
+ ans:1,why:'This is complete combustion. The carbon is oxidised to carbon dioxide and the hydrogen is oxidised to water.'},
+{ref:'Q1(b)',marks:2,type:'drop',ctx:'Methane, CH<sub>4</sub>, is the main compound in natural gas.',
+ stem:'Complete the balanced equation for the complete combustion of methane.',
+ items:[{pre:'CH<sub>4</sub> +',opts:['1','2','3','4'],ans:1,post:'O<sub>2</sub> → CO<sub>2</sub> +',aria:'Number in front of O2'},
+  {opts:['1','2','3','4'],ans:1,post:'H<sub>2</sub>O',aria:'Number in front of H2O'}],
+ why:'CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O. Four H atoms make two H<sub>2</sub>O. There are 4 O atoms on the right (2 in CO<sub>2</sub> + 2 in 2H<sub>2</sub>O), so 2O<sub>2</sub> is needed.'},
+{ref:'Q2',marks:3,type:'written',ctx:'A gas heater is used in a small room with poor ventilation. The methane burns in a limited supply of air.',
+ stem:'Explain why this is dangerous.',
+ points:['incomplete combustion takes place / carbon monoxide is produced','carbon monoxide combines with haemoglobin (in red blood cells)','this reduces the ability of the blood to carry oxygen (to body cells)','carbon monoxide is colourless and odourless, so it cannot be detected'],
+ note:'Carbon monoxide must be named for the first mark'},
+{ref:'Q3',marks:1,type:'mcq',
+ stem:'Nitrogen oxides are produced in car engines. Which statement explains how they form?',
+ opts:['Nitrogen compounds in petrol burn in oxygen.','Nitrogen and oxygen from the air react at the high temperature in the engine.','Carbon dioxide reacts with nitrogen in the exhaust pipe.','Water vapour in the exhaust decomposes to form nitrogen.'],
+ ans:1,why:'Air is about 78% nitrogen. Nitrogen is unreactive, but at the very high temperature inside the engine it reacts with oxygen.'},
+{ref:'Q4(a)',marks:2,type:'drop',ctx:'Coal contains sulfur as an impurity.',
+ stem:'Complete the word equation and the symbol equation for the burning of sulfur.',
+ items:[{pre:'sulfur + oxygen →',opts:['sulfur oxide','sulfur dioxide','sulfuric acid','sulfur trioxide'],ans:1,aria:'Product in the word equation'},
+  {pre:'S + O<sub>2</sub> →',opts:['SO','SO₂','SO₃','H₂SO₄'],ans:1,aria:'Product in the symbol equation'}],
+ why:'Sulfur burns in oxygen to make sulfur dioxide: S + O<sub>2</sub> → SO<sub>2</sub>.'},
+{ref:'Q4(b)',marks:3,type:'written',
+ stem:'Describe how sulfur dioxide causes acid rain, and give <b>two</b> effects of acid rain.',
+ points:['sulfur dioxide dissolves in water (in clouds / rain) to form an acid / acid rain','it damages or kills trees / plants','it makes lakes / rivers acidic, so fish (or other water life) die','it corrodes (reacts with) limestone buildings / statues','it corrodes metal structures (e.g. iron bridges)'],
+ cap:{from:1,max:2},note:'1 mark for how acid rain forms, max 2 marks for effects'},
+{ref:'Q5',marks:5,type:'written',ctx:'Carbon dioxide, methane and water vapour are greenhouse gases.',
+ stem:'Explain how greenhouse gases keep the Earth warm, and why burning more fossil fuels may cause climate change.',
+ points:['radiation from the Sun passes through the atmosphere','the Earth\'s surface absorbs it and warms up','the surface gives out heat / infrared radiation','greenhouse gases absorb this heat (infrared radiation)','and re-emit some of it back towards the Earth / less heat escapes into space','burning fossil fuels releases more carbon dioxide into the atmosphere','so more heat is kept in and the average temperature rises (global warming), changing the climate'],
+ note:'Do not accept "the ozone layer" or "CO<sub>2</sub> traps sunlight"'},
+{ref:'Q6(a)',marks:2,type:'calc',
+ ctx:'The table shows the approximate concentration of carbon dioxide in the atmosphere.<div class="ex-tblwrap"><table class="ex-tbl"><tbody><tr><th>year</th><td>1750</td><td>1960</td><td>2024</td></tr><tr><th>CO<sub>2</sub> / ppm</th><td>280</td><td>317</td><td>420</td></tr></tbody></table></div>',
+ stem:'Calculate the percentage increase in the concentration of carbon dioxide from 1750 to 2024.',
+ inputs:[{lab:'increase =',unit:'ppm',ans:140,tol:0,m:1},{lab:'percentage increase =',unit:'%',ans:50,tol:.5,m:1}],
+ work:'<ol><li>Increase = 420 − 280 = <b>140 ppm</b></li><li>Percentage increase = (140 ÷ 280) × 100 = <b>50 %</b></li></ol>'},
+{ref:'Q6(b)',marks:2,type:'written',
+ stem:'Suggest <b>two</b> ways to reduce the amount of carbon dioxide released into the atmosphere.',
+ points:['use renewable energy (e.g. wind, solar, hydroelectric) instead of fossil fuels','use less fossil fuel / save energy (e.g. insulate homes, use public transport, fewer car journeys)','stop deforestation / plant more trees (to absorb CO<sub>2</sub>)'],
+ note:'Answers must be specific; "stop pollution" alone is not enough'}
+];
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('toptabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var d=el('div','ex-drop'), sels=[], cors=[];
+      q.items.forEach(function(it,k){
+        var row=el('div','ex-drow'); if(it.pre) row.appendChild(el('span','',it.pre));
+        var sl=document.createElement('select'); sl.className='ex-sel'; sl.setAttribute('aria-label',it.aria||('Answer '+(k+1)));
+        sl.appendChild(new Option('Choose…',''));
+        it.opts.forEach(function(o,j){sl.appendChild(new Option(o,String(j)));});
+        row.appendChild(sl); if(it.post) row.appendChild(el('span','',it.post));
+        var cr=el('span','ex-corr'); cr.hidden=true; row.appendChild(cr);
+        d.appendChild(row); sels.push(sl); cors.push(cr);
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); d.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.items[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');
+          if(!ok){cors[k].textContent='✓ '+q.items[k].opts[q.items[k].ans]; cors[k].hidden=false;}});
+        var sc=Math.min(n,q.marks); s.score=sc; s.marked=true; bt3.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(q.why||'')); upd();
+      });
+      c.appendChild(d); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=0,m=0; cbs.forEach(function(x,k){if(x.checked){if(q.cap&&k>=q.cap.from) m++; else n++;}}); if(q.cap) m=Math.min(m,q.cap.max); s.score=Math.min(n+m,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

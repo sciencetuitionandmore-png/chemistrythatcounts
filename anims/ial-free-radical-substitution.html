@@ -1,0 +1,284 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Free Radical Substitution</title>
+<meta name="description" content="Interactive animation: Free Radical Substitution. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-free-radical-substitution.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.cyc .arr{stroke:#5a6878}.cyc .ah{fill:#5a6878}
+.srow{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;justify-content:space-between;padding:6px 10px;border-radius:10px;border:2px solid transparent;background:var(--paper)}
+.srow .eq{font:600 1rem var(--display);flex:1 1 260px}
+.srow.ok{background:#eef8f2}.srow.wrong{background:#fdf1f0}
+.srow .fb{flex-basis:100%;font-size:.88rem}
+#sList{display:flex;flex-direction:column;gap:6px}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Free radical substitution</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Introduction to organic chemistry: alkanes</p>
+<p><b>In this animation</b>: follow the reaction of methane with chlorine in UV light, step by step, from initiation through propagation to termination.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 380" role="img" aria-label="Mechanism of the reaction of methane with chlorine"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Sort each equation: is it an <b>initiation</b>, <b>propagation</b> or <b>termination</b> step? Tip: count the radicals (•) on each side.</p>
+<div id="sList"></div>
+<div class="toolbar"><button class="btn" type="button" id="sChk">Check</button><button class="btn ghost" type="button" id="sNew">Shuffle and reset</button><span class="score" id="sScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>The reaction of methane with chlorine needs
+<select data-a="b" aria-label="Answer 1"><option value="">choose…</option><option value="a">a nickel catalyst</option><option value="b">ultraviolet (UV) light</option><option value="c">concentrated sulfuric acid</option><option value="d">a temperature of 0 °C</option></select>.
+<p class="why" hidden>UV light provides the energy to break the Cl–Cl bond in the initiation step.</p></li>
+<li>In the initiation step the Cl–Cl bond breaks by
+<select data-a="a" aria-label="Answer 2"><option value="">choose…</option><option value="a">homolytic fission</option><option value="b">heterolytic fission</option><option value="c">electrophilic attack</option></select>.
+<p class="why" hidden>Homolytic fission: each Cl atom takes <b>one</b> electron from the bond pair, forming two radicals.</p></li>
+<li>Which equation is a <b>termination</b> step?
+<select data-a="c" aria-label="Answer 3"><option value="">choose…</option><option value="a">Cl₂ → 2Cl•</option><option value="b">Cl• + CH₄ → •CH₃ + HCl</option><option value="c">•CH₃ + •CH₃ → C₂H₆</option><option value="d">•CH₃ + Cl₂ → CH₃Cl + Cl•</option></select>.
+<p class="why" hidden>In termination two radicals join to make a molecule, so no radicals are left.</p></li>
+<li>The reaction gives a mixture of products because
+<select data-a="b" aria-label="Answer 4"><option value="">choose…</option><option value="a">chlorine is a mixture of isotopes</option><option value="b">Cl• can also substitute H atoms in CH₃Cl, CH₂Cl₂ and CHCl₃</option><option value="c">the UV light breaks C–C bonds</option></select>.
+<p class="why" hidden>Further substitution makes CH<sub>2</sub>Cl<sub>2</sub>, CHCl<sub>3</sub> and CCl<sub>4</sub>. Termination also makes some ethane.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>Always give the condition: <b>UV light</b> (or sunlight). Heat alone is not the answer the mark scheme wants.</li>
+<li>Put the radical dot on the correct atom: •CH<sub>3</sub> has the dot on the <b>carbon</b>, not on a hydrogen.</li>
+<li>Propagation steps have <b>one radical on each side</b>. Termination steps have <b>two radicals</b> on the left and none on the right.</li>
+<li>Fish-hook (half-headed) arrows show one electron moving. Full arrowheads would be wrong here.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Ethane reacts with chlorine in UV light. Which equation is a <b>propagation<\/b> step?", "m": 1, "o": ["C<sub>2<\/sub>H<sub>6<\/sub> + Cl• → •C<sub>2<\/sub>H<sub>5<\/sub> + HCl", "Cl<sub>2<\/sub> → 2Cl•", "•C<sub>2<\/sub>H<sub>5<\/sub> + Cl• → C<sub>2<\/sub>H<sub>5<\/sub>Cl", "2•C<sub>2<\/sub>H<sub>5<\/sub> → C<sub>4<\/sub>H<sub>10<\/sub>"], "a": 0, "why": "A is correct because it has one radical on each side; B is initiation and C and D are termination steps."}, {"t": "mc", "q": "A small amount of which compound in the product mixture is evidence that ethyl radicals form when ethane reacts with chlorine?", "m": 1, "o": ["methane", "ethene", "propane", "butane"], "a": 3, "why": "D is correct because two ethyl radicals join in a termination step to make butane, C<sub>4<\/sub>H<sub>10<\/sub>."}, {"t": "w", "q": "Ethane reacts with bromine in UV light to form bromoethane.<br>Write equations for: the initiation step, the two propagation steps and one termination step that forms bromoethane.", "m": 4, "ms": ["initiation: Br<sub>2<\/sub> → 2Br• (1)", "propagation 1: Br• + C<sub>2<\/sub>H<sub>6<\/sub> → •C<sub>2<\/sub>H<sub>5<\/sub> + HBr (1)", "propagation 2: •C<sub>2<\/sub>H<sub>5<\/sub> + Br<sub>2<\/sub> → C<sub>2<\/sub>H<sub>5<\/sub>Br + Br• (1)", "termination: •C<sub>2<\/sub>H<sub>5<\/sub> + Br• → C<sub>2<\/sub>H<sub>5<\/sub>Br (1)"], "note": "Allow C<sub>2<\/sub>H<sub>5<\/sub>• and CH<sub>3<\/sub>CH<sub>2<\/sub>•. Penalise missing radical dots once only. Propagation steps can be in either order only if the radicals match."}, {"t": "w", "q": "Describe the curly arrows used to show the initiation step for bromine. Sketch it on paper first.", "m": 2, "ms": ["two half-headed (fish-hook) arrows starting from the Br–Br bond, one going to each Br atom (1)", "each Br atom takes one electron, forming two Br• radicals (homolytic fission) (1)"], "note": "Do not award full-headed arrows."}, {"t": "w", "q": "Propane, CH<sub>3<\/sub>CH<sub>2<\/sub>CH<sub>3<\/sub>, reacts with chlorine in UV light. Explain why two different monochloro products form.", "m": 2, "ms": ["Cl• can remove an H atom from an end carbon or from the middle carbon (1)", "so both 1-chloropropane and 2-chloropropane form (1)"], "note": "Allow correct structural formulae for the names. Do not award 'further substitution' as the explanation."}, {"t": "w", "q": "Calculate the atom economy by mass for making chloromethane:<br>CH<sub>4<\/sub> + Cl<sub>2<\/sub> → CH<sub>3<\/sub>Cl + HCl<br>[A<sub>r<\/sub>: H = 1.0, C = 12.0, Cl = 35.5]", "m": 2, "ms": ["M<sub>r<\/sub>(CH<sub>3<\/sub>Cl) = 50.5 and total M<sub>r<\/sub> of products (or reactants) = 87.0 (1)", "atom economy = 50.5 ÷ 87.0 × 100 = 58.0% (1)"], "note": "Allow 58%. Correct answer with no working scores 2."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> a radical is a species with an unpaired electron.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function sub(p,x,y,o){T(p,x,y,'C','at');const D={l:[-56,0],r:[56,0],u:[0,-50],d:[0,50]};for(const k in D){if(!o[k])continue;const[dx,dy]=D[k],b=[x+dx,y+dy];bond(p,[x,y],b,1,[14,o[k].length>1?20:14]);T(p,b[0],b[1],o[k],'at')}}
+function rad(p,x,y){return dot(p,x,y)}
+function rx(p,x1,x2,y,lab,d){const g=G(p,'fi',d||0);E(g,'path',{d:`M${x1} ${y}H${x2-10}`,stroke:'#1c2736','stroke-width':2.2});E(g,'path',{d:`M${x2} ${y}l-12 -6v12z`,fill:'#1c2736'});if(lab)T(g,(x1+x2)/2,y-16,lab,'lb',14).setAttribute('text-anchor','middle');return g}
+function plus(p,x,y,d){return T(G(p,'fi',d||0),x,y,'+','at',24)}
+function title(p,s,sub2){T(p,30,36,s,'tt',19,'start');if(sub2)T(p,30,62,sub2,'sm',15,'start')}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const[c,t]=Array.isArray(l)?l:['sm',l];T(g,x,yy,t,c,c==='tt'?18:c==='lb'?16:15,'start');yy+=c==='tt'?28:22}}return g}
+const steps=[
+{t:6000,cap:'Methane reacts with chlorine in <b>UV light</b>. One H atom is <b>replaced</b> by a Cl atom, so this is a <b>substitution</b> reaction. The mechanism uses <b>free radicals</b>.',draw(p){
+ title(p,'Overall reaction');const y=190;
+ sub(p,110,y,{l:'H',r:'H',u:'H',d:'H'});plus(p,205,y);const g=G(p,'fi',.2);T(g,245,y,'Cl','at');bond(g,[245,y],[315,y],1,18);T(g,315,y,'Cl','at');
+ rx(p,360,450,y,'UV light',.6);const q=M(p,1.2,-40,0);sub(q,555,y,{l:'H',r:'Cl',u:'H',d:'H'});plus(q,660,y);T(q,700,y,'H','at');bond(q,[700,y],[760,y],1,[14,18]);T(q,760,y,'Cl','at');
+ panel(p,110,330,[['lb','CH_4  +  Cl_2  →  CH_3Cl  +  HCl']],2)}},
+{t:6500,cap:'<b>Initiation.</b> UV light breaks the Cl–Cl bond by <b>homolytic fission</b>: each Cl atom takes <b>one electron</b> from the bond. This makes two chlorine <b>free radicals</b>, Cl•. The half-headed (fish-hook) arrows show single electrons moving.',draw(p){
+ title(p,'Initiation','homolytic fission');const y=200;T(p,150,y,'Cl','at',26);bond(p,[150,y],[240,y],1,20);T(p,240,y,'Cl','at',26);
+ arrow(p,[193,y-5,190,y-50,160,y-55,152,y-24],{half:true,d:.4});arrow(p,[197,y+5,200,y+50,230,y+55,238,y+24],{half:true,d:.9,flip:true});
+ rx(p,320,420,y,'UV light',1.8);const q=M(p,2.3,-60,0);T(q,500,y,'Cl','at',26);rad(q,524,y);plus(q,570,y);T(q,630,y,'Cl','at',26);rad(q,654,y);
+ panel(p,320,320,[['lb','Cl_2  →  2Cl•']],2.6)}},
+{t:7000,cap:'<b>Propagation step 1.</b> A Cl• radical takes an H atom from methane. This makes <b>HCl</b> and a <b>methyl radical</b>, •CH<sub>3</sub>. The unpaired electron is on the carbon.',draw(p){
+ title(p,'Propagation 1');const y=200;T(p,95,y,'Cl','at',24);rad(p,119,y);sub(p,300,y,{l:'H',r:'H',u:'H',d:'H'});
+ arrow(p,[121,y-6,126,y-48,166,y-48,172,y-10],{half:true,d:.3});arrow(p,[272,y-5,262,y-50,200,y-50,184,y-12],{half:true,d:.8,flip:true});arrow(p,[270,y+6,260,y+46,286,y+48,291,y+15],{half:true,d:1.3,flip:true});
+ rx(p,385,455,y,'',2.1);const q=M(p,2.6,-50,0);T(q,500,y,'H','at');bond(q,[500,y],[560,y],1,[14,18]);T(q,560,y,'Cl','at');plus(q,610,y);rad(q,654,y);sub(q,680,y,{r:'H',u:'H',d:'H'});
+ panel(p,250,335,[['lb','Cl•  +  CH_4  →  •CH_3  +  HCl']],3)}},
+{t:7000,cap:'<b>Propagation step 2.</b> The methyl radical reacts with a Cl<sub>2</sub> molecule. This makes <b>chloromethane</b>, CH<sub>3</sub>Cl, and a <b>new Cl• radical</b>.',draw(p){
+ title(p,'Propagation 2');const y=200;sub(p,110,y,{l:'H',u:'H',d:'H'});rad(p,134,y);T(p,230,y,'Cl','at',24);bond(p,[230,y],[310,y],1,18);T(p,310,y,'Cl','at',24);
+ arrow(p,[136,y-6,140,y-45,172,y-45,178,y-10],{half:true,d:.3});arrow(p,[270,y-5,262,y-50,200,y-50,186,y-12],{half:true,d:.8,flip:true});arrow(p,[270,y+5,272,y+42,298,y+44,306,y+18],{half:true,d:1.3,flip:true});
+ rx(p,370,440,y,'',2.1);const q=M(p,2.6,-50,0);sub(q,540,y,{l:'H',r:'Cl',u:'H',d:'H'});plus(q,650,y);T(q,700,y,'Cl','at',24);rad(q,724,y);
+ panel(p,250,335,[['lb','•CH_3  +  Cl_2  →  CH_3Cl  +  Cl•']],3)}},
+{t:6500,cap:'The Cl• used in step 1 is <b>made again</b> in step 2. So one radical can go round the cycle thousands of times. This is a <b>chain reaction</b>.',draw(p){
+ title(p,'A chain reaction');const cx=230,cy=210,R=105;T(p,cx,cy-R,'Cl•','at',24);T(p,cx,cy+R,'•CH_3','at',24);
+ const c=G(p,'cyc');arrow(c,[cx-30,cy-R+6,cx-130,cy-R+30,cx-130,cy+R-30,cx-38,cy+R-6],{d:.3});arrow(c,[cx+38,cy+R-6,cx+130,cy+R-30,cx+130,cy-R+30,cx+30,cy-R+6],{d:1.6});
+ let g=G(p,'fi',.6);T(g,cx-150,cy-12,'+ CH_4','lb',16,'end');T(g,cx-150,cy+14,'→ HCl','lb',16,'end');g=G(p,'fi',1.9);T(g,cx+150,cy-12,'+ Cl_2','lb',16,'start');T(g,cx+150,cy+14,'→ CH_3Cl','lb',16,'start');
+ panel(p,470,120,[['lb','Step 1:'],'Cl•  +  CH_4  →  •CH_3  +  HCl','',['lb','Step 2:'],'•CH_3  +  Cl_2  →  CH_3Cl  +  Cl•','',['lb','Cl• is regenerated.']],2.6)}},
+{t:7000,cap:'<b>Termination.</b> Two radicals meet and join to form a molecule. Radicals are removed, so the chain <b>stops</b>. Making ethane, C<sub>2</sub>H<sub>6</sub>, is evidence for methyl radicals.',draw(p){
+ title(p,'Termination','two radicals → one molecule');
+ [['Cl','Cl','Cl_2'],['H_3C','Cl','CH_3Cl'],['H_3C','CH_3','C_2H_6  (ethane)']].forEach(([a,b,c],i)=>{const y=125+i*85,d=i*1.4,g=G(p,'fi',d);T(g,140,y,a,'at',22,'end');rad(g,152,y);rad(g,192,y);T(g,204,y,b,'at',22,'start');
+  arrow(p,[152,y-7,154,y-38,168,y-40,172,y-10],{half:true,d:d+.3});arrow(p,[192,y-7,190,y-38,176,y-40,172,y-10],{half:true,d:d+.3,flip:true});
+  rx(p,290,360,y,'',d+1.1);T(G(p,'fi',d+1.3),390,y,c,'at',22,'start')});
+ panel(p,580,140,['Each radical gives one','electron to the new bond.','','No radicals are left,','so the chain stops.'],4.5)}},
+{t:7500,cap:'<b>Further substitution.</b> Cl• can also take H from CH<sub>3</sub>Cl, then from CH<sub>2</sub>Cl<sub>2</sub>, and so on. The product is a <b>mixture</b>: CH<sub>3</sub>Cl, CH<sub>2</sub>Cl<sub>2</sub>, CHCl<sub>3</sub>, CCl<sub>4</sub> (and some ethane). Excess methane gives mainly CH<sub>3</sub>Cl.',draw(p){
+ title(p,'Further substitution');panel(p,30,100,[['lb','Cl•  +  CH_3Cl  →  •CH_2Cl  +  HCl'],['lb','•CH_2Cl  +  Cl_2  →  CH_2Cl_2  +  Cl•']],.3);
+ ['CH_4','CH_3Cl','CH_2Cl_2','CHCl_3','CCl_4'].forEach((s,i)=>{const x=80+i*160,y=245,g=G(p,'fi',1.4+i*.6);E(g,'rect',{x:x-55,y:y-24,width:110,height:48,rx:10,fill:i?'#e7e6fb':'#fff',stroke:'#4a44b5'});T(g,x,y,s,'at',20);
+  if(i<4){rx(p,x+60,x+100,y,'',1.4+i*.6+.3);T(G(p,'fi',1.4+i*.6+.3),x+80,y+28,'Cl•','sm',13).setAttribute('text-anchor','middle')}});
+ panel(p,30,320,['Each step replaces one more H with Cl, so a mixture forms.','Use excess methane to make CH_3Cl the main product.'],4.4)}}
+];
+Player(steps);Quiz();
+/* Try it */
+const EQ=[['Cl<sub>2</sub> → 2Cl•','I','No radicals on the left; two made: initiation.'],['Cl• + CH<sub>4</sub> → •CH<sub>3</sub> + HCl','P','One radical in, one radical out: propagation.'],['•CH<sub>3</sub> + Cl<sub>2</sub> → CH<sub>3</sub>Cl + Cl•','P','One radical in, one radical out: propagation.'],['Cl• + Cl• → Cl<sub>2</sub>','T','Two radicals join: termination.'],['•CH<sub>3</sub> + Cl• → CH<sub>3</sub>Cl','T','Two radicals join: termination.'],['•CH<sub>3</sub> + •CH<sub>3</sub> → C<sub>2</sub>H<sub>6</sub>','T','Two radicals join: termination.'],['Cl• + CH<sub>3</sub>Cl → •CH<sub>2</sub>Cl + HCl','P','One radical in, one radical out: propagation (further substitution).'],['•CH<sub>2</sub>Cl + Cl<sub>2</sub> → CH<sub>2</sub>Cl<sub>2</sub> + Cl•','P','One radical in, one radical out: propagation (further substitution).']];
+const NMS={I:'Initiation',P:'Propagation',T:'Termination'};let ans=[];
+function build(){const L=$('sList');L.replaceChildren();$('sScore').textContent='';ans=[];shuffle(EQ.map((e,i)=>i)).forEach((k,n)=>{const e=EQ[k],r=document.createElement('div');r.className='srow';r.dataset.k=k;
+ r.innerHTML=`<span class="eq">${e[0]}</span><span class="row" role="group" aria-label="Step type for equation ${n+1}"></span><span class="fb" hidden></span>`;
+ 'IPT'.split('').forEach(c=>{const b=document.createElement('button');b.type='button';b.className='mini';b.textContent=NMS[c];b.setAttribute('aria-pressed','false');b.onclick=()=>{r.dataset.v=c;r.querySelectorAll('.mini').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)})};r.children[1].appendChild(b)});L.appendChild(r)})}
+$('sChk').onclick=()=>{let n=0;const rows=[...$('sList').children];rows.forEach(r=>{const e=EQ[r.dataset.k],ok=r.dataset.v===e[1];if(ok)n++;r.classList.toggle('ok',ok);r.classList.toggle('wrong',!ok);const f=r.querySelector('.fb');f.hidden=false;f.innerHTML=(ok?'<b style="color:var(--good)">Correct.</b> ':r.dataset.v?'<b style="color:var(--bad)">Not quite.</b> ':'<b style="color:var(--bad)">Choose one.</b> ')+e[2]});
+ const s=$('sScore');s.textContent=`Score: ${n} / ${rows.length}`;s.className='score '+(n===rows.length?'good':n<4?'bad':'')};
+$('sNew').onclick=build;build();
+</script></body></html>

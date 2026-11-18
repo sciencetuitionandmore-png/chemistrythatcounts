@@ -1,0 +1,320 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nucleophilic Substitution</title>
+<meta name="description" content="Interactive animation: Nucleophilic Substitution. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-nucleophilic-substitution.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--arrow:#c4421a;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:18px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--ink)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:6px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:6px;position:relative;outline:none}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.6em;border-radius:10px;padding:10px 14px;background:var(--accent-soft);font-size:.98rem}
+.cap .sn{font:700 .8rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.player{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.pbtns,.pspeed{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pind{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:600 .88rem var(--display);color:var(--muted)}
+.dots{display:flex;gap:4px}
+.dots button{width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:#fff;cursor:pointer;padding:0;position:relative}
+.dots button::after{content:"";position:absolute;inset:-6px}
+.dots button.done{background:var(--accent-soft)}
+.dots button[aria-current="step"]{background:var(--accent)}
+.dots button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;min-height:40px}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:34px}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.mini.ok{border:2px solid var(--good);background:#eef8f2}
+.mini.wrong{border:2px solid var(--bad);background:#fdf1f0}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lbl{font:600 .86rem var(--display);color:var(--muted)}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:10px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.95rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#a6f3c0;border-radius:8px;padding:3px 10px;display:inline-block;min-width:4.5em;text-align:center}
+select{font:inherit;font-size:.93rem;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+input[type=range]{accent-color:var(--accent);width:min(320px,100%)}
+.tsvg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+ol.qs{margin:0;padding-left:1.3em;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px 26px}
+@media(max-width:420px){ol.qs{grid-template-columns:minmax(0,1fr)}}
+ol.qs li{min-width:0}
+.mcq{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:3px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer;font-size:.95rem}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.mcq label.ok{border-color:var(--good);background:#eef8f2}
+.mcq label.wrong{border-color:var(--bad);background:#fdf1f0}
+.why{font-size:.88rem;margin-top:4px;padding:4px 8px;border-left:3px solid var(--line)}
+.why.good{border-color:var(--good)}.why.bad{border-color:var(--bad)}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+aside.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:14px 20px}
+aside.tip h3{color:#7a4a00}
+aside.tip ul{margin:6px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+footer.key{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+footer.key b{color:var(--ink)}
+/* SVG */
+.s{opacity:0;transition:opacity .6s ease}
+.s.vis{opacity:1}
+.ca path{fill:none;stroke:var(--arrow);stroke-width:2.6;stroke-linecap:round;stroke-dashoffset:var(--L);transition:stroke-dashoffset 1.1s ease calc(var(--dl,0s) + .4s)}
+.ca.vis path{stroke-dashoffset:0}
+.ca .hd{fill:var(--arrow);stroke:var(--arrow);stroke-width:1;stroke-linejoin:round;opacity:0;transition:opacity .2s ease calc(var(--dl,0s) + 1.45s)}
+.ca.vis .hd{opacity:1}
+.at{font:600 21px var(--display);fill:var(--ink);dominant-baseline:central}
+.at .sb{font-size:14px}
+.lp circle{fill:var(--ink)}
+.chg{font:700 17px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.dl{font:700 15px var(--body);fill:var(--accent);text-anchor:middle;dominant-baseline:central}
+.atom{transition:opacity .6s ease}
+.atom.hid{opacity:0}
+.bd line{stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+.bd .wedge{fill:var(--ink)}
+.bd{transition:opacity .6s ease}
+.bd.off{opacity:0}
+.t{font:16px var(--body);fill:var(--ink)}
+.tm{font:14px var(--body);fill:var(--muted)}
+.tb{font:600 17px var(--display);fill:var(--ink)}
+.th{font:700 19px var(--display);fill:var(--accent)}
+.ax{stroke:var(--ink);stroke-width:2;fill:none}
+.br{fill:none;stroke:var(--ink);stroke-width:2.2}
+.mid{text-anchor:middle}
+@media(max-width:520px){body{font-size:16px}.cap{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.tw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media(max-width:680px){.tw{grid-template-columns:minmax(0,1fr)}}
+.panel{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mech{border-radius:10px;padding:10px 12px;background:var(--paper);font-size:.95rem;min-height:7.5em}
+.mech .big{font:700 1.15rem var(--display);color:var(--accent)}
+.ppt{transition:opacity 1s ease}</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Nucleophilic substitution in halogenoalkanes: S<sub>N</sub>2 and S<sub>N</sub>1</h1><p class="meta">IAL Chemistry · Unit 2 · Halogenoalkanes</p><p class="lede"><b>In this animation</b>: follow the curly arrows as hydroxide ions replace the halogen in a primary halogenoalkane (S<sub>N</sub>2) and a tertiary halogenoalkane (S<sub>N</sub>1), and see why C–I reacts fastest.</p></header>
+<section class="sheet" aria-labelledby="hw"><h2 id="hw"><span class="step">Watch it</span>Two mechanisms for one reaction</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step, Space to play or pause."><svg id="sv" viewBox="0 0 640 350" role="img" aria-label="Animated reaction mechanisms with curly arrows for SN2 and SN1 substitution">
+<g id="root"></g>
+</svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player" id="player"></div>
+</section>
+<section class="sheet" aria-labelledby="ht"><h2 id="ht"><span class="step">Try it</span>Which mechanism? Which bond breaks fastest?</h2>
+<div class="tw">
+<div class="panel"><h3>A. Pick a halogenoalkane</h3>
+<div class="row" id="kind"><button class="mini" type="button" data-k="p">Primary</button><button class="mini" type="button" data-k="s">Secondary</button><button class="mini" type="button" data-k="t">Tertiary</button></div>
+<div class="mech" id="mechOut" aria-live="polite">Choose one to see how it reacts with OH<sup>−</sup>(aq).</div></div>
+<div class="panel"><h3>B. Silver nitrate in ethanol race</h3>
+<p class="hint">1-chlorobutane, 1-bromobutane and 1-iodobutane with AgNO<sub>3</sub>(aq) and ethanol at 50 °C. Water is the nucleophile. Which forms a precipitate first?</p>
+<div class="row" id="race"><button class="mini" type="button" data-r="Cl">C–Cl</button><button class="mini" type="button" data-r="Br">C–Br</button><button class="mini" type="button" data-r="I">C–I</button><button class="btn" type="button" id="go">Start</button></div>
+<svg class="tsvg" id="rsv" viewBox="0 0 320 170" role="img" aria-label="Three test tubes"></svg>
+<div class="say" id="rSay" aria-live="polite">Make a prediction, then press Start.</div></div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="hc"><h2 id="hc"><span class="step">Check it</span>Four quick questions</h2><div id="quiz"></div></section>
+<aside class="tip" aria-labelledby="hx"><h3 id="hx">Exam tip</h3><ul>
+<li>The first curly arrow must start at a <b>lone pair on the O</b> of OH<sup>−</sup> (not at the minus sign) and end at the <b>δ+ carbon</b>. The second starts at the <b>C–X bond</b> and ends at X.</li>
+<li>S<sub>N</sub>2 transition state: <b>square brackets</b>, <b>dashed partial bonds</b> to O and Br, and the <b>negative charge outside</b> the brackets.</li>
+<li>S<sub>N</sub>1: show the C–Br bond breaking first to give a <b>carbocation</b> with the + on the carbon, then OH<sup>−</sup> attacking it.</li>
+<li>Rate depends on <b>bond enthalpy</b>, not polarity: C–I is the weakest bond, so iodoalkanes react fastest, even though C–Cl is the most polar.</li>
+</ul></aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 11 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Which species <b>cannot<\/b> act as a nucleophile?", "m": 1, "o": ["NH<sub>3<\/sub>", "CN<sup>−<\/sup>", "H<sub>2<\/sub>O", "NH<sub>4<\/sub><sup>+<\/sup>"], "a": 3, "why": "D is correct because the N atom in NH<sub>4<\/sub><sup>+<\/sup> has no lone pair to donate; the other three species all have a lone pair."}, {"t": "mc", "q": "2-chloro-2-methylbutane, CH<sub>3<\/sub>CH<sub>2<\/sub>CCl(CH<sub>3<\/sub>)<sub>2<\/sub>, is warmed with aqueous sodium hydroxide.<br>Which row correctly classifies the halogenoalkane and its main mechanism?", "m": 1, "o": ["primary, S<sub>N<\/sub>2", "secondary, S<sub>N<\/sub>1 and S<sub>N<\/sub>2", "tertiary, S<sub>N<\/sub>1", "tertiary, S<sub>N<\/sub>2"], "a": 2, "why": "C is correct because the C–Cl carbon is bonded to three other carbon atoms, so it is tertiary and reacts mainly through a carbocation (S<sub>N<\/sub>1)."}, {"t": "w", "q": "1-bromopropane reacts with warm aqueous potassium hydroxide by an S<sub>N<\/sub>2 mechanism.<br>Draw the mechanism on paper. Describe what should be shown.", "m": 4, "ms": ["dipole on C–Br: δ+ on C and δ− on Br (1)", "curly arrow from a lone pair on the O of OH<sup>−<\/sup> to the δ+ carbon (1)", "curly arrow from the C–Br bond to the Br atom (1)", "transition state in square brackets with dashed (partial) HO···C and C···Br bonds and an overall negative charge, followed by CH<sub>3<\/sub>CH<sub>2<\/sub>CH<sub>2<\/sub>OH + Br<sup>−<\/sup> (1)"], "note": "Do not award the second mark if the arrow starts at the minus sign or at the H of OH<sup>−<\/sup>. Allow the mechanism without a transition state for the first three marks only."}, {"t": "w", "q": "2-bromo-2-methylpropane is hydrolysed by an S<sub>N<\/sub>1 mechanism.<br>Explain why the rate of this reaction depends only on the concentration of the halogenoalkane.", "m": 2, "ms": ["the slow (rate-determining) step is the heterolytic breaking of the C–Br bond to form a carbocation (1)", "only the halogenoalkane is involved in this step; OH<sup>−<\/sup> reacts only in the fast second step (1)"], "note": "Allow 'ionisation of the halogenoalkane' for the first mark. Reject 'homolytic fission'."}, {"t": "w", "q": "1.369 g of 1-bromobutane, C<sub>4<\/sub>H<sub>9<\/sub>Br (<i>M<\/i><sub>r<\/sub> = 136.9), is completely hydrolysed. Excess aqueous silver nitrate is then added.<br>State the colour of the precipitate and calculate its maximum mass. [<i>A<\/i><sub>r<\/sub>: Ag = 107.9, Br = 79.9]", "m": 3, "ms": ["cream precipitate (of AgBr) (1)", "amount of C<sub>4<\/sub>H<sub>9<\/sub>Br = amount of AgBr = 1.369 ÷ 136.9 = 0.0100 mol (1)", "mass of AgBr = 0.0100 × 187.8 = 1.88 g (1)"], "note": "Allow 'off-white' for cream. Reject 'white' or 'yellow'. Allow ECF from an incorrect amount. Correct answer with no working scores both calculation marks."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer class="key"><b>Key fact:</b> a nucleophile is a lone-pair donor; it attacks the δ+ carbon of the C–X bond, and the halide ion leaves.</footer>
+</div>
+<script>
+"use strict";
+const NS="http://www.w3.org/2000/svg";
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+function E(tag,a,p){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+/* label with numeric subscripts: CH3 -> CH<sub>3 */
+function L(s){return s.replace(/(\d+)/g,'<tspan class="sb" dy="5">$1</tspan><tspan dy="-5">​</tspan>')}
+/* lone pair at angle a (deg, 0 = up), distance d */
+function lp(a,d,id){d=d||16;return `<g class="lp${id?' s':''}"${id?` id="${id}"`:''} transform="rotate(${a})"><circle cx="-3.4" cy="-${d}" r="2.1"/><circle cx="3.4" cy="-${d}" r="2.1"/></g>`}
+function ch(t,x,y,id,c){return `<text class="${c||'chg'}${id?' s':''}"${id?` id="${id}"`:''} x="${x}" y="${y}">${t}</text>`}
+/* curly arrow: pts=[x1,y1,c1x,c1y,c2x,c2y,x2,y2] */
+function arrow(parent,id,pts,o){o=o||{};const g=E('g',{id,class:'s ca'},typeof parent==='string'?$(parent):parent);
+ if(o.dl)g.style.setProperty('--dl',o.dl+'s');
+ const [x1,y1,a,b,c,d,x2,y2]=pts;const p=E('path',{d:`M${x1} ${y1}C${a} ${b} ${c} ${d} ${x2} ${y2}`},g);
+ let dx=x2-c,dy=y2-d;const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;const nx=-dy,ny=dx,h=12,w=6,bx=x2-dx*h,by=y2-dy*h;
+ const pts2=o.half?`${x2},${y2} ${bx+nx*w},${by+ny*w} ${bx},${by}`:`${x2},${y2} ${bx+nx*w},${by+ny*w} ${bx-nx*w},${by-ny*w}`;
+ E('polygon',{points:pts2,class:'hd'},g);const len=p.getTotalLength()+2;p.style.strokeDasharray=len;p.style.setProperty('--L',len);return g}
+/* ---------- molecule engine ---------- */
+const MOL={};
+function defMol(name,parent,atoms,bonds){const P=typeof parent==='string'?$(parent):parent;const m={atoms:{},bonds:{},raf:0};
+ const gb=E('g',{},P),ga=E('g',{},P);
+ for(const id in bonds){const [a,b]=bonds[id];const g=E('g',{class:'bd off'},gb);m.bonds[id]={a,b,g,l:[0,1,2].map(()=>E('line',{},g)),w:E('polygon',{class:'wedge'},g),t:''}}
+ for(const id in atoms){const [lab,r,dec,al]=atoms[id];const g=E('g',{class:'atom hid'},ga);
+  if(lab){const t=E('text',{class:'at'},g);t.innerHTML=L(lab);if(al==='l'){t.setAttribute('x',-7.5)}else if(al==='r'){t.setAttribute('x',7.5);t.setAttribute('text-anchor','end')}else t.setAttribute('text-anchor','middle')}
+  if(dec)g.insertAdjacentHTML('beforeend',dec);m.atoms[id]={g,r:r==null?11:r,x:0,y:0}}
+ MOL[name]=m;return m}
+function drawBond(m,b){const A=m.atoms[b.a],B=m.atoms[b.b];let dx=B.x-A.x,dy=B.y-A.y;const n=Math.hypot(dx,dy)||1;dx/=n;dy/=n;
+ const x1=A.x+dx*A.r,y1=A.y+dy*A.r,x2=B.x-dx*B.r,y2=B.y-dy*B.r,nx=-dy,ny=dx,t=b.t;
+ const offs=t==='2'?[-3.6,3.6]:t==='3'?[-5.5,0,5.5]:[0];
+ b.l.forEach((l,i)=>{if(i<offs.length&&t!=='w'){const o=offs[i];l.setAttribute('x1',x1+nx*o);l.setAttribute('y1',y1+ny*o);l.setAttribute('x2',x2+nx*o);l.setAttribute('y2',y2+ny*o);l.style.display=''}else l.style.display='none'});
+ const L0=b.l[0];L0.style.strokeDasharray=t==='p'?'5 5':t==='h'?'2.2 3.2':'';L0.style.strokeWidth=t==='h'?'6':t==='p'?'2':'';
+ if(t==='w'){b.w.setAttribute('points',`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`);b.w.style.display=''}else b.w.style.display='none'}
+function molGo(name,st,instant){const m=MOL[name];cancelAnimationFrame(m.raf);const hid=new Set((st.h||'').split(' '));
+ const from={},to={};for(const id in m.atoms){const a=m.atoms[id],p=st.p[id];from[id]=[a.x,a.y];to[id]=p?p:[a.x,a.y];a.g.classList.toggle('hid',!p||hid.has(id))}
+ for(const id in m.bonds){const b=m.bonds[id],t=(st.b&&st.b[id])||'';b.g.classList.toggle('off',!t);if(t)b.t=t;}
+ const set=k=>{for(const id in m.atoms){const a=m.atoms[id];a.x=from[id][0]+(to[id][0]-from[id][0])*k;a.y=from[id][1]+(to[id][1]-from[id][1])*k;a.g.setAttribute('transform',`translate(${a.x.toFixed(1)},${a.y.toFixed(1)})`)}for(const id in m.bonds)drawBond(m,m.bonds[id])};
+ if(instant||RM||!m.drawn){m.drawn=1;set(1);return}
+ const t0=performance.now(),D=1100;const f=now=>{let k=Math.min(1,(now-t0)/D);k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;set(k);if(k<1)m.raf=requestAnimationFrame(f)};m.raf=requestAnimationFrame(f)}
+/* ---------- player ---------- */
+function Player(steps,opt){opt=opt||{};const P=$('#player'),cap=$('#cap'),stage=$('#stage');let i=0,playing=false,timer=0,slow=false;const n=steps.length;
+ P.innerHTML=`<div class="pbtns"><button class="btn ghost" type="button" data-a="re">Restart</button><button class="btn ghost" type="button" data-a="bk">Back</button><button class="btn" type="button" data-a="pl" aria-pressed="false">Play</button><button class="btn ghost" type="button" data-a="nx">Next</button></div>
+ <div class="pind"><span id="sind" aria-live="polite"></span><span class="dots" id="dots"></span></div>
+ <div class="pspeed"><span class="lbl">Speed</span><button class="mini" type="button" data-a="slow" aria-pressed="false">Slow</button><button class="mini" type="button" data-a="norm" aria-pressed="true">Normal</button></div>`;
+ const dots=$('#dots');steps.forEach((s,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Go to step '+(k+1));b.onclick=()=>{go(k)};dots.appendChild(b)});
+ const pl=$('[data-a=pl]',P);
+ function setPlay(v){playing=v;pl.textContent=v?'Pause':'Play';pl.setAttribute('aria-pressed',v);sched()}
+ function sched(){clearTimeout(timer);if(!playing)return;if(i>=n-1){timer=setTimeout(()=>setPlay(false),100);return}timer=setTimeout(()=>go(i+1,false,true),(slow?8500:5200)*(steps[i].t||1))}
+ function go(k,instant,auto){i=Math.max(0,Math.min(n-1,k));const st=steps[i];const on=new Set(st.on||[]);
+  $$('#stage .s').forEach(e=>e.classList.toggle('vis',on.has(e.id)));
+  if(st.mol)for(const m in st.mol)molGo(m,st.mol[m],instant);
+  if(st.fn)st.fn(instant);if(opt.onStep)opt.onStep(i,instant);
+  cap.innerHTML=`<span class="sn">Step ${i+1}</span>`+st.cap;$('#sind').textContent=`Step ${i+1} of ${n}`;
+  $$('button',dots).forEach((b,j)=>{if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('done',j<i)});
+  $('[data-a=bk]',P).disabled=i===0;$('[data-a=nx]',P).disabled=i===n-1;if(!auto&&playing)sched();else if(auto)sched()}
+ P.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=b.dataset.a;
+  if(a==='re'){go(0,true);}else if(a==='bk')go(i-1);else if(a==='nx')go(i+1);
+  else if(a==='pl'){if(!playing&&i>=n-1)go(0,true);setPlay(!playing)}
+  else if(a==='slow'||a==='norm'){slow=a==='slow';$('[data-a=slow]',P).setAttribute('aria-pressed',slow);$('[data-a=norm]',P).setAttribute('aria-pressed',!slow);sched()}});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '||e.key==='Enter'){pl.click();e.preventDefault()}});
+ go(0,true);return{go,get i(){return i}}}
+/* ---------- quiz ---------- */
+function Quiz(qs){const R=$('#quiz');let h='<ol class="qs">';qs.forEach((q,k)=>{h+=`<li><div>${q.q}</div><div class="mcq" role="radiogroup">`+q.o.map((o,j)=>`<label><input type="radio" name="q${k}" value="${j}"><span>${o}</span></label>`).join('')+`</div><p class="why" id="why${k}" hidden></p></li>`});
+ h+='</ol><div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="qscore" aria-live="polite"></span></div>';R.innerHTML=h;
+ $('#chk').onclick=()=>{let sc=0;qs.forEach((q,k)=>{const c=$(`input[name="q${k}"]:checked`);const ok=c&&+c.value===q.a;if(ok)sc++;
+  $$(`input[name="q${k}"]`).forEach(i=>{const l=i.closest('label');l.classList.remove('ok','wrong');if(+i.value===q.a&&c)l.classList.add('ok');else if(i===c)l.classList.add('wrong')});
+  const w=$('#why'+k);w.hidden=false;w.className='why '+(ok?'good':'bad');w.innerHTML=(c?(ok?'<b>Correct.</b> ':'<b>Not quite.</b> ')+q.w:'<b>Choose an answer first.</b>')});
+  const s=$('#qscore');s.textContent=`Score: ${sc} / ${qs.length}`;s.className='score '+(sc>=3?'good':'bad')}}
+/* formula text for SVG: N_2, cm^3, kJ mol^−1 */
+const f=s=>s.replace(/_\{([^}]*)\}|_(\d+)/g,(m,a,b)=>'<tspan dy="5" font-size="75%">'+(a||b)+'</tspan><tspan dy="-5">​</tspan>').replace(/\^([−+\w]+)/g,'<tspan dy="-7" font-size="70%">$1</tspan><tspan dy="7">​</tspan>');
+const T=(x,y,s,c,extra)=>`<text x="${x}" y="${y}" class="${c||'t'}" ${extra||''}>${f(s)}</text>`;
+
+const root=$('#root');
+const Tx=(x,y,s,c,id,ex)=>`<text ${id?`id="${id}" `:''}x="${x}" y="${y}" class="${c||'t'}${id?' s':''}" ${ex||''}>${f(s)}</text>`;
+root.innerHTML=`<g id="scSN2" class="s"><g id="m2"></g>
+${Tx(20,32,'S_{N}2: bromoethane (a primary halogenoalkane) + OH^−','tb','t_n2')}
+${Tx(78,240,'nucleophile','tm','t_nuc','text-anchor="middle"')}
+<g id="brk" class="s"><path class="br" d="M142 110H130V280H142M458 110H470V280H458"/><text x="478" y="110" class="chg" style="font-size:20px">‡</text><text x="494" y="108" class="chg">−</text></g>
+${Tx(300,310,'transition state: C–O forming, C–Br breaking','t','t_ts','text-anchor="middle"')}
+${Tx(320,300,'The other three groups flip over, like an umbrella in the wind:','t','t_inv','text-anchor="middle"')}
+${Tx(320,322,'inversion of configuration. One step.','tb','t_inv2','text-anchor="middle"')}
+</g>
+<g id="scSN1" class="s"><g id="m1"></g>
+${Tx(20,32,'S_{N}1: 2-bromo-2-methylpropane (a tertiary halogenoalkane)','tb','t_n1')}
+${Tx(320,320,'Step 1 (slow): the C–Br bond breaks. Both electrons go to Br.','t','t_slow','text-anchor="middle"')}
+${Tx(320,320,'Step 2 (fast): OH^− attacks the planar carbocation.','t','t_fast','text-anchor="middle"')}
+${Tx(150,120,'carbocation','tb','t_carb','text-anchor="middle" style="fill:#4a44b5"')}
+${Tx(320,320,'Product: 2-methylpropan-2-ol + Br^−','tb','t_p1','text-anchor="middle"')}
+</g>
+<g id="scBE" class="s">${Tx(320,32,'Bond enthalpy and rate of hydrolysis','tb','','text-anchor="middle"')}
+${[['C–Cl',346],['C–Br',290],['C–I',228]].map(([n,v],k)=>`<text x="110" y="${100+k*70}" class="tb" text-anchor="end">${n}</text><rect x="125" y="${80+k*70}" width="${v*1.1}" height="36" fill="#4a44b5" opacity="${.9-k*.25}"/><text x="${135+v*1.1}" y="${104+k*70}" class="t">${v} kJ mol<tspan dy="-6" font-size="11">−1</tspan></text>`).join('')}
+<line x1="560" y1="85" x2="560" y2="245" stroke="#1d7a46" stroke-width="4" marker-end="url(#ah2)"/><text x="575" y="160" class="tb" style="fill:#1d7a46">faster</text>
+${Tx(320,300,'Weaker bond → less energy needed to break it → faster reaction.','t','','text-anchor="middle"')}
+${Tx(320,324,'C–Cl is the most polar bond, but bond enthalpy matters more.','tm','','text-anchor="middle"')}</g>
+<g id="scNu" class="s">${Tx(20,32,'Other nucleophiles: each has a lone pair','tb')}
+${['OH^−','CN^−','NH_3'].map((n,k)=>`<rect x="14" y="${54+k*92}" width="612" height="80" rx="10" fill="${['#e7e6fb','#e3f3e9','#fff3e0'][k]}"/>`).join('')}
+<g><text x="40" y="96" class="at">H–O</text>${`<g transform="translate(74 96)">${lp(0,14)}${lp(180,14)}${lp(90,14)}</g>`}<text x="90" y="80" class="chg">−</text>
+${Tx(130,84,'KOH or NaOH(aq), warm','tm')}${Tx(130,108,'CH_3CH_2Br + OH^− → CH_3CH_2OH + Br^−','t')}${Tx(520,108,'alcohol','tb','','text-anchor="middle"')}</g>
+<g><g transform="translate(40 188)">${lp(270,14)}</g><text x="54" y="188" class="at" text-anchor="middle">C</text><line x1="66" y1="182" x2="88" y2="182" class="bl" stroke="#1c2736" stroke-width="2"/><line x1="66" y1="188" x2="88" y2="188" stroke="#1c2736" stroke-width="2"/><line x1="66" y1="194" x2="88" y2="194" stroke="#1c2736" stroke-width="2"/><text x="100" y="188" class="at" text-anchor="middle">N</text><g transform="translate(100 188)">${lp(90,14)}</g><text x="40" y="168" class="chg">−</text>
+${Tx(130,176,'KCN in ethanol, heat under reflux','tm')}${Tx(130,200,'CH_3CH_2Br + CN^− → CH_3CH_2CN + Br^−','t')}${Tx(520,192,'nitrile','tb','','text-anchor="middle"')}${Tx(520,212,'chain + 1 C','tm','','text-anchor="middle"')}</g>
+<g><text x="62" y="282" class="at" text-anchor="middle">NH<tspan class="sb" dy="5" font-size="14">3</tspan></text><g transform="translate(56 282)">${lp(0,16)}</g>
+${Tx(130,268,'excess NH_3 in ethanol, heat in a sealed tube','tm')}${Tx(130,292,'CH_3CH_2Br + 2NH_3 → CH_3CH_2NH_2 + NH_4Br','t')}${Tx(520,284,'amine','tb','','text-anchor="middle"')}</g></g>
+<defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1d7a46"/></marker></defs>`;
+defMol('n2','#m2',{Hn:['H',9],O:['O',11,lp(0)+lp(180)+lp(90,16,'oLpR')+ch('−',-15,-20,'oCh')],C:['C',11,ch('δ+',17,-20,'dC','dl')],
+ Br:['Br',15,lp(0,17)+lp(180,17)+lp(90,21)+lp(270,21,'brL')+ch('δ−',24,-26,'dBr','dl')+ch('−',24,-24,'brCh')],Me:['CH3',12,'','l'],Hw:['H',9],Hh:['H',9]},
+ {hn:['Hn','O'],oc:['O','C'],cb:['C','Br'],cm:['C','Me'],cw:['C','Hw'],ch:['C','Hh']});
+defMol('n1','#m1',{C:['C',11,ch('δ+',17,-20,'dC1','dl')+ch('+',-18,-16,'cPlus')],M1:['H3C',12,'','r'],M2:['CH3',12,'','l'],M3:['CH3',12,'','l'],
+ Br:['Br',15,lp(0,17)+lp(180,17)+lp(90,21)+lp(270,21,'brL1')+ch('δ−',24,-26,'dBr1','dl')+ch('−',24,-24,'brCh1')],O:['O',11,lp(0)+lp(180)+lp(270,16,'oLpL')+ch('−',-15,-18,'oCh1')],Hn:['H',9]},
+ {cm1:['C','M1'],cm2:['C','M2'],cm3:['C','M3'],cb:['C','Br'],oc:['O','C'],oh:['O','Hn']});
+arrow('#scSN2','a1',[113,183,165,120,250,135,288,180]);arrow('#scSN2','a2',[341,185,350,148,374,146,378,172],{dl:1.2});
+arrow('#scSN1','b1',[301,185,310,148,334,146,338,172]);arrow('#scSN1','b2',[402,172,372,130,322,140,275,180]);
+const S2={r:{p:{Hn:[60,190],O:[95,190],C:[300,190],Br:[385,190],Me:[282,138],Hw:[260,222],Hh:[304,236]},b:{hn:'1',cb:'1',cm:'1',cw:'w',ch:'h'}},
+ ts:{p:{Hn:[163,190],O:[198,190],C:[300,190],Br:[402,190],Me:[300,133],Hw:[278,236],Hh:[322,236]},b:{hn:'1',oc:'p',cb:'p',cm:'1',cw:'w',ch:'h'}},
+ p:{p:{Hn:[205,190],O:[240,190],C:[300,190],Br:[480,190],Me:[318,138],Hw:[340,222],Hh:[296,236]},b:{hn:'1',oc:'1',cm:'1',cw:'w',ch:'h'}}};
+const S1={r:{p:{C:[260,190],M1:[196,190],M2:[260,128],M3:[260,252],Br:[345,190]},b:{cm1:'1',cm2:'1',cm3:'1',cb:'1'}},
+ c:{p:{C:[260,190],M1:[206,222],M2:[260,128],M3:[314,222],Br:[480,270],O:[420,180],Hn:[455,180]},b:{cm1:'1',cm2:'1',cm3:'1',oh:'1'}},
+ p:{p:{C:[260,190],M1:[196,190],M2:[260,128],M3:[260,252],Br:[480,270],O:[340,190],Hn:[375,190]},b:{cm1:'1',cm2:'1',cm3:'1',oh:'1',oc:'1'}}};
+const steps=[
+{on:['scSN2','t_n2','t_nuc','dC','dBr','oLpR','oCh'],mol:{n2:S2.r},cap:'Br is more electronegative than C, so the C–Br bond is <b>polar</b>: C is <b>δ+</b>. The hydroxide ion is a <b>nucleophile</b>: it has a <b>lone pair</b> to donate to the δ+ carbon.'},
+{on:['scSN2','t_n2','dC','dBr','oLpR','oCh','a1','a2'],mol:{n2:S2.r},cap:'<b>Curly arrows</b> show electron pairs moving. The lone pair on O attacks the δ+ C <b>from the side opposite the Br</b>. At the same time the C–Br bond pair moves onto Br.'},
+{on:['scSN2','t_n2','brk','t_ts'],mol:{n2:S2.ts},cap:'In the <b>transition state</b> the C–O bond is forming and the C–Br bond is breaking (dashed lines). It is shown in <b>square brackets</b> with ‡ and an overall <b>negative charge</b>.'},
+{on:['scSN2','t_n2','brL','brCh','t_inv','t_inv2'],mol:{n2:S2.p},cap:'Products: <b>ethanol</b> and a <b>bromide ion</b>. This is <b>S<sub>N</sub>2</b>: one step, and the rate depends on both [halogenoalkane] and [OH<sup>−</sup>]. Primary halogenoalkanes react this way.'},
+{on:['scSN1','t_n1','dC1','dBr1','b1','t_slow'],mol:{n1:S1.r},cap:'A <b>tertiary</b> halogenoalkane is crowded around the C–Br carbon, so OH<sup>−</sup> cannot easily get in. Instead the C–Br bond <b>breaks first</b> (heterolytic fission). This step is <b>slow</b>.'},
+{on:['scSN1','t_n1','cPlus','brL1','brCh1','oLpL','oCh1','b2','t_carb','t_fast'],mol:{n1:S1.c},cap:'This gives a <b>carbocation</b> (C<sup>+</sup>), stabilised by the three alkyl groups. It is <b>planar</b>. The lone pair on OH<sup>−</sup> then attacks the C<sup>+</sup> in a <b>fast</b> second step.'},
+{on:['scSN1','t_n1','brL1','brCh1','t_p1'],mol:{n1:S1.p},cap:'Product: <b>2-methylpropan-2-ol</b>. This is <b>S<sub>N</sub>1</b>: two steps, and the rate depends only on [halogenoalkane]. Secondary halogenoalkanes can react by both mechanisms.'},
+{on:['scBE'],cap:'Rate also depends on the halogen. The <b>C–I bond is the weakest</b>, so it breaks most easily: iodoalkanes react <b>fastest</b>, chloroalkanes slowest.'},
+{on:['scNu'],t:1.3,cap:'Other <b>nucleophiles</b> react in the same way. <b>CN<sup>−</sup></b> gives a <b>nitrile</b> (adds one carbon to the chain). <b>NH<sub>3</sub></b> gives an <b>amine</b>; excess NH<sub>3</sub> removes H<sup>+</sup> and stops further substitution.'}];
+Player(steps);
+/* ---- Try it A ---- */
+const K={p:['1-bromobutane','CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Br','S<sub>N</sub>2','One step through a transition state. The C–Br carbon has only one alkyl group, so OH<sup>−</sup> can reach it easily from the back. A primary carbocation would be too unstable.','butan-1-ol'],
+ s:['2-bromobutane','CH<sub>3</sub>CHBrCH<sub>2</sub>CH<sub>3</sub>','S<sub>N</sub>1 and S<sub>N</sub>2','A mixture of both. The carbon has two alkyl groups: it is partly crowded, and a secondary carbocation is only fairly stable.','butan-2-ol'],
+ t:['2-bromo-2-methylbutane','(CH<sub>3</sub>)<sub>2</sub>CBrCH<sub>2</sub>CH<sub>3</sub>','S<sub>N</sub>1','Two steps: C–Br breaks to give a carbocation, then OH<sup>−</sup> attacks. Three alkyl groups crowd the carbon and stabilise the tertiary carbocation.','2-methylbutan-2-ol']};
+$('#kind').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#kind button').forEach(x=>x.setAttribute('aria-pressed',x===b));const k=K[b.dataset.k];
+ $('#mechOut').innerHTML=`<b>${k[0]}</b>: ${k[1]}<br><span class="big">${k[2]}</span><br>${k[3]}<br>Product with OH<sup>−</sup>(aq): <b>${k[4]}</b>.`};
+/* ---- Try it B ---- */
+const R={I:['1-iodobutane','#f2d23c',1.6,'yellow AgI'],Br:['1-bromobutane','#efe6c8',5,'cream AgBr'],Cl:['1-chlorobutane','#ffffff',16,'white AgCl']};let pick=null,rt=0,rRaf=0;
+function tubes(){let h='';['Cl','Br','I'].forEach((k,i)=>{const x=60+i*100;h+=`<path d="M${x-16} 20V120A16 16 0 0 0 ${x+16} 120V20" fill="#fff" stroke="#7d8fa3" stroke-width="2.5"/><path d="M${x-16} 50V120A16 16 0 0 0 ${x+16} 120V50Z" fill="#dfeef8"/><path id="pp${k}" class="ppt" d="M${x-16} 50V120A16 16 0 0 0 ${x+16} 120V50Z" fill="${R[k][1]}" stroke="#bbb" opacity="0"/><text x="${x}" y="156" class="tm mid">C–${k}</text>`});
+ $('#rsv').innerHTML=h+`<text x="300" y="16" class="tm" text-anchor="end" id="clk">0 min</text>`}
+tubes();
+$('#race').onclick=e=>{const b=e.target.closest('button[data-r]');if(!b)return;pick=b.dataset.r;$$('#race [data-r]').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.classList.remove('ok','wrong')})};
+$('#go').onclick=()=>{const say=$('#rSay');if(!pick){say.className='say bad';say.textContent='Pick C–Cl, C–Br or C–I first.';return}tubes();cancelAnimationFrame(rRaf);const t0=performance.now();say.className='say';say.textContent='Watching…';
+ const done={};const fr=now=>{const m=(now-t0)/1000*(RM?100:2);$('#clk').textContent=Math.min(20,m).toFixed(1)+' min';
+  for(const k in R){const o=Math.max(0,Math.min(1,(m-R[k][2])/2.5));$('#pp'+k).style.opacity=o;if(o>0&&!done[k])done[k]=1}
+  if(m<20)rRaf=requestAnimationFrame(fr);else{const ok=pick==='I';$$('#race [data-r]').forEach(x=>{if(x.dataset.r===pick)x.classList.add(ok?'ok':'wrong')});say.className='say '+(ok?'good':'bad');
+   say.innerHTML=(ok?'<b>Correct.</b> ':'<b>Not this time.</b> ')+'Order of precipitate: <b>C–I</b> (yellow AgI, first) &gt; <b>C–Br</b> (cream AgBr) &gt; <b>C–Cl</b> (white AgCl, very slow). The C–I bond (228 kJ mol<sup>−1</sup>) is the weakest, so it is hydrolysed fastest.'}};rRaf=requestAnimationFrame(fr)};
+Quiz([
+{q:'In the S<sub>N</sub>2 mechanism, the curly arrow from the hydroxide ion starts at',o:['the negative charge','a lone pair on the oxygen atom','the hydrogen atom'],a:1,w:'Curly arrows show electron pairs, so they start at a lone pair or a bond, never at a charge sign.'},
+{q:'Tertiary halogenoalkanes react by S<sub>N</sub>1 mainly because',o:['the tertiary carbocation is fairly stable and the carbon is too crowded for back attack','their C–Br bond is stronger','their carbon atom is not δ+'],a:0,w:'Three alkyl groups push electrons towards the C<sup>+</sup> and block the nucleophile from the back.'},
+{q:'With aqueous silver nitrate in ethanol, 1-iodobutane gives a precipitate fastest because',o:['the C–I bond is the most polar','iodine is the most electronegative halogen','the C–I bond has the lowest bond enthalpy'],a:2,w:'The weakest bond breaks most easily. C–I is actually the least polar C–X bond.'},
+{q:'Which reagent and conditions convert bromoethane into propanenitrile?',o:['KCN in ethanol, heat under reflux','KOH(aq), warm','excess NH<sub>3</sub> in ethanol, sealed tube'],a:0,w:'CN<sup>−</sup> is the nucleophile. The product CH<sub>3</sub>CH<sub>2</sub>CN has one more carbon atom.'}]);
+</script></body></html>

@@ -1,0 +1,711 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oxidation and Reduction</title>
+<meta name="description" content="Interactive animation: Oxidation and Reduction. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-redox-reactions.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--ox:#b45309;--red:#1f63a8;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(12px,2.6vw,22px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1.02rem var(--display);padding:11px 24px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:560px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;font-size:.95rem;border-radius:12px}}
+.panel[hidden]{display:none!important}
+.grid{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+@media (max-width:780px){.grid{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.stage{background:var(--bench);border-radius:12px;padding:8px}
+.stage svg{width:100%;height:auto;display:block}
+svg text{font-family:var(--body)}
+.cap{font:700 .78rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pick{font:inherit;font-size:.92rem;padding:7px 13px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.pick:focus-visible,.xtab:focus-visible,.chip:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.chk{display:flex;gap:8px;align-items:center;font-size:.92rem}
+.chk input{width:18px;height:18px;accent-color:var(--accent)}
+.status{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;padding:10px 12px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.status.ok{background:#e6f4ec;border-color:var(--good)}
+.status.no{background:#fdecea;border-color:var(--bad)}
+.eq{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem}
+.eq b{font-family:var(--display);font-weight:600;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.ox{color:var(--ox);font-weight:700}.rd{color:var(--red);font-weight:700}
+ol.steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:m;font-size:.9rem}
+ol.steps li{counter-increment:m;display:flex;gap:8px;color:var(--muted)}
+ol.steps li::before{content:counter(m);flex:none;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 .75rem var(--display);background:#fff}
+ol.steps li.now{color:var(--ink);font-weight:700}ol.steps li.now::before{border-color:var(--accent);color:var(--accent)}
+ol.steps li.done{color:var(--good)}ol.steps li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;padding:4px 4px 0}
+.legend>span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:16px;height:16px;border-radius:50%;display:inline-block;border:2px solid}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:14px}
+ol.qs label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+ol.qs input{margin-top:5px;accent-color:var(--accent)}
+.fb{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:6px}
+.fb.ok{background:#e6f4ec;color:var(--good)}.fb.no{background:#fdecea;color:var(--bad)}
+.score{font:700 1rem var(--display)}
+.mnem{font:700 1.15rem var(--display);color:var(--accent);background:#fff;border:2px dashed var(--accent);border-radius:10px;padding:8px 12px;text-align:center;line-height:1.35}
+.mnem span{display:block;font-size:.88rem;font-weight:600}
+.mnem .ox,.mnem .rd{display:inline;font-size:inherit}
+.spothead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font:600 .9rem var(--display);color:var(--muted);padding:4px 6px}
+.chips{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:10px 6px 4px;font-size:1.1rem}
+.chip{font:700 1.15rem var(--body);padding:8px 14px;border-radius:12px;border:2px solid var(--accent);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;min-width:76px;line-height:1.25}
+.chip:hover{background:var(--accent-soft)}
+.chip small{font:600 .7rem var(--display);letter-spacing:.03em;text-transform:uppercase;min-height:.9em}
+.chip.sx{border-color:var(--ox);background:#fff4e6}.chip.sr{border-color:var(--red);background:#e9f1fb}
+.chip.shake{animation:sh .35s}
+@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.plus{color:var(--muted);font-weight:700}
+.prod{color:var(--muted);font-weight:700}
+.task{font:700 1.1rem var(--display);color:var(--ink);background:#fff;border:2px solid var(--accent);border-radius:10px;padding:8px 12px}
+.task em{font-style:normal;text-transform:uppercase;color:var(--accent)}
+ul.roles{list-style:none;margin:0;padding:0;font-size:.92rem;display:flex;flex-direction:column;gap:4px}
+ul.roles li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--bench);padding:2px 0}
+ul.roles li span:last-child{font-weight:700}
+.see{font-size:.92rem;color:var(--muted)}
+/* ---- top tabs + exam practice ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none!important}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tw{overflow-x:auto;margin-top:8px}
+.ex-tbl{width:auto;min-width:100%;border-collapse:collapse;font-size:.92rem}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:5px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--accent-soft);font-family:var(--display);font-weight:600}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-dl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-dl.eqn{font-size:1.02rem}
+.ex-sel{font:inherit;font-size:.95rem;max-width:100%;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-sel:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-ansn{font-size:.88rem;color:var(--good);font-weight:700}
+.ex-act{display:flex;gap:8px;flex-wrap:wrap}
+.ex-card .btn:disabled{opacity:.5;cursor:default}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-foot{display:flex;gap:10px;flex-wrap:wrap}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Redox reactions</div>
+<h1>Oxidation and reduction (redox)</h1>
+<p>Press Play and watch the atoms. Use Step to go slowly. There are two ways to spot oxidation and reduction: follow the <b>oxygen</b>, or follow the <b>electrons</b>. Then try tab 3.</p>
+</header>
+<div class="toptabs" id="topRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="topLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="topExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="topLearn">
+
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" role="tab" id="t0" aria-selected="true" aria-controls="p0">1 · Oxygen view</button>
+<button class="xtab" role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">2 · Electron view</button>
+<button class="xtab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">3 · Spot it</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="panel grid" id="p0" role="tabpanel" aria-labelledby="t0">
+<div class="col">
+<div class="sheet"><div class="stage"><svg id="s1" viewBox="0 0 640 430" role="img" aria-label="Particle diagram: atoms rearrange as oxygen is gained or lost"></svg></div>
+<div class="legend" id="leg1"></div></div>
+</div>
+<div class="col">
+<div class="sheet"><h2>Controls</h2>
+<div class="cap">Reaction</div>
+<div class="row" id="rPick"><button class="pick" data-r="mg" aria-pressed="true">Magnesium burns</button><button class="pick" data-r="cu" aria-pressed="false">CuO + hydrogen</button></div>
+<div class="row"><button class="btn" id="play1">Pause</button><button class="btn ghost" id="step1">Step</button><button class="btn ghost" id="rep1">Replay</button></div>
+<ol class="steps" id="steps1"></ol>
+<label class="chk"><input type="checkbox" id="lab1" checked> Show labels</label>
+</div>
+<div class="sheet"><h2>What's happening</h2><div class="status" id="st1"></div>
+<div class="eq" id="eq1w"></div><div class="eq" id="eq1s"></div>
+<div class="mnem" style="font-size:1rem"><span class="ox">Oxidation</span> = gain of oxygen<br><span class="rd">Reduction</span> = loss of oxygen</div>
+</div>
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="panel grid" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+<div class="col">
+<div class="sheet"><div class="stage"><svg id="s2" viewBox="0 0 640 400" role="img" aria-label="A metal atom gives two electrons to a copper(II) ion"></svg></div>
+<div class="legend">
+<span><i class="dot" id="lgM" style="background:#bfc6ce;border-color:#6d7782"></i><span id="lgMt">Mg atom</span></span>
+<span><i class="dot" style="background:#3d8fd6;border-color:#1f5f99"></i><span>Cu<sup>2+</sup> ion</span></span>
+<span><i class="dot" style="background:#c46a3d;border-color:#7d3b1c"></i><span>Cu atom</span></span>
+<span><i class="dot" style="background:#ffd23f;border-color:#b38900;width:11px;height:11px"></i><span>electron (e<sup>−</sup>)</span></span>
+<span style="opacity:.7"><i class="dot" style="background:#e9e4f4;border-color:#8d82b0"></i><span>SO<sub>4</sub><sup>2−</sup> (spectator ion)</span></span>
+</div></div>
+</div>
+<div class="col">
+<div class="sheet"><h2>Controls</h2>
+<div class="cap">Metal added to copper(II) sulfate</div>
+<div class="row" id="mPick"><button class="pick" data-m="Mg" aria-pressed="true">Magnesium</button><button class="pick" data-m="Zn" aria-pressed="false">Zinc</button></div>
+<div class="row"><button class="btn" id="play2">Pause</button><button class="btn ghost" id="step2">Step</button><button class="btn ghost" id="rep2">Replay</button></div>
+<ol class="steps" id="steps2"></ol>
+<label class="chk"><input type="checkbox" id="lab2" checked> Show labels</label>
+<div class="mnem">OIL RIG<span><span class="ox">O</span>xidation <span class="ox">I</span>s <span class="ox">L</span>oss of electrons<br><span class="rd">R</span>eduction <span class="rd">I</span>s <span class="rd">G</span>ain of electrons</span></div>
+</div>
+<div class="sheet"><h2>What's happening</h2><div class="status" id="st2"></div>
+<div class="eq" id="eq2w"></div><div class="eq" id="eq2i"></div>
+</div>
+</div>
+</div>
+
+<!-- TAB 3 -->
+<div class="panel grid" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+<div class="col">
+<div class="sheet"><div class="stage">
+<div class="spothead"><span id="rxN"></span><span id="rxName"></span></div>
+<div class="chips" id="chips" aria-label="Reactants: tap one"></div>
+<svg id="s3" viewBox="0 0 640 270" role="img" aria-label="What moves between the reactants"></svg>
+</div>
+<p class="see">Tap a reactant in the equation. Products are shown in grey.</p></div>
+</div>
+<div class="col">
+<div class="sheet"><h2>Your task</h2>
+<div class="task" id="task"></div>
+<ul class="roles" id="roles"></ul>
+<div class="row"><button class="btn" id="play3">Pause</button><button class="btn ghost" id="show3">Show me</button><button class="btn ghost" id="rep3">Replay</button></div>
+<div class="row"><button class="btn" id="next3">Next reaction</button><span class="score" id="sc3"></span></div>
+</div>
+<div class="sheet"><h2>What's happening</h2><div class="status" id="st3"></div></div>
+</div>
+</div>
+
+<section class="sheet"><h2>Key points</h2>
+<ul class="kp">
+<li><span class="ox">Oxidation</span> is <b>gain of oxygen</b>. <span class="rd">Reduction</span> is <b>loss of oxygen</b>.</li>
+<li><span class="ox">Oxidation</span> is <b>loss of electrons</b>. <span class="rd">Reduction</span> is <b>gain of electrons</b>. Remember <b>OIL RIG</b>.</li>
+<li>Oxidation and reduction always happen <b>together</b>. A reaction with both is a <b>redox</b> reaction.</li>
+<li>The <b>reducing agent</b> is the substance that is <span class="ox">oxidised</span>. It takes oxygen away, or it gives electrons.</li>
+<li>The <b>oxidising agent</b> is the substance that is <span class="rd">reduced</span>. It gives oxygen, or it takes electrons.</li>
+<li>Examples: in a <b>displacement</b> reaction the more reactive metal is oxidised. In <b>rusting</b>, iron is oxidised by oxygen (water must also be present).</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2>
+<ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div>
+</section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="topExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-foot"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+
+</div>
+
+<script>
+const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function T(s,a,p){const e=E('text',a,p);e.textContent=s;return e}
+const cl=v=>Math.max(0,Math.min(1,v)),ease=v=>{v=cl(v);return v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2},lerp=(a,b,t)=>a+(b-a)*t;
+const hx=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+const mixH=(a,b,t)=>{a=hx(a);b=hx(b);return 'rgb('+a.map((v,i)=>Math.round(lerp(v,b[i],t))).join(',')+')'};
+const OXC='#b45309',RDC='#1f63a8';
+let clock=0;
+const kOf=S=>Math.max(0,Math.min(3,Math.ceil(S-1e-6)-1));
+function steps(ol,items,S){const k=kOf(S);ol.innerHTML=items.map((s,i)=>`<li class="${i===k?'now':S>=i+1?'done':''}"><span>${s}</span></li>`).join('')}
+function stepState(st,setP){return{
+  play:()=>{if(st.S>=4)st.S=0;st.stop=null;setP(!st.play)},
+  step:()=>{if(st.S>=4)st.S=0;st.stop=Math.floor(st.S+1e-6)+1;setP(true)},
+  rep:()=>{st.S=0;st.stop=null;setP(true)},
+  tick:dt=>{if(!st.play)return;st.S+=dt/2;if(st.stop!==null&&st.S>=st.stop){st.S=st.stop;st.stop=null;setP(false)}if(st.S>=4){st.S=4;setP(false)}}}}
+
+/* ================= TAB 1: oxygen view ================= */
+const EL={Mg:['#c3cad2','#6d7782',26],O:['#e0533d','#9b2a1a',20],Cu:['#c46a3d','#7d3b1c',26],H:['#f7f9fb','#7d8fa3',14]};
+const SC1={
+ mg:{atoms:[['Mg',[150,140],[150,140],[220,140]],['Mg',[150,250],[150,250],[220,250]],['O',[420,195],[400,150],[260,140]],['O',[452,195],[440,245],[260,250]]],
+  steps:['Reactants: Mg atoms and an O<sub>2</sub> molecule','Heat: the bond in O<sub>2</sub> breaks','Each O atom joins an Mg atom','Mg has gained oxygen: <span class="ox">oxidised</span>'],
+  st:['Magnesium ribbon is heated in air. The reactants are magnesium atoms (Mg) and oxygen molecules (O<sub>2</sub>).',
+   'The magnesium burns with a very bright white flame. The bond in each oxygen molecule breaks.',
+   'Each oxygen atom joins a magnesium atom. Magnesium oxide (MgO) forms. It is a white powder.',
+   'Magnesium has <span class="ox">gained oxygen</span>. Gain of oxygen is <span class="ox">oxidation</span>, so magnesium is <span class="ox">oxidised</span>. Oxygen is the <b>oxidising agent</b>.'],
+  w:'magnesium + oxygen → magnesium oxide',s:'2Mg(s) + O<sub>2</sub>(g) → 2MgO(s)',
+  see:['A very bright white flame.','A white powder forms (MgO).'],leg:['Mg','O']},
+ cu:{atoms:[['Cu',[150,195],[150,195],[165,195]],['O',[190,195],[300,120],[440,190]],['H',[428,195],[428,195],[416,212]],['H',[452,195],[452,195],[464,212]]],
+  steps:['Reactants: CuO and an H<sub>2</sub> molecule','Heat: hydrogen pulls oxygen away from copper','The O atom joins H<sub>2</sub>: water forms','CuO <span class="rd">reduced</span>, H<sub>2</sub> <span class="ox">oxidised</span>'],
+  st:['Hydrogen gas passes over hot copper(II) oxide. Copper(II) oxide is a black powder.',
+   'Hydrogen takes oxygen away from the copper(II) oxide.',
+   'The oxygen atom joins the hydrogen molecule. Water (H<sub>2</sub>O) forms. Copper is left behind.',
+   'Copper(II) oxide has <span class="rd">lost oxygen</span>: it is <span class="rd">reduced</span>. Hydrogen has <span class="ox">gained oxygen</span>: it is <span class="ox">oxidised</span>. Both happen at the same time, so this is a <b>redox</b> reaction. Hydrogen is the <b>reducing agent</b>. Copper(II) oxide is the <b>oxidising agent</b>.'],
+  w:'copper(II) oxide + hydrogen → copper + water',s:'CuO(s) + H<sub>2</sub>(g) → Cu(s) + H<sub>2</sub>O(g)',
+  see:['The black powder turns pink-brown (copper).','Steam forms. It condenses to water drops.'],leg:['Cu','O','H']}
+};
+const A={r:'mg',S:0,play:true,stop:null};
+const s1=$('s1'),g1={};
+function build1(){
+  s1.innerHTML='';const D=SC1[A.r];
+  g1.eq=T('',{x:320,y:36,'text-anchor':'middle','font-size':21,'font-weight':700,fill:'#1c2736'},s1);
+  g1.eq.textContent=A.r==='mg'?'2Mg + O₂ → 2MgO':'CuO + H₂ → Cu + H₂O';
+  g1.arrow=E('path',{d:A.r==='mg'?'M410 170Q330 60 270 118M425 225Q360 300 275 262':'M195 168Q300 50 420 165',fill:'none',stroke:OXC,'stroke-width':3,'stroke-dasharray':'8 7','marker-end':'url(#ah)',opacity:0},s1);
+  const df=E('defs',{},s1),mk=E('marker',{id:'ah',viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'},df);E('path',{d:'M0 0L10 5L0 10Z',fill:OXC},mk);
+  g1.arrT=T('oxygen moves',{x:A.r==='mg'?340:300,y:A.r==='mg'?90:72,'text-anchor':'middle','font-size':14,'font-weight':700,fill:OXC,opacity:0},s1);
+  g1.spark=E('g',{opacity:0,stroke:'#f5b400','stroke-width':3,'stroke-linecap':'round'},s1);
+  for(let i=0;i<8;i++){const a=i*Math.PI/4;E('line',{x1:Math.cos(a)*14,y1:Math.sin(a)*14,x2:Math.cos(a)*26,y2:Math.sin(a)*26},g1.spark)}
+  g1.at=D.atoms.map(a=>{const c=EL[a[0]],g=E('g',{},s1);E('circle',{r:c[2],fill:c[0],stroke:c[1],'stroke-width':2.5},g);T(a[0],{y:5,'text-anchor':'middle','font-size':a[0]==='H'?13:16,'font-weight':700,fill:a[0]==='O'?'#fff':'#1c2736'},g);return g});
+  // labels
+  g1.lab=E('g',{},s1);g1.lab0=E('g',{},g1.lab);g1.lab3=E('g',{opacity:0},g1.lab);
+  const L=(t,x,y,o,p)=>T(t,Object.assign({x,y,'text-anchor':'middle','font-size':14,fill:'#5a6878'},o||{}),p);
+  if(A.r==='mg'){
+    L('Mg atom',150,186,{},g1.lab0);L('Mg atom',150,296,{},g1.lab0);L('O₂ molecule',436,238,{},g1.lab0);
+    L('MgO',240,186,{'font-weight':700,fill:'#1c2736'},g1.lab3);L('MgO',240,296,{'font-weight':700,fill:'#1c2736'},g1.lab3);
+    E('path',{d:'M300 108Q312 108 312 120V180Q312 195 322 195Q312 195 312 210V270Q312 282 300 282',fill:'none',stroke:OXC,'stroke-width':2.5},g1.lab3);
+    L('Magnesium has',420,170,{'text-anchor':'start',x:332,fill:OXC,'font-weight':700,'font-size':16},g1.lab3);
+    L('gained oxygen.',0,190,{'text-anchor':'start',x:332,fill:OXC,'font-weight':700,'font-size':16},g1.lab3);
+    L('It is OXIDISED.',0,214,{'text-anchor':'start',x:332,fill:OXC,'font-weight':700,'font-size':19},g1.lab3);
+    L('O₂ gives the oxygen:',0,250,{'text-anchor':'start',x:332},g1.lab3);L('it is the oxidising agent.',0,268,{'text-anchor':'start',x:332},g1.lab3);
+  }else{
+    L('copper(II) oxide, CuO',170,240,{},g1.lab0);L('H₂ molecule',440,240,{},g1.lab0);
+    L('Cu',165,240,{'font-weight':700,fill:'#1c2736'},g1.lab3);L('H₂O',440,250,{'font-weight':700,fill:'#1c2736'},g1.lab3);
+    L('CuO has lost oxygen.',165,272,{fill:RDC,'font-weight':700,'font-size':16},g1.lab3);L('It is REDUCED.',165,296,{fill:RDC,'font-weight':700,'font-size':19},g1.lab3);
+    L('H₂ has gained oxygen.',440,272,{fill:OXC,'font-weight':700,'font-size':16},g1.lab3);L('It is OXIDISED.',440,296,{fill:OXC,'font-weight':700,'font-size':19},g1.lab3);
+  }
+  // macro inset
+  E('rect',{x:10,y:332,width:620,height:90,rx:10,fill:'#fff',stroke:'#cdd6df'},s1);
+  g1.mac=E('g',{},s1);
+  if(A.r==='mg'){
+    E('path',{d:'M24 400L118 376M24 408L118 384',stroke:'#5a6878','stroke-width':4,'stroke-linecap':'round'},g1.mac);
+    g1.rib=E('rect',{x:116,y:375,width:76,height:8,rx:2,fill:'#c3cad2',stroke:'#6d7782'},g1.mac);
+    g1.ash=E('rect',{x:150,y:375,width:42,height:8,rx:2,fill:'#fff',stroke:'#9aa6b2',opacity:0},g1.mac);
+    g1.glow=E('circle',{cx:186,cy:379,r:22,fill:'#fff',stroke:'#ffd23f','stroke-width':6,opacity:0},g1.mac);
+  }else{
+    T('H₂ →',{x:26,y:384,'font-size':15,'font-weight':700,fill:'#1f63a8'},g1.mac);
+    E('rect',{x:66,y:364,width:150,height:30,rx:15,fill:'#f4f8fb',stroke:'#7d8fa3','stroke-width':2.5},g1.mac);
+    g1.pow=E('path',{d:'M108 392Q130 374 152 392Z',fill:'#222'},g1.mac);
+    g1.fl=E('path',{d:'M216 379Q232 370 236 379Q232 388 216 379Z',fill:'#f59e0b'},g1.mac);
+    E('path',{d:'M100 402Q130 416 160 402',fill:'none',stroke:'#e0533d','stroke-width':3},g1.mac);
+    T('heat',{x:166,y:414,'text-anchor':'start','font-size':11,fill:'#b3261e'},g1.mac);
+  }
+  T('What you see:',{x:262,y:362,'font-size':14,'font-weight':700,fill:'#4a44b5'},s1);
+  g1.see1=T(D.see[0],{x:262,y:384,'font-size':15,fill:'#1c2736',opacity:.25},s1);
+  g1.see2=T(D.see[1],{x:262,y:406,'font-size':15,fill:'#1c2736',opacity:.25},s1);
+  $('eq1w').innerHTML='<b>Word equation</b>'+D.w;$('eq1s').innerHTML='<b>Symbol equation</b>'+D.s;
+  $('leg1').innerHTML=D.leg.map(k=>`<span><i class="dot" style="background:${EL[k][0]};border-color:${EL[k][1]}"></i><span>${k==='Mg'?'magnesium':k==='O'?'oxygen':k==='Cu'?'copper':'hydrogen'} atom</span></span>`).join('');
+  A.lastSt=-1;
+}
+function pos1(a,S,i){
+  const p=S<1?a[1]:S<2?[lerp(a[1][0],a[2][0],ease(S-1)),lerp(a[1][1],a[2][1],ease(S-1))]:[lerp(a[2][0],a[3][0],ease(S-2)),lerp(a[2][1],a[3][1],ease(S-2))];
+  return [p[0]+Math.sin(clock*2.1+i*1.7)*1.6,p[1]+Math.cos(clock*1.8+i)*1.6];
+}
+function draw1(){
+  const D=SC1[A.r],S=A.S,lab=$('lab1').checked;
+  D.atoms.forEach((a,i)=>{const p=pos1(a,S,i);g1.at[i].setAttribute('transform',`translate(${p[0].toFixed(1)} ${p[1].toFixed(1)})`)});
+  g1.lab0.setAttribute('opacity',lab?cl(1-(S-1)*2).toFixed(2):0);
+  g1.lab3.setAttribute('opacity',lab?cl((S-3)*2).toFixed(2):0);
+  const ao=cl((S-1)*3)*cl((3.4-S)*3)*.9;
+  g1.arrow.setAttribute('opacity',ao.toFixed(2));g1.arrT.setAttribute('opacity',lab?ao.toFixed(2):0);
+  g1.arrow.setAttribute('stroke-dashoffset',(-clock*30).toFixed(1));
+  if(A.r==='mg'){
+    const sp=S>1&&S<1.8?Math.sin((S-1)/.8*Math.PI):0;g1.spark.setAttribute('opacity',sp.toFixed(2));g1.spark.setAttribute('transform','translate(436 195)');
+    const gl=S>1.1&&S<3.4?cl((S-1.1)*3)*cl((3.4-S)*3):0;
+    g1.glow.setAttribute('opacity',(gl*(.75+.25*Math.sin(clock*25))).toFixed(2));g1.glow.setAttribute('r',(18+gl*10+Math.sin(clock*17)*2).toFixed(1));
+    g1.ash.setAttribute('opacity',cl((S-2)/1.2).toFixed(2));
+  }else{
+    const sp=S>1&&S<1.8?Math.sin((S-1)/.8*Math.PI):0;g1.spark.setAttribute('opacity',sp.toFixed(2));g1.spark.setAttribute('transform','translate(170 195)');
+    g1.pow.setAttribute('fill',mixH('#222222','#b5653a',cl((S-1.5)/2)));
+    g1.fl.setAttribute('transform',`translate(216 379) scale(${(1+Math.sin(clock*14)*.15).toFixed(2)}) translate(-216 -379)`);
+  }
+  g1.see1.setAttribute('opacity',S>=1.3?1:.25);g1.see2.setAttribute('opacity',S>=2.4?1:.25);
+  const k=kOf(S),sk=k*10+Math.floor(S);
+  if(sk!==A.lastSt){A.lastSt=sk;steps($('steps1'),D.steps,S);const st=$('st1');st.className='status'+(S>=3.5?' ok':'');st.innerHTML='<p>'+D.st[k]+'</p>'}
+}
+const setP1=v=>{A.play=v;$('play1').textContent=v?'Pause':'Play'};
+const C1=stepState(A,setP1);
+$('play1').onclick=C1.play;$('step1').onclick=C1.step;$('rep1').onclick=C1.rep;$('lab1').onchange=draw1;
+[...$('rPick').children].forEach(b=>b.onclick=()=>{A.r=b.dataset.r;[...$('rPick').children].forEach(c=>c.setAttribute('aria-pressed',c===b));A.S=0;A.stop=null;setP1(true);build1();draw1()});
+
+/* ================= TAB 2: electron view ================= */
+const MT={Mg:{n:'magnesium',p:12,c:'#c3cad2',e:'#6d7782',ion:'#eef1f4'},Zn:{n:'zinc',p:30,c:'#aab6c2',e:'#5f6b78',ion:'#eef2f6'}};
+const B={m:'Mg',S:0,play:true,stop:null};
+const s2=$('s2'),g2={};
+const MP=[[170,262],[290,140]],CP=[[450,160],[450,262]];
+function build2(){
+  s2.innerHTML='';const M=MT[B.m];
+  g2.sol=E('rect',{x:0,y:0,width:640,height:302,fill:'#a9cdef'},s2);
+  E('rect',{x:0,y:302,width:640,height:98,fill:M.c,stroke:M.e},s2);
+  for(let x=20;x<640;x+=40)E('circle',{cx:x,cy:322,r:16,fill:'none',stroke:M.e,'stroke-width':1,opacity:.5},s2);
+  g2.surf=T(M.n+' metal (surface)',{x:24,y:368,'font-size':15,'font-weight':700,fill:'#1c2736'},s2);
+  T('Only the outer electrons are shown.',{x:24,y:390,'font-size':13,fill:'#3d4856'},s2);
+  T('copper(II) sulfate solution',{x:14,y:58,'text-anchor':'start','font-size':13,fill:'#1f4f7d'},s2);
+  g2.eq=T(`${B.m}(s) + Cu²⁺(aq) → ${B.m}²⁺(aq) + Cu(s)`,{x:320,y:30,'text-anchor':'middle','font-size':19,'font-weight':700,fill:'#1c2736'},s2);
+  // spectator
+  g2.so=E('g',{},s2);g2.soR=E('circle',{r:40,fill:'none',stroke:'#4a44b5','stroke-width':3,opacity:0},g2.so);
+  E('circle',{r:30,fill:'#e9e4f4',stroke:'#8d82b0','stroke-width':2},g2.so);T('SO₄²⁻',{y:5,'text-anchor':'middle','font-size':14,'font-weight':700,fill:'#3b3363'},g2.so);
+  g2.soL=E('g',{opacity:0},g2.so);T('spectator ion:',{y:52,'text-anchor':'middle','font-size':13,'font-weight':700,fill:'#4a44b5'},g2.soL);T('no change',{y:68,'text-anchor':'middle','font-size':13,'font-weight':700,fill:'#4a44b5'},g2.soL);
+  // metal particle
+  g2.M=E('g',{},s2);g2.Msh=E('circle',{r:58,fill:'none',stroke:'#1c2736','stroke-width':1.5,'stroke-dasharray':'5 5'},g2.M);
+  g2.Mc=E('circle',{r:40,fill:M.c,stroke:M.e,'stroke-width':2.5},g2.M);g2.Mt=T(B.m,{y:6,'text-anchor':'middle','font-size':18,'font-weight':700,fill:'#1c2736'},g2.M);
+  g2.ML=[0,1,2].map(i=>T('',{'text-anchor':'middle','font-size':i?13.5:15,'font-weight':i?400:700,fill:'#1c2736'},s2));
+  // copper particle
+  g2.C=E('g',{},s2);g2.Csh=E('circle',{r:54,fill:'none',stroke:'#1c2736','stroke-width':1.5,'stroke-dasharray':'5 5'},g2.C);
+  g2.Cc=E('circle',{r:38,'stroke-width':2.5},g2.C);g2.Ct=T('',{y:6,'text-anchor':'middle','font-size':17,'font-weight':700,fill:'#fff'},g2.C);
+  g2.CL=[0,1,2].map(i=>T('',{'text-anchor':'middle','font-size':i?13.5:15,'font-weight':i?400:700,fill:'#1c2736'},s2));
+  g2.e=[0,1].map(()=>{const g=E('g',{},s2);E('circle',{r:9,fill:'#ffd23f',stroke:'#b38900','stroke-width':2},g);T('−',{y:5,'text-anchor':'middle','font-size':14,'font-weight':700,fill:'#5c4500'},g);return g});
+  g2.eT=T('2 electrons move',{x:300,y:118,'text-anchor':'middle','font-size':15,'font-weight':700,fill:'#8a6400',opacity:0},s2);
+  $('lgM').style.background=M.c;$('lgM').style.borderColor=M.e;$('lgMt').textContent=B.m+' atom';
+  const w=B.m==='Mg'?'magnesium + copper(II) sulfate → magnesium sulfate + copper':'zinc + copper(II) sulfate → zinc sulfate + copper';
+  $('eq2w').innerHTML='<b>Word equation</b>'+w;
+  $('eq2i').innerHTML=`<b>Ionic equation</b>${B.m}(s) + Cu<sup>2+</sup>(aq) → ${B.m}<sup>2+</sup>(aq) + Cu(s)`;
+  B.last=-1;
+}
+const at2=(P,S)=>{const t=ease(S-2);return[lerp(P[0][0],P[1][0],t),lerp(P[0][1],P[1][1],t)]};
+function draw2(){
+  const M=MT[B.m],S=B.S,lab=$('lab2').checked;
+  const m=at2(MP,S),c=at2(CP,S);m[1]+=Math.sin(clock*1.7)*1.5;c[0]+=Math.cos(clock*1.3)*1.5;
+  g2.sol.setAttribute('fill',mixH('#a9cdef','#e8f1f8',cl(S-2)));
+  // electrons
+  let moved=0;const eP=[];
+  [0,1].forEach(i=>{
+    const u=ease((S-1-i*.3)/.6);if(u>=.5)moved++;
+    const am=clock*1.4+i*Math.PI,ac=clock*1.1+i*Math.PI+.5;
+    const p0=[m[0]+Math.cos(am)*58,m[1]+Math.sin(am)*58],p2=[c[0]+Math.cos(ac)*54,c[1]+Math.sin(ac)*54];
+    const q=[300,40],v=1-u;
+    const p=[v*v*p0[0]+2*v*u*q[0]+u*u*p2[0],v*v*p0[1]+2*v*u*q[1]+u*u*p2[1]];
+    g2.e[i].setAttribute('transform',`translate(${p[0].toFixed(1)} ${p[1].toFixed(1)})`);
+  });
+  g2.eT.setAttribute('opacity',lab?(cl((S-1)*4)*cl((2.2-S)*4)).toFixed(2):0);
+  const ion=S>=2;
+  g2.M.setAttribute('transform',`translate(${m[0].toFixed(1)} ${m[1].toFixed(1)})`);
+  g2.Msh.setAttribute('opacity',cl((2.1-S)*2).toFixed(2));
+  g2.Mc.setAttribute('r',lerp(40,32,cl((S-1.6)*2)).toFixed(1));g2.Mc.setAttribute('fill',mixH(M.c,M.ion,cl((S-1.6)*2)));
+  g2.Mt.textContent=moved===2?B.m+'²⁺':B.m;
+  g2.C.setAttribute('transform',`translate(${c[0].toFixed(1)} ${c[1].toFixed(1)})`);
+  g2.Csh.setAttribute('opacity',cl((S-1.6)*2).toFixed(2));
+  const ct=cl((S-1.6)*2);g2.Cc.setAttribute('fill',mixH('#3d8fd6','#c46a3d',ct));g2.Cc.setAttribute('stroke',mixH('#1f5f99','#7d3b1c',ct));
+  g2.Ct.textContent=moved===2?'Cu':'Cu²⁺';
+  // readouts
+  const mE=M.p-moved,cE=27+moved,mtop=m[1]-(S<2?58:40),ctop=c[1]-54;
+  const ML=[(moved===2?B.m+'²⁺ ion':B.m+' atom'),`${M.p} p⁺, ${mE} e⁻ → ${moved===2?'charge 2+':moved?'charge 1+':'no charge'}`,S>=2.4?'lost 2 e⁻: OXIDISED':''];
+  const CL=[(moved===2?'Cu atom':'Cu²⁺ ion'),`29 p⁺, ${cE} e⁻ → ${moved===2?'no charge':moved?'charge 1+':'charge 2+'}`,S>=2.4?'gained 2 e⁻: REDUCED':''];
+  ML.forEach((t,i)=>{const e=g2.ML[i];e.textContent=lab?t:'';e.setAttribute('x',m[0]);e.setAttribute('y',mtop-48+i*18);if(i===2)e.setAttribute('fill',OXC),e.setAttribute('font-weight',700)});
+  CL.forEach((t,i)=>{const e=g2.CL[i];e.textContent=lab?t:'';e.setAttribute('x',c[0]);e.setAttribute('y',ctop-48+i*18);if(i===2)e.setAttribute('fill',RDC),e.setAttribute('font-weight',700)});
+  // spectator
+  g2.so.setAttribute('transform',`translate(${(565+Math.sin(clock*.9)*8).toFixed(1)} ${(205+Math.cos(clock*1.1)*6).toFixed(1)})`);
+  const sp=cl((S-3)*3);g2.soR.setAttribute('opacity',(sp*(S<3.9?.6+.4*Math.sin(clock*6):.0)).toFixed(2));
+  g2.soL.setAttribute('opacity',lab?sp.toFixed(2):0);
+  g2.so.setAttribute('opacity',(1-cl((S-3.5)*2)*.55).toFixed(2));
+  const k=kOf(S),sk=k*10+Math.floor(S);
+  if(sk!==B.last){B.last=sk;
+    steps($('steps2'),[`${B.m} atom and Cu<sup>2+</sup> ion`,`2 electrons move from ${B.m} to Cu<sup>2+</sup>`,`${B.m}<sup>2+</sup> ion and Cu atom form`,'SO<sub>4</sub><sup>2−</sup> does not change'],S);
+    const nm=M.n,st=$('st2');st.className='status'+(S>=3?' ok':'');
+    st.innerHTML=['<p>A '+nm+' atom is on the metal surface. A copper(II) ion, Cu<sup>2+</sup>, is in the solution. The '+nm+' atom has 2 outer electrons.</p><p>'+nm[0].toUpperCase()+nm.slice(1)+' is more reactive than copper.</p>',
+     '<p>The '+nm+' atom <span class="ox">loses 2 electrons</span>. The Cu<sup>2+</sup> ion <span class="rd">gains 2 electrons</span>. The electrons move from the atom to the ion.</p>',
+     '<p>'+B.m+' is <span class="ox">oxidised</span> (Oxidation Is Loss). It becomes a '+B.m+'<sup>2+</sup> ion and goes into the solution.</p><p>Cu<sup>2+</sup> is <span class="rd">reduced</span> (Reduction Is Gain). It becomes a copper atom on the metal surface. The blue colour fades.</p>',
+     '<p>The sulfate ion, SO<sub>4</sub><sup>2−</sup>, does not change. It is a <b>spectator ion</b>, so we leave it out of the ionic equation.</p><p>'+B.m+' gives electrons, so it is the <b>reducing agent</b>. Cu<sup>2+</sup> takes electrons, so it is the <b>oxidising agent</b>.</p>'][k];}
+}
+const setP2=v=>{B.play=v;$('play2').textContent=v?'Pause':'Play'};
+const C2=stepState(B,setP2);
+$('play2').onclick=C2.play;$('step2').onclick=C2.step;$('rep2').onclick=C2.rep;$('lab2').onchange=draw2;
+[...$('mPick').children].forEach(b=>b.onclick=()=>{B.m=b.dataset.m;[...$('mPick').children].forEach(c=>c.setAttribute('aria-pressed',c===b));B.S=0;B.stop=null;setP2(true);build2();draw2()});
+
+/* ================= TAB 3: spot it ================= */
+const RX=[
+ {n:'Copper(II) oxide + hydrogen',t:'O',p:'Cu(s) + H<sub>2</sub>O(g)',sp:[
+  {f:'CuO(s)',u:'CuO',nm:'copper(II) oxide',c:'#2b2b2b',k:'#fff',d:'loses oxygen (it becomes copper)'},
+  {f:'H<sub>2</sub>(g)',u:'H₂',nm:'hydrogen',c:'#f7f9fb',k:'#1c2736',d:'gains oxygen (it becomes water)'}],ox:1,rd:0},
+ {n:'Magnesium + copper(II) ions',t:'e',p:'Mg<sup>2+</sup>(aq) + Cu(s)',sp:[
+  {f:'Mg(s)',u:'Mg',nm:'magnesium',c:'#c3cad2',k:'#1c2736',d:'loses 2 electrons (it becomes Mg²⁺)'},
+  {f:'Cu<sup>2+</sup>(aq)',u:'Cu²⁺',nm:'the copper(II) ion',c:'#3d8fd6',k:'#fff',d:'gains 2 electrons (it becomes Cu)'}],ox:0,rd:1},
+ {n:'Copper(II) oxide + carbon',t:'O',pre:['2',''],p:'2Cu(s) + CO<sub>2</sub>(g)',sp:[
+  {f:'CuO(s)',u:'CuO',nm:'copper(II) oxide',c:'#2b2b2b',k:'#fff',d:'loses oxygen (it becomes copper)'},
+  {f:'C(s)',u:'C',nm:'carbon',c:'#4b4f55',k:'#fff',d:'gains oxygen (it becomes carbon dioxide)'}],ox:1,rd:0},
+ {n:'Rusting of iron',t:'e',rust:1,p:'hydrated iron(III) oxide (rust)',sp:[
+  {f:'Fe(s)',u:'Fe',nm:'iron',c:'#868e98',k:'#fff',d:'gains oxygen and loses electrons'},
+  {f:'O<sub>2</sub>(g)',u:'O₂',nm:'oxygen',c:'#e0533d',k:'#fff',d:'gains electrons from iron'},
+  {f:'H<sub>2</sub>O(l)',u:'H₂O',nm:'water',c:'#bfe0f7',k:'#1c2736',d:'is needed for rusting, but it is not oxidised or reduced here'}],ox:0,rd:1},
+ {n:'Aluminium + iron(III) oxide',t:'O',pre:['','2'],p:'Al<sub>2</sub>O<sub>3</sub>(s) + 2Fe(l)',sp:[
+  {f:'Fe<sub>2</sub>O<sub>3</sub>(s)',u:'Fe₂O₃',nm:'iron(III) oxide',c:'#9c3d1f',k:'#fff',d:'loses oxygen (it becomes iron)'},
+  {f:'Al(s)',u:'Al',nm:'aluminium',c:'#d5dbe1',k:'#1c2736',d:'gains oxygen (it becomes aluminium oxide)'}],ox:1,rd:0}];
+const ROLES=[['oxidised','OXIDISED'],['reduced','REDUCED'],['reducing agent','the REDUCING AGENT'],['oxidising agent','the OXIDISING AGENT']];
+const Q={i:0,q:0,tags:[],first:0,tries:0,score:0,tot:0,rev:false,play:true};
+const s3=$('s3'),g3={};
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+function load3(){
+  const R=RX[Q.i];Q.q=0;Q.tags=R.sp.map(()=>[]);Q.rev=false;Q.first=1;Q.T0=clock;
+  $('rxN').textContent=`Reaction ${Q.i+1} of ${RX.length}`;$('rxName').textContent=R.n;
+  const ch=$('chips');ch.innerHTML='';
+  R.sp.forEach((s,k)=>{if(k)ch.insertAdjacentHTML('beforeend','<span class="plus">+</span>');
+    const b=document.createElement('button');b.className='chip';b.innerHTML=`<span>${(R.pre&&R.pre[k])||''}${s.f}</span><small></small>`;b.setAttribute('aria-label',s.nm);b.onclick=()=>tap(k,b);ch.appendChild(b)});
+  ch.insertAdjacentHTML('beforeend',`<span class="prod">→ ${R.p}</span>`);
+  // svg
+  s3.innerHTML='';const n=R.sp.length,X=n===3?[120,320,520]:[170,470];
+  g3.X=X;g3.sp=R.sp.map((s,k)=>{const g=E('g',{},s3);E('circle',{r:44,fill:s.c,stroke:'#1c2736','stroke-width':2},g);T(s.u,{y:7,'text-anchor':'middle','font-size':20,'font-weight':700,fill:s.k},g);
+    const l1=T('',{y:72,'text-anchor':'middle','font-size':15,'font-weight':700},g),l2=T('',{y:92,'text-anchor':'middle','font-size':14,'font-weight':700},g);return{g,l1,l2}});
+  const ox=R.ox,rd=R.rd,src=R.t==='O'?rd:ox,dst=R.t==='O'?ox:rd,x1=X[src],x2=X[dst],mid=(x1+x2)/2;
+  g3.path=[x1,x2,mid];
+  g3.arc=E('path',{d:`M${x1} 96Q${mid} -10 ${x2} 96`,fill:'none',stroke:R.t==='O'?OXC:'#b38900','stroke-width':2.5,'stroke-dasharray':'7 7',opacity:0},s3);
+  g3.tok=[0,1].map(()=>{const g=E('g',{opacity:0},s3);if(R.t==='O'){E('circle',{r:15,fill:'#e0533d',stroke:'#9b2a1a','stroke-width':2},g);T('O',{y:5,'text-anchor':'middle','font-size':14,'font-weight':700,fill:'#fff'},g)}else{E('circle',{r:10,fill:'#ffd23f',stroke:'#b38900','stroke-width':2},g);T('e⁻',{y:5,'text-anchor':'middle','font-size':12,'font-weight':700,fill:'#5c4500'},g)}return g});
+  g3.cap=T(R.t==='O'?'oxygen moves':'electrons move',{x:mid,y:28,'text-anchor':'middle','font-size':15,'font-weight':700,fill:R.t==='O'?OXC:'#8a6400',opacity:0},s3);
+  T(R.t==='O'?'Follow the OXYGEN':'Follow the ELECTRONS',{x:320,y:262,'text-anchor':'middle','font-size':14,fill:'#5a6878'},s3);
+  render3();
+  const st=$('st3');st.className='status';st.innerHTML=`<p>${R.t==='O'?'Look at the oxygen. Which reactant gains oxygen? Which loses oxygen?':'Look at the electrons. Which reactant loses electrons? Which gains electrons?'}</p>`;
+}
+function render3(){
+  const R=RX[Q.i],done=Q.q>=4;
+  $('task').innerHTML=done?'All four found. Press <em>Next reaction</em>.':`Tap the substance that is <em>${ROLES[Q.q][1].replace('the ','')}</em>.`;
+  $('roles').innerHTML=ROLES.map((r,j)=>{const k=j%2?R.rd:R.ox;return `<li><span>${cap(r[0])}</span><span>${j<Q.q?R.sp[k].nm.replace('the ',''):'?'}</span></li>`}).join('');
+  [...$('chips').querySelectorAll('.chip')].forEach((b,k)=>{b.querySelector('small').textContent=Q.tags[k].join(' · ');b.classList.toggle('sx',k===R.ox&&Q.q>0);b.classList.toggle('sr',k===R.rd&&Q.q>1)});
+  g3.sp.forEach((s,k)=>{const tg=Q.tags[k];s.l1.textContent=tg[0]||'';s.l2.textContent=tg[1]||'';const col=k===R.ox?OXC:RDC;s.l1.setAttribute('fill',col);s.l2.setAttribute('fill',col)});
+  $('sc3').textContent=Q.tot?`First-try score: ${Q.score} / ${Q.tot}`:'';
+  $('next3').textContent=Q.i===RX.length-1&&done?'Start again':'Next reaction';
+}
+function tap(k,b){
+  const R=RX[Q.i];if(Q.q>=4)return;
+  const role=Q.q,want=role%2?R.rd:R.ox,s=R.sp[k],st=$('st3'),oth=R.sp[role%2?R.ox:R.rd].nm;
+  if(k===want){
+    if(Q.first){Q.score++}Q.tot++;Q.first=1;
+    Q.tags[k].push(ROLES[role][0]);st.className='status ok';
+    const O=R.t==='O';
+    let m;
+    if(role===0)m=`Yes. ${cap(s.nm)} ${s.d}. ${O?'Gain of oxygen':'Loss of electrons'} is oxidation.`;
+    else if(role===1)m=`Yes. ${cap(s.nm)} ${s.d}. ${O?'Loss of oxygen':'Gain of electrons'} is reduction.`;
+    else if(role===2)m=`Yes. ${cap(s.nm)} is oxidised, so it is the reducing agent. It ${O?'takes oxygen away from':'gives electrons to'} ${oth}.`;
+    else m=`Yes. ${cap(s.nm)} is reduced, so it is the oxidising agent. It ${O?'gives oxygen to':'takes electrons from'} ${oth}.`;
+    if(role===3&&R.rust)m+=' Rust is hydrated iron(III) oxide. Iron is oxidised. To stop rusting, keep out oxygen or water (see the rusting page).';
+    if(role===3&&!R.rust&&R.t==='e')m+=' This is a displacement reaction: the more reactive metal is oxidised.';
+    st.innerHTML='<p>'+m+'</p>';Q.q++;if(role===0)Q.rev=true;
+  }else{
+    Q.first=0;b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');st.className='status no';
+    let m;
+    if(role<2){const r=k===R.ox?'oxidised':k===R.rd?'reduced':'';m=r?`Not quite. ${cap(s.nm)} ${s.d}, so it is ${r}. Try again.`:`Not quite. ${cap(s.nm)} ${s.d}. Try again.`}
+    else m=role===2?'Not quite. The reducing agent is the substance that is oxidised. Look at your answer above.':'Not quite. The oxidising agent is the substance that is reduced. Look at your answer above.';
+    st.innerHTML='<p>'+m+'</p>';
+  }
+  render3();
+}
+function draw3(){
+  const R=RX[Q.i];
+  g3.sp.forEach((s,k)=>s.g.setAttribute('transform',`translate(${g3.X[k]} ${(140+Math.sin(clock*1.6+k*2)*3).toFixed(1)})`));
+  const [x1,x2,mid]=g3.path,o=Q.rev?1:0;
+  g3.arc.setAttribute('opacity',o*.8);g3.cap.setAttribute('opacity',o);g3.arc.setAttribute('stroke-dashoffset',(-clock*25).toFixed(1));
+  g3.tok.forEach((g,i)=>{if(!Q.rev||(R.t==='O'&&i)){g.setAttribute('opacity',0);return}
+    const u=((clock-Q.T0)/2.4+i*.18)%1,e=ease(u/.8),v=1-e,y0=96;
+    const x=v*v*x1+2*v*e*mid+e*e*x2,y=v*v*y0+2*v*e*(-10)+e*e*y0;
+    g.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})`);g.setAttribute('opacity',u<.85?1:cl((1-u)/.15).toFixed(2));});
+}
+const setP3=v=>{Q.play=v;$('play3').textContent=v?'Pause':'Play'};
+$('play3').onclick=()=>setP3(!Q.play);
+$('show3').onclick=()=>{Q.rev=true;Q.T0=clock;setP3(true);const R=RX[Q.i];$('st3').className='status';$('st3').innerHTML=`<p>Watch the ${R.t==='O'?'red oxygen atom':'yellow electrons'}. The arrow shows where ${R.t==='O'?'the oxygen':'the electrons'} go${R.t==='O'?'es':''}.</p>`};
+$('rep3').onclick=()=>{load3();setP3(true)};
+$('next3').onclick=()=>{if(Q.i===RX.length-1&&Q.q>=4){Q.score=0;Q.tot=0;Q.i=0}else Q.i=(Q.i+1)%RX.length;load3();setP3(true)};
+
+/* ---------- tabs ---------- */
+const tabs=[$('t0'),$('t1'),$('t2')],pans=[$('p0'),$('p1'),$('p2')];let cur=0;
+function show(i,fo){cur=i;tabs.forEach((t,k)=>{t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1;pans[k].hidden=k!==i});if(fo)tabs[i].focus()}
+tabs.forEach((t,i)=>{t.onclick=()=>show(i);t.onkeydown=e=>{if(e.key==='ArrowRight'){e.preventDefault();show((i+1)%3,1)}else if(e.key==='ArrowLeft'){e.preventDefault();show((i+2)%3,1)}}});
+
+/* ---------- loop ---------- */
+let last=performance.now();
+function loop(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if([A.play,B.play,Q.play][cur])clock+=dt;
+  if(cur===0){C1.tick(dt);draw1()}
+  if(cur===1){C2.tick(dt);draw2()}
+  if(cur===2)draw3();
+  requestAnimationFrame(loop);
+}
+build1();draw1();build2();draw2();load3();draw3();requestAnimationFrame(loop);
+
+/* ---------- quick check ---------- */
+const QS=[
+ ['What does OIL RIG mean?',['Oxidation Is Loss of oxygen, Reduction Is Gain of oxygen','Oxidation Is Loss of electrons, Reduction Is Gain of electrons','Oxidation Is Gain of electrons, Reduction Is Loss of electrons','Oxygen Is Lost, Reduction Is Gained'],1,'OIL RIG is about electrons: oxidation is loss of electrons, reduction is gain of electrons.'],
+ ['CuO + H₂ → Cu + H₂O. Which substance is reduced?',['Hydrogen','Water','Copper(II) oxide','Copper'],2,'Copper(II) oxide loses oxygen. Loss of oxygen is reduction.'],
+ ['ZnO + C → Zn + CO. What is the reducing agent?',['Carbon','Zinc oxide','Zinc','Carbon monoxide'],0,'Carbon takes oxygen from zinc oxide. Carbon is oxidised, so carbon is the reducing agent.'],
+ ['Which statement about an oxidising agent is correct?',['It gains oxygen and is oxidised','It loses electrons and is oxidised','It is always a metal','It gains electrons and is reduced'],3,'The oxidising agent takes electrons from another substance, so it is reduced itself.']];
+$('qs').innerHTML=QS.map((q,i)=>`<li><p>${q[0]}</p>${q[1].map((o,k)=>`<label><input type="radio" name="q${i}" value="${k}"><span>${o}</span></label>`).join('')}<div class="fb" id="fb${i}" hidden></div></li>`).join('');
+$('chk').onclick=()=>{let sc=0;QS.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),fb=$('fb'+i);fb.hidden=false;if(!c){fb.className='fb no';fb.textContent='Choose an answer.';return}const ok=+c.value===q[2];if(ok)sc++;fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'Correct. ':'Not quite. ')+q[3]});$('score').textContent=`Score: ${sc} / ${QS.length}`;$('score').style.color=sc===QS.length?'var(--good)':'var(--ink)'};
+</script>
+<script>
+/* ---- exam practice questions ---- */
+var EXQ=[
+{ref:'Q1(a)',marks:1,type:'mcq',
+ stem:'Which change is an oxidation?',
+ opts:['copper(II) oxide → copper','magnesium → magnesium oxide','iron(III) oxide → iron','water → hydrogen'],ans:1,
+ why:'Magnesium gains oxygen when it forms magnesium oxide. Gain of oxygen is oxidation. The other three all lose oxygen.'},
+{ref:'Q1(b)',marks:3,type:'calc',ctx:'A student burns magnesium ribbon completely in air.<br>2Mg(s) + O<sub>2</sub>(g) → 2MgO(s)<br>Relative atomic masses: O = 16, Mg = 24',
+ stem:'Calculate the mass of magnesium oxide formed from 0.36 g of magnesium.',
+ inputs:[{lab:'moles of Mg =',unit:'mol',ans:0.015,tol:0.0002,m:1},{lab:'moles of MgO =',unit:'mol',ans:0.015,tol:0.0002,m:1},{lab:'mass of MgO =',unit:'g',ans:0.6,tol:0.005,m:1}],
+ work:'<ol><li>Moles of Mg = 0.36 ÷ 24 = 0.015 mol (1)</li><li>2 mol Mg gives 2 mol MgO, so moles of MgO = 0.015 mol (1)</li><li>M<sub>r</sub> of MgO = 24 + 16 = 40, so mass = 0.015 × 40 = <b>0.60 g</b> (1)</li></ol>'},
+{ref:'Q1(c)',marks:2,type:'written',
+ stem:'Explain why the mass of the solid increases when magnesium burns in air.',
+ points:['magnesium combines with / gains oxygen from the air','the mass of the oxygen is added, so the magnesium oxide has a greater mass than the magnesium','this gain of oxygen is oxidation']},
+{ref:'Q2',marks:4,type:'drop',ctx:'Hydrogen is passed over heated copper(II) oxide.<br>CuO(s) + H<sub>2</sub>(g) → Cu(s) + H<sub>2</sub>O(g)',
+ stem:'Complete the table for this reaction.',
+ parts:[{pre:'Substance oxidised:',opts:['copper(II) oxide','hydrogen','copper','water'],ans:1},
+        {pre:'Substance reduced:',opts:['copper(II) oxide','hydrogen','copper','water'],ans:0},
+        {pre:'Oxidising agent:',opts:['copper(II) oxide','hydrogen','copper','water'],ans:0},
+        {pre:'Reducing agent:',opts:['copper(II) oxide','hydrogen','copper','water'],ans:1}],
+ why:'Hydrogen gains oxygen, so it is oxidised and is the reducing agent. Copper(II) oxide loses oxygen, so it is reduced and is the oxidising agent.'},
+{ref:'Q3(a)',marks:1,type:'mcq',ctx:'Magnesium reacts with iron(II) sulfate solution.<br>Mg(s) + Fe<sup>2+</sup>(aq) → Mg<sup>2+</sup>(aq) + Fe(s)',
+ stem:'Which statement is correct?',
+ opts:['Magnesium atoms gain electrons and are reduced','Fe<sup>2+</sup> ions lose electrons and are oxidised','Magnesium is the reducing agent because it loses electrons','Fe<sup>2+</sup> ions are the reducing agent because they gain electrons'],ans:2,
+ why:'Magnesium atoms lose electrons (OIL), so magnesium is oxidised. It gives electrons to Fe<sup>2+</sup> ions, so it is the reducing agent.'},
+{ref:'Q3(b)',marks:2,type:'written',
+ stem:'Explain why Fe<sup>2+</sup> ions are described as the oxidising agent in this reaction.',
+ points:['Fe<sup>2+</sup> ions gain electrons','they take the electrons from magnesium atoms / they cause magnesium to be oxidised','so Fe<sup>2+</sup> ions are reduced']},
+{ref:'Q4',marks:1,type:'mcq',
+ stem:'Which reaction is <u>not</u> a redox reaction?',
+ opts:['Mg + CuO → MgO + Cu','2Ca + O<sub>2</sub> → 2CaO','CuO + H<sub>2</sub>SO<sub>4</sub> → CuSO<sub>4</sub> + H<sub>2</sub>O','Zn + CuSO<sub>4</sub> → ZnSO<sub>4</sub> + Cu'],ans:2,
+ why:'This is neutralisation. No substance gains or loses oxygen and no electrons are transferred: copper stays as Cu<sup>2+</sup> ions.'},
+{ref:'Q5',marks:6,type:'written',ctx:'A student says: “Oxidation always involves oxygen.”',
+ stem:'Explain whether the student is correct. Use magnesium burning in oxygen and magnesium reacting with copper(II) sulfate solution in your answer.',
+ points:['when magnesium burns, magnesium gains oxygen, so it is oxidised','magnesium atoms lose electrons to form Mg<sup>2+</sup> ions (in magnesium oxide)','oxygen gains electrons, so oxygen is reduced','with copper(II) sulfate, magnesium does not gain oxygen / sulfate ions are spectator ions','but magnesium atoms still lose electrons, so magnesium is still oxidised','copper(II) ions gain electrons, so they are reduced','so the student is not correct: oxidation is loss of electrons, which can happen without oxygen']}
+];
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('topLearn'),$('topExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('topRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=EXQ, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function txt(h){var d=document.createElement('div'); d.innerHTML=h; return d.textContent.trim();}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var dw=el('div','ex-drop'), sels=[], line=null;
+      q.parts.forEach(function(p,k){
+        var row; if(q.inline){ if(!line){line=el('div','ex-dl eqn'); dw.appendChild(line);} row=line; } else { row=el('div','ex-dl'); dw.appendChild(row); }
+        if(p.pre) row.appendChild(el('span','',p.pre));
+        var sel=document.createElement('select'); sel.className='ex-sel'; sel.setAttribute('aria-label',p.aria||((txt(p.pre||'')||q.ref)+' – choose'));
+        var o0=document.createElement('option'); o0.value=''; o0.textContent='choose…'; sel.appendChild(o0);
+        p.opts.forEach(function(o,j){var op=document.createElement('option'); op.value=j; op.textContent=o; sel.appendChild(op);});
+        row.appendChild(sel); sels.push(sel);
+        var an=el('span','ex-ansn'); an.hidden=true; row.appendChild(an);
+        if(p.post) row.appendChild(el('span','',p.post));
+        sel._an=an;
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); dw.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.parts[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong'); if(!ok){x._an.textContent='✓ '+q.parts[k].opts[q.parts[k].ans]; x._an.hidden=false;}});
+        s.score=Math.round(n*q.marks/sels.length); s.marked=true; bt3.disabled=true;
+        fb(box,s.score===q.marks,'<b>'+s.score+' / '+q.marks+' marks.</b> '+q.why); upd();
+      });
+      c.appendChild(dw); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

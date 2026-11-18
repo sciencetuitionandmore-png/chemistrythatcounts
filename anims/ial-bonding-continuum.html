@@ -1,0 +1,345 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The bonding continuum: from ionic to covalent</title>
+<meta name="description" content="Interactive animation: The bonding continuum: from ionic to covalent. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-bonding-continuum.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.xe{stroke:#b3261e;stroke-width:2.2;stroke-linecap:round}
+.oe{fill:#fff;stroke:var(--ink);stroke-width:1.8}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.lobe{fill:#e7e6fb;stroke:#4a44b5;stroke-width:1.2;stroke-opacity:.6}
+.mbtn{font-size:.95rem}
+.fld{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:6px 8px;align-items:center}
+.fld label{font:600 .88rem var(--display);color:var(--muted)}
+.cp{fill:url(#gP);stroke:#1f5fa8;stroke-width:1.6}
+.cn{fill:url(#gN);stroke:#b3261e;stroke-width:1.6}
+.bc{fill:url(#gB);stroke:#4a44b5;stroke-width:1.4}
+.nuc{fill:#1c2736}
+.dpl{font:700 18px var(--display);text-anchor:middle;dominant-baseline:central}
+.dpl.p{fill:#1f5fa8}.dpl.n{fill:#b3261e}
+.lblc{text-anchor:middle}
+.bar0{fill:#e4eaf0}.bar1{fill:#4a44b5}.bar2{fill:#b3261e}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<radialGradient id="gN"><stop offset="0" stop-color="#f4a9a2" stop-opacity=".95"/><stop offset="1" stop-color="#fde3e1" stop-opacity=".75"/></radialGradient>
+<radialGradient id="gP"><stop offset="0" stop-color="#a9c6ec"/><stop offset="1" stop-color="#e3edf9"/></radialGradient>
+<radialGradient id="gB"><stop offset="0" stop-color="#bdb8f2" stop-opacity=".95"/><stop offset="1" stop-color="#e7e6fb" stop-opacity=".7"/></radialGradient>
+<linearGradient id="gBar"><stop offset="0" stop-color="#b3261e"/><stop offset=".5" stop-color="#8a3f86"/><stop offset="1" stop-color="#4a44b5"/></linearGradient>
+</defs></svg>
+<header>
+<h1>The bonding continuum: from ionic to covalent</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Bonding and structure</p>
+<p><b>In this animation</b>: see how small, highly charged cations distort large anions to give ionic compounds covalent character, and how electronegativity difference makes covalent bonds polar.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 400" role="img" aria-label="Electron clouds of ions and covalent bonds changing shape"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Choose a cation and an anion. Watch how much the anion's electron cloud is distorted.</p>
+<div class="row" id="cBtns"><span class="lbl">Cation</span></div>
+<div class="row" id="aBtns"><span class="lbl">Anion</span></div>
+<div class="tgrid">
+<div class="tbox"><svg class="tsv" id="tsv" viewBox="0 0 500 320" role="img" aria-label="The chosen ions drawn to scale with the anion electron cloud"></svg></div>
+<div class="tside">
+<p class="readout" id="tRo"></p>
+<div class="say" id="tSay" aria-live="polite"></div>
+<p class="hint">Polarising power: Al<sup>3+</sup> &gt; Mg<sup>2+</sup> &gt; Li<sup>+</sup> &gt; Na<sup>+</sup>.<br>Polarisability: I<sup>−</sup> &gt; Br<sup>−</sup> &gt; Cl<sup>−</sup> &gt; F<sup>−</sup>.</p>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>The cation with the greatest polarising power is
+<select data-a="c" aria-label="Answer 1"><option value="">choose…</option><option value="a">Na<sup>+</sup></option><option value="b">Mg<sup>2+</sup></option><option value="c">Al<sup>3+</sup></option><option value="d">K<sup>+</sup></option></select>.
+<p class="why" hidden>Al<sup>3+</sup> is the smallest ion here and has the highest charge, so it has the highest charge density.</p></li>
+<li>The anion that is most easily polarised is
+<select data-a="d" aria-label="Answer 2"><option value="">choose…</option><option value="a">F<sup>−</sup></option><option value="b">Cl<sup>−</sup></option><option value="c">Br<sup>−</sup></option><option value="d">I<sup>−</sup></option></select>.
+<p class="why" hidden>I<sup>−</sup> is the largest. Its outer electrons are far from the nucleus and well shielded, so its electron cloud is easily distorted.</p></li>
+<li>Aluminium chloride has a lot of covalent character because
+<select data-a="a" aria-label="Answer 3"><option value="">choose…</option><option value="a">Al³⁺ is small and highly charged, so it distorts the electron cloud of Cl⁻</option><option value="b">Cl⁻ is a very small ion</option><option value="c">aluminium is more electronegative than chlorine</option><option value="d">Cl⁻ has a larger charge than Al³⁺</option></select>.
+<p class="why" hidden>The high charge density of Al<sup>3+</sup> polarises Cl<sup>−</sup>, pulling electron density into the space between the ions.</p></li>
+<li>Electronegativity values: H 2.1, C 2.5, Cl 3.0, O 3.5, F 4.0. The most polar bond is
+<select data-a="d" aria-label="Answer 4"><option value="">choose…</option><option value="a">C–H</option><option value="b">C–Cl</option><option value="c">O–H</option><option value="d">H–F</option></select>.
+<p class="why" hidden>The differences are C–H 0.4, C–Cl 0.5, O–H 1.4 and H–F 1.9. The biggest difference gives the most polar bond.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>Polarising power depends on <b>charge density</b>: a <b>small</b> cation with a <b>high charge</b> (such as Al<sup>3+</sup>) polarises most.</li>
+<li>Say that the <b>cation distorts the electron cloud of the anion</b>. The anion is polarised, not the cation.</li>
+<li>Large anions such as I<sup>−</sup> are most <b>polarisable</b>: their outer electrons are far from the nucleus and well shielded.</li>
+<li>Put δ− on the <b>more electronegative</b> atom and δ+ on the other. A bond between two identical atoms is <b>non-polar</b>.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 12 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Which compound has the greatest covalent character?", "m": 1, "o": ["NaF", "KI", "LiI", "NaCl"], "a": 2, "why": "C is correct because Li<sup>+<\/sup> is the smallest cation here and I<sup>−<\/sup> is the largest, most polarisable anion."}, {"t": "mc", "q": "In which compound is the bonding most ionic?", "m": 1, "o": ["CsF", "LiI", "AlI<sub>3<\/sub>", "MgCl<sub>2<\/sub>"], "a": 0, "why": "A is correct because Cs<sup>+<\/sup> is a large 1+ ion with low polarising power and F<sup>−<\/sup> is small and hard to polarise, so the electronegativity difference is largest."}, {"t": "w", "q": "State what is meant by the term <b>electronegativity<\/b>.", "m": 2, "ms": ["the ability of an atom to attract the bonding pair of electrons (1)", "in a covalent bond (1)"], "note": "Allow 'shared pair' for 'bonding pair'. Do not award 'attract an electron' or 'attract electrons to form an ion'."}, {"t": "w", "q": "State and explain the trend in electronegativity down Group 7, from fluorine to iodine.", "m": 3, "ms": ["electronegativity decreases down the group (1)", "atomic radius increases / more shells, so the bonding pair is further from the nucleus (1)", "more shielding by inner electrons, which outweighs the increase in nuclear charge (1)"], "note": "The trend mark is a stand-alone mark. Do not award 'more electrons' for 'more shells'."}, {"t": "w", "q": "Magnesium iodide, MgI<sub>2<\/sub>, has more covalent character than sodium iodide, NaI.<br>Explain why.", "m": 3, "ms": ["Mg<sup>2+<\/sup> has a smaller ionic radius and a larger charge than Na<sup>+<\/sup> (1)", "so Mg<sup>2+<\/sup> has a higher charge density / greater polarising power (1)", "Mg<sup>2+<\/sup> distorts (polarises) the electron cloud of the I<sup>−<\/sup> ion more, so more electron density lies between the ions (1)"], "note": "Reject any answer that says the cation is polarised, or that refers to iodine atoms or molecules instead of iodide ions."}, {"t": "w", "q": "Electronegativity values: H 2.1, Cl 3.0, I 2.5.<br>Compare the polarity of the H–Cl bond and the H–I bond. Identify the δ+ atom in each bond.", "m": 2, "ms": ["H–Cl is more polar than H–I because the electronegativity difference is larger (0.9 compared with 0.4) (1)", "H is δ+ in both bonds (1)"], "note": "Allow the differences shown in a calculation for the first mark."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> the larger the electronegativity difference, the more ionic the bond; most real bonds lie between pure ionic and pure covalent.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));TOK.st++;sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=K=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const TOK={st:0,tr:0},RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let K=1;
+function kf(f,pts,key){key=key||'st';if(RM){f(pts[pts.length-1][1]);return}const g=TOK[key],sp=key==='st'?K:1,t0=performance.now();f(pts[0][1]);
+ function fr(t){if(TOK[key]!==g)return;const s=(t-t0)/1000/sp;let v=pts[pts.length-1][1],done=true;
+  for(let i=1;i<pts.length;i++){if(s<pts[i][0]){const[a0,v0]=pts[i-1],[a1,v1]=pts[i],u=Math.max(0,(s-a0)/(a1-a0)),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;v=v0+(v1-v0)*e;done=false;break}}
+  f(v);if(!done)requestAnimationFrame(fr)}requestAnimationFrame(fr)}
+/* anion electron cloud: bulges towards direction phi by amount p (0..1) */
+function cloudD(cx,cy,R,p,phi){phi=phi==null?Math.PI:phi;const n=96,sx=Math.cos(phi)*R*.08*p,sy=Math.sin(phi)*R*.08*p;let d='';
+ for(let i=0;i<n;i++){const th=i/n*2*Math.PI,c=Math.cos(th-phi),b=c>0?c*c*c:0,r=R*(1-.06*p+.55*p*b);d+=(i?'L':'M')+(cx+sx+r*Math.cos(th)).toFixed(1)+' '+(cy+sy+r*Math.sin(th)).toFixed(1)}return d+'Z'}
+function C(p,x,y,s,cls,fs){return T(p,x,y,s,cls||'lb',fs,'middle')}
+function cation(p,x,y,R,sym,fs){E(p,'circle',{cx:x,cy:y,r:R,class:'cp'});T(p,x,y,sym,'at',fs||Math.min(22,Math.max(13,R*.6)))}
+function anion(p,x,y,R,sym,p0,fs){const pa=E(p,'path',{d:cloudD(x,y,R,p0||0),class:'cn'});T(p,x,y,sym,'at',fs||Math.min(24,Math.max(14,R*.4)));return pa}
+/* pair laid out around centre cx; returns anion path */
+function pair(p,cx,y,s,cat,an,pv,gap){const Rc=cat.r*s,Ra=an.r*s,tot=2*Rc+gap+2*Ra,l=cx-tot/2,xc=l+Rc,xa=l+2*Rc+gap+Ra;
+ const pa=anion(p,xa,y,Ra,an.s,0);cation(p,xc,y,Rc,cat.s);const f=v=>pa.setAttribute('d',cloudD(xa,y,Ra,v));return{pa,f,xa,xc,Ra,Rc}}
+function egg(cx,cy,rx,ry,a){let d='';for(let i=0;i<72;i++){const th=i/72*2*Math.PI,c=Math.cos(th);d+=(i?'L':'M')+(cx+rx*c*(1+.08*a*c)).toFixed(1)+' '+(cy+ry*Math.sin(th)*(1+.4*a*c)).toFixed(1)}return d+'Z'}
+/* covalent bond: atoms at x1,x2; shift s in -1..1 (positive = towards atom 2) */
+function cbond(p,x1,x2,y,s1,s2,shift,del){const mid=(x1+x2)/2,rx=(x2-x1)/2+30,g=G(p,'fi',del||0);const pa=E(g,'path',{d:egg(mid,y,rx,40,0),class:'bc'});
+ T(g,x1,y,s1,'at',26);T(g,x2,y,s2,'at',26);const d1=E(g,'circle',{cx:mid,cy:y-6,r:3.6,class:'nuc'}),d2=E(g,'circle',{cx:mid,cy:y+6,r:3.6,class:'nuc'});
+ const f=v=>{const sh=v*rx*.42;pa.setAttribute('d',egg(mid+sh*.45,y,rx-Math.abs(sh)*.2,40,v));d1.setAttribute('cx',mid+sh);d2.setAttribute('cx',mid+sh)};
+ if(shift)kf(f,[[0,0],[(del||0)+1,0],[(del||0)+2.6,shift]]);return g}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const[c,t]=Array.isArray(l)?l:['sm',l];T(g,x,yy,t,c,c==='tt'?18:c==='lb'?16:15,'start');yy+=c==='tt'?28:22}}return g}
+function hArr(p,x1,y,x2,d){return arrow(p,[x1,y,x1+(x2-x1)/3,y,x1+2*(x2-x1)/3,y,x2,y],{d:d||0,s:11})}
+const CAT={Na:{s:'Na^+',h:'Na<sup>+</sup>',q:1,r:102},Li:{s:'Li^+',h:'Li<sup>+</sup>',q:1,r:76},Mg:{s:'Mg^2+',h:'Mg<sup>2+</sup>',q:2,r:72},Al:{s:'Al^3+',h:'Al<sup>3+</sup>',q:3,r:53}};
+const AN={F:{s:'F^−',h:'F<sup>−</sup>',r:133},Cl:{s:'Cl^−',h:'Cl<sup>−</sup>',r:181},Br:{s:'Br^−',h:'Br<sup>−</sup>',r:196},I:{s:'I^−',h:'I<sup>−</sup>',r:220}};
+const cdN=c=>c.q/c.r/(3/53),polN=a=>Math.pow(a.r/220,3),score=(c,a)=>Math.pow(cdN(c),.8)*polN(a);
+const steps=[
+{t:6500,cap:'In a <b>perfect ionic bond</b>, electrons are completely transferred. In Na<sup>+</sup>Cl<sup>−</sup> both ions are <b>spherical</b> and their electron clouds are <b>not distorted</b>. The ions are held by electrostatic attraction.',draw(p){
+ const g=G(p,'fi',.1);anion(g,445,215,81,'Cl^−');cation(g,270,215,46,'Na^+');
+ const a=arrow(p,[275,155,300,80,410,70,440,122],{d:.9,half:true});const t=G(p,'fi',1.7);C(t,360,62,'e^−','lb',16);
+ panel(p,580,120,[['tt','Perfect ionic'],'Electron fully transferred.','Both ions are spherical.','No distortion of the','electron cloud.'],2.2)}},
+{t:6500,cap:'A cation that is <b>small</b> and has a <b>high charge</b> has a high <b>charge density</b>. Charge density increases from Na<sup>+</sup> to Mg<sup>2+</sup> to Al<sup>3+</sup>. The higher the charge density, the greater the <b>polarising power</b>.',draw(p){
+ C(p,400,36,'charge density = charge ÷ size','tt',18);
+ [['Na',150],['Mg',400],['Al',650]].forEach(([k,x],i)=>{const c=CAT[k],g=G(p,'fi',.3+i*.7);cation(g,x,140,c.r*.6,c.s,20);C(g,x,232,`charge ${c.q}+, radius ${c.r} pm`,'sm',15);
+  E(g,'rect',{x:x-90,y:252,width:180,height:16,rx:8,class:'bar0'});const b=E(g,'rect',{x:x-90,y:252,width:1,height:16,rx:8,class:'bar1'});kf(v=>b.setAttribute('width',Math.max(16,v*180)),[[0,0],[.8+i*.7,0],[1.8+i*.7,cdN(c)]]);
+  C(g,x,290,i?(i>1?'very high':'higher'):'low','lb',15)});
+ hArr(p,150,340,650,2.6);C(G(p,'fi',3.2),400,370,'increasing polarising power','lb',16)}},
+{t:8500,cap:'Put a small, highly charged <b>Al<sup>3+</sup></b> next to a large <b>I<sup>−</sup></b> ion. The cation <b>attracts</b> the outer electrons of the anion and <b>distorts</b> its electron cloud. This is <b>polarisation</b>: the anion is <b>polarised</b>.',draw(p){
+ const pa=anion(p,440,215,110,'I^−',0,26);cation(p,240,215,26.5,'Al^3+',14);
+ kf(v=>pa.setAttribute('d',cloudD(440,215,110,v)),[[0,0],[1.4,0],[2.3,.35],[3.2,.35],[4.1,.7],[5,.7],[5.9,1]]);
+ hArr(G(p,'',.8),370,92,262,.8);C(G(p,'fi',1),320,72,'attracts the electron cloud','sm',15);
+ const lab=C(p,440,362,'','lb',16);kf(v=>{lab.textContent=v<.05?'spherical':v<.4?'slightly distorted':v<.75?'more distorted':'strongly distorted'},[[0,0],[1.4,0],[2.3,.35],[3.2,.35],[4.1,.7],[5,.7],[5.9,1]]);
+ C(G(p,'fi',6.2),190,285,'electron density','sm',15);C(G(p,'fi',6.2),190,305,'pulled between','sm',15);C(G(p,'fi',6.2),190,325,'the ions','sm',15);
+ panel(p,595,140,[['tt','Polarisation'],'Al^3+: small, 3+ charge','= high charge density.','I^−: large, easily','distorted = polarisable.'],.4)}},
+{t:7000,cap:'The <b>anion</b> matters too. F<sup>−</sup> is small: its electrons are held tightly and are hardly distorted. I<sup>−</sup> is large: its outer electrons are far from the nucleus and well shielded, so it is much more <b>polarisable</b>.',draw(p){
+ C(p,400,40,'Same cation, different anion','tt',18);
+ const A=pair(p,170,190,.4,CAT.Mg,AN.F,0,30),B=pair(p,560,190,.4,CAT.Mg,AN.I,0,30);
+ kf(A.f,[[0,0],[1,0],[2.4,.2]]);kf(B.f,[[0,0],[1,0],[2.4,.9]]);
+ const g1=G(p,'fi',2.4);C(g1,170,310,'F^−: small','lb');C(g1,170,334,'hardly distorted','sm',15);
+ const g2=G(p,'fi',2.6);C(g2,560,310,'I^−: large','lb');C(g2,560,334,'easily distorted','sm',15);
+ C(G(p,'fi',3.2),400,380,'Polarisability: I^− > Br^− > Cl^− > F^−','tt',17)}},
+{t:8000,cap:'The more the anion is polarised, the more electron density lies <b>between the ions</b>, so the bond gains <b>covalent character</b>. NaCl is almost purely ionic. MgI<sub>2</sub> and AlCl<sub>3</sub> have significant covalent character; AlI<sub>3</sub> even more.',draw(p){
+ C(p,400,40,'Polarisation gives covalent character','tt',18);
+ [['Na','Cl','NaCl',.08,'mostly ionic','mp 801 °C'],['Mg','I','MgI_2',.65,'covalent character','mp 637 °C'],['Al','Cl','AlCl_3',.75,'covalent character','sublimes 178 °C'],['Al','I','AlI_3',1,'very covalent','mp 189 °C']].forEach(([c,a,f,v,t1,t2],i)=>{const x=100+i*200,g=G(p,'fi',.2+i*.5),P=pair(g,x,175,.28,CAT[c],AN[a],0,14);
+  kf(P.f,[[0,0],[1+i*.5,0],[2.2+i*.5,v]]);const h=G(p,'fi',1.6+i*.5);C(h,x,270,f,'lb',18);C(h,x,295,t1,'sm',15);C(h,x,318,t2,'sm',14)});
+ hArr(p,90,355,710,3.6);C(G(p,'fi',4),400,385,'increasing covalent character','lb',16)}},
+{t:8000,cap:'Now start from a <b>covalent bond</b>. If one atom is <b>more electronegative</b>, it pulls the shared pair towards itself. The bond is <b>polar</b>: δ− on the more electronegative atom, δ+ on the other. H–F is more polar than H–Cl.',draw(p){
+ [[110,'Cl','3.0',.45,'0.9'],[280,'F','4.0',.85,'1.9']].forEach(([y,X,en,sh,d],i)=>{const de=.3+i*1.4;cbond(p,150,330,y,'H',X,sh,de);
+  const g=G(p,'fi',de+2.6);E(g,'text',{x:150,y:y-62,class:'dpl p'},'δ+');E(g,'text',{x:330,y:y-62,class:'dpl n'},'δ−');
+  const e=G(p,'fi',de+.4);C(e,150,y+62,'EN 2.1','sm',15);C(e,330,y+62,'EN '+en,'sm',15);
+  panel(p,470,y-30,[['tt','H–'+X],`ΔEN = ${en} − 2.1 = ${d}`,i?'Pulled further: more polar.':'Shared pair pulled to Cl.'],de+2.8)})}},
+{t:6500,cap:'In H–H and Cl–Cl the two atoms are <b>identical</b>, so they have the same electronegativity. The shared pair is shared <b>equally</b>. This is a <b>pure (non-polar) covalent bond</b>.',draw(p){
+ [[110,'H','H','2.1'],[280,'Cl','Cl','3.0']].forEach(([y,a,b,en],i)=>{const de=.3+i*1;cbond(p,150,330,y,a,b,0,de);const e=G(p,'fi',de+.4);C(e,150,y+62,'EN '+en,'sm',15);C(e,330,y+62,'EN '+en,'sm',15);
+  panel(p,470,y-30,[['tt',a+'–'+b],'ΔEN = 0','Shared equally: non-polar.'],de+.8)})}},
+{t:9000,cap:'<b>Summary.</b> Bonding is a <b>continuum</b>. A <b>large electronegativity difference</b> gives ionic bonding; a <b>small</b> difference gives polar covalent bonding; <b>zero</b> difference gives pure covalent bonding. Most bonds lie in between.',draw(p){
+ const Z=[130,310,490,670];
+ const i0=G(p,'fi',.2);cation(i0,95,105,18,'+',14);anion(i0,150,105,30,'−',0,18);
+ const i1=G(p,'fi',.5);anion(i1,330,105,30,'−',.9,18);cation(i1,272,105,13,'+',13);
+ const i2=G(p,'fi',.8),e2=E(i2,'path',{d:egg(490,105,62,26,.8),class:'bc'});T(i2,450,105,'δ+','dpl p');T(i2,532,105,'δ−','dpl n');
+ const i3=G(p,'fi',1.1);E(i3,'path',{d:egg(670,105,62,26,0),class:'bc'});T(i3,640,105,'X','at',18);T(i3,700,105,'X','at',18);
+ const g=G(p,'fi',1.4);E(g,'rect',{x:40,y:170,width:720,height:28,rx:14,fill:'url(#gBar)'});[220,400,580].forEach(x=>L(g,x,164,x,204,'ax'));
+ [['pure ionic',''],['ionic with','covalent character'],['polar','covalent'],['pure','covalent']].forEach(([a,b],i)=>{const h=G(p,'fi',1.6+i*.3);C(h,Z[i],232,a,'lb',16);if(b)C(h,Z[i],254,b,'lb',16)});
+ [['NaCl, NaF'],['MgI_2, AlCl_3'],['HF, HCl'],['H_2, Cl_2']].forEach(([t],i)=>{const h=G(p,'fi',2.8+i*.3);E(h,'rect',{x:Z[i]-70,y:270,width:140,height:32,rx:8,class:'hl'});C(h,Z[i],287,t,'lb',16)});
+ const a=G(p,'fi',4.2);arrow(a,[640,345,500,345,300,345,160,345],{s:11});T(a,40,345,'large','lb',16,'start');T(a,760,345,'zero','lb',16,'end');C(a,400,375,'electronegativity difference','tt',16)}}
+];
+Player(steps);Quiz();
+/* Try it */
+const tsv=$('tsv');let cc='Al',aa='I',curP=0,tPa=null;
+function btns(id,obj,get,set){const r=$(id);Object.keys(obj).forEach(k=>{const b=document.createElement('button');b.type='button';b.className='mini';b.innerHTML=obj[k].h;b.dataset.k=k;b.setAttribute('aria-pressed','false');b.onclick=()=>{set(k);upd()};r.appendChild(b)})}
+btns('cBtns',CAT,()=>cc,k=>cc=k);btns('aBtns',AN,()=>aa,k=>aa=k);
+function upd(){['cBtns','aBtns'].forEach((id,j)=>$(id).querySelectorAll('button').forEach(b=>{const on=b.dataset.k===(j?aa:cc);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)}));
+ const c=CAT[cc],a=AN[aa],s=score(c,a),pv=Math.min(1,s*1.1);tsv.replaceChildren();
+ const sc=.45,Rc=c.r*sc,Ra=a.r*sc,gap=34,tot=2*Rc+gap+2*Ra,l=250-tot/2,xc=l+Rc,xa=l+2*Rc+gap+Ra,y=120;
+ const pa=E(tsv,'path',{d:cloudD(xa,y,Ra,curP),class:'cn'});T(tsv,xa,y,a.s,'at',Math.max(16,Ra*.3));cation(tsv,xc,y,Rc,c.s,Math.max(13,Math.min(20,Rc*.55)));
+ TOK.tr++;kf(v=>{curP=v;pa.setAttribute('d',cloudD(xa,y,Ra,v))},[[0,curP],[.9,pv]],'tr');
+ [['Cation charge density',cdN(c),'bar1',262],['Anion polarisability',polN(a),'bar2',298]].forEach(([t,v,cl,yy])=>{T(tsv,20,yy,t,'sm',15,'start');E(tsv,'rect',{x:215,y:yy-8,width:265,height:16,rx:8,class:'bar0'});E(tsv,'rect',{x:215,y:yy-8,width:Math.max(16,v*265),height:16,rx:8,class:cl})});
+ $('tRo').innerHTML=`${c.h}: charge ${c.q}+, radius ${c.r} pm<br>${a.h}: radius ${a.r} pm`;
+ const cat=s<.25?0:s<.45?1:2,cdH=cdN(c)>.45,poH=polN(a)>.6,poL=polN(a)<.3;
+ const V=['Mostly ionic','Some covalent character','Significant covalent character'][cat];
+ const ct=cdH?'high':cdN(c)>.2?'fairly high':'low',pt=poH?'large and easily polarised':poL?'small and hard to polarise':'medium-sized',conj=cat===0&&(cdH||poH)?', but ':' and ';
+ const dt=['is hardly distorted','is distorted towards the cation','is strongly distorted, with electron density pulled between the ions'][cat];
+ const f=c.s.replace('^','').replace(/\d?\+/,'')+(a.s.replace('^−',''))+(c.q>1?'<sub>'+c.q+'</sub>':'');
+ say(`<b>${f}: ${V}.</b> ${c.h} has a ${ct} charge density${conj}${a.h} is ${pt}, so the anion's electron cloud ${dt}.`,cat===0?'':'good')}
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+upd();
+</script></body></html>

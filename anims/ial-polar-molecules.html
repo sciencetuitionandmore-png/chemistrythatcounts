@@ -1,0 +1,325 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Polar and non-polar molecules</title>
+<meta name="description" content="Interactive animation: Polar and non-polar molecules. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-polar-molecules.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--dip:#c25e00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost.on{background:var(--accent-soft)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.lpd{fill:var(--ink)}
+.dl{fill:none;stroke:var(--dip);stroke-width:2.6;stroke-linecap:round}
+.dh{fill:var(--dip)}
+.rl{fill:none;stroke:var(--accent);stroke-width:4.5;stroke-linecap:round}
+.rh{fill:var(--accent)}
+.lobe{fill:#e7e6fb;stroke:#4a44b5;stroke-width:1.2;stroke-opacity:.6}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.fo{animation:fo calc(.5s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fo{from{opacity:1}to{opacity:0}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fo{display:none}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px;--k:1}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.mbtn{font-size:.95rem}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Polar and non-polar molecules</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Bonding and structure</p>
+<p><b>In this animation</b>: see how polar bonds come from differences in electronegativity, and how the shape of a molecule decides whether its bond dipoles cancel or add up to a net dipole.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 400" role="img" aria-label="Molecules with bond dipole arrows being added as vectors"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">Choose a molecule. Look at its shape and decide: polar or non-polar? Then press Show dipoles to add the bond dipoles.</p>
+<div class="row" id="mBtns"></div>
+<div class="tgrid">
+<div class="tbox" id="tbox"><svg class="tsv" id="tsv" viewBox="0 0 520 340" role="img" aria-label="Drawing of the chosen molecule and its bond dipoles"></svg></div>
+<div class="tside">
+<p class="readout" id="tHint"></p>
+<div class="toolbar"><button class="btn ghost" type="button" id="tP">Polar</button><button class="btn ghost" type="button" id="tN">Non-polar</button></div>
+<div class="toolbar"><button class="btn" type="button" id="tShow">Show dipoles</button></div>
+<div class="say" id="tSay" aria-live="polite">Choose polar or non-polar.</div>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>Which of these molecules is polar?
+<select data-a="c" aria-label="Answer 1"><option value="">choose…</option><option value="a">CO<sub>2</sub></option><option value="b">CCl<sub>4</sub></option><option value="c">NH<sub>3</sub></option><option value="d">BF<sub>3</sub></option></select>
+<p class="why" hidden>NH<sub>3</sub> is pyramidal (1 lone pair on N), so the three N–H dipoles add to a net dipole. The others are symmetrical.</p></li>
+<li>Carbon dioxide is non-polar because
+<select data-a="b" aria-label="Answer 2"><option value="">choose…</option><option value="a">C=O bonds are not polar</option><option value="b">it is linear, so the two bond dipoles cancel</option><option value="c">it has lone pairs on the O atoms</option><option value="d">it is a gas</option></select>.
+<p class="why" hidden>O is more electronegative than C, so each C=O bond is polar. The molecule is linear and symmetrical, so the equal and opposite dipoles cancel.</p></li>
+<li>CHCl<sub>3</sub> is polar but CCl<sub>4</sub> is not, because in CHCl<sub>3</sub>
+<select data-a="a" aria-label="Answer 3"><option value="">choose…</option><option value="a">the atoms around C are not all the same, so the dipoles do not cancel</option><option value="b">the shape is pyramidal</option><option value="c">there is a lone pair on C</option><option value="d">the C–Cl bonds are not polar</option></select>.
+<p class="why" hidden>Both are tetrahedral. In CHCl<sub>3</sub> the C–H dipole is much smaller than a C–Cl dipole, so there is a net dipole.</p></li>
+<li>A thin stream of which liquid is deflected by a charged rod?
+<select data-a="c" aria-label="Answer 4"><option value="">choose…</option><option value="a">hexane, C<sub>6</sub>H<sub>14</sub></option><option value="b">tetrachloromethane, CCl<sub>4</sub></option><option value="c">trichloromethane, CHCl<sub>3</sub></option><option value="d">cyclohexane, C<sub>6</sub>H<sub>12</sub></option></select>
+<p class="why" hidden>Only a liquid made of polar molecules is deflected. CHCl<sub>3</sub> is polar; the other three are non-polar.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>For CO<sub>2</sub>, BF<sub>3</sub> or CCl<sub>4</sub>, say <b>the dipoles cancel because the molecule is symmetrical</b>. Do not say there are no polar bonds.</li>
+<li>A polar molecule needs <b>two things</b>: polar bonds <b>and</b> a shape in which the bond dipoles do not cancel. Name the shape in your answer.</li>
+<li>The <b>more electronegative</b> atom is δ−. The dipole arrow points towards the δ− atom.</li>
+<li>In the charged-rod test, a polar stream bends <b>towards</b> the rod whether the rod is + or −. The molecules turn so their oppositely charged end faces the rod.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 11 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Which molecule is <b>non-polar<\/b>?", "m": 1, "o": ["H<sub>2<\/sub>O", "PCl<sub>3<\/sub>", "SF<sub>6<\/sub>", "HBr"], "a": 2, "why": "C is correct because SF<sub>6<\/sub> is octahedral and symmetrical, so the six S–F dipoles cancel."}, {"t": "mc", "q": "Which molecule has a permanent dipole?", "m": 1, "o": ["CH<sub>2<\/sub>Cl<sub>2<\/sub>", "CF<sub>4<\/sub>", "BCl<sub>3<\/sub>", "CO<sub>2<\/sub>"], "a": 0, "why": "A is correct because the atoms around C are not all the same, so the C–H and C–Cl dipoles do not cancel."}, {"t": "w", "q": "Nitrogen trifluoride, NF<sub>3<\/sub>, is polar but boron trifluoride, BF<sub>3<\/sub>, is non-polar.<br>Explain this difference.", "m": 4, "ms": ["both N–F and B–F bonds are polar because F is more electronegative (1)", "BF<sub>3<\/sub> is trigonal planar / symmetrical, so the bond dipoles cancel (1)", "NF<sub>3<\/sub> has a lone pair on N, so it is pyramidal (1)", "so the bond dipoles in NF<sub>3<\/sub> do not cancel and there is a net dipole (1)"], "note": "The shape must be named for marks 2 and 3. Do not award 'BF<sub>3<\/sub> has no polar bonds'."}, {"t": "w", "q": "<i>cis<\/i>-1,2-dichloroethene (the Z-isomer) is polar, but <i>trans<\/i>-1,2-dichloroethene (the E-isomer) is non-polar.<br>Explain why.", "m": 3, "ms": ["both isomers contain polar C–Cl bonds (1)", "in the <i>trans<\/i> (E) isomer the C–Cl dipoles are on opposite sides, so they cancel (1)", "in the <i>cis<\/i> (Z) isomer both Cl atoms are on the same side, so the dipoles add to give a net dipole (1)"], "note": "Allow a labelled sketch showing dipole arrows."}, {"t": "w", "q": "Electronegativity values: C 2.5, S 2.5.<br>Deduce whether carbon disulfide, CS<sub>2<\/sub>, is a polar molecule. Give two reasons.", "m": 2, "ms": ["non-polar, because C and S have the same electronegativity so the C=S bonds are non-polar (1)", "the molecule is linear / symmetrical, so any bond dipoles would cancel (1)"], "note": "Award each reason separately; 'non-polar' alone scores 0."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> a molecule is polar only if it has polar bonds <b>and</b> its bond dipoles do not cancel.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id),RAD=Math.PI/180;
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function TC(p,x,y,s,cls,fs){const t=T(p,x,y,s,cls,fs,'middle');return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=Math.max(4,Math.round(L0/6));for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);$('tbox').style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+
+/* 3D geometry: unit bond vectors, viewed slightly from above so sums stay exact */
+function view(v,a,ry){let[x,y,z]=v;const c=Math.cos(ry*RAD),s=Math.sin(ry*RAD);[x,z]=[x*c+z*s,-x*s+z*c];const ca=Math.cos(a*RAD),sa=Math.sin(a*RAD);return[x,y*ca-z*sa,y*sa+z*ca]}
+const q3=Math.sqrt(8)/3,TET=[[0,1,0],[-q3,-1/3,0],[q3/2,-1/3,q3*Math.sqrt(3)/2],[q3/2,-1/3,-q3*Math.sqrt(3)/2]].map(v=>view(v,20,-20));
+const OCT=[[0,1,0],[1,0,0],[0,0,1],[0,-1,0],[-1,0,0],[0,0,-1]].map(v=>view(v,20,30));
+const pl=a=>[Math.cos(a*RAD),Math.sin(a*RAD),0];
+const SH={lin:'linear',tp:'trigonal planar',tet:'tetrahedral',pyr:'pyramidal',bent:'bent',oct:'octahedral',di:'linear (diatomic)'};
+function mk(f,h,c,X,V,g,to,mag,lp,polar,cd,exp,o){return Object.assign({f,h,c,X,V,g,to,mag,lp,polar,cd,exp},o||{})}
+const MOL=[
+ mk('HCl','HCl','H',['Cl'],[[1,0,0]],'di',[1],[1],[],true,'+','One polar H–Cl bond: Cl is more electronegative, so Cl is δ−. There is no other dipole to cancel it, so <b>HCl is polar</b>.',{off:-.5}),
+ mk('CO_2','CO<sub>2</sub>','C',['O','O'],[[-1,0,0],[1,0,0]],'lin',[1,1],[1.15,1.15],[],false,'+','Two polar C=O bonds, but CO<sub>2</sub> is <b>linear</b>. The two dipoles are equal and opposite, so they cancel: <b>non-polar</b>.',{n:2}),
+ mk('H_2O','H<sub>2</sub>O','O',['H','H'],[pl(232.25),pl(307.75)],'bent',[-1,-1],[1,1],[55,125],true,'−','Two polar O–H bonds in a <b>bent</b> shape (O has 2 lone pairs). The dipoles add to a net dipole towards O: <b>polar</b>.'),
+ mk('BF_3','BF<sub>3</sub>','B',['F','F','F'],[pl(90),pl(210),pl(330)],'tp',[1,1,1],[1.15,1.15,1.15],[],false,'+','Three polar B–F bonds at 120° in a flat triangle. The dipoles make a closed triangle and cancel: <b>non-polar</b>.'),
+ mk('NH_3','NH<sub>3</sub>','N',['H','H','H'],TET.slice(1),'pyr',[-1,-1,-1],[1,1,1],[90],true,'−','Three polar N–H bonds in a <b>pyramidal</b> shape (1 lone pair on N). They add to a net dipole towards N: <b>polar</b>.'),
+ mk('CH_4','CH<sub>4</sub>','C',['H','H','H','H'],TET,'tet',[-1,-1,-1,-1],[.42,.42,.42,.42],[],false,'−','C–H bonds are only slightly polar, and the <b>tetrahedral</b> shape is symmetrical, so the small dipoles cancel: <b>non-polar</b>.'),
+ mk('CCl_4','CCl<sub>4</sub>','C',['Cl','Cl','Cl','Cl'],TET,'tet',[1,1,1,1],[1,1,1,1],[],false,'+','Four polar C–Cl bonds in a symmetrical <b>tetrahedral</b> shape. In 3D the dipoles make a closed loop and cancel: <b>non-polar</b>.'),
+ mk('CHCl_3','CHCl<sub>3</sub>','C',['H','Cl','Cl','Cl'],TET,'tet',[-1,1,1,1],[.42,1,1,1],[],true,null,'Tetrahedral, but the atoms around C are <b>not all the same</b>. The small C–H dipole cannot balance the C–Cl dipoles, so there is a net dipole towards the Cl atoms: <b>polar</b>.'),
+ mk('SF_6','SF<sub>6</sub>','S',['F','F','F','F','F','F'],OCT,'oct',[1,1,1,1,1,1],[1.05,1.05,1.05,1.05,1.05,1.05],[],false,null,'Six polar S–F bonds in a symmetrical <b>octahedral</b> shape. Each dipole is cancelled by the one opposite it: <b>non-polar</b>.'),
+ mk('CH_3Cl','CH<sub>3</sub>Cl','C',['Cl','H','H','H'],TET,'tet',[1,-1,-1,-1],[1,.42,.42,.42],[],true,null,'One polar C–Cl bond and three C–H bonds. The atoms around C are not all the same, so there is a net dipole towards Cl: <b>polar</b>.')];
+const by=f=>MOL.find(m=>m.f===f);
+
+function dlab(p,x,y,s,fs){const t=TC(p,x,y,'δ'+s,'lb',fs||17);t.setAttribute('dominant-baseline','central');t.style.fill=s==='+'?'#1f5fa8':'#b3261e';return t}
+/* dipole arrow: crossed tail at δ+, head at δ− */
+function dipA(p,x1,y1,x2,y2,d,res){const g=E(p,'g'),dx=x2-x1,dy=y2-y1,l=Math.hypot(dx,dy)||1,ux=dx/l,uy=dy/l,nx=-uy,ny=ux,s=res?14:10,w=res?.55:.5;
+ const hb=[x2-ux*s,y2-uy*s];const pa=E(g,'path',{d:`M${x1.toFixed(1)} ${y1.toFixed(1)}L${(hb[0]+ux*2).toFixed(1)} ${(hb[1]+uy*2).toFixed(1)}`,class:(res?'rl':'dl')+(d!=null?' draw':''),pathLength:1});if(d!=null)pa.style.setProperty('--d',d+'s');
+ const h=E(g,'g',d!=null?{class:'fi'}:null);if(d!=null)h.style.setProperty('--d',(d+.55)+'s');
+ E(h,'polygon',{points:[x2,y2,hb[0]+nx*s*w,hb[1]+ny*s*w,hb[0]+ux*s*.15,hb[1]+uy*s*.15,hb[0]-nx*s*w,hb[1]-ny*s*w].map(v=>v.toFixed(1)).join(' '),class:res?'rh':'dh'});
+ if(!res){const c=Math.min(7,l*.25);E(h,'line',{x1:x1+ux*c+nx*6,y1:y1+uy*c+ny*6,x2:x1+ux*c-nx*6,y2:y1+uy*c-ny*6,class:'dl'})}return g}
+/* draw a molecule; returns dipole info [{t:[x,y], v:[dx,dy]}] */
+function mol(p,m,cx,cy,R,o){o=o||{};const d=o.d||0,S=o.S||56,C=[cx+(m.off||0)*R,cy],tr=[m.c.length>1?20:15,14],out=[];
+ T(G(p,'fi',d),C[0],C[1],m.c,'at',24);
+ const angs=[];
+ m.V.forEach((v,i)=>{const g=G(p,'fi',d+.3+i*.25),b=[C[0]+v[0]*R,C[1]-v[1]*R],t2=[m.c.length>1?20:15,m.X[i].length>1?20:14];
+  if(v[2]>.45)wedge(g,C,b,t2);else if(v[2]<-.45)hash(g,C,b,t2);else bond(g,C,b,m.n||1,t2);T(g,b[0],b[1],m.X[i],'at',22);
+  const bl=Math.hypot(v[0],v[1]),ux=v[0]/bl,uy=-v[1]/bl,nx=-uy,ny=ux;angs.push(Math.atan2(v[1],v[0])/RAD);
+  const s=m.to[i],dv=[s*v[0]*m.mag[i]*S,-s*v[1]*m.mag[i]*S],off=(m.n||1)>1?17:14,mx=(C[0]+b[0])/2+nx*off,my=(C[1]+b[1])/2+ny*off;
+  out.push({t:[mx-dv[0]/2,my-dv[1]/2],v:dv,end:b,u:[ux,uy],nn:[nx,ny],lig:s>0?'−':'+'})});
+ m.lp.forEach((a,i)=>{angs.push(a);const g=G(p,'fi',d+.4+m.V.length*.25+i*.3),[ux,uy]=ang(a),r=34;E(g,'ellipse',{cx:0,cy:0,rx:22,ry:13,class:'lobe',transform:`translate(${C[0]+ux*r} ${C[1]+uy*r}) rotate(${-a})`});lp(g,C[0]+ux*(r+2),C[1]+uy*(r+2),a)});
+ if(o.dip){const dd=o.dd||0;out.forEach((q,i)=>{const t=dd+i*.45;dipA(p,q.t[0],q.t[1],q.t[0]+q.v[0],q.t[1]+q.v[1],t);
+   const g=G(p,'fi',t+.3);dlab(g,q.end[0]+q.u[0]*20-q.nn[0]*18,q.end[1]+q.u[1]*20-q.nn[1]*18,q.lig,15)});
+  if(m.cd){const A=angs.map(a=>(a%360+360)%360).sort((a,b)=>a-b);let best=0,bi=0;A.forEach((a,i)=>{const nx=i<A.length-1?A[i+1]:A[0]+360,gp=nx-a;if(gp>best){best=gp;bi=i}});
+   let ba=A.length===1?A[0]+180:A[bi]+best/2;if(A.length===2&&Math.abs(best-180)<1)ba=A[0]+90;const[ux,uy]=ang(ba);dlab(G(p,'fi',dd+.2),C[0]+ux*30,C[1]+uy*30,m.cd,15)}}
+ return out}
+/* add dipoles head-to-tail inside box [x,y,w,h] */
+function chain(p,dips,bx,d,small){const[x,y,w,h]=bx;E(p,'rect',{x,y,width:w,height:h,rx:12,fill:'#fff',stroke:'#cdd6df'});
+ TC(p,x+w/2,y+24,small?'Add head-to-tail':'Add the dipoles head-to-tail','lb',small?14:15);
+ const P=[[0,0]];dips.forEach((q,i)=>P.push([P[i][0]+q.v[0],P[i][1]+q.v[1]]));
+ const xs=P.map(a=>a[0]),ys=P.map(a=>a[1]),ox=x+w/2-(Math.min(...xs)+Math.max(...xs))/2,oy=y+h/2-4-(Math.min(...ys)+Math.max(...ys))/2;
+ dips.forEach((q,i)=>{let tx=ox+P[i][0],ty=oy+P[i][1];
+  if(i>0){const a=dips[i-1].v,b=q.v,c=(a[0]*b[0]+a[1]*b[1])/(Math.hypot(...a)*Math.hypot(...b));if(c<-.95){const l=Math.hypot(...b);tx+=-b[1]/l*9;ty+=b[0]/l*9}}
+  const g=M(p,d+i*.6,q.t[0]-tx,q.t[1]-ty,1);dipA(g,tx,ty,tx+q.v[0],ty+q.v[1])});
+ const sx=P[P.length-1][0],sy=P[P.length-1][1],rd=d+dips.length*.6+.9,g=G(p,'fi',rd),zero=Math.hypot(sx,sy)<2;
+ if(zero){E(g,'circle',{cx:ox,cy:oy,r:6,fill:'none',stroke:'#1d7a46','stroke-width':2.5});const t=TC(g,x+w/2,y+h-38,'Resultant = 0','lb',small?15:16);const u=TC(g,x+w/2,y+h-16,'NON-POLAR','lb',small?15:17);u.style.fill='#1d7a46'}
+ else{const l=Math.hypot(sx,sy),nx=-sy/l*12,ny=sx/l*12;const ra=G(p,'fi',rd);dipA(ra,ox+nx,oy+ny,ox+sx+nx,oy+sy+ny,rd,true);TC(g,x+w/2,y+h-38,'Net dipole (purple)','lb',small?15:16);const u=TC(g,x+w/2,y+h-16,'POLAR','lb',small?15:17);u.style.fill='#b3261e'}
+ return rd}
+function molStep(p,f,extra){const m=by(f);T(G(p,'fi',0),24,34,m.f+'  ·  '+SH[m.g],'tt',18,'start');
+ const n=m.V.length,dd=1.5,dips=mol(p,m,230,215,m.g==='tet'||m.g==='pyr'?125:120,{d:.2,dip:true,dd});chain(p,dips,[470,50,310,320],dd+n*.45+.6);if(extra)extra(p)}
+
+const steps=[
+{t:8000,cap:'A <b>polar bond</b> forms when the two atoms have different <b>electronegativities</b>. Cl attracts the bonding pair more than H, so Cl is <b>δ−</b> and H is <b>δ+</b>. The <b>dipole arrow</b> points to the δ− end. Its crossed tail marks the δ+ end.',draw(p){
+ const y=170;let g=G(p,'fi',.2);E(g,'ellipse',{cx:170,cy:y,rx:82,ry:34,class:'lobe'});T(g,125,y,'H');T(g,215,y,'H');bond(g,[125,y],[215,y],1,14);
+ TC(g,170,y+70,'H–H: non-polar bond','lb',16);TC(g,170,y+94,'same electronegativity','sm',15);TC(g,170,y+116,'electrons shared equally','sm',15);
+ g=G(p,'fi',.8);E(M(g,1.3,-26,0,1),'ellipse',{cx:556,cy:y,rx:92,ry:36,class:'lobe'});T(g,470,y,'H');T(g,600,y,'Cl');bond(g,[470,y],[600,y],1,[14,20]);
+ const g2=G(p,'fi',1.4);TC(g2,470,y+60,'H  2.1','sm',15);TC(g2,600,y+60,'Cl  3.0','sm',15);TC(g2,535,y+82,'(electronegativity)','sm',14);
+ const g3=G(p,'fi',2.4);dlab(g3,470,y-52,'+',20);dlab(g3,600,y-52,'−',20);
+ dipA(p,478,y+118,592,y+118,2.9);const g4=G(p,'fi',3.6);TC(g4,535,y+150,'H–Cl: polar bond','lb',16);
+ const g5=G(p,'fi',4.4);TC(g5,535,y+174,'HCl has one bond dipole, so the molecule is polar.','sm',15)}},
+{t:9000,cap:'Is a whole molecule polar? Bond dipoles are <b>vectors</b>: they have size and direction. Add them <b>head-to-tail</b>. <b>CO<sub>2</sub></b> has two polar C=O bonds, but it is <b>linear</b>, so the dipoles are equal and opposite. They <b>cancel</b>: CO<sub>2</sub> is <b>non-polar</b>.',draw(p){molStep(p,'CO_2')}},
+{t:9500,cap:'<b>BF<sub>3</sub></b> is <b>trigonal planar</b>. Three equal B–F dipoles at 120° join head-to-tail to make a <b>closed triangle</b>. The resultant is <b>zero</b>, so BF<sub>3</sub> is <b>non-polar</b>.',draw(p){molStep(p,'BF_3')}},
+{t:10500,cap:'<b>CCl<sub>4</sub></b> is <b>tetrahedral</b>. In 3D the four C–Cl dipoles make a closed loop, so they <b>cancel</b>. The same happens in <b>CH<sub>4</sub></b> and in octahedral <b>SF<sub>6</sub></b>. Symmetrical molecules are <b>non-polar</b>.',draw(p){molStep(p,'CCl_4')}},
+{t:9500,cap:'<b>H<sub>2</sub>O</b> is <b>bent</b> because O has two lone pairs. The two O–H dipoles do <b>not</b> cancel. They add to a <b>net dipole</b> pointing towards O, so water is <b>polar</b>. Pyramidal <b>NH<sub>3</sub></b> is polar for the same reason.',draw(p){molStep(p,'H_2O')}},
+{t:10500,cap:'<b>CHCl<sub>3</sub></b> is tetrahedral, but the atoms around C are <b>not all the same</b>. The small C–H dipole cannot balance the C–Cl dipoles, so there is a <b>net dipole</b> towards the Cl atoms: CHCl<sub>3</sub> is <b>polar</b>.',draw(p){molStep(p,'CHCl_3')}},
+{t:8000,cap:'<b>Test:</b> run a thin stream of liquid from a burette past a <b>charged rod</b>. A stream of a <b>polar</b> liquid such as water <b>bends towards the rod</b> (a + or a − rod both work). A <b>non-polar</b> liquid such as hexane falls straight down.',draw(p){
+ [[220,'water (polar)',true],[560,'hexane (non-polar)',false]].forEach(([x,nm,pol],k)=>{const g=G(p,'fi',.1+k*.2);
+  E(g,'rect',{x:x-13,y:18,width:26,height:92,rx:3,fill:'#dcebf8',stroke:'#1c2736','stroke-width':2});E(g,'path',{d:`M${x-13} 110L${x-3} 124H${x+3}L${x+13} 110`,fill:'#dcebf8',stroke:'#1c2736','stroke-width':2});
+  E(g,'rect',{x:x-11,y:40,width:22,height:69,fill:'#9cc6ea'});
+  T(g,x-26,52,nm,'lb',16,'end');E(g,'path',{d:`M${x-45} 336V382H${x+75}V336`,fill:'none',stroke:'#1c2736','stroke-width':2.2});
+  const st=E(pol?G(p,'fo',2.7):p,'path',{d:`M${x} 124V346`,fill:'none',stroke:'#3d8bd0','stroke-width':3.5,'stroke-linecap':'round',class:'draw',pathLength:1});st.style.setProperty('--d','.6s');
+  const rod=M(p,1.6,150,0,0);E(rod,'rect',{x:x+50,y:165,width:14,height:130,rx:7,fill:'#e4eaf0',stroke:'#1c2736','stroke-width':2});['+','+','+','+'].forEach((s,j)=>TC(rod,x+57,182+j*30,s,'lb',16).setAttribute('dominant-baseline','central'));
+  TC(rod,x+57,312,'charged rod','sm',14);
+  if(pol){const b=E(p,'path',{d:`M${x} 124C${x} 185 ${x+28} 228 ${x+33} 346`,fill:'none',stroke:'#3d8bd0','stroke-width':3.5,'stroke-linecap':'round',class:'draw',pathLength:1});b.style.setProperty('--d','2.8s')}
+  const r=G(p,'fi',3.8);const t=TC(r,x+15,398,pol?'deflected towards the rod':'not deflected','lb',15);t.style.fill=pol?'#b3261e':'#1d7a46'})}},
+{t:9000,cap:'<b>Decide in two questions.</b> Does it have polar bonds? If yes, is the shape symmetrical with <b>all the same atoms</b> around the centre? Yes: the dipoles cancel, <b>non-polar</b>. No: <b>polar</b>.',draw(p){
+ function box(x,y,w,h,lines,d,col){const g=G(p,'fi',d);E(g,'rect',{x:x-w/2,y,width:w,height:h,rx:10,fill:col==='g'?'#eef8f2':col==='r'?'#fdf1f0':'#fff',stroke:col==='g'?'#1d7a46':col==='r'?'#b3261e':'#4a44b5','stroke-width':2});
+  lines.forEach((l,i)=>{const[c,t]=Array.isArray(l)?l:['lb',l];TC(g,x,y+24+i*21,t,c,c==='sm'?14:16)})}
+ function sa(pts,d,lab,lx,ly){const g=G(p,'fi',d),n=pts.length,[x2,y2]=pts[n-1],[x1,y1]=pts[n-2],l=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/l,uy=(y2-y1)/l;
+  E(g,'polyline',{points:pts.map(q=>q.join(',')).join(' '),fill:'none',stroke:'#1c2736','stroke-width':2});E(g,'polygon',{points:`${x2},${y2} ${x2-ux*10-uy*5},${y2-uy*10+ux*5} ${x2-ux*10+uy*5},${y2-uy*10-ux*5}`,fill:'#1c2736'});
+  if(lab)TC(g,lx,ly,lab,'tt',16)}
+ box(400,14,330,40,['Does it have polar bonds?'],.2);
+ sa([[235,34],[120,34],[120,98]],1,'No',172,22);box(120,98,190,72,[['lb','Non-polar'],['sm','e.g. H_2, Cl_2']],1.4,'g');
+ sa([[400,54],[400,98]],2.2,'Yes',430,76);box(400,98,330,88,['Symmetrical shape with all','the same atoms around the centre?',['sm','(lone pairs on the centre break symmetry)']],2.6);
+ sa([[300,186],[230,250]],3.6,'Yes',248,208);sa([[500,186],[570,250]],3.6,'No',552,208);
+ box(215,250,290,96,[['lb','Non-polar'],['sm','dipoles cancel'],['sm','CO_2, BF_3, CH_4, CCl_4, SF_6']],4.2,'g');
+ box(585,250,290,96,[['lb','Polar'],['sm','net dipole'],['sm','HCl, H_2O, NH_3, CHCl_3, CH_3Cl']],4.8,'r')}}
+];
+Player(steps);Quiz();
+
+/* Try it */
+const tsv=$('tsv');let cur=MOL[0],guess=null,shown=false;
+const mb=$('mBtns');MOL.forEach(m=>{const b=document.createElement('button');b.type='button';b.className='mini mbtn';b.innerHTML=m.h;b.onclick=()=>pick(m,b);mb.appendChild(b)});
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+function base(){tsv.replaceChildren();T(tsv,14,26,cur.f+'  ·  '+SH[cur.g],'tt',17,'start')}
+function pick(m,b){cur=m;guess=null;shown=false;mb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));['tP','tN'].forEach(id=>$(id).classList.remove('on'));
+ base();mol(tsv,cur,150,185,m.V.length>2?100:95,{});$('tHint').innerHTML=`${m.h} is <b>${SH[m.g]}</b>${m.lp.length?` with ${m.lp.length} lone pair${m.lp.length>1?'s':''} on ${m.c}`:''}.`;say('Choose polar or non-polar.','')}
+function choose(pol){guess=pol;$('tP').classList.toggle('on',pol);$('tN').classList.toggle('on',!pol);
+ const ok=pol===cur.polar;say(ok?`<b>Correct</b>: ${cur.h} is ${cur.polar?'polar':'non-polar'}. Press <b>Show dipoles</b> to see why.`:`<b>Not quite.</b> Press <b>Show dipoles</b> and watch how the dipoles add up.`,ok?'good':'bad');if(shown)explain()}
+function explain(){const ok=guess==null?null:guess===cur.polar;say((ok===true?'<b>Correct.</b> ':ok===false?'<b>Not quite.</b> ':'')+cur.exp,ok===false?'bad':ok?'good':'')}
+$('tP').onclick=()=>choose(true);$('tN').onclick=()=>choose(false);
+$('tShow').onclick=()=>{shown=true;base();const dips=mol(tsv,cur,150,185,cur.V.length>2?100:95,{dip:true,dd:.2,S:44});chain(tsv,dips,[300,40,210,290],.4+dips.length*.45,true);explain()};
+pick(cur,mb.children[0]);
+</script></body></html>

@@ -1,0 +1,654 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Energy changes in reactions</title>
+<meta name="description" content="Interactive animation: Energy changes in reactions. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-energetics.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .78rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lbl{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.exam{background:#e6f4ec;border-left:4px solid var(--good);padding:8px 12px;border-radius:8px;font-size:.92rem}
+.btn{font:600 .95rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:focus-visible,.pick:focus-visible,input:focus-visible,.xtab:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pick{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+input[type=range]{accent-color:var(--accent);width:100%}
+.ends{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.readout{font:700 1rem var(--display);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 10px;display:inline-block;font-variant-numeric:tabular-nums}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:10px 22px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:520px){body{font-size:16px}.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;border-radius:12px;font-size:.95rem}}
+svg text{font-family:var(--body);fill:var(--ink)}
+.t-s{font-size:12px;fill:var(--muted)}.t-b{font:700 13px var(--display)}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs label{display:block;padding:2px 0;cursor:pointer}
+.fb{font-size:.92rem;font-weight:700}.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.score{font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:34px;height:12px;display:inline-block}
+.lbl .readout{text-transform:none;letter-spacing:0}
+.chk{display:flex;gap:8px;align-items:center;font-size:.95rem;cursor:pointer}
+[hidden]{display:none!important}
+
+/* ---- top tabs + exam practice (from lab pages; renamed to avoid clashing with concept tabs) ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;margin-top:8px;max-width:100%}
+.ex-tbl{border-collapse:collapse;font-size:.92rem;background:#fff}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--paper);font-weight:700}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in,.ex-drow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-sel{font:inherit;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+.ex-sel:focus-visible,.ex-in input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-corr{font-size:.9rem;font-weight:700;color:var(--good)}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+
+<header>
+<div class="kicker">IGCSE Chemistry · Physical chemistry: energetics</div>
+<h1>Energy changes in reactions</h1>
+<p>Some reactions <b>give out</b> heat energy and some <b>take in</b> heat energy. We find out which by measuring the <b>temperature change</b>. Then we can calculate the energy change.</p>
+<p>Press <b>Play</b> and watch the thermometer and the particles. Choose a reaction, then move the sliders in the Calculations tab.</p>
+</header>
+<div class="toptabs" id="toptabRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" type="button" role="tab" id="tb1" aria-selected="true" aria-controls="p1">1 · Exothermic and endothermic</button>
+<button class="xtab" type="button" role="tab" id="tb2" aria-selected="false" aria-controls="p2" tabindex="-1">2 · Measuring temperature changes</button>
+<button class="xtab" type="button" role="tab" id="tb3" aria-selected="false" aria-controls="p3" tabindex="-1">3 · Calculations</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="layout" id="p1" role="tabpanel" aria-labelledby="tb1">
+<div class="stage"><svg id="s1" viewBox="0 0 640 440" role="img" aria-label="Beaker with thermometer, heat arrows and a particle view">
+<defs>
+<marker id="mR" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d6542b"/></marker>
+<marker id="mB" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2f7fd1"/></marker>
+<marker id="mG" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8a96a3"/></marker>
+<clipPath id="bk1"><path d="M82 140V368q0 12 12 12h172q12 0 12-12V140z"/></clipPath>
+<pattern id="poly" width="7" height="7" patternUnits="userSpaceOnUse"><rect width="7" height="7" fill="#fbfbf6"/><circle cx="2" cy="2" r="1.1" fill="#dde2d4"/><circle cx="5.5" cy="5.5" r="1.1" fill="#dde2d4"/></pattern>
+</defs>
+</svg>
+<div class="legend" style="padding:4px 8px 6px"><span><svg width="34" height="12"><circle cx="17" cy="6" r="5" fill="#8fc1ee" stroke="#2f6ea8"/></svg>water particle (surroundings)</span><span><svg width="34" height="12"><circle cx="12" cy="6" r="4" fill="#9b6fd0"/><circle cx="21" cy="6" r="4" fill="#3fae8c"/></svg>reacting particles</span><span><svg width="34" height="12"><circle cx="17" cy="6" r="4.5" fill="#ffb323" stroke="#d6542b"/></svg>heat energy</span></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Exothermic: heat given out</div>
+<div class="row" id="pk1a"></div>
+<div class="lbl">Endothermic: heat taken in</div>
+<div class="row" id="pk1b"></div>
+<div class="row"><button class="btn" id="play1">Pause</button><button class="btn ghost" id="rep1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="lab1" checked> Show labels</label>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st1"></div>
+<div class="exam"><b>Other examples.</b> Exothermic: combustion of fuels, respiration. Endothermic: thermal decomposition (for example of calcium carbonate), photosynthesis.</div></div>
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="layout" id="p2" role="tabpanel" aria-labelledby="tb2" hidden>
+<div class="stage"><svg id="s2" viewBox="0 0 640 430" role="img" aria-label="Apparatus for measuring a temperature change, with a temperature against time graph">
+<defs>
+<clipPath id="cupc"><path d="M88 162H252L238 372H102z"/></clipPath>
+<clipPath id="bkc"><path d="M68 150V368q0 10 10 10h184q10 0 10-10V150z"/></clipPath>
+<clipPath id="canc"><rect x="112" y="112" width="116" height="126"/></clipPath>
+</defs>
+</svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Experiment</div>
+<div class="row" id="pk2"></div>
+<div class="row"><button class="btn" id="play2">Pause</button><button class="btn ghost" id="step2">Step</button><button class="btn ghost" id="rep2">Replay</button></div>
+<label class="chk"><input type="checkbox" id="ins2" checked> <span id="insT">Reduce heat losses (polystyrene cup and lid)</span></label>
+<label class="chk"><input type="checkbox" id="lab2" checked> Show labels</label>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st2"></div>
+<div class="ex-tblwrap" style="margin:0"><table class="ex-tbl" id="res2"></table></div>
+<div class="exam"><b>Heat losses.</b> Heat is lost to (or gained from) the surroundings, so the measured temperature change is too small. To reduce this: use a polystyrene cup (a good insulator) with a lid, stir, and read the thermometer often. For combustion: use a draught screen, a lid on the can, and keep the flame close to the can.</div></div>
+</div>
+</div>
+
+<!-- TAB 3 -->
+<div class="layout" id="p3" role="tabpanel" aria-labelledby="tb3" hidden>
+<div class="stage"><svg id="s3" viewBox="0 0 640 400" role="img" aria-label="Step-by-step calculation of Q and the molar enthalpy change"><defs><clipPath id="cup3"><path d="M30 150H180L168 360H42z"/></clipPath></defs></svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Worked example</div>
+<div class="row" id="pk3"></div>
+<div class="row"><button class="btn" id="play3">Pause</button><button class="btn ghost" id="step3">Step</button><button class="btn ghost" id="rep3">Replay</button></div>
+<div class="lbl">Change the numbers</div>
+<label class="lbl" for="m3">Mass of solution or water, <i style="text-transform:none">m</i>: <span class="readout" id="m3v"></span></label>
+<input type="range" id="m3" min="10" max="250" step="5">
+<label class="lbl" for="d3">Temperature change (+ rise, − fall): <span class="readout" id="d3v"></span></label>
+<input type="range" id="d3" min="-20" max="40" step="0.1">
+<label class="lbl" for="n3">Moles reacting, <i style="text-transform:none">n</i>: <span class="readout" id="n3v"></span></label>
+<input type="range" id="n3" min="0.002" max="0.2" step="0.001">
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st3"></div></div>
+</div>
+</div>
+
+<section class="sheet"><h2>Key points</h2><ul class="kp">
+<li><b>Exothermic</b>: heat energy is <b>given out</b> to the surroundings. The temperature of the surroundings <b>rises</b>. ΔH is <b>negative</b>. Examples: combustion, neutralisation, displacement, respiration.</li>
+<li><b>Endothermic</b>: heat energy is <b>taken in</b> from the surroundings. The temperature <b>falls</b>. ΔH is <b>positive</b>. Examples: thermal decomposition, photosynthesis, dissolving some salts (e.g. ammonium nitrate).</li>
+<li>In solution: use a <b>polystyrene cup with a lid</b>. Measure the volumes, record the <b>starting temperature</b>, mix and stir, then record the <b>highest</b> (or lowest) temperature. For combustion: heat water in a copper can with a spirit burner and <b>weigh the burner</b> before and after.</li>
+<li><b>Q = m × c × ΔT</b>. Q is in J, m is the mass of the solution or water in g (1 cm³ of solution has a mass of 1 g), c = 4.2 J/g/°C, ΔT is in °C.</li>
+<li><b>ΔH = −Q ÷ n</b>, with Q in kJ and n in mol, so ΔH is in <b>kJ/mol</b>. Temperature rose → ΔH negative. Temperature fell → ΔH positive.</li>
+<li>Heat losses to the surroundings make ΔT too small, so the measured ΔH is <b>less exothermic</b> (or less endothermic) than the data book value.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function T(x,y,s,c,p,a){const e=E('text',Object.assign({x,y,class:c||''},a||{}),p);e.textContent=s;return e}
+const $=id=>document.getElementById(id);
+const lerp=(a,b,t)=>a+(b-a)*t,f1=v=>v.toFixed(1);
+function mix(c1,c2,t){const a=parseInt(c1.slice(1),16),b=parseInt(c2.slice(1),16),r=k=>Math.round(lerp(a>>k&255,b>>k&255,t));return`rgb(${r(16)},${r(8)},${r(0)})`}
+function pickRow(host,names,fn){return names.map((n,i)=>{const b=document.createElement('button');b.className='pick';b.type='button';b.textContent=n;b.setAttribute('aria-pressed','false');b.onclick=()=>fn(i);host.appendChild(b);return b})}
+function arrowPath(a,out){const[x1,y1,x2,y2]=a;return out?`M${x1} ${y1}L${x2} ${y2}`:`M${x2} ${y2}L${x1} ${y1}`}
+/* ---------- TAB 1 ---------- */
+const RX=[
+{t:1,n:'Neutralisation',w:'hydrochloric acid + sodium hydroxide → sodium chloride + water',eq:'HCl(aq) + NaOH(aq) → NaCl(aq) + H<sub>2</sub>O(l)',dT:6.5,c0:'#e3eefa',c1:'#e3eefa'},
+{t:1,n:'Displacement',w:'zinc + copper(II) sulfate → zinc sulfate + copper',eq:'Zn(s) + CuSO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) + Cu(s)',dT:9,c0:'#79ade2',c1:'#e6eef7',s:'zn'},
+{t:0,n:'Dissolving ammonium nitrate',w:'ammonium nitrate(s) → ammonium nitrate(aq)',eq:'NH<sub>4</sub>NO<sub>3</sub>(s) → NH<sub>4</sub>NO<sub>3</sub>(aq)',dT:-6,c0:'#e3eefa',c1:'#e3eefa',s:'salt'},
+{t:0,n:'Citric acid + sodium hydrogencarbonate',w:'citric acid + sodium hydrogencarbonate → sodium citrate + water + carbon dioxide',eq:'',dT:-4.5,c0:'#e3eefa',c1:'#e3eefa',g:1}];
+const s1=$('s1'),tY=t=>340-(t-5)*9;
+const lab1=E('g',{},s1);
+// beaker
+const liq1=E('rect',{x:80,y:196,width:200,height:190,fill:'#e3eefa','clip-path':'url(#bk1)'},s1);
+const sol1=E('g',{'clip-path':'url(#bk1)'},s1);
+const zn=[],cu=[],salt=[],bub=[];
+for(let i=0;i<16;i++){zn.push(E('circle',{cx:100+i*7+(i%3)*2,cy:372-(i%2)*4,r:3.4,fill:'#9aa3ad',stroke:'#6b7480','stroke-width':.6},sol1));cu.push(E('circle',{cx:104+i*7,cy:366-(i%3)*3,r:2.6,fill:'#b5602d',opacity:0},sol1))}
+for(let i=0;i<9;i++)salt.push(E('rect',{x:108+i*12,y:366-(i%2)*5,width:8,height:8,fill:'#fff',stroke:'#9aa3ad',transform:`rotate(${i*17} ${112+i*12} ${370})`},sol1));
+for(let i=0;i<12;i++)bub.push({e:E('circle',{r:3,fill:'#fff',stroke:'#8fa6bd',opacity:0},sol1),x:100+Math.random()*80,y:380,v:40+Math.random()*40});
+E('path',{d:'M82 132V368q0 12 12 12h172q12 0 12-12V132',fill:'none',stroke:'#7d8fa3','stroke-width':3},s1);
+E('path',{d:'M76 132h12M272 132h12',stroke:'#7d8fa3','stroke-width':3},s1);
+// thermometer
+E('rect',{x:216,y:58,width:16,height:292,rx:8,fill:'#fff',stroke:'#7d8fa3','stroke-width':2},s1);
+E('circle',{cx:224,cy:354,r:12,fill:'#d33a2c',stroke:'#7d8fa3','stroke-width':2},s1);
+const col1=E('rect',{x:221,y:200,width:6,height:150,fill:'#d33a2c'},s1);
+const sc1=E('g',{},s1);
+for(let t=10;t<=30;t+=5){const y=tY(t);E('line',{x1:206,y1:y,x2:216,y2:y,stroke:'#5a6878','stroke-width':1.5},sc1);T(203,y+4,t,'t-s',sc1,{'text-anchor':'end'})}
+E('rect',{x:186,y:14,width:96,height:34,rx:8,fill:'#1c2736'},s1);
+const rd1=T(234,38,'20.0 °C','t-b',s1,{'text-anchor':'middle',style:'fill:#fff;font-size:18px'});
+// heat arrows
+const AR1=[[78,220,26,200],[78,320,26,340],[120,128,100,80],[160,128,160,74],[282,250,326,250],[282,330,326,330]];
+const arr1=AR1.map(a=>E('path',{fill:'none','stroke-width':4,'stroke-dasharray':'7 6','stroke-linecap':'round'},s1));
+const heatTxt=T(16,60,'','t-b',lab1);const heatTxt2=T(16,76,'','t-s',lab1);
+T(180,402,'surroundings: water, beaker, thermometer, air','t-s',lab1,{'text-anchor':'middle'});
+const badge=E('g',{},s1);const bR=E('rect',{x:20,y:416,width:310,height:22,rx:11},badge);const bT=T(175,432,'','t-b',badge,{'text-anchor':'middle',style:'fill:#fff'});
+// particle view
+const PX=483,PY=194;
+E('rect',{x:338,y:40,width:294,height:310,rx:12,fill:'#f6f8fb',stroke:'#7d8fa3','stroke-width':2},s1);
+T(346,32,'Particle view','t-b',s1);
+E('circle',{cx:PX,cy:PY,r:46,fill:'#fff',stroke:'#9b6fd0','stroke-width':2,'stroke-dasharray':'5 4'},s1);
+const wat=[];for(let x=356;x<630;x+=31)for(let y=60;y<340;y+=31){if(Math.hypot(x-PX,y-PY)<70)continue;wat.push({e:E('circle',{r:7,fill:'#8fc1ee',stroke:'#2f6ea8','stroke-width':1},s1),hx:x,hy:y,p1:Math.random()*6,p2:Math.random()*6,f1:.8+Math.random()*.5,f2:.8+Math.random()*.5})}
+const rp=[];for(let i=0;i<7;i++){const a=i/7*6.283,r=i?26:0;const g=E('g',{},s1);rp.push({g,a:E('circle',{cx:-4,cy:0,r:5},g),b:E('circle',{cx:5,cy:0,r:5},g),x:PX+r*Math.cos(a),y:PY+r*Math.sin(a),p:Math.random()*6})}
+const pk=E('g',{},s1);let packs=[],pAcc=0;
+T(PX,PY+62,'reacting particles','t-s',lab1,{'text-anchor':'middle',style:'fill:#6b46a8;font-weight:700'});
+const pvTxt=T(485,370,'','t-s',lab1,{'text-anchor':'middle'});const pvTxt2=T(485,386,'','t-s',lab1,{'text-anchor':'middle'});
+let r1=0,t1=0,play1=true,T1=20,ph1='';
+const pb1=pickRow($('pk1a'),['Neutralisation','Displacement'],i=>set1(i)).concat(pickRow($('pk1b'),['Dissolving ammonium nitrate','Citric acid + sodium hydrogencarbonate'],i=>set1(i+2)));
+function set1(i){r1=i;pb1.forEach((b,j)=>b.setAttribute('aria-pressed',j==i));rep1();
+ const R=RX[i],ex=R.t;
+ arr1.forEach((p,k)=>{p.setAttribute('d',arrowPath(AR1[k],ex));p.setAttribute('stroke',ex?'#d6542b':'#2f7fd1');p.setAttribute('marker-end',ex?'url(#mR)':'url(#mB)')});
+ heatTxt.textContent=ex?'heat energy given out':'heat energy taken in';heatTxt2.textContent=ex?'to the surroundings':'from the surroundings';
+ heatTxt.style.fill=ex?'#b3401b':'#1f5f9e';
+ bR.setAttribute('fill',ex?'#b3401b':'#1f5f9e');bT.textContent=ex?'Exothermic · temperature rises · ΔH negative':'Endothermic · temperature falls · ΔH positive';
+ zn.forEach(c=>c.style.display=R.s=='zn'?'':'none');cu.forEach(c=>c.style.display=R.s=='zn'?'':'none');salt.forEach(c=>c.style.display=R.s=='salt'?'':'none');
+ rp.forEach(q=>{q.a.setAttribute('fill','#9b6fd0');q.b.setAttribute('fill','#3fae8c')});ph1='';st1()}
+function rep1(){t1=0;packs.forEach(p=>p.e.remove());packs=[]}
+function st1(){const R=RX[r1],ex=R.t,done=t1>8,ph=r1+(done?'d':'r');if(ph==ph1)return;ph1=ph;const Te=f1(20+R.dT);
+ $('st1').innerHTML=(ex?`<p><b>Exothermic.</b> The reacting chemicals <b>give out heat energy</b> to the <b>surroundings</b> (the water, the beaker, the thermometer and the air).</p><p>The surroundings get hotter, so the <b>temperature rises</b>: 20.0 °C → ${Te} °C. The water particles gain energy and move faster.</p><p>Heat energy leaves the chemicals, so <b>ΔH is negative</b>.</p>`:
+ `<p><b>Endothermic.</b> The chemicals <b>take in heat energy</b> from the <b>surroundings</b> (the water, the beaker, the thermometer and the air).</p><p>The surroundings get colder, so the <b>temperature falls</b>: 20.0 °C → ${Te} °C. The water particles lose energy and move more slowly.</p><p>Heat energy goes into the chemicals, so <b>ΔH is positive</b>.</p>`)+
+ `<p>${done?'The change has finished, so the temperature stops changing.':'The change is happening now…'}</p><p><b>${R.w}</b>${R.eq?'<br>'+R.eq:''}</p>`}
+function upd1(dt){t1+=dt;if(t1>14)rep1();const R=RX[r1],ex=R.t,p=1-Math.exp(-t1/2.2),rate=Math.exp(-t1/2.2);
+ T1=20+R.dT*p;col1.setAttribute('y',tY(T1).toFixed(1));col1.setAttribute('height',(350-tY(T1)).toFixed(1));rd1.textContent=f1(T1)+' °C';
+ liq1.setAttribute('fill',mix(R.c0,R.c1,p));
+ if(R.s=='zn'){zn.forEach((c,i)=>c.setAttribute('r',3.4*(1-.45*p)));cu.forEach(c=>c.setAttribute('opacity',p))}
+ if(R.s=='salt')salt.forEach((c,i)=>{const k=Math.max(0,1-p*1.15+i*.01);c.setAttribute('width',8*k);c.setAttribute('height',8*k)});
+ bub.forEach(b=>{if(R.g&&rate>.04){b.y-=b.v*dt;if(b.y<200){b.y=378;b.x=100+Math.random()*90}b.e.setAttribute('cx',b.x.toFixed(1));b.e.setAttribute('cy',b.y.toFixed(1));b.e.setAttribute('opacity',.9)}else b.e.setAttribute('opacity',0)});
+ arr1.forEach((a,k)=>{a.setAttribute('stroke-dashoffset',(-t1*30%13).toFixed(1));a.setAttribute('opacity',(.12+.88*Math.min(1,rate*1.6)).toFixed(2))});
+ const A=Math.max(1.5,(T1-8)*.62),w=3+T1*.22;
+ wat.forEach(q=>{q.p1+=dt*w*q.f1;q.p2+=dt*w*q.f2;q.e.setAttribute('cx',(q.hx+A*Math.sin(q.p1)).toFixed(1));q.e.setAttribute('cy',(q.hy+A*Math.cos(q.p2)).toFixed(1))});
+ rp.forEach(q=>{q.p+=dt*6;q.g.setAttribute('transform',`translate(${(q.x+2*Math.sin(q.p)).toFixed(1)},${(q.y+2*Math.cos(q.p*1.3)).toFixed(1)}) rotate(${(q.p*20%360).toFixed(0)})`);
+  q.a.setAttribute('fill',mix('#9b6fd0','#d9a441',p));q.b.setAttribute('fill',mix('#3fae8c','#4f7fd0',p))});
+ pAcc+=dt*rate*16;while(pAcc>1){pAcc--;const a=Math.random()*6.283;packs.push({e:E('circle',{r:4.5,fill:'#ffb323',stroke:'#d6542b','stroke-width':1.2},pk),a,r:ex?44:150})}
+ packs=packs.filter(q=>{q.r+=(ex?70:-70)*dt;const gone=ex?q.r>150:q.r<44;if(gone){q.e.remove();return false}
+  const op=ex?Math.min(1,(150-q.r)/40):Math.min(1,(q.r-44)/30);q.e.setAttribute('cx',(PX+q.r*Math.cos(q.a)).toFixed(1));q.e.setAttribute('cy',(PY+q.r*Math.sin(q.a)*.92).toFixed(1));q.e.setAttribute('opacity',op.toFixed(2));return true});
+ pvTxt.textContent=ex?'Heat energy moves OUT to the water particles.':'Heat energy moves IN from the water particles.';
+ pvTxt2.textContent=ex?'They move faster: the temperature rises.':'They move more slowly: the temperature falls.';
+ st1()}
+$('play1').onclick=()=>{play1=!play1;$('play1').textContent=play1?'Pause':'Play'};
+$('rep1').onclick=()=>{rep1();play1=true;$('play1').textContent='Pause';ph1='';st1()};
+$('lab1').onchange=e=>{lab1.style.display=e.target.checked?'':'none';sc1.style.display=lab1.style.display};
+s1.appendChild(lab1);set1(0);
+/* ---------- TAB 2 ---------- */
+const EX2=[
+{n:'Neutralisation',a:'25 cm³ of dilute hydrochloric acid',b:'25 cm³ of sodium hydroxide solution',A:6.6,tau:5,c0:'#e3eefa',eq:'HCl(aq) + NaOH(aq) → NaCl(aq) + H<sub>2</sub>O(l)'},
+{n:'Displacement',a:'25 cm³ of copper(II) sulfate solution',b:'excess zinc powder',sol:'zn',A:9,tau:16,c0:'#79ade2',c1:'#e6eef7',eq:'Zn(s) + CuSO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) + Cu(s)'},
+{n:'Dissolving',a:'25 cm³ of water',b:'a weighed mass of ammonium nitrate',sol:'salt',A:-7,tau:9,c0:'#e3eefa',eq:'NH<sub>4</sub>NO<sub>3</sub>(s) → NH<sub>4</sub>NO<sub>3</sub>(aq)'},
+{n:'Combustion',comb:1,a:'100 cm³ of water',b:'',A:1,eq:'C<sub>2</sub>H<sub>5</sub>OH(l) + 3O<sub>2</sub>(g) → 2CO<sub>2</sub>(g) + 3H<sub>2</sub>O(l)'}];
+const D2=[3,2.5,3.2,6,3,6],s2=$('s2'),lab2=E('g',{},null);
+const gS=E('g',{},s2),gC=E('g',{},s2),gT=E('g',{},s2),gP=E('g',{},s2),gG=E('g',{},s2);s2.appendChild(lab2);
+// solution apparatus
+E('rect',{x:20,y:380,width:310,height:6,rx:3,fill:'#cdd6df'},s2);
+const liq2=E('rect',{x:60,y:300,width:220,height:90,fill:'#e3eefa'},gS);
+const cupG=E('g',{},gS);E('path',{d:'M84 158H256L242 376H98z',fill:'url(#poly)',stroke:'#b0b8a6','stroke-width':2},cupG);
+const liq2c=E('rect',{x:80,y:300,width:180,height:80,fill:'#e3eefa','clip-path':'url(#cupc)'},cupG);
+const heap=E('g',{'clip-path':'url(#cupc)'},cupG),heap2=[];
+for(let i=0;i<14;i++)heap2.push(E('circle',{cx:118+i*7.5,cy:366-(i%3)*3,r:3.4},heap));
+const cuD=[];for(let i=0;i<12;i++)cuD.push(E('circle',{cx:122+i*8,cy:360-(i%2)*4,r:2.6,fill:'#b5602d',opacity:0},heap));
+E('path',{d:'M68 146V368q0 10 10 10h184q10 0 10-10V146',fill:'none',stroke:'#7d8fa3','stroke-width':3},gS);
+const lid2=E('rect',{x:78,y:146,width:184,height:12,rx:3,fill:'url(#poly)',stroke:'#b0b8a6','stroke-width':2},gS);
+// combustion apparatus
+E('rect',{x:24,y:372,width:110,height:8,fill:'#5a6878'},gC);E('rect',{x:40,y:60,width:7,height:314,fill:'#5a6878'},gC);
+E('rect',{x:44,y:124,width:72,height:8,fill:'#5a6878'},gC);
+const liq3=E('rect',{x:112,y:140,width:116,height:100,fill:'#a9cff2','clip-path':'url(#canc)'},gC);
+E('rect',{x:110,y:110,width:120,height:130,rx:4,fill:'#c8763a',opacity:.08},gC);
+E('path',{d:'M110 106V236q0 4 4 4h112q4 0 4-4V106',fill:'none',stroke:'#a5582a','stroke-width':4},gC);
+const lid3=E('rect',{x:104,y:98,width:132,height:9,fill:'#e9e2cf',stroke:'#a99d7c','stroke-width':1.5},gC);
+const scr=E('g',{},gC);[86,250].forEach(x=>E('rect',{x,y:226,width:8,height:150,fill:'#d4dbe3',stroke:'#7d8fa3'},scr));
+E('path',{d:'M140 326q0-8 8-8h44q8 0 8 8v42q0 8-8 8h-44q-8 0-8-8z',fill:'#eef4f9',stroke:'#7d8fa3','stroke-width':2},gC);
+const eth=E('rect',{x:143,y:340,width:54,height:34,rx:5,fill:'#e9f0c6'},gC);
+E('rect',{x:162,y:304,width:16,height:15,fill:'#cdd6df',stroke:'#7d8fa3'},gC);E('rect',{x:168,y:294,width:4,height:11,fill:'#3a2a1f'},gC);
+const cap=E('rect',{x:160,y:286,width:20,height:20,rx:4,fill:'#9aa3ad'},gC);
+const flO=E('path',{fill:'#f39c33'},gC),flI=E('path',{fill:'#fff1a8'},gC);
+const balT=T(264,364,'','t-b',gC);
+// thermometer
+const tube=E('rect',{x:164,y:30,width:14,height:300,rx:7,fill:'#fff',stroke:'#7d8fa3','stroke-width':2},gT);
+const bulb=E('circle',{cx:171,cy:334,r:10,fill:'#d33a2c',stroke:'#7d8fa3','stroke-width':2},gT);
+const col2=E('rect',{x:168,y:200,width:6,height:130,fill:'#d33a2c'},gT);
+E('rect',{x:186,y:30,width:92,height:32,rx:8,fill:'#1c2736'},gT);const rd2=T(232,52,'','t-b',gT,{'text-anchor':'middle',style:'fill:#fff;font-size:17px'});
+// pour
+const cyl=E('g',{},gP);const cylL=E('rect',{x:-10,y:-60,width:20,height:58,fill:'#e3eefa'},cyl);
+E('path',{d:'M-12 -100V-2h24V-100',fill:'none',stroke:'#7d8fa3','stroke-width':2.5},cyl);for(let i=1;i<5;i++)E('line',{x1:-12,x2:-4,y1:-i*20,y2:-i*20,stroke:'#7d8fa3'},cyl);
+const strm=E('line',{stroke:'#9cc2ea','stroke-width':4,'stroke-linecap':'round'},gP);
+let falls=[];
+// heat arrows
+const ARS=[[96,250,40,236],[96,330,40,344],[250,250,306,236],[150,140,140,96]],ARC=[[150,290,94,270],[190,290,246,270],[130,250,80,214],[210,250,262,214]];
+const arr2=[0,1,2,3].map(()=>E('path',{fill:'none','stroke-width':4,'stroke-dasharray':'7 6','stroke-linecap':'round'},s2));
+const lossT=T(20,110,'','t-b',lab2,{style:'fill:#b3401b'});
+// graph
+const GX=360,GW=262,GY=330,GH=250;let gT0=10,gT1=30;
+const gAx=E('g',{},gG),gLine=E('polyline',{fill:'none',stroke:'#d33a2c','stroke-width':3,'stroke-linejoin':'round'},gG);
+const d0=E('circle',{r:5,fill:'#4a44b5'},gG),dP=E('circle',{r:6,fill:'none',stroke:'#1d7a46','stroke-width':3},gG),dPt=T(0,0,'','t-s',gG,{style:'fill:#1d7a46;font-weight:700'});
+const gyy=t=>GY-(t-gT0)/(gT1-gT0)*GH,gxx=s=>GX+s/250*GW;
+function axes(){gAx.innerHTML='';E('rect',{x:GX,y:GY-GH,width:GW,height:GH,fill:'#fbfcfe',stroke:'#cdd6df'},gAx);
+ for(let t=gT0;t<=gT1;t+=5){const y=gyy(t);E('line',{x1:GX,x2:GX+GW,y1:y,y2:y,stroke:'#e4eaf0'},gAx);T(GX-6,y+4,t,'t-s',gAx,{'text-anchor':'end'})}
+ for(let s=0;s<=250;s+=50)T(gxx(s),GY+16,s,'t-s',gAx,{'text-anchor':'middle'});
+ T(GX+GW/2,GY+34,'time / s','t-s',gAx,{'text-anchor':'middle'});T(GX-30,GY-GH-12,'temperature / °C','t-s',gAx);
+ E('line',{x1:GX,x2:GX+GW,y1:gyy(20),y2:gyy(20),stroke:'#8a96a3','stroke-dasharray':'4 4'},gAx);T(GX+GW-4,gyy(20)-5,'room temperature','t-s',gAx,{'text-anchor':'end'})}
+let e2=0,st2=0,tt2=0,play2=true,ins=true,T2=20,ts=0,pts=[],mixT=-1,Tpk=20,burned=0,lastP=-9,flame=false;
+const pb2=pickRow($('pk2'),EX2.map(x=>x.n),i=>set2(i));
+function set2(i){e2=i;pb2.forEach((b,j)=>b.setAttribute('aria-pressed',j==i));const X=EX2[i];
+ gS.style.display=X.comb?'none':'';gC.style.display=X.comb?'':'none';
+ tube.setAttribute('height',X.comb?196:300);bulb.setAttribute('cy',X.comb?226:334);
+ $('insT').textContent=X.comb?'Reduce heat losses (draught screen and lid on the can)':'Reduce heat losses (polystyrene cup and lid)';
+ gT0=X.comb?15:10;gT1=X.comb?45:30;axes();
+ if(X.sol){heap2.forEach(c=>{c.setAttribute('fill',X.sol=='zn'?'#9aa3ad':'#fff');c.setAttribute('stroke',X.sol=='zn'?'#6b7480':'#9aa3ad')})}
+ reset2()}
+function reset2(){st2=0;tt2=0;T2=20;ts=0;pts=[];mixT=-1;Tpk=20;burned=0;lastP=-9;flame=false;falls.forEach(f=>f.e.remove());falls=[];txt2()}
+function sim2(dt){tt2+=dt;const X=EX2[e2];
+ if(!X.comb&&X.sol&&st2==2&&tt2>.4&&tt2<2&&Math.random()<dt*14)falls.push({e:E('circle',{r:3,fill:X.sol=='zn'?'#9aa3ad':'#fff',stroke:'#6b7480','stroke-width':.6},gP),x:150+Math.random()*40,y:120});
+ falls=falls.filter(f=>{f.y+=240*dt;f.e.setAttribute('cx',f.x.toFixed(1));f.e.setAttribute('cy',f.y.toFixed(1));if(f.y>300){f.e.remove();return false}return true});
+ if(st2<1)return;const ds=dt*12;ts+=ds;let q=0;
+ if(!X.comb){if(st2>=3||(st2==2&&tt2>2)){if(mixT<0)mixT=0;mixT+=ds;q=X.A*Math.exp(-mixT/X.tau)/X.tau*(ins?1:.85)}}
+ else{flame=(st2==2&&tt2>1)||st2==3;if(flame){q=ins?.23:.13;burned+=.0052*ds}}
+ const h=X.comb?(ins?.0012:.004):(ins?.0015:.02);T2+=(q-h*(T2-20))*ds;
+ Tpk=X.A>0?Math.max(Tpk,T2):Math.min(Tpk,T2);
+ if(ts-lastP>=2.5){pts.push(gxx(Math.min(250,ts)).toFixed(1)+','+gyy(T2).toFixed(1));lastP=ts}}
+function adv2(){if(st2>=5){reset2();return}while(tt2<D2[st2])sim2(1/30);st2++;tt2=0;txt2()}
+function txt2(){const X=EX2[e2],up=X.A>0,hl=up?'highest':'lowest';let s;
+ const S=X.comb?['Measure <b>100 cm³ of water</b> with a measuring cylinder and pour it into a <b>copper can</b>. Clamp the can above a spirit burner.',
+ 'Record the <b>starting temperature</b> of the water. <b>Weigh</b> the spirit burner (with its cap) on a balance.',
+ 'Take off the cap and <b>light the burner</b>. The flame heats the can and the water.',
+ 'Stir the water. The temperature <b>rises</b>.',
+ 'Put the cap back on to put out the flame. Record the <b>highest temperature</b>.',
+ '<b>Weigh</b> the burner again. Mass of ethanol burned = mass before − mass after. ΔT = highest − starting temperature.']:
+ [`Use a measuring cylinder to put <b>${X.a}</b> into ${ins?'a <b>polystyrene cup</b> (stood in a beaker so it does not fall over)':'a <b>glass beaker</b>'}.`,
+ 'Put in the thermometer. Record the <b>starting temperature</b>.',
+ `Add <b>${X.b}</b>${ins?' and put the <b>lid</b> on quickly':''}.`,
+ `Stir the mixture. The temperature <b>${up?'rises':'falls'}</b>.`,
+ `Record the <b>${hl} temperature</b> reached.`,
+ `Work out the temperature change: ΔT = ${up?'highest − starting':'starting − lowest'} temperature.`];
+ s=`<p><b>Step ${st2+1} of 6.</b> ${S[st2]}</p>`;
+ if(st2>=3)s+=ins?`<p>${X.comb?'The draught screen and lid':'The polystyrene cup and lid'} reduce heat ${up?'loss to':'gain from'} the surroundings.</p>`:`<p style="color:#b3261e">No insulation: heat is ${up?'lost to':'gained from'} the surroundings, so ΔT is <b>smaller</b> than it should be.</p>`;
+ s+=`<p>${X.eq}</p>`;$('st2').innerHTML=s}
+let res2='';
+function draw2(){const X=EX2[e2],u=tt2/D2[st2],sY=X.comb?240:376;
+ // liquid level
+ let lev=0;if(X.comb){lev=st2>0?1:(u>.2&&u<.8?(u-.2)/.6:u>=.8?1:0)}
+ else{if(st2==0)lev=u>.2&&u<.8?(u-.2)/.6:u>=.8?1:0;else if(st2==2&&!X.sol)lev=1+(u>.2&&u<.8?(u-.2)/.6:u>=.8?1:0);else lev=st2>2&&!X.sol?2:1}
+ const prg=mixT<0?0:1-Math.exp(-mixT/(X.tau||1));
+ if(X.comb){liq3.setAttribute('y',(240-lev*96).toFixed(1));liq3.setAttribute('height',(lev*96).toFixed(1))}
+ else{const top=ins?376-lev*66:378-lev*58;[liq2,liq2c].forEach(r=>{r.setAttribute('y',top.toFixed(1));r.setAttribute('height',(380-top).toFixed(1));r.setAttribute('fill',X.c1?mix(X.c0,X.c1,prg):X.c0)});
+  liq2c.style.display=ins?'':'none';liq2.style.display=ins?'none':'';cupG.querySelector('path').style.display=ins?'':'none';
+  heap.style.display='';heap.setAttribute('clip-path',ins?'url(#cupc)':'url(#bkc)');
+  const hv=X.sol&&(st2>2||(st2==2&&u>.4));heap2.forEach((c,i)=>{c.style.display=hv&&i<Math.min(14,(st2>2?14:(u-.4)*25))?'':'none';c.setAttribute('r',X.sol=='salt'?3.4*Math.max(0,1-prg*1.1):3.4*(1-.4*prg))});
+  cuD.forEach(c=>c.setAttribute('opacity',X.sol=='zn'?prg:0));
+  lid2.style.display=ins&&(st2>2||(st2==2&&u>.6))?'':'none'}
+ lid3.style.display=ins&&st2>=1?'':'none';scr.style.display=ins?'':'none';
+ // thermometer
+ gT.style.display=st2>=1||X.comb?'':'none';
+ const ty=X.comb?220-(T2-10)*4.6:330-(T2-5)*8.5;col2.setAttribute('y',ty.toFixed(1));col2.setAttribute('height',((X.comb?226:334)-ty).toFixed(1));rd2.textContent=f1(T2)+' °C';
+ // pour
+ const pour=(st2==0)||(st2==2&&!X.sol&&!X.comb);
+ if(pour&&u<.95){gP.style.display='';const a=u<.2?u/.2:u<.75?1:Math.max(0,(.95-u)/.2),ang=-112*a,px=300,py=X.comb?58:104;
+  cyl.setAttribute('transform',`translate(${px} ${py}) rotate(${ang.toFixed(1)})`);cylL.setAttribute('height',(58*(1-Math.min(1,Math.max(0,(u-.2)/.55)))).toFixed(1));cylL.setAttribute('y',(-2-58*(1-Math.min(1,Math.max(0,(u-.2)/.55)))).toFixed(1));
+  const r=ang*Math.PI/180,lx=px+100*Math.sin(r),ly=py-100*Math.cos(r);const on=u>.2&&u<.75;
+  strm.setAttribute('x1',lx.toFixed(1));strm.setAttribute('y1',ly.toFixed(1));strm.setAttribute('x2',lx.toFixed(1));strm.setAttribute('y2',on?(X.comb?236-lev*96:376-lev*60):ly);strm.style.display=on?'':'none';cyl.style.display=''}
+ else{cyl.style.display='none';strm.style.display='none'}
+ // flame
+ if(X.comb){cap.style.display=flame?'none':'';const f=flame?1:0,h=38+5*Math.sin(tt2*13)+3*Math.sin(tt2*7),w=10+(ins?0:4*Math.sin(tt2*5)),x=170+(ins?0:4*Math.sin(tt2*3)),y=296;
+  const fp=(w,h)=>`M${x-w} ${y}Q${x-w} ${y-h*.45} ${x} ${y-h}Q${x+w} ${y-h*.45} ${x+w} ${y}Z`;flO.setAttribute('d',f?fp(w,h):'');flI.setAttribute('d',f?fp(w*.45,h*.5):'');
+  eth.setAttribute('height',(34-burned*8).toFixed(1));eth.setAttribute('y',(340+burned*8).toFixed(1));
+  balT.textContent=st2==1?'burner: 152.84 g':st2==5?'burner: '+(152.84-burned).toFixed(2)+' g':''}
+ // arrows
+ const act=X.comb?(flame?1:Math.min(1,Math.abs(T2-20)/12)):Math.min(1,Math.abs(T2-20)/4),out=X.comb||T2>=20,AR=X.comb?ARC:ARS;
+ arr2.forEach((p,k)=>{p.setAttribute('d',arrowPath(AR[k],out));p.setAttribute('stroke',out?'#d6542b':'#2f7fd1');p.setAttribute('marker-end',out?'url(#mR)':'url(#mB)');p.setAttribute('stroke-dashoffset',(-performance.now()/33%13).toFixed(1));p.setAttribute('opacity',(act*(ins?.18:.95)).toFixed(2))});
+ lossT.textContent=act>.2&&!ins?(out?'heat lost to the surroundings':'heat gained from the surroundings'):'';
+ // graph
+ gLine.setAttribute('points',pts.join(' ')+(st2>=1?' '+gxx(Math.min(250,ts)).toFixed(1)+','+gyy(T2).toFixed(1):''));
+ d0.style.display=st2>=1?'':'none';d0.setAttribute('cx',GX);d0.setAttribute('cy',gyy(20));
+ const sp=st2>=4;dP.style.display=sp?'':'none';dPt.style.display=sp?'':'none';
+ if(sp){const k=pts.length?pts.reduce((b,p)=>{const y=+p.split(',')[1];return(X.A>0?y<b[1]:y>b[1])?[+p.split(',')[0],y]:b},[0,X.A>0?1e9:-1e9]):[GX,gyy(20)];
+  dP.setAttribute('cx',k[0]);dP.setAttribute('cy',k[1]);dPt.setAttribute('x',Math.min(k[0]+8,GX+GW-120));dPt.setAttribute('y',k[1]+(X.A>0?-10:20));dPt.textContent=(X.A>0?'highest: ':'lowest: ')+f1(Tpk)+' °C'}
+ // results
+ const dT=Math.abs(Tpk-20);let r=`<tr><th>starting temperature</th><td>${st2>=1?'20.0 °C':'–'}</td></tr><tr><th>${X.A>0?'highest':'lowest'} temperature</th><td>${st2>=4?f1(Tpk)+' °C':'–'}</td></tr><tr><th>temperature change, ΔT</th><td>${st2>=5?f1(dT)+' °C':'–'}</td></tr>`;
+ if(X.comb)r+=`<tr><th>mass of ethanol burned</th><td>${st2>=5?burned.toFixed(2)+' g':'–'}</td></tr>`;
+ if(r!==res2){$('res2').innerHTML=r;res2=r}}
+function upd2(dt){if(play2){if(tt2+dt>=D2[st2])adv2();else sim2(dt)}draw2()}
+$('play2').onclick=()=>{play2=!play2;$('play2').textContent=play2?'Pause':'Play'};
+$('step2').onclick=()=>{play2=false;$('play2').textContent='Play';adv2();draw2()};
+$('rep2').onclick=()=>{reset2();play2=true;$('play2').textContent='Pause'};
+$('ins2').onchange=e=>{ins=e.target.checked;reset2()};
+$('lab2').onchange=e=>lab2.style.display=e.target.checked?'':'none';
+const l2=[T(30,410,'polystyrene cup + lid','t-s',lab2),T(30,410,'copper can of water','t-s',lab2),T(170,410,'spirit burner with ethanol','t-s',lab2),T(GX,30,'temperature against time','t-b',lab2)];
+set2(0);
+/* ---------- TAB 3 ---------- */
+const P3=[{n:'Neutralisation',m:100,d:6.8,n0:.05,how:'50 cm³ of 1.0 mol/dm³ HCl + 50 cm³ of 1.0 mol/dm³ NaOH. Mass of solution = 50 + 50 = <b>100 g</b>. Moles of water formed = 1.0 × 50 ÷ 1000 = <b>0.050 mol</b>.'},
+{n:'Displacement',m:50,d:10,n0:.01,how:'Excess zinc + 50 cm³ of 0.20 mol/dm³ CuSO<sub>4</sub>. Mass of solution = <b>50 g</b> (do not add the mass of the zinc). Moles of CuSO<sub>4</sub> = 0.20 × 50 ÷ 1000 = <b>0.010 mol</b>.'},
+{n:'Dissolving',m:50,d:-5.9,n0:.05,how:'4.0 g of NH<sub>4</sub>NO<sub>3</sub> dissolves in 50 cm³ of water. Mass of water = <b>50 g</b>. Moles = 4.0 ÷ 80 = <b>0.050 mol</b> (M<sub>r</sub> = 80).'},
+{n:'Combustion',m:100,d:20,n0:.01,how:'Burning 0.46 g of ethanol heats 100 cm³ (<b>100 g</b>) of water. Moles = 0.46 ÷ 46 = <b>0.010 mol</b> (M<sub>r</sub> = 46). The data book value is −1367 kJ/mol: a lot of heat is lost to the surroundings.'}];
+const s3=$('s3');s3.setAttribute('xml:space','preserve');let p3=0,k3=0,t3=0,play3=true,m3=100,d3=6.8,n3=.05,own=false,tA=0;
+E('path',{d:'M26 140H184L170 366H40z',fill:'#fff',stroke:'#7d8fa3','stroke-width':2.5},s3);
+E('rect',{x:20,y:200,width:170,height:170,fill:'#e3eefa','clip-path':'url(#cup3)'},s3);
+E('rect',{x:148,y:66,width:14,height:274,rx:7,fill:'#fff',stroke:'#7d8fa3','stroke-width':2},s3);E('circle',{cx:155,cy:344,r:10,fill:'#d33a2c',stroke:'#7d8fa3','stroke-width':2},s3);
+const col3=E('rect',{x:152,y:200,width:6,height:140,fill:'#d33a2c'},s3);
+const m3T=T(36,236,'','t-b',s3),c3T=T(36,256,'c = 4.2 J/g/°C','t-s',s3);
+const ta3=T(105,388,'','t-s',s3,{'text-anchor':'middle'});
+E('rect',{x:120,y:30,width:70,height:28,rx:7,fill:'#1c2736'},s3);const rd3=T(155,50,'','t-b',s3,{'text-anchor':'middle',style:'fill:#fff;font-size:15px'});
+const hl3=E('rect',{x:220,width:414,height:52,rx:9,fill:'#e7e6fb',stroke:'#4a44b5','stroke-width':1.5},s3);
+const L3=[0,1,2,3,4,5].map(i=>{const y=26+i*62;return{h:T(232,y+14,'','t-s',s3),b:T(232,y+36,'','t-b',s3,{style:'font-size:16px'}),y}});
+const sf=(x,n)=>String(Number(x.toPrecision(n)));
+function lines3(){const up=d3>0,a=Math.abs(d3),Te=20+d3,Q=Math.round(m3*4.2*a*10)/10,Qk=Q/1000,dH=Qk/n3,s=up?'−':'+';
+ return[['1. Write down the data',`m = ${m3} g  ·  c = 4.2 J/g/°C  ·  n = ${n3.toFixed(3)} mol`],
+ ['2. Temperature change, ΔT',up?`ΔT = ${f1(Te)} − 20.0 = ${f1(a)} °C (a rise)`:`ΔT = 20.0 − ${f1(Te)} = ${f1(a)} °C (a fall)`],
+ ['3. Heat energy change: Q = m × c × ΔT',`Q = ${m3} × 4.2 × ${f1(a)} = ${Q} J`],
+ ['4. Change J to kJ: divide by 1000',`Q = ${Q} ÷ 1000 = ${sf(Qk,4)} kJ`],
+ [up?'5. Temperature rose, so heat was given out: ΔH = −Q ÷ n':'5. Temperature fell, so heat was taken in: ΔH = +Q ÷ n',`ΔH = ${s}${sf(Qk,4)} ÷ ${n3.toFixed(3)}`],
+ ['6. Answer (3 significant figures) with sign and units',`ΔH = ${s}${sf(dH,3)} kJ/mol · (${up?'exothermic':'endothermic'})`]]}
+function draw3(){const L=lines3();L3.forEach((l,i)=>{l.h.textContent=L[i][0];l.b.textContent=L[i][1];const v=i<=k3;l.h.style.opacity=v?1:.0;l.b.style.opacity=v?1:0});
+ hl3.setAttribute('y',L3[k3].y);const up=d3>0;
+ const Tn=k3==1?20+d3*Math.min(1,tA/1.2):k3>1?20+d3:20;const yy=330-(Tn+5)*4;col3.setAttribute('y',yy.toFixed(1));col3.setAttribute('height',(344-yy).toFixed(1));rd3.textContent=f1(Tn)+' °C';
+ m3T.textContent=`m = ${m3} g`;ta3.textContent=k3>=1?(up?'temperature rose by ':'temperature fell by ')+f1(Math.abs(d3))+' °C':'starting temperature 20.0 °C';
+ L3[5].b.style.fill=up?'#b3401b':'#1f5f9e'}
+function st3(){const P=P3[p3],up=d3>0,tips=['Find m, c and n. The mass is the mass of the <b>solution or water</b> that changes temperature, not the solid.',
+ 'ΔT is the difference between the starting and the highest (or lowest) temperature. Use the size of the change in Q = mcΔT.',
+ 'Multiply: Q = m × c × ΔT. With m in g, c in J/g/°C and ΔT in °C, Q comes out in <b>joules (J)</b>.',
+ 'ΔH is given in kJ/mol, so divide Q by 1000 to change J into kJ.',
+ up?'The temperature rose, so the reaction is <b>exothermic</b>. Put a <b>minus sign</b> in front: ΔH = −Q ÷ n.':'The temperature fell, so the change is <b>endothermic</b>. ΔH is <b>positive</b>: ΔH = +Q ÷ n.',
+ 'Give ΔH with its <b>sign</b> and the units <b>kJ/mol</b>.'];
+ $('st3').innerHTML=`<p><b>Step ${k3+1} of 6.</b> ${tips[k3]}</p><p>${own?'<b>Your own numbers.</b> Starting temperature 20.0 °C.':P.how}</p>`}
+function sync3(){$('m3').value=m3;$('d3').value=d3;$('n3').value=n3;$('m3v').textContent=m3+' g';$('d3v').textContent=(d3>0?'+':'')+f1(d3)+' °C';$('n3v').textContent=n3.toFixed(3)+' mol'}
+const pb3=pickRow($('pk3'),P3.map(p=>p.n),i=>{p3=i;const P=P3[i];m3=P.m;d3=P.d;n3=P.n0;own=false;k3=0;t3=0;tA=0;play3=true;$('play3').textContent='Pause';pb3.forEach((b,j)=>b.setAttribute('aria-pressed',j==i));sync3();st3()});
+['m3','d3','n3'].forEach(id=>$(id).oninput=e=>{let v=+e.target.value;if(id=='d3'&&Math.abs(v)<.1)v=.1;if(id=='m3')m3=v;else if(id=='d3')d3=v;else n3=v;own=true;k3=5;sync3();st3()});
+function step3(){k3=k3>=5?0:k3+1;t3=0;tA=0;st3()}
+function upd3(dt){tA+=dt;if(play3){t3+=dt;if(t3>(k3==5?6:2.6))step3()}draw3()}
+$('play3').onclick=()=>{play3=!play3;$('play3').textContent=play3?'Pause':'Play'};
+$('step3').onclick=()=>{play3=false;$('play3').textContent='Play';step3()};
+$('rep3').onclick=()=>{k3=0;t3=0;tA=0;play3=true;$('play3').textContent='Pause';st3()};
+pb3[0].click();
+/* ---------- tabs + loop ---------- */
+const tabs=[$('tb1'),$('tb2'),$('tb3')],pans=[$('p1'),$('p2'),$('p3')];let cur=0;
+function showTab(i){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j==i);t.tabIndex=j==i?0:-1;pans[j].hidden=j!=i})}
+tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{const d=e.key=='ArrowRight'?1:e.key=='ArrowLeft'?-1:0;if(d){const n=(i+d+3)%3;showTab(n);tabs[n].focus()}}});
+function lab2fix(){const c=EX2[e2].comb;l2[0].textContent=ins?'polystyrene cup + lid':'glass beaker, no lid';l2[0].style.display=c?'none':'';l2[1].style.display=c?'':'none';l2[2].style.display=c?'':'none'}
+let last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+ if(!$('panelLearn').hidden){if(cur==0){if(play1)upd1(dt)}else if(cur==1){upd2(dt);lab2fix()}else upd3(dt)}
+ requestAnimationFrame(loop)}
+upd1(0);draw2();draw3();requestAnimationFrame(loop);
+/* ---------- quiz ---------- */
+const Q=[
+['A reaction has ΔH = −57 kJ/mol. What does this tell you?',['It is exothermic: heat energy is given out','It is endothermic: heat energy is taken in','The temperature of the surroundings falls','There is no energy change'],0,'A negative ΔH means heat energy is given out, so the surroundings get hotter.'],
+['A salt dissolves in water. The starting temperature is 21.5 °C and the lowest temperature is 15.0 °C. Which is correct?',['ΔT = 6.5 °C, a rise, so exothermic','ΔT = 6.5 °C, a fall, so endothermic','ΔT = 36.5 °C, a fall, so endothermic','ΔT = 15.0 °C, a fall, so endothermic'],1,'21.5 − 15.0 = 6.5 °C. The temperature fell, so heat was taken in: endothermic.'],
+['Which change is endothermic?',['Combustion of methane','Neutralisation of an acid by an alkali','Thermal decomposition of calcium carbonate','Respiration'],2,'Thermal decomposition takes in heat energy. The other three give out heat energy.'],
+['Why is a polystyrene cup with a lid used to measure a temperature change?',['To make the reaction faster','To reduce heat loss to (or gain from) the surroundings','Because polystyrene reacts with the acid','So that the thermometer is easier to read'],1,'Polystyrene is a good thermal insulator and the lid stops heat escaping from the top.']];
+const qs=$('qs');Q.forEach((q,i)=>{const li=document.createElement('li');li.innerHTML=`<p><b>${q[0]}</b></p>`+q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')+`<div class="fb" id="fb${i}"></div>`;qs.appendChild(li)});
+$('chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('fb'+i);
+ if(!c){f.className='fb no';f.textContent='Choose an answer.';return}const ok=+c.value===q[2];if(ok)s++;f.className='fb '+(ok?'ok':'no');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+ const sc=$('score');sc.textContent=`Score: ${s} / ${Q.length}`;sc.style.color=s==Q.length?'var(--good)':'var(--ink)'};
+</script><script>
+window.EXAM_QS=[
+{ref:'Q1',marks:1,type:'mcq',
+ stem:'Which of these changes is endothermic?',
+ opts:['The combustion of methane.','The reaction of hydrochloric acid with sodium hydroxide solution.','The thermal decomposition of calcium carbonate.','The reaction of zinc with copper(II) sulfate solution.'],
+ ans:2,why:'Thermal decomposition takes in heat energy from the surroundings. Combustion, neutralisation and displacement reactions all give out heat energy.'},
+{ref:'Q2',marks:3,type:'drop',ctx:'A student adds magnesium powder to copper(II) sulfate solution. The temperature of the solution rises from 20.5 °C to 34.0 °C.',
+ stem:'Complete the sentences about this reaction.',
+ items:[{pre:'Heat energy is',opts:['taken in from','given out to'],ans:1,post:'the surroundings.',aria:'Direction of heat energy'},
+  {pre:'The reaction is',opts:['exothermic','endothermic'],ans:0,aria:'Type of reaction'},
+  {pre:'The sign of ΔH is',opts:['positive','negative'],ans:1,aria:'Sign of delta H'}],
+ why:'The temperature rose, so heat energy was given out to the surroundings. This is an exothermic reaction, so ΔH is negative.'},
+{ref:'Q3(a)',marks:1,type:'calc',
+ ctx:'A student adds excess zinc powder to 50.0 cm³ of 0.200 mol/dm³ copper(II) sulfate solution in a polystyrene cup. The table shows the results.<div class="ex-tblwrap"><table class="ex-tbl"><tbody><tr><th>starting temperature / °C</th><td>19.8</td></tr><tr><th>highest temperature / °C</th><td>30.2</td></tr></tbody></table></div>',
+ stem:'Calculate the temperature change, ΔT.',
+ inputs:[{lab:'ΔT =',unit:'°C',ans:10.4,tol:.05,m:1}],
+ work:'<ol><li>ΔT = highest temperature − starting temperature</li><li>ΔT = 30.2 − 19.8 = <b>10.4 °C</b></li></ol>'},
+{ref:'Q3(b)',marks:2,type:'calc',
+ stem:'Calculate the heat energy change, Q, in joules. Assume that 1.00 cm³ of solution has a mass of 1.00 g. The specific heat capacity of the solution is 4.2 J/g/°C.',
+ inputs:[{lab:'mass of solution, m =',unit:'g',ans:50,tol:.05,m:1},{lab:'Q =',unit:'J',ans:2184,tol:5,m:1}],
+ work:'<ol><li>m = mass of the solution = 50.0 g. Do not add the mass of the zinc.</li><li>Q = m × c × ΔT = 50.0 × 4.2 × 10.4 = <b>2184 J</b> (2180 J is also accepted).</li></ol>'},
+{ref:'Q3(c)',marks:2,type:'calc',ctx:'Zn(s) + CuSO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) + Cu(s)',
+ stem:'Calculate the molar enthalpy change, ΔH, for this reaction in kJ/mol. Give your answer to 3 significant figures and include the sign.',
+ inputs:[{lab:'moles of CuSO<sub>4</sub> =',unit:'mol',ans:.01,tol:.00005,m:1},{lab:'ΔH =',unit:'kJ/mol',ans:-218,tol:1.5,m:1}],
+ work:'<ol><li>n(CuSO<sub>4</sub>) = 0.200 × 50.0 ÷ 1000 = 0.0100 mol</li><li>Q = 2184 J = 2.184 kJ</li><li>ΔH = −2.184 ÷ 0.0100 = <b>−218 kJ/mol</b>. The sign is negative because the temperature rose (exothermic).</li></ol>'},
+{ref:'Q4',marks:3,type:'written',ctx:'Another student does the same experiment in a glass beaker with no lid. Their temperature rise is only 7.5 °C.',
+ stem:'Explain why this temperature rise is smaller. Suggest <b>two</b> improvements to the method.',
+ points:['heat (energy) is lost to the surroundings / to the air','glass is a better conductor than polystyrene / heat escapes from the open top','so less of the heat given out raises the temperature of the solution','use a polystyrene cup (insulated container)','put a lid on the cup'],
+ note:'An answer with only improvements and no explanation scores a maximum of 2'},
+{ref:'Q5',marks:3,type:'calc',ctx:'A student burns ethanol in a spirit burner to heat 100 g of water in a copper can. The temperature of the water rises by 24.0 °C. The mass of ethanol burned is 0.46 g. (M<sub>r</sub> of ethanol = 46; c = 4.2 J/g/°C)',
+ stem:'Calculate the molar enthalpy change of combustion of ethanol in kJ/mol.',
+ inputs:[{lab:'Q =',unit:'kJ',ans:10.08,tol:.02,m:1},{lab:'moles of ethanol =',unit:'mol',ans:.01,tol:.00005,m:1},{lab:'ΔH =',unit:'kJ/mol',ans:-1005,tol:5.5,m:1}],
+ work:'<ol><li>Q = 100 × 4.2 × 24.0 = 10 080 J = <b>10.08 kJ</b></li><li>n = 0.46 ÷ 46 = <b>0.010 mol</b></li><li>ΔH = −10.08 ÷ 0.010 = <b>−1008 kJ/mol</b> (−1010 or −1000 kJ/mol is also accepted)</li></ol>'},
+{ref:'Q6',marks:2,type:'written',ctx:'The data book value for the enthalpy change of combustion of ethanol is −1367 kJ/mol.',
+ stem:'Give <b>two</b> reasons why the student’s value in Q5 is less exothermic than the data book value.',
+ points:['heat is lost to the surroundings / air (not all the heat goes into the water)','heat is used to warm the copper can (and thermometer)','incomplete combustion of the ethanol','some ethanol evaporates from the wick without burning'],
+ note:'Do not accept "human error" or "the thermometer was wrong" with no explanation'},
+{ref:'Q7',marks:5,type:'written',
+ stem:'Describe an experiment to find the temperature change when ammonium nitrate dissolves in water. Explain how the results show that the change is endothermic.',
+ points:['measure a known volume of water (e.g. 50 cm³) with a measuring cylinder','put the water in a polystyrene cup (with a lid)','record the starting temperature of the water with a thermometer','weigh a known mass of ammonium nitrate and add it to the water','stir until all the solid has dissolved','record the lowest temperature reached','ΔT = starting temperature − lowest temperature','the temperature falls, so heat energy is taken in from the surroundings: endothermic'],
+ note:'For full marks the answer must describe the method and link the temperature fall to an endothermic change'}
+];
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('toptabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' mark'+(q.marks>1?'s':'')+'.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var d=el('div','ex-drop'), sels=[], cors=[];
+      q.items.forEach(function(it,k){
+        var row=el('div','ex-drow'); if(it.pre) row.appendChild(el('span','',it.pre));
+        var sl=document.createElement('select'); sl.className='ex-sel'; sl.setAttribute('aria-label',it.aria||('Answer '+(k+1)));
+        sl.appendChild(new Option('Choose…',''));
+        it.opts.forEach(function(o,j){sl.appendChild(new Option(o,String(j)));});
+        row.appendChild(sl); if(it.post) row.appendChild(el('span','',it.post));
+        var cr=el('span','ex-corr'); cr.hidden=true; row.appendChild(cr);
+        d.appendChild(row); sels.push(sl); cors.push(cr);
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); d.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.items[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');
+          if(!ok){cors[k].textContent='✓ '+q.items[k].opts[q.items[k].ans]; cors[k].hidden=false;}});
+        var sc=Math.min(n,q.marks); s.score=sc; s.marked=true; bt3.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(q.why||'')); upd();
+      });
+      c.appendChild(d); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

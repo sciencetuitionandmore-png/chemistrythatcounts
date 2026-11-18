@@ -1,0 +1,303 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ionisation Energy Trends</title>
+<meta name="description" content="Interactive animation: Ionisation Energy Trends. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-ionisation-energies.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--pos:#1f5fa8;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.stage{background:#fbfcfd;border:1px solid var(--line);border-radius:12px;padding:6px;outline:none;--k:1}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg,.tsv{width:100%;height:auto;display:block;overflow:visible}
+.cap{min-height:4.9em;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;padding:9px 14px;font-size:.98rem}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.ind{font:600 .9rem var(--display);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dots{display:flex;gap:0;flex-wrap:wrap}
+.dot{width:24px;height:26px;border:none;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:6px}
+.dot::after{content:"";width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);background:#fff}
+.dot.past::after{background:var(--accent-soft)}
+.dot.on::after{background:var(--accent)}
+.dot:focus-visible{outline:3px solid var(--accent)}
+.spd{margin-left:auto;display:flex;gap:4px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:7px 13px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.86rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);font-weight:700}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.row .lbl{font:600 .88rem var(--display);color:var(--muted);min-width:5.5em}
+.hint{font-size:.9rem;color:var(--muted)}
+.say{min-height:3em;border-radius:10px;padding:9px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.94rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:12px}
+ol.qs li{max-width:76ch}
+.why{font-size:.9rem;margin-top:4px;padding:4px 10px;border-radius:8px;background:var(--paper)}
+.why b.v{margin-right:4px}.why.good b.v{color:var(--good)}.why.bad b.v{color:var(--bad)}
+.tip{border:1px solid #e2c27d;background:#fff8e7;border-radius:14px;padding:14px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00;font-size:1.15rem}
+.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:.96rem}
+footer{text-align:center;color:var(--muted);font-size:.93rem}
+.at{font:600 22px var(--display);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.lb{font:600 16px var(--display);fill:var(--ink)}
+.sm{font:15px var(--body);fill:var(--muted)}
+.tt{font:700 17px var(--display);fill:var(--accent)}
+.bd{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;fill:none}
+.ax{stroke:var(--ink);stroke-width:1.6;fill:none}
+.gr{stroke:#e3e8ee;stroke-width:1}
+.lpd{fill:var(--ink)}
+.arr{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.ah{fill:var(--accent)}
+.dp{fill:var(--pos)}.dn{fill:var(--bad)}
+.hl{fill:#fff3c4;stroke:#e2b33c;stroke-width:1.5}
+.draw{stroke-dasharray:1;animation:dash calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease-in-out both}
+@keyframes dash{0%{stroke-dashoffset:1;opacity:0}3%{opacity:1}100%{stroke-dashoffset:0;opacity:1}}
+.fi{animation:fi calc(.6s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.mv{animation:mv calc(1s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes mv{from{transform:translate(var(--dx,0px),var(--dy,0px));opacity:var(--o0,0)}to{transform:none;opacity:1}}
+.rot{transform-origin:0 0;animation:rot calc(1.4s*var(--k,1)) calc(var(--d,0s)*var(--k,1)) ease both}
+@keyframes rot{from{transform:rotate(var(--r0,0deg))}to{transform:rotate(var(--r1,0deg))}}
+.pulse{animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.4}}
+@media(max-width:560px){body{font-size:16px}.spd{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+.tside{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}}
+.tbox{border:1px solid var(--line);border-radius:12px;background:#fbfcfd;padding:4px}
+.click{cursor:pointer;outline:none}
+.click:focus-visible rect,.click:focus-visible circle{stroke:#4a44b5;stroke-width:3.5}
+.readout{font:600 .95rem var(--display);background:var(--paper);border-radius:8px;padding:6px 10px}
+.eup{stroke:#1c2736;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gbtn{min-width:3.2em}
+</style><style>.spec{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}.spec .chip{font:500 12px "JetBrains Mono",ui-monospace,Menlo,monospace;padding:3px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--sheet)}.spec .chip b{color:var(--accent);font-weight:600;margin-right:4px}</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header>
+<h1>Ionisation energy trends</h1>
+<p class="meta">IAL Chemistry · Unit 1 · Atomic structure and the periodic table</p><div class="spec" aria-label="Specification points"><span class="chip"><b>2.8</b>define 1st, 2nd, 3rd IE</span><span class="chip"><b>2.10</b>nuclear charge, shielding, sub-shell</span><span class="chip"><b>2.11</b>IE evidence for shells and sub-shells</span><span class="chip"><b>2.17</b>periodic property</span><span class="chip"><b>2.18 ii</b>IE across Periods 2 and 3</span><span class="chip"><b>2.18 iii</b>IE down a group</span></div>
+<p><b>In this animation</b>: learn what first ionisation energy means, why it changes across Period 3 and down a group, and how successive ionisation energies show the group of an element.</p>
+</header>
+
+<section class="sheet" aria-labelledby="hw">
+<h2 id="hw"><span class="step">Part 1</span>Watch it</h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 420" role="img" aria-label="Atom diagrams and ionisation energy graphs"></svg></div>
+<div class="cap" id="cap" aria-live="polite"></div>
+<div class="player"><button class="btn ghost" type="button" id="bRe">Restart</button><button class="btn ghost" type="button" id="bBack">Back</button><button class="btn" type="button" id="bPlay">Play</button><button class="btn ghost" type="button" id="bNext">Next</button><span class="ind" id="ind"></span><span class="dots" id="dots"></span><span class="spd"><span class="hint">Speed</span><button class="mini" type="button" data-k="1.6" aria-pressed="false">Slow</button><button class="mini on" type="button" data-k="1" aria-pressed="true">Normal</button></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="ht">
+<h2 id="ht"><span class="step">Part 2</span>Try it</h2>
+<p class="hint">The graph shows the first nine successive ionisation energies of a mystery element. Find the <b>biggest jump</b>, then choose its group.</p>
+<div class="tbox"><svg class="tsv" id="tsv" viewBox="0 0 800 300" role="img" aria-label="Bar chart of successive ionisation energies of the mystery element"></svg></div>
+<div class="row"><span class="lbl">Group</span><span id="gBtns" class="row"></span><button class="btn ghost" type="button" id="tNew">New element</button></div>
+<div class="say" id="tSay" aria-live="polite">Which group is the mystery element in?</div>
+</section>
+
+<section class="sheet" aria-labelledby="hc">
+<h2 id="hc"><span class="step">Part 3</span>Check it</h2>
+<ol class="qs" id="qs">
+<li>The equation for the first ionisation energy of magnesium is
+<select data-a="c" aria-label="Answer 1"><option value="">choose…</option><option value="a">Mg(s) → Mg⁺(s) + e⁻</option><option value="b">Mg(g) + e⁻ → Mg⁻(g)</option><option value="c">Mg(g) → Mg⁺(g) + e⁻</option><option value="d">Mg(g) → Mg²⁺(g) + 2e⁻</option></select>.
+<p class="why" hidden>One electron is removed from each <b>gaseous</b> atom, so both sides need (g) and one electron is lost.</p></li>
+<li>Aluminium has a lower first ionisation energy than magnesium because its outer electron
+<select data-a="b" aria-label="Answer 2"><option value="">choose…</option><option value="a">is paired in the 3s orbital</option><option value="b">is in a 3p sub-shell of higher energy, shielded by the 3s electrons</option><option value="c">feels a smaller nuclear charge</option></select>.
+<p class="why" hidden>The 3p electron is higher in energy, slightly further from the nucleus and shielded by 3s<sup>2</sup>, so it is easier to remove.</p></li>
+<li>Sulfur has a lower first ionisation energy than phosphorus because
+<select data-a="a" aria-label="Answer 3"><option value="">choose…</option><option value="a">two 3p electrons share an orbital and repel each other</option><option value="b">sulfur has fewer protons</option><option value="c">sulfur's outer electron is in a new shell</option></select>.
+<p class="why" hidden>In S (3p<sup>4</sup>) one 3p orbital holds a pair. Repulsion between the paired electrons makes one easier to remove.</p></li>
+<li>First ionisation energy decreases down Group 1 mainly because the outer electron
+<select data-a="c" aria-label="Answer 4"><option value="">choose…</option><option value="a">is attracted by fewer protons</option><option value="b">is in an s orbital</option><option value="c">is further from the nucleus and more shielded</option></select>.
+<p class="why" hidden>Nuclear charge increases, but more shells mean greater distance and shielding, which outweigh it.</p></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chk">Check my answers</button><span class="score" id="score" aria-live="polite"></span></div>
+</section>
+
+<aside class="tip" aria-labelledby="he">
+<h2 id="he">Exam tip</h2>
+<ul>
+<li>The definition needs <b>one mole</b> of <b>gaseous</b> atoms forming one mole of gaseous 1+ ions. Always write state symbols (g) in the equation.</li>
+<li>For Mg → Al, say the outer electron is in a <b>3p sub-shell</b> of higher energy and is <b>shielded by the 3s electrons</b>.</li>
+<li>For P → S, explain <b>repulsion between paired electrons</b> in a 3p orbital. Do not just say "half-filled sub-shells are stable".</li>
+<li>For successive IEs, the big jump shows that an electron is removed from a <b>new shell closer to the nucleus</b>.</li>
+</ul>
+</aside>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 11 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "The first five successive ionisation energies of an element, in kJ mol<sup>−1<\/sup>, are:<br>787, 1577, 3232, 4356, 16091<br>Which group is the element in?", "m": 1, "o": ["Group 2", "Group 3", "Group 4", "Group 5"], "a": 2, "why": "C is correct because the big jump is between the 4th and 5th ionisation energies, so there are 4 outer electrons."}, {"t": "mc", "q": "Which equation represents the <b>second<\/b> ionisation energy of calcium?", "m": 1, "o": ["Ca(g) → Ca<sup>2+<\/sup>(g) + 2e<sup>−<\/sup>", "Ca<sup>+<\/sup>(s) → Ca<sup>2+<\/sup>(s) + e<sup>−<\/sup>", "Ca<sup>+<\/sup>(g) + e<sup>−<\/sup> → Ca(g)", "Ca<sup>+<\/sup>(g) → Ca<sup>2+<\/sup>(g) + e<sup>−<\/sup>"], "a": 3, "why": "D is correct because one electron is removed from each gaseous 1+ ion to form a gaseous 2+ ion."}, {"t": "w", "q": "Explain why the first ionisation energy of sodium is much lower than that of neon.", "m": 3, "ms": ["the outer electron of sodium is in a new shell (3s), further from the nucleus (1)", "it is shielded by more inner shells / more shielding (1)", "these outweigh the larger nuclear charge, so less energy is needed to remove the electron (1)"], "note": "Do not award 'sodium has a stable configuration'. Reject 'neon has a full shell' as the only answer."}, {"t": "w", "q": "Explain why each successive ionisation energy of an element is larger than the one before.", "m": 2, "ms": ["each electron is removed from an ion that is more positive (1)", "the remaining electrons are closer to the nucleus / have less repulsion, so they are held more strongly (1)"], "note": "Allow 'same number of protons attracting fewer electrons' for mark 1."}, {"t": "w", "q": "The first three ionisation energies of magnesium are 738, 1451 and 7733 kJ mol<sup>−1<\/sup>.<br>Explain the large increase from the second to the third ionisation energy.", "m": 2, "ms": ["the third electron is removed from the second shell / 2p sub-shell (1)", "which is closer to the nucleus and less shielded (1)"], "note": "Allow 'from an inner shell'. Do not award 'from a full shell is stable' without reference to distance or shielding."}, {"t": "w", "q": "The first ionisation energy of sodium is 496 kJ mol<sup>−1<\/sup>.<br>Calculate the energy needed to ionise 2.30 g of gaseous sodium atoms. [A<sub>r<\/sub>: Na = 23.0]", "m": 2, "ms": ["amount of Na = 2.30 ÷ 23.0 = 0.100 mol (1)", "energy = 0.100 × 496 = 49.6 kJ (1)"], "note": "Correct answer with units and no working scores 2. Penalise missing or wrong units once."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>&nbsp; '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> &middot; tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><b>Key fact:</b> first ionisation energy generally increases across a period and decreases down a group.</footer>
+</div>
+<script>"use strict";
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+function E(p,tag,a,txt){const e=document.createElementNS(NS,tag);if(a)for(const k in a){if(a[k]!=null)e.setAttribute(k,a[k])}if(txt!=null)e.textContent=txt;if(p)p.appendChild(e);return e}
+function G(p,cls,d,sty){const g=E(p,'g',cls?{class:cls}:null);if(d!=null)g.style.setProperty('--d',d+'s');if(sty)for(const k in sty)g.style.setProperty(k,sty[k]);return g}
+function M(p,d,dx,dy,o0){return G(p,'mv',d,{'--dx':(dx||0)+'px','--dy':(dy||0)+'px','--o0':o0==null?0:o0})}
+function T(p,x,y,s,cls,fs,anc){cls=cls||'at';const t=E(p,'text',{x,y,class:cls});const f=fs||(cls==='at'?22:16);if(fs)t.style.fontSize=fs+'px';if(anc)t.style.textAnchor=anc;
+ const re=/_([0-9]+)|\^([0-9]*[+\-−]|[0-9]+)|([^_^]+)/g;let m,off=0;
+ while((m=re.exec(s))){let x2,o=0,sm=false;if(m[1]!=null){x2=m[1];o=f*.3;sm=true}else if(m[2]!=null){x2=m[2].replace('-','−');o=-f*.42;sm=true}else x2=m[3];
+  const ts=E(t,'tspan',{dy:(o-off).toFixed(1)},x2);if(sm)ts.style.fontSize=(f*.66).toFixed(1)+'px';off=o}
+ return t}
+function L(p,x1,y1,x2,y2,cls){return E(p,'line',{x1,y1,x2,y2,class:cls||'bd'})}
+function bond(p,a,b,n,tr){tr=tr==null?15:tr;const ta=Array.isArray(tr)?tr:[tr,tr];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*ta[0],y1=a[1]+uy*ta[0],x2=b[0]-ux*ta[1],y2=b[1]-uy*ta[1];const g=E(p,'g');n=n||1;
+ for(let i=0;i<n;i++){const o=(i-(n-1)/2)*7;L(g,x1+nx*o,y1+ny*o,x2+nx*o,y2+ny*o)}return g}
+function ang(a){const r=a*Math.PI/180;return[Math.cos(r),-Math.sin(r)]}
+function lp(p,x,y,a,cls){const[ux,uy]=ang(a),nx=-uy,ny=ux,g=E(p,'g',{class:cls||'lpd'});E(g,'circle',{cx:x+nx*4,cy:y+ny*4,r:2.5});E(g,'circle',{cx:x-nx*4,cy:y-ny*4,r:2.5});return g}
+function lpAt(p,x,y,a,r){const[ux,uy]=ang(a);return lp(p,x+ux*(r||18),y+uy*(r||18),a)}
+function dot(p,x,y,cls){return E(p,'circle',{cx:x,cy:y,r:3.4,class:cls||'lpd'})}
+function arrow(p,q,o){o=o||{};const[x1,y1,c1x,c1y,c2x,c2y,x2,y2]=q,d=o.d||0,g=E(p,'g');
+ let ux=x2-c2x,uy=y2-c2y;const l=Math.hypot(ux,uy)||1;ux/=l;uy/=l;const nx=-uy,ny=ux,s=o.s||12;
+ const pa=E(g,'path',{d:`M${x1} ${y1}C${c1x} ${c1y} ${c2x} ${c2y} ${x2-ux*5} ${y2-uy*5}`,class:'arr draw',pathLength:1});pa.style.setProperty('--d',d+'s');
+ const bx=x2-ux*s,by=y2-uy*s;let P;
+ if(o.half){const sg=o.flip?-1:1;P=[x2,y2,bx+nx*s*.6*sg,by+ny*s*.6*sg,bx+ux*s*.15,by+uy*s*.15]}
+ else P=[x2,y2,bx+nx*s*.48,by+ny*s*.48,bx+ux*s*.22,by+uy*s*.22,bx-nx*s*.48,by-ny*s*.48];
+ const h=E(g,'polygon',{points:P.map(v=>v.toFixed(1)).join(' '),class:'ah fi'});h.style.setProperty('--d',(d+.8)+'s');return g}
+function wedge(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;
+ const x1=a[0]+ux*tr[0],y1=a[1]+uy*tr[0],x2=b[0]-ux*tr[1],y2=b[1]-uy*tr[1];
+ return E(p,'polygon',{points:`${x1},${y1} ${x2+nx*5},${y2+ny*5} ${x2-nx*5},${y2-ny*5}`,fill:'#1c2736'})}
+function hash(p,a,b,tr){tr=tr||[15,15];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;const g=E(p,'g');
+ const L0=l-tr[0]-tr[1],n=7;for(let i=0;i<n;i++){const t=tr[0]+L0*(i+.5)/n,w=1+4.5*(i+.5)/n,cx=a[0]+ux*t,cy=a[1]+uy*t;E(g,'line',{x1:cx+nx*w,y1:cy+ny*w,x2:cx-nx*w,y2:cy-ny*w,stroke:'#1c2736','stroke-width':1.8})}return g}
+function arc(p,cx,cy,r,a1,a2,lab,lr,la){const[x1,y1]=ang(a1),[x2,y2]=ang(a2);let sp=a2-a1;while(sp<0)sp+=360;
+ const g=E(p,'g');E(g,'path',{d:`M${cx+x1*r} ${cy+y1*r}A${r} ${r} 0 ${sp>180?1:0} 0 ${cx+x2*r} ${cy+y2*r}`,fill:'none',stroke:'#4a44b5','stroke-width':1.6,'stroke-dasharray':'4 3'});
+ if(lab){const m=la!=null?la:a1+sp/2,[mx,my]=ang(m),R=lr||r+20;const t=T(g,cx+mx*R,cy+my*R,lab,'lb',15);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','central');t.style.fill='#4a44b5'}return g}
+function Player(steps){const sv=$('sv'),stage=$('stage'),cap=$('cap'),ind=$('ind'),dots=$('dots'),bP=$('bPlay'),bB=$('bBack'),bN=$('bNext'),N=steps.length;let i=0,pl=false,tm=0,k=1;
+ steps.forEach((s,n)=>{const b=document.createElement('button');b.type='button';b.className='dot';b.setAttribute('aria-label','Go to step '+(n+1));b.onclick=()=>go(n);dots.appendChild(b)});
+ function show(n){i=Math.max(0,Math.min(N-1,n));sv.replaceChildren();steps[i].draw(sv);cap.innerHTML=steps[i].cap;ind.textContent=`Step ${i+1} of ${N}`;
+  [...dots.children].forEach((d,m)=>{d.classList.toggle('on',m===i);d.classList.toggle('past',m<i);if(m===i)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')});bB.disabled=i===0;bN.disabled=i===N-1}
+ function sched(){clearTimeout(tm);if(pl)tm=setTimeout(()=>{if(i<N-1){show(i+1);sched()}else setPl(false)},(steps[i].t||5500)*k)}
+ function setPl(v){pl=v;bP.textContent=v?'Pause':'Play';bP.setAttribute('aria-label',v?'Pause':'Play');sched()}
+ function go(n){show(n);sched()}
+ bP.onclick=()=>{if(!pl&&i===N-1)show(0);setPl(!pl)};bB.onclick=()=>go(i-1);bN.onclick=()=>go(i+1);$('bRe').onclick=()=>{show(0);setPl(true)};
+ document.querySelectorAll('.spd .mini').forEach(b=>b.onclick=()=>{k=+b.dataset.k;stage.style.setProperty('--k',k);document.querySelectorAll('.spd .mini').forEach(c=>{c.classList.toggle('on',c===b);c.setAttribute('aria-pressed',c===b)});sched()});
+ stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}else if(e.key===' '){bP.click();e.preventDefault()}});
+ show(0);return{go}}
+function Quiz(){const root=$('qs'),sc=$('score');$('chk').onclick=()=>{const items=[...root.children];let n=0;
+ items.forEach(li=>{const s=li.querySelector('select'),ok=s.value===s.dataset.a;if(ok)n++;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);const w=li.querySelector('.why');w.hidden=false;w.className='why '+(ok?'good':'bad');w.querySelector('.v').textContent=ok?'Correct.':'Not quite.'});
+ sc.textContent=`Score: ${n} / ${items.length}`;sc.className='score '+(n===items.length?'good':n<2?'bad':'')};
+ root.querySelectorAll('.why').forEach(w=>{const b=document.createElement('b');b.className='v';w.prepend(b)})}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const P3=[['Na',496],['Mg',738],['Al',578],['Si',787],['P',1012],['S',1000],['Cl',1251],['Ar',1521]];
+const NA=[496,4562,6910,9543,13354,16613,20117,25496,28932,141362,159076];
+const SUCC={Na:[1,496,4562,6910,9543,13354,16613,20117,25496,28932],Mg:[2,738,1451,7733,10543,13630,18020,21711,25661,31653],Al:[3,578,1817,2745,11577,14842,18379,23326,27465,31853],Si:[4,787,1577,3232,4356,16091,19805,23780,29287,33878],P:[5,1012,1907,2914,4964,6274,21267,25431,29872,35905],S:[6,1000,2252,3357,4556,7004,8496,27107,31719,36621],Cl:[7,1251,2298,3822,5159,6542,9362,11018,33604,38600],Ar:[0,1521,2666,3931,5771,7238,8781,11995,13842,40760],K:[1,419,3052,4420,5877,7976,9649,11343,14944,16963],Ca:[2,590,1145,4912,6491,8153,10496,12270,14206,18191]};
+const NM={Na:'sodium',Mg:'magnesium',Al:'aluminium',Si:'silicon',P:'phosphorus',S:'sulfur',Cl:'chlorine',Ar:'argon',K:'potassium',Ca:'calcium'};
+function eUp(p,x,y){return E(p,'path',{d:`M${x} ${y+25}V${y+4}l-7 9`,class:'eup'})}
+function eDn(p,x,y){return E(p,'path',{d:`M${x} ${y+5}V${y+26}l7 -9`,class:'eup'})}
+function boxes(p,x,y,lab,f,hl){T(p,x-8,y+20,lab,'lb',15,'end');f.forEach((v,j)=>{E(p,'rect',{x:x+j*34,y,width:34,height:30,fill:hl?'#fff3c4':'#fff',stroke:'#1c2736','stroke-width':1.6});if(v>0)eUp(p,x+j*34+11,y);if(v>1)eDn(p,x+j*34+23,y)})}
+function panel(p,x,y,lines,d){const g=G(p,'fi',d||0);let yy=y;for(const l of lines){if(l==='')yy+=10;else{const[c,t]=Array.isArray(l)?l:['sm',l];T(g,x,yy,t,c,c==='tt'?18:c==='lb'?16:15,'start');yy+=c==='tt'?28:22}}return g}
+function axes(p,o){const{x0,x1,y0,y1,lo,hi,ticks,ylab,xl,xt}=o,Y=v=>y0-(v-lo)/(hi-lo)*(y0-y1),X=i=>x0+28+i*(x1-x0-56)/(xl.length-1);
+ ticks.forEach(t=>{L(p,x0,Y(t),x1,Y(t),'gr');T(p,x0-8,Y(t)+5,o.tl?o.tl(t):String(t),'sm',13,'end')});
+ E(p,'path',{d:`M${x0} ${y1-8}V${y0}H${x1}`,class:'ax'});
+ xl.forEach((s,i)=>T(p,X(i),y0+20,s,'lb',14).setAttribute('text-anchor','middle'));
+ if(xt)T(p,(x0+x1)/2,y0+42,xt,'sm',14).setAttribute('text-anchor','middle');
+ const yl=T(p,0,0,ylab,'sm',14);yl.setAttribute('text-anchor','middle');yl.setAttribute('transform',`translate(${x0-50} ${(y0+y1)/2}) rotate(-90)`);return{X,Y}}
+function line(p,pts,col,d){const pa=E(p,'path',{d:'M'+pts.map(q=>q.join(' ')).join('L'),fill:'none',stroke:col,'stroke-width':2.6,class:'draw',pathLength:1});pa.style.setProperty('--d',d+'s');pa.style.animationDuration=`calc(2s*var(--k,1))`;
+ pts.forEach((q,i)=>{const c=E(p,'circle',{cx:q[0],cy:q[1],r:5,fill:col,class:'fi'});c.style.setProperty('--d',(d+i*2/pts.length)+'s')})}
+function p3graph(p,d){const A=axes(p,{x0:100,x1:510,y0:360,y1:50,lo:0,hi:1600,ticks:[0,400,800,1200,1600],ylab:'First IE / kJ mol⁻¹',xl:P3.map(e=>e[0]),xt:'Period 3 element'});
+ const pts=P3.map((e,i)=>[A.X(i),A.Y(e[1])]);line(p,pts,'#4a44b5',d);return pts}
+function ring(p,x,y,d){const g=G(p,'fi',d);E(g,'circle',{cx:x,cy:y,r:15,fill:'none',stroke:'#b3261e','stroke-width':2.5,class:'pulse'});return g}
+function atom(p,cx,cy,shells,Zs){E(p,'circle',{cx,cy,r:22,fill:'#f6d2a8',stroke:'#b3261e','stroke-width':1.5});T(p,cx,cy,Zs,'at',16);
+ const out=[];shells.forEach((n,s)=>{const r=44+s*32;E(p,'circle',{cx,cy,r,fill:'none',stroke:'#9aa7b4','stroke-width':1.3});for(let j=0;j<n;j++){const a=(j/n)*2*Math.PI+s*.4+.3;out.push([cx+r*Math.cos(a),cy-r*Math.sin(a),s])}});return out}
+function bars(p,vals,o){const A=axes(p,{x0:o.x0,x1:o.x1,y0:o.y0,y1:o.y1,lo:2,hi:5.5,ticks:[2,3,4,5],tl:t=>t.toFixed(1),ylab:'log₁₀(IE / kJ mol⁻¹)',xl:vals.map((v,i)=>String(i+1)),xt:'Ionisation number'});
+ const w=Math.min(30,(o.x1-o.x0-56)/vals.length*.6);
+ vals.forEach((v,i)=>{const lv=Math.log10(v),x=A.X(i),g=G(p,'fi',(o.d||0)+i*.25);E(g,'rect',{x:x-w/2,y:A.Y(lv),width:w,height:A.Y(2)-A.Y(lv),rx:3,fill:o.col?o.col(i):'#8a85d6'});if(o.vals)T(g,x,A.Y(lv)-8,String(v),'sm',11).setAttribute('text-anchor','middle')});return A}
+const steps=[
+{t:6500,cap:'The <b>first ionisation energy</b> is the energy needed to remove <b>one electron</b> from each atom in <b>one mole of gaseous atoms</b>, to form one mole of gaseous 1+ ions. For sodium: Na(g) → Na<sup>+</sup>(g) + e<sup>−</sup>.',draw(p){
+ const e=atom(p,200,215,[2,8,1],'11+');e.forEach((q,i)=>{if(i<10)dot(p,q[0],q[1])});
+ const o=e[10],g=M(p,1.2,o[0]-360,o[1]-80,1);dot(g,360,80);T(g,382,80,'e^−','lb',16,'start');
+ const g2=G(p,'fi',.4);E(g2,'circle',{cx:o[0],cy:o[1],r:5,fill:'none',stroke:'#9aa7b4','stroke-dasharray':'2 2'});
+ panel(p,440,110,[['tt','First ionisation energy'],'The energy needed to remove one','electron from each atom in one mole','of gaseous atoms, to form one mole','of gaseous 1+ ions.'],.2);
+ panel(p,440,265,[['lb','Na(g) → Na^+(g) + e^−'],['sm','Energy needed = +496 kJ mol^−1'],['sm','It is always endothermic.']],2)}},
+{t:6500,cap:'Three things decide how strongly the outer electron is held: the <b>nuclear charge</b> (number of protons), the <b>distance</b> of the electron from the nucleus, and <b>shielding</b> by electrons in inner shells.',draw(p){
+ const e=atom(p,200,215,[2,8,1],'11+');e.forEach(q=>dot(p,q[0],q[1]));const o=e[10];
+ arrow(p,[o[0]-8,o[1]+6,o[0]-30,o[1]+25,240,200,222,207],{d:.4,s:10});
+ const sh=G(p,'fi',1.4);E(sh,'circle',{cx:200,cy:215,r:92,fill:'#bfe0cc','fill-opacity':.35,stroke:'none'});
+ panel(p,440,90,[['tt','Factors'],['lb','1  Nuclear charge'],['sm','More protons → stronger attraction.'],''],.6);
+ panel(p,440,190,[['lb','2  Distance (atomic radius)'],['sm','Further away → weaker attraction.'],''],1.4);
+ panel(p,440,270,[['lb','3  Shielding'],['sm','Inner-shell electrons repel the outer'],['sm','electron → weaker attraction.']],2.2);
+ panel(p,60,380,['Green = inner electrons that shield.'],2.2)}},
+{t:6500,cap:'Across Period 3 the first ionisation energy <b>generally increases</b>. The <b>nuclear charge increases</b>, electrons go into the <b>same shell</b> and shielding is similar, so the outer electron is held more strongly.',draw(p){
+ p3graph(p,.3);panel(p,555,90,[['tt','Across a period'],['sm','Nuclear charge increases.'],['sm','Same shell, so similar'],['sm','distance and shielding.'],'',['lb','IE generally increases.']],2.4)}},
+{t:7000,cap:'<b>Dip at aluminium.</b> Al\'s outer electron is in the <b>3p sub-shell</b>, which is higher in energy than 3s. It is slightly further from the nucleus and <b>shielded by the 3s electrons</b>, so it is easier to remove than Mg\'s 3s electron.',draw(p){
+ const pts=p3graph(p,0);ring(p,pts[1][0],pts[1][1],.6);ring(p,pts[2][0],pts[2][1],.6);
+ const g=G(p,'fi',1);T(g,555,80,'Mg','tt',18,'start');boxes(g,600,96,'3s',[2]);T(g,555,170,'Al','tt',18,'start');boxes(g,600,186,'3s',[2]);boxes(g,700,186,'3p',[1,0,0],true);
+ panel(p,555,252,['3p electron: higher energy,','further away, shielded by 3s.',['lb','Easier to remove.']],1.8)}},
+{t:7000,cap:'<b>Dip at sulfur.</b> In phosphorus each 3p orbital has one electron. In sulfur two 3p electrons <b>share an orbital</b>. The <b>repulsion between the paired electrons</b> makes one of them easier to remove.',draw(p){
+ const pts=p3graph(p,0);ring(p,pts[4][0],pts[4][1],.6);ring(p,pts[5][0],pts[5][1],.6);
+ const g=G(p,'fi',1);T(g,555,80,'P','tt',18,'start');boxes(g,620,96,'3p',[1,1,1]);T(g,555,170,'S','tt',18,'start');boxes(g,620,186,'3p',[2,1,1],true);
+ const r=G(p,'pulse');E(r,'circle',{cx:637,cy:201,r:22,fill:'none',stroke:'#b3261e','stroke-width':2});
+ panel(p,555,252,['Paired 3p electrons repel.',['lb','Easier to remove.']],1.8)}},
+{t:7000,cap:'<b>Down a group</b> the first ionisation energy <b>decreases</b>. The outer electron is in a shell <b>further from the nucleus</b> and there is <b>more shielding</b>. These outweigh the increase in nuclear charge.',draw(p){
+ const A=axes(p,{x0:100,x1:510,y0:360,y1:50,lo:0,hi:1000,ticks:[0,200,400,600,800,1000],ylab:'First IE / kJ mol⁻¹',xl:['2','3','4','5','6'],xt:'Period'});
+ const g2=[['Be',900],['Mg',738],['Ca',590],['Sr',550],['Ba',503]],g1=[['Li',520],['Na',496],['K',419],['Rb',403],['Cs',376]];
+ [[g2,'#1d7a46',.3,'Group 2'],[g1,'#4a44b5',1.3,'Group 1']].forEach(([s,c,d,nm])=>{const pts=s.map((e,i)=>[A.X(i),A.Y(e[1])]);line(p,pts,c,d);const g=G(p,'fi',d+1.6);s.forEach((e,i)=>T(g,pts[i][0],pts[i][1]-14,e[0],'lb',13).setAttribute('text-anchor','middle'));const t=T(g,A.X(4)+12,pts[4][1]+5,nm,'lb',15,'start');t.style.fill=c});
+ panel(p,585,90,[['tt','Down a group'],['sm','More shells: outer electron'],['sm','is further away.'],['sm','More shielding.'],['sm','These outweigh the larger'],['sm','nuclear charge.'],'',['lb','IE decreases.']],3)}},
+{t:7500,cap:'<b>Successive ionisation energies</b> remove electrons one by one. Each one is larger, because the electron is pulled from a more positive ion. For sodium there are <b>big jumps</b> after the 1st and the 9th electrons: the shells hold <b>1, 8 and 2</b> electrons.',draw(p){
+ const A=bars(p,NA,{x0:100,x1:520,y0:360,y1:50,d:.2,col:i=>i===0?'#4a44b5':i<9?'#1d7a46':'#b3261e'});
+ const g=G(p,'fi',3.4);T(g,A.X(0),A.Y(Math.log10(496))-26,'1','lb',14).setAttribute('text-anchor','middle');
+ T(g,A.X(5),A.Y(4.6)-18,'8 electrons','lb',14).setAttribute('text-anchor','middle');T(g,A.X(9.5),A.Y(5.2)-24,'2','lb',14).setAttribute('text-anchor','middle');
+ panel(p,555,90,[['tt','Sodium, 2.8.1'],['lb','Purple: shell 3 (1 e^−)'],['lb','Green: shell 2 (8 e^−)'],['lb','Red: shell 1 (2 e^−)'],'',['sm','A big jump means the next'],['sm','electron comes from a new'],['sm','shell, closer to the nucleus.']],3.6)}},
+{t:7500,cap:'The <b>first big jump</b> shows the group. For aluminium the jump comes between the <b>3rd and 4th</b> ionisation energies, so there are <b>3 electrons in the outer shell</b>: aluminium is in <b>Group 3</b>.',draw(p){
+ const v=SUCC.Al.slice(1),A=bars(p,v,{x0:100,x1:520,y0:360,y1:50,d:.2,vals:true,col:i=>i<3?'#4a44b5':'#9aa7b4'});
+ const g=G(p,'fi',2.8),x=(A.X(2)+A.X(3))/2;E(g,'path',{d:`M${x} ${A.Y(Math.log10(2745))}V${A.Y(Math.log10(11577))}`,stroke:'#b3261e','stroke-width':3,'stroke-dasharray':'5 4'});T(g,x-6,A.Y(3.7),'big jump','lb',14,'end').style.fill='#b3261e';
+ panel(p,555,90,[['tt','Aluminium'],['sm','IE 1, 2, 3: outer shell.'],['sm','IE 4: from an inner shell.'],'',['lb','3 outer electrons'],['lb','→ Group 3']],3.2)}}
+];
+Player(steps);Quiz();
+/* Try it */
+const tsv=$('tsv'),keys=Object.keys(SUCC);let cur='Al',done=false;
+const gb=$('gBtns');[1,2,3,4,5,6,7,0].forEach(g=>{const b=document.createElement('button');b.type='button';b.className='mini gbtn';b.textContent=g;b.onclick=()=>guess(g,b);gb.appendChild(b)});
+function say(h,c){const s=$('tSay');s.innerHTML=h;s.className='say '+(c||'')}
+function newEl(){let k;do{k=keys[Math.floor(Math.random()*keys.length)]}while(k===cur);cur=k;done=false;tsv.replaceChildren();bars(tsv,SUCC[k].slice(1),{x0:90,x1:780,y0:240,y1:20,vals:true});
+ gb.querySelectorAll('button').forEach(b=>b.classList.remove('on'));say('Which group is the mystery element in?','')}
+function guess(g,b){gb.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const s=SUCC[cur],grp=s[0],n=grp===0?8:grp;
+ if(g===grp)say(`<b>Correct!</b> The biggest jump is between IE ${n} and IE ${n+1}, so there ${n===1?'is 1 electron':'are '+n+' electrons'} in the outer shell. It is <b>${NM[cur]}</b> (${cur}), Group ${grp}. Press <b>New element</b> to try another.`,'good');
+ else say(`Not quite. Look along the bars for the <b>biggest step up</b>. The number of electrons removed <b>before</b> that jump is the number of outer electrons.`,'bad')}
+$('tNew').onclick=newEl;newEl();
+</script></body></html>

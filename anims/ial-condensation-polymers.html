@@ -1,0 +1,250 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Condensation Polymers</title>
+<meta name="description" content="Interactive animation: Condensation Polymers. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/ial-condensation-polymers.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#f7f9fb;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--arrow:#4a44b5;--glass:#7d8fa3;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 36px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+.lede{color:var(--muted)}.lede strong{color:var(--ink)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(12px,3vw,24px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.stage{background:var(--bench);border:1px solid var(--line);border-radius:12px;padding:6px;outline:none}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block}
+.cap{min-height:4.8em;background:var(--accent-soft);border-radius:10px;padding:10px 14px;max-width:none}
+.player{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.stepn{font:600 .9rem var(--display);color:var(--muted);min-width:6.5em}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--accent);background:#fff;font:600 .75rem var(--display);color:var(--accent);cursor:pointer;padding:0}
+.dot.on{background:var(--accent);color:#fff}
+.seg{display:inline-flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden;margin-left:auto}
+.seg button{font:600 .85rem var(--display);border:0;background:#fff;color:var(--accent);padding:7px 11px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--accent);color:#fff}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.dot:focus-visible,.seg button:focus-visible,.mini:focus-visible,.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on,.mini[aria-pressed=true]{background:var(--accent-soft);border-color:var(--accent)}
+.mini:disabled{opacity:.4;cursor:not-allowed}
+.controls{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.hint{font-size:.9rem;color:var(--muted)}
+select{font:inherit;font-size:.95rem;padding:5px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);max-width:100%}
+.say{border-radius:10px;padding:10px 14px;background:var(--sheet);border:2px solid var(--line)}
+.say.good{border-color:var(--good);background:#eef8f2}.say.bad{border-color:var(--bad);background:#fdf1f0}
+.score{font:700 1rem var(--display)}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+.mcq{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:6px}
+@media(max-width:640px){.mcq{grid-template-columns:1fr}}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:5px 8px;border-radius:8px;border:2px solid var(--line);cursor:pointer}
+.mcq label:hover{border-color:var(--accent)}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.mcq label.ok{border-color:var(--good);background:#eef8f2}.mcq label.wrong{border-color:var(--bad);background:#fdf1f0}
+.ex{font-size:.93rem;margin-top:6px}.ex .g{color:var(--good)}.ex .r{color:var(--bad)}
+.tip{background:#fff8e7;border:1px solid #e2c27d;border-radius:14px;padding:16px clamp(12px,3vw,24px)}
+.tip h2{color:#7a4a00}.tip ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+footer{font-size:.92rem;color:var(--muted);text-align:center}
+footer strong{color:var(--ink)}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+/* svg */
+.at{font:500 20px var(--display);fill:var(--ink)}
+.lb{font:15px var(--body);fill:var(--muted)}
+.lk{font:700 15px var(--body);fill:var(--ink)}
+.ti{font:600 17px var(--display);fill:var(--accent)}
+.sb{font-size:70%}
+.bd{stroke:var(--ink);stroke-width:2;stroke-linecap:round;fill:none}
+.gl{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.ap{fill:none;stroke:var(--arrow);stroke-width:2.3;stroke-linecap:round}
+.ah{fill:var(--arrow);stroke:var(--arrow);stroke-width:1.2;stroke-linejoin:round}
+.half .ah{fill:none;stroke-width:2.3}
+.hl{fill:#fff3c4;stroke:#d9a400;stroke-width:1.5;stroke-dasharray:4 3}
+.lp{fill:var(--ink)}
+[data-s],[data-mv]{transition:opacity .6s ease,transform 1.1s ease}
+.dl:not(.off){transition-delay:1.1s,0s}
+.off{opacity:0!important;pointer-events:none}
+@media(max-width:520px){body{font-size:16px}.seg{margin-left:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.rounds{display:flex;gap:6px;flex-wrap:wrap}
+.mono{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font:600 1.05rem var(--display);background:var(--bench);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.mono .pl{color:var(--muted)}
+#topts{grid-template-columns:1fr}
+#topts label{font-family:var(--display);font-size:.98rem}
+</style></head><body><a href="../index.html#ial-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL animations</a>
+<div class="wrap">
+<header><h1>Condensation Polymers</h1><p class="meta">IAL Chemistry · Unit 5 · Organic nitrogen compounds</p><p class="lede"><strong>In this animation</strong>: see how amines, amides and amino acids behave, then watch monomers join into polyesters and polyamides with the loss of a small molecule.</p></header>
+<section class="sheet" aria-labelledby="wh"><h2 id="wh"><span class="step">Watch it</span><span>From monomers to polymers</span></h2>
+<div class="stage" id="stage" tabindex="0" aria-label="Animation stage. Use the left and right arrow keys to change step."><svg id="sv" viewBox="0 0 800 410" role="img" aria-label="Structures of amines, amides, amino acids and the formation of polyester and polyamide repeat units"></svg></div>
+<p class="cap" id="cap" aria-live="polite"></p>
+<div class="player" role="group" aria-label="Animation controls"><button class="btn ghost" id="pRs">Restart</button><button class="btn ghost" id="pBk">Back</button><button class="btn" id="pPl" aria-pressed="false">Play</button><button class="btn ghost" id="pNx">Next</button><span class="stepn" id="pSt" aria-live="polite">Step 1</span><span class="dots" id="pDots"></span><span class="seg" role="group" aria-label="Speed"><button id="spS" aria-pressed="false">Slow</button><button id="spN" aria-pressed="true">Normal</button></span></div>
+</section>
+<section class="sheet" aria-labelledby="th"><h2 id="th"><span class="step">Try it</span><span>Choose the repeat unit</span></h2>
+<p class="hint">Two monomers react. Choose the correct repeat unit and the small molecule that is lost.</p>
+<div class="controls"><span class="hint">Pair:</span><span class="rounds" id="trd"></span></div>
+<div class="mono" id="tmono"></div>
+<div class="mcq" id="topts" role="radiogroup" aria-label="Repeat unit options"></div>
+<div class="controls"><label for="tby">Small molecule lost:</label><select id="tby"><option value="">choose…</option><option value="H2O">H₂O</option><option value="HCl">HCl</option><option value="none">none</option></select><button class="btn" id="tchk">Check</button></div>
+<div class="say" id="tout" aria-live="polite">Choose a repeat unit and a small molecule.</div>
+</section>
+<section class="sheet" aria-labelledby="ch"><h2 id="ch"><span class="step">Check it</span>Four quick questions</h2><ol class="qs" id="qs"></ol><div class="controls"><button class="btn" id="chk">Check my answers</button><button class="btn ghost" id="rst">Try again</button><span class="score" id="score" aria-live="polite"></span></div></section>
+<section class="tip" aria-labelledby="xh"><h2 id="xh">Exam tip</h2><ul><li>Draw the repeat unit in <b>brackets with n</b>, and make the end bonds go <b>through</b> the brackets.</li><li>Name the small molecule lost: <b>H<sub>2</sub>O</b> from a carboxylic acid, <b>HCl</b> from an acyl chloride.</li><li>A repeat unit from two monomers contains <b>one of each</b>, with no –OH, –H or –Cl ends left on it.</li><li>Acid hydrolysis of a polyamide gives –NH<sub>3</sub><sup>+</sup> (an ammonium salt); alkaline hydrolysis gives –COO<sup>−</sup> (a carboxylate salt).</li></ul></section>
+<section class="sheet" id="xp" aria-labelledby="hxp"><h2 id="hxp"><span class="step">Exam practice</span>Exam-style questions</h2><p class="hint">Pearson Edexcel IAL style. 11 marks. Answer each question, then check the multiple choice and use the mark scheme to mark your written answers.</p><div id="xpList" style="display:flex;flex-direction:column;gap:12px"></div><div class="xpbar"><span class="xptot" id="xpTot" aria-live="polite"></span><button class="xpb2" type="button" id="xpReset">Start again</button></div></section>
+<style>
+#xp .xpq{border:1px solid var(--line,#cdd6df);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;background:#fff}
+#xp .xph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#xp .xpn{font:700 .95rem var(--display,system-ui);color:var(--accent,#4a44b5)}
+#xp .xpm{font-weight:700;color:var(--muted,#5a6878);white-space:nowrap}
+#xp .xpo{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line,#cdd6df);border-radius:10px;cursor:pointer}
+#xp .xpo input{margin-top:4px}
+#xp .xpo.ok{border-color:var(--good,#1d7a46);background:#e6f4ec}
+#xp .xpo.no{border-color:var(--bad,#b3261e);background:#fbe9e7}
+#xp textarea{width:100%;box-sizing:border-box;min-height:84px;font:1rem var(--body,system-ui);padding:8px;border:1px solid var(--line,#cdd6df);border-radius:10px;resize:vertical}
+#xp .xpms{background:var(--accent-soft,#e7e6fb);border-radius:10px;padding:10px 12px}
+#xp .xpms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+#xp .xpms label input{margin-top:4px}
+#xp .xpnote{font-size:.92rem;color:var(--muted,#5a6878);margin:6px 0 0}
+#xp .xpbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#xp .xpb2{font:600 .88rem var(--display,system-ui);padding:6px 12px;border-radius:10px;border:2px solid var(--accent,#4a44b5);background:#fff;color:var(--accent,#4a44b5);cursor:pointer}
+#xp .xpwhy{margin:0;font-size:.95rem}
+#xp .xptot{font:700 1.05rem var(--display,system-ui)}
+</style><script>(function(){var Q=[{"t": "mc", "q": "Which pair of compounds reacts to form a polyamide?", "m": 1, "o": ["ethane-1,2-diol and hexanedioic acid", "hexane-1,6-diamine and benzene-1,4-dicarbonyl dichloride", "propan-1-amine and ethanoyl chloride", "ethene and chloroethene"], "a": 1, "why": "B is correct because each monomer has two reactive groups (–NH<sub>2<\/sub> and –COCl), so amide links form at both ends; C gives a single amide molecule only."}, {"t": "mc", "q": "Glycine (Gly) and alanine (Ala) are mixed and allowed to form dipeptides. How many <b>different<\/b> dipeptides can form?", "m": 1, "o": ["2", "3", "4", "6"], "a": 2, "why": "C is correct: Gly–Gly, Ala–Ala, Gly–Ala and Ala–Gly; Gly–Ala and Ala–Gly are different because the free –NH<sub>2<\/sub> and –COOH ends are on different residues."}, {"t": "w", "q": "PET is a polyester made from ethane-1,2-diol, HOCH<sub>2<\/sub>CH<sub>2<\/sub>OH, and benzene-1,4-dicarboxylic acid, HOOCC<sub>6<\/sub>H<sub>4<\/sub>COOH.<br>Draw the repeat unit of PET. Describe your structure in words or sketch it on paper.", "m": 3, "ms": ["ester link –COO– shown correctly, fully displayed or as –C(=O)–O– (1)", "rest of the unit correct: one C<sub>6<\/sub>H<sub>4<\/sub> ring (1,4-positions) and one –CH<sub>2<\/sub>CH<sub>2<\/sub>– group, with no –OH or –H ends (1)", "continuation bonds at both ends going through brackets, with n (1)"], "note": "Repeat unit: –[OCC<sub>6<\/sub>H<sub>4<\/sub>COOCH<sub>2<\/sub>CH<sub>2<\/sub>O]– written either way round. Do not award the first mark if two monomers are shown with –OH ends still present."}, {"t": "w", "q": "Explain why polyesters such as PET can be broken down by hydrolysis, but poly(ethene) cannot.", "m": 2, "ms": ["polyesters contain polar ester (C=O / C–O) bonds, so the δ+ carbon is attacked by nucleophiles such as H<sub>2<\/sub>O or OH<sup>−<\/sup> (1)", "poly(ethene) has only non-polar C–C and C–H bonds, so nucleophiles are not attracted / it is unreactive (1)"], "note": "Allow 'poly(ethene) is a saturated alkane-like chain'. Do not award 'poly(ethene) has no bonds to break'."}, {"t": "w", "q": "The repeat unit of nylon-6,6 is –[NH(CH<sub>2<\/sub>)<sub>6<\/sub>NHCO(CH<sub>2<\/sub>)<sub>4<\/sub>CO]–.<br>A sample of nylon-6,6 has an average relative molecular mass of 45 200.<br>Calculate the average number of repeat units in one chain.<br>[A<sub>r<\/sub>: H = 1.0, C = 12.0, N = 14.0, O = 16.0]", "m": 2, "ms": ["M<sub>r<\/sub> of repeat unit C<sub>12<\/sub>H<sub>22<\/sub>N<sub>2<\/sub>O<sub>2<\/sub> = 226 (1)", "45 200 ÷ 226 = 200 repeat units (1)"], "note": "Allow TE for the second mark from an incorrect M<sub>r<\/sub>. Answer must be a whole number."}, {"t": "w", "q": "Alanine is 2-aminopropanoic acid, CH<sub>3<\/sub>CH(NH<sub>2<\/sub>)COOH.<br>Give the structure of the main form of alanine present in solution at (i) pH 1 and (ii) pH 13.", "m": 2, "ms": ["(i) pH 1: CH<sub>3<\/sub>CH(NH<sub>3<\/sub><sup>+<\/sup>)COOH (1)", "(ii) pH 13: CH<sub>3<\/sub>CH(NH<sub>2<\/sub>)COO<sup>−<\/sup> (1)"], "note": "Charges must be shown on the correct atoms. Do not award the zwitterion H<sub>3<\/sub>N<sup>+<\/sup>CH(CH<sub>3<\/sub>)COO<sup>−<\/sup> for either answer."}];var L='ABCD';var box=document.getElementById('xpList');var tot=0;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+Q.forEach(function(q,i){tot+=q.m;var d=el('div','xpq');var h=el('div','xph');h.appendChild(el('span','xpn','Question '+(i+1)));h.appendChild(el('span','xpm','('+q.m+(q.m>1?' marks':' mark')+')'));d.appendChild(h);d.appendChild(el('div','',q.q));q.got=0;
+if(q.t==='mc'){var opts=[];q.o.forEach(function(o,j){var lb=el('label','xpo');var r=document.createElement('input');r.type='radio';r.name='xp'+i;r.value=j;lb.appendChild(r);lb.appendChild(el('span','','<b>'+L[j]+'</b>  '+o));d.appendChild(lb);opts.push(lb)});
+var bar=el('div','xpbar');var b=el('button','xpb2','Check');b.type='button';var why=el('p','xpwhy');why.hidden=true;bar.appendChild(b);d.appendChild(bar);d.appendChild(why);
+b.onclick=function(){var s=d.querySelector('input:checked');if(!s){why.hidden=false;why.textContent='Choose an answer first.';return}var k=+s.value;opts.forEach(function(o,j){o.classList.remove('ok','no');if(j===q.a)o.classList.add('ok');else if(j===k)o.classList.add('no')});q.got=k===q.a?1:0;why.hidden=false;why.innerHTML=(q.got?'<b style="color:var(--good,#1d7a46)">Correct.</b> ':'<b style="color:var(--bad,#b3261e)">Not quite. The answer is '+L[q.a]+'.</b> ')+q.why;upd()}}
+else{var ta=document.createElement('textarea');ta.setAttribute('aria-label','Your answer to question '+(i+1));ta.placeholder='Write your answer here, then compare it with the mark scheme.';d.appendChild(ta);var bar2=el('div','xpbar');var b2=el('button','xpb2','Show mark scheme');b2.type='button';bar2.appendChild(b2);d.appendChild(bar2);
+var ms=el('div','xpms');ms.hidden=true;ms.appendChild(el('div','','<b>Mark scheme</b> · tick each point your answer includes'));q.ms.forEach(function(p){var lb=el('label');var c=document.createElement('input');c.type='checkbox';c.onchange=function(){q.got=ms.querySelectorAll('input:checked').length;upd()};lb.appendChild(c);lb.appendChild(el('span','',p+' <b>(1)</b>'));ms.appendChild(lb)});if(q.note)ms.appendChild(el('p','xpnote','<b>Examiner note:</b> '+q.note));d.appendChild(ms);
+b2.onclick=function(){ms.hidden=!ms.hidden;b2.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'}}
+box.appendChild(d)});
+var T=document.getElementById('xpTot');function upd(){var g=0;Q.forEach(function(q){g+=q.got});T.textContent='Your score: '+g+' / '+tot}upd();
+document.getElementById('xpReset').onclick=function(){box.querySelectorAll('input').forEach(function(x){x.checked=false});box.querySelectorAll('textarea').forEach(function(x){x.value=''});box.querySelectorAll('.xpo').forEach(function(x){x.classList.remove('ok','no')});box.querySelectorAll('.xpwhy').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpms').forEach(function(x){x.hidden=true});box.querySelectorAll('.xpb2').forEach(function(x){if(x.textContent==='Hide mark scheme')x.textContent='Show mark scheme'});Q.forEach(function(q){q.got=0});upd()}})();</script>
+<footer><strong>Key fact:</strong> condensation polymers form with the loss of a small molecule, and hydrolysis breaks them back down.</footer>
+</div><script>"use strict";
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=id=>document.getElementById(id);
+function fm(s){let o='',sh=0;String(s).replace(/([_^])\{([^}]*)\}|([^_^]+)/g,(m,k,v,t)=>{if(t!==undefined){o+=sh?'<tspan dy="'+(-sh)+'">'+t+'</tspan>':t;sh=0}else{const d=k=='_'?5:-8;o+='<tspan class="sb" dy="'+(d-sh)+'">'+v+'</tspan>';sh=d}return''});return o}
+function T(x,y,s,c,a,ex){return '<text x="'+x+'" y="'+y+'" class="'+(c||'at')+'" text-anchor="'+(a||'middle')+'"'+(ex||'')+'>'+fm(s)+'</text>'}
+function Ln(x1,y1,x2,y2,c,ex){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" class="'+(c||'bd')+'"'+(ex||'')+'/>'}
+function G(s,h,inner,ex){return '<g data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+(ex||'')+'>'+inner+'</g>'}
+function A(d,s,h,ex){return '<g class="arr'+(ex&&ex.indexOf('half')>=0?' half':'')+'" data-s="'+s+'"'+(h?' data-h="'+h+'"':'')+'><path class="ap" d="'+d+'"/></g>'}
+function LP(x,y,v){const dx=v?0:4,dy=v?4:0;return '<circle class="lp" cx="'+(x-dx)+'" cy="'+(y-dy)+'" r="2.3"/><circle class="lp" cx="'+(x+dx)+'" cy="'+(y+dy)+'" r="2.3"/>'}
+function initArrows(){document.querySelectorAll('#sv .arr').forEach(g=>{const p=g.querySelector('.ap'),L=p.getTotalLength(),e=p.getPointAtLength(L),b=p.getPointAtLength(Math.max(0,L-6));let ux=e.x-b.x,uy=e.y-b.y;const m=Math.hypot(ux,uy)||1;ux/=m;uy/=m;const bx=e.x-12*ux,by=e.y-12*uy,px=-uy*5.5,py=ux*5.5,half=g.classList.contains('half');const h=document.createElementNS('http://www.w3.org/2000/svg',half?'polyline':'polygon');h.setAttribute('points',half?(bx+px)+','+(by+py)+' '+e.x+','+e.y:e.x+','+e.y+' '+(bx+px)+','+(by+py)+' '+(bx-px)+','+(by-py));h.setAttribute('class','ah');g.appendChild(h);g._L=L})}
+function drawA(g,anim){const p=g.querySelector('.ap'),h=g.querySelector('.ah'),L=g._L;if(!anim){p.style.transition='none';p.style.strokeDasharray='none';p.style.strokeDashoffset=0;h.style.transition='none';h.style.opacity=1;return}p.style.transition='none';p.style.strokeDasharray=L+' '+L;p.style.strokeDashoffset=L;h.style.transition='none';h.style.opacity=0;p.getBoundingClientRect();p.style.transition='stroke-dashoffset 1.1s ease .3s';p.style.strokeDashoffset=0;h.style.transition='opacity .2s ease 1.35s';h.style.opacity=1}
+let cur=1,playing=false,slow=false,tm=null,N=1;
+function apply(n,anim){anim=anim&&!RM;
+document.querySelectorAll('#sv [data-s]').forEach(el=>{const s=+el.dataset.s,h=el.dataset.h?+el.dataset.h:99,on=n>=s&&n<h;el.classList.toggle('off',!on);if(on&&el.classList.contains('arr'))drawA(el,anim&&n==s)});
+document.querySelectorAll('#sv [data-mv]').forEach(el=>{let v='0,0';el.dataset.mv.split('|').forEach(k=>{const q=k.split(':');if(n>=+q[0])v=q[1]});const q=v.split(',');el.style.transform='translate('+q[0]+'px,'+q[1]+'px)'});
+$('cap').innerHTML=CAPS[n-1];if(typeof onStep=='function')onStep(n,anim)}
+function ui(){$('pSt').textContent='Step '+cur+' of '+N;$('pPl').textContent=playing?'Pause':'Play';$('pPl').setAttribute('aria-pressed',playing?'true':'false');$('pBk').disabled=cur==1;$('pNx').disabled=cur==N;[...$('pDots').children].forEach((d,i)=>{d.classList.toggle('on',i+1==cur);if(i+1==cur)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current')})}
+function sched(){clearTimeout(tm);if(playing){if(cur<N)tm=setTimeout(()=>go(cur+1,true),slow?9000:5500);else{playing=false;ui()}}}
+function go(n,anim){cur=Math.max(1,Math.min(N,n));apply(cur,anim);ui();sched()}
+function initPlayer(){N=CAPS.length;const d=$('pDots');for(let i=1;i<=N;i++){const b=document.createElement('button');b.className='dot';b.textContent=i;b.setAttribute('aria-label','Go to step '+i);b.onclick=()=>{playing=false;go(i,true)};d.appendChild(b)}
+$('pRs').onclick=()=>go(1,true);$('pBk').onclick=()=>{playing=false;go(cur-1,true)};$('pNx').onclick=()=>{playing=false;go(cur+1,true)};
+$('pPl').onclick=()=>{if(playing){playing=false;clearTimeout(tm);ui()}else{playing=true;go(cur==N?1:cur,true)}};
+const sp=v=>{slow=v;$('spS').setAttribute('aria-pressed',v?'true':'false');$('spN').setAttribute('aria-pressed',v?'false':'true');sched()};$('spS').onclick=()=>sp(true);$('spN').onclick=()=>sp(false);
+$('stage').addEventListener('keydown',e=>{if(e.key=='ArrowRight'){e.preventDefault();playing=false;go(cur+1,true)}else if(e.key=='ArrowLeft'){e.preventDefault();playing=false;go(cur-1,true)}})}
+function initQuiz(){const ol=$('qs');ol.innerHTML=QS.map((q,i)=>'<li><p>'+q.q+'</p><div class="mcq">'+q.o.map((o,j)=>'<label><input type="radio" name="q'+i+'" value="'+j+'"><span>'+o+'</span></label>').join('')+'</div><p class="ex" hidden></p></li>').join('');
+$('chk').onclick=()=>{let sc=0;QS.forEach((q,i)=>{const li=ol.children[i],ls=li.querySelectorAll('label');let pk=-1;ls.forEach((l,j)=>{l.classList.remove('ok','wrong');if(l.querySelector('input').checked)pk=j});ls[q.a].classList.add('ok');if(pk>=0&&pk!=q.a)ls[pk].classList.add('wrong');if(pk==q.a)sc++;const ex=li.querySelector('.ex');ex.hidden=false;ex.innerHTML=(pk==q.a?'<b class="g">Correct.</b> ':pk<0?'<b class="r">No answer.</b> ':'<b class="r">Not quite.</b> ')+q.ex});const s=$('score');s.textContent='Score: '+sc+' / '+QS.length;s.className='score '+(sc>=3?'good':'bad')};
+$('rst').onclick=()=>{ol.querySelectorAll('input').forEach(i=>i.checked=false);ol.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));ol.querySelectorAll('.ex').forEach(e=>e.hidden=true);$('score').textContent=''}}
+
+const CAPS=[
+"<b>Amines are bases</b>. The lone pair on N accepts a proton (H<sup>+</sup>) and forms a dative bond. CH<sub>3</sub>NH<sub>2</sub> + H<sub>2</sub>O ⇌ CH<sub>3</sub>NH<sub>3</sub><sup>+</sup> + OH<sup>−</sup>. With acids such as HCl they form <b>salts</b>.",
+"An <b>amide</b> contains the –CONH– group. Acyl chlorides react with amines to make amides and give off <b>HCl</b>: CH<sub>3</sub>COCl + CH<sub>3</sub>NH<sub>2</sub> → CH<sub>3</sub>CONHCH<sub>3</sub> + HCl.",
+"<b>Amino acids</b> have an –NH<sub>2</sub> group and a –COOH group. In solution they form <b>zwitterions</b>, H<sub>3</sub>N<sup>+</sup>CHRCOO<sup>−</sup>. At the <b>isoelectric point</b> the overall charge is zero. In acid they gain H<sup>+</sup>; in alkali they lose H<sup>+</sup>.",
+"<b>Condensation polymerisation</b>: two different functional groups join and a <b>small molecule is lost</b>. A <b>dicarboxylic acid</b> and a <b>diol</b> react: the –OH of the acid and the H of the alcohol are removed.",
+"They leave as <b>water</b>, and an <b>ester link</b> (–COO–) forms. Each monomer has a reactive group at <b>both ends</b>, so the chain keeps growing.",
+"The <b>repeat unit</b> of the polyester (PET-type). Draw it in brackets with n, and with the end bonds going <b>through the brackets</b>. n acid + n diol → polyester + <b>2n H<sub>2</sub>O</b>.",
+"<b>Nylon-6,6</b> is a <b>polyamide</b>. It is made from hexane-1,6-diamine and hexanedioic acid (losing H<sub>2</sub>O), or hexanedioyl dichloride (losing <b>HCl</b>). Each 6 is the number of carbons in a monomer.",
+"Amino acids join by <b>peptide (amide) links</b>, losing H<sub>2</sub>O. Many amino acids make a polypeptide or <b>protein</b>, which is a natural polyamide.",
+"<b>Hydrolysis</b> breaks the ester or amide links. Acid hydrolysis of a polyamide gives a dicarboxylic acid and an ammonium salt; alkaline hydrolysis gives a carboxylate salt and an amine. So these polymers can <b>biodegrade</b>."];
+function wd(s){let w=0;String(s).replace(/([_^])\{([^}]*)\}|([^_^]+)/g,(m,k,v,t)=>{if(t!==undefined){for(const c of t)w+=/[A-Z]/.test(c)?13.5:/[a-z]/.test(c)?10.5:/[0-9]/.test(c)?11.5:/[()]/.test(c)?7:11}else w+=v.length*8;return''});return w}
+function fx(x,y,tk,M){let s='';M=M||{};for(const t of tk){
+if(typeof t=='string'){if(t=='-'){s+=Ln(x+3,y,x+21,y);x+=24}else{s+=T(x,y+7,t,'at','start');x+=wd(t)}continue}
+if(t.mk){M[t.mk]=x;continue}if(t.raw){s+=t.raw;continue}
+if(t.hl){s+='<rect class="hl" x="'+(x-3)+'" y="'+(y-16)+'" width="'+t.hl+'" height="32" rx="6"/>';continue}
+if(t.ring){const r=22,cx=x+r;s+='<path class="bd" stroke-linejoin="round" d="M'+[0,1,2,3,4,5].map(i=>{const a=i*Math.PI/3;return (cx+r*Math.cos(a)).toFixed(1)+','+(y+r*Math.sin(a)).toFixed(1)}).join(' L')+' Z"/><circle class="bd" cx="'+cx+'" cy="'+y+'" r="13"/>';x+=2*r;continue}
+if(t.br){if(t.br=='['){s+='<path class="bd" d="M'+(x-7)+','+(y-50)+' H'+(x-12)+' V'+(y+44)+' H'+(x-7)+'"/>'}else{s+='<path class="bd" d="M'+(x+7)+','+(y-50)+' H'+(x+12)+' V'+(y+44)+' H'+(x+7)+'"/>'+T(x+20,y+50,'n','at','start')}continue}
+if(t.a){const w=wd(t.a),cx=x+w/2;s+=T(cx,y+7,t.a);
+if(t.u2)s+=Ln(cx-3,y-12,cx-3,y-31)+Ln(cx+3,y-12,cx+3,y-31)+T(cx,y-37,t.u2);
+if(t.u)s+=Ln(cx,y-12,cx,y-30)+T(cx,y-36,t.u);
+if(t.d)s+=Ln(cx,y+12,cx,y+30)+T(cx,y+50,t.d);M._c=cx;x+=w}}
+M._x=x;return s}
+function hlr(x1,x2,y1,y2,ex){return '<rect class="hl" x="'+x1+'" y="'+y1+'" width="'+(x2-x1)+'" height="'+(y2-y1)+'" rx="8"'+(ex||'')+'/>'}
+function build(){let s='',M={};
+// 1 amine base
+let o=fx(60,210,['H_{3}C','-',{mk:'n'},{a:'N',u:'H',d:'H'}],M);const nx=M.n+7;
+s+=G(1,2,T(400,60,'Amines are bases: the N lone pair accepts H^{+}','ti')+o+LP(nx+16,210,1)+T(250,217,'H^{+}')+T(330,217,'→')+
+(()=>{const K={};const q=fx(390,210,['H_{3}C','-',{mk:'n'},{a:'N',u:'H',d:'H'},'-','H'],K);return q+T(K.n+20,196,'+','lk')})()+
+T(400,320,'CH_{3}NH_{2} + H_{2}O ⇌ CH_{3}NH_{3}^{+} + OH^{−}   (weak base)','lk')+T(400,350,'CH_{3}NH_{2} + HCl → CH_{3}NH_{3}^{+}Cl^{−}   (a salt)','lk'));
+s+=A('M'+(nx+20)+',204 C'+(nx+40)+',178 210,176 240,196',1,2);
+// 2 amide
+M={};o=fx(260,220,['H_{3}C','-',{mk:'a'},{a:'C',u2:'O'},'-',{a:'N',d:'H'},{mk:'b'},'-','CH_{3}'],M);
+s+=G(2,3,T(400,60,'CH_{3}COCl + CH_{3}NH_{2} → CH_{3}CONHCH_{3} + HCl','lk')+T(400,86,'acyl chloride + amine → amide + HCl','lb')+hlr(M.a-8,M.b+8,160,290)+o+T(400,330,'amide link: –CONH–','ti')+T(400,354,'N-methylethanamide','lb'));
+// 3 amino acids
+const R=(x,a,b)=>fx(x,180,[a,'-',{a:'C',u:'H',d:'R'},'-',b]);
+s+=G(3,4,T(400,48,'Amino acid: H_{2}N–CHR–COOH','ti')+R(40,'H_{3}N^{+}','COOH')+R(300,'H_{3}N^{+}','COO^{−}')+R(565,'H_{2}N','COO^{−}')+
+T(125,280,'low pH (acid)','lk')+T(125,302,'overall charge +1','lb')+hlr(290,490,110,315,' style="fill:#e7e6fb;stroke:#4a44b5"')+T(390,280,'isoelectric point','lk')+T(390,302,'zwitterion: charge 0','lb')+T(650,280,'high pH (alkali)','lk')+T(650,302,'overall charge −1','lb')+
+'<path class="bd" d="M70,360 H730 M720,354 l10,6 l-10,6"/>'+T(400,385,'pH increases','lb'));
+// 4-5 polyester formation
+const WX=330,WY=300;
+const acid=v=>['HO','-',{a:'C',u2:'O'},'-',{ring:1},'-',{mk:'c2'},{a:'C',u2:'O'},'-',{raw:'<g data-mv="5:'+v+'">'},{mk:'aO'},{hl:34},'OH',{raw:'</g>'}];
+const diol=(v,h)=>[{raw:'<g data-mv="5:'+v+'">'},{raw:'<g data-mv="5:'+h+'">'},{mk:'dH'},{hl:19},'H',{raw:'</g>'},{raw:'<g data-s="1" data-h="5">'},'-',{raw:'</g>'},{mk:'dO'},'O','-','CH_{2}','-','CH_{2}','-','O','-','H',{raw:'</g>'}];
+const A1={},D1={};fx(30,170,acid('0,0'),A1);fx(400,170,diol('0,0','0,0'),D1);
+const sh=A1.aO-D1.dO,av=(WX+14-A1.aO)+','+(WY-170),hv=(WX-D1.dH-sh)+','+(WY-170);
+const A2={};s+=G(4,6,G(5,0,hlr(A1.c2-8,A1.aO+18,118,190)+T((A1.c2+A1.aO)/2+4,222,'ester link','lk'),' class="dl"')+fx(30,170,acid(av),A2)+fx(400,170,diol(sh+',0',hv),{})+
+G(4,5,T(160,270,'dicarboxylic acid','lb')+T(560,270,'diol','lb')+T(400,120,'remove OH + H','lb'))+G(5,0,T(WX+56,WY+7,'→  H_{2}O','lk','start'),' class="dl"'));
+// 6 repeat unit
+M={};o=fx(150,205,['-',{br:'['},{a:'C',u2:'O'},'-',{ring:1},'-',{a:'C',u2:'O'},'-','O','-','CH_{2}','-','CH_{2}','-','O',{br:']'},'-'],M);
+s+=G(6,7,T(400,60,'Repeat unit of a polyester (PET-type)','ti')+o+T(400,330,'n HOOC–C_{6}H_{4}–COOH + n HOCH_{2}CH_{2}OH → polyester + 2n H_{2}O','lk')+T(400,356,'benzene-1,4-dicarboxylic acid + ethane-1,2-diol','lb'));
+// 7 nylon
+M={};o=fx(85,225,['-',{br:'['},{mk:'n1'},{a:'N',u:'H'},'-','(CH_{2})_{6}','-',{mk:'n2'},{a:'N',u:'H'},'-',{a:'C',u2:'O'},{mk:'n3'},'-','(CH_{2})_{4}','-',{a:'C',u2:'O'},{br:']'},'-'],M);
+s+=G(7,8,T(400,48,'Polyamide: nylon-6,6','ti')+T(400,82,'n H_{2}N(CH_{2})_{6}NH_{2} + n HOOC(CH_{2})_{4}COOH','lk')+T(400,104,'hexane-1,6-diamine + hexanedioic acid','lb')+hlr(M.n2-8,M.n3+6,166,250)+o+T((M.n2+M.n3)/2,276,'amide link','lk')+
+T(400,330,'polyamide + 2n H_{2}O','lk')+T(400,360,'with hexanedioyl dichloride, ClOC(CH_{2})_{4}COCl, the molecule lost is HCl','lb'));
+// 8 peptide
+M={};o=fx(120,240,['H_{2}N','-','CH_{2}','-',{mk:'p1'},{a:'C',u2:'O'},'-',{a:'N',d:'H'},{mk:'p2'},'-',{a:'C',u:'H',d:'CH_{3}'},'-','COOH'],M);
+s+=G(8,9,T(400,48,'Two amino acids make a dipeptide','ti')+T(400,86,'H_{2}NCH_{2}COOH + H_{2}NCH(CH_{3})COOH','lk')+T(400,108,'glycine + alanine','lb')+hlr(M.p1-8,M.p2+8,180,305)+o+T(M._x+16,247,'+  H_{2}O','at','start')+T((M.p1+M.p2)/2,330,'peptide link','lk')+T(400,380,'Proteins are polyamides made from many amino acids.','lb'));
+// 9 hydrolysis
+M={};o=fx(230,140,['CH_{2}','-',{a:'C',u2:'O'},{mk:'h'},'-',{a:'N',d:'H'},'-','CH_{2}'],M);
+s+=G(9,0,T(400,44,'Hydrolysis breaks the amide (or ester) link','ti')+o+'<path d="M'+(M.h+12)+',100 V190" stroke="#b3261e" stroke-width="2.5" stroke-dasharray="6 4"/>'+T(M._x+20,147,'+  H_{2}O','at','start')+
+T(60,250,'Acid: HCl(aq), heat under reflux','lk','start')+T(60,276,'–COOH  +  –NH_{3}^{+}Cl^{−}','at','start')+T(60,300,'dicarboxylic acid + ammonium salt','lb','start')+
+T(60,340,'Alkali: NaOH(aq), heat under reflux','lk','start')+T(60,366,'–COO^{−}Na^{+}  +  –NH_{2}','at','start')+T(60,390,'carboxylate salt + amine','lb','start')+
+T(470,250,'Polyesters + NaOH(aq):','lk','start')+T(470,276,'–COO^{−}Na^{+}  +  HO–','at','start')+T(470,300,'carboxylate salt + diol','lb','start')+T(470,346,'Hydrolysis means these polymers','lb','start')+T(470,368,'can biodegrade, unlike poly(alkenes).','lb','start'));
+return s}
+const RD=[
+{m:['HOCH<sub>2</sub>CH<sub>2</sub>OH','HOOC–C<sub>6</sub>H<sub>4</sub>–COOH'],o:['–[–O–CH<sub>2</sub>CH<sub>2</sub>–OH–OC–C<sub>6</sub>H<sub>4</sub>–CO–]<sub>n</sub>–','–[–O–CH<sub>2</sub>CH<sub>2</sub>–O–CO–C<sub>6</sub>H<sub>4</sub>–CO–]<sub>n</sub>–','–[–CH<sub>2</sub>CH<sub>2</sub>–CO–C<sub>6</sub>H<sub>4</sub>–CO–]<sub>n</sub>–','–[–O–CH<sub>2</sub>CH<sub>2</sub>–O–CO–C<sub>6</sub>H<sub>4</sub>–CO–O–]<sub>n</sub>–'],a:1,b:'H<sub>2</sub>O',f:'A diol and a dicarboxylic acid make a <b>polyester</b> (ester links –COO–) and lose H<sub>2</sub>O.'},
+{m:['H<sub>2</sub>N(CH<sub>2</sub>)<sub>6</sub>NH<sub>2</sub>','ClOC(CH<sub>2</sub>)<sub>4</sub>COCl'],o:['–[–NH–(CH<sub>2</sub>)<sub>6</sub>–NH–CO–(CH<sub>2</sub>)<sub>4</sub>–CO–]<sub>n</sub>–','–[–NH<sub>2</sub>–(CH<sub>2</sub>)<sub>6</sub>–NH<sub>2</sub>–CO–(CH<sub>2</sub>)<sub>4</sub>–CO–]<sub>n</sub>–','–[–NH–(CH<sub>2</sub>)<sub>6</sub>–NH–CO–(CH<sub>2</sub>)<sub>4</sub>–COCl–]<sub>n</sub>–','–[–NH–(CH<sub>2</sub>)<sub>6</sub>–CO–(CH<sub>2</sub>)<sub>4</sub>–NH–]<sub>n</sub>–'],a:0,b:'HCl',f:'A diamine and a diacyl dichloride make a <b>polyamide</b> (nylon-6,6). Each amide link releases HCl.'},
+{m:['H<sub>2</sub>NCH<sub>2</sub>COOH (glycine)','H<sub>2</sub>NCH(CH<sub>3</sub>)COOH (alanine)'],o:['–[–NH<sub>2</sub>–CH<sub>2</sub>–COO–CH(CH<sub>3</sub>)–CO–]<sub>n</sub>–','–[–CH<sub>2</sub>–CO–NH–CH(CH<sub>3</sub>)–]<sub>n</sub>–','–[–NH–CH<sub>2</sub>–CO–O–CH(CH<sub>3</sub>)–CO–]<sub>n</sub>–','–[–NH–CH<sub>2</sub>–CO–NH–CH(CH<sub>3</sub>)–CO–]<sub>n</sub>–'],a:3,b:'H<sub>2</sub>O',f:'Amino acids join by <b>peptide (amide) links</b> –CONH– and lose H<sub>2</sub>O.'},
+{m:['HO(CH<sub>2</sub>)<sub>4</sub>OH','HOOC(CH<sub>2</sub>)<sub>4</sub>COOH'],o:['–[–O–(CH<sub>2</sub>)<sub>4</sub>–CO–(CH<sub>2</sub>)<sub>4</sub>–CO–]<sub>n</sub>–','–[–O–(CH<sub>2</sub>)<sub>4</sub>–O–CO–(CH<sub>2</sub>)<sub>4</sub>–CO–]<sub>n</sub>–','–[–O–(CH<sub>2</sub>)<sub>4</sub>–O–CO–(CH<sub>2</sub>)<sub>4</sub>–CO–OH–]<sub>n</sub>–','–[–CH<sub>2</sub>–CH(OH)–]<sub>n</sub>–'],a:1,b:'H<sub>2</sub>O',f:'Another <b>polyester</b>: both O atoms of the diol stay in the chain; the –OH of each acid group is lost as H<sub>2</sub>O.'}];
+let rd=0;
+function initTry(){const r=$('trd');RD.forEach((x,i)=>{const b=document.createElement('button');b.className='mini';b.textContent=i+1;b.setAttribute('aria-label','Monomer pair '+(i+1));b.onclick=()=>{rd=i;tset()};r.appendChild(b)});$('tchk').onclick=tchk;tset()}
+function tset(){const q=RD[rd];[...$('trd').children].forEach((b,i)=>b.setAttribute('aria-pressed',i==rd?'true':'false'));
+$('tmono').innerHTML='<span>'+q.m[0]+'</span><span class="pl">+</span><span>'+q.m[1]+'</span>';
+$('topts').innerHTML=q.o.map((o,j)=>'<label><input type="radio" name="tr" value="'+j+'"><span>'+o+'</span></label>').join('');$('tby').value='';const t=$('tout');t.className='say';t.textContent='Choose a repeat unit and a small molecule.'}
+function tchk(){const q=RD[rd],ls=$('topts').querySelectorAll('label'),t=$('tout');let pk=-1;ls.forEach((l,j)=>{l.classList.remove('ok','wrong');if(l.querySelector('input').checked)pk=j});
+const by=$('tby').value;if(pk<0||!by){t.className='say bad';t.textContent='Choose both a repeat unit and a small molecule.';return}
+const okb=by==q.b.replace(/<[^>]+>/g,''),ok=pk==q.a;ls[q.a].classList.add('ok');if(!ok)ls[pk].classList.add('wrong');
+t.className='say '+(ok&&okb?'good':'bad');t.innerHTML=(ok?'Repeat unit: <b>correct</b>. ':'Repeat unit: <b>not quite</b> (correct one in green). ')+(okb?'Small molecule: <b>correct</b>. ':'Small molecule: <b>not quite</b>; it is '+q.b+'. ')+'<br>'+q.f}
+const QS=[
+{q:'Why are amines bases?',o:['The lone pair on N can accept a proton (H<sup>+</sup>)','They contain OH<sup>−</sup> ions','The N–H bond releases H<sup>+</sup>','They contain a C=O group'],a:0,ex:'A base is a proton acceptor. The N lone pair forms a dative bond to H<sup>+</sup>.'},
+{q:'What is the structure of glycine (H<sub>2</sub>NCH<sub>2</sub>COOH) at its isoelectric point?',o:['H<sub>2</sub>NCH<sub>2</sub>COOH','H<sub>3</sub>N<sup>+</sup>CH<sub>2</sub>COOH','H<sub>3</sub>N<sup>+</sup>CH<sub>2</sub>COO<sup>−</sup>','H<sub>2</sub>NCH<sub>2</sub>COO<sup>−</sup>'],a:2,ex:'At the isoelectric point it is a zwitterion: overall charge zero.'},
+{q:'Which small molecule is lost when hexane-1,6-diamine reacts with hexanedioyl dichloride?',o:['H<sub>2</sub>O','HCl','NH<sub>3</sub>','Cl<sub>2</sub>'],a:1,ex:'The H from N–H and the Cl from C–Cl are lost together as HCl.'},
+{q:'A polyamide is heated under reflux with NaOH(aq). What are the products?',o:['A dicarboxylic acid and an ammonium salt','A carboxylate salt and a diamine','A diol and a dicarboxylic acid','No reaction: polyamides cannot be hydrolysed'],a:1,ex:'In alkali, the acid groups become –COO<sup>−</sup>Na<sup>+</sup> and the amine groups are free –NH<sub>2</sub>.'}];
+
+$('sv').insertAdjacentHTML('beforeend',build());initArrows();initPlayer();initQuiz();if(typeof initTry=='function')initTry();go(1,false);
+</script></body></html>

@@ -1,0 +1,579 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fractional distillation of crude oil</title>
+<meta name="description" content="Interactive animation: Fractional distillation of crude oil. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-crude-oil-distillation.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .78rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:0}
+.stage svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.lbl{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:10px 12px;border-radius:8px;font-size:.95rem;display:flex;flex-direction:column;gap:6px}
+.exam{background:#e6f4ec;border-left:4px solid var(--good);padding:8px 12px;border-radius:8px;font-size:.92rem}
+.btn{font:600 .95rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:focus-visible,.pick:focus-visible,input:focus-visible,.xtab:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pick{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:0}
+input[type=range]{accent-color:var(--accent);width:100%}
+.ends{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.readout{font:700 1rem var(--display);background:#fff;border:1px solid var(--line);border-radius:8px;padding:3px 10px;display:inline-block;font-variant-numeric:tabular-nums}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:10px 22px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:520px){body{font-size:16px}.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;border-radius:12px;font-size:.95rem}}
+svg text{font-family:var(--body);fill:var(--ink)}
+.t-s{font-size:12px;fill:var(--muted)}.t-b{font:700 13px var(--display)}
+.mol{cursor:pointer}.outlet{cursor:pointer}
+.outlet.sel .pipe{stroke:var(--accent)}.outlet.sel .ob{fill:var(--accent-soft);stroke:var(--accent)}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs label{display:block;padding:2px 0;cursor:pointer}
+.fb{font-size:.92rem;font-weight:700}.fb.ok{color:var(--good)}.fb.no{color:var(--bad)}
+.score{font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend svg{width:34px;height:12px;display:inline-block}
+.chk{display:flex;gap:8px;align-items:center;font-size:.95rem;cursor:pointer}
+[hidden]{display:none!important}
+
+/* ---- top tabs + exam practice (from lab pages; renamed to avoid clashing with concept tabs) ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;margin-top:8px;max-width:100%}
+.ex-tbl{border-collapse:collapse;font-size:.92rem;background:#fff}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:4px 10px;text-align:center}
+.ex-tbl th{white-space:nowrap;background:var(--paper);font-weight:700}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc,.ex-drop{display:flex;flex-direction:column;gap:8px}
+.ex-in,.ex-drow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-sel.ok{border-color:var(--good)}.ex-in input.wrong,.ex-sel.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-sel{font:inherit;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+.ex-sel:focus-visible,.ex-in input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-corr{font-size:.9rem;font-weight:700;color:var(--good)}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Organic chemistry: crude oil</div>
+<h1>Fractional distillation of crude oil</h1>
+<p>Crude oil is a <b>mixture of hydrocarbons</b> (compounds of hydrogen and carbon only). Most of them are <b>alkanes</b>. Fractional distillation separates crude oil into <b>fractions</b>: groups of hydrocarbons with similar boiling points.</p>
+<p>Press <b>Play</b> and watch the molecules rise up the column. Click a molecule or an outlet to learn about that fraction.</p>
+</header>
+<div class="toptabs" id="toptabRow" role="tablist" aria-label="Page sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="xtabs" role="tablist" aria-label="Sections">
+<button class="xtab" type="button" role="tab" id="tb1" aria-selected="true" aria-controls="p1">1 · The column</button>
+<button class="xtab" type="button" role="tab" id="tb2" aria-selected="false" aria-controls="p2" tabindex="-1">2 · Trends in fractions</button>
+<button class="xtab" type="button" role="tab" id="tb3" aria-selected="false" aria-controls="p3" tabindex="-1">3 · Why it works</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="layout" id="p1" role="tabpanel" aria-labelledby="tb1">
+<div class="stage"><svg id="col" viewBox="0 0 660 540" role="img" aria-label="Fractionating column with six fraction outlets">
+<defs>
+<linearGradient id="grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7e8fb"/><stop offset=".45" stop-color="#fbeec2"/><stop offset=".8" stop-color="#f8c08f"/><stop offset="1" stop-color="#f19a6e"/></linearGradient>
+<clipPath id="cclip"><rect x="262" y="42" width="136" height="456" rx="14"/></clipPath>
+</defs>
+<g id="scale"></g>
+<rect x="260" y="40" width="140" height="460" rx="16" fill="url(#grad)" stroke="#7d8fa3" stroke-width="3"/>
+<g id="trays"></g>
+<!-- furnace -->
+<path d="M0 452H40" stroke="#5b4636" stroke-width="10"/>
+<text x="4" y="474" class="t-s">crude</text><text x="4" y="488" class="t-s">oil</text>
+<rect x="40" y="420" width="110" height="80" rx="8" fill="#e4eaf0" stroke="#7d8fa3" stroke-width="3"/>
+<text x="95" y="438" text-anchor="middle" class="t-b">Furnace</text>
+<g id="flames"></g>
+<path d="M150 446H262" stroke="#7d8fa3" stroke-width="14"/><path d="M150 446H262" stroke="#f6c39c" stroke-width="8"/>
+<text x="156" y="432" class="t-s">hot vapour</text>
+<text x="95" y="455" text-anchor="middle" class="t-s">about 350 °C</text>
+<g id="outs"></g>
+<g id="mols" clip-path="url(#cclip)"></g>
+<g id="exitmols"></g>
+<text x="330" y="28" text-anchor="middle" class="t-b">Fractionating column</text>
+</svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<div class="row"><button class="btn" id="play1">Pause</button><button class="btn ghost" id="step1">Step</button><button class="btn ghost" id="rep1">Replay</button></div>
+<label class="lbl" for="spd1">Speed</label><input type="range" id="spd1" min="0.3" max="2" step="0.1" value="1">
+<label class="chk"><input type="checkbox" id="lab1" checked> Show labels</label>
+<div class="lbl">Choose a fraction</div><div class="row" id="chips1"></div>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st1"></div></div>
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="layout" id="p2" role="tabpanel" aria-labelledby="tb2" hidden>
+<div class="stage"><svg id="tr" viewBox="0 0 640 430" role="img" aria-label="Bars and demonstrations showing trends in the fractions"></svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<label class="lbl" for="frs">Fraction: <span class="readout" id="frn"></span></label>
+<input type="range" id="frs" min="0" max="5" step="1" value="0">
+<div class="ends"><span>top of column</span><span>bottom of column</span></div>
+<div class="row"><button class="btn ghost" id="up2">Up</button><button class="btn ghost" id="dn2">Down</button><button class="btn" id="play2">Pause</button></div>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st2"></div>
+<div class="exam"><b>Exam statement.</b> From the top of the column to the bottom: chain length increases, boiling point increases, viscosity increases, colour gets darker and the fraction is harder to ignite (it burns with a smokier flame).</div></div>
+</div>
+</div>
+
+<!-- TAB 3 -->
+<div class="layout" id="p3" role="tabpanel" aria-labelledby="tb3" hidden>
+<div class="stage"><svg id="pv" viewBox="0 0 640 400" role="img" aria-label="Particle view of short and long alkane molecules being heated"></svg>
+<div class="legend" style="padding:4px 8px 6px"><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#5a6878" stroke-width="3"/><circle cx="4" cy="6" r="4" fill="#3a4656"/><circle cx="30" cy="6" r="4" fill="#3a4656"/></svg>carbon atoms joined by covalent bonds</span><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#4a44b5" stroke-width="2.5" stroke-dasharray="3 3"/></svg>intermolecular forces (attractions between molecules)</span></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Controls</div>
+<label class="lbl" for="tmp3">Temperature: <span class="readout" id="tval">20 °C</span></label>
+<input type="range" id="tmp3" min="20" max="350" step="1" value="20">
+<div class="row"><button class="btn" id="play3">Heat</button><button class="btn ghost" id="step3">Step +25 °C</button><button class="btn ghost" id="rep3">Replay</button></div>
+<div class="lbl">Highlight</div>
+<div class="row"><button class="pick" id="hiI" aria-pressed="true">Intermolecular forces</button><button class="pick" id="hiB" aria-pressed="false">Covalent bonds</button></div>
+</div>
+<div class="card"><div class="lbl">What's happening</div><div class="msg" id="st3"></div></div>
+</div>
+</div>
+
+<section class="sheet"><h2>Key points</h2><ul class="kp">
+<li>Crude oil is a <b>mixture</b> of hydrocarbons. Most of them are <b>alkanes</b>. A hydrocarbon is a compound of hydrogen and carbon <b>only</b>.</li>
+<li>Crude oil is heated until most of it vaporises. The vapour enters near the <b>bottom</b> of the fractionating column.</li>
+<li>The column is <b>hot at the bottom and cool at the top</b>. Each hydrocarbon condenses at the level where the temperature is below its boiling point, and is collected there.</li>
+<li>Fractions from bottom to top: <b>bitumen, fuel oil, diesel, kerosene, gasoline, refinery gases</b>. Uses: roads and roofs; ships and power stations; diesel engines; aircraft fuel; car petrol; bottled gas for heating and cooking.</li>
+<li>From top to bottom: chain length increases, boiling point increases, viscosity increases, colour gets darker, and fractions are harder to ignite.</li>
+<li>Longer molecules have <b>stronger intermolecular forces</b>, so more energy is needed to overcome them. Boiling breaks intermolecular forces, <b>not</b> covalent bonds.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" id="chk">Check</button><span class="score" id="score"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function T(x,y,s,c,p,a){const e=E('text',Object.assign({x,y,class:c||''},a||{}),p);e.textContent=s;return e}
+const $=id=>document.getElementById(id);
+const lerp=(a,b,t)=>a+(b-a)*t;
+// fractions, top (0) to bottom (5)
+const FR=[
+{n:'Refinery gases',h:'C<sub>1</sub>–C<sub>4</sub>',s:'C₁–C₄',bp:'below 25 °C',use:'bottled gas for heating and cooking',u:'bottled gas: heating, cooking',k:'#2f7fd1',b:2,y:66,T:25,cn:3,bpv:15,col:'#ffffff',cw:'colourless',vis:'a gas (does not pour)',ign:'very easily (clean flame)'},
+{n:'Gasoline',h:'C<sub>5</sub>–C<sub>10</sub>',s:'C₅–C₁₀',bp:'about 40–150 °C',use:'petrol for cars',u:'petrol for cars',k:'#1d9a8f',b:4,y:140,T:40,cn:8,bpv:95,col:'#f9f0bf',cw:'very pale yellow',vis:'very runny',ign:'very easily'},
+{n:'Kerosene',h:'C<sub>10</sub>–C<sub>16</sub>',s:'C₁₀–C₁₆',bp:'about 150–250 °C',use:'fuel for aircraft',u:'fuel for aircraft',k:'#4f9a3a',b:6,y:220,T:150,cn:13,bpv:200,col:'#f1d67a',cw:'pale yellow',vis:'runny',ign:'easily'},
+{n:'Diesel',h:'C<sub>14</sub>–C<sub>20</sub>',s:'C₁₄–C₂₀',bp:'about 250–300 °C',use:'fuel for diesel engines (lorries, some cars and trains)',u:'diesel engines, lorries',k:'#c79410',b:8,y:300,T:250,cn:17,bpv:275,col:'#d8a23d',cw:'yellow-brown',vis:'fairly runny',ign:'less easily'},
+{n:'Fuel oil',h:'C<sub>20</sub>–C<sub>40</sub>',s:'C₂₀–C₄₀',bp:'about 300–350 °C',use:'fuel for large ships and some power stations',u:'ships, power stations',k:'#c0612b',b:10,y:380,T:300,cn:30,bpv:330,col:'#6b3f1d',cw:'dark brown',vis:'thick',ign:'with difficulty (smoky flame)'},
+{n:'Bitumen',h:'more than C<sub>40</sub>',s:'over C₄₀',bp:'above 350 °C',use:'surfacing roads and roofs',u:'roads and roofs',k:'#6a4a35',b:12,y:486,T:350,cn:50,bpv:400,col:'#1d1712',cw:'black',vis:'very thick (almost solid)',ign:'with great difficulty (very smoky flame)'}];
+const lvl=[[66,25],[140,40],[220,150],[300,250],[380,300],[466,350]];
+function tempAt(y){if(y<=66)return 25;for(let i=1;i<lvl.length;i++)if(y<=lvl[i][0]){const a=lvl[i-1],b=lvl[i];return Math.round(lerp(a[1],b[1],(y-a[0])/(b[0]-a[0])))}return 350}
+/* ---------- TAB 1 ---------- */
+const col=$('col'),scale=$('scale'),trays=$('trays'),outs=$('outs'),mols=$('mols'),exitm=$('exitmols');
+E('rect',{x:224,y:66,width:12,height:400,rx:6,fill:'url(#grad)',stroke:'#7d8fa3','stroke-width':1.5},scale);
+T(248,52,'Temperature','t-s',scale,{'text-anchor':'end'});
+lvl.forEach(([y,t])=>{E('line',{x1:236,y1:y,x2:244,y2:y,stroke:'#5a6878','stroke-width':1.5},scale);T(220,y+4,t+' °C','t-s',scale,{'text-anchor':'end'})});
+T(208,90,'cooler ↑','t-s',scale,{'text-anchor':'end'});T(208,410,'hotter ↓','t-s',scale,{'text-anchor':'end'});
+const flames=$('flames');const fl=[];for(let i=0;i<4;i++)fl.push(E('path',{fill:i%2?'#f7b733':'#ef6b2b'},flames));
+const labs=[];const outG=[];
+FR.forEach((f,i)=>{
+ if(i>0&&i<5){const ty=f.y+12;E('line',{x1:262,y1:ty,x2:398,y2:ty,stroke:'#7d8fa3','stroke-width':3,'stroke-dasharray':'22 8'},trays);
+  E('rect',{x:330,y:ty-5,width:68,height:5,fill:f.k,opacity:.55},trays)}
+ const g=E('g',{class:'outlet',tabindex:0,role:'button','aria-label':f.n+' outlet'},outs);
+ const py=i==5?f.y:f.y;
+ E('path',{class:'pipe',d:`M398 ${py}H452`,stroke:'#7d8fa3','stroke-width':12,fill:'none'},g);
+ E('path',{d:`M398 ${py}H452`,stroke:f.k,'stroke-width':6,fill:'none',opacity:.7},g);
+ E('rect',{class:'ob',x:454,y:py-22,width:200,height:44,rx:8,fill:'#fff',stroke:'#cdd6df','stroke-width':1.5},g);
+ E('circle',{cx:466,cy:py-8,r:5,fill:f.k},g);
+ const t1=T(476,py-3,f.n+'  '+f.s,'t-b',g);const t2=T(462,py+15,f.u,'t-s',g);
+ labs.push(t1,t2);
+ g.addEventListener('click',()=>sel1(i));g.addEventListener('keydown',e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();sel1(i)}});
+ outG.push(g)});
+T(330,516,'bitumen collects at the base','t-s',outs,{'text-anchor':'middle'});
+E('rect',{x:262,y:478,width:136,height:20,fill:'#3a2a1f',opacity:.6,'clip-path':'url(#cclip)'},trays);
+const chips=$('chips1');const chipB=FR.map((f,i)=>{const b=document.createElement('button');b.className='pick';b.setAttribute('aria-pressed','false');b.innerHTML=`<i style="background:${f.k}"></i>${f.n}`;b.onclick=()=>sel1(sel===i?-1:i);chips.appendChild(b);return b});
+let sel=-1,ms=[],play1=true,spawnT=0,spd=1;
+function zig(b){let pts=[];for(let j=0;j<b;j++)pts.push([j*5.5-(b-1)*2.75,j%2?2.6:-2.6]);return pts}
+function mkMol(fi){const f=FR[fi],g=E('g',{class:'mol'},mols),pts=zig(f.b);
+ const chain=E('g',{},g);E('polyline',{points:pts.join(' '),stroke:'transparent','stroke-width':12,fill:'none'},chain);
+ E('polyline',{points:pts.join(' '),stroke:'#3a4656','stroke-width':1.6,fill:'none'},chain);
+ pts.forEach(p=>E('circle',{cx:p[0],cy:p[1],r:2.7,fill:f.k,stroke:'#22303f','stroke-width':.6},chain));
+ const drop=E('circle',{r:4.5,fill:f.k,stroke:'#22303f','stroke-width':.8,opacity:0},g);
+ g.addEventListener('pointerdown',e=>{e.stopPropagation();sel1(fi)});
+ const half=(f.b-1)*2.75;const bx=270+half+Math.random()*(120-2*half);
+ const m={fi,g,chain,drop,bx,x:bx,y:446,ph:Math.random()*6,st:fi==5?'liq':'gas',v:55+Math.random()*25,op:0};
+ if(fi==5){chain.setAttribute('opacity',0);drop.setAttribute('opacity',1)}
+ ms.push(m)}
+function upd1(dt){spawnT-=dt;if(spawnT<=0&&ms.length<70){spawnT=.42;const r=Math.random();mkMol(Math.min(5,Math.floor(r*6)))}
+ for(const m of ms){const f=FR[m.fi];m.ph+=dt*3;m.op=Math.min(1,m.op+dt*3);
+  if(m.st=='gas'){m.y-=m.v*dt;m.x=m.bx+5*Math.sin(m.ph);
+   if(m.y<=f.y){m.y=f.y;if(m.fi==0){m.st='out'}else{m.st='liq';m.chain.setAttribute('opacity',0);m.drop.setAttribute('opacity',1);m.y=f.y+3}}}
+  else if(m.st=='liq'){if(m.fi==5&&m.y<f.y-2){m.y+=90*dt}else{m.x+=45*dt;if(m.x>396)m.st='out'}}
+  else{m.x+=50*dt;if(m.g.parentNode===mols&&m.x>392)exitm.appendChild(m.g);if(m.x>448)m.op=Math.max(0,m.op-dt*6),m.dead=m.op<=0}
+  m.g.setAttribute('transform',`translate(${m.x.toFixed(1)},${m.y.toFixed(1)})`);
+  m.g.setAttribute('opacity',(sel<0||sel==m.fi?1:.25)*Math.min(1,m.op))}
+ ms=ms.filter(m=>{if(m.dead){m.g.remove();return false}return true})}
+let ft=0;function flick(dt){ft+=dt;fl.forEach((p,i)=>{const x=62+i*24,h=24+8*Math.sin(ft*9+i*2)+(i%2?-6:0);p.setAttribute('d',`M${x-9} 494Q${x-10} ${494-h*.5} ${x} ${494-h}Q${x+10} ${494-h*.5} ${x+9} 494Z`)})}
+function sel1(i){sel=i;chipB.forEach((b,j)=>b.setAttribute('aria-pressed',j==i));outG.forEach((g,j)=>g.classList.toggle('sel',j==i));st1()}
+function st1(){const s=$('st1');if(sel<0){s.innerHTML='<p>Crude oil is heated in a furnace until most of it <b>vaporises</b>. The vapour enters near the bottom of the column.</p><p>The column is <b>hot at the bottom and cool at the top</b>. As the vapour rises it cools. Each hydrocarbon <b>condenses</b> when it reaches a level where the temperature is <b>below its boiling point</b>.</p><p>Long-chain molecules condense low down. Short-chain molecules rise higher. Click a molecule or an outlet.</p>';return}
+ const f=FR[sel];let w;
+ if(sel==0)w='These molecules have the <b>lowest boiling points</b>. They never cool below their boiling point, so they do not condense. They leave the <b>top</b> of the column as gases.';
+ else if(sel==5)w='These very long molecules have the <b>highest boiling points</b> (above 350 °C), so they do not vaporise. They stay liquid and are collected at the <b>bottom</b> of the column.';
+ else w=`The vapour rises until the column temperature (about ${f.T} °C here) is <b>below the boiling point</b> of these molecules. Then they <b>condense</b> to a liquid on the tray and are piped off.`;
+ s.innerHTML=`<p><b style="color:${f.k}">${f.n}</b>: ${f.h} (about ${f.cn} carbon atoms in a typical molecule). Boiling range ${f.bp}.</p><p>${w}</p><p><b>Use:</b> ${f.use}.</p>`}
+$('play1').onclick=()=>{play1=!play1;$('play1').textContent=play1?'Pause':'Play'};
+$('step1').onclick=()=>{play1=false;$('play1').textContent='Play';for(let i=0;i<15;i++)upd1(1/30)};
+$('rep1').onclick=()=>{ms.forEach(m=>m.g.remove());ms=[];spawnT=0};
+$('spd1').oninput=e=>spd=+e.target.value;
+$('lab1').onchange=e=>{const v=e.target.checked;labs.forEach(t=>t.style.display=v?'':'none');scale.style.display=v?'':'none'};
+col.addEventListener('pointerdown',()=>{});
+for(let i=0;i<40;i++)upd1(.1);st1();
+/* ---------- TAB 2 ---------- */
+const tr=$('tr');let fi2=0,play2=true;
+// mini column
+E('rect',{x:20,y:24,width:96,height:384,rx:12,fill:'url(#grad)',stroke:'#7d8fa3','stroke-width':2},tr);
+const mini=FR.map((f,i)=>{const y=34+i*62;const g=E('g',{tabindex:0,role:'button',class:'outlet','aria-label':f.n},tr);
+ const r=E('rect',{x:26,y,width:84,height:54,rx:8,fill:'#fff',opacity:.7,stroke:'#cdd6df'},g);
+ E('circle',{cx:38,cy:y+16,r:5,fill:f.k},g);T(48,y+20,f.n.replace('Refinery ','R. '),'t-b',g,{style:'font-size:11px'});T(32,y+40,f.s,'t-s',g,{style:'font-size:11px'});
+ g.onclick=()=>set2(i);g.addEventListener('keydown',e=>{if(e.key=='Enter'||e.key==' '){e.preventDefault();set2(i)}});return r});
+T(68,18,'TOP (cool)','t-s',tr,{'text-anchor':'middle'});T(68,424,'BOTTOM (hot)','t-s',tr,{'text-anchor':'middle'});
+const bars=[['Number of carbon atoms',f=>f.cn/50,f=>'about '+f.cn+' ('+f.s+')'],['Boiling point',f=>f.bpv/400,f=>f.bp],['Viscosity (how thick)',(f,i)=>[.03,.12,.28,.45,.72,1][i],f=>f.vis],['Ease of ignition',(f,i)=>[1,.92,.72,.5,.3,.12][i],f=>f.ign]];
+const barEl=bars.map((b,j)=>{const y=30+j*48;T(140,y,b[0],'t-b',tr);E('rect',{x:140,y:y+6,width:480,height:16,rx:8,fill:'#e4eaf0'},tr);
+ return{r:E('rect',{x:140,y:y+6,width:10,height:16,rx:8,fill:j==3?'#d6542b':'#4a44b5'},tr),v:T(620,y,'','t-s',tr,{'text-anchor':'end'}),w:0}});
+// panels
+[['Colour',140],['Pouring (viscosity)',300],['Burning',470]].forEach(([t,x])=>{E('rect',{x,y:226,width:x==140?150:160,height:196,rx:10,fill:'#f6f8fb',stroke:'#cdd6df'},tr);T(x+8,244,t,'t-b',tr)});
+// colour bottle
+E('path',{d:'M195 262h40v14l12 14v116h-64V290l12-14z',fill:'#fff',stroke:'#7d8fa3','stroke-width':2.5},tr);
+const bottleFill=E('path',{d:'M185 316h60v88h-60z',fill:'#fff'},tr);
+E('path',{d:'M195 262h40v14l12 14v116h-64V290l12-14z',fill:'none',stroke:'#7d8fa3','stroke-width':2.5},tr);
+const colTxt=T(215,418,'','t-s',tr,{'text-anchor':'middle'});
+// pour
+const beak=E('g',{transform:'translate(352 262) rotate(-35)'},tr);
+const beakLiq=E('rect',{x:-6,y:8,width:34,height:26,fill:'#f1d67a'},beak);
+E('path',{d:'M-6 0v34h34V0',fill:'none',stroke:'#7d8fa3','stroke-width':2.5},beak);
+const lipX=346,lipY=264;
+const str=E('line',{x1:lipX,y1:lipY,x2:lipX,y2:lipY,stroke:'#f1d67a','stroke-width':3,'stroke-linecap':'round'},tr);
+const drp=E('ellipse',{cx:lipX,cy:lipY,rx:4,ry:5,fill:'#f1d67a',stroke:'#00000033'},tr);
+const pool=E('ellipse',{cx:lipX,cy:398,rx:40,ry:6,fill:'#f1d67a'},tr);
+const visTxt=T(380,418,'','t-s',tr,{'text-anchor':'middle'});
+const wisps=[0,1,2,3].map(()=>E('circle',{r:6,fill:'#c9d8e8',opacity:0},tr));
+// flame
+E('path',{d:'M520 396h60l-8 12h-44z',fill:'#7d8fa3'},tr);
+const fO=E('path',{fill:'#4f8ff7'},tr),fI=E('path',{fill:'#cfe0ff'},tr);
+const ignTxt=T(550,418,'','t-s',tr,{'text-anchor':'middle'});
+const smokeG=E('g',{},tr);let smoke=[],ignT=0,t2=0,dropT=0,smT=0;
+function set2(i){fi2=Math.max(0,Math.min(5,i));$('frs').value=fi2;const f=FR[fi2];$('frn').textContent=f.n;
+ mini.forEach((r,j)=>{r.setAttribute('stroke',j==fi2?'#4a44b5':'#cdd6df');r.setAttribute('stroke-width',j==fi2?3:1);r.setAttribute('opacity',j==fi2?1:.7)});
+ bars.forEach((b,j)=>barEl[j].v.textContent=b[2](f,fi2));
+ const c=f.col;bottleFill.setAttribute('fill',fi2==0?'#ffffff':c);colTxt.textContent=f.cw;
+ [beakLiq,str,drp,pool].forEach(e=>{e.setAttribute('fill',c);e.setAttribute('stroke',e===str?c:'#00000033')});
+ const liq=fi2>0;[beakLiq,str,drp,pool].forEach(e=>e.style.display=liq?'':'none');visTxt.textContent=liq?f.vis:'gas: does not pour';
+ ignT=0;dropT=0;smoke.forEach(s=>s.e.remove());smoke=[];
+ const above=fi2>0?FR[fi2-1].n.toLowerCase():'';
+ $('st2').innerHTML=`<p><b style="color:${f.k}">${f.n}</b> (${f.h}). Boiling point ${f.bp}. It is ${f.cw}, ${f.vis} and ignites ${f.ign}.</p>`+
+ (fi2==0?'<p>This is the <b>top</b> fraction. It has the shortest chains, so the lowest boiling point. It is a gas at room temperature and catches fire very easily.</p>':
+ `<p>Compared with ${above} (above it), ${f.n.toLowerCase()} has <b>longer chains</b>, a <b>higher boiling point</b>, is <b>more viscous</b>, <b>darker</b> and <b>harder to ignite</b>.</p>`)+`<p><b>Use:</b> ${f.use}.</p>`}
+const delay=[0,.2,.7,1.3,2.2,3.2],period=[1,.45,.8,1.4,2.6,4.5],smokRate=[0,0,.05,.3,.9,1.6];
+function upd2(dt){t2+=dt;const f=FR[fi2];
+ bars.forEach((b,j)=>{const B=barEl[j];B.w=lerp(B.w,b[1](f,fi2),Math.min(1,dt*6));B.r.setAttribute('width',Math.max(16,B.w*480).toFixed(1))});
+ if(fi2>0){dropT+=dt;const P=period[fi2],ph=(dropT%P)/P,stretch=fi2*7;let dy,ry=5;
+  if(ph<.72){const q=ph/.72;dy=4+q*stretch;ry=3+3*q;str.style.display=fi2>=3?'':'none'}else{const q=(ph-.72)/.28;dy=4+stretch+q*q*(392-lipY-4-stretch);str.style.display='none'}
+  drp.setAttribute('cy',(lipY+dy).toFixed(1));drp.setAttribute('ry',ry.toFixed(1));drp.setAttribute('rx',(ry*.85).toFixed(1));str.setAttribute('y2',(lipY+dy-ry).toFixed(1));
+  pool.setAttribute('rx',fi2>=4?22:40);pool.setAttribute('ry',fi2>=4?8:4);
+  wisps.forEach(w=>w.setAttribute('opacity',0))}
+ else wisps.forEach((w,k)=>{const q=((t2*.5+k/4)%1);w.setAttribute('cx',350+18*Math.sin(t2*2+k*2));w.setAttribute('cy',380-q*120);w.setAttribute('r',5+q*10);w.setAttribute('opacity',(1-q)*.8)});
+ ignT+=dt;const lit=ignT>=delay[fi2];const g=Math.min(1,(ignT-delay[fi2])*3);
+ ignTxt.textContent=lit?'ignites '+f.ign.split(' (')[0]:'heating… not alight yet';
+ const H=lit?(54-fi2*5)*g*(1+.1*Math.sin(t2*13)+.06*Math.sin(t2*7)):0,W=(fi2==0?11:14)*Math.max(g,0),x=550,y=396;
+ const sm=fi2/5;fO.setAttribute('fill',`rgb(${lerp(80,240,Math.min(1,sm*1.6))|0},${lerp(143,140,sm)|0},${lerp(247,40,Math.min(1,sm*1.6))|0})`);
+ fI.setAttribute('fill',fi2<2?'#d9e7ff':'#ffe27a');
+ const fp=(w,h)=>`M${x-w} ${y}Q${x-w} ${y-h*.45} ${x} ${y-h}Q${x+w} ${y-h*.45} ${x+w} ${y}Z`;fO.setAttribute('d',H?fp(W,H):'');fI.setAttribute('d',H?fp(W*.5,H*.55):'');
+ if(lit){smT+=dt*smokRate[fi2]*6;while(smT>1){smT--;smoke.push({e:E('circle',{fill:'#2b2b2b'},smokeG),x:x+(Math.random()-.5)*8,y:y-H,a:0})}}
+ smoke=smoke.filter(s=>{s.a+=dt*.7;s.y-=40*dt;s.x+=10*Math.sin(s.a*4)*dt;if(s.a>1||s.y<250){s.e.remove();return false}s.e.setAttribute('cx',s.x.toFixed(1));s.e.setAttribute('cy',s.y.toFixed(1));s.e.setAttribute('r',(3+s.a*9).toFixed(1));s.e.setAttribute('opacity',(.55*(1-s.a)).toFixed(2));return true})}
+$('frs').oninput=e=>set2(+e.target.value);$('up2').onclick=()=>set2(fi2-1);$('dn2').onclick=()=>set2(fi2+1);
+$('play2').onclick=()=>{play2=!play2;$('play2').textContent=play2?'Pause':'Play'};
+set2(0);
+/* ---------- TAB 3 ---------- */
+const pv=$('pv');let T3=20,heating=false,hiMode='I',t3=0;
+const boxes=[{x:10,n:5,bp:36,name:'Pentane',f:['C','5','H','12'],lab:'short chain'},{x:330,n:16,bp:287,name:'Hexadecane',f:['C','16','H','34'],lab:'long chain'}];
+boxes.forEach((B,bi)=>{const W=300;E('rect',{x:B.x,y:46,width:W,height:262,rx:10,fill:'#f6f8fb',stroke:'#7d8fa3','stroke-width':2},pv);
+ const t=T(B.x+8,20,'','t-b',pv);const parts=[[B.name+' ',0],[B.f[0],0],[B.f[1],1],[B.f[2],0],[B.f[3],1]];
+ let low=false;parts.forEach(([s,sub])=>{const sp=E('tspan',{'font-size':sub?10:13,dy:sub&&!low?4:!sub&&low?-4:0},t);sp.textContent=s;low=!!sub});
+ T(B.x+8,38,`${B.lab}, boiling point ${B.bp} °C`,'t-s',pv);
+ B.state=T(B.x+W-8,38,'liquid','t-b',pv,{'text-anchor':'end'});
+ B.imf=E('path',{fill:'none',stroke:'#4a44b5','stroke-width':2,'stroke-dasharray':'3 3'},pv);
+ B.ch=[];const sp=15,len=(B.n-1)*sp;
+ for(let r=0;r<4;r++){const g=E('g',{},pv);const pts=[];for(let j=0;j<B.n;j++)pts.push([j*sp-len/2,j%2?3:-3]);
+  const bl=E('polyline',{points:pts.join(' '),fill:'none',stroke:'#5a6878','stroke-width':3},g);
+  pts.forEach(p=>E('circle',{cx:p[0],cy:p[1],r:5,fill:'#3a4656'},g));
+  const hx=B.x+W/2,hy=290-r*26;B.ch.push({g,bl,pts,hx,hy,x:hx,y:hy,a:0,va:0,vx:0,vy:0,gas:false,ord:r})}
+ // energy bar
+ T(B.x+8,330,'Energy needed to separate the molecules','t-s',pv);E('rect',{x:B.x+8,y:338,width:284,height:14,rx:7,fill:'#e4eaf0'},pv);
+ B.eb=E('rect',{x:B.x+8,y:338,width:bi?270:50,height:14,rx:7,fill:'#d6542b'},pv);
+ T(B.x+8,374,bi?'Many contact points → strong attractions':'Few contact points → weak attractions','t-s',pv);
+ T(B.x+8,392,`${B.n} attractions between each pair of neighbours here`,'t-s',pv)});
+const thermo=T(320,392,'','t-b',pv,{'text-anchor':'middle'});thermo.style.display='none';
+const callout=E('g',{},pv);E('path',{d:'M520 205 L560 150',stroke:'#4a44b5','stroke-width':1.5,'marker-end':''},callout);T(560,132,'intermolecular','t-s',callout,{'text-anchor':'middle',style:'fill:#4a44b5;font-weight:700'});T(560,145,'forces','t-s',callout,{'text-anchor':'middle',style:'fill:#4a44b5;font-weight:700'});
+const callB=E('g',{},pv);E('path',{d:'M480 214 L470 150',stroke:'#b3261e','stroke-width':1.5},callB);T(470,132,'covalent bonds','t-s',callB,{'text-anchor':'middle',style:'fill:#b3261e;font-weight:700'});T(470,145,'(not broken)','t-s',callB,{'text-anchor':'middle',style:'fill:#b3261e;font-weight:700'});
+function upd3(dt){t3+=dt;if(heating){T3=Math.min(350,T3+35*dt);if(T3>=350){heating=false;$('play3').textContent='Heat'}syncT()}
+ boxes.forEach(B=>{const boil=T3>=B.bp;let d='';let liq=0;
+  B.ch.forEach(c=>{const want=boil&&(T3-B.bp)>=(3-c.ord)*6;
+   if(want&&!c.gas){c.gas=true;c.vx=(Math.random()-.5)*80;c.vy=-60-Math.random()*40;c.va=(Math.random()-.5)*1.5}
+   if(!want&&c.gas)c.gas=false;
+   const jig=1+T3/120;
+   if(c.gas){c.x+=c.vx*dt;c.y+=c.vy*dt;c.a+=c.va*dt;const hw=Math.abs(Math.cos(c.a))*(B.n-1)*7.5+6,hh=Math.abs(Math.sin(c.a))*(B.n-1)*7.5+6;
+    if(c.x<B.x+hw){c.x=B.x+hw;c.vx=Math.abs(c.vx)}if(c.x>B.x+300-hw){c.x=B.x+300-hw;c.vx=-Math.abs(c.vx)}
+    if(c.y<52+hh){c.y=52+hh;c.vy=Math.abs(c.vy)}if(c.y>230-hh&&c.vy>0){c.vy=-Math.abs(c.vy)}}
+   else{c.x=lerp(c.x,c.hx+jig*Math.sin(t3*9+c.ord*2),Math.min(1,dt*5));c.y=lerp(c.y,c.hy+jig*Math.cos(t3*11+c.ord),Math.min(1,dt*5));c.a=lerp(c.a,0,Math.min(1,dt*5));liq++}
+   c.g.setAttribute('transform',`translate(${c.x.toFixed(1)},${c.y.toFixed(1)}) rotate(${(c.a*57.3).toFixed(1)})`);
+   c.bl.setAttribute('stroke',hiMode=='B'?'#b3261e':'#5a6878');c.bl.setAttribute('stroke-width',hiMode=='B'?5:3)});
+  for(let r=0;r<3;r++){const a=B.ch[r],b=B.ch[r+1];if(a.gas||b.gas)continue;if(Math.abs(a.a)>.05||Math.abs(b.a)>.05)continue;
+   a.pts.forEach(p=>{d+=`M${(a.x+p[0]).toFixed(1)} ${(a.y+p[1]-6).toFixed(1)}V${(b.y+p[1]+6).toFixed(1)}`})}
+  B.imf.setAttribute('d',d);B.imf.setAttribute('opacity',hiMode=='I'?1:.25);B.imf.setAttribute('stroke-width',hiMode=='I'?2.2:1.2);
+  B.state.textContent=liq==4?'liquid':liq==0?'gas (boiled)':'boiling';B.state.style.fill=liq==4?'#1c2736':'#b3261e'});
+ callout.style.display=hiMode=='I'&&!boxes[1].ch[2].gas?'':'none';callB.style.display=hiMode=='B'?'':'none';
+ if(Math.floor(t3*4)!==Math.floor((t3-dt)*4))st3()}
+let lastSt='';
+function st3(){const a=T3>=36,b=T3>=287;let s;
+ if(!a)s=`<p>At ${Math.round(T3)} °C both substances are <b>liquids</b>. The molecules are held close together by <b>intermolecular forces</b> (weak attractions between molecules).</p><p>The long molecules touch their neighbours at many more points, so their intermolecular forces are <b>stronger</b>.</p>`;
+ else if(!b)s=`<p>Pentane has <b>boiled</b>. Its intermolecular forces are weak, so only a little energy was needed to separate the molecules.</p><p>Hexadecane is still liquid. Its <b>stronger intermolecular forces</b> need more energy to overcome, so it has a <b>higher boiling point</b> (287 °C).</p>`;
+ else s='<p>Now hexadecane boils too. Enough energy has been supplied to overcome its stronger intermolecular forces.</p><p>Look: every molecule is still in one piece. Boiling breaks the forces <b>between</b> molecules, <b>not</b> the covalent bonds <b>inside</b> them.</p>';
+ s+='<p><b>Longer chain → stronger intermolecular forces → more energy needed to separate molecules → higher boiling point.</b></p>';
+ if(hiMode=='B')s+='<p style="color:#b3261e">The covalent bonds (red) join the atoms inside each molecule. They are strong and are <b>not broken</b> when the alkane boils.</p>';
+ if(s!==lastSt){$('st3').innerHTML=s;lastSt=s}}
+function syncT(){$('tmp3').value=Math.round(T3);$('tval').textContent=Math.round(T3)+' °C'}
+$('tmp3').oninput=e=>{T3=+e.target.value;syncT();st3()};
+$('play3').onclick=()=>{heating=!heating;if(heating&&T3>=350)T3=20;$('play3').textContent=heating?'Pause':'Heat';syncT()};
+$('step3').onclick=()=>{heating=false;$('play3').textContent='Heat';T3=Math.min(350,T3+25);syncT();st3()};
+$('rep3').onclick=()=>{heating=true;T3=20;$('play3').textContent='Pause';boxes.forEach(B=>B.ch.forEach(c=>{c.gas=false;c.x=c.hx;c.y=c.hy;c.a=0}));syncT();st3()};
+function hi(m){hiMode=m;$('hiI').setAttribute('aria-pressed',m=='I');$('hiB').setAttribute('aria-pressed',m=='B');lastSt='';st3()}
+$('hiI').onclick=()=>hi('I');$('hiB').onclick=()=>hi('B');
+st3();
+/* ---------- tabs + loop ---------- */
+const tabs=[$('tb1'),$('tb2'),$('tb3')],pans=[$('p1'),$('p2'),$('p3')];let cur=0;
+function showTab(i){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j==i);t.tabIndex=j==i?0:-1;pans[j].hidden=j!=i})}
+tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{const d=e.key=='ArrowRight'?1:e.key=='ArrowLeft'?-1:0;if(d){const n=(i+d+3)%3;showTab(n);tabs[n].focus()}}});
+let last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+ if(cur==0){flick(dt);if(play1)upd1(dt*spd)}else if(cur==1){if(play2)upd2(dt)}else upd3(dt);
+ requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+/* ---------- quiz ---------- */
+const Q=[
+['Which statement best describes crude oil?',['A compound of carbon and hydrogen','A mixture of hydrocarbons, mostly alkanes','A single pure alkane','A mixture of the elements carbon and hydrogen'],1,'Crude oil contains many different hydrocarbons mixed together; most are alkanes.'],
+['Where in the fractionating column is the temperature highest?',['At the top','In the middle','At the bottom','It is the same everywhere'],2,'The column is hot at the bottom and cool at the top.'],
+['Which fraction has the longest chains and the highest boiling point?',['Refinery gases','Kerosene','Diesel','Bitumen'],3,'Bitumen is collected at the bottom: longest chains, highest boiling point.'],
+['Why does hexadecane (C<sub>16</sub>H<sub>34</sub>) have a higher boiling point than pentane (C<sub>5</sub>H<sub>12</sub>)?',['It has more covalent bonds to break','Its intermolecular forces are stronger, so more energy is needed to overcome them','Its molecules are heavier, so they sink','It contains double bonds'],1,'Boiling overcomes intermolecular forces, not covalent bonds. Longer molecules attract each other more strongly.']];
+const qs=$('qs');Q.forEach((q,i)=>{const li=document.createElement('li');li.innerHTML=`<p><b>${q[0]}</b></p>`+q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')+`<div class="fb" id="fb${i}"></div>`;qs.appendChild(li)});
+$('chk').onclick=()=>{let s=0;Q.forEach((q,i)=>{const c=document.querySelector(`input[name=q${i}]:checked`),f=$('fb'+i);
+ if(!c){f.className='fb no';f.textContent='Choose an answer.';return}const ok=+c.value===q[2];if(ok)s++;f.className='fb '+(ok?'ok':'no');f.innerHTML=(ok?'Correct. ':'Not quite. ')+q[3]});
+ const sc=$('score');sc.textContent=`Score: ${s} / ${Q.length}`;sc.style.color=s==Q.length?'var(--good)':'var(--ink)'};
+</script><script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',
+ stem:'Which statement best describes crude oil?',
+ opts:['A compound of carbon and hydrogen.','A mixture of hydrocarbons, most of which are alkanes.','A mixture of alkenes only.','A pure substance with one boiling point.'],
+ ans:1,why:'Crude oil contains many different hydrocarbons that are not chemically joined, so it is a mixture. It can be separated by a physical process because each hydrocarbon has its own boiling point.'},
+{ref:'Q1(b)',marks:1,type:'mcq',
+ stem:'Which of these is a hydrocarbon?',
+ opts:['C<sub>2</sub>H<sub>5</sub>OH','CH<sub>3</sub>Cl','C<sub>7</sub>H<sub>16</sub>','CO<sub>2</sub>'],
+ ans:2,why:'A hydrocarbon is a compound of hydrogen and carbon <b>only</b>. The other compounds also contain oxygen or chlorine.'},
+{ref:'Q2',marks:4,type:'drop',ctx:'Crude oil is separated into fractions. Each fraction has its own uses.',
+ stem:'Choose the fraction that is used for each purpose.',
+ items:[{pre:'fuel for aircraft:',opts:['refinery gases','gasoline','kerosene','diesel','fuel oil','bitumen'],ans:2,aria:'Fraction used as fuel for aircraft'},
+  {pre:'fuel for cars (petrol):',opts:['refinery gases','gasoline','kerosene','diesel','fuel oil','bitumen'],ans:1,aria:'Fraction used as fuel for cars'},
+  {pre:'surfacing roads and roofs:',opts:['refinery gases','gasoline','kerosene','diesel','fuel oil','bitumen'],ans:5,aria:'Fraction used for roads and roofs'},
+  {pre:'fuel for large ships and power stations:',opts:['refinery gases','gasoline','kerosene','diesel','fuel oil','bitumen'],ans:4,aria:'Fraction used as fuel for ships and power stations'}],
+ why:'Refinery gases: bottled gas for heating and cooking. Gasoline: car fuel. Kerosene: aircraft fuel. Diesel: fuel for some cars, lorries and trains. Fuel oil: ships and power stations. Bitumen: roads and roofs.'},
+{ref:'Q3',marks:3,type:'drop',ctx:'Bitumen is collected at the bottom of the fractionating column and gasoline near the top.',
+ stem:'Complete the sentence comparing bitumen with gasoline.',
+ items:[{pre:'Compared with gasoline, bitumen has a',opts:['higher','lower'],ans:0,post:'boiling point,',aria:'Boiling point of bitumen'},
+  {pre:'is',opts:['more viscous','less viscous'],ans:0,aria:'Viscosity of bitumen'},
+  {pre:'and is',opts:['darker','paler'],ans:0,post:'in colour.',aria:'Colour of bitumen'}],
+ why:'Fractions lower down the column contain longer molecules. They have higher boiling points, are more viscous (thicker), are darker and are harder to ignite.'},
+{ref:'Q4(a)',marks:1,type:'calc',
+ ctx:'The table shows the boiling points of some alkanes.<div class="ex-tblwrap"><table class="ex-tbl"><tbody><tr><th>alkane</th><td>C<sub>5</sub>H<sub>12</sub></td><td>C<sub>6</sub>H<sub>14</sub></td><td>C<sub>7</sub>H<sub>16</sub></td><td>C<sub>8</sub>H<sub>18</sub></td><td>C<sub>9</sub>H<sub>20</sub></td><td>C<sub>10</sub>H<sub>22</sub></td></tr><tr><th>boiling point / °C</th><td>36</td><td>69</td><td>98</td><td>126</td><td>?</td><td>174</td></tr></tbody></table></div>',
+ stem:'Estimate the boiling point of C<sub>9</sub>H<sub>20</sub>.',
+ inputs:[{lab:'boiling point of C<sub>9</sub>H<sub>20</sub> ≈',unit:'°C',ans:150,tol:8,m:1}],
+ work:'<ol><li>C<sub>9</sub>H<sub>20</sub> lies between C<sub>8</sub>H<sub>18</sub> (126 °C) and C<sub>10</sub>H<sub>22</sub> (174 °C).</li><li>Halfway: (126 + 174) ÷ 2 = <b>150 °C</b>. Any answer from 142 °C to 158 °C is accepted (the real value is 151 °C).</li></ol>'},
+{ref:'Q4(b)',marks:2,type:'written',
+ stem:'Explain why the boiling point increases as the number of carbon atoms in the molecule increases.',
+ points:['larger / longer molecules have stronger intermolecular forces (forces between molecules)','so more (heat) energy is needed to overcome these forces'],
+ note:'Do not accept "more energy to break the (covalent) bonds": boiling does not break covalent bonds'},
+{ref:'Q5',marks:1,type:'mcq',
+ stem:'When kerosene boils, what is overcome?',
+ opts:['Covalent bonds between carbon and hydrogen atoms.','Covalent bonds between carbon atoms.','Intermolecular forces between the molecules.','Ionic bonds between the molecules.'],
+ ans:2,why:'Boiling is a physical change. The molecules separate from each other, but the covalent bonds inside each molecule are not broken.'},
+{ref:'Q6',marks:2,type:'written',ctx:'Gasoline is used as a fuel in car engines.',
+ stem:'Give <b>two</b> properties of gasoline that make it more suitable than fuel oil as a fuel for cars.',
+ points:['it has a lower boiling point / it vaporises (evaporates) more easily','it ignites more easily / it is more flammable','it is less viscous / it flows more easily (through fuel pipes)']},
+{ref:'Q7',marks:6,type:'written',
+ stem:'Describe and explain how crude oil is separated into fractions by fractional distillation.',
+ points:['crude oil is heated so that most of it vaporises / turns into a gas','the vapour enters (near the bottom of) a fractionating column','the column is hot at the bottom and cooler at the top / there is a temperature gradient','the vapours rise up the column','each hydrocarbon condenses when it reaches a level where the temperature is below its boiling point','fractions with low boiling points (short molecules) are collected near the top; refinery gases leave the top as gases','fractions with high boiling points (long molecules) condense lower down; bitumen is collected at the bottom as a liquid'],
+ note:'Answers must explain why the fractions separate (boiling points and the temperature gradient) for full marks'}
+];
+</script>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('toptabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var d=el('div','ex-drop'), sels=[], cors=[];
+      q.items.forEach(function(it,k){
+        var row=el('div','ex-drow'); if(it.pre) row.appendChild(el('span','',it.pre));
+        var sl=document.createElement('select'); sl.className='ex-sel'; sl.setAttribute('aria-label',it.aria||('Answer '+(k+1)));
+        sl.appendChild(new Option('Choose…',''));
+        it.opts.forEach(function(o,j){sl.appendChild(new Option(o,String(j)));});
+        row.appendChild(sl); if(it.post) row.appendChild(el('span','',it.post));
+        var cr=el('span','ex-corr'); cr.hidden=true; row.appendChild(cr);
+        d.appendChild(row); sels.push(sl); cors.push(cr);
+      });
+      var bt3=el('button','btn','Check'); bt3.type='button'; var bw3=el('div','ex-act'); bw3.appendChild(bt3); d.appendChild(bw3);
+      bt3.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.items[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');
+          if(!ok){cors[k].textContent='✓ '+q.items[k].opts[q.items[k].ans]; cors[k].hidden=false;}});
+        var sc=Math.min(n,q.marks); s.score=sc; s.marked=true; bt3.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(q.why||'')); upd();
+      });
+      c.appendChild(d); c.appendChild(box);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

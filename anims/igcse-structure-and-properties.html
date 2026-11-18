@@ -1,0 +1,565 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Structure and properties</title>
+<meta name="description" content="Interactive animation: Structure and properties. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/anims/igcse-structure-and-properties.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.25rem;font-weight:600}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.kicker{font:700 .8rem var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.xtabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1rem var(--display);padding:11px 20px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto;min-width:0}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+@media (max-width:760px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:9px 12px;font-size:.92rem;border-radius:12px}}
+.layout{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:16px;align-items:start}
+@media (max-width:780px){.layout{grid-template-columns:1fr}}
+.stage{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:0}
+.stage svg{display:block;width:100%;height:auto}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.lbl{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.picks{display:flex;flex-wrap:wrap;gap:6px}
+.pick{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.pick:focus-visible,.xtab:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chk{display:flex;gap:8px;align-items:center;font-size:.95rem;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--accent)}
+input[type=range]{accent-color:var(--accent);width:100%}
+.status{background:var(--accent-soft);border-left:4px solid var(--accent)}
+.status p{font-size:.97rem}
+.eq{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.note{font-size:.88rem;color:var(--muted)}
+.tbl{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:620px}
+th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:#f6f6fd}
+td.y{color:var(--good);font-weight:700} td.n{color:var(--bad);font-weight:700}
+ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+ol.qs{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+ol.qs fieldset{border:0;margin:0;padding:0;display:block}
+ol.qs legend{font-weight:700;padding:0;margin-bottom:4px}
+ol.qs label{display:flex;gap:8px;align-items:flex-start;cursor:pointer;padding:3px 6px;border-radius:8px}
+ol.qs input{margin-top:5px;accent-color:var(--accent)}
+.fb{font-size:.92rem;padding:4px 10px;border-radius:8px}
+.fb.ok{background:#e6f4ec;color:var(--good)} .fb.no{background:#fdecea;color:var(--bad)}
+.score{font-weight:700}
+svg text{font-family:var(--body)}
+[hidden]{display:none!important}
+@media (max-width:520px){body{font-size:16px}}
+/* ---- top tabs + exam practice ---- */
+.toptabs{display:flex;gap:10px;flex-wrap:wrap}
+.toptab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.toptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.toptab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.toppanel{display:flex;flex-direction:column;gap:20px;min-width:0}
+.toppanel[hidden]{display:none}
+.ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tblwrap{overflow-x:auto;max-width:100%;margin-top:8px}
+.ex-tbl{border-collapse:collapse;width:auto;min-width:0;font-size:.92rem}
+.ex-tbl th,.ex-tbl td{border:1px solid var(--line);padding:5px 10px;text-align:left;vertical-align:top}
+.ex-tbl thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+.ex-tbl tbody th,.ex-tbl td{white-space:nowrap}
+.ex-act .btn:disabled{opacity:.45;cursor:default}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok,.ex-in select.ok{border-color:var(--good)}.ex-in input.wrong,.ex-in select.wrong{border-color:var(--bad)}
+.ex-in select{font:inherit;max-width:100%;padding:5px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ex-unit{font-weight:700}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+<div class="wrap">
+<header>
+<div class="kicker">IGCSE Chemistry · Bonding and structure</div>
+<h1>Structure and properties</h1>
+<p>Choose a tab. Use the buttons to heat, hit, push or connect a battery. Watch the particles, then read the card. The structure explains the properties.</p>
+</header>
+<div class="toptabs" id="topTabRow" role="tablist" aria-label="Sections"><button type="button" class="toptab" role="tab" id="tabLearn" aria-selected="true" aria-controls="panelLearn">1 · Learn</button><button type="button" class="toptab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="toppanel" id="panelLearn" role="tabpanel" aria-labelledby="tabLearn">
+
+<div class="xtabs" role="tablist" aria-label="Types of structure">
+<button class="xtab" type="button" role="tab" id="tb0" aria-selected="true" aria-controls="pn0">1 · Giant ionic</button>
+<button class="xtab" type="button" role="tab" id="tb1" aria-selected="false" aria-controls="pn1" tabindex="-1">2 · Simple molecular</button>
+<button class="xtab" type="button" role="tab" id="tb2" aria-selected="false" aria-controls="pn2" tabindex="-1">3 · Giant covalent</button>
+</div>
+
+<div id="pn0" role="tabpanel" aria-labelledby="tb0" class="layout">
+<div class="stage"><svg id="sv0" viewBox="0 0 640 380" role="img" aria-label="Sodium chloride lattice between two electrodes"></svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Sodium chloride, NaCl</div>
+<div class="picks" id="st0b"><button class="pick" type="button" data-s="solid" aria-pressed="true">Solid</button><button class="pick" type="button" data-s="molten" aria-pressed="false">Molten</button><button class="pick" type="button" data-s="solution" aria-pressed="false">Dissolved in water</button></div>
+<div class="row"><button class="btn" type="button" id="play0">Pause</button><button class="btn ghost" type="button" id="hit0">Hit it</button><button class="btn ghost" type="button" id="step0">Step</button><button class="btn ghost" type="button" id="rep0">Replay</button></div>
+<label class="chk"><input type="checkbox" id="labs0" checked>Show labels</label>
+</div>
+<div class="card status" aria-live="polite"><h3>What's happening</h3><div id="ss0"></div></div>
+</div></div>
+
+<div id="pn1" role="tabpanel" aria-labelledby="tb1" class="layout" hidden>
+<div class="side"><div class="stage"><svg id="sv1" viewBox="0 0 640 380" role="img" aria-label="Particle view of a simple molecular substance being heated"></svg></div>
+<div class="card"><h3>Bigger molecules, higher boiling point</h3><div class="row" style="align-items:center;gap:16px"><svg id="bpc" viewBox="0 0 300 172" style="flex:1 1 260px;max-width:340px" role="img" aria-label="Bar chart of boiling points of methane, butane and octane"></svg>
+<p class="note" style="flex:1 1 160px">Larger molecules have stronger intermolecular forces. More energy is needed to overcome them, so the boiling point is higher.</p></div></div></div>
+<div class="side">
+<div class="card"><div class="lbl">Choose a substance</div><div class="picks" id="subs"></div>
+<div class="lbl">Temperature</div>
+<input type="range" id="temp" min="-200" max="250" step="1" value="-200" aria-label="Temperature in degrees Celsius">
+<div class="row"><span class="readout" id="tRead">−200 °C</span><span class="readout" id="sRead">solid</span></div>
+<div class="row"><button class="btn" type="button" id="play1">Pause</button><button class="btn ghost" type="button" id="heat1">Heat steadily</button><button class="btn ghost" type="button" id="step1">Step</button><button class="btn ghost" type="button" id="rep1">Replay</button></div>
+<label class="chk"><input type="checkbox" id="labs1" checked>Show labels</label>
+</div>
+<div class="card status" aria-live="polite"><h3>What's happening</h3><div id="ss1"></div></div>
+</div></div>
+
+<div id="pn2" role="tabpanel" aria-labelledby="tb2" class="layout" hidden>
+<div class="stage"><svg id="sv2" viewBox="0 0 640 380" role="img" aria-label="Giant covalent structure in a circuit"></svg></div>
+<div class="side">
+<div class="card"><div class="lbl">Choose a structure</div><div class="picks" id="gcs"></div>
+<div class="row"><button class="btn" type="button" id="play2">Pause</button><button class="btn ghost" type="button" id="push2">Push</button><button class="btn ghost" type="button" id="bat2">Connect battery</button></div>
+<label class="chk"><input type="checkbox" id="labs2" checked>Show labels</label>
+<p class="note">C<sub>60</sub> fullerene is different: it is a simple molecule. It has weak intermolecular forces, so it is soft and melts at a much lower temperature.</p>
+</div>
+<div class="card status" aria-live="polite"><h3>What's happening</h3><div id="ss2"></div></div>
+</div></div>
+
+<section class="sheet"><h2>Compare the structures</h2><div class="tbl"><table>
+<thead><tr><th>Structure</th><th>Melting and boiling points</th><th>Conducts when solid?</th><th>Conducts when molten or dissolved?</th><th>Hard or soft?</th></tr></thead>
+<tbody>
+<tr><th>Giant ionic<br><span class="note">sodium chloride</span></th><td>High (strong attractions between ions)</td><td class="n">No: ions fixed</td><td class="y">Yes: ions free to move</td><td>Hard but brittle</td></tr>
+<tr><th>Simple molecular<br><span class="note">water, methane, iodine</span></th><td>Low (weak intermolecular forces)</td><td class="n">No</td><td class="n">No: no ions or delocalised electrons</td><td>Usually soft, weak solids</td></tr>
+<tr><th>Giant covalent: diamond<br><span class="note">also silicon dioxide</span></th><td>Very high (many strong covalent bonds)</td><td class="n">No</td><td>Does not dissolve in water</td><td>Very hard</td></tr>
+<tr><th>Giant covalent: graphite</th><td>Very high (many strong covalent bonds)</td><td class="y">Yes: delocalised electrons</td><td>Does not dissolve in water</td><td>Soft and slippery: layers slide</td></tr>
+</tbody></table></div></section>
+
+<section class="sheet"><h2>Key points</h2><ul class="kp">
+<li><b>Giant ionic</b> lattices have many <b>strong electrostatic attractions</b> between oppositely charged ions in all directions. Lots of energy is needed to overcome them, so melting and boiling points are <b>high</b>.</li>
+<li>Ionic compounds <b>do not conduct</b> when solid (ions are fixed). They <b>conduct</b> when <b>molten</b> or <b>in aqueous solution</b> because the ions are free to move.</li>
+<li><b>Simple molecular</b> substances have strong covalent bonds inside molecules but <b>weak intermolecular forces</b> between molecules. Melting and boiling overcome the intermolecular forces. <b>The covalent bonds do not break.</b></li>
+<li>Melting and boiling points of simple molecular substances generally <b>increase</b> as relative molecular mass increases. They do not conduct: there are no ions or delocalised electrons.</li>
+<li><b>Giant covalent</b> structures have very high melting points: many strong covalent bonds must break. Diamond: each C bonded to <b>4</b> others, very hard, does not conduct. Graphite: each C bonded to <b>3</b> others in layers with weak forces between them, so layers slide (soft, lubricant). One <b>delocalised electron</b> per atom moves along the layers, so graphite conducts.</li>
+</ul></section>
+
+<section class="sheet"><h2>Quick check</h2><ol class="qs" id="qs"></ol>
+<div class="row"><button class="btn" type="button" id="chk">Check</button><span class="score" id="score" aria-live="polite"></span></div></section>
+</div>
+<div class="toppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this topic. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="ex-toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=u=>u<0?0:u>1?1:u;
+const ease=u=>{u=cl(u);return u*u*(3-2*u)};
+const f=n=>n.toFixed(1);
+const R=Math.random;
+function tx(x,y,s,a){return `<text x="${x}" y="${y}" ${a||''}>${s}</text>`}
+const sup=s=>`<tspan baseline-shift="super" font-size="70%">${s}</tspan>`;
+const fsv=s=>s.replace(/<sub>(\d+)<\/sub>/g,'<tspan baseline-shift="sub" font-size="75%">$1</tspan>');
+const TT='font-size="17" font-weight="700" fill="#4a44b5" font-family="Lexend,sans-serif"';
+const neg=v=>(v<0?'−'+(-v):''+v);
+function mv(p,dt,sp,b){p.vx+=(R()-.5)*600*dt;p.vy+=(R()-.5)*600*dt;const s=Math.hypot(p.vx,p.vy);if(s>sp){p.vx*=sp/s;p.vy*=sp/s}
+  p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.x<b[0]){p.x=b[0];p.vx=Math.abs(p.vx)}if(p.x>b[1]){p.x=b[1];p.vx=-Math.abs(p.vx)}if(p.y<b[2]){p.y=b[2];p.vy=Math.abs(p.vy)}if(p.y>b[3]){p.y=b[3];p.vy=-Math.abs(p.vy)}}
+/* circuit: plates at xL and xR, wires to battery and bulb along the top */
+function circuit(xL,xR,yT,yB,closed,lit,lb){
+  let h=`<g fill="#6b7787"><rect x="${xL}" y="${yT}" width="10" height="${yB-yT}" rx="2"/><rect x="${xR}" y="${yT}" width="10" height="${yB-yT}" rx="2"/></g>`;
+  h+=`<g stroke="#1c2736" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M${xL+5} ${yT}V26H300M312 26H350${closed?'H385':'M350 26L380 10M385 26'}H428M452 26H${xR+5}V${yT}"/><path d="M300 16v20" /><path d="M312 8v36" stroke-width="3"/></g><circle cx="350" cy="26" r="3" fill="#1c2736"/><circle cx="385" cy="26" r="3" fill="#1c2736"/>`;
+  h+=(lit?'<circle cx="440" cy="26" r="22" fill="#ffe680" opacity=".75"/>':'')+`<circle cx="440" cy="26" r="12" fill="${lit?'#ffd23f':'#fff'}" stroke="#1c2736" stroke-width="2.2"/><path d="M431.5 17.5l17 17m0-17l-17 17" stroke="#1c2736" stroke-width="1.8"/>`;
+  h+=tx(292,52,'−','font-size="18" font-weight="700"')+tx(316,52,'+','font-size="18" font-weight="700"');
+  if(lb)h+=tx(468,16,'bulb '+(lit?'ON':'OFF'),`font-size="14" font-weight="700" fill="${lit?'#1d7a46':'#b3261e'}"`)+tx(290,12,'battery','font-size="13" fill="#5a6878" text-anchor="end"');
+  return h;
+}
+function stepper(S,acts){const a=acts.find(r=>r[1]>S.t+0.01);if(!a)return;S.t=Math.max(S.t,a[0]);S.until=a[1];S.run=true}
+function adv(S,dt){if(S.t<0)return;S.t+=dt;if(S.until!=null&&S.t>=S.until){S.t=S.until;S.until=null;S.run=false}}
+
+/* ---------- TAB 1: GIANT IONIC ---------- */
+const SP=50,X0=120,Y0=110;
+const A={run:true,st:'solid',t:-1,until:null,ions:[],w:[]};
+for(let r=0;r<5;r++)for(let c=0;c<8;c++){const hx=X0+c*SP,hy=Y0+r*SP;A.ions.push({c,r,neg:(c+r)%2===0,hx,hy,x:hx,y:hy,vx:0,vy:0,ph:R()*6})}
+for(let n=0;n<30;n++)A.w.push({x:110+R()*420,y:100+R()*220,vx:0,vy:0});
+const ACT0=[[0,1],[1,2],[2,3],[3,4.6]];
+function home(p){let x=p.hx,y=p.hy;const t=A.t;if(t<0||p.r>1)return [x,y];
+  x+=SP*ease(t-1);const e=ease((t-3)/1.3);if(e>0){const a=-5*e*Math.PI/180,cx=320,cy=135,dx=x-cx-20*e,dy=y-cy;x=cx+dx*Math.cos(a)-dy*Math.sin(a);y=cy+dx*Math.sin(a)+dy*Math.cos(a)-38*e}
+  return [x,y]}
+function step0(dt){
+  const free=A.st!=='solid',sp=A.st==='molten'?75:95,k=Math.min(1,dt*4);
+  A.ions.forEach(p=>{if(!free){const [hx,hy]=home(p),v=A.t>3?0:2.2;p.x+=(hx+v*Math.sin(performance.now()/90+p.ph)-p.x)*k;p.y+=(hy+v*Math.cos(performance.now()/105+p.ph*1.3)-p.y)*k;p.vx=p.vy=0}
+    else{p.vx+=(p.neg?1:-1)*45*dt;mv(p,dt,sp,[118,522,104,312])}});
+  if(A.st==='solution')A.w.forEach(w=>mv(w,dt,120,[110,530,96,322]));
+}
+function draw0(){
+  const lb=$('labs0').checked,st=A.st,t=A.t,free=st!=='solid';let h='';
+  if(st==='molten')h+='<rect x="76" y="58" width="488" height="290" rx="14" fill="#fff0dc"/>';
+  if(st==='solution')h+='<rect x="76" y="58" width="488" height="290" rx="14" fill="#e3f1fb"/>';
+  h+=circuit(88,542,62,330,true,free,lb);
+  if(st==='solution')A.w.forEach(w=>{h+=`<circle cx="${f(w.x)}" cy="${f(w.y)}" r="5" fill="#8cc4ea"/>`});
+  if(!free){h+='<g stroke="#9fb0c2" stroke-width="2.4">';
+    A.ions.forEach(p=>A.ions.forEach(q=>{if((q.c===p.c+1&&q.r===p.r)||(q.r===p.r+1&&q.c===p.c)){if(Math.hypot(q.x-p.x,q.y-p.y)<62)h+=`<line x1="${f(p.x)}" y1="${f(p.y)}" x2="${f(q.x)}" y2="${f(q.y)}"/>`}}));h+='</g>';}
+  A.ions.forEach(p=>{const r=p.neg?19:12,c=p.neg?'#2f9e6a':'#7a4fd0';
+    h+=`<circle cx="${f(p.x)}" cy="${f(p.y)}" r="${r}" fill="${c}" stroke="#fff" stroke-width="1.5"/>`+tx(f(p.x),f(p.y+(p.neg?6:5)),p.neg?'−':'+',`text-anchor="middle" font-size="${p.neg?18:15}" font-weight="700" fill="#fff"`)});
+  if(t>=0&&!free){
+    if(t<2.2){const u=ease(t/0.8),hx=-40+u*105,o=1-cl((t-1.6)/0.6);
+      h+=`<g opacity="${o}"><rect x="${hx-60}" y="128" width="60" height="14" rx="4" fill="#8a6a46"/><rect x="${hx}" y="105" width="34" height="60" rx="6" fill="#5a6878" stroke="#1c2736" stroke-width="2"/></g>`;
+      if(t>0.7&&t<1.3)h+=tx(f(hx+40),100,'BANG','font-size="15" font-weight="700" fill="#b3261e"');}
+    if(t>=2&&t<3.4){const o=ease((t-2)/0.4)*(1-cl((t-3)/0.4));h+=`<g stroke="#b3261e" stroke-width="2.6" opacity="${o}" fill="#b3261e">`;
+      A.ions.filter(p=>p.r===1&&p.c<7).forEach(p=>{const q=A.ions.find(z=>z.r===2&&z.c===p.c+1);const x=(p.x+q.x)/2,y=(p.y+q.y)/2;
+        h+=`<path d="M${f(x)} ${f(y-8)}v16"/><path d="M${f(x)} ${f(y-15)}l-5 8h10zM${f(x)} ${f(y+15)}l-5 -8h10z" stroke-width="1"/>`});
+      h+='</g>';if(lb)h+=tx(320,346,'like charges are next to each other: they repel','text-anchor="middle" font-size="15" font-weight="700" fill="#b3261e" opacity="'+o+'"');}
+    if(t>=3.2){const o=ease((t-3.2)/0.5);h+=`<path d="M120 185l40 6l30 -8l40 9l35 -7l45 8l40 -6l45 7l40 -6l45 5" fill="none" stroke="#b3261e" stroke-width="2.5" stroke-dasharray="6 5" opacity="${o}"/>`;
+      if(lb)h+=tx(320,346,'the crystal shatters: ionic solids are brittle','text-anchor="middle" font-size="15" font-weight="700" fill="#b3261e" opacity="'+o+'"');}
+  }
+  if(lb&&!free&&t<0){h+=tx(320,350,'strong electrostatic attractions in all directions','text-anchor="middle" font-size="15" font-weight="700" fill="#5a6878"');}
+  if(lb&&free){h+=tx(104,80,'Na'+sup('+')+' ions move to the − electrode','font-size="14" font-weight="700" fill="#7a4fd0"')+tx(536,342,'Cl'+sup('−')+' ions move to the + electrode','font-size="14" font-weight="700" fill="#2f9e6a" text-anchor="end"');}
+  h+=`<circle cx="30" cy="368" r="8" fill="#7a4fd0"/><text x="44" y="373" font-size="14">Na${sup('+')} ion</text><circle cx="140" cy="368" r="11" fill="#2f9e6a"/><text x="157" y="373" font-size="14">Cl${sup('−')} ion</text><line x1="240" y1="368" x2="270" y2="368" stroke="#9fb0c2" stroke-width="2.4"/><text x="276" y="373" font-size="14">ionic bond (attraction)</text>`;
+  if(st==='solution')h+=`<circle cx="450" cy="368" r="5" fill="#8cc4ea"/>`+tx(460,373,'water molecule','font-size="14"');
+  $('sv0').innerHTML=h;
+}
+function stat0(){const t=A.t;let h;
+  if(A.st==='molten')h=`<p>The solid is heated above its melting point (801 °C). It is now a <b>liquid</b>.</p><p>The <b>ions are free to move</b>. Moving ions carry charge, so molten sodium chloride <b>conducts electricity</b>. The bulb is on.</p><div class="eq">NaCl(s) → NaCl(l)</div>`;
+  else if(A.st==='solution')h=`<p>Sodium chloride <b>dissolves in water</b>. The lattice breaks up into separate ions.</p><p>The <b>ions are free to move</b>, so the solution <b>conducts electricity</b>.</p><div class="eq">NaCl(s) → Na<sup>+</sup>(aq) + Cl<sup>−</sup>(aq)</div>`;
+  else if(t<0)h=`<p>A <b>giant ionic lattice</b>: positive and negative ions in a regular pattern. Each ion is surrounded by ions of the opposite charge.</p><p>There are many <b>strong electrostatic attractions</b> in all directions. A lot of energy is needed to overcome them, so the <b>melting point is high</b> (801 °C) and the boiling point is high (1413 °C).</p><p>In the solid the <b>ions are fixed</b>. They cannot move, so it <b>does not conduct</b>. Press <b>Hit it</b>.</p>`;
+  else if(t<1)h=`<p>A force hits the crystal. The strong attractions make ionic solids <b>hard</b>.</p>`;
+  else if(t<2)h=`<p>The force pushes the top layers of ions along by one ion.</p>`;
+  else if(t<3.1)h=`<p>Now <b>ions with the same charge</b> are next to each other: + next to +, − next to −. <b>Like charges repel.</b></p>`;
+  else h=`<p>The repulsion pushes the layers apart. The crystal <b>shatters</b>.</p><p>Ionic compounds are <b>hard but brittle</b>. Press Replay, or choose Solid to reset.</p>`;
+  $('ss0').innerHTML=h}
+
+/* ---------- TAB 2: SIMPLE MOLECULAR ---------- */
+const SM={CH4:{nm:'methane',f:'CH<sub>4</sub>',mp:-182,bp:-162,mr:16,nb:4},H2O:{nm:'water',f:'H<sub>2</sub>O',mp:0,bp:100,mr:18,nb:2},I2:{nm:'iodine',f:'I<sub>2</sub>',mp:114,bp:184,mr:254,nb:1}};
+const C={sub:'H2O',T:-200,run:true,heat:false,m:[]};
+for(let n=0;n<16;n++){const r=n>>2,c=n&3,sx=247+(c-1.5)*64,sy=290-r*62;C.m.push({sx,sy,x:sx,y:sy,vx:0,vy:0,a:0,w:0,ph:R()*6})}
+const stOf=T=>{const S=SM[C.sub];return T<S.mp?'solid':T<S.bp?'liquid':'gas'};
+const HL=5,BX=[70,424,66,318];let ct=0;
+function atoms(k,m){const H='#fff',a=m.a;
+  if(k==='I2')return [[m.x-13*Math.cos(a),m.y-13*Math.sin(a),11,'#6b3fa0'],[m.x+13*Math.cos(a),m.y+13*Math.sin(a),11,'#6b3fa0']];
+  if(k==='H2O')return [[m.x,m.y,11,'#d9433b'],[m.x+19*Math.cos(a-.91),m.y+19*Math.sin(a-.91),6.5,H],[m.x+19*Math.cos(a+.91),m.y+19*Math.sin(a+.91),6.5,H]];
+  const o=[[m.x,m.y,10,'#4b5563']];for(let j=0;j<4;j++)o.push([m.x+20*Math.cos(a+j*Math.PI/2),m.y+20*Math.sin(a+j*Math.PI/2),6.5,H]);return o}
+function step1(dt){
+  const S=SM[C.sub],st=stOf(C.T),M=C.m;ct+=dt;
+  if(C.heat){C.T=Math.min(250,C.T+30*dt);if(C.T>=250)C.heat=false;syncT()}
+  const fr=st==='solid'?(C.T+200)/(S.mp+201):0;
+  M.forEach((m,i)=>{
+    if(st==='solid'){const amp=1+4*cl(fr),ta=(i%2?0.4:-0.4)+(C.sub==='H2O'?-Math.PI/2:0);const k=Math.min(1,dt*3);
+      m.x+=(m.sx+amp*Math.sin(ct*11+m.ph)-m.x)*k;m.y+=(m.sy+amp*Math.cos(ct*9+m.ph*1.7)-m.y)*k;m.a+=(ta+0.03*amp*Math.sin(ct*7+m.ph)-m.a)*k;m.vx=m.vy=m.w=0;return}
+    const liq=st==='liquid',sp=liq?55:230;
+    m.vx+=(R()-.5)*(liq?500:200)*dt;m.vy+=(R()-.5)*(liq?500:200)*dt;
+    if(liq){m.vy+=260*dt;M.forEach(o=>{if(o===m)return;const dx=o.x-m.x,dy=o.y-m.y,d=Math.hypot(dx,dy);if(d<84&&d>46){m.vx+=dx/d*90*dt;m.vy+=dy/d*90*dt}})}
+    const s=Math.hypot(m.vx,m.vy);if(!liq&&s<sp*0.7){m.vx*=1.05;m.vy*=1.05}if(s>sp){m.vx*=sp/s;m.vy*=sp/s}
+    m.w+=(R()-.5)*8*dt;m.w=Math.max(liq?-1:-3,Math.min(liq?1:3,m.w));m.a+=m.w*dt;m.x+=m.vx*dt;m.y+=m.vy*dt});
+  for(let i=0;i<16;i++)for(let j=i+1;j<16;j++){const p=M[i],q=M[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy)||1;if(d<50){const pu=(50-d)/2,nx=dx/d,ny=dy/d;p.x-=nx*pu;p.y-=ny*pu;q.x+=nx*pu;q.y+=ny*pu;
+    if(st!=='solid'){const rv=(q.vx-p.vx)*nx+(q.vy-p.vy)*ny;if(rv<0){p.vx+=rv*nx;p.vy+=rv*ny;q.vx-=rv*nx;q.vy-=rv*ny}}}}
+  M.forEach(m=>{if(m.x<BX[0]){m.x=BX[0];m.vx=Math.abs(m.vx)}if(m.x>BX[1]){m.x=BX[1];m.vx=-Math.abs(m.vx)}if(m.y<BX[2]){m.y=BX[2];m.vy=Math.abs(m.vy)}if(m.y>BX[3]){m.y=BX[3];m.vy=-Math.abs(m.vy)*(st==='liquid'?0.3:1)}});
+}
+function draw1(){
+  const S=SM[C.sub],st=stOf(C.T),lb=$('labs1').checked,k=C.sub;
+  const at=C.m.map(m=>atoms(k,m));
+  let h=`<rect x="44" y="40" width="406" height="304" rx="10" fill="#f7f9fb" stroke="#7d8fa3" stroke-width="3"/>`;
+  if(st!=='gas'){const lim=st==='solid'?72:68,op=st==='solid'?0.95:0.7;
+    for(let i=0;i<16;i++)for(let j=i+1;j<16;j++){const p=C.m[i],q=C.m[j];if(Math.hypot(q.x-p.x,q.y-p.y)<lim){let best=null,bd=1e9;at[i].forEach(a=>at[j].forEach(b=>{const d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(d<bd){bd=d;best=[a,b]}}));
+      h+=`<line x1="${f(best[0][0])}" y1="${f(best[0][1])}" x2="${f(best[1][0])}" y2="${f(best[1][1])}" stroke="#d6336c" stroke-width="2" stroke-dasharray="3 4" opacity="${op}"/>`}}}
+  const hm=C.m[HL];h+=`<circle cx="${f(hm.x)}" cy="${f(hm.y)}" r="31" fill="#fff3b0" stroke="#e0b100" stroke-width="2" stroke-dasharray="5 4"/>`;
+  at.forEach(A2=>{const c=A2[0];if(k==='I2')h+=`<line x1="${f(c[0])}" y1="${f(c[1])}" x2="${f(A2[1][0])}" y2="${f(A2[1][1])}" stroke="#1c2736" stroke-width="6" stroke-linecap="round"/>`;
+    else A2.slice(1).forEach(b=>{h+=`<line x1="${f(c[0])}" y1="${f(c[1])}" x2="${f(b[0])}" y2="${f(b[1])}" stroke="#1c2736" stroke-width="5" stroke-linecap="round"/>`});
+    A2.forEach(a=>{h+=`<circle cx="${f(a[0])}" cy="${f(a[1])}" r="${a[2]}" fill="${a[3]}" stroke="#1c2736" stroke-width="1.3"/>`})});
+  if(lb){const x=Math.max(90,Math.min(380,hm.x)),y=hm.y<110?hm.y+52:hm.y-40;
+    h+=`<rect x="${f(x-56)}" y="${f(y-15)}" width="112" height="22" rx="6" fill="#fff" stroke="#e0b100" stroke-width="1.5"/>`+tx(f(x),f(y+1),'still '+fsv(S.f),`text-anchor="middle" font-size="14" font-weight="700" fill="#1c2736"`);}
+  h+=`<text x="50" y="28" ${TT}>${S.nm}: ${st}</text>`;
+  const ib=st==='solid'?'holding the molecules':st==='liquid'?'partly overcome':'overcome',ic=st==='solid'?'#1c2736':'#d6336c';
+  h+=`<g font-size="14"><rect x="462" y="40" width="168" height="304" rx="10" fill="#fff" stroke="#cdd6df"/>`+tx(472,64,'Covalent bonds broken','font-weight="700" font-size="13"')+tx(474,104,'0','font-size="40" font-weight="700" fill="#1d7a46" font-family="Lexend,sans-serif"')+tx(508,96,'of '+16*S.nb,'fill="#5a6878"')+tx(508,112,'(all intact)','fill="#1d7a46" font-weight="700"');
+  h+=`<line x1="474" y1="130" x2="618" y2="130" stroke="#cdd6df"/>`+tx(472,154,'Intermolecular forces','font-weight="700" font-size="13"')+tx(474,176,ib,`fill="${ic}" font-weight="700"`);
+  h+=`<line x1="474" y1="196" x2="618" y2="196" stroke="#cdd6df"/>`+tx(474,220,'Electricity','font-weight="700"')+`<circle cx="488" cy="246" r="11" fill="#fff" stroke="#1c2736" stroke-width="2"/><path d="M480 238l16 16m0-16l-16 16" stroke="#1c2736" stroke-width="1.6"/>`+tx(506,251,'does not conduct','fill="#b3261e" font-weight="700"')+tx(474,280,'no ions and no','fill="#5a6878"')+tx(474,298,'delocalised electrons','fill="#5a6878"')+'</g>';
+  h+=`<line x1="44" y1="366" x2="74" y2="366" stroke="#1c2736" stroke-width="5" stroke-linecap="round"/>`+tx(82,371,'covalent bond (strong)','font-size="14"')+`<line x1="250" y1="366" x2="280" y2="366" stroke="#d6336c" stroke-width="2" stroke-dasharray="3 4"/>`+tx(288,371,'intermolecular force (weak)','font-size="14"')+`<circle cx="490" cy="366" r="8" fill="#fff3b0" stroke="#e0b100" stroke-width="1.5"/>`+tx(504,371,'follow this one','font-size="14"');
+  $('sv1').innerHTML=h;
+}
+function stat1(){const S=SM[C.sub],st=stOf(C.T);let h=`<p><b>${S.nm}, ${S.f}</b>: melting point ${neg(S.mp)} °C, boiling point ${neg(S.bp)} °C.</p>`;
+  if(st==='solid')h+=`<p>The molecules are held together by <b>weak intermolecular forces</b>. Inside each molecule, the atoms are joined by <b>strong covalent bonds</b>.</p>`;
+  else if(st==='liquid')h+=`<p>It has <b>melted</b>. Some intermolecular forces are overcome, so molecules move past each other. <b>No covalent bonds break.</b> The yellow molecule is still ${S.f}.</p>`;
+  else h+=`<p>It has <b>boiled</b>. The intermolecular forces are overcome and the molecules move far apart. <b>The covalent bonds stay intact.</b> Every molecule is still ${S.f}.</p>`;
+  h+=`<p>The forces between molecules are weak, so little energy is needed: <b>low melting and boiling points</b>. There are no ions or delocalised electrons, so it <b>does not conduct</b>.</p>`;
+  $('ss1').innerHTML=h}
+function syncT(){const v=Math.round(C.T);$('temp').value=v;$('tRead').textContent=neg(v)+' °C';$('sRead').textContent=stOf(C.T)}
+(function(){const D=[['methane',16,-162],['butane',58,-1],['octane',114,126]];let h='<line x1="40" y1="20" x2="40" y2="140" stroke="#5a6878"/><line x1="40" y1="140" x2="290" y2="140" stroke="#5a6878"/>';
+  const y=v=>140-(v+200)*120/340;[-200,-100,0,100].forEach(v=>{h+=`<line x1="36" y1="${f(y(v))}" x2="290" y2="${f(y(v))}" stroke="#e4eaf0"/>`+tx(32,f(y(v)+4),neg(v),'font-size="11" text-anchor="end" fill="#5a6878"')});
+  D.forEach((d,i)=>{const x=70+i*78,yy=y(d[2]);h+=`<rect x="${x}" y="${f(yy)}" width="46" height="${f(140-yy)}" rx="3" fill="${['#9fb7e8','#6f8fd8','#4a44b5'][i]}"/>`+tx(x+23,f(yy-5),neg(d[2])+' °C','text-anchor="middle" font-size="12" font-weight="700"')+tx(x+23,155,d[0],'text-anchor="middle" font-size="12"')+tx(x+23,169,'M'+'<tspan baseline-shift="sub" font-size="80%">r</tspan> = '+d[1],'text-anchor="middle" font-size="12" fill="#5a6878"')});
+  h+=tx(8,12,'boiling point / °C','font-size="11" fill="#5a6878"');$('bpc').innerHTML=h})();
+
+/* ---------- TAB 3: GIANT COVALENT ---------- */
+const G={sub:'diamond',run:true,bat:false,p:0,pt:0,ang:0.4,shake:0,ct:0};
+const DA=[],DB=[];
+(function(){const B8=[[0,0,0],[0,.5,.5],[.5,0,.5],[.5,.5,0]];
+  for(let i=-1;i<3;i++)for(let j=-1;j<3;j++)for(let k=-1;k<3;k++)B8.forEach(b=>[0,.25].forEach(o=>{const p=[i+b[0]+o,j+b[1]+o,k+b[2]+o];if(Math.hypot(p[0]-1,p[1]-1,p[2]-1)<=0.93)DA.push(p)}));
+  for(let i=0;i<DA.length;i++)for(let j=i+1;j<DA.length;j++){const d=Math.hypot(DA[i][0]-DA[j][0],DA[i][1]-DA[j][1],DA[i][2]-DA[j][2]);if(Math.abs(d-0.433)<0.02)DB.push([i,j])}})();
+const DC=DA.findIndex(p=>Math.hypot(p[0]-1,p[1]-1,p[2]-1)<0.01);
+const GL=[],GE=[],GW=12.5,GD=4.2,s3=Math.sqrt(3);
+for(let a=-4;a<12;a++)for(let b=-1;b<5;b++)[[0,0],[0,1]].forEach(o=>{const u=a*s3+b*s3/2+o[0],v=b*1.5+o[1];if(u>=-.01&&u<=GW&&v>=-.01&&v<=GD)GL.push([u,v])});
+for(let i=0;i<GL.length;i++)for(let j=i+1;j<GL.length;j++)if(Math.abs(Math.hypot(GL[i][0]-GL[j][0],GL[i][1]-GL[j][1])-1)<0.02)GE.push([i,j]);
+const YL=[138,222,306],gel=[];for(let L=0;L<3;L++)for(let n=0;n<10;n++)gel.push({L,u:R()*GW,v:.4+R()*(GD-.8),ph:R()*6});
+const gp=(L,u,v)=>[95+u*27+v*16.7+[50,25,0][L]*ease(G.p),YL[L]-v*9.7];
+function step2(dt){G.ct+=dt;if(G.sub==='diamond')G.ang+=dt*0.35;G.p+=(G.pt-G.p)*Math.min(1,dt*2.2);G.shake=Math.max(0,G.shake-dt);
+  gel.forEach(e=>{if(G.bat&&G.sub==='graphite'){e.u+=2.6*dt;if(e.u>GW)e.u-=GW}else{e.u+=Math.sin(G.ct*3+e.ph)*0.6*dt}e.v+=Math.cos(G.ct*2.3+e.ph)*0.3*dt;e.v=Math.max(.3,Math.min(GD-.3,e.v))})}
+function pushArrow(y,o){return `<g opacity="${o}" fill="#b3261e"><rect x="12" y="${y-6}" width="40" height="12"/><path d="M52 ${y-14}l18 14l-18 14z"/></g>`}
+function draw2(){
+  const lb=$('labs2').checked,s=G.sub,lit=G.bat&&s==='graphite',sk=G.shake>0?Math.sin(G.ct*60)*2*G.shake:0;let h='';
+  h+=circuit(66,560,70,330,G.bat,lit,lb);
+  if(s==='diamond'){const ca=Math.cos(G.ang),sa=Math.sin(G.ang),ph=0.38,cp=Math.cos(ph),spp=Math.sin(ph);
+    const P=DA.map(p=>{const x=p[0]-1,y=p[1]-1,z=p[2]-1,x1=x*ca+z*sa,z1=-x*sa+z*ca,y2=y*cp-z1*spp,z2=y*spp+z1*cp,k=4/(4+z2);return [313+sk+x1*130*k,200+y2*130*k,z2,k]});
+    const it=[];DB.forEach(([i,j])=>it.push({z:(P[i][2]+P[j][2])/2+.01,b:[i,j]}));P.forEach((p,i)=>it.push({z:p[2],a:i}));it.sort((a,b)=>b.z-a.z);
+    it.forEach(o=>{if(o.b){const [i,j]=o.b,hl=i===DC||j===DC;h+=`<line x1="${f(P[i][0])}" y1="${f(P[i][1])}" x2="${f(P[j][0])}" y2="${f(P[j][1])}" stroke="${hl?'#4a44b5':'#6b7787'}" stroke-width="${hl?5:3.2}"/>`}
+      else{const p=P[o.a],sh=Math.round(150-60*(p[3]-0.8)/0.5),hl=o.a===DC;h+=`<circle cx="${f(p[0])}" cy="${f(p[1])}" r="${f(10*p[3])}" fill="${hl?'#4a44b5':`rgb(${sh-40},${sh-30},${sh-15})`}" stroke="#1c2736" stroke-width="1"/>`}});
+    if(lb){const p=P[DC];h+=`<line x1="${f(p[0]-8)}" y1="${f(p[1]-8)}" x2="160" y2="112" stroke="#4a44b5" stroke-width="1.4"/>`+tx(90,92,'each C atom','font-size="14" font-weight="700" fill="#4a44b5"')+tx(90,108,'bonded to 4 others','font-size="14" font-weight="700" fill="#4a44b5"');}
+    h+=`<text x="96" y="352" ${TT}>Diamond: carbon, C</text>`;}
+  else if(s==='graphite'){
+    for(let L=2;L>=0;L--){let g=`<g stroke="#4b5563" stroke-width="2.4">`;GE.forEach(([i,j])=>{const a=gp(L,...GL[i]),b=gp(L,...GL[j]);g+=`<line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}"/>`});g+='</g><g fill="#2b3442">';GL.forEach(q=>{const a=gp(L,...q);g+=`<circle cx="${f(a[0])}" cy="${f(a[1])}" r="3.6"/>`});h+=g+'</g>';
+      gel.filter(e=>e.L===L).forEach(e=>{const a=gp(L,e.u,e.v);h+=`<circle cx="${f(a[0])}" cy="${f(a[1])}" r="4.2" fill="#1d5fd0" stroke="#fff" stroke-width="1"/>`});
+      if(L<2)[2,6.5,11].forEach(u=>{const a=gp(L,u,0.2),b=gp(L+1,u,GD-0.2);h+=`<line x1="${f(a[0])}" y1="${f(a[1]+4)}" x2="${f(a[0])}" y2="${f(b[1]-4)}" stroke="#d6336c" stroke-width="2" stroke-dasharray="3 4"/>`});}
+    if(G.pt>0)h+=pushArrow(110,Math.abs(G.p-G.pt)>0.05?1:0.45);
+    if(lb){const wx=gp(0,8.75,0)[0];h+=tx(f(wx),159,'weak forces','text-anchor="middle" font-size="13" font-weight="700" fill="#d6336c"')+tx(f(wx),174,'between layers','text-anchor="middle" font-size="13" font-weight="700" fill="#d6336c"');
+      h+=tx(f(gp(0,6,4.2)[0]),90,'one layer of hexagons','text-anchor="middle" font-size="13" fill="#5a6878"');
+      if(G.bat)h+=tx(320,326,'delocalised electrons move along the layers →','text-anchor="middle" font-size="14" font-weight="700" fill="#1d5fd0"');}
+    h+=`<text x="96" y="352" ${TT}>Graphite: carbon, C</text>`;}
+  else{const SX=(c,r)=>[110+c*70+sk,105+r*68];let b='',a='';
+    for(let r=0;r<4;r++)for(let c=0;c<7;c++){const [x,y]=SX(c,r),j=1.5*Math.sin(G.ct*8+c+r*2);
+      [[35,(c+r)%2?7:-7,c<6||1],[(c+r)%2?7:-7,34,r<3||1]].forEach(([dx,dy],q)=>{if((q===0&&c===6)||(q===1&&r===3))return;const ox=x+dx+j,oy=y+dy;b+=`<line x1="${x}" y1="${y}" x2="${f(ox)}" y2="${f(oy)}"/>`;const x2=q===0?x+70:x,y2=q===0?y:y+68;b+=`<line x1="${f(ox)}" y1="${f(oy)}" x2="${x2}" y2="${y2}"/>`;a+=`<circle cx="${f(ox)}" cy="${f(oy)}" r="8" fill="#d9433b" stroke="#1c2736" stroke-width="1"/>`});
+      if(c===0||c===6||r===0||r===3){[[c===0,-22,0],[c===6,22,0],[r===0,0,-22],[r===3,0,22]].forEach(([ok,dx,dy])=>{if(ok)b+=`<line x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}" stroke-dasharray="3 3"/>`})}
+      a+=`<circle cx="${x}" cy="${y}" r="12" fill="${c===3&&r===1?'#4a44b5':'#e0a030'}" stroke="#1c2736" stroke-width="1.2"/>`}
+    h+=`<g stroke="#4b5563" stroke-width="3">${b}</g>${a}`;
+    if(lb)h+=`<line x1="322" y1="183" x2="336" y2="336" stroke="#4a44b5" stroke-width="1.4"/>`+tx(300,352,'each Si: 4 O · each O: 2 Si','font-size="14" font-weight="700" fill="#4a44b5"');
+    h+=`<text x="96" y="352" ${TT}>Silicon dioxide, SiO<tspan baseline-shift="sub" font-size="75%">2</tspan></text>`;}
+  if(s!=='graphite'&&G.shake>0)h+=pushArrow(200,cl(G.shake*2))+(lb?tx(320,62,'nothing slides: every atom is held by strong covalent bonds','text-anchor="middle" font-size="14" font-weight="700" fill="#b3261e"'):'');
+  const lg=s==='silica'?`<circle cx="30" cy="370" r="8" fill="#e0a030" stroke="#1c2736"/>`+tx(44,375,'Si atom','font-size="14"')+`<circle cx="120" cy="370" r="6" fill="#d9433b" stroke="#1c2736"/>`+tx(132,375,'O atom','font-size="14"')+`<line x1="200" y1="370" x2="230" y2="370" stroke="#4b5563" stroke-width="3"/>`+tx(236,375,'strong covalent bond','font-size="14"')
+    :`<circle cx="30" cy="370" r="6" fill="#4b5563"/>`+tx(42,375,'C atom','font-size="14"')+`<line x1="110" y1="370" x2="140" y2="370" stroke="#4b5563" stroke-width="3"/>`+tx(146,375,'strong covalent bond','font-size="14"')+(s==='graphite'?`<circle cx="305" cy="370" r="4.2" fill="#1d5fd0"/>`+tx(315,375,'delocalised electron','font-size="14"')+`<line x1="470" y1="370" x2="500" y2="370" stroke="#d6336c" stroke-width="2" stroke-dasharray="3 4"/>`+tx(506,375,'weak force','font-size="14"'):'');
+  $('sv2').innerHTML=h+lg;
+}
+function stat2(){const s=G.sub;let h;
+  if(s==='diamond')h=`<p>Each carbon atom forms <b>4 strong covalent bonds</b> to 4 other carbon atoms. This makes a <b>giant 3D network</b>.</p><p>Very many strong bonds must break to melt it: <b>very high melting point</b> (over 3500 °C). It is <b>very hard</b>, so it is used in cutting tools.</p><p>All 4 outer electrons are used in bonds. There are <b>no delocalised electrons</b>, so diamond <b>does not conduct</b>${G.bat?'. The bulb stays off.':'.'}</p>`;
+  else if(s==='graphite')h=`<p>Each carbon atom forms <b>3 strong covalent bonds</b>. The atoms make flat <b>layers of hexagons</b>. There are only <b>weak forces between the layers</b>.</p><p>${G.pt>0?'<b>The layers slide over each other.</b> No covalent bonds break. ':'Press <b>Push</b>. '}Graphite is <b>soft and slippery</b>, so it is used as a <b>lubricant</b> and in pencils.</p><p>Each carbon atom has <b>one delocalised electron</b>. ${G.bat?'These electrons <b>move along the layers</b>, so graphite <b>conducts electricity</b>. The bulb is on.':'Connect the battery to see them move.'}</p><p>Melting needs the strong covalent bonds to break: <b>very high melting point</b>.</p>`;
+  else h=`<p><b>Silicon dioxide</b> (silica, found in sand) is another giant covalent structure. Each Si atom is bonded to <b>4 O atoms</b>. Each O atom is bonded to <b>2 Si atoms</b>.</p><p>Many strong covalent bonds: <b>very high melting point</b> (about 1700 °C) and <b>hard</b>.</p><p>No ions and no delocalised electrons, so it <b>does not conduct</b>${G.bat?'. The bulb stays off.':'.'}</p>`;
+  $('ss2').innerHTML=h}
+
+/* ---------- controls ---------- */
+function mkPicks(box,items,cur,on){box.innerHTML=items.map(([k,l])=>`<button class="pick" type="button" data-k="${k}" aria-pressed="${k===cur}">${l}</button>`).join('');
+  box.addEventListener('click',e=>{const b=e.target.closest('.pick');if(!b)return;box.querySelectorAll('.pick').forEach(x=>x.setAttribute('aria-pressed',x===b));on(b.dataset.k)})}
+$('st0b').addEventListener('click',e=>{const b=e.target.closest('.pick');if(!b)return;$('st0b').querySelectorAll('.pick').forEach(x=>x.setAttribute('aria-pressed',x===b));A.st=b.dataset.s;A.t=-1;A.until=null;A.run=true});
+function setSolid(){A.st='solid';$('st0b').querySelectorAll('.pick').forEach(x=>x.setAttribute('aria-pressed',x.dataset.s==='solid'))}
+$('play0').onclick=()=>{A.run=!A.run;A.until=null};
+$('hit0').onclick=()=>{setSolid();A.t=0;A.until=null;A.run=true};
+$('step0').onclick=()=>{setSolid();if(A.t<0||A.t>=4.6)A.t=0;stepper(A,ACT0)};
+$('rep0').onclick=()=>{setSolid();A.t=0;A.until=null;A.run=true};
+mkPicks($('subs'),Object.keys(SM).map(k=>[k,SM[k].nm+' ('+SM[k].f+')']),C.sub,k=>{C.sub=k;syncT()});
+$('play1').onclick=()=>{C.run=!C.run};
+$('heat1').onclick=()=>{C.heat=!C.heat;C.run=true};
+$('rep1').onclick=()=>{C.T=-200;C.heat=true;C.run=true;syncT()};
+$('step1').onclick=()=>{const S=SM[C.sub],st=stOf(C.T);C.heat=false;C.T=st==='solid'?Math.round((S.mp+S.bp)/2):st==='liquid'?Math.min(250,S.bp+40):-200;C.run=true;syncT()};
+$('temp').oninput=e=>{C.heat=false;C.T=+e.target.value;syncT()};
+mkPicks($('gcs'),[['diamond','Diamond'],['graphite','Graphite'],['silica','Silicon dioxide']],G.sub,k=>{G.sub=k;G.pt=0;G.p=0;G.shake=0});
+$('play2').onclick=()=>{G.run=!G.run};
+$('push2').onclick=()=>{G.run=true;if(G.sub==='graphite')G.pt=G.pt?0:1;else G.shake=1.2};
+$('bat2').onclick=()=>{G.bat=!G.bat;G.run=true};
+const tabs=[0,1,2].map(i=>$('tb'+i));let cur=0;
+function selTab(i){cur=i;tabs.forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1;$('pn'+k).hidden=k!==i})}
+tabs.forEach((b,i)=>{b.onclick=()=>selTab(i);b.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=(i+(e.key==='ArrowRight'?1:2))%3;selTab(n);tabs[n].focus()}}});
+
+/* ---------- loop ---------- */
+let last=performance.now();
+function loop(now){const dt=Math.min(0.05,(now-last)/1000);last=now;
+  if(cur===0){if(A.run){adv(A,dt);if(A.t>4.6)A.t=4.6;step0(dt)}draw0();stat0();$('play0').textContent=A.run?'Pause':'Play'}
+  else if(cur===1){if(C.run)step1(dt);draw1();stat1();$('play1').textContent=C.run?'Pause':'Play';$('heat1').textContent=C.heat?'Stop heating':'Heat steadily'}
+  else{if(G.run)step2(dt);draw2();stat2();$('play2').textContent=G.run?'Pause':'Play';$('bat2').textContent=G.bat?'Disconnect battery':'Connect battery';$('push2').textContent=G.sub==='graphite'&&G.pt?'Push back':'Push'}
+  requestAnimationFrame(loop)}
+syncT();
+
+/* ---------- quick check ---------- */
+const Q=[
+{q:'Why does molten sodium chloride conduct electricity, but solid sodium chloride does not?',o:['In the molten state, electrons are free to move','In the molten state, the ions are free to move; in the solid they are fixed','The covalent bonds break when it melts','Solid sodium chloride has no ions'],a:1,r:'Ionic compounds conduct when molten or dissolved because the ions can move and carry charge. In the solid the ions are held in fixed positions.'},
+{q:'When water boils, what is overcome?',o:['The covalent bonds between O and H atoms','The weak intermolecular forces between water molecules','Ionic bonds between H⁺ and O²⁻ ions','The bonds inside the oxygen atom'],a:1,r:'Boiling separates the molecules. The O–H covalent bonds do not break: the steam is still H₂O molecules.'},
+{q:'Why does graphite conduct electricity, but diamond does not?',o:['Graphite contains ions that can move','In graphite each carbon atom has one delocalised electron that can move; in diamond all 4 outer electrons are used in covalent bonds','Diamond has weaker covalent bonds','Graphite layers slide over each other'],a:1,r:'Graphite: each C is bonded to 3 others, so one electron per atom is delocalised and moves along the layers. Diamond: each C is bonded to 4 others, so there are no free electrons.'},
+{q:'Methane (M<sub>r</sub> 16) boils at −162 °C. Octane (M<sub>r</sub> 114) boils at 126 °C. Why is the boiling point of octane higher?',o:['Octane has more covalent bonds to break when it boils','Octane is a giant covalent structure','Octane molecules are larger, so the intermolecular forces are stronger','Octane contains ions'],a:2,r:'Larger molecules have stronger intermolecular forces, so more energy is needed to separate them. No covalent bonds break when it boils.'}];
+$('qs').innerHTML=Q.map((x,i)=>`<li><fieldset><legend>${i+1}. ${x.q}</legend>${x.o.map((o,k)=>`<label><input type="radio" name="q${i}" value="${k}"><span>${o}</span></label>`).join('')}<div class="fb" id="fb${i}" hidden></div></fieldset></li>`).join('');
+$('chk').onclick=()=>{let s=0;Q.forEach((x,i)=>{const v=document.querySelector(`input[name=q${i}]:checked`),fb=$('fb'+i);fb.hidden=false;
+  if(v&&+v.value===x.a){s++;fb.className='fb ok';fb.textContent='Correct. '+x.r}else{fb.className='fb no';fb.textContent=(v?'Not quite. ':'No answer. ')+x.r}});
+  $('score').textContent='Score: '+s+' / '+Q.length;$('score').style.color=s===Q.length?'var(--good)':'var(--ink)'};
+requestAnimationFrame(loop);
+</script>
+<script>
+window.EXAM_QS=[
+{ref:'Q1',marks:3,type:'drop',ctx:'The table gives some properties of three substances, P, Q and R.<div class="ex-tblwrap"><table class="ex-tbl"><thead><tr><th>substance</th><th>melting point / °C</th><th>conducts when solid?</th><th>conducts when molten?</th><th>soluble in water?</th></tr></thead><tbody><tr><td>P</td><td>1710</td><td>no</td><td>no</td><td>no</td></tr><tr><td>Q</td><td>714</td><td>no</td><td>yes</td><td>yes</td></tr><tr><td>R</td><td>−7</td><td>no</td><td>no</td><td>no</td></tr></tbody></table></div>',
+ stem:'Choose the type of structure of each substance.',
+ rows:[{lab:'P has a',opts:['giant ionic','simple molecular','giant covalent'],ans:2,after:'structure.'},
+       {lab:'Q has a',opts:['giant ionic','simple molecular','giant covalent'],ans:0,after:'structure.'},
+       {lab:'R has a',opts:['giant ionic','simple molecular','giant covalent'],ans:1,after:'structure.'}],
+ why:'P: very high melting point and never conducts, so giant covalent. Q: high melting point and conducts only when molten (ions free to move), so giant ionic. R: low melting point and does not conduct, so simple molecular.'},
+{ref:'Q2',marks:1,type:'mcq',stem:'Why is diamond very hard?',
+ opts:['There are strong ionic bonds between the carbon atoms.','Each carbon atom is joined to four other carbon atoms by strong covalent bonds in a giant structure.','There are weak intermolecular forces between the carbon molecules.','Each carbon atom has one delocalised electron.'],
+ ans:1,why:'Diamond is a giant covalent structure. Every atom is held in place by four strong covalent bonds in a rigid three-dimensional network.'},
+{ref:'Q3(a)',marks:3,type:'written',ctx:'Graphite is used as a lubricant and in pencil leads.',
+ stem:'Explain, in terms of its structure, why graphite is soft and slippery.',
+ points:['graphite is made of layers (of hexagonal rings) of carbon atoms','there are weak forces between the layers','so the layers can slide over each other (easily)','each carbon atom is joined to three others by strong covalent bonds within a layer'],note:'Any three points. Do not accept "weak covalent bonds between the layers"'},
+{ref:'Q3(b)',marks:2,type:'written',stem:'Explain why graphite conducts electricity.',
+ points:['each carbon atom forms only three covalent bonds / one outer electron of each carbon atom is not used in bonding','these electrons are delocalised and can move (along / through the layers) and carry charge'],note:'Do not accept "ions can move"'},
+{ref:'Q4',marks:1,type:'mcq',ctx:'Iodine is a simple molecular substance.',
+ stem:'Why does solid iodine not conduct electricity?',
+ opts:['Its covalent bonds are too strong.','It has no ions or delocalised electrons that are free to move.','Its molecules are held in fixed positions by strong ionic bonds.','Its electrons are all in the inner shells.'],
+ ans:1,why:'To conduct, a substance needs charged particles that can move. Iodine is made of I<sub>2</sub> molecules: there are no ions and no delocalised electrons.'},
+{ref:'Q5',marks:2,type:'calc',ctx:'Ethanol is a simple molecular substance. It melts at −114 °C and boils at 78 °C.',
+ stem:'Calculate the range of temperature over which ethanol is a liquid.',
+ inputs:[{lab:'temperature range =',unit:'°C',ans:192,tol:0.5,m:2}],
+ work:'<ol><li>Ethanol is a liquid between its melting point and its boiling point (1 mark).</li><li>Range = 78 − (−114) = 78 + 114 = <b>192 °C</b> (1 mark)</li></ol><p class="note">A common error is 78 − 114 = −36. Subtracting a negative number means adding it.</p>'},
+{ref:'Q6',marks:2,type:'written',stem:'Solid sodium chloride does not conduct electricity. Sodium chloride solution does conduct. Explain why.',
+ points:['in the solid the ions are held in fixed positions / cannot move','in solution the ions are free to move (and carry the charge)'],note:'Do not accept "electrons move" for either mark'},
+{ref:'Q7',marks:6,type:'written',ctx:'Silicon dioxide, SiO<sub>2</sub>, melts at 1710 °C. Solid carbon dioxide, CO<sub>2</sub>, changes directly into a gas at −78 °C.',
+ stem:'Explain, in terms of structure and bonding, the difference between these two temperatures.',
+ points:['silicon dioxide has a giant covalent structure / is a giant lattice of atoms','each atom is joined to other atoms by strong covalent bonds','many strong covalent bonds must be broken to melt it, which needs a lot of energy','carbon dioxide has a simple molecular structure / is made of separate CO<sub>2</sub> molecules','there are weak intermolecular forces between the carbon dioxide molecules','only a little energy is needed to overcome these forces; the covalent bonds inside the CO<sub>2</sub> molecules do not break'],note:'Max 4 if only one substance is discussed'}
+];
+
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- top tabs ---- */
+var tabs=[$('tabLearn'),$('tabExam')], panels=[$('panelLearn'),$('panelExam')], tabRow=$('topTabRow');
+function show(i){
+  tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+  var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+  window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+  if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){show(i);});
+  t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+  var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+  $('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+  host.innerHTML=''; S=[];
+  QS.forEach(function(q,i){
+    var s={score:0,marked:false}; S.push(s);
+    var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+    var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+    if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+    var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+    var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+    if(q.type==='mcq'){
+      var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+      var labs=[];
+      q.opts.forEach(function(o,k){
+        var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+        lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+        r.addEventListener('change',function(){
+          if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+          g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+          labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+          fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+        });
+      });
+      c.appendChild(g); c.appendChild(box);
+    } else if(q.type==='calc'){
+      var w=el('div','ex-calc'), ins=[];
+      q.inputs.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+        row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+      });
+      var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+      var work=el('div','ex-work'); work.hidden=true;
+      bt.addEventListener('click',function(){
+        var vals=ins.map(function(x){return parseFloat(x.value);});
+        if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+        var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+        var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+        s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+        work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+      });
+      c.appendChild(w); c.appendChild(box); c.appendChild(work);
+    } else if(q.type==='drop'){
+      var wd=el('div','ex-calc'), sels=[];
+      q.rows.forEach(function(p){
+        var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+        var sl=document.createElement('select'); sl.appendChild(el('option','','Choose…')); sl.options[0].value='';
+        p.opts.forEach(function(o,k){var op=el('option','',o); op.value=k; sl.appendChild(op);});
+        row.appendChild(sl); if(p.after) row.appendChild(el('span','ex-unit',p.after)); wd.appendChild(row); sels.push(sl);
+      });
+      var bd=el('button','btn','Check'); bd.type='button'; var bwd=el('div','ex-act'); bwd.appendChild(bd); wd.appendChild(bwd);
+      var wk=el('div','ex-work'); wk.hidden=true;
+      bd.addEventListener('click',function(){
+        if(sels.some(function(x){return x.value==='';})){fb(box,false,'Choose an answer in '+(sels.length>1?'each box':'the box')+' first.'); return;}
+        var n=0; sels.forEach(function(x,k){var ok=+x.value===q.rows[k].ans; if(ok) n++; x.disabled=true; x.classList.add(ok?'ok':'wrong');}); bd.disabled=true;
+        var sc=Math.floor(n*q.marks/q.rows.length+1e-9); s.score=sc; s.marked=true;
+        fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' mark'+(q.marks>1?'s':'')+'.</b> '+n+' of '+q.rows.length+' correct.');
+        wk.innerHTML='<b>Answers</b><ol>'+q.rows.map(function(r){return '<li>'+r.lab+' <b>'+r.opts[r.ans]+'</b>'+(r.after?' '+r.after:'')+'</li>';}).join('')+'</ol>'+(q.why?'<p>'+q.why+'</p>':''); wk.hidden=false; upd();
+      });
+      c.appendChild(wd); c.appendChild(box); c.appendChild(wk);
+    } else {
+      var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+      var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+      var ms=el('div','ex-ms'); ms.hidden=true;
+      ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+      var cbs=[];
+      q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+        cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+      ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+      bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+      c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+    }
+    host.appendChild(c);
+  });
+  upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script></body></html>
