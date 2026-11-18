@@ -489,6 +489,13 @@ const LINKS = {
 /* ---------- Blog posts: newest first. Add a new object at the top to publish a post. ---------- */
 const POSTS = [
   {
+    slug: "where-are-the-women-chemistry", url: "/blog/where-are-the-women-chemistry.html",
+    title: "17 scientists. 17 men. Here’s what I’m doing about it",
+    date: "18 November 2026", course: "IGCSE and IAL", tag: "g", mins: 8, series: "For teachers",
+    summary: "The IAL Chemistry spec names 17 scientists and every one is a man. Seven quick wins that take minutes, not lessons, plus a ready-made list of women and international chemists for every topic.",
+    body: ``
+  },
+  {
     slug: "ial-chemistry-core-practicals-troubleshooting-uncertainty",
     title: "IAL Chemistry core practicals: troubleshooting, back-up data and uncertainties",
     date: "14 November 2026", course: "IAL core practicals", tag: "a", mins: 10, series: "For teachers",
@@ -1337,7 +1344,7 @@ const POSTS = [
 
 /* ---------- Render ---------- */
 function postCard(p){
-  return `<a class="post-card" href="#post-${p.slug}">
+  return `<a class="post-card" href="${p.url || "#post-" + p.slug}">
     <div class="meta"><span class="pill ${p.tag}">${p.course}</span><span>${p.date}</span><span>· ${p.mins} min read</span></div>
     <h3>${p.title}</h3><p class="muted">${p.summary}</p><span class="read">Read →</span></a>`;
 }
@@ -1378,6 +1385,7 @@ function route(){
   }
   if (h.startsWith("post-")) {
     const p = POSTS.find(x => "post-" + x.slug === h);
+    if (p && p.url) { location.replace(p.url); return; }
     if (p) {
       document.getElementById("post-body").innerHTML =
         `<a class="back" href="#blog">← All posts</a>
