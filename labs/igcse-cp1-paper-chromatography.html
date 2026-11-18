@@ -1,0 +1,485 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Chromatography Lab</title>
+<meta name="description" content="Virtual core practical: Paper Chromatography Lab. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp1-paper-chromatography.html">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.55rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:68ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font-weight:700;color:var(--muted);font-size:.92rem}
+details.safety{background:#fff8e8;border:1px solid #e6c67a;border-radius:10px;padding:8px 14px;max-width:68ch}
+details.safety summary{cursor:pointer;font-family:var(--display);font-weight:600}
+details.safety ul{margin:6px 0 2px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:14px;align-items:start}
+@media (max-width:760px){.lab{grid-template-columns:1fr}}
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shelf{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.tray{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 4px 5px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;color:var(--ink);min-width:0}
+.tool svg{width:42px;height:42px;display:block}
+.tool .nm{font-size:.74rem;font-weight:700;line-height:1.15;text-align:center}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:focus-visible,.scene:focus-visible,.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.dragghost{position:fixed;left:0;top:0;width:56px;height:56px;pointer-events:none;z-index:50;opacity:.9}
+.dragghost svg{width:56px;height:56px}
+.scene{background:var(--sheet);border:2px dashed transparent;border-radius:12px;cursor:pointer;padding:4px}
+.scene.armed,.scene.over{border-color:var(--accent);background:#fbfbff}
+.scene svg{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
+.msg{min-height:3em;padding:8px 12px;border-radius:10px;background:var(--sheet);border-left:5px solid var(--accent);font-size:.95rem}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#eef8f2}
+.side{display:flex;flex-direction:column;gap:12px}
+.box{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--sheet)}
+ol.method{margin:8px 0 0;padding:0;list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+ol.method li{counter-increment:m;display:flex;gap:8px;color:var(--muted)}
+ol.method li::before{content:counter(m);flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font:700 .75rem var(--display);color:var(--muted)}
+ol.method li.now{color:var(--ink);font-weight:700}
+ol.method li.now::before{border-color:var(--accent);color:var(--accent)}
+ol.method li.done{color:var(--good)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+dl.rd{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:.9rem}
+dl.rd dt{color:var(--muted)} dl.rd dd{margin:0;font:700 .95rem var(--display);font-variant-numeric:tabular-nums}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.mini{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:#f6f6fd;font-weight:700}
+td input,td select{width:100%;min-width:72px;font:inherit;font-size:.95rem;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+td.ok input,td.ok select{border-color:var(--good);background:#eef8f2} td.wrong input,td.wrong select{border-color:var(--bad);background:#fdf0ef}
+.calc{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.score{font-weight:700} .score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+ol.qs select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+select.ok{border-color:var(--good)!important} select.wrong{border-color:var(--bad)!important}
+.note{font-size:.88rem;color:var(--muted)}
+.measure{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--sheet);border-radius:10px;padding:8px 12px;font-size:.92rem}
+.measure input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
+.hid{display:none!important}
+.fade{transition:opacity .8s ease}
+.spot{mix-blend-mode:multiply}
+#handle{cursor:ns-resize;touch-action:none}
+@media (max-width:520px){body{font-size:16px}.tool svg{width:36px;height:36px}}
+@media (prefers-reduced-motion:reduce){.fade{transition:none}}
+/* ---------- page tabs + exam practice ---------- */
+.ppanel[hidden],.ex-q [hidden]{display:none!important}
+.ptabs{display:flex;gap:10px;flex-wrap:wrap}
+.ptab{flex:1 1 200px;min-height:50px;font:700 1rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.ptab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+.ptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.ptab:focus-visible,.ex-btn:focus-visible,.ex-opt:focus-within,.ex-in:focus-visible,.ex-ta:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ppanel{display:flex;flex-direction:column;gap:22px;min-width:0}
+.ex-bar{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(28,39,54,.18);font-variant-numeric:tabular-nums}
+.ex-list{display:flex;flex-direction:column;gap:16px}
+.ex-q{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .88rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--muted)}
+.ex-mk{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx,.ex-stem{max-width:72ch}
+.ex-stem{font-weight:700}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt .lt{flex:none;width:28px;height:28px;border:2px solid var(--accent);border-radius:6px;display:grid;place-items:center;font:700 .9rem var(--display);color:var(--accent)}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-q.locked .ex-opt{cursor:default}.ex-q.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.ex-ok,.ex-q.locked .ex-opt.ex-ok:hover{border-color:var(--good);background:#eef8f2}.ex-opt.ex-ok .lt{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.ex-no,.ex-q.locked .ex-opt.ex-no:hover{border-color:var(--bad);background:#fdf0ef}.ex-opt.ex-no .lt{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;font-size:.95rem;border-left:5px solid var(--accent);background:var(--accent-soft)}
+.ex-fb.ex-ok{border-left-color:var(--good);background:#eef8f2}.ex-fb.ex-no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-fb p+p{margin-top:4px}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.ex-in{width:8em;font:inherit;padding:6px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+.ex-in.ex-ok{border-color:var(--good);background:#eef8f2}.ex-in.ex-no{border-color:var(--bad);background:#fdf0ef}
+.ex-btn{align-self:flex-start;font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.ex-btn.ghost{background:transparent;color:var(--accent)}
+.ex-btn:disabled{opacity:.5;cursor:default}
+.ex-ta{width:100%;min-height:110px;font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
+.ex-ms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fafafe;display:flex;flex-direction:column;gap:6px}
+.ex-ms h3{font-size:.95rem;color:var(--accent)}
+.ex-ms label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.ex-ms input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-foot{display:flex;justify-content:flex-end}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+
+<div class="wrap">
+<header>
+<h1>Paper chromatography of inks</h1>
+<p class="ref">Core practical 1.13</p>
+<p><b>Aim:</b> to separate the dyes in inks by paper chromatography and use R<sub>f</sub> values to identify them.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection.</li>
+<li>Wipe up spilled water at once so nobody slips.</li>
+<li>Some inks and food colourings stain skin and clothes. Handle the spots carefully.</li>
+<li>If you use a solvent other than water (for example ethanol), keep it away from flames.</li>
+</ul></details>
+</header>
+<div class="ptabs" id="ptabs" role="tablist" aria-label="Sections">
+<button class="ptab" role="tab" type="button" id="tabLab" aria-controls="panelLab" aria-selected="true">1 · The practical</button>
+<button class="ptab" role="tab" type="button" id="tabExam" aria-controls="panelExam" aria-selected="false" tabindex="-1">2 · Exam practice</button>
+</div>
+<div class="ppanel" id="panelLab" role="tabpanel" aria-labelledby="tabLab">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<p>Drag equipment onto the bench, or tap it and then tap the bench. Follow the method in order.</p>
+<div class="lab">
+<div class="bench">
+<div class="shelf">Equipment and inks</div>
+<div class="tray" id="tray"></div>
+<div class="scene" id="scene" tabindex="0" role="button" aria-label="Bench with chromatography paper. Use the selected item here.">
+<svg id="svg" viewBox="0 0 460 440" aria-hidden="true">
+<defs><clipPath id="paperClip"><rect x="80" y="40" width="300" height="360"/></clipPath></defs>
+<g id="beakerBack" class="fade" style="opacity:0">
+<rect id="water" x="58" y="376" width="344" height="46" fill="#bfe0f5" opacity=".85"/>
+</g>
+<rect x="80" y="40" width="300" height="360" fill="#fffdf6" stroke="#c9c2ad" stroke-width="1.5"/>
+<g clip-path="url(#paperClip)">
+<rect id="wet" x="80" y="400" width="300" height="0" fill="#9cc9ea" opacity=".35"/>
+<g id="spots"></g>
+</g>
+<line id="baseline" x1="88" y1="355" x2="372" y2="355" stroke="#555" stroke-width="1.6" stroke-dasharray="284" stroke-dashoffset="284"/>
+<g id="labels" font-family="Atkinson Hyperlegible,sans-serif" font-size="13" fill="#555" text-anchor="middle"></g>
+<g id="frontMark" class="hid"><line id="frontLine" x1="88" x2="372" y1="0" y2="0" stroke="#555" stroke-width="1.6"/><text id="frontTxt" x="372" y="0" font-size="12" fill="#555" text-anchor="end" font-family="Atkinson Hyperlegible,sans-serif">solvent front</text></g>
+<g id="beakerFront" class="fade" style="opacity:0">
+<line x1="40" y1="36" x2="420" y2="36" stroke="#9aa6b2" stroke-width="6" stroke-linecap="round"/>
+<path d="M56 24 L56 410 Q56 424 70 424 L390 424 Q404 424 404 410 L404 24" fill="none" stroke="#7d8fa3" stroke-width="3"/>
+<path d="M68 60 L68 400" stroke="rgba(255,255,255,.8)" stroke-width="5" stroke-linecap="round"/>
+</g>
+<rect id="lid" class="fade" style="opacity:0" x="46" y="12" width="368" height="10" rx="4" fill="#d6e3ee" stroke="#7d8fa3" stroke-width="2"/>
+<g id="ruler" class="hid">
+<rect x="28" y="49" width="44" height="312" fill="#f7efc9" stroke="#b9a75e" stroke-width="1.5" rx="3"/>
+<g id="ticks" font-family="Atkinson Hyperlegible,sans-serif" font-size="10" fill="#4a4320"></g>
+<line id="mline" x1="30" x2="380" y1="355" y2="355" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 3"/>
+<g id="handle"><circle id="hcirc" cx="20" cy="355" r="12" fill="var(--accent)"/><path id="harr" d="" fill="#fff"/></g>
+</g>
+<text id="clock" x="452" y="434" font-size="13" text-anchor="end" fill="#5a6878" font-family="Atkinson Hyperlegible,sans-serif"></text>
+</svg>
+</div>
+<div class="measure hid" id="measureBar">
+<label for="mrange"><b>Measuring line</b></label>
+<button class="mini" type="button" id="mDown" aria-label="Move line down 1 mm">&minus; 1 mm</button>
+<input type="range" id="mrange" min="0" max="100" step="1" value="0" aria-label="Height of measuring line above baseline in mm">
+<button class="mini" type="button" id="mUp" aria-label="Move line up 1 mm">+ 1 mm</button>
+<span id="mread" aria-live="polite">0 mm above the baseline</span>
+</div>
+<div class="msg" id="msg" aria-live="polite">Start with step 1: draw a baseline on the paper.</div>
+<div class="toolbar"><span class="note">Time is sped up. The real experiment takes about 20 minutes.</span><button class="btn ghost" id="resetBench" type="button">Reset</button></div>
+</div>
+<div class="side">
+<div class="box"><h3>Method</h3><ol class="method" id="method"></ol></div>
+<div class="box"><h3>Readings</h3><dl class="rd"><dt>Time</dt><dd id="rdTime">0 min</dd><dt>Solvent</dt><dd id="rdSolv">not started</dd></dl>
+<p class="note" style="margin-top:8px">When the paper is out, drag the purple handle on the ruler (or tap the paper, or use the slider). Line it up with the <b>centre</b> of each spot and with the solvent front. Read the ruler in mm.</p></div>
+</div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Measure every distance from the <b>baseline</b>. Use your own measurements from Part 1.</p>
+<div class="calc">R<sub>f</sub> = distance moved by the spot &divide; distance moved by the solvent. Give R<sub>f</sub> to 2 decimal places.</div>
+<div class="tbl-wrap"><table id="res">
+<thead><tr><th>spot</th><th>distance moved by spot / mm</th><th>distance moved by solvent / mm</th><th>R<sub>f</sub></th><th>matches which dye?</th></tr></thead>
+<tbody></tbody></table></div>
+<div class="toolbar"><button class="btn" id="checkRes" type="button">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>The baseline is drawn in pencil because pencil
+<select data-a="a"><option value="">choose…</option><option value="b">dissolves in the solvent</option><option value="a">does not dissolve in the solvent</option><option value="c">is easier to see than ink</option></select>.
+Ink from a pen would <select data-a="a"><option value="">choose…</option><option value="a">dissolve and move up the paper</option><option value="b">stay on the baseline</option><option value="c">stop the solvent rising</option></select>.</li>
+<li>The solvent must start <b>below</b> the baseline. If the baseline were under the solvent, the spots would
+<select data-a="b"><option value="">choose…</option><option value="a">move faster up the paper</option><option value="b">dissolve into the solvent in the beaker</option><option value="c">turn black</option></select>.</li>
+<li>Ink X <select data-a="y"><option value="">choose…</option><option value="y">contains</option><option value="n">does not contain</option></select> the red dye,
+<select data-a="y"><option value="">choose…</option><option value="y">contains</option><option value="n">does not contain</option></select> the yellow dye and
+<select data-a="n"><option value="">choose…</option><option value="y">contains</option><option value="n">does not contain</option></select> the blue dye.
+Its spot near the baseline matches none of the known dyes, so X also contains
+<select data-a="a"><option value="">choose…</option><option value="a">another substance</option><option value="b">more red dye</option><option value="c">water</option></select>.</li>
+<li>The blue dye gave one spot, so it is
+<select data-a="p"><option value="">choose…</option><option value="p">a pure substance</option><option value="m">a mixture</option></select>.
+Ink X gave three spots, so it is
+<select data-a="m"><option value="">choose…</option><option value="p">a pure substance</option><option value="m">a mixture</option></select>.</li>
+<li>A spot moved 27 mm. The solvent moved 75 mm. The R<sub>f</sub> value is
+<select data-a="b"><option value="">choose…</option><option value="a">2.78</option><option value="b">0.36</option><option value="c">48</option></select>.</li>
+<li>A lid is put on the beaker to
+<select data-a="a"><option value="">choose…</option><option value="a">stop the solvent evaporating</option><option value="b">keep the light out</option><option value="c">make the dyes dissolve faster</option></select>.
+The paper is taken out before the solvent reaches the top so that
+<select data-a="b"><option value="">choose…</option><option value="a">the spots do not dry</option><option value="b">the solvent front can be seen and measured</option><option value="c">the paper does not tear</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" id="checkQs" type="button">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<div class="toolbar">
+<span class="note">R<sub>f</sub> = distance moved by substance &divide; distance moved by solvent. A pure substance gives one spot.</span>
+<button class="btn ghost" id="resetAll" type="button">Start again</button>
+</div>
+</div>
+<div class="ppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="sheet" aria-labelledby="exH">
+<h2 id="exH">Exam practice</h2>
+<p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p>
+</section>
+<div class="ex-bar" id="exBar" role="status" aria-live="polite"></div>
+<div class="ex-list" id="exList"></div>
+<div class="ex-foot"><button class="ex-btn ghost" id="exReset" type="button">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+(function(){
+const RM=false;
+const $=id=>document.getElementById(id);
+const wait=ms=>new Promise(r=>setTimeout(r,RM?Math.min(ms,80):ms));
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const NS='http://www.w3.org/2000/svg';
+const msgEl=$('msg');
+function say(t,k){msgEl.innerHTML=t;msgEl.className='msg'+(k?' '+k:'');}
+/* ---------- generic bench: drag or tap-then-tap ---------- */
+function makeBench(tray,scene,tools,onUse,onEmpty){
+let sel=null,drag=null;
+const nameOf=id=>tools.find(t=>t.id===id).name;
+tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.t=t.id;b.innerHTML=t.svg+'<span class="nm">'+t.name+'</span>';tray.appendChild(b);});
+function clear(){sel=null;tray.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed');}
+function choose(id){if(sel===id){clear();return;}clear();sel=id;tray.querySelector('[data-t="'+id+'"]').classList.add('selected');scene.classList.add('armed');say('Now tap the bench to use: <b>'+nameOf(id)+'</b>.');}
+tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b||e.button>0)return;drag={id:b.dataset.t,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+tray.addEventListener('pointermove',e=>{if(!drag)return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=tools.find(t=>t.id===drag.id).svg;document.body.appendChild(g);drag.g=g;}
+if(drag.moved){drag.g.style.transform='translate('+(e.clientX-28)+'px,'+(e.clientY-28)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);drag.over=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',drag.over);}});
+function end(cancel){if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(cancel)return;if(d.moved){if(d.over){clear();onUse(d.id);}}else choose(d.id);}
+tray.addEventListener('pointerup',()=>end(false));tray.addEventListener('pointercancel',()=>end(true));
+tray.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b)choose(b.dataset.t);}});
+scene.addEventListener('click',e=>{if(sel){const s=sel;clear();onUse(s);}else if(!(onEmpty&&onEmpty(e)))say('First pick something from the tray.');});
+scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===scene){e.preventDefault();if(sel){const s=sel;clear();onUse(s);}}});
+return {clear};
+}
+/* ---------- method steps ---------- */
+function makeSteps(ol,list,onDone){
+let i=0,busy=false;
+function render(){ol.innerHTML=list.map((s,k)=>'<li class="'+(k<i?'done':k===i?'now':'')+'">'+s.text+'</li>').join('');}
+render();
+return {get i(){return i},get busy(){return busy},
+async use(id){
+if(busy)return;const s=list[i];
+if(!s){say('The experiment is finished. Measure your spots and fill in Part 2.');return;}
+if(![].concat(s.tool).includes(id)){
+const later=list.findIndex((x,k)=>k>i&&[].concat(x.tool).includes(id));
+say((s.wrong&&s.wrong[id])||((later>i?'That comes later. ':'Not now. ')+s.hint),'warn');return;}
+busy=true;let r;try{r=await s.run(id);}finally{busy=false;}
+if(r!==false){i++;render();if(i>=list.length&&onDone)onDone();}
+},
+reset(){i=0;busy=false;render();}};
+}
+/* ---------- icons ---------- */
+const ic=b=>'<svg viewBox="0 0 44 44" aria-hidden="true">'+b+'</svg>';
+const dropper=c=>ic('<rect x="19" y="3" width="6" height="10" rx="2" fill="#3a3f4a"/><path d="M20 13 L24 13 L24 34 L22 40 L20 34 Z" fill="'+c+'" stroke="#7d8fa3" stroke-width="1.5"/>');
+const beaker=lvl=>ic('<path d="M8 6 L8 38 Q8 41 11 41 L33 41 Q36 41 36 38 L36 6" fill="none" stroke="#7d8fa3" stroke-width="2.5"/><rect x="9.5" y="'+lvl+'" width="25" height="'+(39.5-lvl)+'" fill="#bfe0f5"/><rect x="15" y="4" width="14" height="30" fill="#fffdf6" stroke="#c9c2ad"/><line x1="15" y1="28" x2="29" y2="28" stroke="#555"/>');
+const TOOLS=[
+{id:'pencil',name:'Pencil',svg:ic('<path d="M8 36 L30 8 L36 13 L14 41 L7 42 Z" fill="#f2c230" stroke="#7a5d10" stroke-width="1.5"/><path d="M8 36 L14 41 L7 42 Z" fill="#444"/>')},
+{id:'pen',name:'Ink pen',svg:ic('<path d="M10 34 L30 8 L36 13 L16 39 Z" fill="#2f6fd6" stroke="#1d3f80" stroke-width="1.5"/><path d="M10 34 L16 39 L8 42 Z" fill="#1d3f80"/>')},
+{id:'X',name:'Ink X (brown)',svg:dropper('#5b3a29')},
+{id:'R',name:'Red dye',svg:dropper('#d62f3a')},
+{id:'Y',name:'Yellow dye',svg:dropper('#f2c230')},
+{id:'B',name:'Blue dye',svg:dropper('#2f6fd6')},
+{id:'low',name:'Beaker, water 1 cm deep',svg:beaker(34)},
+{id:'high',name:'Beaker, water 3 cm deep',svg:beaker(20)},
+{id:'lid',name:'Lid',svg:ic('<rect x="4" y="18" width="36" height="8" rx="3" fill="#d6e3ee" stroke="#7d8fa3" stroke-width="2"/>')},
+{id:'hand',name:'Take out paper',svg:ic('<path d="M10 40 L20 6 M34 40 L24 6" stroke="#5a6878" stroke-width="3" stroke-linecap="round"/><rect x="16" y="2" width="12" height="6" fill="#fffdf6" stroke="#c9c2ad"/>')}
+];
+/* ---------- chemistry data ---------- */
+const BY=355,PX=3,yOf=mm=>BY-mm*PX;
+const LANES={X:125,R:195,Y:265,B:335};
+const NAMES={X:'ink X',R:'red dye',Y:'yellow dye',B:'blue dye'};
+let RF,spotted,front,F,timer,t0,elapsed,rising,measuring;
+function setup(){
+RF={red:.62+rnd(-.03,.03),yellow:.85+rnd(-.02,.02),blue:.34+rnd(-.03,.03),other:.13+rnd(-.02,.02)};
+spotted={};front=-7;F=null;elapsed=0;rising=false;measuring=false;
+}
+const PARTS={X:[['red','#d62f3a'],['yellow','#f2c230'],['other','#7a3fa6']],R:[['red','#d62f3a']],Y:[['yellow','#f2c230']],B:[['blue','#2f6fd6']]};
+/* ---------- drawing ---------- */
+function drawSpots(){
+const g=$('spots');
+const fr=Math.max(0,front);
+g.querySelectorAll('ellipse').forEach(el=>{
+const d=RF[el.dataset.p]*fr;
+el.setAttribute('cy',yOf(d));el.setAttribute('rx',6+d*.05);el.setAttribute('ry',6+d*.09);
+});
+const wy=yOf(front);
+$('wet').setAttribute('y',wy);$('wet').setAttribute('height',Math.max(0,400-wy));
+}
+function addSpot(k){
+const g=$('spots');
+PARTS[k].forEach(([p,c])=>{const e=document.createElementNS(NS,'ellipse');e.dataset.p=p;e.setAttribute('cx',LANES[k]);e.setAttribute('fill',c);e.setAttribute('opacity','.85');e.setAttribute('class','spot');g.appendChild(e);});
+const tx=document.createElementNS(NS,'text');tx.setAttribute('x',LANES[k]);tx.setAttribute('y',BY+18);tx.textContent=k;$('labels').appendChild(tx);
+drawSpots();
+}
+/* ruler */
+(function(){let h='';for(let mm=0;mm<=100;mm++){const y=yOf(mm),L=mm%10===0?16:mm%5===0?10:6;h+='<line x1="72" x2="'+(72-L)+'" y1="'+y+'" y2="'+y+'" stroke="#4a4320" stroke-width="'+(mm%10===0?1.2:.7)+'"/>';if(mm%10===0)h+='<text x="40" y="'+(y+3.5)+'" text-anchor="middle">'+mm+'</text>';}$('ticks').innerHTML=h;})();
+let mval=0;
+function setLine(v){mval=Math.max(0,Math.min(100,Math.round(v)));const y=yOf(mval);$('mline').setAttribute('y1',y);$('mline').setAttribute('y2',y);$('hcirc').setAttribute('cy',y);$('harr').setAttribute('d','M14 '+(y-2)+' L20 '+(y-8)+' L26 '+(y-2)+' Z M14 '+(y+2)+' L20 '+(y+8)+' L26 '+(y+2)+' Z');$('mrange').value=mval;$('mread').textContent=mval+' mm above the baseline';}
+function svgY(e){const p=$('svg').createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform($('svg').getScreenCTM().inverse()).y;}
+let hdrag=false;
+$('handle').addEventListener('pointerdown',e=>{if(!measuring)return;e.stopPropagation();hdrag=true;try{$('handle').setPointerCapture(e.pointerId)}catch(_){}});
+$('handle').addEventListener('pointermove',e=>{if(hdrag)setLine((BY-svgY(e))/PX);});
+$('handle').addEventListener('pointerup',()=>hdrag=false);$('handle').addEventListener('pointercancel',()=>hdrag=false);
+$('handle').addEventListener('click',e=>e.stopPropagation());
+$('mrange').addEventListener('input',e=>setLine(+e.target.value));
+$('mUp').addEventListener('click',()=>setLine(mval+1));$('mDown').addEventListener('click',()=>setLine(mval-1));
+/* ---------- rising solvent ---------- */
+function tick(){
+if(!rising)return;
+elapsed=(performance.now()-t0)/1000;
+front=Math.min(95,-7+104*(1-Math.exp(-elapsed/9)));
+drawSpots();
+const min=Math.round(elapsed*1.2);
+$('rdTime').textContent=min+' min';$('clock').textContent='time: '+min+' min';
+$('rdSolv').textContent=front<0?'rising to baseline':'rising';
+if(front>=95){rising=false;$('rdSolv').textContent='nearly at the top';say('The solvent is nearly at the top. <b>Take the paper out now.</b>','warn');return;}
+timer=RM?setTimeout(tick,500):requestAnimationFrame(tick);
+}
+function stopRise(){rising=false;cancelAnimationFrame(timer);clearTimeout(timer);}
+/* ---------- steps ---------- */
+const penMsg='Ink from a pen would dissolve in the solvent and move up the paper with the dyes. Use a <b>pencil</b>.';
+const steps=makeSteps($('method'),[
+{tool:'pencil',text:'Draw a baseline in pencil, about 1.5 cm from the bottom.',hint:'First draw a baseline on the paper.',wrong:{pen:penMsg},
+run:async()=>{$('baseline').style.transition=RM?'none':'stroke-dashoffset 1s ease';$('baseline').style.strokeDashoffset='0';await wait(1000);say('Baseline drawn in pencil. Pencil (graphite) does not dissolve, so it will not move.','ok');}},
+{tool:['X','R','Y','B'],text:'Put a small spot of ink X and each known dye on the baseline.',hint:'Put small spots of each ink on the baseline.',
+run:async id=>{if(spotted[id]){say('You already spotted the '+NAMES[id]+'. Spot the others.','warn');return false;}
+spotted[id]=true;addSpot(id);await wait(300);const left=['X','R','Y','B'].filter(k=>!spotted[k]);
+if(left.length){say('Spot of '+NAMES[id]+' added. Now spot: '+left.map(k=>NAMES[k]).join(', ')+'.');return false;}
+say('All four spots are on the baseline. Keep spots small so they do not spread into each other.','ok');}},
+{tool:'low',text:'Stand the paper in a beaker of water. The water must be below the baseline.',hint:'Stand the paper in a beaker of water (the solvent).',
+wrong:{high:'That water is 3 cm deep. It would be <b>above</b> the baseline, so the inks would dissolve into the water in the beaker. Choose the beaker with less water.'},
+run:async()=>{$('beakerBack').style.opacity=1;$('beakerFront').style.opacity=1;await wait(800);say('The water is about 1 cm deep. It is below the baseline, so the spots do not touch it.','ok');}},
+{tool:'lid',text:'Put a lid on the beaker. Watch the solvent rise.',hint:'Put a lid on so the solvent does not evaporate.',
+run:async()=>{$('lid').style.opacity=1;await wait(400);say('The water soaks up the paper. Watch the dyes separate. Take the paper out <b>before</b> the solvent reaches the top.');t0=performance.now();rising=true;tick();}},
+{tool:'hand',text:'Take the paper out before the solvent reaches the top.',hint:'Wait. The paper must stay in until the solvent has risen most of the way.',
+run:async()=>{if(front<55){say('Not yet. The solvent has not risen far enough. The dyes have not separated well. Wait a little longer.','warn');return false;}
+stopRise();F=Math.round(front*10)/10;$('lid').style.opacity=0;await wait(400);$('beakerBack').style.opacity=0;$('beakerFront').style.opacity=0;$('rdSolv').textContent='paper removed';await wait(700);
+say('Paper out. Quick! Mark where the solvent got to before it dries.','ok');}},
+{tool:'pencil',text:'Mark the solvent front with a pencil. Let the paper dry.',hint:'Mark the solvent front now.',wrong:{pen:penMsg},
+run:async()=>{const y=yOf(F);$('frontLine').setAttribute('y1',y);$('frontLine').setAttribute('y2',y);$('frontTxt').setAttribute('y',y-5);$('frontMark').classList.remove('hid');await wait(500);
+$('wet').setAttribute('opacity','.12');startMeasure();}}
+],null);
+function startMeasure(){measuring=true;$('ruler').classList.remove('hid');$('measureBar').classList.remove('hid');setLine(0);
+say('Now measure. Drag the purple handle, tap the paper, or use the slider. Line up the centre of each spot, then the solvent front. Write the distances in Part 2.','ok');}
+makeBench($('tray'),$('scene'),TOOLS,id=>steps.use(id),e=>{if(!measuring)return false;setLine((BY-svgY(e))/PX);return true;});
+/* ---------- results table ---------- */
+const ROWS=[{k:'Xt',lab:'ink X – top spot',p:'yellow',m:'Y'},{k:'Xm',lab:'ink X – middle spot',p:'red',m:'R'},{k:'Xb',lab:'ink X – bottom spot',p:'other',m:'none'},{k:'R',lab:'red dye',p:'red'},{k:'Y',lab:'yellow dye',p:'yellow'},{k:'B',lab:'blue dye',p:'blue'}];
+const tb=$('res').querySelector('tbody');
+tb.innerHTML=ROWS.map(r=>'<tr><th>'+r.lab+'</th>'+['d','s','rf'].map(c=>'<td id="td-'+r.k+'-'+c+'"><input type="number" inputmode="decimal" step="'+(c==='rf'?'0.01':'1')+'" min="0" id="in-'+r.k+'-'+c+'" aria-label="'+r.lab+' '+(c==='d'?'distance moved by spot in mm':c==='s'?'distance moved by solvent in mm':'Rf value')+'"></td>').join('')+
+(r.m?'<td id="td-'+r.k+'-m"><select id="in-'+r.k+'-m" aria-label="'+r.lab+' matches which dye"><option value="">choose…</option><option value="R">red</option><option value="Y">yellow</option><option value="B">blue</option><option value="none">no match</option></select></td>':'<td class="note">known dye</td>')+'</tr>').join('');
+tb.addEventListener('input',e=>{const t=e.target.closest('td');if(t)t.classList.remove('ok','wrong');});
+$('checkRes').addEventListener('click',()=>{
+const s=$('resScore');
+if(F===null||!measuring){s.textContent='Finish Part 1 first: take the paper out and mark the solvent front.';s.className='score bad';return;}
+let right=0,total=0;
+ROWS.forEach(r=>{
+const d=RF[r.p]*F,vd=parseFloat($('in-'+r.k+'-d').value),vs=parseFloat($('in-'+r.k+'-s').value),vr=parseFloat($('in-'+r.k+'-rf').value);
+const okD=Math.abs(vd-d)<=2,okS=Math.abs(vs-F)<=2,okR=Math.abs(vr-RF[r.p])<=.04&&(!(vs>0)||Math.abs(vr-vd/vs)<=.02);
+[['d',okD],['s',okS],['rf',okR]].forEach(([c,ok])=>{const td=$('td-'+r.k+'-'+c);td.classList.toggle('ok',ok);td.classList.toggle('wrong',!ok);total++;if(ok)right++;});
+if(r.m){const ok=$('in-'+r.k+'-m').value===r.m,td=$('td-'+r.k+'-m');td.classList.toggle('ok',ok);td.classList.toggle('wrong',!ok);total++;if(ok)right++;}
+});
+s.textContent=right+' / '+total+' correct.'+(right===total?' Well done!':' Red boxes need another look. Measure to the centre of each spot (to the nearest mm).');
+s.className='score '+(right===total?'good':'bad');
+});
+/* ---------- questions ---------- */
+$('checkQs').addEventListener('click',()=>{const sels=[...document.querySelectorAll('#qs select')];let right=0;
+sels.forEach(s=>{const ok=s.value===s.dataset.a;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);if(ok)right++;});
+const q=$('qScore');q.textContent=right+' / '+sels.length+' correct'+(right===sels.length?'. Excellent!':'.');q.className='score '+(right===sels.length?'good':'bad');});
+$('qs').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+/* ---------- reset ---------- */
+function resetBench(){
+stopRise();setup();steps.reset();
+$('spots').innerHTML='';$('labels').innerHTML='';
+$('baseline').style.transition='none';$('baseline').style.strokeDashoffset='284';
+['beakerBack','beakerFront','lid'].forEach(id=>$(id).style.opacity=0);
+$('frontMark').classList.add('hid');$('ruler').classList.add('hid');$('measureBar').classList.add('hid');
+$('wet').setAttribute('opacity','.35');drawSpots();
+$('rdTime').textContent='0 min';$('rdSolv').textContent='not started';$('clock').textContent='';
+say('Start with step 1: draw a baseline on the paper.');
+}
+$('resetBench').addEventListener('click',()=>{if(steps.busy)return;resetBench();});
+$('resetAll').addEventListener('click',()=>{if(steps.busy)return;resetBench();
+document.querySelectorAll('#res input,#res select').forEach(el=>el.value='');document.querySelectorAll('#res td').forEach(td=>td.classList.remove('ok','wrong'));
+document.querySelectorAll('#qs select').forEach(s=>{s.value='';s.classList.remove('ok','wrong');});
+$('resScore').textContent='';$('qScore').textContent='';window.scrollTo({top:0,behavior:RM?'auto':'smooth'});});
+setup();drawSpots();
+})();
+</script>
+<script>
+(function(){
+const RM=false;
+const Q=[{"ref": "Q1(a)", "marks": 1, "type": "mcq", "ctx": "A student sets up paper chromatography to separate the dyes in a black ink.", "stem": "Why is the baseline drawn in pencil and not in ink?", "opts": ["Pencil lines are easier to see on wet paper.", "Pencil (graphite) is insoluble in the solvent, so the line does not move or separate.", "Pencil lines help the solvent rise up the paper.", "Ink would react with the dyes being tested."], "ans": 1, "why": "Graphite does not dissolve in the solvent, so it cannot add extra spots to the chromatogram."}, {"ref": "Q1(b)", "marks": 1, "type": "mcq", "stem": "Why must the baseline be above the level of the solvent in the beaker?", "opts": ["So the solvent can evaporate more quickly.", "So the paper does not tear.", "So the spots do not dissolve into the solvent in the beaker.", "So the solvent front can be seen more easily."], "ans": 2, "why": "If the spots are below the solvent surface, the dyes wash off into the solvent instead of moving up the paper."}, {"ref": "Q2", "marks": 2, "type": "calc", "ctx": "On the chromatogram, a blue dye moved 3.6 cm from the baseline. The solvent front moved 8.0 cm from the baseline.", "stem": "Calculate the R<sub>f</sub> value of the blue dye.", "inputs": [{"label": "R<sub>f</sub> =", "unit": "", "ans": 0.45, "tol": 0.006, "m": 2}], "working": "<p>R<sub>f</sub> = distance moved by dye &divide; distance moved by solvent (1)</p><p>= 3.6 &divide; 8.0 = <b>0.45</b> (1). R<sub>f</sub> has no units.</p>"}, {"ref": "Q3", "marks": 2, "type": "calc", "ctx": "A red dye has an R<sub>f</sub> value of 0.62 in water. In another experiment the solvent front moved 7.5 cm from the baseline.", "stem": "Calculate the distance the red dye moved from the baseline.", "inputs": [{"label": "Distance =", "unit": "cm", "ans": 4.65, "tol": 0.06, "m": 2}], "working": "<p>distance moved by dye = R<sub>f</sub> &times; distance moved by solvent (1)</p><p>= 0.62 &times; 7.5 = <b>4.65 cm</b> (accept 4.6 or 4.7 cm) (1)</p>"}, {"ref": "Q4", "marks": 1, "type": "mcq", "ctx": "Ink X gives three separate spots on the chromatogram.", "stem": "What does this result show about ink X?", "opts": ["Ink X is a pure substance.", "Ink X is a mixture of at least three substances.", "Ink X is a compound of three elements.", "Ink X is insoluble in the solvent."], "ans": 1, "why": "Each spot is a different substance. A pure substance gives only one spot."}, {"ref": "Q5", "marks": 3, "type": "text", "stem": "Explain why the different dyes in an ink move different distances up the paper.", "points": ["The solvent (water) is the mobile phase and the paper is the stationary phase.", "The dyes have different solubilities in the solvent.", "A more soluble dye spends more time dissolved in the solvent, so it moves further up the paper.", "A dye that is more strongly attracted to the paper moves a shorter distance."]}, {"ref": "Q6", "marks": 2, "type": "text", "ctx": "One of the dyes in a green ink stayed on the baseline and did not move.", "stem": "Suggest why this dye did not move. Suggest a change to the method so that this dye can be separated.", "points": ["The dye is insoluble in water / the solvent.", "Use a different solvent, such as ethanol, in which the dye dissolves."]}, {"ref": "Q7", "marks": 1, "type": "mcq", "ctx": "Two students compare the R<sub>f</sub> values of the same dye.", "stem": "Which two variables must be kept the same so that they get the same R<sub>f</sub> value?", "opts": ["The size of the beaker and the length of the paper.", "The time the paper is left and the height of the solvent front.", "The solvent used and the type of chromatography paper.", "The size of the spot and the colour of the ink."], "ans": 2, "why": "The R<sub>f</sub> value of a substance depends on the solvent and the paper (stationary phase)."}, {"ref": "Q8", "marks": 1, "type": "mcq", "ctx": "Food colouring E gives two spots with R<sub>f</sub> values of 0.30 and 0.71. The table shows R<sub>f</sub> values of four known dyes in the same solvent: P = 0.30, Q = 0.52, R = 0.71, S = 0.85.", "stem": "Which dyes are in food colouring E?", "opts": ["P and Q", "P and R", "Q and S", "R and S"], "ans": 1, "why": "Spots with the same R<sub>f</sub> value in the same solvent are the same substance: 0.30 is P and 0.71 is R."}, {"ref": "Q9", "marks": 6, "type": "text", "ctx": "A forensic scientist wants to find out whether a black ink from a letter contains the same dyes as three known dyes, J, K and L.", "stem": "Describe how paper chromatography could be used to find out which of the dyes J, K and L are in the black ink.", "note": "Award one mark for each point, up to 6", "points": ["Draw a baseline in pencil about 1–2 cm from the bottom of the paper.", "Put small, concentrated spots of the black ink and of each dye J, K and L on the baseline, spaced apart.", "Stand the paper in a beaker of solvent (for example water) with the solvent level below the baseline.", "Put a lid on the beaker and leave until the solvent has risen near the top of the paper.", "Remove the paper, mark the solvent front in pencil and let the paper dry.", "A spot in the ink at the same height as a spot from J, K or L shows that dye is in the ink.", "Measure distances and calculate R<sub>f</sub> = distance moved by dye &divide; distance moved by solvent.", "Compare the R<sub>f</sub> values: matching values show the same dye."]}];
+const $=id=>document.getElementById(id);
+const tabs=[...document.querySelectorAll('.ptab')];
+function toTop(){const y=$('ptabs').getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:Math.max(0,y),behavior:RM?'auto':'smooth'});}
+function pick(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on;});toTop();}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(t));
+t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+if(j!==null){e.preventDefault();tabs[j].focus();pick(tabs[j]);}});});
+const state=[],L='ABCD',total=Q.reduce((s,q)=>s+q.marks,0);
+function upd(){const sc=state.reduce((s,x)=>s+(x.marked?x.score:0),0),n=state.filter(x=>x.marked).length;
+$('exBar').textContent='Score: '+sc+' / '+total+' · '+n+' of '+Q.length+' questions marked';}
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
+const num=s=>{s=String(s).trim().replace(',','.');return s===''||isNaN(+s)?null:+s;};
+const mk=n=>n+' mark'+(n>1?'s':'');
+function build(){const list=$('exList');list.innerHTML='';state.length=0;
+Q.forEach((q,qi)=>{const st={marked:false,score:0};state.push(st);
+const c=el('article','ex-q');c.setAttribute('aria-labelledby','exr'+qi);
+const h=el('div','ex-head');const r=el('span','ex-ref',q.ref);r.id='exr'+qi;h.append(r,el('span','ex-mk','('+mk(q.marks)+')'));c.append(h);
+if(q.ctx)c.append(el('p','ex-ctx',q.ctx));
+c.append(el('p','ex-stem',q.stem));
+const fb=el('div','ex-fb');fb.hidden=true;fb.setAttribute('aria-live','polite');
+if(q.type==='mcq'){const g=el('div','ex-opts');g.setAttribute('role','radiogroup');g.setAttribute('aria-labelledby','exr'+qi);
+q.opts.forEach((o,oi)=>{const lab=el('label','ex-opt');const ri=el('input');ri.type='radio';ri.name='exq'+qi;ri.value=oi;
+lab.append(ri,el('span','lt',L[oi]),el('span','',o));g.append(lab);
+ri.addEventListener('change',()=>{if(st.marked)return;const ok=oi===q.ans;st.marked=true;st.score=ok?q.marks:0;c.classList.add('locked');
+g.querySelectorAll('input').forEach(x=>x.disabled=true);
+g.children[q.ans].classList.add('ex-ok');if(!ok)lab.classList.add('ex-no');
+fb.className='ex-fb '+(ok?'ex-ok':'ex-no');fb.innerHTML='<p><b>'+(ok?'Correct.':'Not quite. The answer is '+L[q.ans]+'.')+'</b> '+q.why+'</p>';fb.hidden=false;upd();});});
+c.append(g,fb);}
+else if(q.type==='calc'){const w=el('div','ex-calc');const ins=[];
+q.inputs.forEach((p,pi)=>{const row=el('div','ex-row');const id='exi'+qi+'_'+pi;const lb=el('label','',p.label);lb.htmlFor=id;
+const i=el('input','ex-in');i.id=id;i.type='text';i.inputMode='decimal';i.autocomplete='off';ins.push(i);
+row.append(lb,i);if(p.unit)row.append(el('span','',p.unit));w.append(row);});
+const b=el('button','ex-btn','Check');b.type='button';
+ins.forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')b.click();}));
+b.addEventListener('click',()=>{if(st.marked)return;const vals=ins.map(i=>num(i.value));
+if(vals.some(v=>v===null)){fb.className='ex-fb ex-no';fb.innerHTML='<p>Type a number in every box first.</p>';fb.hidden=false;return;}
+const ok=q.inputs.map((p,pi)=>Math.abs(vals[pi]-p.ans)<=p.tol+1e-9),last=ok.length-1;
+const s=ok[last]?q.marks:Math.min(q.marks,q.inputs.reduce((a,p,pi)=>a+(ok[pi]?p.m:0),0));
+ins.forEach((i,pi)=>{i.classList.add(ok[pi]?'ex-ok':'ex-no');i.readOnly=true;});
+st.marked=true;st.score=s;b.disabled=true;
+fb.className='ex-fb '+(s===q.marks?'ex-ok':'ex-no');fb.innerHTML='<p><b>'+s+' / '+mk(q.marks)+'.</b> Working:</p>'+q.working;fb.hidden=false;upd();});
+w.append(b);c.append(w,fb);}
+else{const ta=el('textarea','ex-ta');ta.placeholder='Write your answer here, then press Show mark scheme.';ta.setAttribute('aria-label','Your answer to '+q.ref);
+const b=el('button','ex-btn ghost','Show mark scheme');b.type='button';
+const ms=el('div','ex-ms');ms.hidden=true;ms.append(el('h3','','Tick each point you made'));
+q.points.forEach(p=>{const lab=el('label');const cb=el('input');cb.type='checkbox';lab.append(cb,el('span','',p));ms.append(lab);
+cb.addEventListener('change',()=>{st.score=Math.min(q.marks,ms.querySelectorAll('input:checked').length);upd();});});
+ms.append(el('p','ex-max','Max '+mk(q.marks)+(q.note?'. '+q.note+'.':'')));
+b.addEventListener('click',()=>{if(st.marked)return;st.marked=true;st.score=0;ms.hidden=false;b.disabled=true;upd();});
+c.append(ta,b,ms);}
+list.append(c);});
+upd();}
+$('exReset').addEventListener('click',()=>{build();toTop();});
+build();
+})();
+</script>
+</body></html>

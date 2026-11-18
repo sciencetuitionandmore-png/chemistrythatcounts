@@ -1,0 +1,531 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Rates: Iodine-Propanone and Iodine Clock</title>
+<meta name="description" content="Virtual core practical: Rates: Iodine-Propanone and Iodine Clock. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp9-rates-iodine-propanone.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>[hidden]{display:none!important}
+:root{color-scheme:light;
+--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.tag{font:600 .85rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+details.safety{background:#fff6e5;border:1px solid #e8c98a;border-radius:10px;padding:8px 14px}
+details.safety summary{font:600 .95rem var(--display);cursor:pointer;color:#7a4b00}
+details.safety ul{margin:8px 0 4px;padding-left:1.2em;font-size:.93rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bench{background:var(--bench);border-radius:12px;padding:14px 10px 12px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shelf-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.shelf{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font:inherit;width:96px}
+.item svg{width:40px;height:58px;display:block;pointer-events:none}
+.item .nm{font-size:.74rem;font-weight:700;line-height:1.2;text-align:center;pointer-events:none}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+.item:focus-visible,.tgt:focus-visible,.btn:focus-visible,.mini:focus-visible,.tab:focus-visible,canvas:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tgt{display:flex;flex-direction:column;align-items:center;gap:4px;border:2px dashed transparent;border-radius:12px;padding:6px 4px;cursor:pointer;min-width:0}
+.tgt.armed{border-color:#aab5c2}
+.tgt.over,.tgt.armed:hover{border-color:var(--accent);background:var(--accent-soft)}
+.tgt svg{display:block;overflow:visible;max-width:100%;height:auto}
+.tgt .lbl{font-size:.8rem;font-weight:700;text-align:center;line-height:1.2;max-width:150px}
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.grad{stroke:var(--glass);stroke-width:1}
+.liq{transform-box:fill-box;transform-origin:50% 100%;transition:transform .7s ease,fill 1.2s ease}
+.bub{animation:rise 1.1s ease-in infinite}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(-34px);opacity:0}}
+.drop{animation:fall .6s ease-in forwards}
+@keyframes fall{from{transform:translateY(-30px);opacity:1}to{transform:translateY(40px);opacity:0}}
+.swirl{animation:swirl 1.6s ease;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes swirl{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:var(--sheet);color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.mini{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini:disabled{opacity:.45;cursor:not-allowed}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.msg{border-radius:10px;padding:10px 14px;font-size:.93rem;background:var(--accent-soft);border-left:5px solid var(--accent);min-height:2.6em}
+.msg.bad{background:#fbeaea;border-color:var(--bad)}
+.msg.good{background:#e6f4ec;border-color:var(--good)}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px}
+@media (max-width:720px){.cols{grid-template-columns:minmax(0,1fr)}}
+.method{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--sheet)}
+.method h3{font-size:.95rem;margin-bottom:6px}
+.method ol{margin:0;padding-left:1.4em;font-size:.88rem;display:flex;flex-direction:column;gap:4px}
+.method li.done{color:var(--good)}
+.method li.done::marker{content:"\2713  ";font-weight:700}
+.method li.now{font-weight:700}
+.readouts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.ro{background:#1f2a37;color:#c9f5d9;border-radius:8px;padding:6px 12px;font:600 1.05rem ui-monospace,Menlo,Consolas,monospace;min-width:120px;text-align:center}
+.ro small{display:block;font:600 .68rem var(--body);color:#9fb3c4;letter-spacing:.06em;text-transform:uppercase}
+.log{font-size:.88rem}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:var(--accent-soft);font-weight:700;white-space:nowrap}
+td.ok,input.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong,input.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input.num{font:inherit;font-size:.95rem;width:6.5em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
+select.ok{border-color:var(--good)} select.wrong{border-color:var(--bad)}
+.calc{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px}
+.calc .row,.row{display:block;line-height:2.1}
+.row input.num,.row select,.row button{margin:0 4px;vertical-align:middle}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+canvas.graph{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff;touch-action:none}
+.note{font-size:.88rem;color:var(--muted)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:72ch}
+.mc{display:flex;flex-direction:column;gap:4px;margin-top:6px;border:0;padding:0}
+.mc label,.opts label{display:flex;gap:8px;align-items:center;padding:4px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.mc label.ok,.opts label.ok{border-color:var(--good)} .mc label.wrong,.opts label.wrong{border-color:var(--bad)}
+input[type=radio],input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex:none}
+.xq{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.xq:first-child{border-top:0;padding-top:0}
+.qt{max-width:72ch}
+.mk{float:right;font-weight:700;color:var(--muted);margin-left:8px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:84px;padding:8px;border-radius:10px;border:2px solid var(--line)}
+.ms,.worked{background:#f6f8fb;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.ms label{display:flex;gap:8px;align-items:flex-start;padding:3px 0}
+.ms label input{margin-top:3px}
+.ms p{margin-top:6px}
+.data{border-collapse:collapse;min-width:0;width:auto;font-size:.88rem;margin:4px 0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:600 .95rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--line);background:var(--bench);color:var(--muted);cursor:pointer}
+.tab[aria-selected=true]{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.eq{font-weight:700;text-align:center}
+footer{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+@media (max-width:520px){body{font-size:16px}.item{width:84px}.item svg{width:34px;height:50px}}
+@media (prefers-reduced-motion:reduce){.liq{transition:none}.bub,.drop,.swirl{animation:none}}
+
+.rig{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:flex-end}
+.titr{display:flex;flex-direction:column;align-items:center}
+.titr .bur svg{height:190px;width:auto}
+.titr .tgt.fl{margin-top:-2px}
+.recipe{font-size:.88rem;background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>Rates by titration and by an iodine clock</h1>
+  <div class="tag">IAL Chemistry · Core Practical 9 · Unit 6</div>
+  <p><b>Aim:</b> to follow the rate of the iodine–propanone reaction by titration, and to find the order with respect to iodide ions using an iodine clock reaction.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li>Wear eye protection. Sulfuric acid (0.5 mol dm<sup>−3</sup>) is an irritant to eyes and skin.</li>
+    <li>Propanone is highly flammable and irritates the eyes. Keep away from flames.</li>
+    <li>Potassium peroxydisulfate is an oxidiser and may cause skin and breathing sensitisation. Avoid skin contact; do not breathe the dust.</li>
+    <li>Iodine solution stains skin and clothing. Always use a pipette filler, never your mouth.</li>
+  </ul></details>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="a" aria-selected="true" type="button">9a Iodine–propanone (titration)</button><button class="tab" role="tab" data-tab="b" aria-selected="false" type="button">9b Iodine clock</button></div>
+
+  <div data-pane="a">
+    <p class="eq">CH<sub>3</sub>COCH<sub>3</sub>(aq) + I<sub>2</sub>(aq) → CH<sub>3</sub>COCH<sub>2</sub>I(aq) + HI(aq) &nbsp; (H<sup>+</sup> catalyst)</p>
+    <div class="cols">
+      <div class="bench" id="benchA">
+        <div class="shelf-label">Reagents and apparatus</div>
+        <div class="shelf" id="shelfA"></div>
+        <p class="note" style="text-align:center">Drag an item onto the apparatus, or tap the item and then tap the apparatus.</p>
+        <div class="rig">
+          <div class="tgt" data-t="beaker" tabindex="0" role="button" aria-label="Reaction beaker"><div id="rbW"></div><span class="lbl" id="rbL">Reaction beaker (empty)</span></div>
+          <div class="titr">
+            <div class="tgt bur" data-t="burette" tabindex="0" role="button" aria-label="Burette"><div id="burW"></div><span class="lbl">Burette</span></div>
+            <div class="tgt fl" data-t="flask" tabindex="0" role="button" aria-label="Conical flask"><div id="cfW"></div><span class="lbl" id="cfL">Conical flask (empty)</span></div>
+          </div>
+        </div>
+        <div class="readouts"><div class="ro"><small>stopwatch</small><span id="clkA">--:--</span></div><div class="ro"><small>burette / cm³</small><span id="burA">--</span></div><div class="ro"><small>sample</small><span id="smpA">0 / 6</span></div></div>
+        <div class="controls">
+          <button class="mini" id="ffA" type="button" disabled>Wait 1 minute</button>
+          <button class="mini" id="add1" type="button" disabled>Open tap: 1.00 cm³</button>
+          <button class="mini" id="add01" type="button" disabled>0.10 cm³</button>
+          <button class="mini" id="add005" type="button" disabled>1 drop (0.05 cm³)</button>
+          <button class="btn" id="recA" type="button" disabled>Record this titration</button>
+        </div>
+      </div>
+      <div class="method"><h3>Method</h3><ol id="stepsA"></ol></div>
+    </div>
+    <div class="msg" id="msgA" aria-live="polite">Start by filling the burette with sodium thiosulfate solution.</div>
+    <div class="tbl-wrap"><table class="log"><thead><tr><th>Sample</th><th>time quenched / s</th><th>initial burette reading / cm³</th><th>final burette reading / cm³</th></tr></thead><tbody id="logA"><tr><td colspan="4" class="note">Your readings appear here.</td></tr></tbody></table></div>
+  </div>
+
+  <div data-pane="b" hidden>
+    <p class="eq">S<sub>2</sub>O<sub>8</sub><sup>2−</sup>(aq) + 2I<sup>−</sup>(aq) → 2SO<sub>4</sub><sup>2−</sup>(aq) + I<sub>2</sub>(aq)</p>
+    <div class="cols">
+      <div class="bench" id="benchB">
+        <div class="recipe">For each run: <b>V</b> cm³ KI(aq) + <b>(25.0 − V)</b> cm³ water + 5.0 cm³ Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>(aq) + 1 cm³ starch in a beaker. Then pour in 10.0 cm³ K<sub>2</sub>S<sub>2</sub>O<sub>8</sub>(aq) from a boiling tube and start the stopwatch.</div>
+        <div class="controls"><label for="runV">Volume of KI(aq), V / cm³:</label><select id="runV"><option>5.0</option><option>10.0</option><option>15.0</option><option>20.0</option><option selected>25.0</option></select></div>
+        <div class="shelf" id="shelfB"></div>
+        <div class="rig">
+          <div class="tgt" data-t="beaker" tabindex="0" role="button" aria-label="Beaker"><div id="cbW"></div><span class="lbl" id="cbL">Beaker (empty)</span></div>
+        </div>
+        <div class="readouts"><div class="ro"><small>stopwatch / s</small><span id="clkB">0</span></div><div class="ro"><small>runs done</small><span id="runsB">0 / 5</span></div></div>
+        <div class="controls"><button class="btn" id="stopB" type="button" disabled>Stop the stopwatch</button><button class="btn ghost" id="recB" type="button" disabled>Record and wash out</button></div>
+      </div>
+      <div class="method"><h3>Method (each run)</h3><ol id="stepsB"></ol></div>
+    </div>
+    <div class="msg" id="msgB" aria-live="polite">Choose a volume of KI, then add it to the beaker.</div>
+    <div class="tbl-wrap"><table class="log"><thead><tr><th>V(KI) / cm³</th><th>water / cm³</th><th>time for blue-black colour, t / s</th></tr></thead><tbody id="logB"><tr><td colspan="3" class="note">Your readings appear here.</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="a" aria-selected="true" type="button">9a results</button><button class="tab" role="tab" data-tab="b" aria-selected="false" type="button">9b results</button></div>
+  <div data-pane="a" style="display:flex;flex-direction:column;gap:12px">
+    <p>Copy your readings from Part 1. Titre = final − initial reading.</p>
+    <div class="tbl-wrap"><table><thead><tr><th>Sample</th><th>time / s</th><th>initial / cm³</th><th>final / cm³</th><th>titre / cm³</th></tr></thead><tbody id="resA"></tbody></table></div>
+    <div class="toolbar"><button class="btn ghost" id="plotA" type="button">Plot titre against time</button><span class="note">Drag the two red circles to draw your line of best fit (or focus the graph and use arrow keys; 1/2 picks a circle).</span></div>
+    <canvas class="graph" id="gA" tabindex="0" aria-label="Graph of titre against time"></canvas>
+    <div class="toolbar"><span>Gradient of your line: <b id="gradA">–</b> cm³ s<sup>−1</sup></span><button class="mini" id="lsA" type="button">I have drawn my line: show the least-squares line</button></div>
+    <div class="calc">
+      <div class="row">1. Gradient of your line = <input class="num" id="cA1" inputmode="decimal"> cm³ s<sup>−1</sup> <span class="note">(negative)</span></div>
+      <div class="row">2. Each 1.00 cm³ of 0.010 mol dm<sup>−3</sup> thiosulfate reacts with <input class="num" id="cA2" inputmode="decimal"> mol of I<sub>2</sub> <span class="note">(2S<sub>2</sub>O<sub>3</sub><sup>2−</sup> + I<sub>2</sub> → 2I<sup>−</sup> + S<sub>4</sub>O<sub>6</sub><sup>2−</sup>)</span></div>
+      <div class="row">3. So 1.00 cm³ of titre means [I<sub>2</sub>] in the 10.0 cm³ sample = <input class="num" id="cA3" inputmode="decimal"> mol dm<sup>−3</sup></div>
+      <div class="row">4. Rate of reaction = <input class="num" id="cA4" inputmode="decimal"> mol dm<sup>−3</sup> s<sup>−1</sup> <span class="note">(e.g. 3.2e-6)</span></div>
+      <div class="row">5. The graph is a <select id="cA5"><option value="">choose…</option><option>straight line</option><option>curve</option></select> so the reaction is <select id="cA6"><option value="">choose…</option><option>zero</option><option>first</option><option>second</option></select> order with respect to iodine.</div>
+    </div>
+    <div class="toolbar"><button class="btn" id="chkA" type="button">Check my results</button><span class="score" id="scA" aria-live="polite"></span></div>
+  </div>
+  <div data-pane="b" hidden style="display:flex;flex-direction:column;gap:12px">
+    <p>Copy your times. Work out 1/t to 3 significant figures. 1/t is proportional to the initial rate.</p>
+    <div class="tbl-wrap"><table><thead><tr><th>V(KI) / cm³</th><th>water / cm³</th><th>t / s</th><th>1/t / s<sup>−1</sup></th></tr></thead><tbody id="resB"></tbody></table></div>
+    <div class="toolbar"><button class="btn ghost" id="plotB" type="button">Plot 1/t against V(KI)</button><span class="note">Drag the red circles to draw your line.</span></div>
+    <canvas class="graph" id="gB" tabindex="0" aria-label="Graph of 1/t against volume of KI"></canvas>
+    <div class="toolbar"><span id="infoB" class="note"></span><button class="mini" id="lsB" type="button">Show the least-squares line</button></div>
+    <div class="calc"><div class="row">The graph is a straight line <select id="cB1"><option value="">choose…</option><option>through the origin</option><option>with a large positive intercept</option><option>that curves upwards</option></select>, so rate ∝ [I<sup>−</sup>] and the reaction is <select id="cB2"><option value="">choose…</option><option>zero</option><option>first</option><option>second</option></select> order with respect to I<sup>−</sup>.</div></div>
+    <div class="toolbar"><button class="btn" id="chkB" type="button">Check my results</button><span class="score" id="scB" aria-live="polite"></span></div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs"></ol>
+  <div class="toolbar"><button class="btn" id="chkQ" type="button">Check my answers</button><span class="score" id="scQ" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <div id="exam" style="display:flex;flex-direction:column;gap:14px"></div>
+  <div class="toolbar"><button class="btn" id="chkX" type="button">Check my answers</button><span class="score" id="scX" aria-live="polite"></span></div>
+</section>
+
+<footer><span class="note">Rate = k[CH<sub>3</sub>COCH<sub>3</sub>][H<sup>+</sup>]: the reaction is zero order with respect to iodine.</span><button class="btn ghost" id="resetAll" type="button">Start again</button></footer>
+</div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const rstep=(v,s)=>Math.round(v/s)*s;
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+function parseNum(s){if(s==null)return NaN;s=String(s).trim().replace(/−/g,'-').replace(/\s/g,'').replace(/,/g,'.');s=s.replace(/[x×*]10\^?/i,'e');if(s===''||s==='-')return NaN;return Number(s);}
+function close(v,t,rel,abs){return isFinite(v)&&Math.abs(v-t)<=Math.max(abs||0,Math.abs(t)*(rel||0))+1e-12;}
+function mark(el,ok){el.classList.toggle('ok',ok);el.classList.toggle('wrong',!ok);}
+function unmark(root){root.querySelectorAll('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));}
+function say(id,html,kind){const e=$(id);e.innerHTML=html;e.className='msg'+(kind?' '+kind:'');}
+function sf(v,n){if(!isFinite(v))return '';if(v===0)return '0';return Number(v.toPrecision(n)).toString();}
+function stdf(v,n){if(!isFinite(v)||v===0)return String(v);const e=Math.floor(Math.log10(Math.abs(v)));const m=v/Math.pow(10,e);return m.toFixed(n-1)+' × 10<sup>'+e+'</sup>';}
+function setScore(el,got,tot,extra){el.textContent=got+' / '+tot+(extra||'');el.className='score '+(got===tot?'good':'bad');}
+function mixHex(a,b,t){t=Math.max(0,Math.min(1,t));const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('');}
+function fmtClock(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function SimTimer(tEvent,onTick,speed){speed=speed||6;let t=0,last=null,raf=null,run=false;
+  function f(ts){if(!run)return;if(last==null)last=ts;const dt=Math.min(0.25,(ts-last)/1000);last=ts;const sp=t<tEvent-6?speed:1;t+=dt*sp;onTick(t,sp>1);if(run)raf=requestAnimationFrame(f);}
+  return{start(){run=true;last=null;raf=requestAnimationFrame(f);},stop(){run=false;cancelAnimationFrame(raf);return t;},get t(){return t},get running(){return run}};}
+
+function Steps(listId,items){const el=$(listId);let i=0;
+  function draw(){el.innerHTML=items.map((s,k)=>`<li class="${k<i?'done':k===i?'now':''}">${s.t}</li>`).join('');}
+  draw();
+  return{get cur(){return items[i]&&items[i].id},next(){i++;draw();},go(id){i=items.findIndex(s=>s.id===id);draw();},reset(){i=0;draw();},
+    why(){const s=items[i];return s?`The next step is: <b>${s.t}</b>`+(s.why?'<br>'+s.why:''):'All steps are done.';},get done(){return i>=items.length}};}
+
+function DnD(root,onUse){let sel=null,drag=null;
+  function clear(){sel=null;root.querySelectorAll('.item.selected').forEach(b=>b.classList.remove('selected'));root.querySelectorAll('.tgt').forEach(t=>t.classList.remove('armed','over'));}
+  function choose(b){if(sel===b.dataset.k){clear();return;}clear();sel=b.dataset.k;b.classList.add('selected');root.querySelectorAll('.tgt').forEach(t=>t.classList.add('armed'));}
+  root.addEventListener('pointerdown',e=>{const b=e.target.closest('.item');if(!b||b.disabled)return;drag={b,k:b.dataset.k,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+  root.addEventListener('pointermove',e=>{if(!drag)return;
+    if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.innerHTML=drag.b.querySelector('svg').outerHTML;g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:40px;height:58px;opacity:.9';document.body.appendChild(g);drag.g=g;}
+    if(drag.moved){drag.g.style.transform=`translate(${e.clientX-20}px,${e.clientY-29}px) rotate(-20deg)`;const u=document.elementFromPoint(e.clientX,e.clientY);const t=u&&u.closest?u.closest('.tgt'):null;
+      if(drag.over&&drag.over!==t)drag.over.classList.remove('over');if(t)t.classList.add('over');drag.over=t;}});
+  function end(cancel){if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(cancel)return;
+    if(d.moved){if(d.over){clear();onUse(d.k,d.over.dataset.t);}}else choose(d.b);}
+  root.addEventListener('pointerup',()=>end(false));root.addEventListener('pointercancel',()=>end(true));
+  root.addEventListener('click',e=>{const b=e.target.closest('.item');if(b){if(e.detail===0)choose(b);return;}
+    const t=e.target.closest('.tgt');if(t&&sel){const k=sel;clear();onUse(k,t.dataset.t);}});
+  root.addEventListener('keydown',e=>{const t=e.target.closest('.tgt');if(t&&e.target===t&&(e.key==='Enter'||e.key===' ')&&sel){e.preventDefault();const k=sel;clear();onUse(k,t.dataset.t);}});
+  return{clear};}
+
+const ICON={
+  bottle:(c)=>`<svg viewBox="0 0 40 58" aria-hidden="true"><rect x="15" y="1" width="10" height="9" rx="2" fill="#3a3f4a"/><rect x="13" y="9" width="14" height="6" rx="2" fill="#5a6070"/><path d="M6 20Q6 15 11 15H29Q34 15 34 20V52Q34 57 29 57H11Q6 57 6 52Z" fill="${c}" stroke="#7d8fa3" stroke-width="2"/><rect x="10" y="30" width="20" height="12" rx="2" fill="#fff" opacity=".9"/></svg>`,
+  dropper:(c)=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M8 26Q8 20 14 20H26Q32 20 32 26V52Q32 57 27 57H13Q8 57 8 52Z" fill="${c}" stroke="#7d8fa3" stroke-width="2"/><rect x="16" y="4" width="8" height="12" rx="4" fill="#2f3542"/><rect x="18" y="14" width="4" height="8" fill="#9fb0c2"/></svg>`,
+  cyl:(c)=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M8 56H32" stroke="#7d8fa3" stroke-width="3"/><path d="M14 4V54H26V4" fill="none" stroke="#7d8fa3" stroke-width="2"/><rect x="15" y="22" width="10" height="31" fill="${c}"/><path d="M26 12h-4M26 20h-4M26 28h-4M26 36h-4M26 44h-4" stroke="#7d8fa3"/></svg>`,
+  pipette:()=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M20 1V14M20 40V57" stroke="#7d8fa3" stroke-width="3"/><ellipse cx="20" cy="27" rx="6" ry="13" fill="#eef4fa" stroke="#7d8fa3" stroke-width="2"/><path d="M15 9H25" stroke="#4a44b5" stroke-width="2"/></svg>`,
+  wash:()=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M20 12L33 4" stroke="#7d8fa3" stroke-width="2.5"/><path d="M10 22Q10 16 16 16H24Q30 16 30 22V52Q30 57 25 57H15Q10 57 10 52Z" fill="#e8f2fb" stroke="#7d8fa3" stroke-width="2"/><rect x="17" y="10" width="6" height="7" fill="#5a6070"/></svg>`,
+  tube:(c)=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M13 3V48A7 7 0 0 0 27 48V3" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M14 28H26V48A6 6 0 0 1 14 48Z" fill="${c}"/></svg>`,
+  probe:()=>`<svg viewBox="0 0 40 58" aria-hidden="true"><rect x="16" y="2" width="8" height="10" fill="#2f3542"/><path d="M17 12H23V48Q23 54 20 54Q17 54 17 48Z" fill="#e8f2fb" stroke="#7d8fa3" stroke-width="2"/><circle cx="20" cy="50" r="3" fill="#bcd3ea"/></svg>`,
+  therm:()=>`<svg viewBox="0 0 40 58" aria-hidden="true"><path d="M17 3H23V46A5 5 0 1 1 17 46Z" fill="#fff" stroke="#7d8fa3" stroke-width="2"/><rect x="19" y="20" width="2" height="28" fill="#d23"/><circle cx="20" cy="50" r="4" fill="#d23"/></svg>`,
+  watch:()=>`<svg viewBox="0 0 40 58" aria-hidden="true"><rect x="16" y="6" width="8" height="6" fill="#5a6070"/><circle cx="20" cy="32" r="16" fill="#fff" stroke="#3a3f4a" stroke-width="3"/><path d="M20 32V20M20 32L28 36" stroke="#4a44b5" stroke-width="2.5" stroke-linecap="round"/></svg>`
+};
+function item(k,icon,name){return `<button type="button" class="item" data-k="${k}">${icon}<span class="nm">${name}</span></button>`;}
+
+let _gid=0;
+function vessel(kind,id,opt){opt=opt||{};const g=++_gid;let path,vb,lx,ly,lw,lh,shine='';
+  if(kind==='conical'){vb='0 0 120 140';path='M48 8V46L12 122Q8 134 20 134H100Q112 134 108 122L72 46V8';lx=0;ly=40;lw=120;lh=94;shine='M28 116L42 88';}
+  else if(kind==='beaker'){vb='0 0 120 140';path='M14 10L18 14V128Q18 134 24 134H96Q102 134 102 128V14L106 10';lx=18;ly=20;lw=84;lh=114;shine='M28 30V120';}
+  else {vb='0 0 50 160';path='M12 6V136A13 13 0 0 0 38 136V6';lx=12;ly=10;lw=26;lh=139;shine='M18 20V128';}
+  return `<svg viewBox="${vb}" width="${opt.w||120}" aria-hidden="true"><defs><clipPath id="cp${g}"><path d="${path}Z"/></clipPath></defs>
+  <g id="${id}-body"><g clip-path="url(#cp${g})"><rect class="liq" id="${id}-liq" x="${lx}" y="${ly}" width="${lw}" height="${lh}" fill="${opt.fill||'#dfeaf5'}" style="transform:scaleY(${opt.level||0})"/><g id="${id}-fx"></g></g>
+  <path class="glass" d="${path}"/>${kind==='tube'?'<path class="glass" d="M8 6H42"/>':''}<path class="shine" d="${shine}"/><g id="${id}-top"></g></g></svg>`;}
+function setLiq(id,level,fill){const r=$(id+'-liq');if(!r)return;if(level!=null)r.style.transform='scaleY('+level+')';if(fill)r.style.fill=fill;}
+function bubbles(id,on,col){const g=$(id+'-fx');if(!g)return;g.innerHTML='';if(!on||RM)return;const NS='http://www.w3.org/2000/svg';
+  for(let k=0;k<12;k++){const c=document.createElementNS(NS,'circle');c.setAttribute('cx',30+Math.random()*60);c.setAttribute('cy',120+Math.random()*12);c.setAttribute('r',1.5+Math.random()*2.5);c.setAttribute('fill',col||'rgba(255,255,255,.9)');c.setAttribute('stroke','#9fb0c2');c.setAttribute('stroke-width','.6');c.classList.add('bub');c.style.animationDelay=(Math.random()*1.1)+'s';g.appendChild(c);}}
+function swirl(id){const b=$(id+'-body');if(!b||RM)return;b.classList.remove('swirl');void b.getBoundingClientRect();b.classList.add('swirl');}
+function drip(id,col,x,y){const g=$(id+'-top');if(!g||RM)return;const NS='http://www.w3.org/2000/svg';for(let k=0;k<3;k++){const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x||60);c.setAttribute('cy',y||10);c.setAttribute('r',3.5);c.setAttribute('fill',col);c.setAttribute('stroke','rgba(0,0,0,.2)');c.classList.add('drop');c.style.opacity=0;c.style.animationDelay=(k*.15)+'s';g.appendChild(c);}setTimeout(()=>{g.innerHTML='';},1200);}
+
+function burette(id,col){let t='';for(let v=0;v<=50;v+=1){const y=20+v*4.2;t+=`<path class="grad" d="M22 ${y}h${v%5?4:8}"/>`;if(v%10===0)t+=`<text x="40" y="${y+3}" font-size="8" fill="#5a6878">${v}</text>`;}
+  return `<svg viewBox="0 0 60 300" width="60" aria-hidden="true"><rect id="${id}-liq" x="23" y="20" width="12" height="0" fill="${col}" opacity=".85"/><path class="glass" d="M22 6V240L26 252H32L36 240V6"/>${t}<rect x="18" y="250" width="22" height="7" rx="2" fill="#3a3f4a"/><path class="glass" d="M27 257V280L29 288L31 280V257"/><g id="${id}-drip"></g></svg>`;}
+function setBurette(id,reading){const r=$(id+'-liq');if(!r)return;if(reading==null){r.setAttribute('height',0);return;}const y=20+Math.min(reading,50)*4.2;r.setAttribute('y',y);r.setAttribute('height',Math.max(0,252-y));}
+function buretteDrip(id,col){const g=$(id+'-drip');if(!g||RM)return;g.innerHTML=`<circle cx="29" cy="290" r="3" fill="${col}" stroke="#9fb0c2" class="drop"/>`;setTimeout(()=>g.innerHTML='',700);}
+
+function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r)));const f=r/p;return (f<1.5?1:f<3?2:f<7?5:10)*p;}
+function Graph(cv,opt){const ctx=cv.getContext('2d');const S={pts:[],curve:null,ls:null,user:null,cross:null,lsLabel:''};let geo=null,act=0,dragging=false;
+  function ranges(){let xs=S.pts.map(p=>p[0]),ys=S.pts.map(p=>p[1]);if(S.curve){xs=xs.concat(S.curve.map(p=>p[0]));ys=ys.concat(S.curve.map(p=>p[1]));}
+    if(opt.origin){xs.push(0);ys.push(0);}if(!xs.length){xs=[0,1];ys=[0,1];}
+    let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);if(opt.xr){x0=opt.xr[0];x1=opt.xr[1];}if(opt.yr){y0=opt.yr[0];y1=opt.yr[1];}
+    if(x1-x0<1e-12){x1+=1;x0-=1;}if(y1-y0<1e-12){y1+=1;y0-=1;}
+    const xs_=niceStep((x1-x0)/6),ys_=niceStep((y1-y0)/6);return{x0:Math.floor(x0/xs_+1e-9)*xs_,x1:Math.ceil(x1/xs_-1e-9)*xs_,y0:Math.floor(y0/ys_+1e-9)*ys_,y1:Math.ceil(y1/ys_-1e-9)*ys_,xs:xs_,ys:ys_};}
+  function fmt(v,s){const d=Math.max(0,-Math.floor(Math.log10(s)+1e-9));const k=opt.xscale||1;return v.toFixed(d);}
+  function draw(){const dpr=window.devicePixelRatio||1;const W=cv.clientWidth||600,H=Math.round(Math.max(240,Math.min(W*0.62,420)));cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+    const R=ranges();const L=64,T=14,Rm=14,B=46;const pw=W-L-Rm,ph=H-T-B;
+    const X=x=>L+(x-R.x0)/(R.x1-R.x0)*pw,Y=y=>T+(R.y1-y)/(R.y1-R.y0)*ph;geo={X,Y,L,T,pw,ph,R,ix:px=>R.x0+(px-L)/pw*(R.x1-R.x0),iy:py=>R.y1-(py-T)/ph*(R.y1-R.y0)};
+    ctx.clearRect(0,0,W,H);ctx.font='12px "Atkinson Hyperlegible",system-ui,sans-serif';ctx.lineWidth=1;
+    const nx=Math.round((R.x1-R.x0)/R.xs),ny=Math.round((R.y1-R.y0)/R.ys);
+    for(let i=0;i<=nx*5;i++){const x=R.x0+i*R.xs/5;ctx.strokeStyle=i%5?'#eef2f6':'#c9d3de';ctx.beginPath();ctx.moveTo(X(x),T);ctx.lineTo(X(x),T+ph);ctx.stroke();}
+    for(let i=0;i<=ny*5;i++){const y=R.y0+i*R.ys/5;ctx.strokeStyle=i%5?'#eef2f6':'#c9d3de';ctx.beginPath();ctx.moveTo(L,Y(y));ctx.lineTo(L+pw,Y(y));ctx.stroke();}
+    ctx.strokeStyle='#1c2736';ctx.lineWidth=1.5;ctx.strokeRect(L,T,pw,ph);ctx.fillStyle='#1c2736';ctx.textAlign='center';
+    const fx=opt.fx||(v=>fmt(v,R.xs)),fy=opt.fy||(v=>fmt(v,R.ys));
+    for(let i=0;i<=nx;i++){const x=R.x0+i*R.xs;ctx.fillText(fx(x,R.xs),X(x),T+ph+15);}
+    ctx.textAlign='right';for(let i=0;i<=ny;i++){const y=R.y0+i*R.ys;ctx.fillText(fy(y,R.ys),L-5,Y(y)+4);}
+    ctx.textAlign='center';ctx.font='600 13px Lexend,system-ui,sans-serif';ctx.fillText(opt.xl,L+pw/2,H-8);ctx.save();ctx.translate(13,T+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText(opt.yl,0,0);ctx.restore();
+    ctx.save();ctx.beginPath();ctx.rect(L,T,pw,ph);ctx.clip();
+    if(S.curve&&S.curve.length>1){ctx.strokeStyle='#4a44b5';ctx.lineWidth=2;ctx.beginPath();S.curve.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();}
+    if(S.ls){ctx.strokeStyle='#1d7a46';ctx.setLineDash([7,5]);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(R.x0),Y(S.ls.m*R.x0+S.ls.c));ctx.lineTo(X(R.x1),Y(S.ls.m*R.x1+S.ls.c));ctx.stroke();ctx.setLineDash([]);}
+    if(S.user){const[a,b]=S.user;ctx.strokeStyle='#b3261e';ctx.lineWidth=2;const m=(b[1]-a[1])/((b[0]-a[0])||1e-12);ctx.beginPath();ctx.moveTo(X(R.x0),Y(a[1]+m*(R.x0-a[0])));ctx.lineTo(X(R.x1),Y(a[1]+m*(R.x1-a[0])));ctx.stroke();
+      [a,b].forEach((p,i)=>{ctx.fillStyle=i===act?'#b3261e':'#fff';ctx.strokeStyle='#b3261e';ctx.beginPath();ctx.arc(X(p[0]),Y(p[1]),8,0,7);ctx.fill();ctx.stroke();});}
+    S.pts.forEach(p=>{const x=X(p[0]),y=Y(p[1]);ctx.strokeStyle='#1c2736';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x-5,y-5);ctx.lineTo(x+5,y+5);ctx.moveTo(x+5,y-5);ctx.lineTo(x-5,y+5);ctx.stroke();});
+    if(S.cross){const[x,y]=S.cross;ctx.strokeStyle='#4a44b5';ctx.setLineDash([4,4]);ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(X(x),T+ph);ctx.lineTo(X(x),Y(y));ctx.lineTo(L,Y(y));ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#4a44b5';ctx.beginPath();ctx.arc(X(x),Y(y),4,0,7);ctx.fill();}
+    ctx.restore();if(S.lsLabel){ctx.fillStyle='#1d7a46';ctx.textAlign=opt.labelRight?'right':'left';ctx.font='600 12px Lexend,system-ui';ctx.fillText(S.lsLabel,opt.labelRight?L+pw-8:L+8,T+16);}}
+  function initUser(){if(S.pts.length<2)return;const s=S.pts.slice().sort((a,b)=>a[0]-b[0]);const a=s[0],b=s[s.length-1];const dy=b[1]-a[1];S.user=[[a[0],a[1]+dy*0.15],[b[0],b[1]-dy*0.15]];}
+  function emit(){if(opt.onLine&&S.user){const[a,b]=S.user;opt.onLine((b[1]-a[1])/((b[0]-a[0])||1e-12),a,b);}}
+  function pos(e){const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top];}
+  cv.addEventListener('pointerdown',e=>{if(!geo)return;const[px,py]=pos(e);
+    if(opt.handles&&S.user){const d=S.user.map(p=>Math.hypot(geo.X(p[0])-px,geo.Y(p[1])-py));act=d[0]<=d[1]?0:1;S.user[act]=[geo.ix(px),geo.iy(py)];dragging=true;try{cv.setPointerCapture(e.pointerId)}catch(_){}draw();emit();}
+    else if(opt.onTap){opt.onTap(geo.ix(px),geo.iy(py));}});
+  cv.addEventListener('pointermove',e=>{if(!dragging)return;const[px,py]=pos(e);S.user[act]=[geo.ix(Math.max(geo.L,Math.min(geo.L+geo.pw,px))),geo.iy(Math.max(geo.T,Math.min(geo.T+geo.ph,py)))];draw();emit();});
+  cv.addEventListener('pointerup',()=>dragging=false);cv.addEventListener('pointercancel',()=>dragging=false);
+  cv.addEventListener('keydown',e=>{if(!geo)return;const R=geo.R;
+    if(!opt.handles||!S.user){if(opt.onKey)opt.onKey(e,R);return;}let h=false;
+    if(e.key==='1'||e.key==='2'){act=+e.key-1;h=true;}
+    const dx=R.xs/10,dy=R.ys/10;if(e.key==='ArrowLeft'){S.user[act][0]-=dx;h=true;}if(e.key==='ArrowRight'){S.user[act][0]+=dx;h=true;}if(e.key==='ArrowUp'){S.user[act][1]+=dy;h=true;}if(e.key==='ArrowDown'){S.user[act][1]-=dy;h=true;}
+    if(h){e.preventDefault();draw();emit();}});
+  let rt=null;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(draw,120);});
+  return{S,draw,initUser,emit,setPts(p){S.pts=p;},geo:()=>geo,clear(){S.pts=[];S.curve=null;S.ls=null;S.user=null;S.cross=null;S.lsLabel='';draw();}};}
+function lsq(pts,origin){const n=pts.length;if(origin){let sxy=0,sxx=0;pts.forEach(([x,y])=>{sxy+=x*y;sxx+=x*x;});return{m:sxy/sxx,c:0};}
+  let sx=0,sy=0,sxy=0,sxx=0;pts.forEach(([x,y])=>{sx+=x;sy+=y;sxy+=x*y;sxx+=x*x;});const m=(n*sxy-sx*sy)/(n*sxx-sx*sx);return{m,c:(sy-m*sx)/n};}
+
+function Quiz(ol,items,btn,out){
+  ol.innerHTML=items.map((it,i)=>{if(it.mc){return `<li>${it.mc}<fieldset class="mc">${it.o.map((o,j)=>`<label><input type="radio" name="pq${i}" value="${j}" data-a="${j===it.a?1:0}"> <span>${o}</span></label>`).join('')}</fieldset></li>`;}
+    return '<li>'+it.q.replace(/\{\{(.+?)\}\}/g,(m,g)=>{const o=g.split('|');let a='';const opts=o.map(x=>{if(x[0]==='*'){x=x.slice(1);a=x;}return `<option>${x}</option>`;}).join('');return `<select data-a="${a}"><option value="">choose…</option>${opts}</select>`;})+'</li>';}).join('');
+  ol.addEventListener('change',e=>{e.target.classList.remove('ok','wrong');const l=e.target.closest('fieldset');if(l)l.querySelectorAll('label').forEach(x=>x.classList.remove('ok','wrong'));});
+  btn.addEventListener('click',()=>{let got=0,tot=0;ol.querySelectorAll('select').forEach(s=>{tot++;const ok=s.value===s.dataset.a;mark(s,ok);if(ok)got++;});
+    ol.querySelectorAll('fieldset.mc').forEach(f=>{tot++;const c=f.querySelector('input:checked');f.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));if(c){const ok=c.dataset.a==='1';mark(c.closest('label'),ok);if(ok)got++;}});
+    setScore(out,got,tot,got===tot?' correct. Excellent!':' correct. Look again at the red ones.');});
+  return{reset(){ol.querySelectorAll('select').forEach(s=>{s.value='';});ol.querySelectorAll('input').forEach(i=>i.checked=false);unmark(ol);out.textContent='';}};}
+
+function Exam(box,qs,btn,out){let total=0,auto=0;
+  box.innerHTML=qs.map((q,i)=>{total+=q.m;const head=`<div class="qt"><span class="mk">(${q.m})</span><b>${i+1}.</b> ${q.q}</div>`;
+    if(q.t==='mc')return `<div class="xq" data-i="${i}">${head}<div class="opts">${q.o.map((o,j)=>`<label><input type="radio" name="xq${i}" value="${j}"> <span><b>${'ABCD'[j]}</b>&nbsp; ${o}</span></label>`).join('')}</div><div class="worked" hidden>${q.why||''}</div></div>`;
+    if(q.t==='num')return `<div class="xq" data-i="${i}">${head}<div class="row"><label>Answer: <input class="num" type="text" inputmode="decimal" id="xa${i}" style="width:9em"></label> ${q.unit||''}</div><div class="worked" hidden><b>Worked answer.</b> ${q.worked}</div></div>`;
+    return `<div class="xq" data-i="${i}">${head}<textarea aria-label="Your answer to question ${i+1}"></textarea><div><button type="button" class="mini msb">Show mark scheme</button></div><div class="ms" hidden><b>Mark scheme</b> (tick the points you made):${q.ms.map(p=>`<label><input type="checkbox" class="sm"> <span>${p}</span></label>`).join('')}${q.notes?`<p>${q.notes}</p>`:''}</div></div>`;}).join('');
+  function upd(){const self=box.querySelectorAll('input.sm:checked').length;out.textContent='Exam practice: '+(auto+self)+' / '+total+' marks';out.className='score '+(auto+self===total?'good':'');}
+  box.addEventListener('click',e=>{const b=e.target.closest('.msb');if(b){const ms=b.closest('.xq').querySelector('.ms');ms.hidden=!ms.hidden;b.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme';}});
+  box.addEventListener('change',e=>{if(e.target.classList.contains('sm'))upd();});
+  btn.addEventListener('click',()=>{auto=0;qs.forEach((q,i)=>{const d=box.querySelector(`.xq[data-i="${i}"]`);
+    if(q.t==='mc'){const c=d.querySelector('input:checked');d.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));d.querySelectorAll('label')[q.a].classList.add('ok');if(c&&+c.value===q.a)auto+=q.m;else if(c)c.closest('label').classList.add('wrong');d.querySelector('.worked').hidden=false;}
+    if(q.t==='num'){const inp=$('xa'+i);const v=parseNum(inp.value);const ok=close(v,q.a,q.tol==null?0.02:q.tol,q.abs);mark(inp,ok);if(ok)auto+=q.m;d.querySelector('.worked').hidden=false;}});
+    upd();box.querySelectorAll('.ms').forEach(m=>{m.hidden=false;});box.querySelectorAll('.msb').forEach(b=>b.textContent='Hide mark scheme');});
+  upd();
+  return{reset(){auto=0;box.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(i=>i.checked=false);box.querySelectorAll('textarea,input.num').forEach(t=>t.value='');unmark(box);box.querySelectorAll('.worked,.ms').forEach(w=>w.hidden=true);box.querySelectorAll('.msb').forEach(b=>b.textContent='Show mark scheme');upd();}};}
+
+function Tabs(btns,onSel){btns.forEach(b=>b.addEventListener('click',()=>sel(b.dataset.tab)));
+  function sel(k){btns.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k?'true':'false'));document.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==k);if(onSel)onSel(k);}
+  return{sel};}
+
+Tabs([...document.querySelectorAll('.tab')],()=>{setTimeout(()=>{gA.draw();gB.draw();},30);});
+
+/* =============== 9a =============== */
+const IOD='#b5671c',CLR='#e6eef6';
+const iodCol=f=>f<=0?CLR:mixHex('#f3efd2',IOD,Math.min(1,f*1.15));
+const starchCol=f=>f<=0?CLR:mixHex('#4f58b0','#1b1d45',Math.min(1,f*6));
+$('shelfA').innerHTML=[item('thio',ICON.bottle('#eef4fa'),'Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> 0.010 M'),item('prop',ICON.cyl('#eef4fa'),'25 cm³ propanone'),item('acid',ICON.cyl('#eef4fa'),'25 cm³ H<sub>2</sub>SO<sub>4</sub>'),item('iod',ICON.cyl(IOD),'50 cm³ I<sub>2</sub> in KI'),item('hco3',ICON.cyl('#eef4fa'),'NaHCO<sub>3</sub>(aq)'),item('pip',ICON.pipette(),'10 cm³ pipette'),item('starch',ICON.dropper('#f5f5f0'),'starch')].join('');
+$('rbW').innerHTML=vessel('beaker','rb',{w:120});$('cfW').innerHTML=vessel('conical','cf',{w:110});$('burW').innerHTML=burette('bu','#eef4fa');
+const SA=Steps('stepsA',[
+ {id:'fill',t:'Fill the burette with 0.010 mol dm⁻³ sodium thiosulfate.',why:'Get the burette ready before the reaction starts, because you will not have time later.'},
+ {id:'prop',t:'Put 25 cm³ of 1.0 mol dm⁻³ propanone in the beaker.'},
+ {id:'acid',t:'Add 25 cm³ of 0.5 mol dm⁻³ sulfuric acid.'},
+ {id:'iod',t:'Add 50 cm³ of 0.020 mol dm⁻³ iodine and start the stopwatch.',why:'The reaction starts when the iodine meets the propanone and acid, so add it last.'},
+ {id:'hco3',t:'Put sodium hydrogencarbonate solution in a clean conical flask.',why:'The flask must contain NaHCO₃ before the sample goes in.'},
+ {id:'draw',t:'Pipette a 10.0 cm³ sample from the beaker.'},
+ {id:'quench',t:'Run the sample into the NaHCO₃ to quench it. Note the time.'},
+ {id:'t1',t:'Titrate with thiosulfate until the colour is pale yellow.'},
+ {id:'starch',t:'Add a few drops of starch: it turns blue-black.'},
+ {id:'t2',t:'Add thiosulfate drop by drop until the blue-black colour just disappears.'},
+ {id:'rec',t:'Record the burette readings. Repeat every 4–5 minutes (6 samples).'}]);
+const A={};
+function resetA(){Object.assign(A,{vol:0,started:false,clock:0,samples:[],cur:null,pip:false,lastQ:-999,rate:rnd(3.0,3.6)*1e-6,bur:null});
+  SA.reset();setLiq('rb',0,CLR);setLiq('cf',0,CLR);bubbles('cf',false);setBurette('bu',null);$('rbL').textContent='Reaction beaker (empty)';$('cfL').textContent='Conical flask (empty)';
+  $('clkA').textContent='--:--';$('burA').textContent='--';$('smpA').textContent='0 / 6';$('logA').innerHTML='<tr><td colspan="4" class="note">Your readings appear here.</td></tr>';
+  say('msgA','Start by filling the burette with sodium thiosulfate solution.');btnsA();}
+const fracAt=t=>Math.max(0,1-A.rate*t/0.010);
+function titreAt(t){return Math.max(0.5,2000*(0.010-A.rate*t)+rnd(-0.12,0.12));}
+function btnsA(){const s=SA.cur;['add1','add01','add005'].forEach(b=>$(b).disabled=!(s==='t1'||s==='t2'||s==='starch'));$('recA').disabled=s!=='rec';$('ffA').disabled=!A.started||SA.done;}
+setInterval(()=>{if(!A.started||SA.done)return;A.clock+=0.5;showClockA();},100);
+function showClockA(){$('clkA').textContent=fmtClock(A.clock);if(A.vol>0)setLiq('rb',null,iodCol(fracAt(A.clock)));}
+$('ffA').addEventListener('click',()=>{A.clock+=60;showClockA();});
+const ONA={thio:'burette',prop:'beaker',acid:'beaker',iod:'beaker',hco3:'flask',starch:'flask'};
+DnD($('benchA'),(k,t)=>{
+  const s=SA.cur;
+  if(k==='pip'){ if(s==='draw'&&t==='beaker'){ if(A.samples.length&&A.clock-A.lastQ<200){say('msgA','Wait a little longer. Leave about 4–5 minutes between samples so the titres change enough. Use <b>Wait 1 minute</b>.','bad');return;}
+      A.pip=true;A.vol-=10;setLiq('rb',A.vol/100*0.85);$('rbL').textContent='Reaction mixture ('+A.vol+' cm³)';SA.next();say('msgA','Pipette filled with 10.0 cm³ of reaction mixture. Run it into the conical flask now.');btnsA();return;}
+    if(s==='quench'&&t==='flask'){A.pip=false;const tq=Math.round(A.clock);const T=titreAt(tq);const init=rstep(rnd(0,0.6),0.05);A.cur={tq,T,init,added:0,starch:false};A.bur=init;setBurette('bu',init);$('burA').textContent=init.toFixed(2);
+      setLiq('cf',0.42,iodCol(T/20));bubbles('cf',true);setTimeout(()=>bubbles('cf',false),2600);swirl('cf');$('cfL').textContent='Quenched sample';
+      SA.next();say('msgA',`Fizzing! The hydrogencarbonate neutralises the acid catalyst (H⁺ + HCO₃⁻ → H₂O + CO₂), so the reaction stops. <b>Time quenched: ${tq} s.</b> Burette initial reading: <b>${init.toFixed(2)} cm³</b>.`,'good');btnsA();return;}
+    say('msgA',A.pip?'Run the sample from the pipette into the conical flask of sodium hydrogencarbonate.':SA.why(),'bad');return;}
+  if(ONA[k]!==t){say('msgA',`That does not go there. ${SA.why()}`,'bad');return;}
+  if(k==='thio'&&s==='fill'){setBurette('bu',0);A.bur=0;$('burA').textContent='0.00';SA.next();say('msgA','Burette filled to 0.00 cm³ (no air bubble in the tip). Now make up the reaction mixture.');return;}
+  if(k==='prop'&&s==='prop'){A.vol=25;setLiq('rb',0.21,CLR);drip('rb','#e6eef6');$('rbL').textContent='Propanone (25 cm³)';SA.next();say('msgA','25 cm³ of propanone added. It is in large excess.');return;}
+  if(k==='acid'&&s==='acid'){A.vol=50;setLiq('rb',0.42,CLR);drip('rb','#e6eef6');$('rbL').textContent='Propanone + acid (50 cm³)';SA.next();say('msgA','Acid added. H⁺ is the catalyst, also in large excess.');return;}
+  if(k==='iod'&&s==='iod'){A.vol=100;setLiq('rb',0.85,iodCol(1));swirl('rb');drip('rb',IOD);A.started=true;A.clock=0;showClockA();$('rbL').textContent='Reaction mixture (100 cm³)';SA.next();btnsA();say('msgA','Iodine added and stopwatch started. The mixture is yellow-brown. Now prepare a flask of NaHCO₃.','good');return;}
+  if(k==='hco3'&&s==='hco3'){setLiq('cf',0.25,CLR);$('cfL').textContent='NaHCO₃(aq)';SA.next();say('msgA','Flask ready. Now take a 10.0 cm³ sample with the pipette.');return;}
+  if(k==='starch'&&s==='starch'){A.cur.starch=true;setLiq('cf',null,starchCol(1-A.cur.added/A.cur.T));swirl('cf');SA.next();btnsA();say('msgA','Blue-black colour: starch shows the last traces of iodine clearly. Add thiosulfate drop by drop.');return;}
+  if(k==='starch'&&(s==='t1')){say('msgA','Too early. The solution is still quite dark. Add starch only when it is pale yellow, near the end point.','bad');return;}
+  say('msgA',SA.why(),'bad');});
+function addThio(v){const s=SA.cur,c=A.cur;if(!c)return;
+  if(s==='starch'){say('msgA','The solution is pale yellow. Add starch now so you can see the end point clearly.','bad');return;}
+  c.added=Math.round((c.added+v)*100)/100;A.bur=Math.round((c.init+c.added)*100)/100;setBurette('bu',A.bur);$('burA').textContent=A.bur.toFixed(2);buretteDrip('bu','#eef4fa');swirl('cf');
+  const f=1-c.added/c.T;
+  if(!c.starch){setLiq('cf',0.42+c.added*0.005,iodCol(f*c.T/20));if(f<=0.35){SA.next();say('msgA','Pale yellow now. Add a few drops of starch.');}else say('msgA','Iodine is being used up. Keep swirling. Add starch when it is pale yellow.');}
+  else{setLiq('cf',0.42+c.added*0.005,f<=0?CLR:starchCol(f));
+    if(f<=0){const fin=A.bur;const over=c.added-c.T;SA.next();say('msgA',`End point: blue-black to colourless. <b>Final reading: ${fin.toFixed(2)} cm³.</b>`+(over>0.25?' You overshot a little. Next time add drop by drop near the end.':''),'good');}
+    else say('msgA',f<0.15?'Very close now. Add one drop at a time.':'Still blue-black. Keep going.');}
+  btnsA();}
+$('add1').addEventListener('click',()=>addThio(1));$('add01').addEventListener('click',()=>addThio(0.1));$('add005').addEventListener('click',()=>addThio(0.05));
+$('recA').addEventListener('click',()=>{const c=A.cur;A.samples.push({t:c.tq,init:c.init,fin:A.bur});A.lastQ=c.tq;A.cur=null;
+  $('logA').innerHTML=A.samples.map((r,i)=>`<tr><td>${i+1}</td><td>${r.t}</td><td>${r.init.toFixed(2)}</td><td>${r.fin.toFixed(2)}</td></tr>`).join('');$('smpA').textContent=A.samples.length+' / 6';
+  setLiq('cf',0,CLR);$('cfL').textContent='Conical flask (washed)';
+  if(A.samples.length>=6){SA.next();say('msgA','All 6 samples done. Go to Part 2 and record your results.','good');}
+  else{SA.go('hco3');say('msgA','Recorded. Wash the flask. Next: NaHCO₃ into the flask, then take the next sample about 4–5 minutes after the last one.');}
+  btnsA();});
+
+/* =============== 9b =============== */
+$('shelfB').innerHTML=[item('ki',ICON.cyl('#eef4fa'),'KI(aq) 0.20 M'),item('water',ICON.wash(),'distilled water'),item('thio',ICON.cyl('#eef4fa'),'5.0 cm³ Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>'),item('starch',ICON.dropper('#f5f5f0'),'starch'),item('pers',ICON.tube('#eef4fa'),'10.0 cm³ K<sub>2</sub>S<sub>2</sub>O<sub>8</sub>')].join('');
+$('cbW').innerHTML=vessel('beaker','cb',{w:130});
+const SB=Steps('stepsB',[{id:'ki',t:'Measure V cm³ of KI(aq) into the beaker.'},{id:'water',t:'Add (25.0 − V) cm³ of distilled water.',why:'Water keeps the total volume the same in every run.'},{id:'thio',t:'Add 5.0 cm³ of sodium thiosulfate.'},{id:'starch',t:'Add 1 cm³ of starch.'},{id:'pers',t:'Pour in 10.0 cm³ of K₂S₂O₈ and start the stopwatch at once.',why:'Peroxydisulfate starts the reaction, so it goes in last, with the stopwatch.'},{id:'stop',t:'Stop the stopwatch when the blue-black colour appears.'},{id:'rec',t:'Record t, wash the beaker, and do the next volume.'}]);
+const B={};let timerB=null;
+function resetB(){if(timerB)timerB.stop();timerB=null;Object.assign(B,{V:25,res:{},vol:0,ev:0,t:0,seen:false,c:rnd(700,800)});SB.reset();setLiq('cb',0,CLR);$('cbL').textContent='Beaker (empty)';$('clkB').textContent='0';$('runsB').textContent='0 / 5';$('runV').value='25.0';$('runV').disabled=false;
+  $('logB').innerHTML='<tr><td colspan="3" class="note">Your readings appear here.</td></tr>';$('stopB').disabled=true;$('recB').disabled=true;say('msgB','Choose a volume of KI, then add it to the beaker.');}
+function levB(v){return Math.min(.9,v/40*0.8);}
+DnD($('benchB'),(k,t)=>{const s=SB.cur;
+  if(k!==s){let h=SB.why();if(k==='pers')h='Not yet. Add the potassium peroxydisulfate last: it starts the reaction. '+SB.why();if(s==='stop'||s==='rec')h='This run is already going. '+SB.why();say('msgB',h,'bad');return;}
+  const V=parseFloat($('runV').value);
+  if(k==='ki'){if(B.res[V]!=null){say('msgB','You already did '+V.toFixed(1)+' cm³. Choose another volume.','bad');return;}B.V=V;B.vol=V;$('runV').disabled=true;setLiq('cb',levB(B.vol),CLR);drip('cb','#e6eef6');$('cbL').textContent=V.toFixed(1)+' cm³ KI';say('msgB',`${V.toFixed(1)} cm³ of KI(aq) added. Now add ${(25-V).toFixed(1)} cm³ of water.`);}
+  if(k==='water'){B.vol=25;setLiq('cb',levB(25),CLR);drip('cb','#e6eef6');$('cbL').textContent='KI + water (25.0 cm³)';say('msgB',`${(25-B.V).toFixed(1)} cm³ of water added. Total = 25.0 cm³, the same in every run.`);}
+  if(k==='thio'){B.vol=30;setLiq('cb',levB(30),CLR);drip('cb','#e6eef6');say('msgB','Thiosulfate added. It will remove the first iodine that forms.');}
+  if(k==='starch'){B.vol=31;setLiq('cb',levB(31),'#e9edf2');drip('cb','#f5f5f0');say('msgB','Starch added. The mixture is still colourless. Now pour in the peroxydisulfate.');}
+  if(k==='pers'){B.vol=41;setLiq('cb',levB(41),'#e9edf2');swirl('cb');B.ev=B.c/B.V*rnd(0.96,1.04);B.seen=false;
+    timerB=SimTimer(B.ev,(tt,fast)=>{B.t=tt;$('clkB').textContent=Math.floor(tt)+(fast?' ▸▸':'');if(tt>=B.ev&&!B.seen){B.seen=true;setLiq('cb',null,'#1b1d45');}if(tt>B.ev+40){timerB.stop();}},15);timerB.start();
+    $('stopB').disabled=false;say('msgB','Stopwatch running. Watch the beaker carefully. (The clock fast-forwards while nothing can happen.)');}
+  SB.next();});
+$('stopB').addEventListener('click',()=>{if(SB.cur!=='stop')return;if(!B.seen){say('msgB','No colour yet. The thiosulfate is still turning the iodine back into iodide. Keep watching.','bad');return;}
+  timerB.stop();const t=Math.round(B.t);B.tr=t;$('clkB').textContent=t;$('stopB').disabled=true;$('recB').disabled=false;SB.next();say('msgB',`The blue-black colour appeared suddenly. <b>t = ${t} s</b> for V = ${B.V.toFixed(1)} cm³.`,'good');});
+$('recB').addEventListener('click',()=>{B.res[B.V]=B.tr;const n=Object.keys(B.res).length;$('runsB').textContent=n+' / 5';
+  $('logB').innerHTML=[5,10,15,20,25].filter(v=>B.res[v]!=null).map(v=>`<tr><td>${v.toFixed(1)}</td><td>${(25-v).toFixed(1)}</td><td>${B.res[v]}</td></tr>`).join('');
+  setLiq('cb',0,CLR);$('cbL').textContent='Beaker (washed)';$('clkB').textContent='0';$('recB').disabled=true;$('runV').disabled=false;
+  const nxt=[25,20,15,10,5].find(v=>B.res[v]==null);if(nxt){$('runV').value=nxt.toFixed(1);SB.reset();say('msgB','Recorded. Beaker washed and dried. Next volume: '+nxt.toFixed(1)+' cm³.');}else{SB.go('rec');SB.next();say('msgB','All five runs done. Go to Part 2.','good');}});
+
+/* =============== Part 2 =============== */
+$('resA').innerHTML=[1,2,3,4,5,6].map(i=>`<tr><th>${i}</th>${['t','i','f','v'].map(c=>`<td><input class="num" id="ra${c}${i}" inputmode="decimal" aria-label="sample ${i} ${c}"></td>`).join('')}</tr>`).join('');
+$('resB').innerHTML=[5,10,15,20,25].map(v=>`<tr><th>${v.toFixed(1)}</th>${['w','t','r'].map(c=>`<td><input class="num" id="rb${c}${v}" inputmode="decimal" aria-label="${v} cm3 ${c}"></td>`).join('')}</tr>`).join('');
+let userGrad=NaN;
+const gA=Graph($('gA'),{xl:'time / s',yl:'titre / cm³',handles:true,yr:null,onLine:m=>{userGrad=m;$('gradA').textContent=sf(m,3);}});
+const gB=Graph($('gB'),{xl:'volume of KI(aq) / cm³',yl:'1/t / s⁻¹',handles:true,origin:true,onLine:(m,a,b)=>{$('infoB').textContent='Your line: intercept on 1/t axis ≈ '+sf(a[1]-m*a[0],2)+' s⁻¹';}});
+function ptsA(){const p=[];for(let i=1;i<=6;i++){const t=parseNum($('rat'+i).value),v=parseNum($('rav'+i).value);if(isFinite(t)&&isFinite(v))p.push([t,v]);}return p;}
+function ptsB(){const p=[];[5,10,15,20,25].forEach(v=>{const r=parseNum($('rbr'+v).value);if(isFinite(r))p.push([v,r]);});return p;}
+$('plotA').addEventListener('click',()=>{const p=ptsA();if(p.length<3){$('scA').textContent='Enter at least 3 times and titres first.';$('scA').className='score bad';return;}gA.S.ls=null;gA.S.lsLabel='';gA.setPts(p);gA.draw();gA.initUser();gA.draw();gA.emit();});
+$('lsA').addEventListener('click',()=>{const p=ptsA();if(p.length<2)return;const l=lsq(p);gA.S.ls=l;gA.S.lsLabel='least-squares gradient = '+sf(l.m,3)+' cm³ s⁻¹';gA.draw();});
+$('plotB').addEventListener('click',()=>{const p=ptsB();if(p.length<3){$('scB').textContent='Enter at least 3 values of 1/t first.';$('scB').className='score bad';return;}gB.S.ls=null;gB.S.lsLabel='';gB.setPts(p);gB.draw();gB.initUser();gB.draw();gB.emit();});
+$('lsB').addEventListener('click',()=>{const p=ptsB();if(p.length<2)return;const l=lsq(p);gB.S.ls=l;gB.S.lsLabel='least-squares: gradient '+sf(l.m,3)+', intercept '+sf(l.c,2);gB.draw();});
+gA.draw();gB.draw();
+$('chkA').addEventListener('click',()=>{let got=0,tot=0;const S=A.samples;
+  for(let i=1;i<=6;i++){const r=S[i-1];const it=$('rat'+i),ii=$('rai'+i),ifn=$('raf'+i),iv=$('rav'+i);
+    if(!r){[it,ii,ifn,iv].forEach(e=>e.classList.remove('ok','wrong'));continue;}
+    const vt=parseNum(it.value),vi=parseNum(ii.value),vf=parseNum(ifn.value),vv=parseNum(iv.value);
+    const o=[close(vt,r.t,0,1),close(vi,r.init,0,0.01),close(vf,r.fin,0,0.01),close(vv,vf-vi,0,0.011)&&close(vv,r.fin-r.init,0,0.011)];
+    [it,ii,ifn,iv].forEach((e,k)=>{tot++;mark(e,o[k]);if(o[k])got++;});}
+  const p=S.map(r=>[r.t,r.fin-r.init]);const ls=p.length>=2?lsq(p):null;
+  const g=parseNum($('cA1').value);tot++;const okg=ls&&g<0&&close(g,ls.m,0.2);mark($('cA1'),okg);if(okg)got++;
+  tot++;const o2=close(parseNum($('cA2').value),5e-6,0.02);mark($('cA2'),o2);if(o2)got++;
+  tot++;const o3=close(parseNum($('cA3').value),5e-4,0.02);mark($('cA3'),o3);if(o3)got++;
+  tot++;const r4=parseNum($('cA4').value);const o4=isFinite(g)&&close(r4,Math.abs(g)*5e-4,0.05);mark($('cA4'),o4);if(o4)got++;
+  tot++;const o5=$('cA5').value==='straight line';mark($('cA5'),o5);if(o5)got++;tot++;const o6=$('cA6').value==='zero';mark($('cA6'),o6);if(o6)got++;
+  setScore($('scA'),got,tot,S.length?' correct.':' correct. (Do the titrations in Part 1 first: the table is marked against your own readings.)');});
+$('chkB').addEventListener('click',()=>{let got=0,tot=0;
+  [5,10,15,20,25].forEach(v=>{const t=B.res[v];const w=$('rbw'+v),ti=$('rbt'+v),r=$('rbr'+v);
+    tot++;const ow=close(parseNum(w.value),25-v,0,0.01);mark(w,ow);if(ow)got++;
+    if(t==null){ti.classList.remove('ok','wrong');r.classList.remove('ok','wrong');return;}
+    const vt=parseNum(ti.value);tot+=2;const ot=close(vt,t,0,0.5);mark(ti,ot);if(ot)got++;const orr=close(parseNum(r.value),1/vt,0.012);mark(r,orr);if(orr)got++;});
+  tot++;const o1=$('cB1').value==='through the origin';mark($('cB1'),o1);if(o1)got++;tot++;const o2=$('cB2').value==='first';mark($('cB2'),o2);if(o2)got++;
+  setScore($('scB'),got,tot,' correct.');});
+
+/* =============== Part 3 =============== */
+const gsv=(d)=>`<svg viewBox="0 0 90 60" width="90" height="60" aria-hidden="true" style="vertical-align:middle"><path d="M10 5V52H86" fill="none" stroke="#1c2736" stroke-width="1.5"/><path d="${d}" fill="none" stroke="#4a44b5" stroke-width="2.5"/></svg>`;
+const Q=Quiz($('qs'),[
+ {q:'Each sample is run into sodium hydrogencarbonate solution. This {{*neutralises the acid catalyst|adds more iodine|reacts with the propanone}}, so the reaction {{*stops|speeds up}}. This is called quenching.'},
+ {q:'Propanone and sulfuric acid are in large excess. This means their concentrations {{*stay almost constant|fall quickly}} during the experiment, so any change in rate is caused only by {{the propanone|*the iodine|the acid}}.'},
+ {mc:'Which graph of titre (proportional to [I<sub>2</sub>]) against time matches your results?',o:[gsv('M12 10L84 46')+' A straight line sloping down',gsv('M12 8Q22 44 84 48')+' A curve, getting less steep',gsv('M12 30H84')+' A horizontal line',gsv('M12 48Q60 44 84 8')+' A curve, getting steeper'],a:0},
+ {q:'In the clock reaction the amount of thiosulfate is the same in every run. So the same amount of {{*iodine|iodide|sulfate}} must form before the blue-black colour appears. This means rate ∝ {{*1/t|t|t²}}.'},
+ {q:'Water is added so the total volume is always the same. Then the {{*concentration of KI is proportional to the volume of KI|reaction is faster|starch works better}}.'},
+ {q:'1/t is only an approximation to the initial rate because we assume the rate is {{*almost constant|zero|increasing}} while the small amount of iodine forms.'},
+ {q:'The rate equation for the iodine–propanone reaction is: rate = k {{*[CH₃COCH₃][H⁺]|[CH₃COCH₃][I₂]|[I₂][H⁺]|[CH₃COCH₃][H⁺][I₂]}}. Iodine is not in the rate equation, so it is not involved in the {{*rate-determining step|final step|catalyst}}.'}
+],$('chkQ'),$('scQ'));
+
+/* =============== Part 4 =============== */
+const X=Exam($('exam'),[
+ {t:'mc',m:1,q:'Which graph of concentration of a reactant, X, against time shows that the reaction is <b>first</b> order with respect to X?',o:[gsv('M12 10L84 46'),gsv('M12 8Q20 42 84 48'),gsv('M12 30H84'),gsv('M12 48L84 10')],a:1,why:'B: a first-order concentration–time graph is a curve with a constant half-life. A straight line sloping down (A) shows zero order.'},
+ {t:'mc',m:1,q:'Why is a large excess of propanone used in the iodine–propanone experiment?',o:['So that all the iodine reacts.','So that the concentration of propanone stays almost constant.','Because propanone is the catalyst.','So that the reaction is zero order with respect to propanone.'],a:1,why:'B. If [propanone] hardly changes, the only concentration that changes is [I<sub>2</sub>], so the graph shows the order with respect to iodine. D is wrong: an excess does not change the true order.'},
+ {t:'num',m:3,q:'In a different experiment, 10.0 cm³ samples of an iodine–propanone mixture were quenched and titrated with 0.0050 mol dm<sup>−3</sup> sodium thiosulfate. The titre fell from 18.40 cm³ at 120 s to 11.20 cm³ at 1320 s, along a straight line. Calculate the rate of reaction in mol dm<sup>−3</sup> s<sup>−1</sup>.',a:1.5e-6,tol:0.03,unit:'mol dm<sup>−3</sup> s<sup>−1</sup> <span class="note">(type e.g. 1.2e-6)</span>',worked:'Gradient = (18.40 − 11.20) ÷ (1320 − 120) = 7.20 ÷ 1200 = 6.0 × 10<sup>−3</sup> cm³ s<sup>−1</sup> (1). 1 cm³ of titre = 0.0050 ÷ 1000 = 5.0 × 10<sup>−6</sup> mol S<sub>2</sub>O<sub>3</sub><sup>2−</sup> = 2.5 × 10<sup>−6</sup> mol I<sub>2</sub>, so [I<sub>2</sub>] = 2.5 × 10<sup>−6</sup> ÷ 0.0100 = 2.5 × 10<sup>−4</sup> mol dm<sup>−3</sup> per cm³ (1). Rate = 6.0 × 10<sup>−3</sup> × 2.5 × 10<sup>−4</sup> = <b>1.5 × 10<sup>−6</sup> mol dm<sup>−3</sup> s<sup>−1</sup></b> (1).'},
+ {t:'wr',m:3,q:'In the iodine clock experiment, explain why the blue-black colour appears suddenly, and why the volume of sodium thiosulfate must be the same in every run.',ms:['Iodine formed reacts with thiosulfate / 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup> + I<sub>2</sub> → 2I<sup>−</sup> + S<sub>4</sub>O<sub>6</sub><sup>2−</sup> (so no free iodine at first)','When all the thiosulfate is used up, free iodine forms and immediately gives a blue-black colour with starch','Same amount of thiosulfate means the same amount of iodine is formed when the colour appears, so 1/t is proportional to the rate'],notes:'Do not award "thiosulfate slows down the reaction" — it does not change the rate.'},
+ {t:'num',m:2,q:'<b>Challenge.</b> A student plotted log<sub>10</sub>(rate) against log<sub>10</sub>[Y]. Two points on the best-fit line were (−1.30, −4.10) and (−0.70, −2.90). Use the gradient to find the order of reaction with respect to Y.',a:2,abs:0.1,tol:0,unit:'',worked:'rate = k[Y]<sup>n</sup>, so log rate = n log[Y] + log k. Gradient = (−2.90 − (−4.10)) ÷ (−0.70 − (−1.30)) = 1.20 ÷ 0.60 = <b>2.0</b> (1), so the reaction is <b>second order</b> with respect to Y (1).'},
+ {t:'wr',m:2,q:'A student used a 10 cm³ measuring cylinder to measure the KI and the water. Suggest <b>one</b> improvement to the accuracy of the volumes, and explain why it is better.',ms:['Use a burette (or graduated pipette) for the KI and the water','Smaller (percentage) uncertainty in each volume, so [I<sup>−</sup>] is more accurate'],notes:'Allow "use a burette" for the first mark even if no reason. Do not award "repeat the experiment" — this improves reliability, not the accuracy of a volume.'}
+],$('chkX'),$('scX'));
+
+function resetAll(){resetA();resetB();Q.reset();X.reset();document.querySelectorAll('#resA input,#resB input,.calc input').forEach(i=>{i.value='';i.classList.remove('ok','wrong');});document.querySelectorAll('.calc select').forEach(s=>{s.value='';s.classList.remove('ok','wrong');});
+  ['scA','scB'].forEach(i=>$(i).textContent='');[gA,gB].forEach(g=>{g.S.pts=[];g.S.user=null;g.S.ls=null;g.S.lsLabel='';g.draw();});$('gradA').textContent='–';$('infoB').textContent='';}
+$('resetAll').addEventListener('click',()=>{resetAll();window.scrollTo({top:0,behavior:RM?'auto':'smooth'});});
+resetAll();
+})();
+</script>
+</body></html>

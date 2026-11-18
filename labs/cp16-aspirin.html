@@ -1,0 +1,599 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Preparing Aspirin</title>
+<meta name="description" content="Virtual core practical: Preparing Aspirin. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp16-aspirin.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;600;700&display=swap">
+<style>
+:root{
+  --paper:#f2f5f8; --sheet:#ffffff; --ink:#1c2736; --muted:#5a6878; --line:#cdd6df;
+  --bench:#e4eaf0; --accent:#4a44b5; --accent-soft:#e7e6fb; --good:#1d7a46; --bad:#b3261e;
+  --glass:#7d8fa3; --glass-hi:rgba(255,255,255,.75); --good-soft:#e3f3ea; --bad-soft:#fbe9e7;
+  --display:"Lexend","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.course{font:600 .9rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:10px}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-left:5px solid #d08a00;border-radius:10px;padding:10px 14px}
+details.safety summary{font:600 1rem var(--display);cursor:pointer}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.eqn{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.95rem;overflow-x:auto}
+.eqn div{white-space:nowrap}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{font:600 .92rem var(--display);padding:8px 14px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+/* Bench */
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:12px}
+@media (max-width:720px){.bench{grid-template-columns:minmax(0,1fr)}}
+.scene{align-self:start;background:#fbfcfd;border:2px dashed transparent;border-radius:12px;cursor:pointer;display:block;width:100%;min-width:0}
+.scene svg{display:block;width:100%;height:auto}
+.scene.armed{border-color:var(--accent)} .scene.over{border-color:var(--accent);background:var(--accent-soft)}
+.scene:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.panel h3{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+ol.method{margin:0;padding-left:1.5em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}
+ol.method li.done{color:var(--good)} ol.method li.done::marker{content:"\2713  "}
+ol.method li.now{font-weight:700}
+.readings{display:flex;flex-direction:column;gap:4px;font-size:.88rem}
+.readings div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding-bottom:2px}
+.readings b{font-family:var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.msg{grid-column:1/-1;background:var(--sheet);border-radius:10px;padding:10px 14px;border-left:5px solid var(--accent);min-height:3.2em;font-size:.95rem}
+.msg.no{border-left-color:var(--bad);background:var(--bad-soft)} .msg.yes{border-left-color:var(--good)}
+.tray{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font:inherit;font-size:.76rem;line-height:1.2;text-align:center;min-width:0}
+.tool svg{width:40px;height:40px;display:block}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.tool:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.benchbar{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:.88rem;color:var(--muted)}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.mini{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.btn:focus-visible,.mini:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+/* SVG bits */
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.lbl{font:12px var(--body);fill:var(--muted);text-anchor:middle}
+.lcd{font:700 15px var(--display);fill:#173b1f;text-anchor:middle}
+.fadein{animation:fadein 1.6s ease both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.fadeout{animation:fadein 1.4s ease reverse both}
+.drop{animation:fall .7s ease-in infinite}
+@keyframes fall{from{transform:translateY(0);opacity:1}to{transform:translateY(46px);opacity:0}}
+.bub{animation:rise 1.2s ease-in infinite}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(-40px);opacity:0}}
+.stir{transform-box:fill-box;transform-origin:50% 0;animation:stir .6s ease-in-out infinite alternate}
+@keyframes stir{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+.flow{stroke-dasharray:6 6;animation:flow .5s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-12}}
+.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.6s ease both}
+@keyframes grow{from{transform:scale(0)}to{transform:scale(1)}}
+/* Results */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+tbody th{font-weight:400}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:8.5em;max-width:100%;padding:5px 7px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink)}
+input.ok,select.ok{border-color:var(--good)} input.wrong,select.wrong{border-color:var(--bad)}
+.unit{color:var(--muted);font-size:.85rem;margin-left:4px}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+.calc{display:flex;flex-direction:column;gap:10px}
+.calc label{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.calc label > span:first-child{flex:1 1 300px}
+/* Questions */
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px 2px;max-width:100%}
+.note{font-size:.88rem;color:var(--muted)}
+/* Exam */
+.exq{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.exq .qh{display:flex;justify-content:space-between;gap:10px;font-family:var(--display);font-weight:600}
+.exq .mk{color:var(--muted);white-space:nowrap}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts label{display:flex;gap:10px;align-items:flex-start;padding:6px 10px;border:2px solid var(--line);border-radius:10px;cursor:pointer}
+.opts label.ok{border-color:var(--good);background:var(--good-soft)} .opts label.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opts input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:90px;padding:8px;border-radius:8px;border:2px solid var(--line);resize:vertical}
+.ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.92rem;display:flex;flex-direction:column;gap:6px}
+.ms label{display:flex;gap:8px;align-items:flex-start}
+.ms input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.work{background:#f6f8fa;border-left:4px solid var(--accent);border-radius:8px;padding:8px 12px;font-size:.92rem}
+.total{font:700 1.15rem var(--display);color:var(--accent)}
+footer.toolbar{padding:0 4px}
+@media (max-width:520px){body{font-size:16px}.tool svg{width:34px;height:34px}}
+@media (prefers-reduced-motion: reduce){
+  .fadein,.fadeout,.drop,.bub,.stir,.flow,.grow,.tool.shake{animation:none!important}
+}
+.swirl{transform-box:fill-box;transform-origin:50% 100%;animation:swirl 1.1s ease-in-out infinite}
+@keyframes swirl{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.mpctl{display:none;flex-direction:column;gap:6px;margin-top:8px}
+.mpctl.on{display:flex}
+.mpctl .row{display:flex;flex-wrap:wrap;gap:6px}
+.chart{width:100%;height:190px;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+@media (prefers-reduced-motion: reduce){.swirl{animation:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>The preparation of aspirin</h1>
+  <p class="course">IAL Chemistry · Core Practical 16 · Unit 6</p>
+  <p><b>Aim:</b> To prepare aspirin from 2-hydroxybenzoic acid, purify it by recrystallisation, and test its purity by melting point.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li><b>Ethanoic anhydride</b> is corrosive, flammable and its vapour is very irritating to the eyes and lungs. Use it in a fume cupboard. Wear goggles and gloves.</li>
+    <li><b>Concentrated phosphoric(V) acid</b> (or sulfuric acid) is corrosive. Add only a few drops with a dropper.</li>
+    <li><b>Ethanol</b> is highly flammable (bp 78 °C). Heat it only in a hot water bath. No naked flames anywhere near it.</li>
+    <li>2-Hydroxybenzoic acid and aspirin are harmful if swallowed and irritate the eyes. Never taste your product.</li>
+  </ul></details>
+  <div class="eqn" aria-label="Equation">
+    <div>HOOCC<sub>6</sub>H<sub>4</sub>OH + (CH<sub>3</sub>CO)<sub>2</sub>O → HOOCC<sub>6</sub>H<sub>4</sub>OCOCH<sub>3</sub> + CH<sub>3</sub>COOH</div>
+    <div class="note">2-hydroxybenzoic acid (M = 138) + ethanoic anhydride (M = 102) → aspirin (M = 180) + ethanoic acid (M = 60)</div>
+  </div>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p>Follow the method in the right order. Use the tray items and the action buttons. Copy every reading into Part 2.</p>
+  <div id="benchA"></div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <p>Type your readings from Part 1. Masses to 2 d.p. Temperatures to the nearest 0.5 °C.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Measurement</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><th>Mass of weighing bottle + 2-hydroxybenzoic acid</th><td><input type="number" step="0.01" id="r1"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of weighing bottle after tipping</th><td><input type="number" step="0.01" id="r2"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of 2-hydroxybenzoic acid used</th><td><input type="number" step="0.01" id="r3"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of watch glass</th><td><input type="number" step="0.01" id="r4"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of watch glass + dry recrystallised aspirin</th><td><input type="number" step="0.01" id="r5"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of pure aspirin</th><td><input type="number" step="0.01" id="r6"><span class="unit">g</span></td></tr>
+      <tr><th>Melting range of crude product</th><td><input type="number" step="0.5" id="m1" aria-label="crude start" style="width:6em"> to <input type="number" step="0.5" id="m2" aria-label="crude end" style="width:6em"><span class="unit">°C</span></td></tr>
+      <tr><th>Melting range of recrystallised product</th><td><input type="number" step="0.5" id="m3" aria-label="recrystallised start" style="width:6em"> to <input type="number" step="0.5" id="m4" aria-label="recrystallised end" style="width:6em"><span class="unit">°C</span></td></tr>
+      <tr><th>Iron(III) chloride test: crude product</th><td><select id="o1" data-a="p"><option value="">choose…</option><option value="p">purple colour</option><option value="n">no purple; stays yellow-orange</option><option value="w">white precipitate</option></select></td></tr>
+      <tr><th>Iron(III) chloride test: recrystallised product</th><td><select id="o2" data-a="n"><option value="">choose…</option><option value="p">purple colour</option><option value="n">no purple; stays yellow-orange</option><option value="w">white precipitate</option></select></td></tr>
+    </tbody></table></div>
+  <div class="calc">
+    <label><span>Amount of 2-hydroxybenzoic acid = mass ÷ 138</span><input type="text" inputmode="decimal" id="c1"><span class="unit">mol (3 s.f.)</span></label>
+    <label><span>Theoretical yield of aspirin = amount × 180</span><input type="text" inputmode="decimal" id="c2"><span class="unit">g (3 s.f.)</span></label>
+    <label><span>Percentage yield = (mass of pure aspirin ÷ theoretical yield) × 100</span><input type="text" inputmode="decimal" id="c3"><span class="unit">% (3 s.f.)</span></label>
+    <label><span>Atom economy = 180 ÷ (138 + 102) × 100</span><input type="text" inputmode="decimal" id="c4"><span class="unit">% (3 s.f.)</span></label>
+    <label><span>Conclusion: the recrystallised product is</span><select id="o3" data-a="pure"><option value="">choose…</option><option value="pure">pure: sharp range close to 135–136 °C</option><option value="imp">impure: low, broad range</option><option value="nd">cannot tell from melting point</option></select></label>
+  </div>
+  <div class="toolbar"><button class="btn" type="button" id="chkR">Check my results</button><span class="score" id="sR" aria-live="polite"></span></div>
+  <canvas class="chart" id="mpChart" aria-label="Melting ranges compared with pure aspirin"></canvas>
+  <p class="note">The chart shows your two melting ranges (from Part 2) against the data-book value for pure aspirin (shaded).</p>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs">
+    <li>In recrystallisation you dissolve the crude solid in the <select data-a="minimum volume"><option value="">choose…</option><option>minimum volume</option><option>largest volume</option><option>exactly 50 cm³</option></select> of <b>hot</b> solvent. This makes sure the solution is
+      <select data-a="saturated, so most aspirin crystallises on cooling"><option value="">choose…</option><option>saturated, so most aspirin crystallises on cooling</option><option>dilute, so impurities crystallise</option><option>hot enough to boil away the impurities</option></select>.</li>
+    <li>The solution is cooled slowly because
+      <select data-a="larger, purer crystals form and impurities stay in solution"><option value="">choose…</option><option>larger, purer crystals form and impurities stay in solution</option><option>fast cooling makes the aspirin decompose</option><option>it gives a higher melting point</option></select>.</li>
+    <li>The crystals are washed with <b>ice-cold</b> water to
+      <select data-a="remove soluble impurities while dissolving as little aspirin as possible"><option value="">choose…</option><option>remove soluble impurities while dissolving as little aspirin as possible</option><option>hydrolyse the aspirin</option><option>dry the crystals faster</option></select>.</li>
+    <li>A pure substance melts
+      <select data-a="sharply over a narrow range"><option value="">choose…</option><option>sharply over a narrow range</option><option>slowly over a wide range</option></select>
+      at its data-book value. Impurities make the melting point
+      <select data-a="lower and the range broader"><option value="">choose…</option><option>lower and the range broader</option><option>higher and the range narrower</option><option>higher and the range broader</option></select>.</li>
+    <li>Cold water is added after heating to
+      <select data-a="hydrolyse the excess ethanoic anhydride"><option value="">choose…</option><option>hydrolyse the excess ethanoic anhydride</option><option>neutralise the aspirin</option><option>dissolve the aspirin</option></select>.
+      The ethanol is heated in a water bath, not with a Bunsen, because ethanol is
+      <select data-a="highly flammable"><option value="">choose…</option><option>highly flammable</option><option>toxic</option><option>a strong acid</option></select>.</li>
+    <li>Industry uses ethanoic anhydride, not ethanoyl chloride. Which is <b>not</b> a reason?
+      <div class="opts" data-a="D" style="margin-top:6px">
+        <label><input type="radio" name="q6" value="A"><span><b>A</b>&nbsp; ethanoic anhydride is cheaper</span></label>
+        <label><input type="radio" name="q6" value="B"><span><b>B</b>&nbsp; it is less corrosive and reacts less vigorously</span></label>
+        <label><input type="radio" name="q6" value="C"><span><b>C</b>&nbsp; no toxic hydrogen chloride gas is produced</span></label>
+        <label><input type="radio" name="q6" value="D"><span><b>D</b>&nbsp; it gives a higher atom economy</span></label>
+      </div></li>
+  </ol>
+  <div class="toolbar"><button class="btn" type="button" id="chkQ">Check my answers</button><span class="score" id="sQ" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <p class="note">Answer in the style of WCH16. Multiple choice and calculations are marked for you. For written answers, press "Show mark scheme" and tick the points you made.</p>
+  <div id="exam" style="display:flex;flex-direction:column;gap:14px"></div>
+</section>
+
+<footer class="toolbar">
+  <span class="note">Pure aspirin melts sharply at 135–136 °C. A low, broad melting range means the sample is impure.</span>
+  <button class="btn ghost" type="button" id="resetAll">Start again</button>
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const RND=(a,b)=>a+Math.random()*(b-a);
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+/* ---------- tray icons (40x40) ---------- */
+const IC={
+ bottle:c=>`<path d="M16 3h8v5h-8z" fill="#3a3f4a"/><path d="M11 12q0-4 4-4h10q4 0 4 4v23q0 3-3 3H14q-3 0-3-3z" fill="${c}" stroke="#7d8fa3" stroke-width="2"/><rect x="14" y="19" width="12" height="9" fill="#fff" opacity=".9"/>`,
+ wbottle:c=>`<rect x="11" y="9" width="18" height="5" rx="1.5" fill="#9aa6b4"/><path d="M12 14h16v20q0 3-3 3H15q-3 0-3-3z" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M13.5 24h13v10q0 2-2 2h-9q-2 0-2-2z" fill="${c}"/>`,
+ beaker:c=>`<path d="M9 22h22v12q0 2-2 2H11q-2 0-2-2z" fill="${c}"/><path d="M7 6l2 2v26q0 2 2 2h18q2 0 2-2V6" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ flask:c=>`<path d="M9 34 L17 18 L23 18 L31 34z" fill="${c}"/><path d="M17 4v12L7 34q-1 3 2 3h22q3 0 2-3L23 16V4" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ pear:c=>`<path d="M12 27a8 8 0 0 0 16 0z" fill="${c}"/><path d="M18 4v11a10 10 0 1 0 4 0V4" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ cyl:c=>`<path d="M15 18h10v16h-10z" fill="${c}"/><path d="M14 4v31h12V4M10 37h20" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M14 12h4M14 20h4M14 28h4" stroke="#7d8fa3"/>`,
+ dropper:c=>`<rect x="15" y="2" width="10" height="11" rx="5" fill="#c0392b"/><path d="M17 13h6v14l-3 8-3-8z" fill="${c}" stroke="#7d8fa3" stroke-width="1.6"/>`,
+ ice:()=>`<path d="M4 18h32v14q0 4-4 4H8q-4 0-4-4z" fill="#d6ecf8" stroke="#7d8fa3" stroke-width="2"/><rect x="8" y="12" width="9" height="9" rx="2" fill="#fff" stroke="#9cc4dd" transform="rotate(-12 12 16)"/><rect x="22" y="13" width="9" height="9" rx="2" fill="#fff" stroke="#9cc4dd" transform="rotate(10 26 17)"/>`,
+ bath:()=>`<rect x="4" y="12" width="32" height="24" rx="3" fill="#b9c3cd" stroke="#7d8fa3" stroke-width="2"/><path d="M6 17q4-3 8 0t8 0 8 0 6 0" fill="none" stroke="#5aa0d0" stroke-width="2"/><rect x="11" y="24" width="18" height="8" rx="1.5" fill="#cfe8c8"/>`,
+ buch:()=>`<path d="M8 4h24v8l-9 6v5h-6v-5l-9-6z" fill="#f2f2ee" stroke="#8a96a3" stroke-width="1.8"/><path d="M17 24v4L9 36q-1 2 1 2h20q2 0 1-2l-8-8v-4M23 27h9" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ paper:()=>`<circle cx="20" cy="20" r="15" fill="#fff" stroke="#9aa6b4" stroke-width="2"/><circle cx="20" cy="20" r="9" fill="none" stroke="#dde3ea"/>`,
+ burner:()=>`<path d="M20 4q6 8 0 14q-6-6 0-14z" fill="#4f7df0" opacity=".85"/><rect x="17" y="18" width="6" height="14" fill="#8a96a3"/><rect x="10" y="32" width="20" height="5" rx="2" fill="#5a6878"/>`,
+ mp:()=>`<rect x="5" y="8" width="30" height="27" rx="3" fill="#dfe4ea" stroke="#7d8fa3" stroke-width="2"/><rect x="9" y="12" width="13" height="8" rx="1" fill="#c9ecc3"/><circle cx="28" cy="16" r="4" fill="#3a3f4a"/><path d="M15 24v9" stroke="#7d8fa3" stroke-width="2"/>`,
+ tubes:c=>`<path d="M10 6v24a4 4 0 0 0 8 0V6M22 6v24a4 4 0 0 0 8 0V6" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M11 22h6v8a3 3 0 0 1-6 0zM23 22h6v8a3 3 0 0 1-6 0z" fill="${c}"/>`,
+ rod:()=>`<path d="M12 36L30 4" stroke="#7d8fa3" stroke-width="3" stroke-linecap="round"/>`,
+ watch:c=>`<path d="M5 22q15 10 30 0" fill="${c}" stroke="#7d8fa3" stroke-width="2"/>`
+};
+/* ---------- scene helpers (viewBox 520 x 300, bench at y=272) ---------- */
+let CLIP=0,PFX='a';
+function liq(x,y,w,h,fill,prev){ if(h<=0) return '';
+ return (prev?`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${prev}"/>`:'')+`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${prev?'class="fadein"':''}/>`;}
+function beakerG(cx,by,w,h,o={}){
+ const x0=cx-w/2,x1=cx+w/2,t=by-h,lh=(o.lev||0)*h;
+ return `<g>${liq(x0+2,by-lh,w-4,lh-2,o.fill,o.prev)}${o.inner||''}
+ <path class="glass" d="M${x0-5} ${t} L${x0} ${t+4} L${x0} ${by-5} Q${x0} ${by} ${x0+5} ${by} L${x1-5} ${by} Q${x1} ${by} ${x1} ${by-5} L${x1} ${t}"/>
+ <path class="shine" d="M${x0+7} ${t+14} L${x0+7} ${by-12}"/>
+ <path d="M${x1} ${by-h*.25}h-7M${x1} ${by-h*.45}h-10M${x1} ${by-h*.65}h-7" stroke="var(--glass)" stroke-width="1.2"/></g>`;}
+function conicalG(cx,by,w,h,o={}){
+ const nw=w*.3,nh=h*.32,t=by-h,id='cl'+PFX+(CLIP++),lh=(o.lev||0)*h;
+ const d=`M${cx-nw/2} ${t} L${cx-nw/2} ${t+nh} L${cx-w/2} ${by-7} Q${cx-w/2-1} ${by} ${cx-w/2+7} ${by} L${cx+w/2-7} ${by} Q${cx+w/2+1} ${by} ${cx+w/2} ${by-7} L${cx+nw/2} ${t+nh} L${cx+nw/2} ${t}`;
+ return `<g><defs><clipPath id="${id}"><path d="${d}Z"/></clipPath></defs><g clip-path="url(#${id})">${liq(cx-w/2,by-lh,w,lh,o.fill,o.prev)}${o.inner||''}</g>
+ <path class="glass" d="${d}"/>${o.arm?`<path class="glass" d="M${cx+nw/2} ${t+10} l22 -6"/>`:''}<path class="shine" d="M${cx-w/2+16} ${by-14} L${cx-nw/2+3} ${t+nh+10}"/></g>`;}
+function pearG(cx,by,r,o={}){
+ const cy=by-r,id='cl'+PFX+(CLIP++),nt=cy-r-48,lh=(o.lev||0)*2*r;
+ const d=`M${cx-7} ${nt} L${cx-7} ${cy-r+3} A${r} ${r} 0 1 0 ${cx+7} ${cy-r+3} L${cx+7} ${nt}`;
+ return `<g><defs><clipPath id="${id}"><path d="${d}Z"/></clipPath></defs><g clip-path="url(#${id})">${liq(cx-r,by-lh,2*r,lh,o.fill,o.prev)}${o.inner||''}</g><path class="glass" d="${d}"/><path class="shine" d="M${cx-r*.6} ${cy+r*.2} A${r*.7} ${r*.7} 0 0 1 ${cx-r*.2} ${cy-r*.6}"/></g>`;}
+function balanceG(cx,by,read,top=''){
+ return `<g><rect x="${cx-58}" y="${by-36}" width="116" height="36" rx="6" fill="#dfe4ea" stroke="#7d8fa3" stroke-width="2"/>
+ <rect x="${cx-34}" y="${by-27}" width="68" height="20" rx="3" fill="#c9ecc3" stroke="#6b8f6a"/><text class="lcd" x="${cx}" y="${by-12}">${read}</text>
+ <rect x="${cx-40}" y="${by-44}" width="80" height="6" rx="2" fill="#b7c0ca" stroke="#7d8fa3"/><text class="lbl" x="${cx}" y="${by+16}">balance (2 d.p.)</text>${top}</g>`;}
+function wbottleG(cx,by,c,full){
+ return `<g><rect x="${cx-15}" y="${by-38}" width="30" height="6" rx="2" fill="#9aa6b4"/><path d="M${cx-13} ${by-32}h26v28q0 4-4 4h-18q-4 0-4-4z" fill="rgba(255,255,255,.5)" stroke="var(--glass)" stroke-width="2"/>${full?`<path d="M${cx-11} ${by-17}h22v11q0 3-3 3h-16q-3 0-3-3z" fill="${c}"/>`:`<path d="M${cx-11} ${by-5}h22" stroke="${c}" stroke-width="2" opacity=".6"/>`}</g>`;}
+function dropperG(cx,y,c,drip){
+ return `<g class="fadein"><rect x="${cx-7}" y="${y}" width="14" height="22" rx="7" fill="#c0392b"/><path d="M${cx-4} ${y+22}h8v38l-4 10-4-10z" fill="${c}" stroke="var(--glass)" stroke-width="1.5"/>${drip?`<circle class="drop" cx="${cx}" cy="${y+76}" r="3.5" fill="${c}" stroke="rgba(0,0,0,.2)"/><circle class="drop" style="animation-delay:.35s" cx="${cx}" cy="${y+76}" r="3.5" fill="${c}" stroke="rgba(0,0,0,.2)"/>`:''}</g>`;}
+function pourG(x,y,c,txt){ // tilted measuring cylinder pouring down
+ return `<g class="fadein"><g transform="rotate(-130 ${x} ${y})"><rect x="${x-8}" y="${y}" width="16" height="64" rx="2" fill="rgba(255,255,255,.75)" stroke="var(--glass)" stroke-width="2"/><rect x="${x-6}" y="${y+2}" width="12" height="16" fill="${c}"/></g><path class="flow" d="M${x} ${y} q-3 18 -2 44" stroke="${c}" stroke-width="3" fill="none"/>${txt?`<text class="lbl" x="${x+30}" y="${y-48}">${txt}</text>`:''}</g>`;}
+function rodG(cx,y0,len,stir){ return `<g class="${stir?'stir':''}"><path d="M${cx} ${y0} l12 ${len}" stroke="#a9b8c7" stroke-width="4" stroke-linecap="round"/></g>`;}
+function hotplateG(cx,by,on){ return `<g><rect x="${cx-48}" y="${by-16}" width="96" height="16" rx="3" fill="#5a6878"/><rect x="${cx-44}" y="${by-20}" width="88" height="5" rx="2" fill="${on?'#e2583e':'#9aa6b4'}" ${on?'class="fadein"':''}/><circle cx="${cx+34}" cy="${by-8}" r="4" fill="${on?'#ffb199':'#cdd6df'}"/></g>`;}
+function bunsenG(cx,by,on){ return `<g><path d="M${cx-40} ${by} L${cx-30} ${by-70} M${cx+40} ${by} L${cx+30} ${by-70}" stroke="#4a5563" stroke-width="3"/><rect x="${cx-46}" y="${by-74}" width="92" height="5" fill="#8a96a3" stroke="#5a6878"/><path d="M${cx-46} ${by-72}h92" stroke="#b9c3cd" stroke-dasharray="2 2"/>
+ <rect x="${cx-5}" y="${by-44}" width="10" height="38" fill="#8a96a3"/><rect x="${cx-16}" y="${by-7}" width="32" height="7" rx="2" fill="#5a6878"/>${on?`<path class="fadein" d="M${cx} ${by-72} q11 14 0 28 q-11 -14 0 -28z" fill="#4f7df0" opacity=".8"/><path d="M${cx} ${by-60} q5 7 0 14 q-5 -7 0 -14z" fill="#9fd0ff"/>`:''}</g>`;}
+function iceG(cx,by,w,h,inner){ const x0=cx-w/2;
+ return `<g><rect x="${x0}" y="${by-h}" width="${w}" height="${h}" rx="6" fill="#eef7fc" stroke="var(--glass)" stroke-width="2"/>${inner}
+ <rect x="${x0+3}" y="${by-h*.7}" width="${w-6}" height="${h*.7-3}" rx="4" fill="rgba(160,210,240,.45)"/>
+ ${[[.12,.62,-12],[.82,.55,14],[.22,.3,8],[.74,.25,-6],[.5,.15,20]].map(([a,b,r])=>`<rect x="${x0+w*a-9}" y="${by-h*b-9}" width="18" height="18" rx="3" fill="#fff" stroke="#9cc4dd" transform="rotate(${r} ${x0+w*a} ${by-h*b})"/>`).join('')}
+ <text class="lbl" x="${cx}" y="${by+16}">ice bath</text></g>`;}
+function bathG(cx,by,w,h,T,inner){ const x0=cx-w/2;
+ return `<g><rect x="${x0}" y="${by-h}" width="${w}" height="${h}" rx="5" fill="#cdd5dd" stroke="#7d8fa3" stroke-width="2"/><rect x="${x0+4}" y="${by-h+6}" width="${w-8}" height="${h-10}" fill="#d4ebf8"/>${inner}
+ <rect x="${x0}" y="${by-h*.62}" width="${w}" height="${h*.62}" rx="5" fill="#b9c3cd" stroke="#7d8fa3" stroke-width="2"/>
+ <rect x="${cx-30}" y="${by-h*.45}" width="60" height="20" rx="3" fill="#c9ecc3" stroke="#6b8f6a"/><text class="lcd" x="${cx}" y="${by-h*.45+15}">${T}</text><text class="lbl" x="${cx}" y="${by+16}">water bath</text></g>`;}
+function buchnerG(cx,by,o={}){
+ const ft=by-118;
+ return `<g>${conicalG(cx,by,92,96,{lev:o.flev||0,fill:o.ffill||'rgba(185,215,240,.4)',arm:1})}
+ <rect x="${cx-12}" y="${by-104}" width="24" height="12" rx="2" fill="#3a3f4a"/>
+ <path d="M${cx-34} ${ft-34}h68v26l-28 12v26h-12v-26l-28-12z" fill="#f4f4ef" stroke="#8a96a3" stroke-width="2"/>
+ <path d="M${cx-30} ${ft-12}h60" stroke="#c9ced3" stroke-width="3" stroke-dasharray="3 3"/>
+ ${o.paper?`<path d="M${cx-30} ${ft-14}h60" stroke="#fff" stroke-width="3"/>`:''}
+ ${o.liqF?`<rect x="${cx-31}" y="${ft-30}" width="62" height="15" fill="${o.liqF}" class="fadein"/>`:''}
+ ${o.cake?`<g class="${o.cakeNew?'grow':''}">${crystalsG(cx,ft-16,54,o.cake,12)}</g>`:''}
+ <path class="${o.pump?'flow':''}" d="M${cx+34} ${by-87} h28 q12 0 12 12 V${by-40}" fill="none" stroke="#c46a3a" stroke-width="5" stroke-linecap="round"/>
+ <text class="lbl" x="${cx+86}" y="${by-22}" style="text-anchor:end">to pump</text>
+ ${o.pump&&o.drip?`<circle class="drop" cx="${cx}" cy="${by-94}" r="3" fill="${o.ffill||'#cde'}"/>`:''}
+ <text class="lbl" x="${cx}" y="${by+16}">Büchner funnel, filter flask</text></g>`;}
+const CRY=[[-.42,0,1],[-.3,-1,.8],[-.18,0,1.1],[-.05,-1,.9],[.08,0,1],[.2,-1,1.1],[.33,0,.9],[.44,-1,.8],[-.36,-2,.7],[-.1,-2,.9],[.15,-2,.8],[.38,-2,.7],[0,0,1],[.27,-3,.6],[-.24,-3,.7]];
+function crystalsG(cx,y,w,c,n=15,needle){
+ return CRY.slice(0,n).map(([a,b,s])=>{const x=cx+a*w,yy=y+b*6;
+  return needle?`<path d="M${x-7*s} ${yy+3} L${x+7*s} ${yy-3}" stroke="${c}" stroke-width="2.4" stroke-linecap="round"/>`:
+  `<path d="M${x} ${yy-6*s}l5 ${5*s}-5 ${5*s}-5 ${-5*s}z" fill="${c}" stroke="rgba(0,0,0,.25)" stroke-width=".8"/>`;}).join('');}
+const SPK=[[.1,.2],[.3,.6],[.5,.3],[.7,.7],[.9,.4],[.2,.85],[.6,.9],[.8,.15],[.4,.5],[.15,.45],[.55,.65],[.85,.8],[.35,.15],[.65,.45],[.25,.7],[.75,.3],[.45,.8],[.95,.6],[.05,.65],[.5,.1]];
+function speckG(x,y,w,h,c){ return `<g class="fadein">${SPK.map(([a,b])=>`<circle cx="${x+a*w}" cy="${y+b*h}" r="2.6" fill="${c}"/>`).join('')}</g>`;}
+function fumeG(x0,x1){ return `<g class="fadein"><rect x="${x0}" y="8" width="${x1-x0}" height="262" rx="6" fill="rgba(231,230,251,.35)" stroke="#8a96a3" stroke-width="3"/>
+ <rect x="${x0}" y="8" width="${x1-x0}" height="30" rx="6" fill="#dfe4ea" stroke="#8a96a3" stroke-width="2"/><text class="lbl" x="${(x0+x1)/2}" y="28" style="font-weight:700">fume cupboard</text>
+ <rect x="${x0+4}" y="40" width="${x1-x0-8}" height="70" fill="rgba(200,225,240,.35)" stroke="#a9b8c7"/><path class="bub" d="M${x0+20} 70 v-14 l-5 5 m5 -5 5 5M${x1-20} 70 v-14 l-5 5 m5 -5 5 5" stroke="#8a96a3" stroke-width="2" fill="none"/></g>`;}
+function bubblesG(cx,y,w){ return `<g>${[-.35,-.1,.15,.38].map((a,i)=>`<circle class="bub" style="animation-delay:${i*.3}s" cx="${cx+a*w}" cy="${y}" r="3" fill="none" stroke="#fff" stroke-width="1.5"/>`).join('')}</g>`;}
+function steamG(cx,y){ return `<g>${[-10,0,10].map((d,i)=>`<path class="bub" style="animation-delay:${i*.4}s" d="M${cx+d} ${y} q-5 -8 0 -16 q5 -8 0 -16" fill="none" stroke="#c4ccd6" stroke-width="2.5" stroke-linecap="round"/>`).join('')}</g>`;}
+/* ---------- bench engine ---------- */
+function Bench(cfg){
+ const el=cfg.el; let st,idx,busy,sel,timers=[];
+ el.innerHTML=`<div class="bench"><div class="scene" role="button" tabindex="0" aria-label="Bench. After choosing an item, press here to use it."><svg viewBox="0 0 520 300" role="img" aria-label="${cfg.label}"></svg></div>
+ <div class="side"><div class="panel"><h3>Method</h3><ol class="method" style="max-height:290px;overflow:auto"></ol></div><div class="panel"><h3>Readings</h3><div class="readings"></div></div></div>
+ <div class="msg" aria-live="polite"></div>
+ <div class="benchbar"><span class="note">Actions:</span><span class="acts" style="display:flex;flex-wrap:wrap;gap:6px;flex:1"></span><button class="mini rs" type="button">Reset bench</button></div>
+ <div class="benchbar"><span class="note">Apparatus and chemicals. Drag one onto the bench, or tap it and then tap the bench.</span></div>
+ <div class="tray"></div></div>`;
+ const svg=el.querySelector('svg'),scene=el.querySelector('.scene'),mEl=el.querySelector('.method'),rEl=el.querySelector('.readings'),msg=el.querySelector('.msg'),tray=el.querySelector('.tray'),acts=el.querySelector('.acts');
+ cfg.tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.id=t.id;
+  b.innerHTML=`<svg viewBox="0 0 40 40" aria-hidden="true">${IC[t.ic](t.c||'#cfe3f3')}</svg><span>${t.name}</span>`;tray.appendChild(b);});
+ cfg.acts.forEach(a=>{const b=document.createElement('button');b.type='button';b.className='mini';b.dataset.a=a.id;b.textContent=a.name;acts.appendChild(b);
+  b.addEventListener('click',()=>apply('a',a.id,b));});
+ const later=(f,ms)=>{timers.push(setTimeout(f,RM?Math.min(ms,250):ms));};
+ const every=(f,ms)=>{const h=setInterval(f,ms);timers.push(h);return h;};
+ function say(h,c){msg.innerHTML=h;msg.className='msg'+(c?' '+c:'');}
+ function draw(){CLIP=0;PFX=cfg.pfx||'a';svg.innerHTML=cfg.render(st);st.fx={};rEl.innerHTML=cfg.readings(st).map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('');}
+ function meth(){mEl.innerHTML=cfg.steps.map((s,i)=>`<li class="${i<idx?'done':i===idx?'now':''}">${s.m}</li>`).join('');
+  const n=mEl.children[idx]; if(n) mEl.scrollTop=Math.max(0,n.offsetTop-mEl.offsetTop-60);}
+ function reset(){timers.forEach(h=>{clearTimeout(h);clearInterval(h);});timers=[];st=cfg.init();st.fx={};idx=0;busy=false;unsel();draw();meth();say(cfg.intro);}
+ function unsel(){sel=null;tray.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed');}
+ function done(s){st.prev=null;st.anim=null;idx++;busy=false;meth();say(typeof s.say==='function'?s.say(st):s.say,'yes');draw();
+  if(idx>=cfg.steps.length){say((typeof s.say==='function'?s.say(st):s.say)+' <b>Practical complete.</b> Copy your readings into Part 2.','yes');}}
+ function apply(kind,id,btn){
+  if(busy) return; if(idx>=cfg.steps.length){say('You have finished. Press <b>Reset bench</b> to do it again.');return;}
+  const s=cfg.steps[idx];
+  if((s.t&&kind==='t'&&s.t===id)||(s.a&&kind==='a'&&s.a===id)){
+   busy=true; if(s.run) s.run(st); draw();
+   if(s.live){say(s.during||'Working…');s.live(st,{draw,later,every,end:()=>done(s),el,say});}
+   else if(s.dur){say(s.during||'Working…');later(()=>{if(s.then) s.then(st);done(s);},s.dur);}
+   else done(s);
+  } else {
+   const th=(kind==='t'?cfg.tools:cfg.acts).find(x=>x.id===id);
+   say('<b>Not yet.</b> '+((s.bad&&s.bad[id])||th.why||'That is not the next step.')+' <span class="note">Look at the highlighted step in the Method list.</span>','no');
+   if(btn){btn.classList.remove('shake');void btn.offsetWidth;btn.classList.add('shake');}
+  }
+ }
+ tray.addEventListener('click',e=>{const b=e.target.closest('.tool');if(!b||e.detail!==0&&dragJust)return;
+  if(sel===b.dataset.id){unsel();return;} unsel();sel=b.dataset.id;b.classList.add('selected');scene.classList.add('armed');});
+ scene.addEventListener('click',()=>{if(sel){const id=sel,b=tray.querySelector(`[data-id="${id}"]`);unsel();apply('t',id,b);}});
+ scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&sel){e.preventDefault();scene.click();}});
+ let drag=null,dragJust=false;
+ tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b)return;dragJust=false;drag={id:b.dataset.id,b,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+ tray.addEventListener('pointermove',e=>{if(!drag)return;
+  if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');
+   g.style.cssText='position:fixed;left:0;top:0;width:48px;height:48px;pointer-events:none;z-index:50';g.innerHTML=drag.b.querySelector('svg').outerHTML;g.firstChild.style.cssText='width:48px;height:48px';drag.g=g;document.body.appendChild(g);}
+  if(drag.moved){drag.g.style.transform=`translate(${e.clientX-24}px,${e.clientY-24}px)`;const u=document.elementFromPoint(e.clientX,e.clientY);drag.over=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',drag.over);}});
+ const end=(e,c)=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(c||!d.moved)return;dragJust=true;setTimeout(()=>dragJust=false,50);if(d.over){unsel();apply('t',d.id,d.b);}};
+ tray.addEventListener('pointerup',e=>end(e,false));tray.addEventListener('pointercancel',e=>end(e,true));
+ el.querySelector('.rs').addEventListener('click',reset);
+ reset();
+ return {reset,get st(){return st;}};
+}
+/* ---------- marking helpers ---------- */
+function num(id){const e=document.getElementById(id);return e?parseFloat(String(e.value).replace(',','.')):NaN;}
+function mark(id,ok){const e=document.getElementById(id);if(!e)return ok;e.classList.toggle('ok',ok);e.classList.toggle('wrong',!ok);const td=e.closest('td');if(td){td.classList.toggle('ok',ok);td.classList.toggle('wrong',!ok);}return ok;}
+const near=(a,b,rel,abs=0)=>isFinite(a)&&isFinite(b)&&Math.abs(a-b)<=Math.abs(b)*rel+abs+1e-9;
+function showScore(id,r,n,extra=''){const s=document.getElementById(id);s.textContent=`${r} / ${n} correct.`+(r===n?' Well done!':' '+extra);s.className='score '+(r===n?'good':'bad');}
+function checkQs(boxId,scoreId){const box=document.getElementById(boxId);let r=0,n=0;
+ box.querySelectorAll('select[data-a]').forEach(s=>{n++;const ok=s.value===s.dataset.a;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);if(ok)r++;});
+ box.querySelectorAll('.opts[data-a]').forEach(g=>{n++;const c=g.querySelector('input:checked');g.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));
+  if(c){const ok=c.value===g.dataset.a;c.closest('label').classList.add(ok?'ok':'wrong');if(ok)r++;}});
+ showScore(scoreId,r,n,'Look again at the red ones.');}
+function mcHTML(name,opts,a){return `<div class="opts" data-a="${a}">${opts.map((o,i)=>`<label><input type="radio" name="${name}" value="${'ABCD'[i]}"><span><b>${'ABCD'[i]}</b>&nbsp; ${o}</span></label>`).join('')}</div>`;}
+/* ---------- exam engine ---------- */
+function Exam(boxId,EX){
+ const box=document.getElementById(boxId);let marked=false;
+ box.innerHTML=EX.map((q,i)=>`<div class="exq" id="ex${i}"><div class="qh"><span>Question ${i+1}</span><span class="mk">(${q.mk} mark${q.mk>1?'s':''})</span></div><div>${q.q}</div>
+ ${q.type==='mc'?mcHTML('exr'+i,q.opts,q.a):q.type==='num'?`<label>Answer: <input type="text" inputmode="decimal" id="exn${i}"><span class="unit">${q.unit||''}</span></label>`:`<textarea id="ext${i}" aria-label="Your answer to question ${i+1}"></textarea><div><button type="button" class="mini msb" data-i="${i}">Show mark scheme</button></div>
+ <div class="ms" hidden><b>Mark scheme</b>${q.ms.map(p=>`<label><input type="checkbox" class="sm"> <span>${p}</span></label>`).join('')}${q.note?`<span class="note">${q.note}</span>`:''}<span class="note">Tick each point you made. Max ${q.mk}.</span></div>`}
+ ${q.work?`<div class="work" hidden>${q.work}</div>`:''}</div>`).join('')+`<div class="toolbar"><button class="btn" type="button" id="${boxId}-mark">Mark my exam answers</button><span class="total" id="${boxId}-tot" aria-live="polite"></span></div>`;
+ function total(){let s=0,t=0;EX.forEach((q,i)=>{t+=q.mk;const d=document.getElementById('ex'+i);
+  if(q.type==='w'){const ms=d.querySelector('.ms');if(!ms.hidden)s+=Math.min(q.mk,ms.querySelectorAll('.sm:checked').length);}
+  else if(marked&&d.dataset.ok==='1')s+=q.mk;});
+  document.getElementById(boxId+'-tot').textContent=`Exam practice: ${s} / ${t} marks`;}
+ box.addEventListener('click',e=>{const b=e.target.closest('.msb');if(!b)return;const d=document.getElementById('ex'+b.dataset.i);d.querySelector('.ms').hidden=false;b.hidden=true;total();});
+ box.addEventListener('change',e=>{if(e.target.classList.contains('sm'))total();});
+ document.getElementById(boxId+'-mark').addEventListener('click',()=>{marked=true;
+  EX.forEach((q,i)=>{const d=document.getElementById('ex'+i);let ok=false;
+   if(q.type==='mc'){const c=d.querySelector('input:checked');d.querySelectorAll('.opts label').forEach(l=>l.classList.remove('ok','wrong'));
+    d.querySelectorAll('.opts input').forEach(inp=>{if(inp.value===q.a)inp.closest('label').classList.add('ok');});
+    if(c){ok=c.value===q.a;if(!ok)c.closest('label').classList.add('wrong');}}
+   else if(q.type==='num'){const v=num('exn'+i);ok=near(v,q.a,q.tol||.01);mark('exn'+i,ok);}
+   else{const b=d.querySelector('.msb');if(b&&!b.hidden)b.click();}
+   d.dataset.ok=ok?'1':'0';const w=d.querySelector('.work');if(w)w.hidden=false;});
+  total();});
+ total();
+ return {reset(){marked=false;box.querySelectorAll('.ms,.work').forEach(m=>m.hidden=true);box.querySelectorAll('.msb').forEach(b=>b.hidden=false);box.querySelectorAll('.exq').forEach(d=>d.dataset.ok='0');total();}};
+}
+function resetPage(benches,exams,extra){
+ benches.forEach(b=>b.reset());
+ $$('.wrap input[type=text],.wrap input[type=number],.wrap textarea').forEach(e=>e.value='');
+ $$('.wrap input[type=checkbox],.wrap input[type=radio]').forEach(e=>e.checked=false);
+ $$('.wrap select').forEach(e=>e.value='');
+ $$('.wrap .ok,.wrap .wrong').forEach(e=>e.classList.remove('ok','wrong'));
+ $$('.wrap .score').forEach(e=>e.textContent='');
+ exams.forEach(x=>x.reset()); if(extra) extra();
+ window.scrollTo({top:0,behavior:RM?'auto':'smooth'});
+}
+
+const f2=v=>(Math.round(v*100)/100).toFixed(2);
+
+/* ===== CP16 aspirin bench ===== */
+const g2=v=>Math.round(v*100)/100, h5=v=>Math.round(v*2)/2, f1=v=>v.toFixed(1);
+const BENCH='<rect x="0" y="272" width="520" height="28" fill="#d5dde5"/><path d="M0 272h520" stroke="#aab6c2" stroke-width="2"/>';
+const WH='#fbfbf6';
+function wbot(cx,top,fill,empty){return `<g><rect x="${cx-11}" y="${top}" width="22" height="6" rx="2" fill="#9aa6b4"/><rect x="${cx-12}" y="${top+6}" width="24" height="28" rx="3" fill="rgba(255,255,255,.6)" stroke="var(--glass)" stroke-width="2"/>${empty?`<circle cx="${cx-4}" cy="${top+31}" r="1.6" fill="#bbb"/><circle cx="${cx+5}" cy="${top+31}" r="1.6" fill="#bbb"/>`:crystalsG(cx,top+30,16,fill,6)}</g>`;}
+function watchG(cx,y,c){return `<g><path d="M${cx-30} ${y-6} q30 14 60 0" fill="none" stroke="var(--glass)" stroke-width="2.5"/>${c?crystalsG(cx,y-1,40,c,10,1):''}</g>`;}
+function capG(x,y,f,lbl){ // capillary, f = melted fraction
+ const sh=18*(1-f), lh=18*f*.8;
+ return `<g><rect x="${x-4}" y="${y}" width="8" height="54" rx="3" fill="rgba(255,255,255,.7)" stroke="#7d8fa3" stroke-width="1.4"/>
+ ${lh>0?`<rect x="${x-3}" y="${y+52-lh}" width="6" height="${lh}" fill="rgba(170,205,235,.9)"/>`:''}
+ ${sh>0.5?`<rect x="${x-3}" y="${y+52-lh-sh}" width="6" height="${sh}" fill="#fff" stroke="#b8c2cc" stroke-width=".6"/>`:''}
+ <text class="lbl" x="${x}" y="${y+68}">${lbl}</text></g>`;}
+function mpG(cx,by,T,a,b){
+ return `<g><rect x="${cx-72}" y="${by-150}" width="144" height="150" rx="8" fill="#dfe4ea" stroke="#7d8fa3" stroke-width="2"/>
+ <rect x="${cx-58}" y="${by-140}" width="116" height="84" rx="6" fill="#2d3540"/><rect x="${cx-52}" y="${by-134}" width="104" height="72" rx="4" fill="#f6efd8"/>
+ ${capG(cx-22,by-128,a,'crude')}${capG(cx+22,by-128,b,'recryst.')}
+ <rect x="${cx-40}" y="${by-44}" width="80" height="24" rx="3" fill="#c9ecc3" stroke="#6b8f6a"/><text class="lcd" x="${cx}" y="${by-27}">${T!=null?f1(T)+' °C':'— °C'}</text>
+ <text class="lbl" x="${cx}" y="${by+16}">melting point apparatus</text></g>`;}
+function tubesG(cx,by,c1,c2){
+ const tb=(x,c,l)=>`<g><path d="M${x-10} ${by-110}v92a10 10 0 0 0 20 0v-92" fill="rgba(255,255,255,.6)" stroke="var(--glass)" stroke-width="2"/><path d="M${x-8} ${by-60}h16v42a8 8 0 0 1-16 0z" fill="${c}" class="fadein"/><text class="lbl" x="${x}" y="${by+16}">${l}</text></g>`;
+ return `<g><rect x="${cx-56}" y="${by-60}" width="112" height="10" fill="#b48a5a"/>${tb(cx-28,c1,'crude')}${tb(cx+28,c2,'recryst.')}<rect x="${cx-56}" y="${by-8}" width="112" height="8" fill="#b48a5a"/></g>`;}
+function asRender(st){
+ let s=BENCH; const cx=240;
+ if(st.fume) s+=fumeG(150,330);
+ const top=st.bal==='s'?wbot(82,194,WH):st.bal==='s2'?wbot(82,194,WH,1):st.bal==='wg'?watchG(82,226):st.bal==='wgc'?watchG(82,226,'#e8ebef'):'';
+ s+=balanceG(82,272,st.balR||'0.00 g',top);
+ if(st.v){
+  const c=st.c, inB=st.bath||st.ice, by=inB?266:272; let o={},inner='',v='';
+  if(st.v==='pear'){
+   if(c==='solid') inner=crystalsG(cx,by-4,34,WH,8);
+   if(c==='anh'){o={lev:.4,fill:'rgba(225,235,242,.9)'};inner=crystalsG(cx,by-4,34,WH,8);}
+   if(c==='mix'){o={lev:.42,fill:'rgba(232,236,226,.95)'};inner=crystalsG(cx,by-4,30,WH,6);}
+   if(c==='hot') o={lev:.42,fill:'rgba(236,240,232,.95)'};
+   if(c==='hyd'){o={lev:.62,fill:'#eef1f3'};inner=speckG(cx-26,by-38,52,30,'#fff');}
+   if(c==='cry'){o={lev:.62,fill:'#e7edf1'};inner=`<g class="grow">${crystalsG(cx,by-6,40,WH,15)}</g>`;}
+   v=pearG(cx,by,36,{...o,inner});
+   if(st.heating) v=`<g class="swirl">${v}</g>`;
+  } else {
+   if(c==='crude') inner=crystalsG(cx,by-4,40,'#f6f4ea',10);
+   if(c==='eth'){o={lev:.22,fill:'rgba(226,236,244,.9)'};inner=st.dis?'':crystalsG(cx,by-4,34,'#f6f4ea',6);}
+   if(c==='ww') o={lev:.4,fill:'rgba(222,234,244,.9)'};
+   if(c==='needles'){o={lev:.4,fill:'rgba(222,234,244,.9)'};inner=`<g class="grow">${crystalsG(cx,by-6,48,'#c7d0d8',15,1)}</g>`;}
+   if(c==='gone') inner='';
+   v=conicalG(cx,by,74,96,{...o,inner});
+  }
+  if(st.bath) s+=bathG(cx,272,130,74,(st.T!=null?f1(st.T):'85.0')+' °C',v)+(st.c==='eth'||st.c==='ww'?'':steamG(cx+52,190));
+  else if(st.ice) s+=iceG(cx,272,124,56,v);
+  else s+=v;
+  if(st.anim==='tip') s+=`<g class="fadein" transform="rotate(115 ${cx+6} 120)">${wbot(cx+6,104,WH)}</g>`;
+  if(st.anim==='anh') s+=pourG(cx+4,96,'#e1ebf2','4 cm³ ethanoic anhydride');
+  if(st.anim==='acid') s+=dropperG(cx,70,'#f5f1df',1)+`<text class="lbl" x="${cx+60}" y="84">5 drops H₃PO₄</text>`;
+  if(st.anim==='water') s+=pourG(cx+4,96,'#d8eef9','cold water, carefully')+steamG(cx,150);
+  if(st.anim==='eth') s+=dropperG(cx,60,'#e2ecf4',1)+`<text class="lbl" x="${cx+66}" y="74">hot ethanol, a little at a time</text>`;
+  if(st.anim==='ww') s+=pourG(cx+4,96,'#d8eef9','warm water');
+ }
+ if(st.f) s+=buchnerG(425,272,{paper:1,pump:st.anim==='filter'||st.anim==='wash',drip:1,liqF:st.anim==='filter'?'#e7edf1':st.anim==='wash'?'#d8eef9':'',cake:st.f===2?'#f6f4ea':'#dfe5ea',cakeNew:st.anim==='filter',ffill:'#e4eaf0',flev:.14});
+ if(st.anim==='wash') s+=pourG(445,110,'#d8eef9','ice-cold water');
+ if(st.anim==='dry') s+=`<g class="fadein"><rect x="372" y="60" width="106" height="12" rx="3" fill="#fff" stroke="#9aa6b4"/><rect x="372" y="74" width="106" height="12" rx="3" fill="#fff" stroke="#9aa6b4"/>${crystalsG(425,72,60,'#c7d0d8',12,1)}<text class="lbl" x="425" y="50">drying between filter papers</text></g>`;
+ if(st.mp){const P=st.V.mp,fr=(T,a,b)=>T==null?0:Math.max(0,Math.min(1,(T-a)/(b-a||.5)));s+=mpG(425,272,st.mpT,fr(st.mpT,P[0],P[1]),fr(st.mpT,P[2],P[3]));}
+ if(st.fe) s+=tubesG(425,272,'#6b2a7e','#e2a23b');
+ return s;
+}
+const asCfg={
+ label:'Bench with balance, flask, fume cupboard, water bath and filtration apparatus', pfx:'as', render:asRender,
+ intro:'Start with a clean, dry <b>pear-shaped flask</b>. Drag it onto the bench, or tap it and then tap the bench.',
+ init(){const ma=RND(1.96,2.04),bot=RND(11.6,13.4),m1=g2(bot+ma),m2=g2(bot+RND(.01,.03)),used=m1-m2,w=g2(RND(18.2,23.8)),
+  pure=g2(used/138*180*RND(.47,.72)),cs=h5(RND(119,126.5)),ce=h5(cs+RND(4.5,7.5)),ps=RND(0,1)<.5?134.5:135,pe=h5(ps+RND(1,1.6));
+  return {v:null,c:'',f:0,R:{},V:{m1,m2,w,w2:g2(w+pure),mp:[cs,ce,ps,pe]},mpT:null};},
+ tools:[{id:'pear',ic:'pear',c:'none',name:'pear-shaped flask'},
+  {id:'sal',ic:'wbottle',c:'#f4f4ee',name:'2-hydroxybenzoic acid, ≈ 2 g'},
+  {id:'anh',ic:'cyl',c:'#e1ebf2',name:'ethanoic anhydride, 4 cm³'},
+  {id:'acid',ic:'dropper',c:'#f5f1df',name:'conc. H₃PO₄ (dropper)'},
+  {id:'bath',ic:'bath',name:'hot water bath'},
+  {id:'water',ic:'bottle',c:'#d8eef9',name:'cold water'},
+  {id:'ice',ic:'ice',name:'ice bath'},
+  {id:'buch',ic:'buch',name:'Büchner funnel + filter flask'},
+  {id:'icew',ic:'wbottle',c:'#cfe7f7',name:'ice-cold water'},
+  {id:'con',ic:'flask',c:'none',name:'clean conical flask'},
+  {id:'eth',ic:'bottle',c:'#eef2f6',name:'ethanol'},
+  {id:'ww',ic:'wbottle',c:'#f3dccb',name:'warm water'},
+  {id:'burner',ic:'burner',name:'Bunsen burner',why:'No naked flames in this practical. Ethanoic anhydride and ethanol are flammable. Use the water bath for heating.'},
+  {id:'watch',ic:'watch',c:'none',name:'watch glass'},
+  {id:'mp',ic:'mp',name:'melting point apparatus'},
+  {id:'fecl3',ic:'tubes',c:'#e2a23b',name:'iron(III) chloride(aq)'}],
+ acts:[{id:'tip',name:'Tip in, reweigh bottle'},{id:'fume',name:'Move to fume cupboard'},{id:'coolslow',name:'Leave to cool slowly'},{id:'dry',name:'Dry the crystals'},{id:'transfer',name:'Transfer crystals and weigh'}],
+ steps:[
+  {t:'pear',m:'Put a dry pear-shaped flask on the bench.',run:s=>{s.v='pear';},say:'Now weigh the weighing bottle containing about 2.00 g of 2-hydroxybenzoic acid.'},
+  {t:'sal',m:'Weigh bottle + about 2.00 g 2-hydroxybenzoic acid.',run:s=>{s.bal='s';s.R.m1=s.V.m1;s.balR=f2(s.V.m1)+' g';},say:s=>`Balance reads <b>${f2(s.V.m1)} g</b>. Record it. Tip the solid into the flask and reweigh the bottle.`},
+  {a:'tip',m:'Tip the solid into the flask. Reweigh the bottle.',run:s=>{s.anim='tip';s.bal=null;s.balR='0.00 g';},dur:1500,during:'Tipping the white solid into the flask…',then:s=>{s.c='solid';s.bal='s2';s.R.m2=s.V.m2;s.balR=f2(s.V.m2)+' g';},say:s=>`Bottle now reads <b>${f2(s.V.m2)} g</b>. Mass used = <b>${f2(s.V.m1-s.V.m2)} g</b> (weighing by difference). Ethanoic anhydride is next. Where must you use it?`},
+  {a:'fume',m:'Move the flask into the fume cupboard.',run:s=>{s.fume=1;s.bal=null;s.balR='0.00 g';},say:'Good. Ethanoic anhydride and the acid catalyst give off irritating, corrosive vapour. Now add 4 cm³ of ethanoic anhydride.',bad:{anh:'Ethanoic anhydride vapour is corrosive and irritates the eyes and lungs. Move to the fume cupboard first.',acid:'Move to the fume cupboard first.'}},
+  {t:'anh',m:'Add 4 cm<sup>3</sup> ethanoic anhydride (an excess).',run:s=>{s.anim='anh';},dur:1600,then:s=>{s.c='anh';s.R.anh=1;},during:'Adding ethanoic anhydride from a measuring cylinder…',bad:{acid:'Add the ethanoic anhydride first, then the catalyst.'},say:'Ethanoic anhydride is in excess so that all the 2-hydroxybenzoic acid reacts. Now add 5 drops of concentrated phosphoric(V) acid.'},
+  {t:'acid',m:'Add 5 drops conc. phosphoric(V) acid (catalyst).',run:s=>{s.anim='acid';},dur:1800,then:s=>{s.c='mix';},during:'Adding 5 drops of catalyst…',bad:{bath:'Add the acid catalyst first, or the reaction is very slow.'},say:'The acid is a catalyst. Now warm the flask in the hot water bath at about 85 °C.'},
+  {t:'bath',m:'Warm in a water bath at about 85 °C for 20 min, swirling.',run:s=>{s.bath=1;s.heating=1;s.min=0;s.T=85;},during:'Heating at about 85 °C and swirling. The solid dissolves…',
+   live:(s,h)=>{const id=h.every(()=>{s.min++;s.T=h5(RND(84.2,85.8));if(s.min>=4)s.c='hot';h.draw();if(s.min>=20){clearInterval(id);s.heating=0;h.end();}},RM?20:140);},
+   say:'20 minutes at about 85 °C. The solid has dissolved and reacted. Take the flask out, cool it, then add cold water carefully.'},
+  {t:'water',m:'Cool, then add cold water carefully.',run:s=>{s.bath=0;s.T=null;s.anim='water';},dur:2000,then:s=>{s.c='hyd';},during:'Adding cold water carefully. It reacts with the excess ethanoic anhydride and warms up…',bad:{ice:'First add cold water to destroy the excess ethanoic anhydride.'},say:'The water hydrolyses the excess ethanoic anhydride to ethanoic acid. The mixture goes cloudy. Now stand it in an ice bath.'},
+  {t:'ice',m:'Stand in an ice bath until crystals form.',run:s=>{s.ice=1;s.c='cry';},dur:2400,during:'Cooling in ice. White crystals form…',bad:{buch:'Cool in ice first, so more aspirin crystallises.'},say:'Crude aspirin has crystallised. Filter under reduced pressure.'},
+  {t:'buch',m:'Filter under reduced pressure.',run:s=>{s.ice=0;s.v=null;s.f=1;s.anim='filter';},dur:2400,during:'Pump on. The liquid is sucked through…',say:'Now wash the crude crystals with a little ice-cold water.'},
+  {t:'icew',m:'Wash with a little ice-cold water.',run:s=>{s.anim='wash';},dur:1800,during:'Washing with ice-cold water…',bad:{water:'Use ice-cold water, so that as little aspirin as possible dissolves.'},say:'This is the <b>crude</b> product. Keep a few crystals for testing. Transfer the rest to a clean conical flask to recrystallise.'},
+  {t:'con',m:'Transfer the crude solid to a conical flask (keep a few crystals).',run:s=>{s.f=0;s.v='con';s.c='crude';},say:'Recrystallisation. First put the flask in the hot water bath.'},
+  {t:'bath',m:'Put the flask in the hot water bath.',run:s=>{s.bath=1;s.T=80;},bad:{eth:'Heat the flask in the water bath, so the ethanol you add is hot.'},say:'Now add hot ethanol a little at a time until the solid just dissolves.'},
+  {t:'eth',m:'Add the <b>minimum</b> hot ethanol until the solid just dissolves.',run:s=>{s.anim='eth';s.c='eth';},dur:2400,during:'Adding hot ethanol drop by drop and swirling…',then:s=>{s.dis=1;s.R.eth=1;},say:'The solid has just dissolved in the minimum volume of hot ethanol. Now add some warm water.'},
+  {t:'ww',m:'Add warm water.',run:s=>{s.anim='ww';},dur:1600,then:s=>{s.c='ww';},during:'Adding warm water…',bad:{ice:'Do not cool it yet. Add warm water first.'},say:'Now take the flask out and leave it to cool <b>slowly</b>.'},
+  {a:'coolslow',m:'Leave to cool slowly to room temperature.',run:s=>{s.bath=0;s.T=null;s.c='needles';},dur:2600,during:'Cooling slowly. Needle-shaped crystals grow…',bad:{ice:'Cooling quickly makes small crystals that trap impurities. Cool slowly first.',buch:'Let the crystals form first.'},say:'White needle crystals. Then cool in ice to get as many crystals as possible.'},
+  {t:'ice',m:'Then cool in an ice bath.',run:s=>{s.ice=1;},dur:1600,during:'Cooling in ice…',say:'Filter under reduced pressure.'},
+  {t:'buch',m:'Filter under reduced pressure.',run:s=>{s.ice=0;s.v=null;s.f=2;s.anim='filter';},dur:2400,during:'Filtering…',say:'Wash with a little ice-cold water.'},
+  {t:'icew',m:'Wash with a little ice-cold water.',run:s=>{s.anim='wash';},dur:1800,during:'Washing…',bad:{water:'Use ice-cold water so less aspirin dissolves.'},say:'Now dry the crystals.'},
+  {a:'dry',m:'Dry the crystals between filter papers.',run:s=>{s.anim='dry';},dur:2000,during:'Drying…',then:s=>{s.f=0;},say:'Dry. Weigh an empty watch glass.'},
+  {t:'watch',m:'Weigh an empty watch glass.',run:s=>{s.bal='wg';s.R.w=s.V.w;s.balR=f2(s.V.w)+' g';},say:s=>`Watch glass = <b>${f2(s.V.w)} g</b>. Transfer the dry crystals onto it.`},
+  {a:'transfer',m:'Transfer the dry crystals and weigh.',run:s=>{s.bal='wgc';s.R.w2=s.V.w2;s.balR=f2(s.V.w2)+' g';},say:s=>`Watch glass + aspirin = <b>${f2(s.V.w2)} g</b>. Mass of pure aspirin = <b>${f2(s.V.w2-s.V.w)} g</b>. Now find the melting ranges of the crude and recrystallised samples.`},
+  {t:'mp',m:'Find the melting ranges (crude and recrystallised).',run:s=>{s.mp=1;s.mpT=110;},during:'Capillary tubes in the apparatus. Heating slowly. Watch when each sample starts and finishes melting…',
+   live:(s,h)=>{const P=s.V.mp;const id=h.every(()=>{s.mpT+=.5;
+     if(s.mpT===P[1])s.R.cmp=1; if(s.mpT===P[3])s.R.pmp=1;
+     h.draw();if(s.mpT>=P[3]+3){clearInterval(id);h.end();}},RM?15:80);},
+   say:s=>{const P=s.V.mp;return `Crude: melts <b>${f1(P[0])}–${f1(P[1])} °C</b> (low, broad). Recrystallised: melts <b>${f1(P[2])}–${f1(P[3])} °C</b> (sharp, close to 135–136 °C). Finally, test both samples with iron(III) chloride.`;}},
+  {t:'fecl3',m:'Test both samples with neutral iron(III) chloride.',run:s=>{s.mp=0;s.fe=1;},dur:1600,during:'Adding iron(III) chloride solution…',say:'Crude: <b>purple</b>. A phenol group is present, so it contains unreacted 2-hydroxybenzoic acid. Recrystallised: <b>no purple</b>, stays yellow-orange.'}
+ ],
+ readings(st){const R=st.R,P=st.V.mp,f=k=>R[k]!==undefined?f2(R[k])+' g':'—';
+  const mpRow=(i,k)=>R[k]?`${f1(P[i])}–${f1(P[i+1])} °C`:(st.mpT!=null&&st.mpT>=P[i]?`starts ${f1(P[i])} °C`:'—');
+  return [['Bottle + 2-hydroxybenzoic acid',f('m1')],['Bottle after tipping',f('m2')],['Ethanoic anhydride',R.anh?'4.0 cm³':'—'],
+   ['Water bath',st.T!=null&&st.bath?f1(st.T)+' °C':'—'],['Time heated',st.min?st.min+' min':'—'],['Watch glass',f('w')],['Watch glass + aspirin',f('w2')],
+   ['MP apparatus',st.mpT!=null?f1(st.mpT)+' °C':'—'],['Crude melting range',mpRow(0,'cmp')],['Recryst. melting range',mpRow(2,'pmp')],
+   ['FeCl₃ test',st.fe?'crude purple; recryst. none':'—']];}
+};
+const BA=Bench({...asCfg,el:$('#benchA')});
+/* Part 2 */
+function chart(){
+ const cv=$('#mpChart'),dpr=window.devicePixelRatio||1,W=cv.clientWidth,H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;
+ const c=cv.getContext('2d');c.scale(dpr,dpr);c.clearRect(0,0,W,H);
+ const L=110,Rr=140,x0=118,x1=W-18,X=t=>x0+(t-L)/(Rr-L)*(x1-x0);
+ c.font='13px "Atkinson Hyperlegible",sans-serif';c.fillStyle='#e3f3ea';c.fillRect(X(135),14,X(136)-X(135),H-58);
+ c.strokeStyle='#cdd6df';c.fillStyle='#5a6878';c.textAlign='center';
+ for(let t=L;t<=Rr;t+=5){c.beginPath();c.moveTo(X(t),14);c.lineTo(X(t),H-44);c.stroke();c.fillText(t,X(t),H-28);}
+ c.fillText('temperature / °C',(x0+x1)/2,H-8);
+ const rows=[['crude',num('m1'),num('m2'),'#b3261e'],['recrystallised',num('m3'),num('m4'),'#1d7a46']];
+ rows.forEach(([n,a,b,col],i)=>{const y=36+i*50;c.textAlign='right';c.fillStyle='#1c2736';c.fillText(n,x0-8,y+5);
+  if(isFinite(a)&&isFinite(b)&&b>=a){const A=Math.max(L,Math.min(Rr,a)),B=Math.max(L,Math.min(Rr,b));c.fillStyle=col;c.fillRect(X(A),y-8,Math.max(3,X(B)-X(A)),16);}});
+ c.textAlign='left';c.fillStyle='#1d7a46';c.fillText('pure aspirin 135–136 °C',Math.min(X(135),x1-150)-60,12+0);
+}
+['m1','m2','m3','m4'].forEach(id=>$('#'+id).addEventListener('input',chart));
+window.addEventListener('resize',chart);chart();
+$('#chkR').addEventListener('click',()=>{
+ const R=BA.st.R,V=BA.st.V,has=R.w2!==undefined;let r=0,n=0;const t=(id,ok)=>{n++;if(mark(id,ok))r++;};
+ t('r1',has&&near(num('r1'),R.m1,0,.005));t('r2',has&&near(num('r2'),R.m2,0,.005));
+ const used=num('r1')-num('r2');t('r3',used>0&&near(num('r3'),used,0,.006));
+ t('r4',has&&near(num('r4'),R.w,0,.005));t('r5',has&&near(num('r5'),R.w2,0,.005));
+ const prod=num('r5')-num('r4');t('r6',prod>0&&near(num('r6'),prod,0,.006));
+ const P=V.mp,mp=!!R.pmp;['m1','m2','m3','m4'].forEach((id,i)=>t(id,mp&&near(num(id),P[i],0,.26)));
+ const fe=!!BA.st.fe;t('o1',fe&&$('#o1').value==='p');t('o2',fe&&$('#o2').value==='n');
+ t('c1',near(num('c1'),num('r3')/138,.006));t('c2',near(num('c2'),num('c1')*180,.006));t('c3',near(num('c3'),num('r6')/num('c2')*100,.008));
+ t('c4',near(num('c4'),75.0,.001));t('o3',$('#o3').value==='pure');
+ chart();showScore('sR',r,n,has&&fe?'Red boxes need another look. Calculations are checked against your own numbers.':'Finish all of Part 1 first so your readings can be checked.');});
+/* Part 3 */
+$('#chkQ').addEventListener('click',()=>checkQs('qs','sQ'));
+$('#qs').addEventListener('change',e=>{e.target.classList.remove('ok','wrong');const l=e.target.closest('.opts');if(l)l.querySelectorAll('label').forEach(x=>x.classList.remove('ok','wrong'));});
+/* Part 4 */
+const EX=[
+ {type:'num',mk:3,q:'A student made aspirin from 2.76 g of 2-hydroxybenzoic acid and an excess of ethanoic anhydride. After recrystallisation the mass of dry aspirin was 2.21 g.<br>Calculate the percentage yield. Give your answer to <b>three</b> significant figures.<br><span class="note">[M: 2-hydroxybenzoic acid = 138; aspirin = 180]</span>',a:61.4,tol:.004,unit:'%',
+  work:'<b>Worked answer</b><br>n(2-hydroxybenzoic acid) = 2.76 ÷ 138 = 0.0200 mol (1)<br>theoretical mass of aspirin = 0.0200 × 180 = 3.60 g (1)<br>% yield = 2.21 ÷ 3.60 × 100 = <b>61.4 %</b> (1)'},
+ {type:'num',mk:2,q:'Aspirin can also be made using ethanoyl chloride:<br>HOOCC<sub>6</sub>H<sub>4</sub>OH + CH<sub>3</sub>COCl → HOOCC<sub>6</sub>H<sub>4</sub>OCOCH<sub>3</sub> + HCl<br>Calculate the atom economy by mass of this reaction. Give your answer to <b>three</b> significant figures.<br><span class="note">[M: 2-hydroxybenzoic acid = 138; CH<sub>3</sub>COCl = 78.5; aspirin = 180]</span>',a:83.1,tol:.004,unit:'%',
+  work:'<b>Worked answer</b><br>total mass of reactants = 138 + 78.5 = 216.5 (1)<br>atom economy = 180 ÷ 216.5 × 100 = <b>83.1 %</b> (1)<br><span class="note">This is higher than the 75.0 % with ethanoic anhydride, but industry still uses the anhydride: it is cheaper, less corrosive, reacts less vigorously and does not make HCl gas.</span>'},
+ {type:'w',mk:4,q:'Describe how the crude aspirin is purified by recrystallisation. Explain the purpose of the key steps.',
+  ms:['Dissolve the crude solid in the minimum volume of hot solvent (e.g. ethanol), so the solution is saturated.','(If needed) filter while hot to remove insoluble impurities.','Cool slowly so (pure) aspirin crystallises and soluble impurities stay in solution.','Filter under reduced pressure and wash with a small amount of ice-cold solvent/water.','Dry the crystals, e.g. between filter papers or in a low-temperature oven / desiccator.'],
+  note:'Max 4 from 5 marking points. Do not award "dissolve in water" alone for the first point. Do not award "heat to dryness".'},
+ {type:'mc',mk:1,q:'A student\'s aspirin melts over the range 128–133 °C. The data-book melting point of aspirin is 135–136 °C. Which is the correct conclusion?',
+  opts:['The sample is pure aspirin.','The sample is impure: impurities raise the melting point.','The sample is impure: impurities lower the melting point and broaden the range.','The thermometer is broken: aspirin can only melt at 135 °C.'],a:'C',
+  work:'<b>C</b>. A pure solid melts sharply (within 1–2 °C) at the data-book value. Impurities lower the melting point and make it melt over a wider range.'},
+ {type:'w',mk:2,q:'Describe a chemical test, using iron(III) chloride, that shows whether a sample of aspirin still contains 2-hydroxybenzoic acid. Give the result for each possibility.',
+  ms:['Add (neutral) iron(III) chloride solution to the sample (dissolved in water or ethanol).','Purple colour means 2-hydroxybenzoic acid is present (it has a phenol –OH group).','No purple / stays yellow-orange means no 2-hydroxybenzoic acid: aspirin has no phenol group (it is an ester).'],
+  note:'Max 2. Allow "violet" for purple. Do not award "goes purple with aspirin".'}
+];
+const EXM=Exam('exam',EX);
+$('#resetAll').addEventListener('click',()=>resetPage([BA],[EXM],chart));
+
+})();
+</script>
+</body></html>

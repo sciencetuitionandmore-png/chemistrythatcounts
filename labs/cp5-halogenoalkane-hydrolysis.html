@@ -1,0 +1,497 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Halogenoalkane Hydrolysis Rates</title>
+<meta name="description" content="Virtual core practical: Halogenoalkane Hydrolysis Rates. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp5-halogenoalkane-hydrolysis.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+details.safety{border:1px solid #e2c27d;background:#fff8e7;border-radius:10px;padding:8px 14px;max-width:760px}
+details.safety summary{cursor:pointer;font:600 .95rem var(--display);color:#7a4a00}
+details.safety ul{margin:8px 0 4px;padding-left:1.2em;font-size:.93rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;align-items:start}
+@media(max-width:760px){.lab{grid-template-columns:minmax(0,1fr)}}
+.stage{background:var(--bench);border-radius:12px;padding:8px;border:2px dashed transparent;position:relative;outline:none}
+.stage.armed{border-color:var(--accent)}
+.stage.over{border-color:var(--accent);background:var(--accent-soft)}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block;overflow:visible}
+.stage .tag{position:absolute;left:10px;top:8px;font:700 .72rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.shelf{display:flex;flex-direction:column;gap:6px}
+.shelf-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;font:inherit;font-size:.78rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:10px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);width:92px;line-height:1.15;text-align:center}
+.tool svg{width:38px;height:38px;flex:none}
+.tool:hover{border-color:var(--accent)}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{font-size:.88rem;color:var(--muted)}
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--sheet)}
+.box h3{font-size:.9rem;margin-bottom:6px}
+.method ol{margin:0;padding-left:1.4em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}
+.method li.done{color:var(--good)}
+.method li.done::marker{content:"\2713  "}
+.method li.now{font-weight:700;color:var(--accent)}
+.say{min-height:3.2em;border-radius:10px;padding:10px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.92rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.nb{width:100%;min-width:0;font-size:.86rem;border-collapse:collapse}
+.nb td{border:none;border-bottom:1px solid var(--line);padding:4px 2px}
+.nb td:last-child{text-align:right;font:700 .92rem var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#a6f3c0;border-radius:8px;padding:3px 10px;display:inline-block;min-width:5em;text-align:center}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:0}
+.controls:empty{display:none}
+.controls .lbl{font-size:.88rem;color:var(--muted)}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.82rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.res{min-width:520px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+td.ok,td.wrong{position:relative}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.calc{display:flex;flex-direction:column;gap:10px}
+.calc .row{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--paper)}
+.calc .row>span:first-child{flex:1 1 260px}
+.unit{color:var(--muted);font-size:.9rem}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:74ch}
+.mcq{display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.xq{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.xq .qt{max-width:none}
+.xq .mk{font-weight:700;white-space:nowrap}
+.xq textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;padding:8px;border-radius:8px;border:2px solid var(--line);resize:vertical}
+.ms,.worked{border-radius:10px;padding:10px 14px;font-size:.92rem}
+.ms{background:var(--accent-soft)}
+.ms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0;cursor:pointer}
+.ms input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.ms .allow{color:var(--muted);font-size:.86rem;margin:2px 0 2px 26px}
+.worked{background:#eef8f2;border:1px solid #bfe0cc}
+.total{font:700 1.1rem var(--display);color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.glass-f{fill:rgba(255,255,255,.35);stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.stand{fill:#6b7684}
+.lbl-s{font:12px var(--body);fill:var(--muted)}
+.mv{transition:transform .9s ease}
+.fade{transition:opacity .8s ease}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(-40px);opacity:0}}
+@keyframes drip{from{transform:translateY(0);opacity:1}to{transform:translateY(34px);opacity:0}}
+@keyframes jig{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@media(max-width:520px){body{font-size:16px}.tool{width:84px;font-size:.74rem}.tool svg{width:32px;height:32px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.sets{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tl{font:600 13px var(--display);fill:#1c2736;text-anchor:middle}
+.big{font:700 22px var(--display);fill:#a6f3c0}
+.sw{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid #999;vertical-align:middle;margin-right:4px}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+<header>
+<h1>Investigating the rates of hydrolysis of halogenoalkanes</h1>
+<p class="meta">IAL Chemistry · Core Practical 5 · Unit 3</p>
+<p><b>Aim:</b> To compare how fast different halogenoalkanes are hydrolysed by water, by timing how long a silver halide precipitate takes to appear.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Ethanol and the halogenoalkanes are <b>highly flammable</b>. No naked flames. Use an electric water bath, not a Bunsen burner.</li>
+<li>Halogenoalkanes are <b>harmful</b> and their vapour is irritating. Use small amounts in a well-ventilated room or fume cupboard.</li>
+<li>Silver nitrate solution (0.05 mol dm<sup>−3</sup>) stains skin and is an <b>irritant</b> to eyes. Wear eye protection and gloves.</li>
+</ul></details>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<p class="hint">There are two experiments. Do both. Drag items onto the bench, or tap an item and then tap the bench.</p>
+<div class="sets" id="sets"><span class="note">Experiment:</span></div>
+<div class="lab">
+<div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+<div class="stage" id="stage" tabindex="0" aria-label="Lab bench. Tap here to use the selected item."><span class="tag" id="setTag"></span>
+<svg viewBox="0 0 640 410" role="img" aria-label="Water bath with test tubes">
+<defs><clipPath id="cpBath"><rect x="44" y="236" width="552" height="132"/></clipPath>
+<linearGradient id="gw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe0f7"/><stop offset="1" stop-color="#8fc3ea"/></linearGradient></defs>
+<rect x="0" y="384" width="640" height="26" fill="#cfd8e1"/>
+<g id="rack" class="fade"><rect x="70" y="150" width="320" height="10" rx="3" fill="#b9a27e"/><rect x="74" y="160" width="8" height="40" fill="#b9a27e"/><rect x="378" y="160" width="8" height="40" fill="#b9a27e"/><text x="230" y="214" class="lbl-s" text-anchor="middle">test-tube rack</text></g>
+<g id="tubes"></g>
+<rect x="40" y="226" width="560" height="146" rx="8" fill="none" stroke="#6b7684" stroke-width="4"/>
+<g clip-path="url(#cpBath)"><rect id="bathW" x="44" y="240" width="552" height="140" fill="url(#gw)" opacity=".55"/></g>
+<g id="tubesFront"></g>
+<rect x="40" y="368" width="560" height="16" rx="4" fill="#6b7684"/>
+<rect x="470" y="372" width="96" height="10" fill="#1c2736"/>
+<rect x="452" y="330" width="130" height="34" rx="6" fill="#1c2736"/><text id="bathT" x="517" y="354" text-anchor="middle" class="big" font-size="18">OFF</text>
+<text x="517" y="324" class="lbl-s" text-anchor="middle">water bath</text>
+<g id="therm" class="fade" style="opacity:0"><rect x="404" y="80" width="10" height="250" rx="5" fill="#fff" stroke="#7d8fa3" stroke-width="2"/><circle cx="409" cy="332" r="8" fill="#d23"/><rect id="thLiq" x="407" y="230" width="4" height="100" fill="#d23"/>
+<rect x="420" y="96" width="92" height="30" rx="6" fill="#1c2736"/><text id="thTxt" x="466" y="117" text-anchor="middle" class="big" font-size="16">21.0 °C</text></g>
+<g><rect x="500" y="20" width="124" height="66" rx="12" fill="#2b3442"/><rect x="510" y="30" width="104" height="40" rx="6" fill="#111a24"/><text id="clock" x="562" y="58" text-anchor="middle" class="big">0:00</text><rect x="552" y="10" width="20" height="10" rx="3" fill="#2b3442"/><text x="562" y="102" class="lbl-s" text-anchor="middle">stopwatch</text></g>
+<text id="speedTxt" x="562" y="118" class="lbl-s" text-anchor="middle"></text>
+</svg></div>
+<div class="controls" id="controls"></div>
+<div class="say" id="say" aria-live="polite"></div>
+<div class="shelf"><span class="shelf-label">Apparatus and chemicals</span><div class="tools" id="shelf"></div></div>
+<div class="controls" id="acts"></div>
+</div>
+<div class="side">
+<div class="box method"><h3>Method</h3><ol id="method"></ol></div>
+<div class="box"><h3>Lab notebook (your readings)</h3><table class="nb" id="nb"></table></div>
+<button class="btn ghost" type="button" id="benchReset">Reset this experiment</button>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Copy the colour and time from your lab notebook. Then calculate 1/<i>t</i> (a measure of the rate) to 2 significant figures. If no precipitate formed in 10 minutes, write <b>&gt;600</b> for the time and <b>&lt;0.0017</b> for 1/<i>t</i>.</p>
+<div id="resTables"></div>
+<div class="calc"><div class="row"><span>Using your times, how many times faster is the hydrolysis of 1-iodobutane than 1-bromobutane? (time for 1-bromobutane ÷ time for 1-iodobutane, 2 s.f.)</span><input type="text" inputmode="decimal" id="ratio"></div></div>
+<div class="toolbar"><button class="btn" type="button" id="chkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+<canvas id="chart" width="1000" height="460" aria-label="Bar chart of 1/t for each halogenoalkane"></canvas>
+<p class="note">The bar chart is drawn from your 1/<i>t</i> values when you press Check.</p>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>Ethanol is added because halogenoalkanes
+<select data-a="a"><option value="">choose…</option><option value="a">do not mix with water, and ethanol acts as a solvent for both</option><option value="b">react with ethanol to make the halide ions</option><option value="c">need ethanol as a catalyst</option></select>.</li>
+<li>Both solutions are warmed in the water bath first so that
+<select data-a="a"><option value="">choose…</option><option value="a">every reaction starts and stays at the same temperature</option><option value="b">the precipitate dissolves</option><option value="c">the ethanol evaporates</option></select>.
+Temperature is a <select data-a="c"><option value="">choose…</option><option value="i">independent</option><option value="d">dependent</option><option value="c">control</option></select> variable.</li>
+<li>In this experiment the nucleophile that attacks the carbon atom is
+<select data-a="w"><option value="">choose…</option><option value="w">water, H<sub>2</sub>O</option><option value="ag">the silver ion, Ag<sup>+</sup></option><option value="n">the nitrate ion</option></select>.
+The halide ion released then reacts: Ag<sup>+</sup>(aq) + X<sup>−</sup>(aq) → AgX(s).</li>
+<li>Aqueous hydroxide ions are <b>not</b> used, because OH<sup>−</sup> ions would
+<select data-a="a"><option value="">choose…</option><option value="a">react with Ag<sup>+</sup> to form a brown precipitate of silver oxide</option><option value="b">stop the halogenoalkane dissolving</option><option value="c">make the reaction too slow</option></select>.</li>
+<li>1-iodobutane is hydrolysed fastest because the C–I bond is the
+<select data-a="w"><option value="">choose…</option><option value="w">weakest (lowest bond enthalpy)</option><option value="p">most polar</option><option value="s">strongest</option></select>.
+The C–Cl bond is the most polar, so this shows that <select data-a="be"><option value="">choose…</option><option value="be">bond enthalpy</option><option value="po">bond polarity</option></select> is more important in deciding the rate.</li>
+<li>"5 drops" of each liquid is not a fair amount. A better method is to use the same
+<select data-a="mol"><option value="">choose…</option><option value="mol">number of moles</option><option value="mass">colour</option><option value="vol">number of bubbles</option></select>
+of each halogenoalkane.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+<h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+<div id="exam" style="display:flex;flex-direction:column;gap:14px"></div>
+<p class="total" id="xTotal" aria-live="polite"></p>
+</section>
+
+<div class="toolbar"><span class="note">Rate of hydrolysis: C–I &gt; C–Br &gt; C–Cl (bond enthalpy 228, 290, 346 kJ mol⁻¹) and tertiary &gt; secondary &gt; primary.</span><button class="btn ghost" type="button" id="resetAll">Start again</button></div>
+</div>
+<script>
+"use strict";
+const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RESET={reset:1}; let GEN=0; const TIMERS=[];
+const sleep=ms=>new Promise(r=>setTimeout(r,RM?Math.min(ms,60):ms));
+const W=ms=>{const g=GEN;return sleep(ms).then(()=>{if(g!==GEN)throw RESET;});};
+const every=(ms,fn)=>{const id=setInterval(fn,ms);TIMERS.push(id);return id;};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const snap=(x,s)=>Math.round(x/s)*s;
+const f2=x=>(+x).toFixed(2), f1=x=>(+x).toFixed(1);
+const NS='http://www.w3.org/2000/svg';
+const num=s=>{if(s==null)return NaN;s=String(s).trim().replace(/\s/g,'').replace(',','.').replace(/[x×*]10\^?([-−+]?\d+)/,(m,e)=>'e'+e.replace('−','-'));return s===''?NaN:Number(s);};
+const sf=(x,n)=>{if(!isFinite(x))return '';return Number(x).toPrecision(n).replace(/e([+-]\d+)/,'e$1');};
+const S=id=>document.getElementById(id);
+function at(e,o){if(typeof e==='string')e=S(e);if(!e)return e;for(const k in o)e.setAttribute(k,o[k]);return e;}
+function show(id,on){const e=typeof id==='string'?S(id):id;if(e)e.style.opacity=on?1:0;}
+function tween(ms,f){const g=GEN;return new Promise((res,rej)=>{if(RM||ms<=0){f(1);res();return;}const t0=performance.now();(function k(t){if(g!==GEN){rej(RESET);return;}const p=Math.min(1,Math.max(0,(t-t0)/ms));f(p);if(p<1)requestAnimationFrame(k);else res();})(t0);});}
+const lerp=(a,b,p)=>a+(b-a)*p;
+function mark(e,ok){e.classList.toggle('ok',!!ok);e.classList.toggle('wrong',!ok);}
+function setScore(e,r,n,extra){e.textContent=r+' / '+n+' correct'+(r===n?'. Excellent!':'.')+(extra&&r<n?' '+extra:'');e.className='score '+(r===n?'good':'bad');}
+function btn(parent,label,fn,cls){const b=document.createElement('button');b.type='button';b.className=cls||'btn';b.innerHTML=label;b.addEventListener('click',fn);parent.appendChild(b);return b;}
+
+/* ---------- interactive bench engine ---------- */
+function Bench(o){
+  const B={i:0,busy:false,sel:null,o};
+  const nm=t=>{const x=o.tools.find(z=>z.id===t)||(o.actions||[]).find(z=>z.id===t);return x?x.name:t;};
+  B.say=(m,k)=>{o.say.innerHTML=m;o.say.className='say'+(k?' '+k:'');};
+  B.cur=()=>o.steps[B.i];
+  function renderShelf(){
+    o.shelf.innerHTML='';
+    o.tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.t=t.id;b.innerHTML=t.icon+'<span>'+t.name+'</span>';o.shelf.appendChild(b);});
+    o.acts.innerHTML='';
+    (o.actions||[]).forEach(a=>btn(o.acts,a.name,()=>B.use(a.id),'btn ghost'));
+  }
+  function renderMethod(){o.method.innerHTML=o.steps.map((s,k)=>`<li class="${k<B.i?'done':k===B.i?'now':''}">${s.label}</li>`).join('');}
+  B.ctl=()=>{o.controls.innerHTML='';return o.controls;};
+  B.use=async t=>{
+    const s=B.cur();clearSel();
+    if(B.busy){B.say('Wait for this step to finish, or use the buttons under the bench.','bad');return;}
+    if(!s){B.say(o.finishedMsg,'good');return;}
+    const want=[].concat(s.t||[]);
+    if(want.includes(t)){
+      B.busy=true;const g=GEN;
+      try{const msg=s.run?await s.run(t):'';if(g!==GEN)return;B.busy=false;B.next(msg);}
+      catch(e){if(e!==RESET){B.busy=false;console.error(e);}}
+    }else if(s.start&&s.accept&&s.accept(t)){/* handled */}
+    else{B.say((o.hint&&o.hint(t,s,B))||(s.start?'Finish this step first, using the buttons under the bench.':'Not yet. Think about what must happen first. Look at the method list.'),'bad');}
+  };
+  B.next=msg=>{
+    B.i++;renderMethod();o.controls.innerHTML='';const s=B.cur();
+    if(!s){B.say((msg?msg+'<br>':'')+o.finishedMsg,'good');o.onFinish&&o.onFinish();return;}
+    B.say((msg?msg+'<br>':'')+'<b>What next?</b> Check the method list.','good');
+    if(s.start)s.start(B);
+  };
+  B.reset=()=>{GEN++;TIMERS.splice(0).forEach(clearInterval);B.i=0;B.busy=false;clearSel();o.controls.innerHTML='';renderMethod();o.onReset&&o.onReset();B.say(o.intro);const s=B.cur();if(s&&s.start)s.start(B);};
+  function clearSel(){B.sel=null;$$('.tool',o.shelf).forEach(b=>b.classList.remove('selected'));o.stage.classList.remove('armed');}
+  function choose(t){if(B.sel===t){clearSel();return;}clearSel();B.sel=t;o.shelf.querySelector(`[data-t="${t}"]`).classList.add('selected');o.stage.classList.add('armed');B.say('Now tap the apparatus on the bench to use <b>'+nm(t)+'</b>.');}
+  let drag=null;
+  o.shelf.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b)return;drag={t:b.dataset.t,x:e.clientX,y:e.clientY,moved:false,ghost:null,over:false,el:b};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+  o.shelf.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:48px;height:48px;';g.innerHTML=drag.el.querySelector('svg').outerHTML;g.firstChild.style.cssText='width:48px;height:48px';drag.ghost=g;document.body.appendChild(g);}
+    if(drag.moved){drag.ghost.style.transform=`translate(${e.clientX-24}px,${e.clientY-24}px) rotate(-15deg)`;const u=document.elementFromPoint(e.clientX,e.clientY);const ov=!!(u&&o.stage.contains(u));drag.over=ov;o.stage.classList.toggle('over',ov);}
+  });
+  function end(cancel){if(!drag)return;const d=drag;drag=null;if(d.ghost)d.ghost.remove();o.stage.classList.remove('over');if(cancel)return;if(d.moved){if(d.over)B.use(d.t);}else choose(d.t);}
+  o.shelf.addEventListener('pointerup',()=>end(false));
+  o.shelf.addEventListener('pointercancel',()=>end(true));
+  o.shelf.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b)choose(b.dataset.t);}});
+  o.stage.addEventListener('click',e=>{if(e.target.closest('[data-ui]'))return;if(B.sel)B.use(B.sel);});
+  o.stage.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&B.sel){e.preventDefault();B.use(B.sel);}});
+  renderShelf();
+  return B;
+}
+
+/* ---------- Part 3 questions ---------- */
+function checkQs(root,scoreEl){
+  let r=0,n=0;
+  $$('select[data-a]',root).forEach(s=>{n++;const ok=s.value===s.dataset.a;mark(s,ok);if(ok)r++;});
+  $$('.mcq[data-a]',root).forEach(g=>{n++;const c=g.querySelector('input:checked');$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===g.dataset.a;if(c)mark(c.closest('label'),ok);if(ok)r++;});
+  setScore(scoreEl,r,n,'Red answers need another look.');
+}
+
+/* ---------- Part 4 exam practice ---------- */
+function Exam(root,qs,totalEl){
+  const got=qs.map(()=>0), max=qs.reduce((a,q)=>a+q.m,0);
+  root.innerHTML=qs.map((q,k)=>{
+    let h=`<div class="xq"><p class="qt"><b>${k+1}.</b> ${q.q} <span class="mk">(${q.m})</span></p>`;
+    if(q.type==='mcq')h+=`<div class="mcq">${q.o.map((t,j)=>`<label><input type="radio" name="xq${k}" value="${j}"><span><b>${'ABCD'[j]}</b>&nbsp; ${t}</span></label>`).join('')}</div><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="mcq">Check</button><span class="score" id="xs${k}"></span></div>`;
+    if(q.type==='num')h+=`<div class="calc"><div class="row"><span>Your answer</span><input type="text" inputmode="decimal" id="xn${k}" aria-label="Answer to question ${k+1}"><span class="unit">${q.u}</span></div></div><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="num">Check</button><span class="score" id="xs${k}"></span></div><div class="worked" id="xw${k}" hidden><b>Worked answer</b><br>${q.w}</div>`;
+    if(q.type==='text')h+=`<textarea id="xt${k}" aria-label="Your answer to question ${k+1}" placeholder="Write your answer here…"></textarea><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="ms">Show mark scheme</button><span class="score" id="xs${k}"></span></div><div class="ms" id="xm${k}" hidden><b>Mark scheme</b> — tick each point you made (max ${q.m})${q.ms.map(p=>`<label><input type="checkbox" data-k="${k}"><span>${p}</span></label>`).join('')}${(q.notes||[]).map(t=>`<p class="allow">${t}</p>`).join('')}</div>`;
+    return h+'</div>';
+  }).join('');
+  const total=()=>{const t=got.reduce((a,b)=>a+b,0);totalEl.textContent=`Exam practice: ${t} / ${max} marks`;};
+  root.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-act]');if(!b)return;const k=+b.dataset.k,q=qs[k],s=S('xs'+k);
+    if(b.dataset.act==='mcq'){const c=root.querySelector(`input[name="xq${k}"]:checked`);$$(`input[name="xq${k}"]`,root).forEach(i=>i.closest('label').classList.remove('ok','wrong'));if(!c){s.textContent='Choose an answer first.';s.className='score bad';return;}const ok=+c.value===q.a;mark(c.closest('label'),ok);if(!ok)mark(root.querySelector(`input[name="xq${k}"][value="${q.a}"]`).closest('label'),true);got[k]=ok?q.m:0;s.innerHTML=(ok?'Correct. ':'Not this time. The answer is '+'ABCD'[q.a]+'. ')+(q.why||'');s.className='score '+(ok?'good':'bad');}
+    if(b.dataset.act==='num'){const i=S('xn'+k),v=num(i.value);const ok=isFinite(v)&&Math.abs(v-q.a)<=q.tol;mark(i,ok);got[k]=ok?q.m:0;s.textContent=ok?`Correct: ${q.m} / ${q.m} marks.`:'Not quite. Read the worked answer.';s.className='score '+(ok?'good':'bad');S('xw'+k).hidden=false;}
+    if(b.dataset.act==='ms'){const m=S('xm'+k);m.hidden=!m.hidden;b.textContent=m.hidden?'Show mark scheme':'Hide mark scheme';}
+    total();
+  });
+  root.addEventListener('change',e=>{const c=e.target;if(c.type==='checkbox'&&c.dataset.k){const k=+c.dataset.k;const n=$$(`#xm${k} input:checked`,root).length;got[k]=Math.min(n,qs[k].m);const s=S('xs'+k);s.textContent=`You gave yourself ${got[k]} / ${qs[k].m}`;s.className='score';total();}});
+  total();
+  return {reset(){got.fill(0);total();}};
+}
+
+function resetForms(){
+  $$('input[type=text],input[type=number],textarea').forEach(i=>i.value='');
+  $$('input[type=radio],input[type=checkbox]').forEach(i=>i.checked=false);
+  $$('select').forEach(s=>s.selectedIndex=0);
+  $$('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));
+  $$('.ms,.worked').forEach(e=>e.hidden=true);
+  $$('button[data-act="ms"]').forEach(b=>b.textContent='Show mark scheme');
+  $$('.score').forEach(e=>{e.textContent='';e.className='score';});
+}
+document.addEventListener('input',e=>{if(e.target.matches('input,select,textarea'))e.target.classList.remove('ok','wrong');});
+document.addEventListener('change',e=>{if(e.target.type==='radio'){const g=e.target.closest('.mcq');if(g)$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));}});
+
+/* ---------- icons ---------- */
+const IC={
+  bottle:(c,l)=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="16" y="2" width="8" height="6" rx="1.5" fill="#3a3f4a"/><path d="M12 12 Q12 9 15 9 H25 Q28 9 28 12 V36 Q28 38 26 38 H14 Q12 38 12 36Z" fill="${c}" stroke="#7d8fa3" stroke-width="1.6"/><rect x="14" y="20" width="12" height="9" fill="#fff" opacity=".9"/>${l?`<text x="20" y="27" font-size="6" text-anchor="middle" font-family="sans-serif" fill="#333">${l}</text>`:''}</svg>`,
+  beaker:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 6 V34 Q9 37 12 37 H28 Q31 37 31 34 V6" fill="none" stroke="#7d8fa3" stroke-width="1.8"/><rect x="10" y="20" width="20" height="16" fill="${c}"/></svg>`,
+  cyl:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M15 3 V34 H25 V3" fill="none" stroke="#7d8fa3" stroke-width="1.8"/><path d="M10 37 H30" stroke="#7d8fa3" stroke-width="2.5"/><rect x="16" y="18" width="8" height="16" fill="${c}"/><path d="M25 10h-3M25 16h-3M25 22h-3M25 28h-3" stroke="#7d8fa3"/></svg>`,
+  wash:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 14 H26 V36 H14Z" fill="#dff0fb" stroke="#7d8fa3" stroke-width="1.6"/><path d="M19 14 V8 L32 4" fill="none" stroke="#7d8fa3" stroke-width="1.6"/></svg>`,
+  rod:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 34 L30 6" stroke="#7d8fa3" stroke-width="3" stroke-linecap="round"/></svg>`,
+  funnel:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 8 H34 L22 22 V36 H18 V22Z" fill="none" stroke="#7d8fa3" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+  stopper:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 12 H28 L25 30 H15Z" fill="#c9ced6" stroke="#7d8fa3" stroke-width="1.6"/><rect x="10" y="9" width="20" height="5" rx="2" fill="#aeb5bf"/></svg>`,
+  pipette:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 V13 M20 25 V38" stroke="#7d8fa3" stroke-width="2"/><ellipse cx="20" cy="19" rx="4" ry="6" fill="#e9f3fb" stroke="#7d8fa3" stroke-width="1.6"/><path d="M17 6 H23" stroke="#b3261e" stroke-width="1.5"/></svg>`,
+  dropper:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15" y="3" width="10" height="10" rx="4" fill="#3a3f4a"/><path d="M17 13 H23 L21 36 H19Z" fill="${c}" stroke="#7d8fa3" stroke-width="1.4"/></svg>`,
+  tile:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 26 L14 18 H36 L26 26Z" fill="#fff" stroke="#7d8fa3" stroke-width="1.6"/><path d="M4 26 V29 H26 L36 21 V18" fill="none" stroke="#7d8fa3" stroke-width="1.2"/></svg>`,
+  powder:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 L22 22 L34 26" stroke="#7d8fa3" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M8 30 Q12 24 18 26 Q16 30 8 30Z" fill="${c}" stroke="#9aa"/><path d="M8 36 H32" stroke="#9aa"/><path d="M14 36 Q20 28 26 36Z" fill="${c}" stroke="#9aa" stroke-width=".8"/></svg>`,
+  flame:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15" y="24" width="10" height="12" fill="#8a929c"/><path d="M20 4 Q28 14 24 22 Q20 26 16 22 Q12 14 20 4Z" fill="#6aa5ff" opacity=".85"/><rect x="10" y="35" width="20" height="3" fill="#6b7684"/></svg>`,
+  therm:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="17" y="3" width="6" height="28" rx="3" fill="#fff" stroke="#7d8fa3" stroke-width="1.5"/><circle cx="20" cy="33" r="5" fill="#d23" /><rect x="19" y="14" width="2" height="18" fill="#d23"/></svg>`,
+  tubes:c=>`<svg viewBox="0 0 40 40" aria-hidden="true">${[9,20,31].map(x=>`<path d="M${x-4} 6 V30 Q${x-4} 35 ${x} 35 Q${x+4} 35 ${x+4} 30 V6" fill="none" stroke="#7d8fa3" stroke-width="1.5"/><rect x="${x-3}" y="22" width="6" height="9" fill="${c}"/>`).join('')}</svg>`,
+  granules:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 14 H30 V36 H10Z" fill="none" stroke="#7d8fa3" stroke-width="1.6"/>${[[15,30],[21,32],[26,29],[18,25],[24,24]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#8b929d"/>`).join('')}</svg>`
+};
+
+(function(){
+const PPT={Cl:['white','#fbfbfb'],Br:['cream','#f1e3b4'],I:['pale yellow','#f3e27a']};
+const SETS={
+ A:{name:'A: Effect of the halogen',short:'A',c:[{n:'1-chlorobutane',f:'CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Cl',x:'Cl',s:'1-chloro',t:[1500,1900]},{n:'1-bromobutane',f:'CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Br',x:'Br',s:'1-bromo',t:[200,290]},{n:'1-iodobutane',f:'CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>I',x:'I',s:'1-iodo',t:[32,58]}]},
+ B:{name:'B: Effect of structure',short:'B',c:[{n:'1-bromobutane (1°)',f:'CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>Br',x:'Br',s:'1° bromo',t:[200,290]},{n:'2-bromobutane (2°)',f:'CH<sub>3</sub>CHBrCH<sub>2</sub>CH<sub>3</sub>',x:'Br',s:'2° bromo',t:[95,140]},{n:'2-bromo-2-methylpropane (3°)',f:'(CH<sub>3</sub>)<sub>3</sub>CBr',x:'Br',s:'3° bromo',t:[8,22]}]}
+};
+const DATA={A:null,B:null};
+let set='A', T0=[];
+const XS=[110,230,350], AX=[450,500,550];
+function tubeSVG(k,x,ag){
+  const w=ag?11:14,h=ag?100:130;
+  return `<g id="${ag?'ag':'tb'}${k}" transform="translate(${x},${ag?60:40})"><g id="${ag?'ag':'tb'}r${k}">
+  <clipPath id="cl${ag?'a':'t'}${k}"><path d="M${-w} 0 V${h-w} A${w} ${w} 0 0 0 ${w} ${h-w} V0Z"/></clipPath>
+  <g clip-path="url(#cl${ag?'a':'t'}${k})"><rect id="${ag?'al':'tl'}${k}" x="${-w}" y="${h}" width="${2*w}" height="0" fill="${ag?'#eef4fb':'#eef4fb'}" opacity=".95"/>
+  ${ag?'':`<rect id="tc${k}" x="${-w}" y="${h}" width="${2*w}" height="0" fill="#fff" opacity="0"/><rect id="td${k}" x="${-w}" y="${h}" width="${2*w}" height="0" fill="#fff" opacity="0"/>`}</g>
+  <path class="glass" d="M${-w-2} -2 H${-w} V${h-w} A${w} ${w} 0 0 0 ${w} ${h-w} V-2 H${w+2}"/><path class="shine" d="M${-w+5} 12 V${h-w-6}"/></g>
+  ${ag?`<text class="tl" x="0" y="-8" font-size="11">AgNO₃</text>`:`<text class="tl" id="tn${k}" x="0" y="-10">${k+1}</text>`}</g>`;
+}
+function drawTubes(){S('tubes').innerHTML=XS.map((x,k)=>tubeSVG(k,x,false)).join('')+AX.map((x,k)=>tubeSVG(k,x,true)).join('');
+  S('tubesFront').innerHTML=XS.map((x,k)=>`<text class="lbl-s" x="${x}" y="402" text-anchor="middle" id="lab${k}"></text>`).join('');}
+function setTubeY(k,y){S('tb'+k).setAttribute('transform',`translate(${XS[k]},${y})`);}
+function tubeLevel(k,v,ms,ag){const h=ag?100:130,el=S((ag?'al':'tl')+k);const a=+el.dataset.v||0;el.dataset.v=v;return tween(ms||500,p=>{const L=lerp(a,v,p)*(ag?40:22);at(el,{y:h-L,height:L});});}
+function cloud(k,o,col){const el=S('tc'+k),h=130,L=+(S('tl'+k).getAttribute('height'));at(el,{y:h-L,height:L,fill:col});el.setAttribute('opacity',o);}
+function setBath(t){S('bathT').textContent=t==null?'OFF':f1(t)+' °C';}
+let clockS=0;function setClock(s){clockS=s;const m=Math.floor(s/60),r=Math.floor(s%60);S('clock').textContent=m+':'+String(r).padStart(2,'0');}
+
+const nb=S('nb');
+function note(){
+  let h='';['A','B'].forEach(k=>{const d=DATA[k];if(!d)return;h+=`<tr><td colspan="2"><b>Experiment ${k}</b></td></tr>`;
+    SETS[k].c.forEach((c,j)=>{const r=d.rec[j];h+=`<tr><td>${j+1}. ${c.n}</td><td>${r==null?'…':r.none?'no ppt in 10 min':r.t+' s, '+PPT[c.x][0]}</td></tr>`;});});
+  nb.innerHTML=h||'<tr><td class="note">Your readings will appear here.</td><td></td></tr>';
+}
+const tools=[
+ {id:'bath',name:'Water bath control',icon:IC.therm()},
+ {id:'eth',name:'Ethanol + 1 cm³ pipette',icon:IC.bottle('#f4f7fb','EtOH')},
+ {id:'hal',name:'Halogeno­alkanes (dropper bottles)',icon:IC.dropper('#eef4fb')},
+ {id:'ag',name:'Silver nitrate(aq) 0.05 mol dm⁻³',icon:IC.bottle('#c9c2b3','AgNO₃')},
+ {id:'therm',name:'Thermo­meter',icon:IC.therm()},
+ {id:'naoh',name:'Sodium hydroxide(aq)',icon:IC.bottle('#eef4fb','NaOH')},
+ {id:'bunsen',name:'Bunsen burner',icon:IC.flame()}
+];
+const actions=[{id:'place',name:'Put the reaction tubes in the water bath'},{id:'go',name:'Mix: add AgNO₃ to all tubes and start stopwatch'}];
+const steps=[
+ {t:'bath',label:'Switch on the water bath and set it to 50 °C.',h:'First switch on the water bath, so it has time to reach 50 °C.',
+  run:async()=>{await tween(1500,p=>setBath(lerp(21,50,p)));setBath(50);return 'Water bath at 50.0 °C.';}},
+ {t:'eth',label:'Put 1 cm³ of ethanol into each of three test tubes.',h:'Add the ethanol (the solvent) to the empty tubes first.',
+  run:async()=>{for(let k=0;k<3;k++)await tubeLevel(k,1,400);return 'Each tube has 1 cm³ of ethanol.';}},
+ {t:'hal',label:'Add 5 drops of a different halogenoalkane to each tube. Label the tubes.',h:'Add the halogenoalkanes to the ethanol next.',
+  run:async()=>{for(let k=0;k<3;k++){S('lab'+k).textContent=SETS[set].c[k].s;await tubeLevel(k,1.25,350);}return 'Tubes labelled 1, 2 and 3 (names below the bath).';}},
+ {t:'place',label:'Stand the three tubes in the water bath.',h:'Put the reaction tubes in the water bath.',
+  run:async()=>{S('rack').style.opacity=0;await tween(1000,p=>{for(let k=0;k<3;k++)setTubeY(k,lerp(40,218,p));});return 'Tubes in the bath.';}},
+ {t:'ag',label:'Put 1 cm³ of AgNO₃(aq) into three more tubes and stand them in the water bath too.',h:'Silver nitrate goes in separate tubes, warmed in the bath. Do not mix yet.',
+  run:async()=>{for(let k=0;k<3;k++){await tubeLevel(k,1,300,true);}await tween(900,p=>{for(let k=0;k<3;k++)S('ag'+k).setAttribute('transform',`translate(${AX[k]},${lerp(60,236,p)})`);});return 'Silver nitrate tubes warming in the bath.';}},
+ {t:'therm',label:'Wait about 5 minutes. Check with a thermometer that the tubes are at 50 °C.',h:'Check the temperature of the tubes before you mix.',
+  run:async()=>{S('therm').style.opacity=1;const e=+f1(snap(rnd(49.5,50.5),0.5));await tween(1600,p=>{const t=lerp(21,e,p);S('thTxt').textContent=f1(t)+' °C';at('thLiq',{y:330-(t-10)*2.6,height:(t-10)*2.6});});await W(500);S('therm').style.opacity=0;return 'Thermometer reads <b>'+f1(e)+' °C</b>. The tubes are at the bath temperature.';}},
+ {t:'go',label:'Add the AgNO₃(aq) to each tube at the same time, and start the stopwatch.',h:'Now mix the solutions and start timing.',
+  run:async()=>{for(let k=0;k<3;k++){const ax=AX[k],x=XS[k];await tween(500,p=>S('ag'+k).setAttribute('transform',`translate(${lerp(ax,x+22,p)},${lerp(236,110,p)}) rotate(${-110*p})`));tubeLevel(k,2.3,400);await tubeLevel(k,0,400,true);S('ag'+k).setAttribute('transform',`translate(${ax},236)`);}
+   S('ag0').parentNode&&AX.forEach((x,k)=>S('ag'+k).style.opacity=0);return 'Mixed. The stopwatch is running!';}},
+ {label:'Watch the tubes. Press the button for a tube as soon as you see the first cloudiness. Stop at 10 minutes.',h:'Use the buttons above to record when each precipitate appears.',start:watch}
+];
+function watch(B){
+  const g=GEN,c=B.ctl(),d=DATA[set];d.rec=[null,null,null];d.done=false;note();
+  let speed=5,t=0,stopped=false;
+  const T=SETS[set].c.map(c=>Math.round(rnd(c.t[0],c.t[1])));T0=T;
+  const sp=document.createElement('span');sp.className='lbl';sp.textContent='Speed:';c.appendChild(sp);
+  const spB=[1,5,20,60].map(v=>{const b=btn(c,v+'×',()=>{speed=v;spB.forEach(x=>x.classList.toggle('on',x===b));S('speedTxt').textContent='running at '+v+'× speed';},'mini');if(v===speed)b.classList.add('on');return b;});
+  S('speedTxt').textContent='running at 5× speed';
+  const br=document.createElement('div');br.style.cssText='flex-basis:100%;height:0';c.appendChild(br);
+  const pb=SETS[set].c.map((cc,k)=>btn(c,'Precipitate in tube '+(k+1),()=>press(k),'btn ghost'));
+  btn(c,'Stop stopwatch',()=>finish(),'btn');
+  function press(k){if(stopped||d.rec[k])return;const s=Math.floor(t);
+    if(t<T[k]){B.say('Look again. Tube '+(k+1)+' is still clear. Wait for the first cloudiness.','bad');return;}
+    d.rec[k]={t:s};pb[k].disabled=true;note();B.say(`Tube ${k+1}: precipitate seen at <b>${s} s</b>. It is ${PPT[SETS[set].c[k].x][0]}.`+(t-T[k]>Math.max(10,T[k]*0.25)?' <i>The cloudiness started a while before you pressed. Use a slower speed to time it more accurately.</i>':''));if(d.rec.every(Boolean))finish();}
+  let last=performance.now();
+  const id=every(100,()=>{if(g!==GEN||stopped)return;const now=performance.now();t+=(now-last)/1000*(RM?Math.max(speed,20):speed);last=now;if(t>=600){t=600;}setClock(t);
+    SETS[set].c.forEach((cc,k)=>{if(t>=T[k]){const o=Math.min(.95,.18+(t-T[k])/(T[k]*0.8+20)*.8);cloud(k,o,PPT[cc.x][1]);}});
+    if(t>=600)finish(true);});
+  function finish(auto){if(stopped)return;
+    const missing=d.rec.map((r,k)=>r?null:k).filter(k=>k!==null);
+    const seenMissed=missing.filter(k=>T[k]<=t);
+    if(!auto&&t<600&&missing.length){B.say('Keep timing. Some tubes have not been recorded yet. Stop at 10 minutes (use a faster speed) if one stays clear.','bad');return;}
+    stopped=true;clearInterval(id);
+    seenMissed.forEach(k=>{d.rec[k]={t:T[k],late:true};});
+    missing.filter(k=>T[k]>t).forEach(k=>d.rec[k]={none:true});
+    d.done=true;note();c.innerHTML='';S('speedTxt').textContent='';
+    B.next('Stopwatch stopped at '+Math.floor(t)+' s.'+(seenMissed.length?' You missed the start of the precipitate in tube '+seenMissed.map(k=>k+1).join(', ')+'; your partner noted the time for you.':'')+(missing.some(k=>T[k]>t)?' No precipitate in at least one tube after 10 minutes.':''));}
+  B.say('Watch the tubes closely. Choose a speed. Press a tube button when the first cloudiness appears.');
+}
+const B=Bench({stage:S('stage'),shelf:S('shelf'),acts:S('acts'),controls:S('controls'),say:S('say'),method:S('method'),tools,actions,steps,
+  intro:'Start the experiment. Follow the method list.',finishedMsg:'<b>Experiment complete.</b> Choose the other experiment (A or B) above the bench if you have not done it. Then fill in Part 2.',
+  hint:(t,s)=>{if(t==='naoh')return '<b>No.</b> Hydroxide ions would react with Ag<sup>+</sup> to give a brown precipitate (silver oxide). Water is the nucleophile here.';
+    if(t==='bunsen')return '<b>No naked flames!</b> Ethanol and halogenoalkanes are highly flammable. Use the electric water bath.';
+    if(t==='go'&&B.i<6)return '<b>Not yet.</b> Both solutions must be at 50 °C before you mix them, so every reaction starts at the same temperature.';
+    return s.h?'<b>Not yet.</b> '+s.h:null;},
+  onReset:()=>{drawTubes();setBath(null);setClock(0);S('rack').style.opacity=1;S('therm').style.opacity=0;S('speedTxt').textContent='';if(!DATA[set]||!DATA[set].done)DATA[set]={rec:[null,null,null]};note();S('setTag').textContent='Experiment '+SETS[set].name;}});
+const setsEl=S('sets');
+['A','B'].forEach(k=>{const b=btn(setsEl,SETS[k].name,()=>{if(B.busy)return;set=k;$$('.mini',setsEl).forEach(x=>x.classList.toggle('on',x.dataset.k===k));B.reset();if(DATA[k]&&DATA[k].done)B.say('You have already done Experiment '+k+'. Its results are in your notebook. You can do it again if you want: the new times will replace the old ones.');},'mini');b.dataset.k=k;});
+S('benchReset').addEventListener('click',()=>B.reset());
+
+/* Part 2 */
+const COLS=['white','cream','pale yellow','no precipitate'];
+S('resTables').innerHTML=['A','B'].map(k=>`<h3>Experiment ${SETS[k].name}</h3><div class="tbl-wrap"><table class="res"><thead><tr><th>Tube</th><th>Halogenoalkane</th><th>Colour of precipitate</th><th>Time, <i>t</i> / s</th><th>1/<i>t</i> / s<sup>−1</sup></th></tr></thead><tbody>`+
+ SETS[k].c.map((c,j)=>`<tr><th>${j+1}</th><td>${c.n}<br><span class="note">${c.f}</span></td><td><select id="col${k}${j}" aria-label="colour ${c.n}"><option value="">choose…</option>${COLS.map(x=>`<option>${x}</option>`).join('')}</select></td><td><input type="text" id="t${k}${j}" aria-label="time ${c.n}" style="width:5em"></td><td><input type="text" id="r${k}${j}" aria-label="1 over t ${c.n}" style="width:6.5em"></td></tr>`).join('')+'</tbody></table></div>').join('');
+function val(s){s=String(s).trim();const lt=/^[<>]/.test(s);return {lt:s[0]||'',v:num(s.replace(/^[<>]=?/,''))};}
+S('chkRes').addEventListener('click',()=>{
+  const sc=S('resScore');
+  if(!DATA.A||!DATA.A.done||!DATA.B||!DATA.B.done){sc.textContent='Do both experiments (A and B) in Part 1 first.';sc.className='score bad';return;}
+  let r=0,n=0;const ck=(id,ok)=>{n++;mark(S(id),ok);if(ok)r++;};const bars=[];
+  ['A','B'].forEach(k=>SETS[k].c.forEach((c,j)=>{const rec=DATA[k].rec[j];
+    ck('col'+k+j,S('col'+k+j).value===(rec.none?'no precipitate':PPT[c.x][0]));
+    const T=val(S('t'+k+j).value),R=val(S('r'+k+j).value);
+    if(rec.none){ck('t'+k+j,T.v===600&&T.lt!=='<');ck('r'+k+j,isFinite(R.v)&&R.v<=0.0017&&R.v>=0.00166&&R.lt!=='>');bars.push([c.n,0.0016,true]);}
+    else{ck('t'+k+j,T.v===rec.t&&!T.lt);const tt=isFinite(T.v)&&T.v>0?T.v:rec.t;ck('r'+k+j,Math.abs(R.v-1/tt)<=0.03/tt);bars.push([c.n,isFinite(R.v)?R.v:1/tt]);}
+  }));
+  const ta=val(S('tA1').value).v,ti=val(S('tA2').value).v;const tb=isFinite(ta)?ta:DATA.A.rec[1].t,tI=isFinite(ti)?ti:DATA.A.rec[2].t;
+  ck('ratio',Math.abs(num(S('ratio').value)-tb/tI)<=0.05*tb/tI+0.05);
+  setScore(sc,r,n,'Red boxes need another look.');drawChart(bars);
+});
+function drawChart(bars){
+  const cv=S('chart'),x=cv.getContext('2d'),Wd=cv.width,H=cv.height;x.clearRect(0,0,Wd,H);x.fillStyle='#fff';x.fillRect(0,0,Wd,H);
+  const L=110,R=20,T=40,Bm=120,max=Math.max(...bars.map(b=>b[1]))*1.15||0.1;
+  x.font='600 22px Lexend, sans-serif';x.fillStyle='#1c2736';x.fillText('Rate (1/t) for each halogenoalkane',L,28);
+  x.strokeStyle='#cdd6df';x.lineWidth=1;x.font='16px sans-serif';x.fillStyle='#5a6878';x.textAlign='right';
+  for(let i=0;i<=5;i++){const y=H-Bm-(H-Bm-T)*i/5;x.beginPath();x.moveTo(L,y);x.lineTo(Wd-R,y);x.stroke();x.fillText((max*i/5).toPrecision(2),L-8,y+5);}
+  x.save();x.translate(24,(H-Bm+T)/2);x.rotate(-Math.PI/2);x.textAlign='center';x.fillText('1/t  / s⁻¹',0,0);x.restore();
+  const bw=(Wd-L-R)/bars.length;
+  bars.forEach((b,i)=>{const h=(H-Bm-T)*b[1]/max,X=L+i*bw+bw*.18;x.fillStyle=i<3?'#4a44b5':'#1d7a46';x.fillRect(X,H-Bm-h,bw*.64,h);
+    x.save();x.translate(L+i*bw+bw/2,H-Bm+12);x.rotate(-0.5);x.textAlign='right';x.fillStyle='#1c2736';x.font='15px sans-serif';x.fillText(b[0].replace(' (',' ('),0,8);x.restore();
+    if(b[2]){x.fillStyle='#5a6878';x.textAlign='center';x.fillText('< 0.0017',L+i*bw+bw/2,H-Bm-h-8);}});
+  x.textAlign='left';x.fillStyle='#4a44b5';x.fillText('■ Experiment A',Wd-300,28);x.fillStyle='#1d7a46';x.fillText('■ Experiment B',Wd-160,28);
+}
+S('chkQs').addEventListener('click',()=>checkQs(S('qs'),S('qScore')));
+
+const X=Exam(S('exam'),[
+ {type:'mcq',m:1,q:'A halogenoalkane was warmed with ethanol and aqueous silver nitrate. A cream precipitate formed. The precipitate dissolved in concentrated ammonia solution but <b>not</b> in dilute ammonia solution. Which halogenoalkane was used?',o:['1-chloropropane','1-bromopropane','1-iodopropane','1-fluoropropane'],a:1,why:'AgBr is cream. It dissolves in concentrated NH₃ only. AgCl (white) dissolves in dilute NH₃; AgI (pale yellow) is insoluble in both.'},
+ {type:'mcq',m:1,q:'Which statement best explains why 1-iodobutane is hydrolysed faster than 1-chlorobutane?',o:['The C–I bond is more polar than the C–Cl bond.','The C–I bond has a lower bond enthalpy than the C–Cl bond.','Iodide ions are better nucleophiles than chloride ions.','Silver iodide is less soluble than silver chloride.'],a:1,why:'The weaker C–I bond is broken more easily. Polarity would predict the opposite order.'},
+ {type:'num',m:3,u:'mol',q:'A student used 5 drops of 1-bromobutane. One drop has a volume of 0.050 cm³. The density of 1-bromobutane is 1.27 g cm⁻³ and its molar mass is 137.0 g mol⁻¹. Calculate the amount, in moles, of 1-bromobutane used. Give your answer to 2 significant figures.',a:0.0023,tol:0.00006,
+  w:'Volume = 5 × 0.050 = 0.25 cm³<br>Mass = 0.25 × 1.27 = 0.3175 g<br>Moles = 0.3175 ÷ 137.0 = <b>2.3 × 10⁻³ mol</b>'},
+ {type:'text',m:2,q:'Write the ionic equation, including state symbols, for the formation of the precipitate when 1-iodobutane is hydrolysed in the presence of silver nitrate solution.',
+  ms:['Ag⁺ + I⁻ → AgI (correct species and balanced)','State symbols: Ag⁺(aq) + I⁻(aq) → AgI(s)'],notes:['Do not award the state symbol mark if the equation is wrong.','Do not award: full equations with NO₃⁻ ions or the halogenoalkane.']},
+ {type:'text',m:3,q:'A student compared 1-chlorobutane and 2-iodo-2-methylpropane in a water bath at 50 °C. The iodo compound formed a precipitate first. The student concluded that tertiary halogenoalkanes are hydrolysed faster than primary halogenoalkanes. Explain why this conclusion is not valid and suggest how the experiment should be changed.',
+  ms:['Two variables were changed at the same time / both the halogen and the structure (1° vs 3°) were different.','So the faster rate could be due to the weaker C–I bond (not the structure).','Compare isomers with the same halogen, e.g. 1-bromobutane and 2-bromo-2-methylpropane (or 1-iodobutane and 2-iodo-2-methylpropane).'],notes:['Allow any suitable 1° and 3° pair with the same halogen and the same number of carbon atoms.']},
+ {type:'text',m:2,q:'Suggest two improvements to this method that would give more reliable or more accurate results.',
+  ms:['Use the same number of moles (not drops) of each halogenoalkane.','Use a colorimeter / light sensor to detect when the precipitate first forms (instead of judging by eye) / place tubes in front of a black card with a mark.'],notes:['Allow: repeat each experiment and find a mean time.','Do not award: "use more accurate equipment" without saying what.']}
+],S('xTotal'));
+
+S('resetAll').addEventListener('click',()=>{resetForms();X.reset();DATA.A=DATA.B=null;set='A';$$('.mini',setsEl).forEach(b=>b.classList.toggle('on',b.dataset.k==='A'));const cv=S('chart');cv.getContext('2d').clearRect(0,0,cv.width,cv.height);B.reset();window.scrollTo({top:0,behavior:RM?'auto':'smooth'});});
+$$('.mini',setsEl)[0].classList.add('on');
+B.reset();note();
+})();
+</script>
+</body></html>

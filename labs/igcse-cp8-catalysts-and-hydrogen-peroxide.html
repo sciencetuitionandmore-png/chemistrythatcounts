@@ -1,0 +1,655 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalysts Peroxide Lab</title>
+<meta name="description" content="Virtual core practical: Catalysts Peroxide Lab. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp8-catalysts-and-hydrogen-peroxide.html">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font:600 .85rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:8px 14px;max-width:70ch}
+details.safety summary{cursor:pointer;font:600 .95rem var(--display);color:var(--bad)}
+details.safety ul{margin:8px 0 4px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px}
+.bench{background:var(--bench);border-radius:12px;padding:14px 10px;display:flex;flex-direction:column;gap:12px}
+.label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.item:focus-visible,[data-target]:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.msg{padding:9px 12px;border-radius:10px;background:var(--sheet);border-left:4px solid var(--accent);font-size:.95rem;min-height:2.8em}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#ecf6f0}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font:inherit;min-width:92px}
+.item svg{width:54px;height:70px;display:block}
+.item .nm{font-size:.82rem;font-weight:700;line-height:1.2;text-align:center}
+.item .sub{font-size:.75rem;color:var(--muted)}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+[data-target]{border:2px dashed transparent;border-radius:12px}
+[data-target].over,.armed [data-target]:hover{border-color:var(--accent);background:var(--accent-soft)}
+.armed [data-target]{border-color:rgba(74,68,181,.4)}
+.pick{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick.done::after{content:" \2713";color:var(--good);font-weight:700}
+.pick:disabled{opacity:.5;cursor:not-allowed}
+ol.method{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:.92rem;counter-reset:m}
+ol.method li{display:flex;gap:8px;align-items:flex-start;color:var(--muted);counter-increment:m}
+ol.method li::before{content:counter(m);flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:var(--sheet);font:700 .75rem/18px var(--display);text-align:center;color:var(--muted)}
+ol.method li.done{color:var(--ink)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border:1px solid var(--line);padding:5px 6px;text-align:center;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.8rem}
+tbody th{background:var(--accent-soft);font-weight:700;white-space:nowrap}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+td input{width:62px;font:inherit;font-size:.9rem;padding:3px 4px;border:1px solid var(--line);border-radius:6px;text-align:center;background:#fff;color:var(--ink)}
+.score{font-weight:700}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:72ch}
+select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
+select.ok{border-color:var(--good)} select.wrong{border-color:var(--bad)}
+.note{font-size:.88rem;color:var(--muted)}
+footer.toolbar{padding:4px 2px}
+.liquid{transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s ease}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:4;stroke-linecap:round}
+/* lab specific */
+.benchgrid{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:start}
+.shelf{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.shelf .items{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.balance{background:var(--sheet);padding:6px;display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.balance svg{width:100%;max-width:170px;height:auto}
+.rig{background:rgba(255,255,255,.55);padding:4px;cursor:pointer;min-width:0}
+.rig svg{width:100%;height:auto;display:block}
+.readouts{display:flex;gap:10px;flex-wrap:wrap}
+.lcd{font:700 1.3rem/1 var(--display);font-variant-numeric:tabular-nums;background:#1f2a36;color:#b9f5c8;padding:8px 12px;border-radius:8px;min-width:110px;text-align:center}
+.lcd small{display:block;font:600 .65rem var(--body);color:#9fb3c6;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1.2fr;gap:16px}
+#book td.new{background:#fff6cc}
+#book td,#book th,#res td,#res th{text-align:left}
+#res td input{width:80px}
+canvas{width:100%;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+.tick{font:10px var(--body);fill:var(--muted)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.3);vertical-align:-2px;margin-right:4px}
+.rank{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin-top:6px}
+.splint{transition:transform .8s ease}
+@media (max-width:640px){.benchgrid,.two{grid-template-columns:1fr}.shelf{flex-direction:row;flex-wrap:wrap;justify-content:center}.balance{flex:1;min-width:150px}}
+@media (max-width:520px){body{font-size:16px}}
+/* ---- tabs + exam practice ---- */
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:#fff}
+.tab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.panel{display:flex;flex-direction:column;gap:22px}
+.panel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tbl{width:auto;min-width:100%}
+.ex-tbl th{white-space:nowrap}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok{border-color:var(--good)}.ex-in input.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+
+<div class="wrap">
+<header>
+<h1>Catalysts for hydrogen peroxide</h1>
+<div class="ref">Core practical 3.16</div>
+<p><b>Aim:</b> Investigate the effect of different solids on the catalytic decomposition of hydrogen peroxide solution.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection. Hydrogen peroxide solution is an irritant and can bleach skin.</li>
+<li>Lead(II) oxide is toxic. Do not breathe in the powder and wash your hands afterwards.</li>
+<li>Manganese(IV) oxide is harmful. Use a spatula, not your fingers.</li>
+<li>Do not put the bung in too tightly; the gas must be able to reach the syringe.</li></ul></details>
+</header>
+<div class="tabs" id="tabRow" role="tablist" aria-label="Sections"><button type="button" class="tab" role="tab" id="tabLab" aria-selected="true" aria-controls="panelLab">1 · The practical</button><button type="button" class="tab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="panel" id="panelLab" role="tabpanel" aria-labelledby="tabLab">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<p>Test each solid with <b>20 cm³ of the same hydrogen peroxide solution</b>. Use <b>0.50 g</b> of each solid. Measure the volume of oxygen collected in <b>60 s</b>. Also do a test with <b>no solid</b> (the control).</p>
+<div>
+<div class="label">Choose a solid to test</div>
+<div class="row" id="picks" style="margin-top:6px"></div>
+</div>
+<div class="bench" id="bench">
+<div class="benchgrid">
+<div class="shelf">
+<div class="items">
+<button type="button" class="item" id="itPer" data-item="per" aria-label="Hydrogen peroxide solution, 20 cm³ measured">
+<svg viewBox="0 0 54 70" aria-hidden="true"><rect x="21" y="2" width="12" height="10" rx="3" fill="#3a3f4a"/><rect x="18" y="10" width="18" height="7" rx="2" fill="#5a6070"/><path d="M10 23 Q10 17 16 17 L38 17 Q44 17 44 23 L44 62 Q44 68 38 68 L16 68 Q10 68 10 62 Z" fill="#c9a77a" stroke="#7d8fa3" stroke-width="2.5"/><rect x="14" y="34" width="26" height="18" rx="2" fill="#fff" opacity=".95"/><text x="27" y="46.5" font-size="8.5" font-weight="700" text-anchor="middle" fill="#1c2736">H₂O₂</text></svg>
+<span class="nm">hydrogen peroxide</span><span class="sub">20 cm³</span></button>
+<button type="button" class="item" id="itSolid" data-item="solid" aria-label="Solid to test">
+<svg viewBox="0 0 54 70" aria-hidden="true"><rect x="12" y="12" width="30" height="8" rx="2" fill="#5a6070"/><path d="M8 24 Q8 20 12 20 L42 20 Q46 20 46 24 L46 62 Q46 68 40 68 L14 68 Q8 68 8 62 Z" fill="rgba(235,240,245,.8)" stroke="#7d8fa3" stroke-width="2.5"/><path id="jarPow" d="M10 50 Q27 42 44 50 L44 62 Q44 66 40 66 L14 66 Q10 66 10 62 Z" fill="#ccc"/></svg>
+<span class="nm" id="solidNm">solid</span><span class="sub" id="solidSub">choose a solid</span></button>
+</div>
+<div class="balance" id="tBal" data-target="balance" role="button" tabindex="0" aria-label="Balance">
+<svg viewBox="0 0 170 92" aria-hidden="true"><rect x="10" y="40" width="150" height="46" rx="8" fill="#dfe5ec" stroke="#7d8fa3" stroke-width="2"/><rect x="45" y="30" width="80" height="8" rx="3" fill="#b8c2cd"/><ellipse cx="85" cy="28" rx="56" ry="6" fill="#c9d1da" stroke="#7d8fa3" stroke-width="2"/><g id="balPow" opacity="0"><path d="M60 24 h50 l-4 -6 h-42z" fill="#fff" stroke="#9aa4b0"/><path id="balHeap" d="M72 19 Q85 8 98 19 Z" fill="#333"/></g><rect x="45" y="52" width="80" height="24" rx="4" fill="#1f2a36"/><text id="balTxt" x="85" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#b9f5c8" font-family="Lexend,system-ui,sans-serif">0.00 g</text></svg>
+<span class="note">balance</span>
+</div>
+</div>
+<div class="rig" id="tFlask" data-target="flask" role="button" tabindex="0" aria-label="Conical flask connected to gas syringe">
+<svg viewBox="0 0 440 270" aria-hidden="true">
+<defs><clipPath id="fclip"><path d="M66 120 L66 150 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 150 L94 120 Z"/></clipPath></defs>
+<line x1="0" y1="256" x2="440" y2="256" stroke="#b8c2cd" stroke-width="3"/>
+<g clip-path="url(#fclip)"><rect class="liquid" id="perLiq" x="0" y="206" width="160" height="50" fill="rgba(185,215,240,.7)" style="transform:scaleY(0)"/><rect id="foam" x="0" y="206" width="160" height="0" fill="rgba(255,255,255,.9)"/><path id="fPow" d="" /><g id="fBub"></g></g>
+<path class="glass" d="M66 120 L66 150 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 150 L94 120"/>
+<path class="shine" d="M40 228 L56 192"/>
+<!-- gas syringe -->
+<rect x="170" y="56" width="10" height="10" fill="#7d8fa3"/>
+<rect id="gas" x="182" y="46" width="0" height="30" fill="rgba(200,230,255,.6)"/>
+<path class="glass" d="M180 44 H404 M180 78 H404 M180 44 V78"/>
+<g id="sticks"></g>
+<g id="plunger" style="transform:translateX(0)"><rect x="183" y="45" width="8" height="32" fill="#5a6070"/><rect x="191" y="58" width="226" height="6" fill="#8d97a3"/><rect x="417" y="48" width="8" height="26" rx="2" fill="#5a6070"/></g>
+<text x="292" y="104" text-anchor="middle" class="tick">gas syringe (0–100 cm³)</text>
+<g id="tube" style="transition:transform .5s ease;transform:translateY(-18px)">
+<path d="M80 126 V70 Q80 61 90 61 H172" fill="none" stroke="#7d8fa3" stroke-width="7"/>
+<path d="M80 126 V70 Q80 61 90 61 H172" fill="none" stroke="#f4f7fa" stroke-width="3"/>
+<rect x="63" y="116" width="34" height="18" rx="3" fill="#444b55"/>
+</g>
+<g id="splint" class="splint" opacity="0" style="transform:translate(0,0)">
+<rect x="300" y="160" width="110" height="5" rx="2" fill="#c8a165" transform="rotate(-20 300 162)"/>
+<circle id="ember" cx="300" cy="162" r="5" fill="#d35400"/>
+<path id="flame" d="M300 150 Q292 160 300 168 Q308 160 300 150 Z" fill="#f39c12" opacity="0"/>
+</g>
+<text x="80" y="266" text-anchor="middle" class="tick">conical flask</text>
+</svg>
+</div>
+</div>
+<p class="note" id="hint" style="text-align:center">Drag the hydrogen peroxide onto the flask and the solid onto the balance, or tap an item then tap where it goes.</p>
+<div class="toolbar">
+<div class="row">
+<button type="button" class="btn ghost" id="zeroBtn">Push plunger to 0</button>
+<button type="button" class="btn" id="startBtn">Start</button>
+<button type="button" class="btn ghost" id="splintBtn">Glowing splint test</button>
+<button type="button" class="btn ghost" id="washBtn">Wash out / reset bench</button>
+</div>
+<div class="readouts">
+<div class="lcd" id="watch">0 s<small>stopwatch (4× speed)</small></div>
+<div class="lcd" id="vol">0 cm³<small>oxygen in syringe</small></div>
+</div>
+</div>
+<p class="msg" id="msg" aria-live="polite">Choose a solid to begin.</p>
+<div class="row" id="recWrap" hidden><button type="button" class="btn ghost" id="recBtn">Filter, dry and reweigh the MnO₂</button><span class="note">Is the manganese(IV) oxide used up?</span></div>
+</div>
+<div class="two">
+<div><h3>Method</h3>
+<ol class="method" id="method" style="margin-top:8px">
+<li>Choose a solid (or no solid).</li>
+<li>Measure 20 cm³ of hydrogen peroxide solution into the conical flask.</li>
+<li>Weigh 0.50 g of the solid.</li>
+<li>Push the syringe plunger in so it reads 0 cm³.</li>
+<li>Add the solid, put the bung in quickly and start the stopwatch.</li>
+<li>Read the volume of gas in the syringe after 60 s.</li>
+<li>Test the gas with a glowing splint.</li>
+</ol></div>
+<div><h3>Your readings (copy these into Part 2)</h3>
+<div class="tbl-wrap" style="margin-top:8px"><table id="book" style="min-width:300px"></table></div>
+<p class="note" id="recNote" style="margin-top:8px"></p>
+</div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Fill in the volume of oxygen collected in 60 s (to the nearest 1 cm³) and whether the glowing splint relit.</p>
+<div class="tbl-wrap"><table id="res" style="min-width:440px"></table></div>
+<h3>Is manganese(IV) oxide used up?</h3>
+<div class="tbl-wrap"><table style="min-width:300px"><tbody>
+<tr><th>mass of MnO<sub>2</sub> at the start / g</th><td id="c-m1"><input type="number" step="0.01" id="m1" aria-label="mass at start"></td></tr>
+<tr><th>mass of MnO<sub>2</sub> after filtering and drying / g</th><td id="c-m2"><input type="number" step="0.01" id="m2" aria-label="mass after"></td></tr>
+</tbody></table></div>
+<div><b>Rank the solids</b> from best catalyst (1st) to worst. Use your results.
+<div class="rank" id="rank"></div></div>
+<div class="toolbar"><button class="btn" type="button" id="checkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+<h3>Bar chart of your results</h3>
+<canvas id="graph" height="320" role="img" aria-label="Bar chart of volume of oxygen in 60 seconds for each solid"></canvas>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>Complete the balanced equation:<br>
+<select data-a="2"><option value="">?</option><option>1</option><option>2</option><option>3</option></select> H<sub>2</sub>O<sub>2</sub> →
+<select data-a="2"><option value="">?</option><option>1</option><option>2</option><option>3</option></select> H<sub>2</sub>O +
+<select data-a="O2"><option value="">choose…</option><option value="H2">H₂</option><option value="O2">O₂</option><option value="CO2">CO₂</option></select></li>
+<li>A catalyst
+<select data-a="speeds up"><option value="">choose…</option><option>speeds up</option><option>slows down</option><option>stops</option></select> a reaction and is
+<select data-a="not used up"><option value="">choose…</option><option>not used up</option><option>used up</option><option>turned into product</option></select>. It provides an alternative pathway with a
+<select data-a="lower activation energy"><option value="">choose…</option><option>lower activation energy</option><option>higher activation energy</option><option>higher temperature</option></select>.</li>
+<li>To make it a fair test, keep the
+<select data-a="volume and concentration of hydrogen peroxide"><option value="">choose…</option><option>volume and concentration of hydrogen peroxide</option><option>type of solid</option><option>volume of oxygen</option></select> and the
+<select data-a="mass of solid"><option value="">choose…</option><option>mass of solid</option><option>colour of solid</option><option>volume of gas</option></select> the same. The test with no solid is a control: it shows that hydrogen peroxide on its own decomposes
+<select data-a="very slowly"><option value="">choose…</option><option>very slowly</option><option>very quickly</option><option>explosively</option></select>.</li>
+<li>To show MnO<sub>2</sub> is a catalyst: filter, dry and reweigh it. Its mass
+<select data-a="stays the same"><option value="">choose…</option><option>stays the same</option><option>decreases to zero</option><option>doubles</option></select>. If it is added to fresh hydrogen peroxide, it
+<select data-a="still speeds up the reaction"><option value="">choose…</option><option>still speeds up the reaction</option><option>does nothing</option><option>stops the reaction</option></select>.</li>
+<li>The gas is oxygen because it
+<select data-a="relights a glowing splint"><option value="">choose…</option><option>relights a glowing splint</option><option>makes a squeaky pop with a lit splint</option><option>turns limewater milky</option></select>.</li>
+<li><b>Conclusion:</b> the best catalyst for this reaction is
+<select data-a="manganese(IV) oxide"><option value="">choose…</option><option>manganese(IV) oxide</option><option>copper(II) oxide</option><option>lead(II) oxide</option><option>sand</option></select>, because it gave the
+<select data-a="largest volume of oxygen in 60 s"><option value="">choose…</option><option>largest volume of oxygen in 60 s</option><option>smallest volume of oxygen in 60 s</option><option>darkest colour</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="checkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<footer class="toolbar">
+<span class="note">A catalyst speeds up a reaction by lowering the activation energy, and is not used up.</span>
+<button class="btn ghost" type="button" id="resetAll">Start again</button>
+</footer>
+</div>
+<div class="panel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+var NS='http://www.w3.org/2000/svg';
+var RM=false;
+var SPEED=4, VMAX=96;
+var S=[
+{id:'mn',name:'manganese(IV) oxide',f:'MnO<sub>2</sub>',col:'#2a2a2a',k:0.035},
+{id:'pb',name:'lead(II) oxide',f:'PbO',col:'#e2a93b',k:0.0095},
+{id:'fe',name:'iron(III) oxide',f:'Fe<sub>2</sub>O<sub>3</sub>',col:'#8b2e1a',k:0.0055},
+{id:'cu',name:'copper(II) oxide',f:'CuO',col:'#1b1b1b',k:0.0032},
+{id:'zn',name:'zinc oxide',f:'ZnO',col:'#f3f3ee',k:0.00035},
+{id:'sa',name:'sand',f:'SiO<sub>2</sub>',col:'#d9c38c',k:0},
+{id:'no',name:'no solid (control)',f:'',col:'transparent',k:0}];
+var byId={}; S.forEach(function(s){byId[s.id]=s;});
+var ORDER=['mn','pb','fe','cu','zn'];
+var data={}, cur=null, st={}, simT=0, last=0, raf=null, bubAcc=0, rec=null;
+S.forEach(function(s){
+var b=document.createElement('button'); b.type='button'; b.className='pick'; b.id='pk-'+s.id; b.setAttribute('aria-pressed','false');
+b.innerHTML=(s.id==='no'?'':'<i class="sw" style="background:'+s.col+'"></i>')+s.name;
+b.addEventListener('click',function(){choose(s);}); $('picks').appendChild(b);
+});
+function setMsg(t,cls){var m=$('msg'); m.innerHTML=t; m.className='msg'+(cls?' '+cls:'');}
+function tick(n,on){var li=$('method').children[n-1]; if(li) li.classList.toggle('done',on!==false);}
+function choose(s){
+if(st.running){setMsg('Wait until this test has finished.','warn');return;}
+wash(true); cur=s; cur.kk=s.k*(1+(Math.random()-.5)*.1);
+S.forEach(function(x){$('pk-'+x.id).setAttribute('aria-pressed',x===s?'true':'false');});
+$('solidNm').textContent=s.id==='no'?'no solid':s.name; $('solidSub').innerHTML=s.id==='no'?'nothing to add':s.f;
+$('jarPow').setAttribute('fill',s.id==='no'?'transparent':s.col);
+tick(1);
+if(s.id==='no'){st.weighed=true; tick(3);}
+setMsg('Testing <b>'+s.name+'</b>.'+(data[s.id]?' (This replaces your earlier result.)':'')+' Measure 20 cm³ of hydrogen peroxide into the flask.'+(s.id==='no'?' There is nothing to weigh for the control.':''));
+}
+/* ---- syringe scale ---- */
+var tk='';
+for(var v=0;v<=100;v+=5){var x=182+v*2.2, big=v%10===0; tk+='<line x1="'+x+'" x2="'+x+'" y1="44" y2="'+(big?54:50)+'" stroke="#5a6878" stroke-width="'+(big?1.2:.7)+'"/>'; if(v%20===0) tk+='<text class="tick" x="'+x+'" y="38" text-anchor="middle">'+v+'</text>';}
+$('sticks').innerHTML=tk;
+function setSyr(vv){vv=Math.min(100,vv); $('plunger').style.transform='translateX('+(vv*2.2)+'px)'; $('gas').setAttribute('width',vv*2.2+1);}
+function bubble(x,y,yTop,r){
+if(RM) return; var c=document.createElementNS(NS,'circle');
+c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r); c.setAttribute('fill','rgba(255,255,255,.9)'); c.setAttribute('stroke','rgba(40,60,85,.85)'); c.setAttribute('stroke-width','1.1');
+$('fBub').appendChild(c);
+var an=c.animate([{transform:'translate(0,0)'},{transform:'translate('+((Math.random()-.5)*8)+'px,'+(yTop-y)+'px)'}],{duration:500+Math.random()*400,easing:'ease-in'});
+an.onfinish=function(){c.remove();};
+}
+/* ---- drag and tap ---- */
+var selected=null, drag=null, bench=$('bench'), HINT=$('hint').textContent;
+function clearSel(){selected=null; document.querySelectorAll('.item').forEach(function(b){b.classList.remove('selected');}); bench.classList.remove('armed'); $('hint').textContent=HINT;}
+function select(el){ if(selected===el.dataset.item){clearSel();return;} clearSel(); selected=el.dataset.item; el.classList.add('selected'); bench.classList.add('armed'); $('hint').textContent='Now tap where it should go.'; }
+document.querySelectorAll('.item').forEach(function(el){
+el.addEventListener('pointerdown',function(e){drag={el:el,x:e.clientX,y:e.clientY,moved:false,ghost:null,over:null}; try{el.setPointerCapture(e.pointerId);}catch(_){}});
+el.addEventListener('pointermove',function(e){
+if(!drag||drag.el!==el) return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true; var g=document.createElement('div'); g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:54px;height:70px;opacity:.9'; g.innerHTML=el.querySelector('svg').outerHTML; drag.ghost=g; document.body.appendChild(g);}
+if(drag.moved){drag.ghost.style.transform='translate('+(e.clientX-27)+'px,'+(e.clientY-35)+'px) rotate(-20deg)';
+var u=document.elementFromPoint(e.clientX,e.clientY), t=u&&u.closest?u.closest('[data-target]'):null;
+if(drag.over&&drag.over!==t) drag.over.classList.remove('over'); if(t) t.classList.add('over'); drag.over=t;}
+});
+function end(cancel){ if(!drag) return; var d=drag; drag=null; if(d.ghost) d.ghost.remove(); if(d.over) d.over.classList.remove('over'); if(cancel) return;
+if(d.moved){ if(d.over){clearSel(); drop(el.dataset.item,d.over.dataset.target);} } else select(el); }
+el.addEventListener('pointerup',function(){end(false);});
+el.addEventListener('pointercancel',function(){end(true);});
+el.addEventListener('click',function(e){if(e.detail===0) select(el);});
+});
+document.querySelectorAll('[data-target]').forEach(function(t){
+function act(){ if(selected){var s=selected; clearSel(); drop(s,t.dataset.target);} }
+t.addEventListener('click',act);
+t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+});
+/* ---- actions ---- */
+function guard(){
+if(!cur){setMsg('Choose a solid first (the buttons above the bench).','warn');return false;}
+if(st.running){setMsg('The test is running. Watch the plunger move.','warn');return false;}
+if(st.done){setMsg('This test is finished. Do the glowing splint test, then wash out and choose the next solid.','warn');return false;}
+return true;
+}
+function drop(item,target){
+if(!guard()) return;
+if(item==='per'&&target==='balance'){setMsg('The hydrogen peroxide goes into the conical flask. Measure 20 cm³ with a measuring cylinder.','warn');return;}
+if(item==='per'){
+if(st.per){setMsg('There is already 20 cm³ of hydrogen peroxide in the flask.','warn');return;}
+st.per=true; $('perLiq').style.transform='scaleY(1)'; tick(2);
+setMsg('20 cm³ of hydrogen peroxide solution is in the flask. Tiny bubbles? Hardly any: it decomposes very slowly on its own.','ok'); return;
+}
+if(cur.id==='no'){setMsg('This is the control test: no solid is added. Just press Start when ready.','warn');return;}
+if(target==='balance'){
+if(st.weighed){setMsg('The solid is already weighed.','warn');return;}
+st.weighed=true; st.mass=.5+Math.round((Math.random()-.5)*2)/100;
+$('balHeap').setAttribute('fill',cur.col); $('balPow').setAttribute('opacity',1); $('balTxt').textContent=st.mass.toFixed(2)+' g'; tick(3);
+setMsg('You weighed '+st.mass.toFixed(2)+' g of '+cur.name+'.','ok'); return;
+}
+if(!st.weighed){setMsg('Weigh 0.50 g of the solid first, so every test uses the same mass.','warn');return;}
+start();
+}
+$('zeroBtn').addEventListener('click',function(){
+if(!guard()) return;
+if(st.zero){setMsg('The syringe already reads 0 cm³.','warn');return;}
+st.zero=true; setSyr(0); tick(4); setMsg('The plunger is pushed fully in. The syringe reads 0 cm³.','ok');
+});
+$('startBtn').addEventListener('click',start);
+function start(){
+if(!guard()) return;
+if(!st.per){setMsg('Measure 20 cm³ of hydrogen peroxide into the flask first.','warn');return;}
+if(!st.weighed){setMsg('Weigh 0.50 g of the solid first.','warn');return;}
+if(!st.zero){setMsg('Push the syringe plunger in to 0 cm³ first, or your reading will be wrong.','warn');return;}
+st.running=true; $('balPow').setAttribute('opacity',0); $('balTxt').textContent='0.00 g';
+if(cur.id!=='no'){var p=$('fPow'); p.setAttribute('d','M36 250 Q80 238 124 250 Z'); p.setAttribute('fill',cur.col); p.setAttribute('stroke','rgba(0,0,0,.25)');}
+$('tube').style.transform='translateY(0)'; tick(5);
+var v=VMAX*(1-Math.exp(-cur.kk*60)); data[cur.id]={v:Math.max(0,Math.round(v+(cur.k>0.001?(Math.random()-.5)*2:0))),relit:null,shown:false}; showBook();
+simT=0; last=performance.now(); S.forEach(function(x){$('pk-'+x.id).disabled=true;});
+setMsg('Solid added, bung in, stopwatch started. Watch the syringe plunger.');
+raf=requestAnimationFrame(loop);
+}
+function loop(ts){
+if(!st.running) return;
+var dt=Math.min(.1,(ts-last)/1000); last=ts; simT=Math.min(60,simT+dt*SPEED);
+var v=simT>=60?data[cur.id].v:VMAX*(1-Math.exp(-cur.kk*simT))*(data[cur.id].v/Math.max(.01,VMAX*(1-Math.exp(-cur.kk*60))||1));
+if(!isFinite(v)) v=0;
+setSyr(v); $('watch').firstChild.nodeValue=Math.floor(simT)+' s'; $('vol').firstChild.nodeValue=Math.round(v)+' cm³';
+var rate=VMAX*cur.kk*Math.exp(-cur.kk*simT);
+bubAcc+=rate*dt*SPEED*.35; var n=0;
+while(bubAcc>1&&n<6){bubAcc--; n++; bubble(40+Math.random()*80,246,206,1.5+Math.random()*2);}
+if(cur.id==='mn'){var f=$('foam'); var hgt=Math.min(14,rate*4); f.setAttribute('y',206-hgt); f.setAttribute('height',hgt);}
+if(simT>=60){finish();return;}
+raf=requestAnimationFrame(loop);
+}
+function finish(){
+st.running=false; st.done=true; tick(6); data[cur.id].shown=true; showBook(cur.id);
+S.forEach(function(x){$('pk-'+x.id).disabled=false;}); $('pk-'+cur.id).classList.add('done');
+var v=data[cur.id].v;
+setMsg('<b>60 s.</b> Volume of oxygen collected: <b>'+v+' cm³</b>. Now test the gas with a glowing splint.','ok');
+if(cur.id==='mn') $('recWrap').hidden=false;
+drawGraph();
+}
+$('splintBtn').addEventListener('click',function(){
+if(!cur){setMsg('Choose a solid first.','warn');return;}
+if(st.running){setMsg('Wait for the 60 s to finish first.','warn');return;}
+if(!st.done){setMsg('Collect the gas first. Then test it with a glowing splint.','warn');return;}
+var d=data[cur.id], relit=d.v>=10;
+var sp=$('splint'); sp.setAttribute('opacity',1); sp.style.transform='translate(0,0)';
+$('flame').setAttribute('opacity',0); $('ember').setAttribute('fill','#d35400');
+setTimeout(function(){sp.style.transform='translate(-30px,-40px)';},30);
+setTimeout(function(){
+if(relit){$('flame').setAttribute('opacity',1); $('ember').setAttribute('fill','#f39c12');}
+else $('ember').setAttribute('fill','#7a4a2a');
+d.relit=relit; tick(7); showBook(cur.id);
+setMsg(relit?'<b>The glowing splint relights.</b> The gas is oxygen.':'<b>The splint does not relight.</b> There is too little oxygen to test (or none at all).',relit?'ok':'');
+}, RM?0:900);
+});
+$('recBtn').addEventListener('click',function(){
+var m1=data.mn&&st.mass?st.mass:0.50, m2=Math.round((m1-Math.random()*0.01)*100)/100;
+rec={m1:m1,m2:m2};
+$('recNote').innerHTML='<b>MnO<sub>2</sub> recovered:</b> mass at the start = '+m1.toFixed(2)+' g; mass after filtering and drying = '+m2.toFixed(2)+' g.';
+setMsg('The mixture was filtered. The black solid was dried and reweighed: <b>'+m2.toFixed(2)+' g</b>. The mass has not changed (a tiny bit stays on the filter paper). The catalyst is not used up.','ok');
+});
+function wash(silent){
+if(raf) cancelAnimationFrame(raf);
+if(st.running&&cur){delete data[cur.id]; showBook();}
+st={per:false,weighed:false,zero:false,running:false,done:false};
+$('perLiq').style.transform='scaleY(0)'; $('fPow').setAttribute('d',''); $('fBub').innerHTML=''; $('foam').setAttribute('height',0);
+$('balPow').setAttribute('opacity',0); $('balTxt').textContent='0.00 g';
+setSyr(18); $('tube').style.transform='translateY(-18px)'; $('splint').setAttribute('opacity',0); $('recWrap').hidden=true;
+$('watch').firstChild.nodeValue='0 s'; $('vol').firstChild.nodeValue='0 cm³';
+for(var i=1;i<=7;i++) tick(i,false);
+S.forEach(function(x){var b=$('pk-'+x.id); b.disabled=false; b.setAttribute('aria-pressed','false');});
+cur=null; $('solidNm').textContent='solid'; $('solidSub').textContent='choose a solid'; $('jarPow').setAttribute('fill','#ccc');
+if(!silent) setMsg('Bench washed and reset. Choose the next solid.');
+}
+$('washBtn').addEventListener('click',function(){wash(false);});
+wash(true);
+/* ---- notebook ---- */
+function showBook(newId){
+var h='<thead><tr><th>solid</th><th>O<sub>2</sub> in 60 s / cm³</th><th>splint</th></tr></thead><tbody>';
+S.forEach(function(s){var d=data[s.id], sh=d&&d.shown;
+h+='<tr><th>'+s.name+'</th><td'+(s.id===newId?' class="new"':'')+'>'+(sh?d.v:'–')+'</td><td>'+(sh&&d.relit!==null?(d.relit?'relights':'does not relight'):'–')+'</td></tr>';});
+$('book').innerHTML=h+'</tbody>';
+}
+showBook();
+/* ---- results ---- */
+(function(){
+var h='<thead><tr><th>solid</th><th>volume of oxygen in 60 s / cm³</th><th>glowing splint</th></tr></thead><tbody>';
+S.forEach(function(s){h+='<tr><th>'+s.name+(s.f?' ('+s.f+')':'')+'</th><td id="c-v-'+s.id+'"><input type="number" min="0" step="1" id="v-'+s.id+'" aria-label="'+s.name+' volume"></td><td id="c-s-'+s.id+'"><select id="s-'+s.id+'" aria-label="'+s.name+' splint"><option value="">choose…</option><option value="y">relights</option><option value="n">does not relight</option></select></td></tr>';});
+$('res').innerHTML=h+'</tbody>';
+var r='', opts='<option value="">choose…</option>'+ORDER.map(function(id){return '<option value="'+id+'">'+byId[id].name+'</option>';}).join('');
+['1st','2nd','3rd','4th','5th'].forEach(function(n,i){r+='<span>'+n+'</span><select id="rk'+i+'" aria-label="'+n+' best catalyst">'+opts+'</select>';});
+$('rank').innerHTML=r;
+})();
+document.querySelectorAll('#res input,#res select,#m1,#m2,#rank select').forEach(function(el){el.addEventListener('input',function(){var td=el.closest('td'); if(td) td.classList.remove('ok','wrong'); el.classList.remove('ok','wrong'); drawGraph();});});
+$('checkRes').addEventListener('click',function(){
+var right=0,total=0;
+function mark(el,ok){el.classList.remove('ok','wrong'); el.classList.add(ok?'ok':'wrong'); total++; if(ok) right++;}
+S.forEach(function(s){
+var d=data[s.id]; $('c-v-'+s.id).classList.remove('ok','wrong'); $('c-s-'+s.id).classList.remove('ok','wrong');
+if(!d||!d.shown) return;
+var v=parseFloat($('v-'+s.id).value); mark($('c-v-'+s.id),!isNaN(v)&&Math.abs(v-d.v)<=1);
+if(d.relit!==null) mark($('c-s-'+s.id),$('s-'+s.id).value===(d.relit?'y':'n'));
+});
+if(rec){var a=parseFloat($('m1').value), b=parseFloat($('m2').value); mark($('c-m1'),Math.abs(a-rec.m1)<.006); mark($('c-m2'),Math.abs(b-rec.m2)<.006);}
+var rk=[0,1,2,3,4].map(function(i){return $('rk'+i);});
+if(rk.some(function(x){return x.value;})) rk.forEach(function(x,i){x.classList.remove('ok','wrong'); var ok=x.value===ORDER[i]; x.classList.add(ok?'ok':'wrong'); total++; if(ok) right++;});
+var s=$('resScore');
+if(!total){s.textContent='Do at least one test in Part 1 first.'; s.className='score bad'; return;}
+s.textContent=right+' / '+total+' correct'+(right===total?'. Well done!':'. Check the red boxes.'); s.className='score '+(right===total?'good':'bad');
+});
+/* ---- bar chart ---- */
+var cv=$('graph');
+function drawGraph(){
+var w=cv.clientWidth||600, H=320, dpr=window.devicePixelRatio||1; cv.width=w*dpr; cv.height=H*dpr; cv.style.height=H+'px';
+var c=cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0); c.clearRect(0,0,w,H);
+var L=48,R=10,T=14,B=70, pw=w-L-R, ph=H-T-B, mx=100;
+var Y=function(v){return T+ph-v/mx*ph;};
+c.font='12px "Atkinson Hyperlegible",system-ui,sans-serif'; c.strokeStyle='#e3e8ee'; c.fillStyle='#5a6878'; c.lineWidth=1;
+for(var v=0;v<=mx;v+=10){c.beginPath(); c.moveTo(L,Y(v)); c.lineTo(L+pw,Y(v)); c.stroke(); c.textAlign='right'; c.fillText(v,L-6,Y(v)+4);}
+c.strokeStyle='#1c2736'; c.lineWidth=1.5; c.beginPath(); c.moveTo(L,T); c.lineTo(L,T+ph); c.lineTo(L+pw,T+ph); c.stroke();
+var bw=pw/S.length;
+S.forEach(function(s,i){
+var val=parseFloat($('v-'+s.id).value), x=L+i*bw;
+if(!isNaN(val)){var hv=Math.min(mx,Math.max(0,val)); c.fillStyle='#4a44b5'; c.fillRect(x+bw*.18,Y(hv),bw*.64,T+ph-Y(hv)); c.fillStyle='#1c2736'; c.textAlign='center'; c.fillText(val,x+bw/2,Y(hv)-5);}
+c.fillStyle='#1c2736'; c.textAlign='center';
+var lab=s.id==='no'?['no solid']:s.name.replace(/\(.*\)/,'').trim().split(' ');
+var ox={mn:'MnO₂',pb:'PbO',fe:'Fe₂O₃',cu:'CuO',zn:'ZnO',sa:'sand',no:'none'}[s.id];
+c.font='bold 12px "Atkinson Hyperlegible",system-ui,sans-serif'; c.fillText(ox,x+bw/2,T+ph+16);
+c.font='11px "Atkinson Hyperlegible",system-ui,sans-serif'; c.fillStyle='#5a6878';
+if(w>480) lab.forEach(function(t,j){c.fillText(t,x+bw/2,T+ph+30+j*12);});
+});
+c.fillStyle='#1c2736'; c.font='12px "Atkinson Hyperlegible",system-ui,sans-serif';
+c.save(); c.translate(13,T+ph/2); c.rotate(-Math.PI/2); c.textAlign='center'; c.fillText('volume of O₂ in 60 s / cm³',0,0); c.restore();
+}
+drawGraph(); window.addEventListener('resize',drawGraph);
+/* ---- questions ---- */
+$('checkQs').addEventListener('click',function(){
+var sels=[].slice.call(document.querySelectorAll('#qs select')), right=0;
+sels.forEach(function(s){var ok=s.value===s.dataset.a; s.classList.toggle('ok',ok); s.classList.toggle('wrong',!ok); if(ok) right++;});
+var q=$('qScore'); q.textContent=right+' / '+sels.length+' correct'+(right===sels.length?'. Excellent!':'.'); q.className='score '+(right===sels.length?'good':'bad');
+});
+$('qs').addEventListener('change',function(e){e.target.classList.remove('ok','wrong');});
+$('resetAll').addEventListener('click',function(){
+wash(true); data={}; rec=null; showBook(); $('recNote').textContent=''; setMsg('Choose a solid to begin.');
+S.forEach(function(s){$('pk-'+s.id).classList.remove('done');});
+document.querySelectorAll('#res input,#m1,#m2').forEach(function(i){i.value='';});
+document.querySelectorAll('#res select,#rank select,#qs select').forEach(function(s){s.value=''; s.classList.remove('ok','wrong');});
+document.querySelectorAll('td').forEach(function(td){td.classList.remove('ok','wrong');});
+$('resScore').textContent=''; $('qScore').textContent=''; drawGraph(); window.scrollTo(0,0);
+});
+})();
+</script>
+<script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'Hydrogen peroxide solution decomposes slowly to form water and oxygen.',
+stem:'Which is the balanced equation for this reaction?',
+opts:['H<sub>2</sub>O<sub>2</sub> → H<sub>2</sub> + O<sub>2</sub>','H<sub>2</sub>O<sub>2</sub> → H<sub>2</sub>O + O<sub>2</sub>','2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub>','2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub> + 2O<sub>2</sub>'],
+ans:2,why:'There are 4 H and 4 O atoms on each side. B is not balanced (2 O on the left, 3 on the right).'},
+{ref:'Q1(b)',marks:2,type:'written',ctx:'A student tests several solids, including lead(II) oxide, as catalysts for this reaction.',
+stem:'Give <b>one</b> hazard in this experiment and <b>one</b> precaution to reduce the risk.',
+points:['hazard: hydrogen peroxide is an irritant to eyes / skin OR lead(II) oxide is toxic','precaution: wear eye protection / wear gloves / do not breathe in the powder / wash hands after use'],note:'The precaution must match the hazard'},
+{ref:'Q2',marks:1,type:'mcq',stem:'Which statement explains how a catalyst increases the rate of a reaction?',
+opts:['It gives the particles more kinetic energy','It provides an alternative reaction pathway with a lower activation energy','It increases the activation energy of the reaction','It increases the concentration of the reactant'],
+ans:1,why:'A catalyst lowers the activation energy, so a greater proportion of collisions are successful. It does not give particles more energy.'},
+{ref:'Q3',marks:2,type:'written',stem:'State <b>two</b> variables the student must keep the same so that the solids can be compared fairly.',
+points:['volume of hydrogen peroxide solution','concentration of hydrogen peroxide solution','mass of solid','temperature','particle size / surface area of the solid (e.g. all powders)']},
+{ref:'Q4',marks:1,type:'mcq',ctx:'The student also does one test with no solid added.',
+stem:'What is the purpose of this test?',
+opts:['To check that the gas syringe reads 0 cm³','To make sure the mass of solid is the same each time','To show how fast hydrogen peroxide decomposes without a catalyst, for comparison','To measure the mass of oxygen produced'],
+ans:2,why:'It is a control. A solid is only a catalyst if the rate with it is faster than the rate with no solid.'},
+{ref:'Q5(a)',marks:2,type:'calc',
+ctx:'The student added 0.50 g of manganese(IV) oxide to 20 cm³ of hydrogen peroxide solution and collected the oxygen in a gas syringe.<div class="tbl-wrap" style="margin-top:8px"><table class="ex-tbl"><tbody><tr><th>time / s</th><td>0</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>60</td></tr><tr><th>volume of O<sub>2</sub> / cm³</th><td>0</td><td>16</td><td>29</td><td>39</td><td>46</td><td>51</td><td>54</td></tr></tbody></table></div>',
+stem:'Calculate the mean rate of reaction, in cm³/s, over the first 60 s.',
+inputs:[{lab:'mean rate =',unit:'cm³/s',ans:0.9,tol:0.01,m:2}],
+work:'<ol><li>Mean rate = volume of gas ÷ time (1 mark)</li><li>= 54 ÷ 60 = <b>0.90 cm³/s</b> (1 mark)</li></ol>'},
+{ref:'Q5(b)',marks:2,type:'calc',stem:'Calculate the mean rate of reaction, in cm³/s, between 20 s and 40 s.',
+inputs:[{lab:'volume of O<sub>2</sub> produced from 20 s to 40 s =',unit:'cm³',ans:17,tol:0.5,m:1},{lab:'mean rate =',unit:'cm³/s',ans:0.85,tol:0.01,m:1}],
+work:'<ol><li>Volume produced = 46 − 29 = <b>17 cm³</b> (1 mark)</li><li>Mean rate = 17 ÷ (40 − 20) = 17 ÷ 20 = <b>0.85 cm³/s</b> (1 mark)</li></ol><p class="note">Full marks are given for the correct final answer.</p>'},
+{ref:'Q6',marks:4,type:'written',stem:'Describe how the student could show that manganese(IV) oxide is acting as a catalyst in this reaction, and not as a reactant.',
+points:['weigh the manganese(IV) oxide before adding it','after the reaction, filter the mixture to collect the solid','wash and dry the solid (e.g. in a warm oven), then reweigh it','the mass is the same as at the start (so it is not used up)','add the recovered solid to fresh hydrogen peroxide: it still speeds up the decomposition','the rate is faster than with no solid (the control)']},
+{ref:'Q7',marks:2,type:'written',ctx:'The student tipped the solid into the flask and then put the bung in.',
+stem:'Suggest why the volume of oxygen recorded may be lower than the true value, and suggest how the method could be improved.',
+points:['some oxygen escapes before the bung is put in','improvement: put the solid in a small tube inside the flask (or in a divided flask) and tip it into the hydrogen peroxide after the bung is in / put the bung in as quickly as possible']},
+{ref:'Q8',marks:6,type:'written',
+stem:'Describe an experiment to compare how well different solids act as catalysts for the decomposition of hydrogen peroxide.',
+points:['measure a fixed volume (e.g. 20 cm³) of hydrogen peroxide solution with a measuring cylinder into a conical flask','weigh a fixed mass (e.g. 0.50 g) of the solid','connect the flask with a bung and delivery tube to a gas syringe set at 0 cm³','add the solid, put the bung in quickly and start the stopwatch','measure the volume of oxygen after a fixed time (e.g. 60 s) / at regular intervals','repeat with each solid using fresh hydrogen peroxide of the same concentration and temperature','do a control with no solid','the solid that gives the largest volume in the time (fastest rate) is the best catalyst']}
+];
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- tabs ---- */
+var tabs=[$('tabLab'),$('tabExam')], panels=[$('panelLab'),$('panelExam')], tabRow=$('tabRow');
+function show(i){
+tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+t.addEventListener('click',function(){show(i);});
+t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+$('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+host.innerHTML=''; S=[];
+QS.forEach(function(q,i){
+var s={score:0,marked:false}; S.push(s);
+var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+if(q.type==='mcq'){
+var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+var labs=[];
+q.opts.forEach(function(o,k){
+var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+r.addEventListener('change',function(){
+if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+});
+});
+c.appendChild(g); c.appendChild(box);
+} else if(q.type==='calc'){
+var w=el('div','ex-calc'), ins=[];
+q.inputs.forEach(function(p){
+var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+});
+var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+var work=el('div','ex-work'); work.hidden=true;
+bt.addEventListener('click',function(){
+var vals=ins.map(function(x){return parseFloat(x.value);});
+if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+});
+c.appendChild(w); c.appendChild(box); c.appendChild(work);
+} else {
+var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+var ms=el('div','ex-ms'); ms.hidden=true;
+ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+var cbs=[];
+q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+}
+host.appendChild(c);
+});
+upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

@@ -1,0 +1,652 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Oxidising Propan-1-ol</title>
+<meta name="description" content="Virtual core practical: Oxidising Propan-1-ol. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp7-oxidation-propan-1-ol.html">
+<link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap"><style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.meta{font-family:var(--display);font-weight:500;font-size:.9rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:8px}
+details.safety{background:#fff8ec;border:1px solid #e8cf9c;border-radius:10px;padding:8px 14px}
+details.safety summary{cursor:pointer;font-family:var(--display);font-weight:600}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;font-size:.92rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bench{background:var(--bench);border-radius:12px;padding:14px 10px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shelf-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.shelf{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 6px 5px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;font-size:.78rem;color:var(--ink);width:100px;line-height:1.2;text-align:center}
+.item svg{width:34px;height:46px;display:block}
+.item .sub{color:var(--muted);font-size:.7rem}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+.item:focus-visible,.tube:focus-visible,.zone:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{text-align:center;font-size:.88rem;color:var(--muted)}
+.zone{border:2px dashed transparent;border-radius:12px;cursor:pointer;min-width:0}
+.zone.armed{border-color:var(--accent)}
+.zone.over{border-color:var(--accent);background:var(--accent-soft)}
+.rig{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:12px;align-items:start}
+@media (max-width:720px){.rig{grid-template-columns:minmax(0,1fr)}}
+svg.app{width:100%;height:auto;display:block;background:#fbfcfd;border-radius:10px;overflow:visible}
+.side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.controls{display:flex;flex-wrap:wrap;gap:8px}
+.method{list-style:none;padding:0;margin:0;font-size:.86rem;display:flex;flex-direction:column;gap:3px;counter-reset:m}
+.method li{display:block;position:relative;padding:3px 6px 3px 32px;border-radius:6px;line-height:1.3}
+.method li::before{content:"";position:absolute;left:6px;top:4px;width:16px;height:16px;border:2px solid var(--line);border-radius:4px;margin-top:1px;background:#fff;font-size:12px;line-height:13px;text-align:center;color:#fff;font-weight:700}
+.method li.done{color:var(--muted)}
+.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good)}
+.method li.now{background:var(--accent-soft);font-weight:700;color:var(--ink)}
+.msg{min-height:2.8em;border-radius:10px;padding:8px 12px;background:var(--sheet);border-left:5px solid var(--accent);font-size:.92rem}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#eef8f2}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px}
+.readout div{background:#1c2736;color:#e8f0f8;font:600 1rem ui-monospace,Consolas,monospace;padding:6px 10px;border-radius:8px}
+.readout small{display:block;font:400 .72rem var(--body);color:#aab8c8}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px 10px 0 0;border:2px solid var(--accent);border-bottom:none;background:var(--sheet);color:var(--accent);cursor:pointer}
+.tab[aria-selected=true]{background:var(--accent);color:#fff}
+.mini{font:inherit;font-size:.8rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ctl{background:var(--sheet);color:var(--ink);border-color:var(--line)}
+.btn.ctl:hover{border-color:var(--accent)}
+.btn:focus-visible,.mini:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7.5em;max-width:100%;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.9rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
+select.ok,input.ok{border-color:var(--good);background:#eef8f2} select.wrong,input.wrong{border-color:var(--bad);background:#fdf0ef}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+.note{font-size:.88rem;color:var(--muted)}
+.calc{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:.92rem}
+.exq{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.exq .qh{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opts label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.opts label.ok{border-color:var(--good);background:#eef8f2} .opts label.wrong{border-color:var(--bad);background:#fdf0ef}
+.opts input{margin-top:5px;accent-color:var(--accent)}
+textarea{width:100%;min-height:76px;font:inherit;font-size:.95rem;padding:8px;border:2px solid var(--line);border-radius:8px;resize:vertical}
+.ms{background:#f4f6fa;border-radius:8px;padding:8px 12px;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+.ms label{display:flex;gap:8px;align-items:flex-start}
+.ms input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--good)}
+.ms .nb{color:var(--muted);font-size:.85rem}
+.total{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.racks{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.tube{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;background:rgba(255,255,255,.55)}
+.tube svg{width:52px;height:140px;display:block;overflow:visible}
+.tube .lbl{font-weight:700;font-family:var(--display)}
+.tube .obs{font-size:.8rem;text-align:center;min-height:4em;line-height:1.25}
+.liq{transition:fill 1.6s ease, transform .8s ease;transform-box:fill-box;transform-origin:50% 100%}
+.ppt{transition:fill 2.5s ease, opacity .8s ease}
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.lab{font:12px var(--body);fill:var(--muted)}
+.hid{display:none}
+.bub{animation:rise 1.1s linear infinite}
+@keyframes rise{from{transform:translateY(0);opacity:.95}to{transform:translateY(-46px);opacity:0}}
+.fume{animation:fume 2s ease-out infinite}
+@keyframes fume{from{transform:translateY(0);opacity:.8}to{transform:translateY(-26px);opacity:0}}
+.drip{animation:drip .9s ease-in infinite}
+@keyframes drip{from{transform:translateY(0);opacity:1}to{transform:translateY(24px);opacity:0}}
+.shake{animation:shake .18s linear 8}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-3px,-2px)}75%{transform:translate(3px,1px)}}
+.flick{animation:flick .35s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{from{transform:scaleY(1)}to{transform:scaleY(1.08) scaleX(.95)}}
+.pour{animation:pour .6s ease-in forwards}
+@keyframes pour{from{transform:translateY(-30px);opacity:1}to{transform:translateY(40px);opacity:0}}
+@media (max-width:520px){body{font-size:16px}.item{width:88px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>The oxidation of propan-1-ol to produce propanal and propanoic acid</h1>
+  <p class="meta">IAL Chemistry · Core Practical 7 · Unit 3</p>
+  <p><b>Aim:</b> to oxidise propan-1-ol with acidified potassium dichromate(VI), making propanal by distillation and propanoic acid by heating under reflux, then to test both products.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li>Potassium dichromate(VI) is toxic, a carcinogen and a skin sensitiser. Wear gloves and eye protection. Avoid skin contact.</li>
+    <li>Propan-1-ol and propanal are highly flammable. Use an electric heating mantle or water bath, not a Bunsen flame.</li>
+    <li>Dilute sulfuric acid is an irritant. Wash splashes off skin at once.</li>
+    <li>Never heat a closed system. The top of a reflux condenser must stay open.</li>
+  </ul></details>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p class="note">Follow the method in order. Drag a bottle or piece of apparatus onto the bench picture, or tap it and then tap the picture. Use the buttons to heat, add and weigh.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabA" aria-selected="true" type="button">A · Make propanal</button>
+    <button class="tab" role="tab" id="tabB" aria-selected="false" type="button">B · Make propanoic acid</button>
+  </div>
+  <div id="panA"></div>
+  <div id="panB" hidden></div>
+
+  <h3>Test your products</h3>
+  <p class="note">Drag a test reagent onto a test tube (or tap reagent, then tube). Tollens' and Fehling's tubes are warmed in a hot water bath for you. Each test uses a fresh sample.</p>
+  <div class="bench">
+    <div class="shelf-label">Test reagents</div>
+    <div class="shelf" id="tShelf"></div>
+    <p class="hint" id="tHint">Drag a reagent onto a tube, or tap a reagent and then tap a tube.</p>
+    <div class="racks" id="tRack"></div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p" id="part2">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <h3>Observations</h3>
+  <div class="tbl-wrap"><table id="obsT"></table></div>
+  <h3>Boiling points</h3>
+  <div class="calc">Thermometer reading while propanal distilled: <span id="bpA"></span></div>
+  <div class="calc">Temperature of the fraction collected for propanoic acid: <span id="bpB"></span></div>
+  <h3>Percentage yield</h3>
+  <p class="note">Copy the masses from Part 1. M<sub>r</sub>: propan-1-ol 60.0. Give moles to 3 s.f. and yield to 3 s.f.</p>
+  <div class="tbl-wrap"><table id="yT"></table></div>
+  <h3>Equations</h3>
+  <p id="eqs"></p>
+  <div class="toolbar"><button class="btn" id="chk2" type="button">Check my results</button><span class="score" id="sc2" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs3"></ol>
+  <div class="toolbar"><button class="btn" id="chk3" type="button">Check my answers</button><span class="score" id="sc3" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <div id="exam"></div>
+  <p class="total" id="exTot" aria-live="polite"></p>
+</section>
+
+<div class="toolbar">
+  <span class="note">Distil immediately to stop at the aldehyde; reflux with excess oxidising agent to reach the carboxylic acid.</span>
+  <button class="btn ghost" id="resetAll" type="button">Start again</button>
+</div>
+</div>
+
+<script>
+(function(){"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const rto=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(+x).toFixed(d);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const num=el=>{const v=String(el.value).trim().replace(',','.');return v===''?NaN:parseFloat(v);};
+const close=(v,t,tol)=>isFinite(v)&&isFinite(t)&&Math.abs(v-t)<=Math.max(Math.abs(t)*tol,1e-9);
+function say(el,html,kind){el.innerHTML=html;el.className='msg'+(kind?' '+kind:'');}
+function mark(el,ok){el.classList.toggle('ok',!!ok);el.classList.toggle('wrong',!ok);return ok?1:0;}
+function clearMarks(root){$$('.ok,.wrong',root).forEach(e=>e.classList.remove('ok','wrong'));}
+function setScore(el,r,t,extra){el.textContent=r+' / '+t+' correct'+(r===t?'. Excellent!':'. '+(extra||'Red boxes need another look.'));el.className='score '+(r===t?'good':'bad');}
+/* select builder: a = answer (string or array of accepted), opts = list */
+function sel(a,opts,keep){const acc=Array.isArray(a)?a:[a];const o=keep?opts:shuffle(opts);return '<select data-a="'+acc.join('|').replace(/"/g,'&quot;')+'"><option value="">choose…</option>'+o.map(x=>'<option>'+x+'</option>').join('')+'</select>';}
+function selOk(s){return s.value!==''&&s.dataset.a.split('|').includes(s.value);}
+function checkSelects(root,scoreEl){const ss=$$('select[data-a]',root);let r=0;ss.forEach(s=>r+=mark(s,selOk(s)));setScore(scoreEl,r,ss.length);return r;}
+let TIMERS=[];
+const later=(f,ms)=>{const t=setTimeout(f,ms);TIMERS.push(t);return t;};
+const every=(f,ms)=>{const t=setInterval(f,ms);TIMERS.push(t);return t;};
+function stopTimers(){TIMERS.forEach(t=>{clearTimeout(t);clearInterval(t);});TIMERS=[];}
+/* ---- drag or tap-then-tap (re-registering with the same key replaces the old one) ---- */
+const DTS={};
+function dragTap(o){
+  const key=o.key||('k'+Object.keys(DTS).length);
+  if(DTS[key]){DTS[key].o=o;DTS[key].bindShelf();DTS[key].clear();return DTS[key];}
+  const api={o,sel:null,drag:null};DTS[key]=api;
+  api.clear=function(){const o=api.o;api.sel=null;$$(o.item,o.shelf).forEach(b=>b.classList.remove('selected'));$$(o.target).forEach(t=>t.classList.remove('armed'));if(o.hint)o.hint.textContent=o.hintText;};
+  function choose(k,b){if(api.sel===k){api.clear();return;}Object.values(DTS).forEach(d=>d.clear());api.sel=k;b.classList.add('selected');$$(api.o.target).forEach(t=>t.classList.add('armed'));if(api.o.hint)api.o.hint.textContent='Now tap where you want to use: '+b.dataset.n+'.';}
+  api.bindShelf=function(){const o=api.o,sh=o.shelf;if(sh._dt)return;sh._dt=1;
+   sh.addEventListener('pointerdown',e=>{const b=e.target.closest(o.item);if(!b)return;api.drag={k:b.dataset.k,b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+   sh.addEventListener('pointermove',e=>{const d=api.drag;if(!d)return;
+    if(!d.moved&&Math.hypot(e.clientX-d.x,e.clientY-d.y)>8){d.moved=true;const g=d.b.cloneNode(true);g.classList.remove('selected');g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;opacity:.9;margin:0;box-shadow:0 6px 18px rgba(0,0,0,.2)';d.g=g;document.body.appendChild(g);}
+    if(d.moved){d.g.style.transform='translate('+(e.clientX-45)+'px,'+(e.clientY-30)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);const t=u&&u.closest?u.closest(api.o.target):null;if(d.over&&d.over!==t)d.over.classList.remove('over');if(t)t.classList.add('over');d.over=t;}});
+   const end=c=>{const d=api.drag;if(!d)return;api.drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(c)return;if(d.moved){if(d.over){api.clear();api.o.drop(d.k,d.over);}}else choose(d.k,d.b);};
+   sh.addEventListener('pointerup',()=>end(false));sh.addEventListener('pointercancel',()=>end(true));
+   sh.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest(o.item);if(b)choose(b.dataset.k,b);}});
+  };
+  api.bindShelf();
+  document.addEventListener('click',e=>{if(!api.sel)return;const t=e.target.closest(api.o.target);if(!t)return;const bt=e.target.closest('button');if(bt&&bt!==t)return;const k=api.sel;api.clear();api.o.drop(k,t);});
+  document.addEventListener('keydown',e=>{if(!api.sel||(e.key!=='Enter'&&e.key!==' '))return;const t=e.target.closest&&e.target.closest(api.o.target);if(!t||e.target!==t)return;e.preventDefault();const k=api.sel;api.clear();api.o.drop(k,t);});
+  return api;
+}
+/* bottle icon */
+function bottle(hex,cap){return '<svg viewBox="0 0 54 76" aria-hidden="true"><rect x="20" y="2" width="14" height="12" rx="3" fill="'+(cap||'#3a3f4a')+'"/><rect x="18" y="12" width="18" height="8" rx="2" fill="#5a6070"/><path d="M10 26Q10 20 16 20L38 20Q44 20 44 26L44 68Q44 74 38 74L16 74Q10 74 10 68Z" fill="'+hex+'" stroke="#7d8fa3" stroke-width="2.5"/><rect x="14" y="40" width="26" height="16" rx="2" fill="#fff" opacity=".9"/></svg>';}
+function itemBtn(k,name,sub,icon){return '<button type="button" class="item" data-k="'+k+'" data-n="'+name.replace(/<[^>]+>/g,'')+'">'+icon+'<span>'+name+'</span>'+(sub?'<span class="sub">'+sub+'</span>':'')+'</button>';}
+/* ---- test tube ---- */
+const CLEARL='rgba(190,215,238,.45)';
+function tubeSVG(id){return '<svg viewBox="0 0 60 160" aria-hidden="true"><defs><clipPath id="tc'+id+'"><path d="M15 6L15 136Q15 151 30 151Q45 151 45 136L45 6Z"/></clipPath></defs>'+
+ '<g class="t-fume hid">'+[0,1,2].map(i=>'<path class="fume" style="animation-delay:'+(i*.6)+'s" d="M'+(22+i*8)+' 4q-4 -6 0 -12q4 -6 0 -12" stroke="#c9ced6" stroke-width="4" fill="none" stroke-linecap="round"/>').join('')+'</g>'+
+ '<g clip-path="url(#tc'+id+')"><rect class="liq t-liq" x="0" y="70" width="60" height="90" fill="'+CLEARL+'"/>'+
+ '<rect class="t-top hid" x="0" y="70" width="60" height="9" fill="#7a4a1e" opacity=".85"/>'+
+ '<g class="t-ppt ppt" opacity="0"><ellipse cx="30" cy="144" rx="16" ry="9"/><circle cx="22" cy="132" r="2.2"/><circle cx="35" cy="128" r="2"/><circle cx="28" cy="122" r="1.8"/><circle cx="38" cy="137" r="2.2"/><circle cx="20" cy="140" r="2"/></g>'+
+ '<rect class="t-mirror hid" x="15" y="72" width="30" height="80" fill="url(#silv'+id+')"/>'+
+ '<g class="t-bub hid">'+[0,1,2,3,4].map(i=>'<circle class="bub" style="animation-delay:'+(i*.22)+'s" cx="'+(20+i*5)+'" cy="146" r="2.4" fill="#fff" stroke="#9fb2c6"/>').join('')+'</g></g>'+
+ '<defs><linearGradient id="silv'+id+'" x1="0" x2="1"><stop offset="0" stop-color="#8d949c"/><stop offset=".35" stop-color="#eef1f4"/><stop offset=".6" stop-color="#9aa1aa"/><stop offset="1" stop-color="#d9dde2"/></linearGradient></defs>'+
+ '<path class="glass" d="M15 6L15 136Q15 151 30 151Q45 151 45 136L45 6"/><path d="M11 6L49 6" class="glass"/><path class="shine" d="M20 30L20 120"/></svg>';}
+/* st: {liq, ppt (colour|null), bub, fume, mirror, top(colour|null), level} */
+function setTube(root,st){
+  const l=$('.t-liq',root);l.style.fill=st.liq||CLEARL;l.style.transform='scaleY('+(st.level||1)+')';
+  const p=$('.t-ppt',root);if(st.ppt){p.style.fill=st.ppt;p.setAttribute('opacity','1');}else p.setAttribute('opacity','0');
+  $('.t-bub',root).classList.toggle('hid',!st.bub);$('.t-fume',root).classList.toggle('hid',!st.fume);$('.t-mirror',root).classList.toggle('hid',!st.mirror);
+  const t=$('.t-top',root);t.classList.toggle('hid',!st.top);if(st.top){t.style.fill=st.top;t.setAttribute('y',160-90*(st.level||1));}
+}
+/* ---- exam engine ----
+ q: {t:'mcq',q,o:[..],a:index,m,why} | {t:'num',q,a,tol,unit,m,worked} | {t:'wr',q,m,ms:[..],nb} */
+function buildExam(root,qs,totalEl){
+  root.innerHTML='';const got=new Array(qs.length).fill(0);let tot=0;
+  const upd=()=>{totalEl.textContent='Exam practice: '+got.reduce((a,b)=>a+b,0)+' / '+tot+' marks';};
+  qs.forEach((q,i)=>{tot+=q.m;const d=document.createElement('div');d.className='exq';
+    let h='<div class="qh"><span>Question '+(i+1)+'</span><span>('+q.m+')</span></div><div>'+q.q+'</div>';
+    if(q.t==='mcq')h+='<div class="opts">'+q.o.map((o,j)=>'<label><input type="radio" name="ex'+i+'" value="'+j+'"><span><b>'+'ABCD'[j]+'</b>&nbsp; '+o+'</span></label>').join('')+'</div><div class="toolbar"><button type="button" class="btn ghost">Check</button><span class="score"></span></div><div class="ms hid">'+q.why+'</div>';
+    if(q.t==='num')h+='<div class="calc"><label>Answer: <input type="text" inputmode="decimal" aria-label="answer"></label> '+(q.unit||'')+'</div><div class="toolbar"><button type="button" class="btn ghost">Check</button><span class="score"></span></div><div class="ms hid"><b>Worked answer</b>'+q.worked+'</div>';
+    if(q.t==='wr')h+='<textarea aria-label="your answer" placeholder="Write your answer here…"></textarea><div class="toolbar"><button type="button" class="btn ghost">Show mark scheme</button><span class="score"></span></div><div class="ms hid"><b>Mark scheme — tick each point you made</b>'+q.ms.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+(q.nb?'<div class="nb">'+q.nb+'</div>':'')+'</div>';
+    d.innerHTML=h;root.appendChild(d);
+    const b=$('button',d),sc=$('.score',d),ms=$('.ms',d);
+    b.addEventListener('click',()=>{ms.classList.remove('hid');
+      if(q.t==='mcq'){const r=$('input:checked',d);$$('.opts label',d).forEach((l,j)=>{l.classList.remove('ok','wrong');if(j===q.a)l.classList.add('ok');});if(r&&+r.value!==q.a)r.closest('label').classList.add('wrong');got[i]=r&&+r.value===q.a?q.m:0;}
+      if(q.t==='num'){const inp=$('input',d);const ok=close(num(inp),q.a,q.tol);mark(inp,ok);got[i]=ok?q.m:0;}
+      if(q.t==='wr'){got[i]=Math.min(q.m,$$('.ms input:checked',d).length);}
+      sc.textContent=got[i]+' / '+q.m+' marks';sc.className='score '+(got[i]===q.m?'good':'bad');upd();});
+    if(q.t==='wr')$$('.ms input',d).forEach(c=>c.addEventListener('change',()=>{got[i]=Math.min(q.m,$$('.ms input:checked',d).length);sc.textContent=got[i]+' / '+q.m+' marks';sc.className='score '+(got[i]===q.m?'good':'bad');upd();}));
+  });
+  upd();
+}
+function mixHex(a,b,t){t=Math.max(0,Math.min(1,t));const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('');}
+function fmtClock(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+/* timer that fast-forwards until near the event, then runs in real time */
+function SimTimer(tEvent,onTick,speed){speed=speed||6;let t=0,last=null,raf=null,run=false;
+  function f(ts){if(!run)return;if(last==null)last=ts;const dt=(ts-last)/1000;last=ts;const sp=t<tEvent-6?speed:1;t+=dt*sp;onTick(t,sp>1);raf=requestAnimationFrame(f);}
+  return{start(){run=true;last=null;raf=requestAnimationFrame(f);},stop(){run=false;cancelAnimationFrame(raf);return t;},get t(){return t},get running(){return run}};}
+
+const OR='#e8820c',GR='#3e8c4c',DL='rgba(190,220,245,.85)';
+const ICON={
+ gran:'<svg viewBox="0 0 54 76" aria-hidden="true"><path d="M8 50Q27 70 46 50Z" fill="#e9eef3" stroke="#7d8fa3" stroke-width="2.5"/><circle cx="20" cy="52" r="3.5" fill="#8a8f98"/><circle cx="28" cy="55" r="3.5" fill="#6f747d"/><circle cx="35" cy="51" r="3.5" fill="#9aa0a8"/><circle cx="27" cy="48" r="3" fill="#7c828b"/></svg>',
+ dist:'<svg viewBox="0 0 54 76" aria-hidden="true"><path d="M10 14L10 40M10 24L48 50" stroke="#7d8fa3" stroke-width="4" fill="none"/><rect x="16" y="25" width="30" height="10" rx="4" transform="rotate(34 16 25)" fill="rgba(170,205,235,.5)" stroke="#7d8fa3" stroke-width="2"/><path d="M7 4L13 4L13 30" stroke="#c0392b" stroke-width="2" fill="none"/></svg>',
+ refl:'<svg viewBox="0 0 54 76" aria-hidden="true"><rect x="23" y="4" width="8" height="68" fill="none" stroke="#7d8fa3" stroke-width="2.5"/><rect x="16" y="14" width="22" height="46" rx="5" fill="rgba(170,205,235,.5)" stroke="#7d8fa3" stroke-width="2.5"/><path d="M38 52L48 52M16 22L6 22" stroke="#7d8fa3" stroke-width="4"/></svg>',
+ ice:'<svg viewBox="0 0 54 76" aria-hidden="true"><path d="M8 30L8 70L46 70L46 30" fill="rgba(190,220,245,.6)" stroke="#7d8fa3" stroke-width="2.5"/><rect x="12" y="40" width="10" height="10" fill="#fff" stroke="#9fb2c6"/><rect x="26" y="50" width="10" height="10" fill="#fff" stroke="#9fb2c6"/><rect x="31" y="36" width="9" height="9" fill="#fff" stroke="#9fb2c6"/></svg>',
+ stop:'<svg viewBox="0 0 54 76" aria-hidden="true"><path d="M16 30L38 30L34 52L20 52Z" fill="#9aa0a8" stroke="#5a6070" stroke-width="2"/></svg>'
+};
+function rigSVG(p){
+ const A=p==='A';
+ return `<svg class="app" viewBox="0 0 520 340" role="img" aria-label="Apparatus diagram">
+ <defs><clipPath id="${p}fc"><circle cx="130" cy="240" r="43"/></clipPath>
+ <clipPath id="${p}rc"><path d="M395 258L395 278L374 318L436 318L415 278L415 258Z"/></clipPath>
+ <clipPath id="${p}dc"><ellipse cx="94" cy="118" rx="15" ry="25"/></clipPath></defs>
+ <rect x="0" y="322" width="520" height="18" fill="#cfd8e1"/>
+ <g id="${p}fl">
+  <g clip-path="url(#${p}fc)"><rect id="${p}liq" class="liq" x="80" y="238" width="100" height="60" fill="${CLEARL}" style="transform:scaleY(0)"/>
+   <g id="${p}gr" class="hid"><circle cx="118" cy="277" r="3" fill="#6f747d"/><circle cx="128" cy="279" r="3" fill="#8a8f98"/><circle cx="140" cy="277" r="3" fill="#7c828b"/></g>
+   <g id="${p}boil" class="hid">${[0,1,2,3].map(i=>`<circle class="bub" style="animation-delay:${i*.27}s" cx="${112+i*12}" cy="276" r="2.5" fill="#fff" opacity=".8"/>`).join('')}</g></g>
+  <circle cx="130" cy="240" r="44" class="glass"/>
+  <path class="glass" d="M124 197L124 184M136 197L136 184"/>
+  ${A?'<path class="glass" d="M88 215L88 180M100 211L100 180"/>':''}
+  <path class="shine" d="M100 232Q102 214 114 206"/>
+ </g>
+ ${A?`<g id="${p}df" class="hid">
+  <g clip-path="url(#${p}dc)"><rect id="${p}dfl" class="liq" x="76" y="92" width="40" height="52" fill="${CLEARL}"/></g>
+  <ellipse cx="94" cy="118" rx="16" ry="26" class="glass"/><path class="glass" d="M94 144L94 196"/><rect x="88" y="150" width="12" height="6" rx="2" fill="#5a6070"/><rect x="89" y="84" width="10" height="9" rx="2" fill="#5a6070"/>
+  <circle id="${p}ddrop" cx="94" cy="200" r="2.6" fill="#cfe3f5" stroke="#7d8fa3" class="drip hid"/>
+  <text class="lab" x="10" y="120">dropping</text><text class="lab" x="10" y="134">funnel</text></g>`:''}
+ <g id="${p}dist" class="hid">
+  <path class="glass" d="M124 184L124 110M136 184L136 132M136 122L136 110M120 110L140 110"/>
+  <path class="glass" d="M136 122L192 146M136 132L188 154"/>
+  <g transform="translate(190,150) rotate(24)">
+   <rect id="${p}jw" x="18" y="-13" width="160" height="26" rx="6" fill="rgba(170,205,235,.0)" stroke="var(--glass)" stroke-width="2.5"/>
+   <rect x="0" y="-4" width="202" height="8" fill="none" stroke="var(--glass)" stroke-width="2"/>
+   <path d="M160 13L160 25M28 -13L28 -25" stroke="var(--glass)" stroke-width="6"/>
+   <g id="${p}wa" class="hid"><path d="M160 40L160 28" stroke="#2d6db5" stroke-width="2.5" marker-end="url(#${p}ar)"/><path d="M28 -28L28 -40" stroke="#2d6db5" stroke-width="2.5"/></g>
+  </g>
+  <defs><marker id="${p}ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2d6db5"/></marker></defs>
+  <text class="lab" x="300" y="276">water in</text><text class="lab" x="196" y="118">water out</text>
+  <path class="glass" d="M372 231Q400 236 405 258"/>
+  <g clip-path="url(#${p}rc)"><rect id="${p}dl" x="370" y="318" width="70" height="0" fill="${DL}"/></g>
+  <path class="glass" d="M395 258L395 278L374 318L436 318L415 278L415 258"/>
+  <circle id="${p}drip" cx="405" cy="262" r="2.6" fill="#cfe3f5" stroke="#7d8fa3" class="drip hid"/>
+  <g id="${p}ice" class="hid"><path d="M358 280L358 322L452 322L452 280" fill="rgba(170,210,240,.45)" stroke="var(--glass)" stroke-width="2.5"/>
+   <rect x="362" y="296" width="12" height="12" fill="#fff" stroke="#9fb2c6"/><rect x="434" y="300" width="12" height="12" fill="#fff" stroke="#9fb2c6"/><rect x="364" y="310" width="10" height="10" fill="#fff" stroke="#9fb2c6"/><rect x="438" y="286" width="10" height="10" fill="#fff" stroke="#9fb2c6"/>
+   <text class="lab" x="458" y="300">ice</text><text class="lab" x="458" y="314">bath</text></g>
+  <text class="lab" x="420" y="250">receiver</text>
+  <g><rect x="127" y="22" width="6" height="104" rx="3" fill="#fff" stroke="#7d8fa3" stroke-width="1.5"/><circle cx="130" cy="128" r="5" fill="#c0392b"/><rect id="${p}merc" x="129" y="80" width="2" height="46" fill="#c0392b"/></g>
+  <rect x="146" y="22" width="78" height="26" rx="6" fill="#1c2736"/><text id="${p}tt" x="185" y="40" text-anchor="middle" fill="#e8f0f8" style="font:600 14px ui-monospace,Consolas,monospace">--.- °C</text>
+  <text class="lab" x="146" y="64">thermometer bulb</text><text class="lab" x="146" y="78">at the side arm</text>
+ </g>
+ <g id="${p}ref" class="hid">
+  <rect x="125" y="28" width="10" height="158" fill="none" stroke="var(--glass)" stroke-width="2"/>
+  <rect id="${p}rjw" x="116" y="52" width="28" height="122" rx="6" fill="rgba(170,205,235,0)" stroke="var(--glass)" stroke-width="2.5"/>
+  <path d="M144 162L160 162M116 64L100 64" stroke="var(--glass)" stroke-width="6"/>
+  <g id="${p}rwa" class="hid"><path d="M180 162L164 162" stroke="#2d6db5" stroke-width="2.5" marker-end="url(#${p}ar2)"/><path d="M96 64L80 64" stroke="#2d6db5" stroke-width="2.5" marker-end="url(#${p}ar2)"/></g>
+  <defs><marker id="${p}ar2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2d6db5"/></marker></defs>
+  <text class="lab" x="164" y="152">water in</text><text class="lab" x="30" y="52">water out</text>
+  <text class="lab" x="150" y="24">open to the air</text>
+  <g id="${p}ring" class="hid"><ellipse cx="130" cy="150" rx="5" ry="3" fill="rgba(120,150,180,.5)"/>${[0,1].map(i=>`<circle class="drip" style="animation-delay:${i*.45}s" cx="130" cy="160" r="2.4" fill="#cfe3f5" stroke="#7d8fa3"/>`).join('')}</g>
+ </g>
+ <g><path d="M70 278Q130 304 190 278L190 322L70 322Z" fill="#5a6070"/><path id="${p}glow" d="M78 284Q130 306 182 284" stroke="#5a6070" stroke-width="5" fill="none" style="transition:stroke 1s"/>
+  <text x="130" y="316" text-anchor="middle" fill="#e8f0f8" style="font:600 11px var(--body)">heating mantle</text></g>
+ </svg>`;
+}
+
+/* ---------- tab panels ---------- */
+const PAN={A:$('#panA'),B:$('#panB')};
+const STEPS={
+ A:['Add potassium dichromate(VI) solution and dilute sulfuric acid to the flask','Add anti-bumping granules','Fit the distillation apparatus (thermometer bulb at the side arm)','Stand the receiver in an ice bath','Put weighed propan-1-ol in the dropping funnel','Turn on the condenser water','Warm the oxidising agent gently','Add propan-1-ol dropwise and distil at once','Stop heating when the propanal has distilled over','Weigh the distillate'],
+ B:['Add excess potassium dichromate(VI) solution and dilute sulfuric acid','Add weighed propan-1-ol slowly, swirling and cooling','Add anti-bumping granules','Fit a vertical reflux condenser','Turn on the water, in at the bottom','Heat under reflux for 20 minutes','Stop heating and let the flask cool','Rearrange the apparatus for distillation','Heat and collect the fraction that boils at about 141 °C','Stop heating and weigh the product']
+};
+const SHELF={
+ A:[['kd','K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>(aq)','orange',bottle(OR)],['acid','dilute H<sub>2</sub>SO<sub>4</sub>','colourless',bottle('#dfeaf4')],['alc','propan-1-ol','liquid',bottle('#eef4fa','#1d7a46')],['gran','anti-bumping granules','',ICON.gran],['dist','distillation apparatus','',ICON.dist],['refl','reflux condenser','',ICON.refl],['ice','ice bath','',ICON.ice]],
+ B:[['kd','K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>(aq)','excess, orange',bottle(OR)],['acid','dilute H<sub>2</sub>SO<sub>4</sub>','colourless',bottle('#dfeaf4')],['alc','propan-1-ol','liquid',bottle('#eef4fa','#1d7a46')],['gran','anti-bumping granules','',ICON.gran],['refl','reflux condenser','',ICON.refl],['stop','stopper','',ICON.stop],['dist','distillation apparatus','',ICON.dist],['ice','ice bath','',ICON.ice]]
+};
+const BTN={
+ A:[['water','Condenser water on'],['heat','Heat gently'],['drop','Add propan-1-ol dropwise'],['pour','Pour all the propan-1-ol in'],['stop','Stop heating'],['weigh','Weigh distillate']],
+ B:[['wbot','Water in at bottom'],['wtop','Water in at top'],['heat','Heat under reflux'],['cool','Stop heating and cool'],['dheat','Heat to distil'],['collect','Collect this fraction'],['fin','Stop heating and weigh']]
+};
+function panelHTML(p){
+ return `<div class="bench"><div class="shelf-label">Reagents and apparatus</div><div class="shelf" id="${p}shelf">${SHELF[p].map(s=>itemBtn(s[0],s[1],s[2],s[3])).join('')}</div>
+ <p class="hint" id="${p}hint"></p>
+ <div class="rig"><div class="zone" id="${p}zone" tabindex="0" role="button" aria-label="Apparatus: drop or tap here">${rigSVG(p)}</div>
+ <div class="side"><div class="readout" id="${p}ro"></div><div class="controls">${BTN[p].map(b=>`<button type="button" class="btn ctl" data-b="${b[0]}">${b[1]}</button>`).join('')}</div>
+ <div class="msg" id="${p}msg" aria-live="polite"></div><button type="button" class="mini" id="${p}reset">Reset this part</button></div></div>
+ <h3>Method</h3><ol class="method" id="${p}meth">${STEPS[p].map(s=>`<li>${s}</li>`).join('')}</ol></div>`;
+}
+const S={};
+function fresh(p){
+ const mAlc=rto(rnd(1.52,1.72),0.01);
+ return p==='A'?{kd:0,acid:0,gran:0,app:0,ice:0,alc:0,water:0,heat:0,dropping:0,dropDone:0,stopped:0,weighed:0,T:20,mAlc,mProd:rto(mAlc/60*rnd(.30,.45)*58,0.01),bp:rto(rnd(48,50),0.5),fill:0}
+ :{kd:0,acid:0,alc:0,gran:0,cond:0,water:0,heat:0,refluxing:0,refluxDone:0,cooled:0,dist:0,dheat:0,collected:0,fin:0,T:20,time:0,mAlc,mProd:rto(mAlc/60*rnd(.48,.66)*74,0.01),bp:rto(rnd(140.5,141.5),0.5)};
+}
+const g=(p,id)=>document.getElementById(p+id);
+function ro(p){
+ const s=S[p];const T=s.T==null?'--':fx(s.T,1);
+ let h=`<div><small>Thermometer</small>${(p==='A'?s.app:s.dist)?T+' °C':'not fitted'}</div>`;
+ if(p==='B')h+=`<div><small>Time under reflux</small>${fmtClock(s.time)}</div>`;
+ h+=`<div><small>Propan-1-ol used</small>${s.alc?fx(s.mAlc,2)+' g':'–'}</div>`;
+ h+=`<div><small>${p==='A'?'Distillate':'Product'} mass</small>${(p==='A'?s.weighed:s.fin)?fx(s.mProd,2)+' g':'–'}</div>`;
+ g(p,'ro').innerHTML=h;
+ const t=g(p,'tt');if(t)t.textContent=fx(s.T,1)+' °C';
+ const m=g(p,'merc');if(m){const hgt=Math.min(100,(s.T-10)*0.6);m.setAttribute('y',126-hgt);m.setAttribute('height',hgt);}
+}
+function meth(p){
+ const s=S[p];const d=p==='A'?[s.kd&&s.acid,s.gran,s.app,s.ice,s.alc,s.water,s.heat||s.stopped,s.dropDone,s.stopped,s.weighed]
+ :[s.kd&&s.acid,s.alc,s.gran,s.cond,s.water,s.refluxDone,s.cooled,s.dist,s.collected,s.fin];
+ let now=false;$$('li',g(p,'meth')).forEach((li,i)=>{li.classList.toggle('done',!!d[i]);const n=!d[i]&&!now;li.classList.toggle('now',n);if(n)now=true;});
+}
+function liquid(p){
+ const s=S[p];const l=g(p,'liq');const lv=(s.kd?.45:0)+(s.acid?.25:0)+(p==='B'&&s.alc?.15:0)+(p==='A'?.25*s.fill:0);
+ l.style.transform='scaleY('+Math.min(1,lv)+')';
+ if(!s.kd&&s.acid)l.style.fill=CLEARL;
+}
+function heatGlow(p,on){g(p,'glow').style.stroke=on?'#e0532b':'#5a6070';g(p,'boil').classList.toggle('hid',!on);}
+function bump(p,txt){const f=g(p,'fl');f.classList.remove('shake');void f.getBoundingClientRect();f.classList.add('shake');say(g(p,'msg'),txt,'warn');}
+function W(p,t){say(g(p,'msg'),t,'warn');}
+function OK(p,t){say(g(p,'msg'),t,'ok');}
+function upd(p){ro(p);meth(p);liquid(p);}
+
+function setup(p){
+ PAN[p].innerHTML=panelHTML(p);S[p]=fresh(p);
+ g(p,'hint').textContent='Drag an item onto the apparatus, or tap it and then tap the apparatus.';
+ dragTap({key:'rig'+p,shelf:g(p,'shelf'),item:'.item',target:'#'+p+'zone',hint:g(p,'hint'),hintText:'Drag an item onto the apparatus, or tap it and then tap the apparatus.',drop:k=>(p==='A'?dropA:dropB)(k)});
+ $$('[data-b]',PAN[p]).forEach(b=>b.addEventListener('click',()=>(p==='A'?btnA:btnB)(b.dataset.b)));
+ g(p,'reset').addEventListener('click',()=>resetPart(p));
+ say(g(p,'msg'),p==='A'?'Start by adding the oxidising agent to the flask.':'Start by adding an excess of the oxidising agent to the flask.');
+ upd(p);
+}
+const PTIM={A:[],B:[]};
+function pl(p,f,ms){const t=later(f,ms);PTIM[p].push(t);return t;}
+function pe(p,f,ms){const t=every(f,ms);PTIM[p].push(t);return t;}
+function clearP(p){PTIM[p].forEach(t=>{clearTimeout(t);clearInterval(t);});PTIM[p]=[];}
+function resetPart(p){clearP(p);setup(p);}
+
+/* ---------- A: propanal ---------- */
+function dropA(k){
+ const s=S.A;if(s.dropping)return W('A','Wait until the addition has finished.');
+ if(s.stopped&&k!=='x')return W('A','This preparation is finished. Weigh the distillate, or reset this part.');
+ switch(k){
+ case 'kd':case 'acid':
+  if(s.app)return W('A','Add the reagents before you fit the apparatus.');
+  if(s[k])return W('A','You have already added that.');
+  s[k]=1;g('A','liq').style.fill=s.kd?OR:CLEARL;OK('A',k==='kd'?'Orange potassium dichromate(VI) solution added.'+(s.acid?' The oxidising agent is now acidified.':' It must be acidified too.'):'Dilute sulfuric acid added. The acid is needed for dichromate(VI) to act as an oxidising agent.');break;
+ case 'gran':
+  if(s.gran)return W('A','Granules are already in the flask.');
+  if(s.app)return W('A','Add the granules before you assemble the apparatus.');
+  s.gran=1;g('A','gr').classList.remove('hid');OK('A','Anti-bumping granules added. They give smooth boiling.');break;
+ case 'refl':return W('A','Not for propanal. Under reflux the propanal would condense and run back into the flask. It would then be oxidised further to propanoic acid. Use distillation so it leaves as soon as it forms.');
+ case 'dist':
+  if(s.app)return W('A','The distillation apparatus is already fitted.');
+  if(!(s.kd&&s.acid))return W('A','Put the acidified potassium dichromate(VI) in the flask first.');
+  if(!s.gran)return W('A','Add anti-bumping granules before you assemble the apparatus.');
+  s.app=1;g('A','dist').classList.remove('hid');g('A','df').classList.remove('hid');g('A','dfl').style.transform='scaleY(0)';OK('A','Distillation apparatus fitted. The thermometer bulb is level with the side arm, so it reads the temperature of the vapour that distils.');break;
+ case 'ice':
+  if(!s.app)return W('A','Fit the distillation apparatus first, then stand the receiver in ice.');
+  if(s.ice)return W('A','The receiver is already in ice.');
+  s.ice=1;g('A','ice').classList.remove('hid');OK('A','Receiver in an ice bath. Propanal is very volatile (bp 48 °C), so cooling stops it evaporating away.');break;
+ case 'alc':
+  if(!s.app)return W('A','Do not pour propan-1-ol straight into the flask. It must go in the dropping funnel, so it can be added a little at a time while distilling.');
+  if(s.alc)return W('A','The dropping funnel is already filled.');
+  s.alc=1;const dl=g('A','dfl');dl.style.transform='scaleY(1)';OK('A','Propan-1-ol weighed by difference and put in the dropping funnel: <b>'+fx(s.mAlc,2)+' g</b>. Copy this into your results.');break;
+ case 'stop':return W('A','No stopper is needed here.');
+ }
+ upd('A');
+}
+function btnA(b){
+ const s=S.A;if(s.dropping)return W('A','Wait until the addition has finished.');
+ if(b==='water'){if(!s.app)return W('A','Fit the condenser first.');if(s.water)return W('A','The water is already on.');s.water=1;g('A','jw').setAttribute('fill','rgba(150,195,235,.55)');g('A','wa').classList.remove('hid');OK('A','Water on. It enters at the lower end, so the jacket stays full and cools well.');}
+ if(b==='heat'){
+  if(s.stopped)return W('A','You have finished. Weigh the distillate.');
+  if(s.heat)return W('A','It is already heating.');
+  if(!(s.kd&&s.acid))return W('A','There is nothing to heat yet. Add the acidified potassium dichromate(VI).');
+  if(!s.gran)return bump('A','<b>Bumping!</b> Without anti-bumping granules, the liquid overheats and boils violently. Add granules first.');
+  if(!s.app)return W('A','Fit the distillation apparatus before heating.');
+  if(!s.water)return W('A','Turn on the condenser water first, or the vapour will not condense.');
+  if(!s.ice)return W('A','Stand the receiver in an ice bath first. Propanal is volatile and flammable.');
+  s.heat=1;heatGlow('A',true);OK('A','Warming the oxidising agent…');
+  const iv=pe('A',()=>{s.T=Math.min(s.T+1.5,40);ro('A');if(s.T>=40)clearInterval(iv);},120);
+ }
+ if(b==='pour')return W('A','Do not add it all at once. The reaction is exothermic and a big amount of propan-1-ol would sit in the flask. The propanal formed would be oxidised further to propanoic acid. Add it dropwise.');
+ if(b==='drop'){
+  if(s.dropDone)return W('A','All the propan-1-ol has been added.');
+  if(!s.alc)return W('A','Fill the dropping funnel with propan-1-ol first.');
+  if(!s.heat)return W('A','Warm the oxidising agent first, so propanal distils off as soon as it forms.');
+  s.dropping=1;g('A','ddrop').classList.remove('hid');OK('A','Adding dropwise. Watch the colour and the thermometer.');
+  let f=0;const iv=pe('A',()=>{f+=0.0125;s.fill=Math.min(1,f);
+   g('A','dfl').style.transform='scaleY('+Math.max(0,1-f)+')';g('A','liq').style.fill=mixHex(OR,GR,f);
+   if(f>0.15){s.T=Math.min(s.bp,s.T+1.2);g('A','drip').classList.remove('hid');g('A','dl').setAttribute('height',22*(f-0.15));g('A','dl').setAttribute('y',318-22*(f-0.15));}
+   ro('A');liquid('A');
+   if(f>=1){clearInterval(iv);s.T=s.bp;s.dropping=0;s.dropDone=1;g('A','ddrop').classList.add('hid');ro('A');
+    OK('A','The mixture has turned from <b>orange to green</b>: Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> has been reduced to Cr<sup>3+</sup>. Propanal distils at <b>'+fx(s.bp,1)+' °C</b>. Copy this reading. Stop heating when the distillate stops coming over.');upd('A');}
+  },90);
+ }
+ if(b==='stop'){
+  if(!s.heat)return W('A','The heater is not on.');
+  if(!s.dropDone)return W('A','Add all the propan-1-ol and collect the propanal first.');
+  s.heat=0;s.stopped=1;heatGlow('A',false);g('A','drip').classList.add('hid');OK('A','Heating stopped. Now weigh the distillate.');
+  const iv=pe('A',()=>{s.T=Math.max(25,s.T-1);ro('A');if(s.T<=25)clearInterval(iv);},150);
+ }
+ if(b==='weigh'){if(!s.stopped)return W('A','Collect the propanal and stop heating before weighing.');s.weighed=1;OK('A','Mass of distillate (propanal) = <b>'+fx(s.mProd,2)+' g</b>. Copy this into Part 2. You can now test it below.');}
+ upd('A');
+}
+
+/* ---------- B: propanoic acid ---------- */
+function dropB(k){
+ const s=S.B;if(s.refluxing||s.dheat&&!s.collected)return W('B','Wait for this stage to finish.');
+ switch(k){
+ case 'kd':case 'acid':
+  if(s.cond)return W('B','Add the reagents before you fit the condenser.');
+  if(s[k])return W('B','You have already added that.');
+  s[k]=1;g('B','liq').style.fill=s.kd?OR:CLEARL;OK('B',k==='kd'?'Potassium dichromate(VI) added in excess.':'Dilute sulfuric acid added.');break;
+ case 'alc':
+  if(!(s.kd&&s.acid))return W('B','Put the acidified potassium dichromate(VI) in the flask first.');
+  if(s.cond)return W('B','Add it before fitting the condenser.');
+  if(s.alc)return W('B','Already added.');
+  s.alc=1;OK('B','Propan-1-ol weighed by difference: <b>'+fx(s.mAlc,2)+' g</b>. It was added slowly with swirling and cooling, because the reaction is exothermic.');break;
+ case 'gran':
+  if(s.gran)return W('B','Granules are already in the flask.');
+  if(s.cond)return W('B','Add the granules before you fit the condenser.');
+  s.gran=1;g('B','gr').classList.remove('hid');OK('B','Anti-bumping granules added.');break;
+ case 'refl':
+  if(s.cond)return W('B','The condenser is already fitted.');
+  if(!(s.kd&&s.acid&&s.alc))return W('B','Add the oxidising agent and the propan-1-ol first.');
+  if(!s.gran)return W('B','Add anti-bumping granules before fitting the condenser.');
+  s.cond=1;g('B','ref').classList.remove('hid');OK('B','Reflux condenser fitted vertically. The top is left open.');break;
+ case 'stop':return W('B','<b>Never seal the top of a reflux condenser.</b> Heating a closed system builds up pressure and the apparatus could explode. Leave it open to the air.');
+ case 'dist':
+  if(s.dist)return W('B','The distillation apparatus is already fitted.');
+  if(!s.refluxDone)return W('B','Not yet. If you distil now, propanal would distil out before it is oxidised to the acid. Heat under reflux first.');
+  if(!s.cooled)return W('B','Stop heating and let the flask cool before taking the apparatus apart.');
+  s.dist=1;g('B','ref').classList.add('hid');g('B','dist').classList.remove('hid');g('B','jw').setAttribute('fill','rgba(150,195,235,.55)');g('B','wa').classList.remove('hid');s.T=22;OK('B','Apparatus rearranged for distillation, with the condenser water on.');break;
+ case 'ice':return W('B','An ice bath is not needed here. Propanoic acid boils at 141 °C, so it is not very volatile.');
+ }
+ upd('B');
+}
+function btnB(b){
+ const s=S.B;if(s.refluxing)return W('B','Wait: the mixture is still refluxing.');
+ if(b==='wtop')return W('B','Water should go in at the <b>bottom</b>. If it goes in at the top, the jacket does not fill and the condenser does not cool properly.');
+ if(b==='wbot'){if(!s.cond)return W('B','Fit the condenser first.');if(s.water)return W('B','The water is already on.');s.water=1;g('B','rjw').setAttribute('fill','rgba(150,195,235,.55)');g('B','rwa').classList.remove('hid');OK('B','Water flows in at the bottom and out at the top. The jacket stays full.');}
+ if(b==='heat'){
+  if(s.refluxDone)return W('B','Reflux is complete.');
+  if(!(s.kd&&s.acid&&s.alc))return W('B','Add the reagents first.');
+  if(!s.gran)return bump('B','<b>Bumping!</b> Without anti-bumping granules the mixture boils unevenly and violently. Add granules first.');
+  if(!s.cond)return W('B','Fit the reflux condenser first, or flammable vapour escapes into the room.');
+  if(!s.water)return W('B','Turn on the condenser water first.');
+  s.refluxing=1;s.heat=1;heatGlow('B',true);g('B','ring').classList.remove('hid');OK('B','Heating under reflux. Vapour condenses in the condenser and drips back into the flask, so propanal stays in contact with the oxidising agent.');
+  const iv=pe('B',()=>{s.time+=12;g('B','liq').style.fill=mixHex(OR,GR,Math.min(.78,s.time/1200));ro('B');
+   if(s.time>=1200){clearInterval(iv);s.refluxing=0;s.refluxDone=1;OK('B','20 minutes under reflux done. The colour has changed from <b>orange to green</b> (some orange may remain, because the dichromate(VI) is in excess). Now stop heating and cool.');upd('B');}},70);
+ }
+ if(b==='cool'){if(!s.refluxDone)return W('B','Heat under reflux for 20 minutes first.');if(s.cooled)return W('B','The flask is already cool.');s.cooled=1;s.heat=0;heatGlow('B',false);g('B','ring').classList.add('hid');OK('B','Flask cooled. Now rearrange the apparatus for distillation.');}
+ if(b==='dheat'){
+  if(!s.dist)return W('B',s.refluxDone?'Rearrange the apparatus for distillation first.':'Heat under reflux first (use “Heat under reflux”).');
+  if(s.dheat)return W('B','It is already heating.');
+  s.dheat=1;heatGlow('B',true);OK('B','Distilling. Watch the thermometer.');
+  let ph=0,hold=0;const wb=rto(rnd(99.5,100.5),0.5);
+  const iv=pe('B',()=>{
+   if(ph===0){s.T=Math.min(wb,s.T+3);if(s.T>=wb){ph=1;g('B','drip').classList.remove('hid');say(g('B','msg'),'A first fraction distils at about '+fx(wb,1)+' °C. This is mostly water. Is this the fraction you want?');}}
+   else if(ph===1){hold++;const h=Math.min(10,hold*.3);g('B','dl').setAttribute('height',h);g('B','dl').setAttribute('y',318-h);if(hold>40){ph=2;g('B','drip').classList.add('hid');}}
+   else if(ph===2){s.T=Math.min(s.bp,s.T+1.5);if(s.T>=s.bp){ph=3;g('B','drip').classList.remove('hid');say(g('B','msg'),'The temperature is steady again at <b>'+fx(s.bp,1)+' °C</b>. Copy this reading.');}}
+   ro('B');if(ph===3)clearInterval(iv);},90);
+ }
+ if(b==='collect'){
+  if(!s.dheat)return W('B','Start the distillation first.');
+  if(s.collected)return W('B','You have collected the product.');
+  if(s.T<138)return W('B','Not this fraction. At '+fx(s.T,1)+' °C you are collecting mostly water (bp 100 °C). Propanoic acid boils at 141 °C. Wait for the temperature to rise.');
+  s.collected=1;g('B','dl').setAttribute('height',0);let h=0;const iv=pe('B',()=>{h+=0.5;g('B','dl').setAttribute('height',h);g('B','dl').setAttribute('y',318-h);if(h>=20)clearInterval(iv);},90);
+  OK('B','Clean receiver fitted. Collecting propanoic acid at '+fx(s.T,1)+' °C.');
+ }
+ if(b==='fin'){
+  if(!s.collected)return W('B','Collect the fraction at about 141 °C first.');
+  if(s.fin)return W('B','Already weighed.');
+  s.fin=1;heatGlow('B',false);g('B','drip').classList.add('hid');OK('B','Heating stopped. Mass of propanoic acid = <b>'+fx(s.mProd,2)+' g</b>. Copy this into Part 2. You can now test it below.');
+  const iv=pe('B',()=>{s.T=Math.max(25,s.T-2);ro('B');if(s.T<=25)clearInterval(iv);},150);
+ }
+ upd('B');
+}
+
+/* ---------- tabs ---------- */
+function showTab(p){$('#tabA').setAttribute('aria-selected',p==='A');$('#tabB').setAttribute('aria-selected',p==='B');PAN.A.hidden=p!=='A';PAN.B.hidden=p!=='B';}
+$('#tabA').addEventListener('click',()=>showTab('A'));$('#tabB').addEventListener('click',()=>showTab('B'));
+
+/* ---------- product tests ---------- */
+const RG=[['tol',"Tollens' reagent",'colourless',bottle('#eef1f4')],['feh',"Fehling's solution",'blue',bottle('#2f6fd0')],['dnp','2,4-DNPH','orange-yellow',bottle('#f3b23a')],['hc','NaHCO<sub>3</sub>(aq)','colourless',bottle('#e4eef6')]];
+const OBS={
+ tol:{A:['silver mirror forms',{liq:'#d8dde2',mirror:1}],B:['no visible change',{liq:'#eef1f4'}]},
+ feh:{A:['blue solution gives a brick-red precipitate',{liq:'#7fa9df',ppt:'#b5482a'}],B:['no visible change',{liq:'#2f6fd0'}]},
+ dnp:{A:['orange precipitate forms',{liq:'#f3b23a',ppt:'#e06a0a'}],B:['no visible change',{liq:'#f3b23a'}]},
+ hc:{A:['no visible change',{liq:'#e4eef6'}],B:['effervescence; gas turns limewater milky',{liq:'#e4eef6',bub:1}]}
+};
+const RNAME={tol:"Tollens' reagent",feh:"Fehling's solution",dnp:'2,4-DNPH',hc:'sodium hydrogencarbonate solution'};
+$('#tShelf').innerHTML=RG.map(r=>itemBtn(r[0],r[1],r[2],r[3])).join('');
+$('#tRack').innerHTML=['A','B'].map(p=>`<div class="tube zone" id="tube${p}" data-p="${p}" tabindex="0" role="button" aria-label="Test tube of ${p==='A'?'propanal':'propanoic acid'}">${tubeSVG('p'+p)}<span class="lbl">${p==='A'?'Propanal (from A)':'Propanoic acid (from B)'}</span><span class="obs" id="obs${p}">Fresh sample.</span></div>`).join('');
+function testTube(k,el){
+ const p=el.dataset.p,o=$('#obs'+p);
+ if(p==='A'&&!S.A.weighed){o.textContent='Make and weigh the propanal in Part 1A first.';return;}
+ if(p==='B'&&!S.B.fin){o.textContent='Make and weigh the propanoic acid in Part 1B first.';return;}
+ const [txt,st]=OBS[k][p];setTube(el,{liq:CLEARL,level:.5});o.textContent='Adding '+RNAME[k]+'…';
+ later(()=>setTube(el,Object.assign({level:.8},{liq:st.liq})),300);
+ later(()=>{setTube(el,Object.assign({level:.8},st));o.innerHTML='<b>'+RNAME[k]+':</b> '+txt+'.'+(k==='tol'||k==='feh'?' (warmed in a water bath)':'');},1500);
+}
+dragTap({key:'tests',shelf:$('#tShelf'),item:'.item',target:'.tube',hint:$('#tHint'),hintText:'Drag a reagent onto a tube, or tap a reagent and then tap a tube.',drop:testTube});
+
+/* ---------- Part 2 ---------- */
+const OPTS=['no visible change','silver mirror forms','blue solution gives a brick-red precipitate','orange precipitate forms','effervescence; gas turns limewater milky','orange solution turns green'];
+const ROWS=[['Colour of the reaction mixture in the flask','orange solution turns green','orange solution turns green'],["Tollens' reagent, warm",OBS.tol.A[0],OBS.tol.B[0]],["Fehling's solution, warm",OBS.feh.A[0],OBS.feh.B[0]],['2,4-DNPH',OBS.dnp.A[0],OBS.dnp.B[0]],['NaHCO<sub>3</sub>(aq) (or Na<sub>2</sub>CO<sub>3</sub>(aq))',OBS.hc.A[0],OBS.hc.B[0]]];
+function buildP2(){
+ $('#obsT').innerHTML='<thead><tr><th>Test</th><th>Propanal (A)</th><th>Propanoic acid (B)</th></tr></thead><tbody>'+ROWS.map(r=>`<tr><th>${r[0]}</th><td>${sel(r[1],OPTS,true)}</td><td>${sel(r[2],OPTS,true)}</td></tr>`).join('')+'</tbody>';
+ $('#bpA').innerHTML='<input type="text" inputmode="decimal" id="inBpA" aria-label="propanal distillation temperature"> °C. This is the boiling point of '+sel('propanal (48 °C)',['propanal (48 °C)','propan-1-ol (97 °C)','propanoic acid (141 °C)'],true);
+ $('#bpB').innerHTML='<input type="text" inputmode="decimal" id="inBpB" aria-label="propanoic acid fraction temperature"> °C. This is the boiling point of '+sel('propanoic acid (141 °C)',['propanal (48 °C)','water (100 °C)','propanoic acid (141 °C)'],true);
+ const hdr='<thead><tr><th>Product</th><th>Mass of propan-1-ol / g</th><th>Moles of propan-1-ol / mol</th><th>M<sub>r</sub> of product</th><th>Theoretical mass / g</th><th>Mass obtained / g</th><th>% yield</th></tr></thead>';
+ $('#yT').innerHTML=hdr+'<tbody>'+['A','B'].map(p=>`<tr><th>${p==='A'?'propanal':'propanoic acid'}</th>${['m','n','mr','th','mp','y'].map(c=>`<td><input type="text" inputmode="decimal" id="y${p}${c}" aria-label="${p} ${c}"></td>`).join('')}</tr>`).join('')+'</tbody>';
+ const O=['[O]','2[O]','3[O]'],P=['CH<sub>3</sub>CH<sub>2</sub>CHO','CH<sub>3</sub>CH<sub>2</sub>COOH','CH<sub>3</sub>COCH<sub>3</sub>'],Wt=['H<sub>2</sub>O','2H<sub>2</sub>O','H<sub>2</sub>'];
+ $('#eqs').innerHTML='<b>Propanal:</b> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH + '+sel('[O]',O,true)+' → '+sel(P[0],P,true)+' + '+sel(Wt[0],Wt,true)+'<br><b>Propanoic acid:</b> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH + '+sel('2[O]',O,true)+' → '+sel(P[1],P,true)+' + '+sel(Wt[0],Wt,true);
+ // selects with sub tags: option text loses tags, data-a must be plain
+ $$('#eqs select').forEach(s=>{s.dataset.a=s.dataset.a.replace(/<[^>]+>/g,'');});
+}
+buildP2();
+$('#chk2').addEventListener('click',()=>{
+ const root=$('#part2');let r=0,t=0;
+ $$('select[data-a]',root).forEach(s=>{t++;r+=mark(s,selOk(s));});
+ const own=(el,v,tol,done)=>{t++;const ok=done&&close(num(el),v,tol);r+=mark(el,ok);return ok;};
+ own($('#inBpA'),S.A.bp,0.012,S.A.dropDone);own($('#inBpB'),S.B.bp,0.005,S.B.collected);
+ ['A','B'].forEach(p=>{
+  const s=S[p],done=p==='A'?S.A.weighed:S.B.fin,MR=p==='A'?58:74,v=c=>num($('#y'+p+c));
+  own($('#y'+p+'m'),s.mAlc,0.001,done);own($('#y'+p+'mp'),s.mProd,0.001,done);
+  const n=v('m')/60;t++;r+=mark($('#y'+p+'n'),close(v('n'),n,0.012));
+  t++;r+=mark($('#y'+p+'mr'),close(v('mr'),MR,0.01));
+  const th=(isFinite(v('n'))?v('n'):n)*MR;t++;r+=mark($('#y'+p+'th'),close(v('th'),th,0.015));
+  const y=100*v('mp')/(isFinite(v('th'))?v('th'):th);t++;r+=mark($('#y'+p+'y'),close(v('y'),y,0.015));
+ });
+ const sc=$('#sc2');setScore(sc,r,t,(S.A.weighed&&S.B.fin)?'Red boxes need another look. Masses and temperatures must match your own readings.':'Finish both parts of the experiment so your own readings can be checked.');
+});
+$('#part2').addEventListener('input',e=>e.target.classList.remove('ok','wrong'));
+
+/* ---------- Part 3 ---------- */
+$('#qs3').innerHTML=[
+ 'To make propanal, the apparatus is set up for '+sel('distillation',['distillation','reflux'])+'. Propanal has the '+sel('lowest',['lowest','highest'])+' boiling point of the three organic compounds, so it '+sel('leaves the flask as soon as it forms',['leaves the flask as soon as it forms','stays in the flask','reacts with the condenser water'])+' and is not oxidised further to '+sel('propanoic acid',['propanoic acid','propan-1-ol','propanone'])+'.',
+ 'To make propanoic acid, the mixture is heated under '+sel('reflux',['reflux','distillation'])+'. Vapour '+sel('condenses and drips back into the flask',['condenses and drips back into the flask','escapes from the top','collects in the receiver'])+', so propanal stays in contact with the oxidising agent until it is fully oxidised.',
+ 'An excess of potassium dichromate(VI) is used for the acid '+sel('so there is enough oxidising agent to oxidise all the propan-1-ol to the acid, via propanal',['so there is enough oxidising agent to oxidise all the propan-1-ol to the acid, via propanal','to make the solution boil at a lower temperature','to act as a catalyst','to stop the mixture turning green'])+'.',
+ 'The colour changes from orange to green because Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> ions are '+sel('reduced',['reduced','oxidised'])+' to Cr<sup>3+</sup> ions. The oxidation number of chromium changes from '+sel('+6',['+6','+7','+3','+2'],true)+' to '+sel('+3',['+6','+3','+2','0'],true)+'.',
+ 'The receiver for propanal is kept in ice because propanal '+sel('is volatile (bp 48 °C) and flammable, so cooling reduces loss by evaporation',['is volatile (bp 48 °C) and flammable, so cooling reduces loss by evaporation','reacts with water at room temperature','must be frozen to be weighed'])+'.',
+ 'Propan-1-ol is added dropwise because the reaction is '+sel('exothermic',['exothermic','endothermic'])+' and each small amount of propanal formed '+sel('distils off before it can be oxidised further',['distils off before it can be oxidised further','stays in the flask to react again','turns the mixture orange'])+'.'
+].map(x=>'<li>'+x+'</li>').join('');
+$('#chk3').addEventListener('click',()=>checkSelects($('#qs3'),$('#sc3')));
+$('#qs3').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+
+/* ---------- Part 4 ---------- */
+const FAULT=`<svg viewBox="0 0 420 230" style="width:100%;max-width:440px;height:auto;display:block;margin:6px 0" role="img" aria-label="Distillation diagram with errors">
+<circle cx="90" cy="160" r="38" class="glass"/><rect x="52" y="168" width="76" height="28" fill="${OR}" opacity=".7"/><path class="glass" d="M84 124L84 60M96 124L96 84M96 74L96 60M80 60L100 60M96 74L146 96M96 84L142 104"/>
+<rect x="88" y="20" width="4" height="150" fill="#fff" stroke="#7d8fa3"/><circle cx="90" cy="176" r="4.5" fill="#c0392b"/>
+<g transform="translate(144,100) rotate(22)"><rect x="12" y="-11" width="150" height="22" rx="6" fill="rgba(170,205,235,.4)" stroke="#7d8fa3" stroke-width="2.5"/><rect x="0" y="-3.5" width="180" height="7" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M150 11L150 22M22 -11L22 -22" stroke="#7d8fa3" stroke-width="6"/></g>
+<text class="lab" x="140" y="70">water in</text><text class="lab" x="270" y="196">water out</text><text class="lab" x="10" y="216">heat</text><path d="M60 214L120 214" stroke="#e0532b" stroke-width="4"/>
+<path class="glass" d="M311 168L320 186"/><path class="glass" d="M310 186L310 196L296 222L344 222L330 196L330 186"/><text class="lab" x="140" y="16">thermometer</text></svg>`;
+const EXAM=[
+ {t:'wr',m:4,q:'A student sets up this apparatus to collect propanal by distillation.'+FAULT+'Identify <b>two</b> errors in the set-up. For each, state its effect.',ms:['Thermometer bulb is in the liquid / not level with the side arm (1)','So it measures the temperature of the liquid, not the vapour that distils / does not show the boiling point of the distillate (1)','Water enters the condenser at the top / should go in at the bottom (1)','So the jacket does not fill, cooling is poor and propanal vapour escapes / is lost (1)'],nb:'Allow: receiver not in ice bath, so volatile propanal evaporates (as an alternative pair). Do not award "condenser is the wrong way round" without reference to the water flow.'},
+ {t:'mcq',m:1,q:'Which absorptions in an infrared spectrum show that a product is propanoic acid and <b>not</b> propanal?',o:['A sharp absorption at 1720 cm<sup>−1</sup> only','A broad absorption at 2500–3300 cm<sup>−1</sup> and a strong absorption at about 1710 cm<sup>−1</sup>','A broad absorption at 3200–3600 cm<sup>−1</sup> only','Absorptions at 2720 cm<sup>−1</sup> and 1730 cm<sup>−1</sup>'],a:1,why:'<b>B.</b> Both compounds have C=O (about 1700–1740 cm<sup>−1</sup>). Only the carboxylic acid has the very broad O–H stretch at 2500–3300 cm<sup>−1</sup>. D is the aldehyde (C–H of CHO near 2720 cm<sup>−1</sup>). C is an alcohol O–H.'},
+ {t:'num',m:3,q:'In another experiment, 3.00 g of propan-1-ol (M<sub>r</sub> = 60.0) was heated under reflux with excess acidified potassium dichromate(VI). The mass of propanoic acid (M<sub>r</sub> = 74.0) obtained was 2.14 g.<br>Calculate the percentage yield. Give your answer to 3 significant figures.',a:57.8,tol:0.006,unit:'%',worked:'<div>moles of propan-1-ol = 3.00 ÷ 60.0 = 0.0500 mol (1)</div><div>1 : 1 ratio, so theoretical mass of acid = 0.0500 × 74.0 = 3.70 g (1)</div><div>% yield = 2.14 ÷ 3.70 × 100 = <b>57.8 %</b> (1)</div>'},
+ {t:'mcq',m:1,q:'Which reagent gives a positive result with propanal but <b>not</b> with propanone?',o:['2,4-dinitrophenylhydrazine','Fehling’s solution','bromine water','sodium carbonate solution'],a:1,why:'<b>B.</b> Aldehydes are oxidised by Fehling’s solution (blue → brick-red Cu<sub>2</sub>O). Ketones are not. 2,4-DNPH gives an orange precipitate with <i>both</i> aldehydes and ketones.'},
+ {t:'wr',m:2,q:'A student tried to make propanal by heating propan-1-ol with acidified potassium dichromate(VI) under reflux. Explain why very little propanal was obtained.',ms:['Under reflux the propanal (vapour) condenses and returns to the flask / is not removed (1)','So it is oxidised further to propanoic acid (1)'],nb:'Do not award "propanal is destroyed" without reference to oxidation to the acid.'},
+ {t:'wr',m:2,q:'The infrared spectrum of the distillate from Part A shows a strong absorption at 1730 cm<sup>−1</sup> and a broad absorption at 3350 cm<sup>−1</sup>. Explain what this shows about the distillate.',ms:['1730 cm<sup>−1</sup> is C=O, so an aldehyde / propanal is present (1)','Broad 3350 cm<sup>−1</sup> is O–H of an alcohol, so the distillate contains unreacted propan-1-ol (allow water) (1)'],nb:'Do not award O–H of a carboxylic acid: that would be broader and at 2500–3300 cm<sup>−1</sup>.'}
+];
+buildExam($('#exam'),EXAM,$('#exTot'));
+
+/* ---------- reset ---------- */
+setup('A');setup('B');
+function resetTubes(){['A','B'].forEach(p=>{setTube($('#tube'+p),{liq:CLEARL,level:.5});$('#obs'+p).textContent='Fresh sample.';});}
+resetTubes();
+$('#resetAll').addEventListener('click',()=>{
+ stopTimers();PTIM.A=[];PTIM.B=[];
+ setup('A');setup('B');showTab('A');resetTubes();
+ buildP2();$('#sc2').textContent='';
+ $$('#qs3 select').forEach(s=>{s.value='';s.classList.remove('ok','wrong');});$('#sc3').textContent='';
+ buildExam($('#exam'),EXAM,$('#exTot'));window.scrollTo({top:0,behavior:'smooth'});
+});
+
+})();
+</script></body></html>

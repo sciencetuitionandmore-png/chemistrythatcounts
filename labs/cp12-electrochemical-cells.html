@@ -1,0 +1,497 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Electrochemical Cells Lab</title>
+<meta name="description" content="Virtual core practical: Electrochemical Cells Lab. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp12-electrochemical-cells.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--warn:#a85d00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.meta{font:600 .9rem var(--display);color:var(--muted)}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-left:5px solid var(--warn);border-radius:10px;padding:8px 14px;max-width:72ch}
+details.safety summary{cursor:pointer;font:600 1rem var(--display);color:var(--warn)}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;font-size:.93rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+.tab{font:600 .9rem var(--display);padding:8px 14px;border:2px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;background:var(--bench);color:var(--muted);cursor:pointer;margin-bottom:-2px}
+.tab[aria-selected=true]{background:var(--sheet);color:var(--accent);border-color:var(--accent)}
+[hidden]{display:none!important}
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shelf-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.shelf{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;font-size:.76rem;line-height:1.2;text-align:center;color:var(--ink);width:100px}
+.item svg{width:44px;height:54px;display:block}
+.item small{color:var(--muted);font-size:.7rem}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+.item:disabled{opacity:.4;cursor:default}
+.item:focus-visible,.btn:focus-visible,.mini:focus-visible,.tab:focus-visible,.slot:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.target.armed,.target.over{outline:3px dashed var(--accent);outline-offset:2px}
+.hint{text-align:center;font-size:.88rem;color:var(--muted);margin:0 auto}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:12px}
+@media (max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}
+.scene{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;min-width:0}
+.scene svg{width:100%;height:auto;display:block}
+.slots{display:flex;gap:6px;margin-top:6px}
+.slot{font:inherit;font-size:.8rem;padding:6px 8px;border:2px dashed var(--line);border-radius:8px;background:var(--paper);color:var(--muted);cursor:pointer;flex:1}
+.side{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.88rem;line-height:1.3}
+.checklist li{position:relative;padding-left:26px;color:var(--muted)}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:18px;height:18px;border:2px solid var(--line);border-radius:5px;background:#fff;font-size:13px;line-height:15px;text-align:center;color:#fff}
+.checklist li.now{color:var(--ink);font-weight:700}
+.checklist li.done{color:var(--ink)}
+.checklist li.done::before{content:"✓";background:var(--good);border-color:var(--good)}
+.msg{min-height:2.6em;padding:8px 12px;border-radius:10px;background:var(--sheet);border:1px solid var(--line);font-size:.92rem}
+.msg.warn{border-color:var(--warn);background:#fff5e6}
+.msg.ok{border-color:var(--good);background:#e9f6ee}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:var(--sheet);color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.mini{font:inherit;font-size:.82rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.readbox{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.readout{font:700 1.1rem var(--display);font-variant-numeric:tabular-nums;color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:#fff}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+input.n{font:inherit;font-size:.95rem;width:6.5em;padding:4px 6px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+input.n.ok,select.ok{border-color:var(--good)} input.n.wrong,select.wrong{border-color:var(--bad)}
+select{font:inherit;font-size:.93rem;padding:3px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.score{font-weight:700}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.note{font-size:.86rem;color:var(--muted)}
+.data{background:var(--paper);border-radius:10px;padding:8px 12px;font-size:.9rem}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+.xq{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+.mk{font-weight:700;white-space:nowrap}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opts label{display:block;padding:4px 8px;border-radius:8px;border:2px solid transparent}
+.opts label.ok{border-color:var(--good)} .opts label.wrong{border-color:var(--bad)}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:4.5em;padding:6px 8px;border:2px solid var(--line);border-radius:8px;resize:vertical}
+.ms,.worked{background:#f6f6fd;border:1px solid var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.ms>*{margin:4px 0}.xq .mini{align-self:flex-start}
+.ms label{display:block;padding-left:26px;text-indent:-26px}
+.ms input{width:18px;height:18px;accent-color:var(--accent);vertical-align:-3px;margin:0 8px 0 0}
+canvas{width:100%;max-width:640px;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+.lbl{font:14px var(--body);fill:#5a6878}
+.scrub{animation:scrub .25s ease 4}
+@keyframes scrub{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@media (max-width:520px){body{font-size:16px}.item{width:88px}.item svg{width:38px;height:46px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+
+<header>
+<h1>Investigating some electrochemical cells</h1>
+<p class="meta">IAL Chemistry · Core Practical 12 · Unit 6</p>
+<p><b>Aim:</b> To measure the e.m.f. of cells made from two half-cells and compare it with the value calculated from standard electrode potentials.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection. Silver nitrate solution (1.0 mol dm<sup>−3</sup>) can cause serious eye damage and stains skin black: wear gloves.</li>
+<li>Copper(II) sulfate solution (1.0 mol dm<sup>−3</sup>) is harmful if swallowed and irritates eyes and skin.</li>
+<li>Silver and copper salts are toxic to aquatic life: pour used solutions into the residue bottle, not down the sink.</li>
+<li>Potassium nitrate is an oxidising agent. Wash hands after handling the soaked filter paper.</li>
+</ul></details>
+</header>
+
+<section class="sheet">
+<h2><span class="step">Part 1</span>Do the experiment</h2>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-tab="std" type="button">Standard cells</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="ext" type="button">Extension: concentration</button>
+</div>
+
+<div data-pane="std">
+<div class="bench">
+<div class="shelf-label">Half-cells: 1.0 mol dm<sup>−3</sup> solutions at 298 K</div>
+<div class="shelf" id="hcShelf"></div>
+<div class="shelf-label">Equipment</div>
+<div class="shelf" id="eqShelf"></div>
+<p class="hint">Drag an item to where it goes, or tap it and then tap the place.</p>
+<div class="layout">
+<div class="scene target" data-t="scene"><svg id="svg1" viewBox="0 0 600 360" role="img" aria-label="Bench with the electrochemical cell"></svg>
+<div class="slots"><button type="button" class="slot target" data-t="L">Left position</button><button type="button" class="slot target" data-t="M">Middle (bridge, meter)</button><button type="button" class="slot target" data-t="R">Right position</button></div></div>
+<div class="side"><h3>Method</h3><ol class="checklist" id="ck1">
+<li>Clean the metal strips with emery paper.</li>
+<li>Put two half-cells on the bench.</li>
+<li>Join them with a salt bridge: filter paper soaked in saturated KNO<sub>3</sub>(aq).</li>
+<li>Place the high-resistance voltmeter and connect the leads.</li>
+<li>Get a positive reading and record E<sub>cell</sub>.</li>
+<li>Repeat for at least 4 different cells.</li>
+</ol></div>
+</div>
+<div class="msg" id="msg1" aria-live="polite">Start by cleaning a metal strip: tap the emery paper, then tap a half-cell.</div>
+<div class="controls">
+<button class="btn" type="button" id="bConnect">Connect leads</button>
+<button class="btn ghost" type="button" id="bSwap">Swap leads</button>
+<button class="btn" type="button" id="bRecord">Record this cell</button>
+<button class="btn ghost" type="button" id="bClear">Clear the bench</button>
+</div>
+<div class="readbox"><span>Voltmeter reading:</span><span class="readout" id="read1">no reading</span></div>
+<h3>Cells you have recorded (copy these into Part 2)</h3>
+<div class="tbl-wrap"><table id="logT"><thead><tr><th>#</th><th>Half-cells</th><th>E<sub>cell</sub> measured / V</th></tr></thead><tbody><tr><td colspan="3" class="note">None yet.</td></tr></tbody></table></div>
+</div>
+</div>
+
+<div data-pane="ext" hidden>
+<div class="bench">
+<p class="note" style="margin:0 auto">The Cu<sup>2+</sup>/Cu half-cell stays at 1.0 mol dm<sup>−3</sup>. The Ag<sup>+</sup> solutions were made by serial dilution (10.0 cm<sup>3</sup> made up to 100.0 cm<sup>3</sup> in a volumetric flask). A fresh KNO<sub>3</sub> salt bridge is used each time.</p>
+<div class="shelf-label">Ag<sup>+</sup>/Ag half-cells</div>
+<div class="shelf" id="agShelf"></div>
+<div class="layout">
+<div class="scene target" data-t="scene2"><svg id="svg2" viewBox="0 0 600 360" role="img" aria-label="Copper and silver cell"></svg>
+<div class="slots"><button type="button" class="slot target" data-t="R2">Right position (Ag<sup>+</sup>/Ag)</button></div></div>
+<div class="side"><h3>Method</h3><ol class="checklist" id="ck2">
+<li>Measure E<sub>cell</sub> with [Ag<sup>+</sup>] = 1.0 mol dm<sup>−3</sup>.</li>
+<li>Measure with 0.10 mol dm<sup>−3</sup>.</li>
+<li>Measure with 0.010 mol dm<sup>−3</sup>.</li>
+<li>Measure with 0.0010 mol dm<sup>−3</sup>.</li>
+<li>Plot E<sub>cell</sub> against log[Ag<sup>+</sup>] in Part 2.</li>
+</ol></div>
+</div>
+<div class="msg" id="msg2" aria-live="polite">Drag an Ag<sup>+</sup>/Ag half-cell to the right position, or tap it and tap the right position.</div>
+<div class="tbl-wrap"><table><thead><tr><th>[Ag<sup>+</sup>] / mol dm<sup>−3</sup></th><th>1.0</th><th>0.10</th><th>0.010</th><th>0.0010</th></tr></thead><tbody><tr><th>E<sub>cell</sub> / V</th><td id="ex0">–</td><td id="ex1">–</td><td id="ex2">–</td><td id="ex3">–</td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+
+<section class="sheet">
+<h2><span class="step">Part 2</span>Record your results</h2>
+<div class="data"><b>Data:</b> standard electrode potentials, E<sup>⦵</sup> / V<br>
+Zn<sup>2+</sup>(aq) + 2e<sup>−</sup> ⇌ Zn(s) −0.76 · Fe<sup>2+</sup>(aq) + 2e<sup>−</sup> ⇌ Fe(s) −0.44 · Cu<sup>2+</sup>(aq) + 2e<sup>−</sup> ⇌ Cu(s) +0.34 · Fe<sup>3+</sup>(aq) + e<sup>−</sup> ⇌ Fe<sup>2+</sup>(aq) +0.77 · Ag<sup>+</sup>(aq) + e<sup>−</sup> ⇌ Ag(s) +0.80</div>
+<h3>A. Standard cells</h3>
+<p class="note">E<sup>⦵</sup><sub>cell</sub> calculated = E<sup>⦵</sup>(right, positive electrode) − E<sup>⦵</sup>(left, negative electrode). Give values to 2 d.p.</p>
+<div class="tbl-wrap"><table id="tA"><thead><tr><th>#</th><th>Cell</th><th>Positive electrode</th><th>E<sub>cell</sub> measured / V</th><th>E<sup>⦵</sup><sub>cell</sub> calculated / V</th></tr></thead><tbody><tr class="empty"><td colspan="5" class="note">Record a cell in Part 1 first.</td></tr></tbody></table></div>
+<h3>B. Extension: effect of [Ag<sup>+</sup>]</h3>
+<div class="tbl-wrap"><table id="tB"><thead><tr><th>[Ag<sup>+</sup>] / mol dm<sup>−3</sup></th><th>log[Ag<sup>+</sup>]</th><th>E<sub>cell</sub> / V</th></tr></thead><tbody></tbody></table></div>
+<div class="controls"><button class="btn ghost" type="button" id="bPlot">Draw my graph</button><span class="note" id="gradOut"></span></div>
+<canvas id="cv" width="640" height="380" aria-label="Graph of E cell against log silver ion concentration"></canvas>
+<label>Gradient of your line (3 d.p.): <input class="n" id="grad" inputmode="decimal"> V</label>
+<div class="toolbar"><button class="btn" type="button" id="bCheckRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet">
+<h2><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>The salt bridge
+<select data-a="a"><option value="">choose…</option><option value="b">lets electrons flow between the solutions</option><option value="a">completes the circuit by letting ions move</option><option value="c">stops the solutions evaporating</option></select>
+and keeps each solution
+<select data-a="a"><option value="">choose…</option><option value="a">electrically neutral</option><option value="b">at 298 K</option><option value="c">at 1.0 mol dm⁻³</option></select>.</li>
+<li>Potassium nitrate is used because K<sup>+</sup> and NO<sub>3</sub><sup>−</sup> ions
+<select data-a="a"><option value="">choose…</option><option value="a">do not react with the ions in the half-cells</option><option value="b">are good oxidising agents</option><option value="c">carry electrons</option></select>.
+With KCl, Cl<sup>−</sup> ions would react with Ag<sup>+</sup> to form a
+<select data-a="b"><option value="">choose…</option><option value="a">yellow precipitate of AgI</option><option value="b">white precipitate of AgCl</option><option value="c">green gas</option></select>.</li>
+<li>A high-resistance voltmeter is used so that
+<select data-a="b"><option value="">choose…</option><option value="a">a large current flows</option><option value="b">almost no current flows</option><option value="c">the cell heats up</option></select>.
+It then measures the
+<select data-a="a"><option value="">choose…</option><option value="a">maximum potential difference (e.m.f.)</option><option value="b">resistance of the cell</option><option value="c">rate of electron flow</option></select> of the cell.</li>
+<li>Standard conditions are a temperature of
+<select data-a="b"><option value="">choose…</option><option value="a">273 K</option><option value="b">298 K</option><option value="c">373 K</option></select>,
+solution concentrations of
+<select data-a="c"><option value="">choose…</option><option value="a">0.10 mol dm⁻³</option><option value="b">2.0 mol dm⁻³</option><option value="c">1.0 mol dm⁻³</option></select>
+and a gas pressure of
+<select data-a="a"><option value="">choose…</option><option value="a">100 kPa</option><option value="b">1 kPa</option><option value="c">10 kPa</option></select>.</li>
+<li>In the Zn/Cu cell, electrons flow through the external wire
+<select data-a="a"><option value="">choose…</option><option value="a">from zinc to copper</option><option value="b">from copper to zinc</option><option value="c">through the salt bridge</option></select>,
+because zinc has the
+<select data-a="b"><option value="">choose…</option><option value="a">more positive</option><option value="b">more negative</option></select> E<sup>⦵</sup> value.</li>
+<li>Complete the conventional cell diagram for the Zn/Cu cell:<br>
+<select data-a="a"><option value="">…</option><option value="a">Zn(s)</option><option value="b">Zn²⁺(aq)</option><option value="c">Cu²⁺(aq)</option><option value="d">Cu(s)</option></select> |
+<select data-a="b"><option value="">…</option><option value="a">Zn(s)</option><option value="b">Zn²⁺(aq)</option><option value="c">Cu²⁺(aq)</option><option value="d">Cu(s)</option></select> ||
+<select data-a="c"><option value="">…</option><option value="a">Zn(s)</option><option value="b">Zn²⁺(aq)</option><option value="c">Cu²⁺(aq)</option><option value="d">Cu(s)</option></select> |
+<select data-a="d"><option value="">…</option><option value="a">Zn(s)</option><option value="b">Zn²⁺(aq)</option><option value="c">Cu²⁺(aq)</option><option value="d">Cu(s)</option></select></li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="bCheckQ">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" id="exam">
+<h2><span class="step">Part 4</span>Exam practice</h2>
+<p class="note">Type numbers only, to 2 d.p. Written answers: write first, then open the mark scheme and tick the points you made.</p>
+<div class="data">Ni<sup>2+</sup>(aq) + 2e<sup>−</sup> ⇌ Ni(s) E<sup>⦵</sup> = −0.25 V · Ag<sup>+</sup>(aq) + e<sup>−</sup> ⇌ Ag(s) E<sup>⦵</sup> = +0.80 V</div>
+<div class="xq" data-type="num" data-a="1.05" data-tol="0.005" data-m="1">
+<p><b>1 (a)</b> Calculate E<sup>⦵</sup><sub>cell</sub> for a cell made from these two half-cells. <span class="mk">(1)</span></p>
+<label>E<sup>⦵</sup><sub>cell</sub> = <input class="n" inputmode="decimal"> V</label>
+<div class="worked" hidden>E<sup>⦵</sup><sub>cell</sub> = E<sup>⦵</sup>(positive) − E<sup>⦵</sup>(negative) = +0.80 − (−0.25) = <b>+1.05 V</b></div></div>
+<div class="xq" data-type="wr" data-m="2">
+<p><b>1 (b)</b> Write the overall equation for the reaction that takes place when this cell supplies a current. State symbols are not required. <span class="mk">(2)</span></p>
+<textarea aria-label="Answer 1b"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><label><input type="checkbox"> Ni and Ag<sup>+</sup> on the left, Ni<sup>2+</sup> and Ag on the right (1)</label><label><input type="checkbox"> Balanced: Ni + 2Ag<sup>+</sup> → Ni<sup>2+</sup> + 2Ag (1)</label><p class="note">Allow multiples. Do not award if electrons are left in the equation or the equation is reversed.</p></div></div>
+<div class="xq" data-type="mcq" data-a="A" data-m="1">
+<p><b>2</b> Use these data. Fe<sup>3+</sup>/Fe<sup>2+</sup> +0.77 V; I<sub>2</sub>/I<sup>−</sup> +0.54 V; Br<sub>2</sub>/Br<sup>−</sup> +1.09 V; Cu<sup>2+</sup>/Cu +0.34 V. Which reaction is thermodynamically feasible? <span class="mk">(1)</span></p>
+<div class="opts"><label><input type="radio" name="x2" value="A"> A 2Fe<sup>3+</sup> + 2I<sup>−</sup> → 2Fe<sup>2+</sup> + I<sub>2</sub></label><label><input type="radio" name="x2" value="B"> B 2Fe<sup>3+</sup> + 2Br<sup>−</sup> → 2Fe<sup>2+</sup> + Br<sub>2</sub></label><label><input type="radio" name="x2" value="C"> C I<sub>2</sub> + 2Fe<sup>2+</sup> → 2I<sup>−</sup> + 2Fe<sup>3+</sup></label><label><input type="radio" name="x2" value="D"> D Cu<sup>2+</sup> + 2Fe<sup>2+</sup> → Cu + 2Fe<sup>3+</sup></label></div>
+<div class="worked" hidden>A: E<sup>⦵</sup><sub>cell</sub> = 0.77 − 0.54 = +0.23 V, positive so feasible. B, C and D all give negative E<sup>⦵</sup><sub>cell</sub>.</div></div>
+<div class="xq" data-type="mcq" data-a="B" data-m="1">
+<p><b>3</b> Which change would <b>increase</b> the measured e.m.f. of the cell Zn(s)|Zn<sup>2+</sup>(aq)||Cu<sup>2+</sup>(aq)|Cu(s)? <span class="mk">(1)</span></p>
+<div class="opts"><label><input type="radio" name="x3" value="A"> A Decreasing [Cu<sup>2+</sup>]</label><label><input type="radio" name="x3" value="B"> B Decreasing [Zn<sup>2+</sup>]</label><label><input type="radio" name="x3" value="C"> C Using a larger zinc electrode</label><label><input type="radio" name="x3" value="D"> D Using a longer salt bridge</label></div>
+<div class="worked" hidden>B: lower [Zn<sup>2+</sup>] moves Zn<sup>2+</sup> + 2e<sup>−</sup> ⇌ Zn to the left, so E(Zn) becomes more negative and E<sub>cell</sub> increases. Electrode size and bridge length do not change the e.m.f.</div></div>
+<div class="xq" data-type="wr" data-m="2">
+<p><b>4</b> A student measured E<sub>cell</sub> = 1.08 V for the Zn/Cu cell. The standard value is 1.10 V. Suggest <b>two</b> reasons why the measured value is lower. <span class="mk">(2)</span></p>
+<textarea aria-label="Answer 4"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><p class="note">Any two, one mark each:</p><label><input type="checkbox"> Oxide layer / impurities on the metal surface (not fully cleaned) (1)</label><label><input type="checkbox"> Solutions not exactly 1.00 mol dm<sup>−3</sup> / temperature not 298 K (non-standard conditions) (1)</label><p class="note">Also allow: a small current flows so some energy is lost across the internal resistance (salt bridge, solutions). Do not award "human error" or "the voltmeter is wrong" without explanation.</p></div></div>
+<div class="xq" data-type="wr" data-m="2">
+<p><b>5 (a)</b> A cell is made from a Zn<sup>2+</sup>/Zn half-cell and an Fe<sup>3+</sup>/Fe<sup>2+</sup> half-cell. Write the conventional cell diagram. <span class="mk">(2)</span></p>
+<textarea aria-label="Answer 5a"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><p class="note">Zn(s) | Zn<sup>2+</sup>(aq) || Fe<sup>3+</sup>(aq), Fe<sup>2+</sup>(aq) | Pt(s)</p><label><input type="checkbox"> Zn(s)|Zn<sup>2+</sup>(aq) on the left, joined by || to the right-hand half-cell (1)</label><label><input type="checkbox"> Fe<sup>3+</sup>(aq), Fe<sup>2+</sup>(aq) separated by a comma, with Pt(s) on the far right (1)</label><p class="note">Allow Fe<sup>2+</sup>(aq), Fe<sup>3+</sup>(aq) order. Do not award a | between Fe<sup>3+</sup> and Fe<sup>2+</sup> (same phase). Ignore missing state symbols once.</p></div></div>
+<div class="xq" data-type="num" data-a="1.53" data-tol="0.005" data-m="1">
+<p><b>5 (b)</b> Calculate E<sup>⦵</sup><sub>cell</sub> for this cell. <span class="mk">(1)</span></p>
+<label>E<sup>⦵</sup><sub>cell</sub> = <input class="n" inputmode="decimal"> V</label>
+<div class="worked" hidden>+0.77 − (−0.76) = <b>+1.53 V</b></div></div>
+<div class="xq" data-type="wr" data-m="2">
+<p><b>5 (c)</b> Explain why a platinum electrode is used in the Fe<sup>3+</sup>/Fe<sup>2+</sup> half-cell. <span class="mk">(2)</span></p>
+<textarea aria-label="Answer 5c"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><label><input type="checkbox"> Both Fe<sup>3+</sup> and Fe<sup>2+</sup> are ions in solution, so there is no solid metal to act as the electrode (1)</label><label><input type="checkbox"> Platinum is inert / unreactive but conducts electrons to and from the solution (1)</label></div></div>
+<div class="toolbar"><button class="btn" type="button" id="bCheckX">Check my exam answers</button><span class="score" id="xScore" aria-live="polite">Exam practice: 0 / 12 marks</span></div>
+</section>
+
+<div class="toolbar"><span class="note">E<sup>⦵</sup><sub>cell</sub> = E<sup>⦵</sup>(positive electrode) − E<sup>⦵</sup>(negative electrode); a positive value means the reaction is feasible.</span><button class="btn ghost" type="button" id="bReset">Start again</button></div>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const r2=x=>Math.round(x*100)/100;
+const num=v=>{v=String(v==null?'':v).trim().replace(/[−–]/g,'-').replace(',','.');return v===''?NaN:Number(v)};
+const HC={
+ Zn:{nm:'Zn²⁺/Zn',sol:'ZnSO₄(aq)',E:-0.76,el:'zinc',liq:'#dfe9f1',mc:'#aeb7bf',dc:'#69717a'},
+ Fe:{nm:'Fe²⁺/Fe',sol:'FeSO₄(aq)',E:-0.44,el:'iron',liq:'#d7eabb',mc:'#8b929b',dc:'#8a5634'},
+ Cu:{nm:'Cu²⁺/Cu',sol:'CuSO₄(aq)',E:0.34,el:'copper',liq:'#86bce8',mc:'#d27b42',dc:'#6e4329'},
+ Ag:{nm:'Ag⁺/Ag',sol:'AgNO₃(aq)',E:0.80,el:'silver',liq:'#e8eff5',mc:'#e3e6ea',dc:'#85898c'},
+ Pt:{nm:'Fe³⁺/Fe²⁺',sol:'Fe³⁺ + Fe²⁺, Pt',E:0.77,el:'platinum',liq:'#ecc06a',mc:'#cfd3d8',dc:'#cfd3d8',pt:1}
+};
+const ORDER=['Zn','Fe','Cu','Ag','Pt'];
+const CONC=[1.0,0.10,0.010,0.0010],CL=['1.0','0.10','0.010','0.0010'];
+
+/* ---------- state ---------- */
+let S,log,devs,done,ext,extVals;
+function fresh(){
+ S={clean:{},L:null,R:null,bridge:null,meter:false,leads:null};log=[];devs={};done={};
+ ext={conc:null};extVals=CONC.map(c=>r2(0.46+0.0592*Math.log10(c)-0.02+(Math.random()-.5)*0.008));
+ extVals.got=[];
+}
+
+/* ---------- icons ---------- */
+function icoBeaker(k,dirty){const h=HC[k];return `<svg viewBox="0 0 60 70" aria-hidden="true"><rect x="9" y="30" width="42" height="35" fill="${h.liq}"/>${h.pt?`<path d="M30 4V44" stroke="#9aa0a6" stroke-width="2"/><rect x="25" y="44" width="10" height="14" fill="${h.mc}" stroke="#8d939a"/>`:`<rect x="25" y="4" width="10" height="56" rx="1" fill="${dirty?h.dc:h.mc}" stroke="rgba(0,0,0,.3)"/>`}<path d="M6 14L9 18V64Q9 67 12 67H48Q51 67 51 64V18L54 14" fill="none" stroke="#7d8fa3" stroke-width="2.5" stroke-linejoin="round"/></svg>`}
+const ICO={
+ emery:'<svg viewBox="0 0 60 70" aria-hidden="true"><rect x="8" y="16" width="44" height="38" rx="3" fill="#b9915a" stroke="#7a5a30"/><g fill="#8a6a3c"><circle cx="16" cy="24" r="1.5"/><circle cx="28" cy="30" r="1.5"/><circle cx="40" cy="22" r="1.5"/><circle cx="20" cy="40" r="1.5"/><circle cx="36" cy="44" r="1.5"/><circle cx="45" cy="34" r="1.5"/></g></svg>',
+ kno3:'<svg viewBox="0 0 60 70" aria-hidden="true"><ellipse cx="30" cy="58" rx="24" ry="6" fill="#dfe9f1" stroke="#7d8fa3" stroke-width="2"/><path d="M14 56V26Q14 16 24 16H36Q46 16 46 26V56" fill="none" stroke="#e8dcb2" stroke-width="9"/><text x="30" y="40" text-anchor="middle" font-size="9" font-weight="700" fill="#5a6878">KNO₃</text></svg>',
+ kcl:'<svg viewBox="0 0 60 70" aria-hidden="true"><ellipse cx="30" cy="58" rx="24" ry="6" fill="#dfe9f1" stroke="#7d8fa3" stroke-width="2"/><path d="M14 56V26Q14 16 24 16H36Q46 16 46 26V56" fill="none" stroke="#e8dcb2" stroke-width="9"/><text x="30" y="40" text-anchor="middle" font-size="9" font-weight="700" fill="#5a6878">KCl</text></svg>',
+ volt:'<svg viewBox="0 0 60 70" aria-hidden="true"><rect x="6" y="10" width="48" height="50" rx="6" fill="#2b3340"/><rect x="12" y="16" width="36" height="16" rx="2" fill="#cfe3c6"/><text x="30" y="28" text-anchor="middle" font-size="10" font-family="monospace" fill="#1c2a1c">0.00</text><circle cx="18" cy="48" r="4" fill="#222" stroke="#999"/><circle cx="42" cy="48" r="4" fill="#c62828"/></svg>',
+ amm:'<svg viewBox="0 0 60 70" aria-hidden="true"><rect x="6" y="12" width="48" height="46" rx="6" fill="#eef1f4" stroke="#7d8fa3" stroke-width="2"/><path d="M14 44A16 16 0 0 1 46 44" fill="none" stroke="#5a6878" stroke-width="2"/><path d="M30 44L40 30" stroke="#b3261e" stroke-width="2"/><text x="30" y="54" text-anchor="middle" font-size="10" font-weight="700" fill="#5a6878">A</text></svg>'
+};
+function mkItem(id,label,sub,svg,target){const b=document.createElement('button');b.type='button';b.className='item'+(target?' target':'');b.dataset.id=id;if(target)b.dataset.t='hc';b.innerHTML=svg+'<span>'+label+'</span>'+(sub?'<small>'+sub+'</small>':'');return b}
+function buildShelves(){
+ const hs=$('#hcShelf');hs.innerHTML='';
+ ORDER.forEach(k=>hs.appendChild(mkItem(k,HC[k].nm,HC[k].pt?'Pt electrode':'not cleaned',icoBeaker(k,!HC[k].pt),true)));
+ const es=$('#eqShelf');es.innerHTML='';
+ [['emery','Emery paper',''],['kno3','Filter paper','soaked in sat. KNO₃(aq)'],['kcl','Filter paper','soaked in sat. KCl(aq)'],['volt','Digital voltmeter','high resistance'],['amm','Ammeter','low resistance']].forEach(a=>es.appendChild(mkItem(a[0],a[1],a[2],ICO[a[0]])));
+ const ag=$('#agShelf');ag.innerHTML='';
+ CONC.forEach((c,i)=>ag.appendChild(mkItem('c'+i,'Ag⁺/Ag',CL[i]+' mol dm⁻³',icoBeaker('Ag',false))));
+}
+function updShelf(){
+ ORDER.forEach(k=>{const b=$(`#hcShelf [data-id="${k}"]`);const on=S.L===k||S.R===k;b.disabled=on;
+  if(!HC[k].pt){b.querySelector('svg').outerHTML=icoBeaker(k,!S.clean[k]);b.querySelector('small').textContent=S.clean[k]?'cleaned':'not cleaned'}});
+}
+
+/* ---------- scene ---------- */
+function beakerScene(k,x,lab){const h=HC[k];let s=`<rect x="${x+4}" y="185" width="172" height="121" fill="${h.liq}"/>`;
+ if(h.pt)s+=`<path d="M${x+71} 90V240" stroke="#9aa0a6" stroke-width="3"/><rect x="${x+58}" y="240" width="26" height="40" fill="${h.mc}" stroke="#8d939a" stroke-width="1.5"/>`;
+ else s+=`<rect x="${x+60}" y="90" width="22" height="200" rx="2" fill="${S.clean[k]||lab?h.mc:h.dc}" stroke="rgba(0,0,0,.35)" stroke-width="1.5"/><path d="M${x+66} 100V280" stroke="rgba(255,255,255,.5)" stroke-width="3"/>`;
+ s+=`<path d="M${x-4} 140L${x} 146V302Q${x} 310 ${x+8} 310H${x+172}Q${x+180} 310 ${x+180} 302V146L${x+184} 140" fill="none" stroke="#7d8fa3" stroke-width="3" stroke-linejoin="round"/>`;
+ s+=`<text x="${x+90}" y="345" text-anchor="middle" class="lbl">${lab||h.nm+' (1.0 mol dm⁻³)'}</text>`;return s}
+function scene(st,isExt){
+ let s='<rect x="0" y="312" width="600" height="12" rx="3" fill="#d5dde5"/>';
+ ['L','R'].forEach(side=>{const k=st[side],x=side==='L'?50:370;
+  if(!k){s+=`<rect x="${x}" y="140" width="180" height="170" rx="10" fill="none" stroke="#b8c4cf" stroke-width="2" stroke-dasharray="7 6"/><text x="${x+90}" y="230" text-anchor="middle" class="lbl">${side==='L'?'left':'right'} half-cell</text>`;return}
+  s+=beakerScene(k,x,isExt&&side==='R'?'Ag⁺/Ag ('+st.lab+' mol dm⁻³)':isExt?'Cu²⁺/Cu (1.0 mol dm⁻³)':null)});
+ if(st.bridge){s+=`<path d="M200 292V112Q200 100 212 100H388Q400 100 400 112V292" fill="none" stroke="#b9ad86" stroke-width="16"/><path d="M200 292V112Q200 100 212 100H388Q400 100 400 112V292" fill="none" stroke="#efe4bf" stroke-width="13"/><text x="300" y="124" text-anchor="middle" class="lbl">salt bridge: ${st.bridge==='kcl'?'KCl':'KNO₃'}(aq)</text>`}
+ if(st.meter){
+  const conn=st.leads!=null,rd=st.reading;
+  if(conn){const lc=st.leads==='L'?'#c62828':'#222',rc=st.leads==='R'?'#c62828':'#222';
+   s+=`<path d="M121 90V66H244" fill="none" stroke="${lc}" stroke-width="4" stroke-linejoin="round"/><path d="M441 90V66H356" fill="none" stroke="${rc}" stroke-width="4" stroke-linejoin="round"/>`;
+   const negL=HC[st.L].E<HC[st.R].E,p=negL?'M121 90V66H441V90':'M441 90V66H121V90';
+   s+=`<text x="${negL?150:450}" y="58" class="lbl" text-anchor="middle">${negL?'e⁻ →':'← e⁻'}</text>`;
+   if(!RM)for(let i=0;i<4;i++)s+=`<circle r="4" fill="#f2b705" stroke="#8a6a00"><animateMotion dur="3s" repeatCount="indefinite" begin="-${i*0.75}s" path="${p}"/></circle>`;}
+  s+=`<rect x="235" y="8" width="130" height="72" rx="8" fill="#2b3340"/><rect x="250" y="16" width="100" height="34" rx="3" fill="#cfe3c6"/><text x="300" y="42" text-anchor="middle" font-family="monospace" font-weight="700" font-size="22" fill="#1c2a1c">${conn?(rd<0?'-':'')+Math.abs(rd).toFixed(2):'– – –'}</text><text x="300" y="72" text-anchor="middle" font-size="11" fill="#cdd6df">V</text>`;
+  const lt=st.leads==='L'?['#c62828','V']:['#222','COM'],rt=st.leads==='L'?['#222','COM']:['#c62828','V'];
+  s+=`<circle cx="250" cy="66" r="6" fill="${lt[0]}" stroke="#999"/><circle cx="350" cy="66" r="6" fill="${rt[0]}" stroke="#999"/><text x="266" y="70" font-size="10" fill="#fff">${lt[1]}</text><text x="334" y="70" font-size="10" fill="#fff" text-anchor="end">${rt[1]}</text>`;}
+ return s}
+function reading(){const dE=HC[S.R].E-HC[S.L].E,key=[S.L,S.R].sort().join('');
+ if(devs[key]==null){let d=[.01,.02,.03][Math.floor(Math.random()*3)];devs[key]=Math.min(d,Math.max(0.01,r2(Math.abs(dE)-0.02)))}
+ return r2((S.leads==='R'?1:-1)*Math.sign(dE)*r2(Math.abs(dE)-devs[key]))}
+function render(){
+ const st=Object.assign({},S);if(S.leads)st.reading=reading();
+ $('#svg1').innerHTML=scene(st,false);
+ $('#read1').textContent=S.leads?(st.reading<0?'−':'+')+Math.abs(st.reading).toFixed(2)+' V':'no reading';
+ updShelf();ticks();
+ const e=ext.conc;
+ $('#svg2').innerHTML=scene({L:'Cu',R:e==null?null:'Ag',lab:e==null?'':CL[e],bridge:e==null?null:'kno3',meter:true,leads:e==null?null:'R',reading:e==null?0:extVals[e]},true);
+}
+function ticks(){
+ const st=[done.clean,done.pair,done.bridge,done.meter,log.length>0,log.length>=4];
+ $$('#ck1 li').forEach((li,i)=>{li.classList.toggle('done',!!st[i]);li.classList.toggle('now',!st[i]&&st.slice(0,i).every(Boolean))});
+ const s2=[0,1,2,3].map(i=>extVals.got.includes(i)).concat([!!done.plot]);
+ $$('#ck2 li').forEach((li,i)=>li.classList.toggle('done',s2[i]));
+}
+function say(id,h,k){const m=$(id);m.innerHTML=h;m.className='msg'+(k?' '+k:'')}
+const s1=(h,k)=>say('#msg1',h,k);
+
+/* ---------- drag / tap engine ---------- */
+let sel=null,drag=null;
+function unsel(){if(sel)sel.classList.remove('selected');sel=null;$$('.armed').forEach(t=>t.classList.remove('armed'))}
+function pick(b){if(sel===b){unsel();return}unsel();sel=b;b.classList.add('selected');$$('.target').forEach(t=>{if(t!==b)t.classList.add('armed')})}
+function tapItem(b){if(sel&&sel!==b&&b.classList.contains('target')){const id=sel.dataset.id;unsel();drop(id,b)}else pick(b)}
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('.item');if(!b||b.disabled)return;drag={b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+document.addEventListener('pointermove',e=>{if(!drag)return;
+ if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;unsel();const g=document.createElement('div');g.style.cssText='position:fixed;left:0;top:0;width:54px;height:66px;pointer-events:none;z-index:99;opacity:.9';g.innerHTML=drag.b.querySelector('svg').outerHTML;g.firstChild.style.width='100%';g.firstChild.style.height='100%';document.body.appendChild(g);drag.g=g}
+ if(drag.moved){drag.g.style.transform=`translate(${e.clientX-27}px,${e.clientY-33}px)`;const u=document.elementFromPoint(e.clientX,e.clientY),t=u&&u.closest('.target');
+  if(drag.over&&drag.over!==t)drag.over.classList.remove('over');if(t&&t!==drag.b)t.classList.add('over');drag.over=t&&t!==drag.b?t:null}});
+function endDrag(cancel){if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(cancel)return;
+ if(d.moved){if(d.over)drop(d.b.dataset.id,d.over)}else tapItem(d.b)}
+document.addEventListener('pointerup',()=>endDrag(false));
+document.addEventListener('pointercancel',()=>endDrag(true));
+document.addEventListener('click',e=>{const b=e.target.closest('.item');if(b){if(e.detail===0)tapItem(b);return}
+ const t=e.target.closest('.target');if(t&&sel){const id=sel.dataset.id;unsel();drop(id,t)}});
+
+/* ---------- actions ---------- */
+function drop(id,t){
+ const tt=t.dataset.t;
+ if(/^c\d$/.test(id)){ if(!['R2','scene2'].includes(tt))return say('#msg2','Put the Ag⁺/Ag half-cell in the right position of the cell.','warn');
+  const i=+id[1];ext.conc=i;if(!extVals.got.includes(i))extVals.got.push(i);
+  ext.lastE=extVals[i];
+  $('#ex'+i).textContent='+'+extVals[i].toFixed(2);
+  say('#msg2',`[Ag⁺] = ${CL[i]} mol dm⁻³ with a fresh KNO₃ salt bridge. E<sub>cell</sub> = <b>+${extVals[i].toFixed(2)} V</b>. Copy it into Part 2.`,'ok');render();return}
+ if(['R2','scene2'].includes(tt))return say('#msg2','Only the Ag⁺/Ag half-cells go here.','warn');
+ if(id==='emery'){
+  if(tt!=='hc')return s1('Rub the emery paper on a metal strip: tap the emery paper, then tap a half-cell on the shelf.','warn');
+  const k=t.dataset.id;
+  if(HC[k].pt)return s1('Do not rub the platinum electrode. Platinum is inert and has no oxide layer. Just rinse it with distilled water.','warn');
+  if(S.L===k||S.R===k)return s1('That half-cell is already on the bench.','warn');
+  S.clean[k]=true;done.clean=true;render();const b=$(`#hcShelf [data-id="${k}"]`);b.classList.remove('scrub');void b.offsetWidth;b.classList.add('scrub');
+  return s1(`The ${HC[k].el} strip is now shiny. Emery paper removes the oxide layer so the metal surface is in contact with the solution.`,'ok')}
+ if(HC[id]){
+  if(tt==='hc')return pick($(`#hcShelf [data-id="${id}"]`));
+  if(!HC[id].pt&&!S.clean[id])return s1(`Clean the ${HC[id].el} strip with emery paper first. An oxide layer on the surface gives a lower, unreliable reading.`,'warn');
+  let side=tt==='L'||tt==='R'?tt:(!S.L?'L':!S.R?'R':null);
+  if(!side||S[side])return s1(side?'That position is taken. Clear the bench to build a new cell.':'Both positions are full. Clear the bench to build a new cell.','warn');
+  S[side]=id;if(S.L&&S.R)done.pair=true;render();
+  return s1(S.L&&S.R?'Two half-cells in place. Now join them with a salt bridge.':`${HC[id].nm} placed. Now add a second half-cell.`,'ok')}
+ if(id==='kno3'||id==='kcl'){
+  if(!(S.L&&S.R))return s1('Put two half-cells on the bench first. The salt bridge must dip into both solutions.','warn');
+  if(S.bridge)return s1('There is already a salt bridge.','warn');
+  if(id==='kcl'&&(S.L==='Ag'||S.R==='Ag'))return s1('Not KCl here. Cl⁻ ions would react with Ag⁺ to form a white precipitate of AgCl. This lowers [Ag⁺] and blocks the bridge. Use KNO₃: its ions do not react.','warn');
+  S.bridge=id;done.bridge=true;render();
+  return s1(id==='kcl'?'KCl works for this pair, but KNO₃ is used because it never forms a precipitate with any half-cell. Now place the voltmeter.':'Salt bridge in place: the circuit can now be completed through the ions. Now place the voltmeter.','ok')}
+ if(id==='amm')return s1('An ammeter measures current and has a low resistance, so a large current would flow. Use a high-resistance voltmeter so that almost no current flows.','warn');
+ if(id==='volt'){
+  if(!S.bridge)return s1(S.L&&S.R?'Add the salt bridge first. Without it the circuit is incomplete and the reading is 0.00 V.':'Build the cell first: two half-cells and a salt bridge.','warn');
+  if(S.meter)return s1('The voltmeter is already there. Press "Connect leads".','warn');
+  S.meter=true;render();return s1('Voltmeter placed. Now press "Connect leads".','ok')}
+}
+$('#bConnect').onclick=()=>{if(!S.meter)return s1('Place the high-resistance voltmeter on the bench first.','warn');if(S.leads)return s1('The leads are connected. Use "Swap leads" to change them.','warn');S.leads=Math.random()<.5?'L':'R';done.meter=true;render();readMsg()};
+$('#bSwap').onclick=()=>{if(!S.leads)return s1('Connect the leads first.','warn');S.leads=S.leads==='L'?'R':'L';render();readMsg()};
+function readMsg(){const r=reading();if(r<0)s1('The reading is <b>negative</b>. The red (V) lead is on the negative electrode. Swap the leads so the reading is positive.','warn');
+ else s1(`Reading +${r.toFixed(2)} V. The electrode joined to the red (V) terminal is the <b>positive</b> electrode. Press "Record this cell".`,'ok')}
+$('#bRecord').onclick=()=>{
+ if(!S.leads)return s1('Build the cell and connect the voltmeter first.','warn');
+ const r=reading();if(r<0)return s1('Do not record a negative reading. Swap the leads first.','warn');
+ const pair=[S.L,S.R].sort((a,b)=>ORDER.indexOf(a)-ORDER.indexOf(b));
+ if(log.some(e=>e.a===pair[0]&&e.b===pair[1]))return s1('You have already recorded this cell. Clear the bench and try a different pair.','warn');
+ if(log.length>=8)return s1('That is enough cells. Fill in Part 2.','warn');
+ const pos=HC[S.L].E>HC[S.R].E?S.L:S.R;
+ log.push({a:pair[0],b:pair[1],pos,meas:r,calc:r2(Math.abs(HC[S.R].E-HC[S.L].E))});
+ addRows();render();s1(`Recorded: ${HC[pair[0]].nm} and ${HC[pair[1]].nm}, +${r.toFixed(2)} V. Clear the bench to build the next cell.`,'ok')};
+$('#bClear').onclick=()=>{S.L=S.R=S.bridge=S.leads=null;S.meter=false;render();s1('Bench cleared. Used salt bridge thrown away. Build another cell.')};
+function addRows(){
+ const tb=$('#logT tbody');tb.innerHTML=log.map((e,i)=>`<tr><td>${i+1}</td><td>${HC[e.a].nm} and ${HC[e.b].nm}</td><td><b>+${e.meas.toFixed(2)}</b></td></tr>`).join('')||'<tr><td colspan="3" class="note">None yet.</td></tr>';
+ const ta=$('#tA tbody');const em=ta.querySelector('.empty');if(em&&log.length)em.remove();
+ for(let i=ta.querySelectorAll('tr[data-i]').length;i<log.length;i++){const e=log[i],tr=document.createElement('tr');tr.dataset.i=i;
+  tr.innerHTML=`<th>${i+1}</th><td>${HC[e.a].nm} and ${HC[e.b].nm}</td><td><select data-k="pos" aria-label="Positive electrode"><option value="">choose…</option>${ORDER.map(k=>`<option value="${k}">${HC[k].el}</option>`).join('')}</select></td><td><input class="n" data-k="meas" inputmode="decimal" aria-label="E cell measured"></td><td><input class="n" data-k="calc" inputmode="decimal" aria-label="E cell calculated"></td>`;ta.appendChild(tr)}
+}
+function buildB(){$('#tB tbody').innerHTML=CL.map((c,i)=>`<tr data-i="${i}"><th>${c}</th><td><input class="n" data-k="lg" inputmode="decimal" aria-label="log concentration"></td><td><input class="n" data-k="E" inputmode="decimal" aria-label="E cell"></td></tr>`).join('')}
+
+/* ---------- tabs ---------- */
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));$$('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab);unsel()}));
+
+/* ---------- graph ---------- */
+let fit=null;
+function pts(){return $$('#tB tr[data-i]').map(tr=>({x:num(tr.querySelector('[data-k=lg]').value),y:num(tr.querySelector('[data-k=E]').value)})).filter(p=>isFinite(p.x)&&isFinite(p.y))}
+function graph(){
+ const cv=$('#cv'),W=640,H=380,dpr=window.devicePixelRatio||1;cv.width=W*dpr;cv.height=H*dpr;const g=cv.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);
+ g.fillStyle='#fff';g.fillRect(0,0,W,H);const P=pts();
+ let Y0=0.20,Y1=0.50;P.forEach(p=>{if(p.y<Y0+0.01)Y0=Math.floor((p.y-0.03)*20)/20;if(p.y>Y1-0.01)Y1=Math.ceil((p.y+0.03)*20)/20});
+ const X0=-3.5,X1=0.5,L=70,R=20,T=20,B=56,px=x=>L+(x-X0)/(X1-X0)*(W-L-R),py=y=>H-B-(y-Y0)/(Y1-Y0)*(H-T-B);
+ g.font='13px "Atkinson Hyperlegible",sans-serif';g.textAlign='center';g.textBaseline='top';
+ for(let x=X0;x<=X1+1e-9;x+=0.5){g.strokeStyle='#e4eaf0';g.beginPath();g.moveTo(px(x),T);g.lineTo(px(x),H-B);g.stroke();g.fillStyle='#5a6878';g.fillText(x.toFixed(1).replace('-','−'),px(x),H-B+6)}
+ g.textAlign='right';g.textBaseline='middle';
+ for(let y=Y0;y<=Y1+1e-9;y+=0.05){g.strokeStyle='#e4eaf0';g.beginPath();g.moveTo(L,py(y));g.lineTo(W-R,py(y));g.stroke();g.fillText(y.toFixed(2),L-6,py(y))}
+ g.strokeStyle='#1c2736';g.lineWidth=1.5;g.strokeRect(L,T,W-L-R,H-T-B);g.lineWidth=1;
+ g.fillStyle='#1c2736';g.textAlign='center';g.textBaseline='bottom';g.fillText('log[Ag⁺]',L+(W-L-R)/2,H-6);
+ g.save();g.translate(16,T+(H-T-B)/2);g.rotate(-Math.PI/2);g.textBaseline='top';g.fillText('Ecell / V',0,0);g.restore();
+ g.strokeStyle='#4a44b5';g.lineWidth=2;P.forEach(p=>{const x=px(p.x),y=py(p.y);g.beginPath();g.moveTo(x-6,y-6);g.lineTo(x+6,y+6);g.moveTo(x+6,y-6);g.lineTo(x-6,y+6);g.stroke()});
+ fit=null;
+ if(P.length>=2){const n=P.length,mx=P.reduce((a,p)=>a+p.x,0)/n,my=P.reduce((a,p)=>a+p.y,0)/n,sxx=P.reduce((a,p)=>a+(p.x-mx)**2,0);
+  if(sxx>0){const m=P.reduce((a,p)=>a+(p.x-mx)*(p.y-my),0)/sxx,c=my-m*mx;fit=m;g.strokeStyle='#1d7a46';g.beginPath();g.moveTo(px(X0),py(m*X0+c));g.lineTo(px(X1),py(m*X1+c));g.stroke();
+   $('#gradOut').textContent='Best-fit line: gradient = '+m.toFixed(3)+' V (theory: 0.059 V)'}}
+ if(!fit)$('#gradOut').textContent=P.length?'Enter at least two points to draw a line.':'';
+ if(P.length>=4)done.plot=true;ticks();
+}
+$('#bPlot').onclick=graph;
+
+/* ---------- check results ---------- */
+function mark(el,ok){el.classList.toggle('ok',ok);el.classList.toggle('wrong',!ok);return ok?1:0}
+document.addEventListener('input',e=>{e.target.classList.remove('ok','wrong')});
+document.addEventListener('change',e=>{if(e.target.tagName==='SELECT')e.target.classList.remove('ok','wrong')});
+$('#bCheckRes').onclick=()=>{
+ let got=0,tot=0;
+ $$('#tA tr[data-i]').forEach(tr=>{const e=log[+tr.dataset.i];
+  got+=mark(tr.querySelector('[data-k=pos]'),tr.querySelector('[data-k=pos]').value===e.pos);
+  got+=mark(tr.querySelector('[data-k=meas]'),Math.abs(num(tr.querySelector('[data-k=meas]').value)-e.meas)<0.006);
+  got+=mark(tr.querySelector('[data-k=calc]'),Math.abs(num(tr.querySelector('[data-k=calc]').value)-e.calc)<0.006);tot+=3});
+ $$('#tB tr[data-i]').forEach(tr=>{const i=+tr.dataset.i;
+  got+=mark(tr.querySelector('[data-k=lg]'),Math.abs(num(tr.querySelector('[data-k=lg]').value)-Math.log10(CONC[i]))<0.011);
+  got+=mark(tr.querySelector('[data-k=E]'),extVals.got.includes(i)&&Math.abs(num(tr.querySelector('[data-k=E]').value)-extVals[i])<0.006);tot+=2});
+ graph();tot++;got+=mark($('#grad'),fit!=null&&Math.abs(num($('#grad').value)-fit)<0.0025);
+ const s=$('#resScore');
+ if(!log.length)s.textContent=got+' / '+tot+'. Record some cells in Part 1 to fill table A.';
+ else s.textContent=got+' / '+tot+' correct'+(got===tot?'. Excellent!':'. Red boxes need another look.');
+ s.className='score '+(got===tot&&log.length?'good':'bad')};
+
+/* ---------- Part 3 ---------- */
+$('#bCheckQ').onclick=()=>{const ss=$$('#qs select');let r=0;ss.forEach(s=>r+=mark(s,s.value===s.dataset.a));const q=$('#qScore');q.textContent=r+' / '+ss.length+' correct'+(r===ss.length?'. Excellent!':'.');q.className='score '+(r===ss.length?'good':'bad')};
+
+/* ---------- Part 4 ---------- */
+$$('#exam .msbtn').forEach(b=>b.addEventListener('click',()=>{const m=b.nextElementSibling;m.hidden=!m.hidden;b.textContent=m.hidden?'Show mark scheme':'Hide mark scheme'}));
+$('#exam').addEventListener('change',e=>{if(e.target.closest('.ms'))tallyX()});
+function tallyX(){let g=0,t=0;$$('#exam .xq').forEach(q=>{const m=+q.dataset.m;t+=m;if(q.dataset.type==='wr')g+=Math.min(m,q.querySelectorAll('.ms input:checked').length);else if(q.dataset.ok==='1')g+=m});$('#xScore').textContent='Exam practice: '+g+' / '+t+' marks'}
+$('#bCheckX').onclick=()=>{$$('#exam .xq').forEach(q=>{const ty=q.dataset.type;if(ty==='wr')return;let ok=false;
+ if(ty==='num'){const i=q.querySelector('input');ok=Math.abs(num(i.value)-(+q.dataset.a))<=+q.dataset.tol;mark(i,ok)}
+ else{const c=q.querySelector('input:checked');q.querySelectorAll('.opts label').forEach(l=>l.classList.remove('ok','wrong'));if(c){ok=c.value===q.dataset.a;c.parentNode.classList.add(ok?'ok':'wrong')}}
+ q.dataset.ok=ok?'1':'0';q.querySelector('.worked').hidden=false});tallyX()};
+
+/* ---------- reset ---------- */
+function resetAll(){
+ fresh();unsel();buildShelves();$('#tA tbody').innerHTML='<tr class="empty"><td colspan="5" class="note">Record a cell in Part 1 first.</td></tr>';addRows();buildB();
+ CL.forEach((c,i)=>$('#ex'+i).textContent='–');
+ $$('input,textarea').forEach(i=>{if(i.type==='checkbox'||i.type==='radio')i.checked=false;else i.value=''});
+ $$('select').forEach(s=>s.value='');$$('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));
+ $$('.worked,.ms').forEach(e=>e.hidden=true);$$('.msbtn').forEach(b=>b.textContent='Show mark scheme');$$('#exam .xq').forEach(q=>delete q.dataset.ok);
+ $('#resScore').textContent=$('#qScore').textContent='';tallyX();
+ s1('Start by cleaning a metal strip: tap the emery paper, then tap a half-cell.');say('#msg2','Drag an Ag⁺/Ag half-cell to the right position, or tap it and tap the right position.');
+ render();graph();
+}
+$('#bReset').onclick=()=>{resetAll();window.scrollTo({top:0,behavior:RM?'auto':'smooth'})};
+resetAll();
+})();
+</script>
+</body></html>

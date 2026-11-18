@@ -1,0 +1,795 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acids and Metals</title>
+<meta name="description" content="Virtual core practical: Acids and Metals. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp4-acids-and-metals.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:68ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font:600 .9rem var(--display);color:var(--muted);letter-spacing:.03em}
+details.safety{background:#fff7e8;border:1px solid #edd29b;border-radius:10px;padding:8px 14px;max-width:68ch}
+details.safety summary{cursor:pointer;font-weight:700}
+details.safety ul{margin:6px 0 2px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bench{background:var(--bench);border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.shelf-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+ol.method{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:m;font-size:.92rem}
+ol.method li{counter-increment:m;display:flex;gap:8px;align-items:flex-start;color:var(--muted)}
+ol.method li::before{content:counter(m);flex:none;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 .75rem var(--display);background:#fff}
+ol.method li.now{color:var(--ink);font-weight:700}
+ol.method li.now::before{border-color:var(--accent);color:var(--accent)}
+ol.method li.done{color:var(--good)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;font:inherit;font-size:.85rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 8px;border-radius:12px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);min-width:84px}
+.tool svg{width:44px;height:44px;display:block}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:disabled{opacity:.4;cursor:default}
+.dragghost{position:fixed;left:0;top:0;width:52px;height:52px;pointer-events:none;z-index:50}
+.dragghost svg{width:52px;height:52px}
+[data-drop]{cursor:pointer}
+[data-drop]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hl{opacity:0;transition:opacity .2s}
+body.armed [data-drop] .hl{opacity:.5}
+[data-drop].over .hl{opacity:1}
+.drop-card{border:2px dashed transparent;border-radius:12px}
+body.armed .drop-card{border-color:var(--line)}
+.drop-card.over{border-color:var(--accent)!important;background:var(--accent-soft)}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem;min-height:2.6em}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.tool:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 10px;display:inline-block}
+.readout.big{font-size:1.25rem;color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+svg text{font-family:var(--body)}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:4;stroke-linecap:round}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:#f6f6fd;font-weight:700}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number]{font:inherit;font-size:.95rem;width:6.2em;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.92rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+select.ok,input.ok{border-color:var(--good);background:#eef8f2} select.wrong,input.wrong{border-color:var(--bad);background:#fdf0ef}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:72ch}
+.calc{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+footer{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+footer .fact{font-weight:700;max-width:60ch}
+input[type=range]{accent-color:var(--accent);width:100%}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(var(--d,-60px));opacity:0}}
+.bub{animation:rise 1.4s ease-in forwards}
+@media (max-width:520px){body{font-size:16px}.tool{min-width:72px}.tool svg{width:36px;height:36px}}
+.acids .btn{flex:1 1 200px}
+.rack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;background:linear-gradient(transparent 0 92px,#c9a77c 92px 104px,transparent 104px);border-radius:10px}
+@media (max-width:460px){.rack{grid-template-columns:repeat(2,minmax(0,1fr));background:none}}
+.tcard{display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 2px 8px;min-width:0;text-align:center}
+.tcard svg{width:100%;max-width:92px;height:auto;display:block;overflow:visible}
+.tcard .tn{font:600 .8rem var(--display);color:var(--muted)}
+.tcard .mt{font-weight:700;font-size:.9rem;min-height:1.4em}
+.tcard .st{font-size:.8rem;line-height:1.3;min-height:4em}
+.tcard .readout{font-size:.9rem}
+.pop{font:700 15px var(--display);fill:var(--bad)}
+#log{font-size:.8rem}#log th{font-size:.72rem}
+#log th,#log td{padding:4px 5px}
+#resTbl select{font-size:.85rem}
+#resTbl input{width:4.8em}
+.pick{font:inherit;font-size:.92rem;padding:8px 14px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;text-align:left}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick.done::after{content:" \2713";color:var(--good);font-weight:700}
+.pick:disabled{opacity:.5;cursor:not-allowed}
+.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.rig{background:rgba(255,255,255,.6);padding:4px;min-width:0}
+.rig svg{width:100%;height:auto;display:block}
+.tick{font:10px var(--body);fill:var(--muted)}
+.readouts{display:flex;gap:10px;flex-wrap:wrap}
+.lcd{font:700 1.3rem/1 var(--display);font-variant-numeric:tabular-nums;background:#1f2a36;color:#b9f5c8;padding:8px 12px;border-radius:8px;min-width:110px;text-align:center}
+.lcd small{display:block;font:600 .65rem var(--body);color:#9fb3c6;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+#bookB td.new{background:#fff6cc}
+#bookB{font-size:.85rem}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+#tblB input{width:4.4em}
+[hidden]{display:none!important}
+/* ---------- exam-practice tabs ---------- */
+.xtabs{display:flex;flex-wrap:wrap;gap:10px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1.05rem var(--display);padding:12px 26px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto;min-width:0}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+.xtab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:520px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:10px 14px;font-size:.98rem;border-radius:12px}}
+.xpanel{display:flex;flex-direction:column;gap:22px;min-width:0}
+.xpanel[hidden]{display:none!important}
+.xscore{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;font:700 1rem var(--display);padding:10px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(28,39,54,.18);font-variant-numeric:tabular-nums}
+.xlist{display:flex;flex-direction:column;gap:16px}
+.xq{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.xq-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.xq-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.xq-marks{font-size:.88rem;color:var(--muted);font-weight:700}
+.xq-ctx{color:var(--ink);font-size:.95rem}
+.xq-stem{font-weight:700}
+.xq .tbl-wrap table{width:auto;min-width:0}
+.xopts{display:flex;flex-direction:column;gap:8px}
+.xopt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.xopt:hover{border-color:var(--accent)}
+.xopt input{position:absolute;opacity:0;pointer-events:none}
+.xopt .xl{flex:none;width:26px;height:26px;border-radius:6px;border:2px solid var(--accent);display:grid;place-items:center;font:700 .85rem var(--display);color:var(--accent)}
+.xopt:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+.xopt.right{border-color:var(--good);background:#eef8f2}.xopt.right .xl{background:var(--good);border-color:var(--good);color:#fff}
+.xopt.wrongpick{border-color:var(--bad);background:#fdf0ef}.xopt.wrongpick .xl{background:var(--bad);border-color:var(--bad);color:#fff}
+.xopts.locked .xopt{cursor:default}.xopts.locked .xopt:hover{border-color:var(--line)}.xopts.locked .xopt.right:hover{border-color:var(--good)}.xopts.locked .xopt.wrongpick:hover{border-color:var(--bad)}
+.xfb{font-size:.95rem;border-left:4px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:8px}
+.xfb.good{border-color:var(--good);background:#e6f4ec}.xfb.bad{border-color:var(--bad);background:#fdecea}
+.xcalc{display:flex;flex-direction:column;gap:8px}
+.xin{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.xin input[type=number]{width:7.5em}
+.xwork{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.xwork ol{margin:4px 0 0;padding-left:1.3em}
+.xq textarea{font:inherit;font-size:.95rem;width:100%;min-height:5.5em;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
+.xq textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.xms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fbfbff;display:flex;flex-direction:column;gap:6px}
+.xms .shelf-label{color:var(--accent)}
+.xms label{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.xms input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px;margin-top:3px;flex:none}
+.xms label.off{opacity:.55;cursor:default}
+.xq [hidden]{display:none!important}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+<div class="wrap">
+<header>
+<h1>Acids and metals</h1>
+<div class="ref">Core practical 2.21</div>
+<p><b>Aim:</b> To investigate the reactions between dilute hydrochloric and sulfuric acids and metals (magnesium, zinc, iron and copper).</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection. Dilute acids are irritants: wash any splashes off your skin with water.</li>
+<li>Hydrogen is flammable. Only test small amounts, and keep other flames away.</li>
+<li>The tube with magnesium gets warm. Hold it near the top.</li></ul></details>
+</header>
+<div class="xtabs" role="tablist" aria-label="Lab sections">
+<button class="xtab" type="button" role="tab" id="xTab1" aria-selected="true" aria-controls="xPanel1" tabindex="0">1 · The practical</button>
+<button class="xtab" type="button" role="tab" id="xTab2" aria-selected="false" aria-controls="xPanel2" tabindex="-1">2 · Exam practice</button>
+</div>
+<div class="xpanel" id="xPanel1" role="tabpanel" aria-labelledby="xTab1">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<div><div class="shelf-label">Choose the experiment</div>
+<div class="row" style="margin-top:6px"><button class="pick" type="button" id="tabA" aria-pressed="true">Method A: compare in test tubes (observations)</button><button class="pick" type="button" id="tabB" aria-pressed="false">Method B: measure the gas (collect over water)</button></div></div>
+<div id="paneA">
+<div class="layout">
+<div class="bench" id="bench">
+<div class="shelf-label">1. Choose the acid</div>
+<div class="row acids"><button class="btn ghost" type="button" id="acHCl" aria-pressed="false">dilute hydrochloric acid, HCl</button><button class="btn ghost" type="button" id="acH2SO4" aria-pressed="false">dilute sulfuric acid, H<sub>2</sub>SO<sub>4</sub></button></div>
+<div class="row"><button class="btn" type="button" id="btnPour">Pour 5 cm³ of acid into each tube</button><button class="btn" type="button" id="btnTherm">Put in thermometers</button></div>
+<div class="shelf-label">Metals (same size pieces) and splint</div>
+<div class="tools" id="tools"></div>
+<p class="note" id="hint">Drag a metal onto a tube, or tap a metal and then tap a tube.</p>
+<div class="rack" id="rack"></div>
+<p class="msg" id="msg" aria-live="polite">Start with step 1: choose an acid.</p>
+<div class="row"><button class="btn ghost" type="button" id="btnWash">Wash out and change acid</button></div>
+</div>
+<div class="panel">
+<h3>Method</h3><ol class="method" id="meth"></ol>
+<h3>Your readings</h3>
+<div class="tbl-wrap"><table id="log"><thead><tr><th>Acid</th><th>Metal</th><th>Start °C</th><th>Max °C</th><th>Splint</th></tr></thead><tbody id="logB"><tr><td colspan="5" class="note">No readings yet.</td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+<div id="paneB" hidden style="display:flex;flex-direction:column;gap:10px">
+<p>Every run uses <b>25 cm³ of 1.0 mol/dm³ acid</b> and <b>0.08 g of metal powder</b>. The acid is in excess, so the metal is used up first (it is the limiting reagent).</p>
+<div class="shelf-label">Choose the acid</div><div class="row" id="bAcids"></div>
+<div class="shelf-label">Choose the metal</div><div class="row" id="bMetals"></div>
+<div class="layout">
+<div class="bench" id="benchB">
+<div class="tools" id="toolsB"></div>
+<p class="note" id="hintB">Drag the acid or the metal onto the flask, or tap it and then tap the flask.</p>
+<div class="rig drop-card" data-drop="flask" tabindex="0" role="button" aria-label="Conical flask connected to measuring cylinder">
+<svg viewBox="0 0 440 270" aria-hidden="true">
+<defs><clipPath id="fclipB"><path d="M66 70 L66 112 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 112 L94 70 Z"/></clipPath><clipPath id="cclipB"><rect x="332" y="20" width="36" height="220"/></clipPath></defs>
+<line x1="0" y1="256" x2="440" y2="256" stroke="#b8c2cd" stroke-width="3"/>
+<g clip-path="url(#fclipB)"><rect id="acidB" x="0" y="254" width="160" height="0" fill="rgba(185,215,240,.7)"/><g id="fMetB"></g><g id="fBubB"></g></g>
+<path class="glass" d="M66 70 L66 112 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 112 L94 70"/>
+<path class="shine" d="M40 228 L58 180"/>
+<rect x="230" y="172" width="192" height="82" fill="rgba(120,180,230,.35)"/>
+<path class="glass" d="M228 150 V250 Q228 255 233 255 H419 Q424 255 424 250 V150"/>
+<g id="cylB" opacity=".25">
+<g clip-path="url(#cclipB)"><rect id="cylWB" x="332" y="24" width="36" height="216" fill="rgba(90,160,225,.45)"/><g id="cBubB"></g></g>
+<path class="glass" d="M330 240 V24 Q330 18 336 18 H364 Q370 18 370 24 V240"/>
+<g id="ticksB"></g>
+<line id="cylLineB" x1="326" x2="374" y1="24" y2="24" stroke="#b3261e" stroke-width="1.5" opacity="0"/>
+</g>
+<g id="tubeB" style="transition:transform .5s ease;transform:translateY(-22px)">
+<path d="M80 76 V36 Q80 26 90 26 H240 Q250 26 250 36 V232 Q250 244 262 244 H338 Q350 244 350 232 V224" fill="none" stroke="#7d8fa3" stroke-width="7" stroke-linejoin="round"/>
+<path d="M80 76 V36 Q80 26 90 26 H240 Q250 26 250 36 V232 Q250 244 262 244 H338 Q350 244 350 232 V224" fill="none" stroke="#f4f7fa" stroke-width="3" stroke-linejoin="round"/>
+<rect x="63" y="66" width="34" height="18" rx="3" fill="#444b55"/>
+</g>
+<text x="80" y="266" text-anchor="middle" class="tick">conical flask</text>
+<text x="326" y="266" text-anchor="middle" class="tick">upturned 100 cm³ measuring cylinder in water</text>
+</svg></div>
+<div class="toolbar"><div class="row"><button class="btn ghost" type="button" id="fillB">Fill cylinder with water</button><button class="btn ghost" type="button" id="washB">Wash out / reset bench</button></div>
+<div class="readouts"><div class="lcd" id="watchB">0:00<small>stopwatch (10× speed)</small></div><div class="lcd" id="volB">0 cm³<small>hydrogen collected</small></div></div></div>
+<p class="msg" id="msgB" aria-live="polite">Choose the acid and the metal.</p>
+</div>
+<div class="panel"><h3>Method</h3><ol class="method" id="methB"></ol></div>
+</div>
+<h3>Your readings (copy these into Part 2)</h3>
+<div class="tbl-wrap"><table id="bookB"></table></div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<div id="p2A" style="display:flex;flex-direction:column;gap:14px">
+<p>Do both acids. For each metal, choose how fast it bubbled and what the lighted splint did. Temperatures are optional: copy them from your readings, then work out the change.</p>
+<div class="calc">temperature change = highest temperature − start temperature</div>
+<div class="tbl-wrap"><table id="resTbl" style="min-width:720px"><thead><tr><th>Metal</th><th>Acid</th><th>Bubbles</th><th>Lighted splint</th><th>Start °C</th><th>Highest °C</th><th>Change °C</th></tr></thead><tbody id="resB"></tbody></table></div>
+<div class="toolbar"><button class="btn" type="button" id="chkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</div>
+<div id="p2B" hidden style="display:flex;flex-direction:column;gap:14px">
+<p>Type in your readings for each run you did (volume of hydrogen in cm³). Then work out the mean rate for the first 30 s.</p>
+<div class="calc">mean rate in the first 30 s = volume at 30 s ÷ 30 &nbsp;(units: cm³/s, give 2 decimal places)</div>
+<div class="tbl-wrap"><table id="tblB" style="min-width:640px"></table></div>
+<h3>Graph of your results</h3>
+<p class="note">The graph draws itself from the numbers you type in. Colour shows the metal; a dashed line means sulfuric acid.</p>
+<canvas id="graphB" height="320" aria-label="Graph of volume of hydrogen against time" role="img"></canvas>
+<div class="legend" id="legendB"></div>
+<div id="rankB">Order of reactivity from your data:<div class="row" style="gap:4px;margin-top:4px"><span class="note">most reactive</span>
+<select data-a="magnesium" data-o="copper|iron|magnesium|zinc" aria-label="most reactive"></select> &gt;
+<select data-a="zinc" data-o="copper|iron|magnesium|zinc" aria-label="second"></select> &gt;
+<select data-a="iron" data-o="copper|iron|magnesium|zinc" aria-label="third"></select> &gt;
+<select data-a="copper" data-o="copper|iron|magnesium|zinc" aria-label="least reactive"></select><span class="note">least reactive</span></div></div>
+<div class="toolbar"><button class="btn" type="button" id="chkB">Check my results</button><span class="score" id="scoreB" aria-live="polite"></span></div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>Put the metals in order of reactivity.<div class="row" style="gap:4px;margin-top:4px"><span class="note">most reactive</span>
+<select data-a="magnesium" data-o="copper|iron|magnesium|zinc"></select> &gt;
+<select data-a="zinc" data-o="copper|iron|magnesium|zinc"></select> &gt;
+<select data-a="iron" data-o="copper|iron|magnesium|zinc"></select> &gt;
+<select data-a="copper" data-o="copper|iron|magnesium|zinc"></select><span class="note">least reactive</span></div></li>
+<li>Complete the word equations.<br>
+magnesium + hydrochloric acid → <select data-a="magnesium chloride" data-o="magnesium chloride|magnesium sulfate|magnesium oxide|magnesium hydroxide"></select> + <select data-a="hydrogen" data-o="hydrogen|oxygen|water|chlorine"></select><br>
+zinc + sulfuric acid → <select data-a="zinc sulfate" data-o="zinc chloride|zinc sulfate|zinc oxide|zinc sulfide"></select> + <select data-a="hydrogen" data-o="hydrogen|oxygen|water|sulfur dioxide"></select></li>
+<li>The test for hydrogen: hold a <select data-a="lighted" data-o="glowing|lighted"></select> splint at the mouth of the tube. Hydrogen gives a <select data-a="squeaky pop" data-o="squeaky pop|relight|white precipitate"></select>.</li>
+<li>Copper does not react with dilute acids because copper is <select data-a="below hydrogen" data-o="above hydrogen|below hydrogen|the same as hydrogen"></select> in the reactivity series.</li>
+<li>Fair test: the independent variable is <select data-a="the type of metal" data-o="the type of metal|the volume of acid|the temperature"></select>. Keep the same <select data-a="volume and concentration of acid" data-o="volume and concentration of acid|colour of acid|size of test tube rack"></select> and the same <select data-a="mass (size) of metal" data-o="mass (size) of metal|number of bubbles|amount of hydrogen"></select>.</li>
+<li>Conclusion: the tube with magnesium got warm. This shows the reaction is <select data-a="exothermic" data-o="exothermic|endothermic"></select>. The more reactive the metal, the <select data-a="faster" data-o="faster|slower"></select> the bubbles of hydrogen.</li>
+<li>Method B: the bung must go in straight after the metal so that <select data-a="no hydrogen escapes" data-o="no hydrogen escapes|the acid does not get hot|air can get in"></select>. The cylinder is filled with water first so that <select data-a="it holds no air, and only hydrogen is measured" data-o="it holds no air, and only hydrogen is measured|the hydrogen dissolves|the metal reacts faster"></select>.</li>
+<li>Method B: the magnesium graph levels off because <select data-a="all the magnesium has been used up" data-o="all the acid has been used up|all the magnesium has been used up|the cylinder is full"></select>. Every run uses the same mass of metal and the same volume and concentration of acid so that <select data-a="it is a fair test" data-o="it is a fair test|more gas is made|the graph is a straight line"></select>.</li>
+<li>Method B: one source of error is that <select data-a="some hydrogen escapes before the bung is put in" data-o="some hydrogen escapes before the bung is put in|the stopwatch is too accurate|the water is too cold to read"></select>. This makes the volume measured too <select data-a="small" data-o="small|large"></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<footer><span class="fact">Metals above hydrogen in the reactivity series react with dilute acids to make a salt and hydrogen.</span><button class="btn ghost" type="button" id="startAgain">Start again</button></footer>
+</div>
+<div class="xpanel" id="xPanel2" role="tabpanel" aria-labelledby="xTab2" hidden>
+<section class="sheet" aria-labelledby="xH">
+<h2 id="xH">Exam practice</h2>
+<p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p>
+</section>
+<div class="xscore" id="xScore" role="status" aria-live="polite">Score: 0 / 0 · 0 of 0 questions marked</div>
+<div class="xlist" id="xList"></div>
+<div class="row"><button class="btn ghost" type="button" id="xReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const RM=false;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const rstep=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(+x).toFixed(d);
+const NS='http://www.w3.org/2000/svg';
+function say(el,html,kind){el.innerHTML=html;el.className='msg'+(kind?' '+kind:'');}
+function Method(listEl,items){
+listEl.innerHTML=items.map(t=>'<li>'+t+'</li>').join('');
+let n=0;
+const paint=()=>[...listEl.children].forEach((li,k)=>{li.classList.toggle('done',k<n);li.classList.toggle('now',k===n);});
+paint();
+return {get step(){return n},tick(i){if(i>=n){n=i+1;paint();}},reset(){n=0;paint();}};
+}
+function DnD(root,onUse,hintEl,baseHint){
+let sel=null,drag=null;
+const clear=()=>{sel=null;root.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));document.body.classList.remove('armed');if(hintEl)hintEl.textContent=baseHint;};
+const pick=b=>{if(sel===b.dataset.t){clear();return;}clear();sel=b.dataset.t;b.classList.add('selected');document.body.classList.add('armed');if(hintEl)hintEl.textContent='Now tap where to use the '+b.dataset.n+'.';};
+root.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b||b.disabled)return;drag={b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+root.addEventListener('pointermove',e=>{
+if(!drag)return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=drag.b.querySelector('svg').outerHTML;document.body.appendChild(g);drag.g=g;}
+if(drag.moved){drag.g.style.transform='translate('+(e.clientX-26)+'px,'+(e.clientY-26)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);const t=u&&u.closest?u.closest('[data-drop]'):null;if(drag.over&&drag.over!==t)drag.over.classList.remove('over');if(t)t.classList.add('over');drag.over=t;}
+});
+const end=c=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(c)return;if(d.moved){if(d.over){clear();onUse(d.b.dataset.t,d.over.getAttribute('data-drop'));}}else pick(d.b);};
+root.addEventListener('pointerup',()=>end(false));
+root.addEventListener('pointercancel',()=>end(true));
+root.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b&&!b.disabled)pick(b);}});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-drop]');if(t&&sel){const s=sel;clear();onUse(s,t.getAttribute('data-drop'));}});
+document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('[data-drop]');if(t&&e.target===t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();t.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});
+return {clear};
+}
+function fillSelects(root){root.querySelectorAll('select[data-o]').forEach(s=>{s.innerHTML='<option value="">choose…</option>'+s.dataset.o.split('|').map(o=>'<option>'+o+'</option>').join('');});}
+function mark(el,ok){el.classList.toggle('ok',ok);el.classList.toggle('wrong',!ok);return ok?1:0;}
+function unmark(root){root.querySelectorAll('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));}
+function scoreTo(el,r,n,extra){el.textContent=r+' / '+n+' correct'+(r===n?'. Well done!':'. '+(extra||'Red boxes need another look.'));el.className='score '+(r===n?'good':'bad');}
+function wireQs(listId,btnId,scoreId){
+const L=$(listId);fillSelects(L);
+$(btnId).addEventListener('click',()=>{const s=[...L.querySelectorAll('select')];let r=0;s.forEach(x=>r+=mark(x,x.value===x.dataset.a));scoreTo($(scoreId),r,s.length,'Have another go at the red ones.');});
+L.addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+return ()=>{L.querySelectorAll('select').forEach(s=>{s.value='';});unmark(L);$(scoreId).textContent='';};
+}
+function bubble(parent,x,y,r,d,col){if(RM)return;const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);c.setAttribute('fill',col||'rgba(255,255,255,.85)');c.setAttribute('stroke','rgba(40,60,85,.85)');c.setAttribute('stroke-width','1.1');c.classList.add('bub');c.style.setProperty('--d',d+'px');parent.appendChild(c);setTimeout(()=>c.remove(),1450);}
+function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')';}
+(function(){
+const ACID={HCl:{name:'hydrochloric acid',salt:'chloride'},H2SO4:{name:'sulfuric acid',salt:'sulfate'}};
+const MET={
+Mg:{name:'magnesium',rate:'vigorous',every:45,dT:[7,11],run:12,desc:'Lots of fizzing! The magnesium dissolves and disappears. The tube feels warm.',pop:'Loud squeaky pop! The gas is hydrogen.'},
+Zn:{name:'zinc',rate:'steady',every:230,dT:[1,2.5],run:12,desc:'Steady bubbles. The zinc slowly gets smaller.',pop:'Squeaky pop! The gas is hydrogen.'},
+Fe:{name:'iron',rate:'slow',every:900,dT:[.5,1.5],run:12,desc:'A few slow bubbles. The solution slowly turns pale green.',pop:'A small squeaky pop. A little hydrogen.'},
+Cu:{name:'copper',rate:'no bubbles',every:0,dT:[0,0],run:12,desc:'No bubbles. Nothing happens.',pop:'No pop. The splint keeps burning. No gas was made.'}};
+const MK=['Mg','Zn','Fe','Cu'];
+const toolSVG={
+Mg:'<rect x="21" y="4" width="6" height="40" rx="1" fill="#c9ced6" stroke="#7d8590" stroke-width="1.5"/>',
+Zn:'<path d="M14 30q-2-12 10-14t12 10-8 12-14-8z" fill="#9aa6b2" stroke="#5f6a76" stroke-width="1.5"/>',
+Fe:'<g fill="#4b4f55"><circle cx="16" cy="30" r="2.4"/><circle cx="22" cy="26" r="2"/><circle cx="28" cy="32" r="2.6"/><circle cx="34" cy="27" r="2"/><circle cx="20" cy="35" r="2"/><circle cx="30" cy="22" r="1.8"/></g>',
+Cu:'<path d="M10 30q6-10 12 0t12 0 8-4M12 22q8-6 14 2t12-2" fill="none" stroke="#c2703f" stroke-width="3" stroke-linecap="round"/>',
+sp:'<rect x="6" y="30" width="34" height="4" rx="1" fill="#b98a55" transform="rotate(-30 24 32)"/><path d="M38 20q-6-6 0-14q6 8 0 14z" fill="#f59a23"/><path d="M38 18q-3-3 0-8q3 4 0 8z" fill="#ffd34d"/>'};
+const tools=$('tools');
+MK.forEach(k=>tools.insertAdjacentHTML('beforeend','<button class="tool" type="button" data-t="'+k+'" data-n="'+MET[k].name+'" id="tl'+k+'"><svg viewBox="0 0 48 48" aria-hidden="true">'+toolSVG[k]+'</svg><span>'+MET[k].name+'</span></button>'));
+tools.insertAdjacentHTML('beforeend','<button class="tool" type="button" data-t="sp" data-n="lighted splint" id="tlsp"><svg viewBox="0 0 48 48" aria-hidden="true">'+toolSVG.sp+'</svg><span>lighted splint</span></button>');
+const TUBE='M24 20 L24 168 Q24 186 40 186 Q56 186 56 168 L56 20';
+const rack=$('rack');
+for(let i=0;i<4;i++){rack.insertAdjacentHTML('beforeend',
+'<div class="tcard drop-card" data-drop="'+i+'" tabindex="0" role="button" aria-label="Test tube '+(i+1)+'">'+
+'<svg viewBox="0 -34 80 224" aria-hidden="true"><defs><clipPath id="c'+i+'"><path d="'+TUBE+' Z"/></clipPath></defs>'+
+'<g clip-path="url(#c'+i+')"><rect id="liq'+i+'" x="0" y="190" width="80" height="0" fill="rgba(185,215,240,.55)"/><g id="met'+i+'"></g><g id="bub'+i+'"></g></g>'+
+'<path class="glass" d="'+TUBE+'"/><path d="M20 20 L60 20" class="glass"/><path class="shine" d="M30 40 L30 160"/>'+
+'<g id="th'+i+'" style="display:none"><rect x="47" y="-20" width="4" height="176" rx="2" fill="#9aa5b1"/><rect x="43" y="-30" width="12" height="14" rx="3" fill="#4a5562"/></g>'+
+'<g id="fx'+i+'"></g></svg>'+
+'<span class="tn">Tube '+(i+1)+'</span><span class="mt" id="mt'+i+'">empty</span><span class="readout" id="tp'+i+'">– °C</span><span class="st" id="st'+i+'"></span></div>');}
+const meth=Method($('meth'),['Choose the acid.','Pour 5 cm³ of acid into each test tube.','Put a thermometer in each tube. Read the start temperature.','Add a different metal to each tube.','Watch. Record the highest temperature.','Test the gas from each tube with a lighted splint.','Wash out, then repeat with the other acid.']);
+const R={HCl:{},H2SO4:{}};
+let S,timer=null;
+function newRun(){S={acid:null,poured:false,therm:false,tubes:[0,1,2,3].map(()=>({m:null,T0:0,T1:0,t:0,done:false,tested:false})),allDone:false};}
+const msg=(h,k)=>say($('msg'),h,k);
+function setAcid(a){
+if(S.acid&&S.poured){msg('The acid is already in the tubes. Wash out first to change acid.','warn');return;}
+S.acid=a;['HCl','H2SO4'].forEach(x=>{$('ac'+x).className='btn'+(x===a?'':' ghost');$('ac'+x).setAttribute('aria-pressed',x===a);});
+meth.tick(0);msg('You chose dilute '+ACID[a].name+'. Now pour 5 cm³ into each tube with a measuring cylinder.','ok');
+}
+$('acHCl').onclick=()=>setAcid('HCl');$('acH2SO4').onclick=()=>setAcid('H2SO4');
+$('btnPour').onclick=()=>{
+if(!S.acid){msg('Choose an acid first.','warn');return;}
+if(S.poured)return;
+S.poured=true;meth.tick(1);
+for(let i=0;i<4;i++){const l=$('liq'+i);l.setAttribute('y',112);l.setAttribute('height',80);}
+msg('5 cm³ of acid in each tube: the same volume and concentration. Now put in the thermometers.','ok');
+};
+$('btnTherm').onclick=()=>{
+if(!S.poured){msg('Pour the acid in first.','warn');return;}
+if(S.therm)return;
+S.therm=true;meth.tick(2);const T0=rstep(rnd(19.5,22),.5);
+S.tubes.forEach((t,i)=>{t.T0=T0;$('th'+i).style.display='';$('tp'+i).textContent=fx(T0,1)+' °C';});
+msg('Start temperature = <b>'+fx(T0,1)+' °C</b> in every tube. Now add one metal to each tube.','ok');
+};
+function metalShape(k,i,p){
+const g=$('met'+i);
+if(k==='Mg'){const h=Math.max(0,46*(1-p));g.innerHTML=h>0?'<rect x="35" y="'+(182-h)+'" width="6" height="'+h+'" rx="1" fill="#c9ced6" stroke="#7d8590" stroke-width="1.2"/>':'';}
+else if(k==='Zn'){const s=1-.15*p;g.innerHTML='<path transform="translate(40 176) scale('+s+')" d="M-9 2q-2-9 7-10t9 7-6 8-10-5z" fill="#9aa6b2" stroke="#5f6a76" stroke-width="1.2"/>';}
+else if(k==='Fe')g.innerHTML='<g fill="#4b4f55"><circle cx="33" cy="181" r="2"/><circle cx="38" cy="183" r="2.2"/><circle cx="44" cy="181" r="2"/><circle cx="48" cy="183" r="1.6"/><circle cx="36" cy="178" r="1.6"/><circle cx="42" cy="177" r="1.8"/></g>';
+else g.innerHTML='<path d="M30 180q4-6 8 0t8 0 6-3M32 174q5-4 9 1t8-1" fill="none" stroke="#c2703f" stroke-width="2.4" stroke-linecap="round"/>';
+}
+function addMetal(i,k){
+const t=S.tubes[i];
+if(!S.acid){msg('Choose an acid first.','warn');return;}
+if(!S.poured){msg('Pour the acid into the tubes first.','warn');return;}
+if(!S.therm){msg('Put the thermometers in first, so you can read the start temperature.','warn');return;}
+if(t.m){msg('Tube '+(i+1)+' already has '+MET[t.m].name+' in it. Use an empty tube.','warn');return;}
+if(S.tubes.some(x=>x.m===k)){msg('You have already used '+MET[k].name+'. Use a different metal in each tube.','warn');return;}
+t.m=k;t.t=0;t.T1=rstep(t.T0+rnd(MET[k].dT[0],MET[k].dT[1]),.5);
+$('mt'+i).textContent=MET[k].name;$('st'+i).textContent=MET[k].desc;$('tl'+k).disabled=true;
+metalShape(k,i,0);
+const n=S.tubes.filter(x=>x.m).length;
+if(n===4){meth.tick(3);msg('All four metals are in. Watch the bubbles and the thermometers.','ok');}
+else msg('Added '+MET[k].name+' to tube '+(i+1)+'. Add a different metal to another tube.','');
+if(!timer)timer=setInterval(tick,50);
+}
+function tick(){
+let active=false;
+S.tubes.forEach((t,i)=>{
+if(!t.m)return;
+const M=MET[t.m];
+if(!t.done){t.t+=RM?M.run:.05;const p=Math.min(1,t.t/M.run);
+$('tp'+i).textContent=fx(rstep(t.T0+(t.T1-t.T0)*(1-(1-p)*(1-p)),.5),1)+' °C';
+metalShape(t.m,i,p);
+if(t.m==='Fe')$('liq'+i).setAttribute('fill',mix('#dde9f4','#c9e6b0',p));
+for(let q=0;q<(t.m==='Mg'?3:1);q++)if(M.every&&Math.random()<(t.m==='Mg'?(1-p*.85):1)*50/M.every){const x=t.m==='Mg'?36+Math.random()*6:32+Math.random()*16;bubble($('bub'+i),x,176-Math.random()*6,t.m==='Mg'?3+Math.random()*1.5:3+Math.random(),-62,'rgba(255,255,255,.9)');}
+if(p>=1){t.done=true;$('tp'+i).textContent=fx(t.T1,1)+' °C';log();}
+active=true;
+}else if(M.every&&t.m!=='Mg'&&!RM&&Math.random()<25/M.every){bubble($('bub'+i),32+Math.random()*16,176,3,-62);active=true;}
+});
+if(!S.allDone&&S.tubes.every(t=>t.m&&t.done)){S.allDone=true;meth.tick(4);msg('The reactions have had time. Your highest temperatures are in the readings. Now test the gas in each tube with a lighted splint.','ok');}
+if(!active){clearInterval(timer);timer=null;}
+}
+function splint(i){
+const t=S.tubes[i];
+if(!t.m){msg('There is nothing in tube '+(i+1)+' to test yet.','warn');return;}
+if(!S.allDone){msg('Wait and watch first, so gas can collect in the tubes.','warn');return;}
+if(t.tested){msg('You already tested tube '+(i+1)+'.','');return;}
+t.tested=true;const popped=t.m!=='Cu';
+const fxg=$('fx'+i);
+fxg.innerHTML='<g transform="rotate(-25 40 10)"><rect x="40" y="6" width="40" height="4" rx="1" fill="#b98a55"/><path id="fl'+i+'" d="M40 8q-10-4-8-14q8 4 8 14z" fill="#f59a23"/></g>'+(popped?'<text class="pop" x="2" y="-14">POP!</text>':'');
+if(popped)setTimeout(()=>{const f=$('fl'+i);if(f)f.remove();},RM?0:700);
+$('st'+i).textContent=MET[t.m].pop;log();
+if(S.tubes.every(x=>x.tested)){meth.tick(5);msg('All tubes tested. Copy your readings into Part 2. Then wash out and repeat with the other acid.','ok');}
+else msg(MET[t.m].pop,popped?'ok':'');
+}
+DnD($('bench'),(k,tg)=>{const i=+tg;if(isNaN(i))return;if(k==='sp')splint(i);else addMetal(i,k);},$('hint'),'Drag a metal onto a tube, or tap a metal and then tap a tube.');
+function log(){
+if(S.acid)S.tubes.forEach(t=>{if(t.m&&t.done)R[S.acid][t.m]={T0:t.T0,T1:t.T1,tested:t.tested||(R[S.acid][t.m]||{}).tested};});
+const rows=[];['HCl','H2SO4'].forEach(a=>MK.forEach(k=>{const r=R[a][k];if(r)rows.push('<tr><td>'+(a==='HCl'?'HCl':'H<sub>2</sub>SO<sub>4</sub>')+'</td><td>'+k+'</td><td>'+fx(r.T0,1)+'</td><td>'+fx(r.T1,1)+'</td><td>'+(r.tested?(k==='Cu'?'no pop':'pop'):'–')+'</td></tr>');}));
+$('logB').innerHTML=rows.join('')||'<tr><td colspan="5" class="note">No readings yet.</td></tr>';
+}
+function clearBench(){
+clearInterval(timer);timer=null;newRun();
+for(let i=0;i<4;i++){['met','bub','fx'].forEach(p=>$(p+i).innerHTML='');const l=$('liq'+i);l.setAttribute('y',190);l.setAttribute('height',0);l.setAttribute('fill','rgba(185,215,240,.55)');
+$('th'+i).style.display='none';$('mt'+i).textContent='empty';$('tp'+i).textContent='– °C';$('st'+i).textContent='';}
+MK.forEach(k=>$('tl'+k).disabled=false);
+['HCl','H2SO4'].forEach(x=>{$('ac'+x).className='btn ghost';$('ac'+x).setAttribute('aria-pressed','false');});
+meth.reset();
+}
+$('btnWash').onclick=()=>{
+if(S.acid&&!S.tubes.every(t=>t.tested)&&S.poured){
+if(!S.tubes.every(t=>t.m)){msg('Finish this acid first: add all four metals and test each gas.','warn');return;}
+if(!S.allDone||!S.tubes.every(t=>t.tested)){msg('Test the gas in every tube with a lighted splint before you wash out.','warn');return;}
+}
+const was=S.acid;clearBench();
+const other=was==='HCl'?'H2SO4':was==='H2SO4'?'HCl':null;
+const both=Object.keys(R.HCl).length===4&&Object.keys(R.H2SO4).length===4;
+msg(both?'Tubes washed. You have done both acids. Now fill in Part 2.':'Tubes washed. Now choose '+(other?'dilute '+ACID[other].name:'an acid')+' and repeat.','');
+};
+/* ---------- results table ---------- */
+let rh='';
+['HCl','H2SO4'].forEach(a=>MK.forEach(k=>{const id=a+k;
+rh+='<tr><th>'+MET[k].name+'</th><td>'+(a==='HCl'?'HCl':'H<sub>2</sub>SO<sub>4</sub>')+'</td>'+
+'<td><select id="bb'+id+'" data-o="vigorous|steady|slow|no bubbles" aria-label="bubbles '+MET[k].name+' '+a+'"></select></td>'+
+'<td><select id="sp'+id+'" data-o="squeaky pop|no pop" aria-label="splint '+MET[k].name+' '+a+'"></select></td>'+
+'<td><input type="number" step="0.5" id="t0'+id+'" aria-label="start temperature"></td><td><input type="number" step="0.5" id="t1'+id+'" aria-label="highest temperature"></td><td><input type="number" step="0.5" id="td'+id+'" aria-label="temperature change"></td></tr>';}));
+$('resB').innerHTML=rh;fillSelects($('resB'));
+const num=id=>{const v=$(id).value.trim();return v===''?null:+v;};
+$('chkRes').onclick=()=>{
+unmark($('resTbl'));let r=0,n=0;
+['HCl','H2SO4'].forEach(a=>MK.forEach(k=>{const id=a+k,rec=R[a][k];
+n+=2;r+=mark($('bb'+id),$('bb'+id).value===MET[k].rate);r+=mark($('sp'+id),$('sp'+id).value===(k==='Cu'?'no pop':'squeaky pop'));
+const a0=num('t0'+id),a1=num('t1'+id),d=num('td'+id);
+if(a0!==null){n++;r+=mark($('t0'+id),!!rec&&Math.abs(a0-rec.T0)<.26);}
+if(a1!==null){n++;r+=mark($('t1'+id),!!rec&&Math.abs(a1-rec.T1)<.26);}
+if(d!==null){n++;r+=mark($('td'+id),a0!==null&&a1!==null&&Math.abs(d-(a1-a0))<.06);}
+}));
+scoreTo($('resScore'),r,n,'Red boxes need another look. Watch the bubbles again if you are not sure.');
+};
+$('resTbl').addEventListener('input',e=>e.target.classList.remove('ok','wrong'));
+$('resTbl').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+const resetQs=wireQs('qs','chkQs','qScore');
+$('startAgain').onclick=()=>{clearBench();R.HCl={};R.H2SO4={};log();$('resTbl').querySelectorAll('input,select').forEach(x=>x.value='');unmark($('resTbl'));$('resScore').textContent='';resetQs();msg('Start with step 1: choose an acid.','');window.scrollTo({top:0,behavior:RM?'auto':'smooth'});};
+newRun();
+/* ---------- method tabs ---------- */
+function showTab(m){
+const b=m==='B';$('paneA').hidden=b;$('paneB').hidden=!b;$('p2A').hidden=b;$('p2B').hidden=!b;
+$('tabA').setAttribute('aria-pressed',!b);$('tabB').setAttribute('aria-pressed',b);
+if(b)drawGraphB();
+}
+$('tabA').onclick=()=>showTab('A');$('tabB').onclick=()=>showTab('B');
+/* ---------- Method B: collect hydrogen over water ---------- */
+const TB=[0,30,60,90,120,150,180],SPD=10,MASS=0.08;
+const KB={Mg:.04,Zn:.008,Fe:.0015,Cu:0},AR={Mg:24,Zn:65,Fe:56,Cu:64};
+const BCOL={Mg:'#4a44b5',Zn:'#c0392b',Fe:'#1d7a46',Cu:'#b86e00'};
+const RUNS=[];['HCl','H2SO4'].forEach(a=>MK.forEach(k=>RUNS.push({id:a+k,a,k,head:MET[k].name+' + '+(a==='HCl'?'HCl':'H₂SO₄')})));
+const AHTML=a=>a==='HCl'?'HCl':'H<sub>2</sub>SO<sub>4</sub>';
+const mB=Method($('methB'),['Choose the acid and the metal.','Fill the measuring cylinder with water. Turn it upside down in the trough.','Measure 25 cm³ of acid into the conical flask.','Add 0.08 g of metal, put the bung in at once and start the stopwatch.','Read the volume of gas every 30 s for 3 minutes.']);
+let bAcid=null,bMetal=null,bs={},bData={},bRaf=null,bT=0,bLast=0,bNext=0,bAccF=0,bAccC=0,bRun=null;
+const msgB=(h,k)=>say($('msgB'),h,k);
+['HCl','H2SO4'].forEach(a=>$('bAcids').insertAdjacentHTML('beforeend','<button class="pick" type="button" id="bA'+a+'" aria-pressed="false">dilute '+ACID[a].name+', '+AHTML(a)+'</button>'));
+MK.forEach(k=>$('bMetals').insertAdjacentHTML('beforeend','<button class="pick" type="button" id="bM'+k+'" aria-pressed="false">'+MET[k].name+'</button>'));
+$('toolsB').innerHTML='<button class="tool" type="button" data-t="acid" data-n="acid" id="tlAcid"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h20M17 6v8L8 40q-2 5 4 5h24q6 0 4-5l-9-26V6" fill="rgba(185,215,240,.6)" stroke="#7d8fa3" stroke-width="2.5" stroke-linejoin="round"/></svg><span>25 cm³ acid</span></button>'+
+'<button class="tool" type="button" data-t="metal" data-n="metal" id="tlMet"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 34h36l-4 8H10z" fill="#e3e8ee" stroke="#7d8fa3" stroke-width="2"/><g id="tlMetDots" fill="#8a929c"><circle cx="18" cy="31" r="3"/><circle cx="24" cy="29" r="3.4"/><circle cx="30" cy="31" r="3"/><circle cx="21" cy="26" r="2.6"/><circle cx="27" cy="25" r="2.4"/></g></svg><span id="tlMetLbl">0.08 g metal</span></button>';
+let tk='';for(let v=0;v<=100;v+=5){const y=24+v*1.8,big=v%10===0;tk+='<line x1="'+(big?356:362)+'" x2="370" y1="'+y+'" y2="'+y+'" stroke="#5a6878" stroke-width="'+(big?1.3:.7)+'"/>';if(v%20===0)tk+='<text class="tick" x="376" y="'+(y+3.5)+'">'+v+'</text>';}
+$('ticksB').innerHTML=tk;
+function setCylB(v){const y=24+Math.min(100,v)*1.8,w=$('cylWB');w.setAttribute('y',y);w.setAttribute('height',240-y);const l=$('cylLineB');l.setAttribute('y1',y);l.setAttribute('y2',y);l.setAttribute('opacity',v>0?1:0);}
+const fmtT=t=>{t=Math.floor(t);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');};
+const lcd=(id,t)=>{$(id).firstChild.nodeValue=t;};
+function metalDots(k,f){
+const col={Mg:'#9aa3ad',Zn:'#8c99a6',Fe:'#4b4f55',Cu:'#c2703f'}[k];let o='';
+for(let i=0;i<14;i++)o+='<circle cx="'+(56+((i*37)%48))+'" cy="'+(246-((i*53)%7))+'" r="'+(2+(i%3)*.6)+'"/>';
+$('fMetB').innerHTML='<g fill="'+col+'" opacity="'+Math.max(0,f).toFixed(2)+'">'+o+'</g>';
+}
+function chooseB(kind,v){
+if(bs.running){msgB('Wait until this run has finished.','warn');return;}
+if(bs.acid||bs.done)washB(true);
+if(kind==='a')bAcid=v;else bMetal=v;
+['HCl','H2SO4'].forEach(a=>$('bA'+a).setAttribute('aria-pressed',a===bAcid));
+MK.forEach(k=>$('bM'+k).setAttribute('aria-pressed',k===bMetal));
+markDone();
+$('tlMetLbl').textContent='0.08 g '+(bMetal?MET[bMetal].name:'metal');
+$('tlMetDots').setAttribute('fill',bMetal?{Mg:'#9aa3ad',Zn:'#8c99a6',Fe:'#4b4f55',Cu:'#c2703f'}[bMetal]:'#8a929c');
+if(bAcid&&bMetal){mB.tick(0);msgB('Run: <b>'+MET[bMetal].name+'</b> with dilute '+ACID[bAcid].name+'.'+(bData[bAcid+bMetal]?' (This replaces your earlier readings for this run.)':'')+' Now fill the measuring cylinder with water.','ok');}
+else msgB('Now choose the '+(bAcid?'metal':'acid')+'.','');
+}
+['HCl','H2SO4'].forEach(a=>$('bA'+a).onclick=()=>chooseB('a',a));
+MK.forEach(k=>$('bM'+k).onclick=()=>chooseB('m',k));
+function guardB(){
+if(!bAcid||!bMetal){msgB('Choose the acid and the metal first.','warn');return false;}
+if(bs.running){msgB('The reaction is running. Watch the gas collect.','warn');return false;}
+if(bs.done){msgB('This run is finished. Choose the next run, or wash out.','warn');return false;}
+return true;
+}
+$('fillB').onclick=()=>{
+if(!guardB())return;
+if(bs.filled){msgB('The cylinder is already full of water.','warn');return;}
+bs.filled=true;mB.tick(1);$('cylB').setAttribute('opacity',1);setCylB(0);
+msgB('The cylinder is full of water and upside down in the trough. It reads 0 cm³. Now measure 25 cm³ of acid into the flask.','ok');
+};
+DnD($('benchB'),(t,tg)=>{
+if(tg!=='flask'||!guardB())return;
+if(!bs.filled){msgB('Fill the measuring cylinder with water and turn it upside down in the trough first. Otherwise you cannot collect the gas.','warn');return;}
+if(t==='acid'){
+if(bs.acid){msgB('There is already 25 cm³ of acid in the flask.','warn');return;}
+bs.acid=true;mB.tick(2);$('acidB').setAttribute('y',212);$('acidB').setAttribute('height',42);
+msgB('25 cm³ of 1.0 mol/dm³ '+ACID[bAcid].name+' is in the flask. Now add the metal and put the bung in at once.','ok');return;
+}
+if(!bs.acid){msgB('Measure 25 cm³ of acid into the flask first. The metal goes in last, just before the bung.','warn');return;}
+startB();
+},$('hintB'),'Drag the acid or the metal onto the flask, or tap it and then tap the flask.');
+function genB(){
+const k=bMetal,Vf=MASS/AR[k]*24000*rnd(.95,.99),kk=KB[k]*rnd(.9,1.1);let prev=0;
+const d=TB.map(t=>{if(!t||!kk)return 0;let v=Math.round(Math.min(100,Vf*(1-Math.exp(-kk*t))+rnd(-.6,.6)));v=Math.max(prev,v);prev=v;return v;});
+return {Vf,kk,d,shown:1};
+}
+function startB(){
+bs.running=true;bRun=bAcid+bMetal;bData[bRun]=genB();
+metalDots(bMetal,1);$('tubeB').style.transform='translateY(0)';mB.tick(3);
+bT=0;bNext=1;bAccF=bAccC=0;bLast=performance.now();
+document.querySelectorAll('#bAcids .pick,#bMetals .pick').forEach(b=>b.disabled=true);
+showBook(0);
+msgB(bMetal==='Cu'?'Bung in and stopwatch started. Watch the copper closely.':'Bung in and stopwatch started. Bubbles of hydrogen push water out of the cylinder.','');
+bRaf=requestAnimationFrame(loopB);
+}
+function loopB(ts){
+if(!bs.running)return;
+const r=bData[bRun],dt=Math.min(.1,(ts-bLast)/1000);bLast=ts;bT=Math.min(180,bT+dt*SPD);
+const v=r.kk?r.Vf*(1-Math.exp(-r.kk*bT)):0;
+setCylB(v);lcd('watchB',fmtT(bT));lcd('volB',Math.round(v)+' cm³');
+if(r.kk)metalDots(bMetal,1-v/r.Vf);
+while(bNext<TB.length&&bT>=TB[bNext]){r.shown=bNext+1;showBook(bNext);bNext++;}
+const rate=r.Vf*r.kk*Math.exp(-r.kk*bT);
+bAccF+=rate*dt*SPD*.35;bAccC+=rate*dt*SPD*.22;
+let n=0;while(bAccF>1&&n<4){bAccF--;n++;bubble($('fBubB'),50+Math.random()*60,244,2.6+Math.random()*1.6,-30);}
+if(bAccF>4)bAccF=1;
+n=0;while(bAccC>1&&n<3){bAccC--;n++;const top=24+Math.min(100,v)*1.8+4;bubble($('cBubB'),346+Math.random()*8,226,3+Math.random()*1.4,Math.min(-8,top-226));}
+if(bAccC>3)bAccC=1;
+if(bT>=180){finishB();return;}
+bRaf=requestAnimationFrame(loopB);
+}
+function finishB(){
+bs.running=false;bs.done=true;mB.tick(4);
+document.querySelectorAll('#bAcids .pick,#bMetals .pick').forEach(b=>b.disabled=false);
+const d=bData[bRun].d;
+msgB('<b>Run finished.</b> Volume after 3 minutes: '+d[6]+' cm³.'+(bMetal==='Cu'?' No gas at all: copper does not react.':'')+' Copy your readings into Part 2. Then choose the next run.','ok');
+$('row-'+bRun).hidden=false;$('noRunB').hidden=true;markDone();showBook();drawGraphB();
+}
+function markDone(){MK.forEach(k=>$('bM'+k).classList.toggle('done',!!bAcid&&!!(bData[bAcid+k]&&bData[bAcid+k].shown>=7)));}
+function washB(silent){
+cancelAnimationFrame(bRaf);
+if(bs.running&&bRun){delete bData[bRun];showBook();}
+bs={filled:false,acid:false,running:false,done:false};
+$('acidB').setAttribute('y',254);$('acidB').setAttribute('height',0);['fMetB','fBubB','cBubB'].forEach(i=>$(i).innerHTML='');
+$('cylB').setAttribute('opacity',.25);setCylB(0);$('tubeB').style.transform='translateY(-22px)';
+lcd('watchB','0:00');lcd('volB','0 cm³');mB.reset();if(bAcid&&bMetal)mB.tick(0);
+document.querySelectorAll('#bAcids .pick,#bMetals .pick').forEach(b=>b.disabled=false);
+if(!silent)msgB('Bench washed. Choose the next run (acid and metal).','');
+}
+$('washB').onclick=()=>washB(false);
+function showBook(newIdx){
+const runs=RUNS.filter(r=>bData[r.id]);
+if(!runs.length){$('bookB').innerHTML='<tbody><tr><td class="note">No readings yet.</td></tr></tbody>';return;}
+let h='<thead><tr><th>Run</th>'+TB.map(t=>'<th>'+t+' s</th>').join('')+'</tr></thead><tbody>';
+runs.forEach(r=>{const x=bData[r.id];h+='<tr><th>'+MET[r.k].name+' + '+AHTML(r.a)+'</th>'+TB.map((t,i)=>'<td'+(r.id===bRun&&i===newIdx&&bs.running?' class="new"':'')+'>'+(i<x.shown?x.d[i]:'–')+'</td>').join('')+'</tr>';});
+$('bookB').innerHTML=h+'</tbody>';
+}
+showBook();
+/* ---------- Part 2: Method B ---------- */
+(function(){
+let h='<thead><tr><th>Run</th>'+TB.map(t=>'<th>'+t+' s<br>/ cm³</th>').join('')+'<th>mean rate<br>/ cm³/s</th></tr></thead><tbody><tr id="noRunB"><td colspan="9" class="note">Finish a run in Part 1 (Method B) and its row appears here.</td></tr>';
+RUNS.forEach(r=>{h+='<tr id="row-'+r.id+'" hidden><th>'+MET[r.k].name+' + '+AHTML(r.a)+'</th>'+TB.map((t,i)=>'<td><input type="number" step="1" min="0" id="v-'+r.id+'-'+i+'" aria-label="'+r.head+', volume at '+t+' s"></td>').join('')+'<td><input type="number" step="0.01" min="0" id="v-'+r.id+'-r" aria-label="'+r.head+', mean rate"></td></tr>';});
+$('tblB').innerHTML=h+'</tbody>';
+})();
+fillSelects($('rankB'));
+$('tblB').addEventListener('input',e=>{e.target.classList.remove('ok','wrong');drawGraphB();});
+$('rankB').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+$('chkB').onclick=()=>{
+unmark($('p2B'));let r=0,n=0;
+RUNS.forEach(run=>{const x=bData[run.id];if(!x||x.shown<7)return;
+TB.forEach((t,i)=>{const el=$('v-'+run.id+'-'+i),v=el.value.trim();n++;r+=mark(el,v!==''&&Math.abs(+v-x.d[i])<=1);});
+const el=$('v-'+run.id+'-r'),v=el.value.trim(),ex=x.d[1]/30;n++;r+=mark(el,v!==''&&Math.abs(+v-ex)<=Math.max(.011,ex*.05));
+});
+if(!n){$('scoreB').textContent='Do at least one full run in Part 1 (Method B) first.';$('scoreB').className='score bad';return;}
+$('rankB').querySelectorAll('select').forEach(s=>{n++;r+=mark(s,s.value===s.dataset.a);});
+scoreTo($('scoreB'),r,n,'Check the red boxes against your readings.');
+};
+function drawGraphB(){
+const cv=$('graphB'),w=cv.clientWidth||600,H=320,dpr=window.devicePixelRatio||1;
+if(!cv.clientWidth)return;
+cv.width=w*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+const c=cv.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,H);
+const L=52,Rm=14,T=14,Bm=46,pw=w-L-Rm,ph=H-T-Bm,X=t=>L+t/180*pw,Y=v=>T+ph-v/100*ph;
+c.font='12px "Atkinson Hyperlegible",system-ui,sans-serif';c.fillStyle='#5a6878';c.strokeStyle='#e3e8ee';c.lineWidth=1;
+for(let v=0;v<=100;v+=10){c.beginPath();c.moveTo(L,Y(v));c.lineTo(L+pw,Y(v));c.stroke();c.textAlign='right';c.fillText(v,L-6,Y(v)+4);}
+TB.forEach(t=>{c.beginPath();c.moveTo(X(t),T);c.lineTo(X(t),T+ph);c.stroke();c.textAlign='center';c.fillText(t,X(t),T+ph+16);});
+c.strokeStyle='#1c2736';c.lineWidth=1.5;c.beginPath();c.moveTo(L,T);c.lineTo(L,T+ph);c.lineTo(L+pw,T+ph);c.stroke();
+c.fillStyle='#1c2736';c.textAlign='center';c.fillText('time / s',L+pw/2,H-8);
+c.save();c.translate(14,T+ph/2);c.rotate(-Math.PI/2);c.fillText('volume of hydrogen / cm³',0,0);c.restore();
+const leg=[];
+RUNS.forEach(run=>{if($('row-'+run.id).hidden)return;
+const s=TB.map((t,i)=>{const v=$('v-'+run.id+'-'+i).value.trim();return v===''?null:+v;});
+const dash=run.a==='HCl'?[]:[8,5],col=BCOL[run.k];
+leg.push('<span><svg width="34" height="10" aria-hidden="true"><line x1="0" y1="5" x2="34" y2="5" stroke="'+col+'" stroke-width="3" stroke-dasharray="'+dash.join(' ')+'"/></svg>'+MET[run.k].name+' + '+AHTML(run.a)+'</span>');
+c.strokeStyle=col;c.fillStyle=col;c.lineWidth=2.5;c.setLineDash(dash);c.beginPath();let on=false;
+s.forEach((v,j)=>{if(v===null){on=false;return;}if(!on){c.moveTo(X(TB[j]),Y(v));on=true;}else c.lineTo(X(TB[j]),Y(v));});
+c.stroke();c.setLineDash([]);
+s.forEach((v,j)=>{if(v!==null){c.beginPath();c.arc(X(TB[j]),Y(v),3.2,0,Math.PI*2);c.fill();}});
+});
+$('legendB').innerHTML=leg.join('')||'<span class="note">Lines appear when you type your readings.</span>';
+}
+window.addEventListener('resize',drawGraphB);
+$('startAgain').addEventListener('click',()=>{
+bs.running=false;washB(true);bData={};bAcid=bMetal=null;bRun=null;
+document.querySelectorAll('#bAcids .pick,#bMetals .pick').forEach(b=>{b.setAttribute('aria-pressed','false');b.classList.remove('done');});
+$('tlMetLbl').textContent='0.08 g metal';showBook();
+RUNS.forEach(r=>{$('row-'+r.id).hidden=true;});$('noRunB').hidden=false;
+$('p2B').querySelectorAll('input,select').forEach(x=>x.value='');unmark($('p2B'));$('scoreB').textContent='';
+msgB('Choose the acid and the metal.','');showTab('A');drawGraphB();
+});
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const RM=false;
+const QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'A student adds pieces of magnesium, zinc, iron and copper to separate test tubes of dilute hydrochloric acid.',
+stem:'Hydrogen gas is produced in some of the tubes. What is the main hazard of hydrogen?',
+opts:['It is toxic.','It is corrosive.','It is flammable and can explode when mixed with air.','It is an oxidising agent.'],
+ans:2,why:'Hydrogen burns and mixtures with air can explode, so keep flames away and only test small amounts.'},
+{ref:'Q1(b)',marks:2,type:'written',
+stem:'Describe the test for hydrogen and give the result.',
+points:['Hold a lighted (burning) splint at the mouth of the test tube.','Hydrogen burns with a (squeaky) pop.']},
+{ref:'Q2(a)',marks:1,type:'mcq',
+stem:'Which is the balanced equation for the reaction of magnesium with dilute hydrochloric acid?',
+opts:['Mg + HCl → MgCl + H<sub>2</sub>','Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub>','Mg + 2HCl → MgCl<sub>2</sub> + 2H','2Mg + 2HCl → 2MgCl + H<sub>2</sub>'],
+ans:1,why:'Magnesium forms Mg<sup>2+</sup> ions, so the salt is MgCl<sub>2</sub>. Hydrogen is diatomic (H<sub>2</sub>), so 2HCl are needed.'},
+{ref:'Q2(b)',marks:2,type:'written',
+stem:'Write a word equation for the reaction between zinc and dilute sulfuric acid.',
+points:['zinc + sulfuric acid → zinc sulfate …','… + hydrogen (both products correct)']},
+{ref:'Q3',marks:2,type:'written',ctx:'The student wants to make the test-tube experiment a fair test.',
+stem:'Give two variables that the student should control.',
+points:['The volume of acid (e.g. 5 cm³ in each tube).','The concentration of acid.','The mass / size of each piece of metal.','The surface area / form of the metal (e.g. all powder or all foil).','The starting temperature of the acid.']},
+{ref:'Q4',marks:3,type:'calc',ctx:'In a second experiment, zinc powder is added to 25 cm³ of dilute hydrochloric acid in a conical flask. The hydrogen is collected over water in an upturned measuring cylinder.<div class="tbl-wrap" style="margin-top:6px"><table><thead><tr><th>Time / s</th><td>0</td><td>30</td><td>60</td><td>90</td><td>120</td><td>150</td></tr></thead><tbody><tr><th>Volume of hydrogen / cm³</th><td>0</td><td>18</td><td>33</td><td>44</td><td>52</td><td>57</td></tr></tbody></table></div>',
+stem:'Calculate the mean rate of reaction between 30 s and 90 s. Give your answer to 2 significant figures.',
+inputs:[{label:'Volume of hydrogen made between 30 s and 90 s =',unit:'cm³',ans:26,tol:0.01,m:1,show:'26 cm³'},{label:'Mean rate =',unit:'cm³/s',ans:0.4333,tol:0.006,m:2,show:'0.43 cm³/s'}],
+work:['volume made = 44 − 18 = 26 cm³ (1 mark)','time taken = 90 − 30 = 60 s; rate = 26 ÷ 60 (1 mark)','= 0.43 cm³/s (1 mark)']},
+{ref:'Q5',marks:2,type:'calc',ctx:'0.12 g of magnesium reacts completely with excess dilute hydrochloric acid.<br>[A<sub>r</sub>: Mg = 24. One mole of any gas occupies 24 000 cm³ at room temperature and pressure.]',
+stem:'Calculate the volume of hydrogen produced at room temperature and pressure.',
+inputs:[{label:'Amount of magnesium =',unit:'mol',ans:0.005,tol:0.00001,m:1,show:'0.005 mol'},{label:'Volume of hydrogen =',unit:'cm³',ans:120,tol:0.5,m:1,show:'120 cm³'}],
+work:['amount of Mg = 0.12 ÷ 24 = 0.005 mol; 1 mol Mg gives 1 mol H<sub>2</sub> (1 mark)','volume = 0.005 × 24 000 = 120 cm³ (1 mark)']},
+{ref:'Q6',marks:3,type:'written',ctx:'The student\'s observations: magnesium fizzed vigorously and the tube got warm; zinc gave steady bubbles; iron gave a few slow bubbles; copper showed no change.',
+stem:'Use these results to put the four metals in order of reactivity. Explain how the results show this order, and explain why copper does not react.',
+points:['Order: magnesium > zinc > iron > copper (most to least reactive).','The faster the bubbles of hydrogen (or the bigger the temperature rise), the more reactive the metal.','Copper is below hydrogen in the reactivity series, so it cannot displace hydrogen from the acid.']},
+{ref:'Q7',marks:2,type:'written',ctx:'In the gas-collection experiment, the student added the metal and then took a few seconds to put the bung in the flask.',
+stem:'Suggest how this affects the measured rate of reaction, and suggest an improvement to the method.',
+points:['Some hydrogen escapes, so the measured volume / rate is too low.','Improvement, e.g. put the metal in a small tube inside the flask and tip it over after the bung is in / use a gas syringe with the bung fitted at once / use a flask with a side-arm and a tap funnel.']},
+{ref:'Q8',marks:6,type:'written',
+stem:'Describe an experiment to compare the reactivity of magnesium, zinc and iron by measuring the volume of hydrogen produced when each metal reacts with dilute hydrochloric acid.',
+points:['Measure a fixed volume of acid (e.g. 25 cm³) with a measuring cylinder into a conical flask.','Use the same concentration of acid each time.','Use the same mass of each metal, in the same form (e.g. powder).','Fill a measuring cylinder with water and turn it upside down in a trough of water (or use a gas syringe).','Add the metal, put the bung (and delivery tube) in at once and start the stopwatch.','Record the volume of gas at regular intervals (e.g. every 30 s), or the volume after a fixed time.','Repeat with each metal and compare the rates / volumes: the greater the rate, the more reactive the metal.','Wear eye protection / keep flames away from the hydrogen.']}
+];
+/* ---------- tabs ---------- */
+const tabs=[$('xTab1'),$('xTab2')],panels=[$('xPanel1'),$('xPanel2')];
+function show(i,focus){
+tabs.forEach((t,k)=>{const on=k===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[k].hidden=!on;});
+if(focus)tabs[i].focus();
+if(i===0)window.dispatchEvent(new Event('resize'));
+const top=tabs[0].parentElement.getBoundingClientRect().top+window.scrollY-8;
+window.scrollTo({top:Math.max(0,top),behavior:RM?'auto':'smooth'});
+}
+tabs.forEach((t,i)=>{
+t.addEventListener('click',()=>show(i,false));
+t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(i?0:1,true);}else if(e.key==='Home'){e.preventDefault();show(0,true);}else if(e.key==='End'){e.preventDefault();show(1,true);}});
+});
+/* ---------- exam questions ---------- */
+const L=$('xList'),TOTAL=QS.reduce((s,q)=>s+q.marks,0);
+const st=QS.map(()=>({got:0,marked:false}));
+function upd(){
+const s=st.reduce((a,x)=>a+x.got,0),m=st.filter(x=>x.marked).length;
+$('xScore').textContent='Score: '+s+' / '+TOTAL+' · '+m+' of '+QS.length+' questions marked';
+}
+const LET='ABCD';
+const near=(v,a,t)=>Math.abs(v-a)<=t+1e-9;
+function build(){
+L.innerHTML='';
+QS.forEach((q,i)=>{
+const c=document.createElement('article');c.className='xq';c.id='xq'+i;
+let h='<div class="xq-top"><span class="xq-ref">'+q.ref+'</span><span class="xq-marks">('+q.marks+' mark'+(q.marks>1?'s':'')+')</span></div>';
+if(q.ctx)h+='<div class="xq-ctx">'+q.ctx+'</div>';
+h+='<p class="xq-stem">'+q.stem+'</p>';
+if(q.type==='mcq'){
+h+='<div class="xopts" role="radiogroup" aria-label="'+q.ref+' options">'+q.opts.map((o,k)=>'<label class="xopt"><input type="radio" name="xr'+i+'" value="'+k+'"><span class="xl">'+LET[k]+'</span><span>'+o+'</span></label>').join('')+'</div><div class="xfb" hidden></div>';
+}else if(q.type==='calc'){
+h+='<div class="xcalc">'+q.inputs.map((p,k)=>'<div class="xin"><label for="xc'+i+'_'+k+'">'+p.label+'</label><input type="number" step="any" id="xc'+i+'_'+k+'"><span>'+p.unit+'</span></div>').join('')+
+'<div class="row"><button class="btn" type="button" data-chk>Check</button></div></div><div class="xfb" hidden></div><div class="xwork" hidden><b>Working</b><ol>'+q.work.map(w=>'<li>'+w+'</li>').join('')+'</ol></div>';
+}else{
+h+='<textarea aria-label="'+q.ref+' answer" placeholder="Write your answer here, then press Show mark scheme."></textarea><div class="row"><button class="btn" type="button" data-ms>Show mark scheme</button></div>'+
+'<div class="xms" hidden><div class="shelf-label">Tick each point you made</div>'+q.points.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+'<p class="note">Max '+q.marks+' mark'+(q.marks>1?'s':'')+'</p></div>';
+}
+c.innerHTML=h;L.appendChild(c);
+const fb=c.querySelector('.xfb');
+if(q.type==='mcq'){
+const box=c.querySelector('.xopts');
+box.addEventListener('change',e=>{
+if(st[i].marked)return;const k=+e.target.value,ok=k===q.ans;
+st[i]={got:ok?q.marks:0,marked:true};box.classList.add('locked');
+box.querySelectorAll('input').forEach(r=>r.disabled=true);
+const labs=box.querySelectorAll('.xopt');labs[q.ans].classList.add('right');if(!ok)labs[k].classList.add('wrongpick');
+fb.hidden=false;fb.className='xfb '+(ok?'good':'bad');fb.innerHTML='<b>'+(ok?'Correct.':'Not quite. The answer is '+LET[q.ans]+'.')+'</b> '+q.why;upd();
+});
+}else if(q.type==='calc'){
+const btn=c.querySelector('[data-chk]'),ins=q.inputs.map((p,k)=>$('xc'+i+'_'+k));
+ins.forEach(x=>x.addEventListener('keydown',e=>{if(e.key==='Enter')btn.click();}));
+btn.addEventListener('click',()=>{
+if(st[i].marked)return;
+const last=ins.length-1,v=ins.map(x=>x.value.trim()===''?null:+x.value);
+if(v[last]===null){fb.hidden=false;fb.className='xfb bad';fb.textContent='Type your final answer in the last box first.';return;}
+const ok=q.inputs.map((p,k)=>v[k]!==null&&near(v[k],p.ans,p.tol));
+let got=ok[last]?q.marks:q.inputs.reduce((s,p,k)=>s+(k<last&&ok[k]?p.m:0),0);
+ins.forEach((x,k)=>{x.disabled=true;x.classList.add(ok[k]||ok[last]?'ok':'wrong');});
+btn.disabled=true;st[i]={got,marked:true};
+fb.hidden=false;fb.className='xfb '+(got===q.marks?'good':'bad');
+fb.innerHTML='<b>'+got+' / '+q.marks+' marks.</b> '+(ok[last]?'Correct final answer.':'The answer is '+q.inputs[last].show+'.');
+c.querySelector('.xwork').hidden=false;upd();
+});
+}else{
+const btn=c.querySelector('[data-ms]'),ms=c.querySelector('.xms'),cbs=[...ms.querySelectorAll('input')];
+btn.addEventListener('click',()=>{ms.hidden=false;btn.disabled=true;st[i].marked=true;upd();});
+ms.addEventListener('change',()=>{
+const n=cbs.filter(x=>x.checked).length;st[i].got=Math.min(q.marks,n);
+cbs.forEach(x=>{const off=!x.checked&&n>=q.marks;x.disabled=off;x.parentElement.classList.toggle('off',off);});upd();
+});
+}
+});
+st.forEach(x=>{x.got=0;x.marked=false;});upd();
+}
+build();
+$('xReset').addEventListener('click',()=>{build();const top=$('xPanel2').getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:Math.max(0,top),behavior:RM?'auto':'smooth'});});
+})();
+</script>
+</body></html>

@@ -1,0 +1,633 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oxygen in Air</title>
+<meta name="description" content="Virtual core practical: Oxygen in Air. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp3-oxygen-in-air.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:68ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font:600 .9rem var(--display);color:var(--muted);letter-spacing:.03em}
+details.safety{background:#fff7e8;border:1px solid #edd29b;border-radius:10px;padding:8px 14px;max-width:68ch}
+details.safety summary{cursor:pointer;font-weight:700}
+details.safety ul{margin:6px 0 2px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bench{background:var(--bench);border-radius:12px;padding:14px 12px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px;align-items:start}
+@media (max-width:760px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.shelf-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+ol.method{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:m;font-size:.92rem}
+ol.method li{counter-increment:m;display:flex;gap:8px;align-items:flex-start;color:var(--muted)}
+ol.method li::before{content:counter(m);flex:none;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 .75rem var(--display);background:#fff}
+ol.method li.now{color:var(--ink);font-weight:700}
+ol.method li.now::before{border-color:var(--accent);color:var(--accent)}
+ol.method li.done{color:var(--good)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;font:inherit;font-size:.85rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 8px;border-radius:12px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);min-width:84px}
+.tool svg{width:44px;height:44px;display:block}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:disabled{opacity:.4;cursor:default}
+.dragghost{position:fixed;left:0;top:0;width:52px;height:52px;pointer-events:none;z-index:50}
+.dragghost svg{width:52px;height:52px}
+[data-drop]{cursor:pointer}
+[data-drop]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hl{opacity:0;transition:opacity .2s}
+body.armed [data-drop] .hl{opacity:.5}
+[data-drop].over .hl{opacity:1}
+.drop-card{border:2px dashed transparent;border-radius:12px}
+body.armed .drop-card{border-color:var(--line)}
+.drop-card.over{border-color:var(--accent)!important;background:var(--accent-soft)}
+.msg{background:var(--accent-soft);border-left:4px solid var(--accent);padding:8px 12px;border-radius:8px;font-size:.95rem;min-height:2.6em}
+.msg.warn{background:#fdecea;border-color:var(--bad)}
+.msg.ok{background:#e6f4ec;border-color:var(--good)}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible,.tool:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 10px;display:inline-block}
+.readout.big{font-size:1.25rem;color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+svg text{font-family:var(--body)}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:4;stroke-linecap:round}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:#f6f6fd;font-weight:700}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number]{font:inherit;font-size:.95rem;width:6.2em;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.92rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+select.ok,input.ok{border-color:var(--good);background:#eef8f2} select.wrong,input.wrong{border-color:var(--bad);background:#fdf0ef}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:72ch}
+.calc{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+footer{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+footer .fact{font-weight:700;max-width:60ch}
+input[type=range]{accent-color:var(--accent);width:100%}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(var(--d,-60px));opacity:0}}
+.bub{animation:rise 1.4s ease-in forwards}
+@media (max-width:520px){body{font-size:16px}.tool{min-width:72px}.tool svg{width:36px;height:36px}}
+#tube{transform-box:view-box;transform-origin:230px 159px;transition:transform 1.2s ease}
+#tube.up{transform:translate(-170px,25px) rotate(180deg)}
+.tabs .btn{flex:1 1 220px}
+.pane[hidden]{display:none}
+#svgA,#svgB{width:100%;height:auto;display:block;background:#fff;border-radius:10px;border:1px solid var(--line)}
+#svgA{max-width:440px;margin:0 auto}
+.tlbl{font-size:10px;fill:var(--muted)}
+.lab{font-size:12px;fill:var(--ink);font-weight:700}
+.slider{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+canvas{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--line);border-radius:8px}
+#resTbl input{width:5.6em}
+/* ---------- exam-practice tabs ---------- */
+.xtabs{display:flex;flex-wrap:wrap;gap:10px;padding:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;align-self:flex-start;max-width:100%}
+.xtab{font:700 1.05rem var(--display);padding:12px 26px;border-radius:999px;border:2px solid transparent;background:transparent;color:var(--accent);cursor:pointer;flex:1 1 auto;min-width:0}
+.xtab[aria-selected="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.xtab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+.xtab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:520px){.xtabs{border-radius:16px;align-self:stretch}.xtab{padding:10px 14px;font-size:.98rem;border-radius:12px}}
+.xpanel{display:flex;flex-direction:column;gap:22px;min-width:0}
+.xpanel[hidden]{display:none!important}
+.xscore{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;font:700 1rem var(--display);padding:10px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(28,39,54,.18);font-variant-numeric:tabular-nums}
+.xlist{display:flex;flex-direction:column;gap:16px}
+.xq{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.xq-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.xq-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.xq-marks{font-size:.88rem;color:var(--muted);font-weight:700}
+.xq-ctx{color:var(--ink);font-size:.95rem}
+.xq-stem{font-weight:700}
+.xq .tbl-wrap table{width:auto;min-width:0}
+.xopts{display:flex;flex-direction:column;gap:8px}
+.xopt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.xopt:hover{border-color:var(--accent)}
+.xopt input{position:absolute;opacity:0;pointer-events:none}
+.xopt .xl{flex:none;width:26px;height:26px;border-radius:6px;border:2px solid var(--accent);display:grid;place-items:center;font:700 .85rem var(--display);color:var(--accent)}
+.xopt:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+.xopt.right{border-color:var(--good);background:#eef8f2}.xopt.right .xl{background:var(--good);border-color:var(--good);color:#fff}
+.xopt.wrongpick{border-color:var(--bad);background:#fdf0ef}.xopt.wrongpick .xl{background:var(--bad);border-color:var(--bad);color:#fff}
+.xopts.locked .xopt{cursor:default}.xopts.locked .xopt:hover{border-color:var(--line)}.xopts.locked .xopt.right:hover{border-color:var(--good)}.xopts.locked .xopt.wrongpick:hover{border-color:var(--bad)}
+.xfb{font-size:.95rem;border-left:4px solid var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:8px}
+.xfb.good{border-color:var(--good);background:#e6f4ec}.xfb.bad{border-color:var(--bad);background:#fdecea}
+.xcalc{display:flex;flex-direction:column;gap:8px}
+.xin{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.xin input[type=number]{width:7.5em}
+.xwork{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.xwork ol{margin:4px 0 0;padding-left:1.3em}
+.xq textarea{font:inherit;font-size:.95rem;width:100%;min-height:5.5em;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
+.xq textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.xms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fbfbff;display:flex;flex-direction:column;gap:6px}
+.xms .shelf-label{color:var(--accent)}
+.xms label{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.xms input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px;margin-top:3px;flex:none}
+.xms label.off{opacity:.55;cursor:default}
+.xq [hidden]{display:none!important}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+<div class="wrap">
+<header>
+<h1>Percentage of oxygen in air</h1>
+<div class="ref">Core practical 2.14</div>
+<p><b>Aim:</b> To find the approximate percentage by volume of oxygen in air, using a metal (iron or copper) that reacts with oxygen.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection.</li>
+<li>Wear gloves to handle iron wool. It can give you splinters.</li>
+<li>Copper method: the silica tube and the Bunsen get very hot. Let them cool before you touch them.</li>
+<li>Clamp the tube so it cannot fall. Wipe up spilled water.</li></ul></details>
+</header>
+<div class="xtabs" role="tablist" aria-label="Lab sections">
+<button class="xtab" type="button" role="tab" id="xTab1" aria-selected="true" aria-controls="xPanel1" tabindex="0">1 · The practical</button>
+<button class="xtab" type="button" role="tab" id="xTab2" aria-selected="false" aria-controls="xPanel2" tabindex="-1">2 · Exam practice</button>
+</div>
+<div class="xpanel" id="xPanel1" role="tabpanel" aria-labelledby="xTab1">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<div class="row tabs">
+<button class="btn" type="button" id="tabA" aria-pressed="true">Method A: damp iron wool</button>
+<button class="btn ghost" type="button" id="tabB" aria-pressed="false">Method B: heated copper (optional)</button>
+</div>
+<div class="pane" id="paneA">
+<div class="layout">
+<div class="bench" id="benchA">
+<div class="shelf-label">Equipment</div>
+<div class="tools">
+<button class="tool" type="button" data-t="wool" data-n="iron wool" id="woolTool"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24q6-12 14-4t12-4 8 8M6 30q10-8 18 0t18-4M10 36q8 4 14-4t16 2M12 18q8-6 14 0t12 0" fill="none" stroke="#6b717a" stroke-width="2.4" stroke-linecap="round"/><g id="woolDrops" style="display:none" fill="#5aa4dd"><circle cx="14" cy="12" r="2.6"/><circle cx="36" cy="40" r="2.6"/><circle cx="40" cy="14" r="2.2"/></g></svg><span id="woolLbl">Iron wool</span></button>
+</div>
+<p class="note" id="hintA">Drag the iron wool, or tap it and then tap where it goes.</p>
+<svg id="svgA" viewBox="0 0 380 340" role="img" aria-label="Graduated tube and trough of water">
+<defs><clipPath id="cpT"><path d="M207 300 L207 30 Q207 21 216 21 L244 21 Q253 21 253 30 L253 300 Z"/></clipPath></defs>
+<line x1="0" y1="336" x2="380" y2="336" stroke="#b8c3ce" stroke-width="2"/>
+<g id="trough" data-drop="trough" tabindex="0" role="button" aria-label="Trough of water">
+<rect class="hl" x="112" y="190" width="226" height="150" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-dasharray="6 4" stroke-width="2"/>
+<rect x="122" y="222" width="206" height="110" fill="rgba(150,200,235,.5)"/>
+<path class="glass" d="M120 200 L120 330 Q120 334 124 334 L326 334 Q330 334 330 330 L330 200"/>
+<text class="lab" x="136" y="324">water</text>
+</g>
+<g id="clamp" style="display:none">
+<rect x="350" y="20" width="7" height="312" fill="#8a96a3"/><rect x="336" y="330" width="40" height="6" fill="#6c7884"/>
+<rect x="255" y="96" width="97" height="8" fill="#6c7884"/><rect x="200" y="90" width="60" height="20" rx="5" fill="none" stroke="#4a5562" stroke-width="3"/>
+</g>
+<g id="tube" class="up" data-drop="tube" tabindex="0" role="button" aria-label="Graduated tube">
+<rect class="hl" x="198" y="12" width="64" height="294" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-dasharray="6 4" stroke-width="2"/>
+<rect x="205" y="18" width="50" height="282" fill="rgba(255,255,255,.6)"/>
+<g clip-path="url(#cpT)"><rect id="wIn" x="200" y="300" width="60" height="0" fill="rgba(150,200,235,.6)"/>
+<g id="woolIn" style="display:none" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M209 26q8 10 16 0t16 0 12 4M209 36q10-8 20 2t22-2M210 46q9 8 18-2t22 4M212 55q12-6 24 2t14-2"/></g></g>
+<g id="scale"></g>
+<line id="mark0" x1="200" x2="260" y1="0" y2="0" stroke="var(--bad)" stroke-width="2" stroke-dasharray="4 3" style="display:none"/>
+<path class="glass" d="M205 300 L205 30 Q205 18 217 18 L243 18 Q255 18 255 30 L255 300"/>
+<path class="shine" d="M212 60 L212 260"/>
+</g>
+</svg>
+<div class="row"><button class="btn" type="button" id="btnInv">Turn tube over into the water</button><button class="btn" type="button" id="btnReadA">Read the scale</button></div>
+<div class="slider"><label for="days" class="note">Time-lapse</label><input type="range" id="days" min="0" max="7" step="0.05" value="0" disabled><span class="readout" id="dayOut">Day 0</span></div>
+<div class="row"><button class="btn ghost" type="button" id="ff" disabled>Fast-forward one week</button></div>
+<p class="msg" id="msgA" aria-live="polite">Start with step 1: wet the iron wool.</p>
+</div>
+<div class="panel">
+<h3>Method</h3><ol class="method" id="methA"></ol>
+<h3>Your readings</h3>
+<div>Start volume of air: <span class="readout big" id="rA0">–</span></div>
+<div>Final volume of air: <span class="readout big" id="rA1">–</span></div>
+<div class="note">Air volume each day</div>
+<canvas id="graph" width="520" height="320" aria-label="Graph of air volume against days"></canvas>
+<button class="btn ghost" type="button" id="resetA">Reset</button>
+</div>
+</div>
+</div>
+<div class="pane" id="paneB" hidden>
+<div class="layout">
+<div class="bench">
+<svg id="svgB" viewBox="0 0 580 220" role="img" aria-label="Two gas syringes joined by a silica tube with copper">
+<line x1="0" y1="212" x2="580" y2="212" stroke="#b8c3ce" stroke-width="2"/>
+<rect id="gasA" x="130" y="72" width="0" height="26" fill="rgba(200,225,248,.8)"/>
+<rect id="gasB" x="330" y="72" width="0" height="26" fill="rgba(200,225,248,.8)"/>
+<rect class="glass" x="130" y="70" width="120" height="30" rx="3"/>
+<rect class="glass" x="330" y="70" width="120" height="30" rx="3"/>
+<g id="scaleB"></g>
+<g id="plA"><rect id="hA" x="0" y="72" width="6" height="26" fill="#4a5562"/><rect id="rodA" x="0" y="82" width="0" height="6" fill="#8a96a3"/><rect id="kA" x="0" y="66" width="6" height="38" rx="2" fill="#4a5562"/></g>
+<g id="plB"><rect id="hB" x="0" y="72" width="6" height="26" fill="#4a5562"/><rect id="rodB" x="0" y="82" width="0" height="6" fill="#8a96a3"/><rect id="kB" x="0" y="66" width="6" height="38" rx="2" fill="#4a5562"/></g>
+<rect x="250" y="80" width="80" height="10" fill="rgba(255,255,255,.9)" stroke="var(--glass)" stroke-width="2"/>
+<g id="cu"><rect x="268" y="81" width="8" height="8" rx="1"/><rect x="278" y="81" width="8" height="8" rx="1"/><rect x="288" y="81" width="8" height="8" rx="1"/><rect x="298" y="81" width="8" height="8" rx="1"/><rect x="308" y="81" width="6" height="8" rx="1"/></g>
+<path id="flame" d="M290 94 Q280 112 284 126 Q290 136 296 126 Q300 112 290 94Z" fill="#6aa7f0" stroke="#3366cc" stroke-width="1.5" style="display:none"/>
+<rect x="284" y="128" width="12" height="70" fill="#9aa5b1"/><rect x="268" y="196" width="44" height="12" rx="3" fill="#6c7884"/>
+<text class="lab" x="160" y="125">syringe A</text><text class="lab" x="360" y="125">syringe B</text><text class="lab" x="246" y="62">copper in silica tube</text>
+</svg>
+<div class="row"><button class="btn" type="button" id="btnReadB">Read the syringes</button><button class="btn" type="button" id="btnHeat">Heat the copper</button><button class="btn" type="button" id="btnPush">Push air across</button><button class="btn" type="button" id="btnCool">Stop heating and cool</button></div>
+<div>Total gas volume shown: <span class="readout" id="nowB">100 cm³</span> <span class="note" id="tempB">room temperature</span></div>
+<p class="msg" id="msgB" aria-live="polite">Start with step 1: read the volume of air in the syringes.</p>
+</div>
+<div class="panel">
+<h3>Method</h3><ol class="method" id="methB"></ol>
+<h3>Your readings</h3>
+<div>Start volume of air: <span class="readout big" id="rB0">–</span></div>
+<div>Final volume of air: <span class="readout big" id="rB1">–</span></div>
+<button class="btn ghost" type="button" id="resetB">Reset</button>
+</div>
+</div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Copy your readings from Part 1. Then work out the volume of oxygen and the percentage of oxygen.</p>
+<div class="calc">volume of oxygen = initial volume − final volume<br>% oxygen = (volume of oxygen ÷ initial volume) × 100 <span class="note">(give 1 decimal place)</span></div>
+<div class="tbl-wrap"><table id="resTbl" style="min-width:600px">
+<thead><tr><th>Method</th><th>Initial volume of air / cm³</th><th>Final volume of air / cm³</th><th>Volume of oxygen / cm³</th><th>% oxygen</th></tr></thead>
+<tbody>
+<tr><th>A: iron wool</th><td><input type="number" step="any" id="a0" aria-label="iron initial volume"></td><td><input type="number" step="any" id="a1" aria-label="iron final volume"></td><td><input type="number" step="any" id="a2" aria-label="iron oxygen volume"></td><td><input type="number" step="any" id="a3" aria-label="iron percentage oxygen"></td></tr>
+<tr><th>B: copper <span class="note">(optional)</span></th><td><input type="number" step="any" id="b0" aria-label="copper initial volume"></td><td><input type="number" step="any" id="b1" aria-label="copper final volume"></td><td><input type="number" step="any" id="b2" aria-label="copper oxygen volume"></td><td><input type="number" step="any" id="b3" aria-label="copper percentage oxygen"></td></tr>
+</tbody></table></div>
+<div class="toolbar"><button class="btn" type="button" id="chkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>The water rises up the tube because the iron reacts with the
+<select data-a="oxygen" data-o="nitrogen|oxygen|carbon dioxide|argon"></select> in the air. The gas left takes up less volume, so the pressure inside the tube
+<select data-a="falls" data-o="rises|falls|stays the same"></select> and water is pushed up.</li>
+<li>After a few days the water level stops rising. This is because
+<select data-a="all the oxygen has been used up" data-o="all the iron has been used up|all the oxygen has been used up|the water is too heavy to rise"></select>.</li>
+<li>Method: the iron wool is damp because
+<select data-a="iron needs water and oxygen to rust" data-o="water keeps the iron cool|iron needs water and oxygen to rust|water makes the iron wool heavier"></select>.
+Iron wool works faster than an iron nail because it has a
+<select data-a="larger surface area" data-o="larger surface area|smaller surface area|higher melting point"></select>.</li>
+<li>Conclusion: air contains about
+<select data-a="21%" data-o="1%|21%|50%|78%"></select> oxygen by volume. The gas left in the tube is mainly
+<select data-a="nitrogen" data-o="oxygen|carbon dioxide|nitrogen|hydrogen"></select>.</li>
+<li>A student got 15% oxygen. The most likely reason the answer is lower than 21% is
+<select data-a="not all the oxygen reacted, as it was not left long enough" data-o="too much iron wool was used|not all the oxygen reacted, as it was not left long enough|the water evaporated"></select>.</li>
+<li>Copper method: the copper turns black because it forms
+<select data-a="copper(II) oxide" data-o="copper(II) oxide|copper(II) sulfate|copper carbonate"></select>.
+You let the apparatus cool before the final reading because
+<select data-a="hot gas takes up more volume" data-o="hot gas takes up more volume|cold copper reacts faster|the syringes are hard to read when hot"></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<footer><span class="fact">Air is about 21% oxygen and 78% nitrogen by volume.</span><button class="btn ghost" type="button" id="startAgain">Start again</button></footer>
+</div>
+<div class="xpanel" id="xPanel2" role="tabpanel" aria-labelledby="xTab2" hidden>
+<section class="sheet" aria-labelledby="xH">
+<h2 id="xH">Exam practice</h2>
+<p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p>
+</section>
+<div class="xscore" id="xScore" role="status" aria-live="polite">Score: 0 / 0 · 0 of 0 questions marked</div>
+<div class="xlist" id="xList"></div>
+<div class="row"><button class="btn ghost" type="button" id="xReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const RM=false;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const rstep=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(+x).toFixed(d);
+const NS='http://www.w3.org/2000/svg';
+function say(el,html,kind){el.innerHTML=html;el.className='msg'+(kind?' '+kind:'');}
+function Method(listEl,items){
+listEl.innerHTML=items.map(t=>'<li>'+t+'</li>').join('');
+let n=0;
+const paint=()=>[...listEl.children].forEach((li,k)=>{li.classList.toggle('done',k<n);li.classList.toggle('now',k===n);});
+paint();
+return {get step(){return n},tick(i){if(i>=n){n=i+1;paint();}},reset(){n=0;paint();}};
+}
+function DnD(root,onUse,hintEl,baseHint){
+let sel=null,drag=null;
+const clear=()=>{sel=null;root.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));document.body.classList.remove('armed');if(hintEl)hintEl.textContent=baseHint;};
+const pick=b=>{if(sel===b.dataset.t){clear();return;}clear();sel=b.dataset.t;b.classList.add('selected');document.body.classList.add('armed');if(hintEl)hintEl.textContent='Now tap where to use the '+b.dataset.n+'.';};
+root.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b||b.disabled)return;drag={b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+root.addEventListener('pointermove',e=>{
+if(!drag)return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=drag.b.querySelector('svg').outerHTML;document.body.appendChild(g);drag.g=g;}
+if(drag.moved){drag.g.style.transform='translate('+(e.clientX-26)+'px,'+(e.clientY-26)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);const t=u&&u.closest?u.closest('[data-drop]'):null;if(drag.over&&drag.over!==t)drag.over.classList.remove('over');if(t)t.classList.add('over');drag.over=t;}
+});
+const end=c=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(c)return;if(d.moved){if(d.over){clear();onUse(d.b.dataset.t,d.over.getAttribute('data-drop'));}}else pick(d.b);};
+root.addEventListener('pointerup',()=>end(false));
+root.addEventListener('pointercancel',()=>end(true));
+root.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b&&!b.disabled)pick(b);}});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-drop]');if(t&&sel){const s=sel;clear();onUse(s,t.getAttribute('data-drop'));}});
+document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('[data-drop]');if(t&&e.target===t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();t.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});
+return {clear};
+}
+function fillSelects(root){root.querySelectorAll('select[data-o]').forEach(s=>{s.innerHTML='<option value="">choose…</option>'+s.dataset.o.split('|').map(o=>'<option>'+o+'</option>').join('');});}
+function mark(el,ok){el.classList.toggle('ok',ok);el.classList.toggle('wrong',!ok);return ok?1:0;}
+function unmark(root){root.querySelectorAll('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));}
+function scoreTo(el,r,n,extra){el.textContent=r+' / '+n+' correct'+(r===n?'. Well done!':'. '+(extra||'Red boxes need another look.'));el.className='score '+(r===n?'good':'bad');}
+function wireQs(listId,btnId,scoreId){
+const L=$(listId);fillSelects(L);
+$(btnId).addEventListener('click',()=>{const s=[...L.querySelectorAll('select')];let r=0;s.forEach(x=>r+=mark(x,x.value===x.dataset.a));scoreTo($(scoreId),r,s.length,'Have another go at the red ones.');});
+L.addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+return ()=>{L.querySelectorAll('select').forEach(s=>{s.value='';});unmark(L);$(scoreId).textContent='';};
+}
+function bubble(parent,x,y,r,d,col){if(RM)return;const c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);c.setAttribute('fill',col||'rgba(255,255,255,.85)');c.setAttribute('stroke','rgba(40,60,85,.85)');c.setAttribute('stroke-width','1.1');c.classList.add('bub');c.style.setProperty('--d',d+'px');parent.appendChild(c);setTimeout(()=>c.remove(),1450);}
+function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')';}
+(function(){
+/* ---------- tabs ---------- */
+function tab(b){const isA=b==='A';$('paneA').hidden=!isA;$('paneB').hidden=isA;
+$('tabA').className='btn'+(isA?'':' ghost');$('tabB').className='btn'+(isA?' ghost':'');
+$('tabA').setAttribute('aria-pressed',isA);$('tabB').setAttribute('aria-pressed',!isA);}
+$('tabA').onclick=()=>tab('A');$('tabB').onclick=()=>tab('B');
+/* ---------- Method A: iron wool ---------- */
+const mA=Method($('methA'),['Wet the iron wool: drag it into the trough of water.','Push the damp iron wool into the bottom of the tube.','Turn the tube upside down into the water. Clamp it.','Read and mark the starting volume of air.','Leave it for about a week.','Read the final volume when the water stops rising.']);
+const yV=v=>24+v*4.6;
+const sc=$('scale');let s='';
+for(let v=0;v<=55;v++){const y=yV(v),L=v%5?4:9;s+='<line x1="253" x2="'+(253-L)+'" y1="'+y+'" y2="'+y+'" stroke="#5a6878" stroke-width="'+(v%10?1:1.6)+'"/>';if(v%10===0)s+='<text class="tlbl" x="259" y="'+(y+3.5)+'">'+v+'</text>';}
+sc.innerHTML=s;
+let A,ffRaf=null;
+function newA(){A={wool:0,inv:false,V0:null,V1:null,day:0,f:rnd(.197,.209),k:rnd(.6,.8),pts:[]};}
+const model=d=>A.V0*(1-A.f*(1-Math.exp(-A.k*d)));
+function drawA(){
+$('tube').classList.toggle('up',!A.inv);
+$('clamp').style.display=A.inv?'':'none';
+$('woolIn').style.display=A.wool===2?'':'none';
+$('woolDrops').style.display=A.wool===1?'':'none';
+$('woolLbl').textContent=A.wool===0?'Iron wool':'Damp iron wool';
+$('woolTool').disabled=A.wool===2;
+const c=A.V0?1-Math.exp(-A.k*A.day*1.3):0;
+$('woolIn').setAttribute('stroke',mix('#6b717a','#a4531f',c));
+const w=$('wIn');
+if(A.inv&&A.V0){const y=yV(model(A.day));w.setAttribute('y',y);w.setAttribute('height',300-y);}else{w.setAttribute('y',300);w.setAttribute('height',0);}
+const m=$('mark0');if(A.V0&&$('rA0').textContent!=='–'){m.style.display='';m.setAttribute('y1',yV(A.V0));m.setAttribute('y2',yV(A.V0));}else m.style.display='none';
+$('dayOut').textContent='Day '+Math.floor(A.day+1e-6)+(A.day>=7?' (one week)':'');
+$('days').value=A.day;
+graph();
+}
+DnD($('benchA'),(t,tg)=>{
+if(A.wool===0){
+if(tg==='trough'){A.wool=1;mA.tick(0);say($('msgA'),'Good. The iron wool is now damp. Next, push it into the bottom of the tube.','ok');}
+else say($('msgA'),'Wet the iron wool first. Iron needs <b>water</b> as well as oxygen to rust.','warn');
+}else if(A.wool===1){
+if(tg==='tube'){A.wool=2;mA.tick(1);say($('msgA'),'The iron wool is pushed right to the bottom, so it stays there when you turn the tube over. Now turn the tube over into the water.','ok');}
+else say($('msgA'),'It is already damp. Now put it into the tube.','');
+}
+drawA();
+},$('hintA'),'Drag the iron wool, or tap it and then tap where it goes.');
+$('btnInv').onclick=()=>{
+if(A.wool<2){say($('msgA'),'Put the damp iron wool into the tube first.','warn');return;}
+if(A.inv)return;
+A.inv=true;A.V0=rstep(rnd(48,52),.5);mA.tick(2);
+say($('msgA'),'The tube is upside down in the water and clamped. Air is trapped above the water. Now read the scale.','ok');
+$('wIn').setAttribute('height',0);$('tube').classList.remove('up');$('clamp').style.display='';
+setTimeout(drawA,RM?0:1200);
+};
+$('btnReadA').onclick=()=>{
+if(!A.inv){say($('msgA'),'Turn the tube over into the water first.','warn');return;}
+if($('rA0').textContent==='–'){
+$('rA0').textContent=fx(A.V0,1)+' cm³';mA.tick(3);
+$('days').disabled=false;$('ff').disabled=false;
+say($('msgA'),'Start volume of air = <b>'+fx(A.V0,1)+' cm³</b>. The red line marks the level. Now leave the tube for about a week: use the time-lapse.','ok');
+setDay(0);return;
+}
+if(A.day<7){say($('msgA'),'The water is still rising. Leave it for the full week (day 7) first.','warn');return;}
+if(A.V1===null){A.V1=rstep(model(7),.5);$('rA1').textContent=fx(A.V1,1)+' cm³';mA.tick(5);
+say($('msgA'),'Final volume of air = <b>'+fx(A.V1,1)+' cm³</b>. Copy both readings into Part 2.','ok');}
+};
+function setDay(d){
+A.day=Math.min(7,Math.max(A.day,d));
+for(let i=A.pts.length;i<=Math.floor(A.day+1e-6);i++)A.pts.push([i,rstep(model(i),.5)]);
+if(A.day>=7&&mA.step===4){mA.tick(4);say($('msgA'),'One week has passed. The iron wool has rusted orange-brown and the water has stopped rising. Read the final volume.','ok');}
+drawA();
+}
+$('days').addEventListener('input',e=>{const v=+e.target.value;if(v<A.day){e.target.value=A.day;return;}setDay(v);});
+$('ff').onclick=()=>{
+if(RM){setDay(7);return;}
+cancelAnimationFrame(ffRaf);const d0=A.day,t0=performance.now();
+const go=t=>{const p=Math.min(1,(t-t0)/5000);setDay(d0+(7-d0)*p);if(p<1)ffRaf=requestAnimationFrame(go);};
+ffRaf=requestAnimationFrame(go);
+};
+function graph(){
+const c=$('graph'),g=c.getContext('2d'),W=c.width,H=c.height,l=66,r=16,t=16,b=56;
+g.clearRect(0,0,W,H);g.font='15px "Atkinson Hyperlegible", sans-serif';g.fillStyle='#5a6878';g.strokeStyle='#cdd6df';g.lineWidth=1;
+const X=d=>l+(W-l-r)*d/7;
+let lo=36,hi=54;if(A.V0){hi=Math.ceil(A.V0/2)*2+2;lo=hi-18;}
+const Y=v=>t+(H-t-b)*(hi-v)/(hi-lo);
+g.textAlign='center';
+for(let d=0;d<=7;d++){g.beginPath();g.moveTo(X(d),t);g.lineTo(X(d),H-b);g.stroke();g.fillText(d,X(d),H-b+20);}
+g.textAlign='right';
+for(let v=lo;v<=hi;v+=2){g.beginPath();g.moveTo(l,Y(v));g.lineTo(W-r,Y(v));g.stroke();g.fillText(v,l-8,Y(v)+5);}
+g.textAlign='center';g.fillText('time / days',l+(W-l-r)/2,H-10);
+g.save();g.translate(16,t+(H-t-b)/2);g.rotate(-Math.PI/2);g.fillText('volume of air / cm³',0,0);g.restore();
+if(!A.pts.length){g.fillText('Points appear here each day.',l+(W-l-r)/2,t+(H-t-b)/2);return;}
+g.strokeStyle='#4a44b5';g.lineWidth=2.5;g.beginPath();A.pts.forEach((p,i)=>i?g.lineTo(X(p[0]),Y(p[1])):g.moveTo(X(p[0]),Y(p[1])));g.stroke();
+g.fillStyle='#4a44b5';A.pts.forEach(p=>{g.beginPath();g.arc(X(p[0]),Y(p[1]),5,0,7);g.fill();});
+}
+function resetA(){cancelAnimationFrame(ffRaf);newA();mA.reset();$('rA0').textContent='–';$('rA1').textContent='–';$('days').disabled=true;$('ff').disabled=true;
+say($('msgA'),'Start with step 1: wet the iron wool.','');drawA();}
+$('resetA').onclick=resetA;
+/* ---------- Method B: heated copper ---------- */
+const mB=Method($('methB'),['Read the starting volume of air (all in syringe A).','Heat the copper strongly.','Push the air from one syringe to the other, over the hot copper, until the volume stops changing.','Stop heating. Let the apparatus cool to room temperature.','Read the final volume of air.']);
+let sb='';for(let v=0;v<=100;v+=10){const xa=250-v*1.2,xb=330+v*1.2,L=v%50?5:9;sb+='<line x1="'+xa+'" x2="'+xa+'" y1="70" y2="'+(70+L)+'" stroke="#5a6878"/><line x1="'+xb+'" x2="'+xb+'" y1="70" y2="'+(70+L)+'" stroke="#5a6878"/>';if(v%50===0)sb+='<text class="tlbl" x="'+(xa-6)+'" y="64">'+v+'</text><text class="tlbl" x="'+(xb-6)+'" y="64">'+v+'</text>';}
+$('scaleB').innerHTML=sb;
+let B;
+function newB(){B={a:100,b:0,inA:true,f:rnd(.203,.212),rem:1,hot:false,heated:false,passes:0,stable:false,cooled:false,R0:null,R1:null,busy:false};}
+const totB=()=>100*(1-B.f)+100*B.f*B.rem+(B.hot?3:0);
+function drawB(){
+const ha=250-B.a*1.2,hb=330+B.b*1.2;
+$('gasA').setAttribute('x',ha);$('gasA').setAttribute('width',250-ha);
+$('gasB').setAttribute('width',hb-330);
+$('hA').setAttribute('x',ha-6);$('rodA').setAttribute('x',ha-126);$('rodA').setAttribute('width',120);$('kA').setAttribute('x',ha-132);
+$('hB').setAttribute('x',hb);$('rodB').setAttribute('x',hb+6);$('rodB').setAttribute('width',120);$('kB').setAttribute('x',hb+126);
+$('cu').setAttribute('fill',mix('#c2703f','#222222',Math.min(1,(1-B.rem)*1.1)));
+$('flame').style.display=B.hot?'':'none';
+$('nowB').textContent=Math.round(B.a+B.b)+' cm³';
+$('tempB').textContent=B.hot?'(hot)':'(room temperature)';
+}
+function animB(a1,b1,done){
+if(RM){B.a=a1;B.b=b1;drawB();done&&done();return;}
+B.busy=true;const a0=B.a,b0=B.b,t0=performance.now();
+const go=t=>{const p=Math.min(1,(t-t0)/900),e=p<.5?2*p*p:1-2*(1-p)*(1-p);B.a=a0+(a1-a0)*e;B.b=b0+(b1-b0)*e;drawB();if(p<1)requestAnimationFrame(go);else{B.busy=false;done&&done();}};
+requestAnimationFrame(go);
+}
+const settle=()=>{const T=totB();return B.inA?[T,0]:[0,T];};
+$('btnReadB').onclick=()=>{
+if(B.busy)return;
+if(B.R0===null){B.R0=100;$('rB0').textContent='100 cm³';mB.tick(0);say($('msgB'),'Start volume of air = <b>100 cm³</b>. Now heat the copper.','ok');return;}
+if(!B.cooled){say($('msgB'),B.heated?'Not yet. Stop heating and let it cool first: hot gas takes up more volume.':'You have the start volume. Now heat the copper.',B.heated?'warn':'');return;}
+if(B.R1===null){B.R1=Math.round(B.a+B.b);$('rB1').textContent=B.R1+' cm³';mB.tick(4);say($('msgB'),'Final volume of air = <b>'+B.R1+' cm³</b>. Copy both readings into Part 2.','ok');}
+};
+$('btnHeat').onclick=()=>{
+if(B.busy||B.heated)return;
+if(B.R0===null){say($('msgB'),'Read the starting volume first.','warn');return;}
+B.hot=B.heated=true;mB.tick(1);say($('msgB'),'The copper is hot. The gas expands a little. Now push the air across the copper.','ok');
+drawB();const s=settle();animB(s[0],s[1]);
+};
+$('btnPush').onclick=()=>{
+if(B.busy)return;
+if(!B.heated){say($('msgB'),'Heat the copper first. Cold copper reacts very slowly.','warn');return;}
+if(B.cooled){say($('msgB'),'The heating is finished. Read the final volume.','');return;}
+const before=Math.round(totB());B.rem*=rnd(.22,.38);B.passes++;B.inA=!B.inA;const after=Math.round(totB());
+const s=settle();
+animB(s[0],s[1],()=>{
+if(B.passes>=3&&before-after<1){B.stable=true;mB.tick(2);say($('msgB'),'The volume is not changing any more: '+after+' cm³. All the oxygen has reacted. Now stop heating.','ok');}
+else say($('msgB'),'Pass '+B.passes+': the volume went down to '+after+' cm³. The copper is turning black. Push again.','');
+});
+};
+$('btnCool').onclick=()=>{
+if(B.busy)return;
+if(!B.heated){say($('msgB'),'You have not heated the copper yet.','warn');return;}
+if(!B.stable){say($('msgB'),'Keep pushing the air over the copper. The volume is still going down.','warn');return;}
+if(B.cooled)return;
+B.hot=false;B.cooled=true;mB.tick(3);drawB();const s=settle();
+animB(s[0],s[1],()=>say($('msgB'),'It has cooled to room temperature. The volume went down a little more. Now read the final volume.','ok'));
+};
+function resetB(){newB();mB.reset();$('rB0').textContent='–';$('rB1').textContent='–';say($('msgB'),'Start with step 1: read the volume of air in the syringes.','');drawB();}
+$('resetB').onclick=resetB;
+/* ---------- results ---------- */
+const num=id=>{const v=$(id).value.trim();return v===''?null:+v;};
+const near=(a,b,t)=>a!==null&&b!==null&&Math.abs(a-b)<=t;
+function checkRow(p,R0,R1){
+const i=num(p+'0'),f=num(p+'1'),o=num(p+'2'),q=num(p+'3');let r=0;
+r+=mark($(p+'0'),R0!==null&&near(i,R0,.01));
+r+=mark($(p+'1'),R1!==null&&near(f,R1,.01));
+r+=mark($(p+'2'),i!==null&&f!==null&&near(o,i-f,.06));
+r+=mark($(p+'3'),i&&o!==null&&near(q,o/i*100,.151));
+return r;
+}
+$('chkRes').onclick=()=>{
+unmark($('resTbl'));
+let r=checkRow('a',A.V0&&$('rA0').textContent!=='–'?A.V0:null,A.V1),n=4,extra='';
+if(['b0','b1','b2','b3'].some(id=>num(id)!==null)){r+=checkRow('b',B.R0,B.R1);n+=4;}else extra=' (Copper row not marked: it is optional.)';
+if(A.V1===null)extra+=' Finish Method A first to get your readings.';
+scoreTo($('resScore'),r,n,'Red boxes need another look.');$('resScore').textContent+=extra;
+};
+$('resTbl').addEventListener('input',e=>e.target.classList.remove('ok','wrong'));
+const resetQs=wireQs('qs','chkQs','qScore');
+$('startAgain').onclick=()=>{resetA();resetB();tab('A');$('resTbl').querySelectorAll('input').forEach(i=>i.value='');unmark($('resTbl'));$('resScore').textContent='';resetQs();window.scrollTo({top:0,behavior:RM?'auto':'smooth'});};
+newA();newB();drawA();drawB();
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const RM=false;
+const QS=[
+{ref:'Q1(a)',marks:2,type:'written',ctx:'A student uses damp iron wool in an upturned measuring tube over water to find the percentage of oxygen in air.',
+stem:'Explain why iron wool is used rather than a single iron nail of the same mass.',
+points:['Iron wool has a larger surface area (than a nail).','So the iron reacts / rusts faster, and all the oxygen is used up in a reasonable time (a few days).']},
+{ref:'Q1(b)',marks:1,type:'mcq',ctx:'Over several days, the water level inside the tube rises.',
+stem:'Which statement explains why the water rises up the tube?',
+opts:['The iron wool absorbs the water.','Oxygen is used up, so the pressure inside the tube falls and water is pushed in.','Nitrogen dissolves in the water, so there is less gas in the tube.','The rust formed is denser than iron and pulls the water up.'],
+ans:1,why:'Rusting removes oxygen from the trapped air. The gas pressure inside drops, so the air pressure outside pushes water up the tube.'},
+{ref:'Q2',marks:3,type:'calc',ctx:'The student recorded these results.<div class="tbl-wrap" style="margin-top:6px"><table><tbody><tr><th>Volume of air at the start / cm³</th><td>50.0</td></tr><tr><th>Volume of gas after one week / cm³</th><td>39.8</td></tr></tbody></table></div>',
+stem:'Calculate the percentage of oxygen in the air, using these results. Give your answer to 1 decimal place.',
+inputs:[{label:'Volume of oxygen used =',unit:'cm³',ans:10.2,tol:0.05,m:1,show:'10.2 cm³'},{label:'Percentage of oxygen =',unit:'%',ans:20.4,tol:0.05,m:2,show:'20.4%'}],
+work:['volume of oxygen = 50.0 − 39.8 = 10.2 cm³ (1 mark)','% oxygen = (10.2 ÷ 50.0) × 100 (1 mark)','= 20.4% (1 mark)']},
+{ref:'Q3',marks:1,type:'mcq',ctx:'The tube is left on the bench for one week before the final reading is taken.',
+stem:'Which variable should be kept the same at the start and at the end, so that the two volume readings can be compared fairly?',
+opts:['The mass of the clamp stand','The temperature of the room','The colour of the iron wool','The depth of water in the trough'],
+ans:1,why:'A gas expands when it is warmed and contracts when it is cooled, so the temperature must be the same for both readings.'},
+{ref:'Q4(a)',marks:1,type:'mcq',ctx:'A second method uses copper. Air is passed backwards and forwards between two gas syringes, over copper heated in a silica tube. The copper reacts with oxygen to form copper(II) oxide.',
+stem:'Which is the balanced equation for this reaction?',
+opts:['Cu + O<sub>2</sub> → CuO<sub>2</sub>','2Cu + O<sub>2</sub> → Cu<sub>2</sub>O','2Cu + O<sub>2</sub> → 2CuO','Cu + O → CuO'],
+ans:2,why:'Copper(II) oxide is CuO. Oxygen is diatomic (O<sub>2</sub>), so two Cu are needed to give 2CuO.'},
+{ref:'Q4(b)',marks:2,type:'written',
+stem:'State the colour change you would see on the copper during this experiment. Give a reason for the change.',
+points:['Pink / orange-brown (copper) turns black.','Because black copper(II) oxide forms / the copper is oxidised (reacts with oxygen).']},
+{ref:'Q4(c)',marks:2,type:'written',
+stem:'Give one safety precaution the student should take when heating the copper, and give a reason for it.',
+points:['A suitable precaution, e.g. let the silica tube cool before touching it / clamp the tube securely / wear eye protection / use a heat-proof mat.','A matching reason, e.g. the hot tube or copper can cause burns / the apparatus could fall / protects eyes from hot particles or broken glass.']},
+{ref:'Q5',marks:2,type:'calc',ctx:'The copper experiment is repeated starting with 80.0 cm³ of air. Assume air contains 21% oxygen by volume.',
+stem:'Calculate the volume of gas that should be left in the syringes after cooling to room temperature.',
+inputs:[{label:'Volume of oxygen in the air =',unit:'cm³',ans:16.8,tol:0.05,m:1,show:'16.8 cm³'},{label:'Volume of gas left =',unit:'cm³',ans:63.2,tol:0.05,m:1,show:'63.2 cm³'}],
+work:['volume of oxygen = 21 ÷ 100 × 80.0 = 16.8 cm³ (1 mark)','volume left = 80.0 − 16.8 = 63.2 cm³ (1 mark)','(or 79% × 80.0 = 63.2 cm³)']},
+{ref:'Q6',marks:2,type:'written',ctx:'Another student used the iron wool method and got a value of 16% oxygen.',
+stem:'Suggest two reasons why this value is lower than the expected value of about 21%.',
+points:['The tube was not left long enough, so not all the oxygen reacted.','Not enough iron wool / the iron wool was not damp enough, so not all the oxygen reacted.','Air leaked into the tube (e.g. the tube was lifted out of the water / the seal was poor).','The volume was read wrongly, e.g. eye not level with the water / water levels inside and outside not equal.','The temperature was higher at the final reading, so the gas had expanded.']},
+{ref:'Q7',marks:6,type:'written',
+stem:'Describe how you would use copper and two gas syringes to find the percentage by volume of oxygen in air. In your answer, explain how you would make sure that all the oxygen has reacted and how you would work out the result.',
+points:['Draw a measured volume of air (e.g. 100 cm³) into one syringe; the other syringe is empty / pushed in.','Connect the syringes through a silica (hard glass) tube containing copper, and record the starting volume.','Heat the copper strongly with a Bunsen burner.','Push the air backwards and forwards over the hot copper many times.','Keep going until the volume of gas stops decreasing (stays constant), so all the oxygen has reacted.','Stop heating and let the apparatus cool to room temperature before reading the final volume.','Volume of oxygen = starting volume − final volume.','% oxygen = (volume of oxygen ÷ starting volume) × 100.']}
+];
+/* ---------- tabs ---------- */
+const tabs=[$('xTab1'),$('xTab2')],panels=[$('xPanel1'),$('xPanel2')];
+function show(i,focus){
+tabs.forEach((t,k)=>{const on=k===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;panels[k].hidden=!on;});
+if(focus)tabs[i].focus();
+if(i===0)window.dispatchEvent(new Event('resize'));
+const top=tabs[0].parentElement.getBoundingClientRect().top+window.scrollY-8;
+window.scrollTo({top:Math.max(0,top),behavior:RM?'auto':'smooth'});
+}
+tabs.forEach((t,i)=>{
+t.addEventListener('click',()=>show(i,false));
+t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(i?0:1,true);}else if(e.key==='Home'){e.preventDefault();show(0,true);}else if(e.key==='End'){e.preventDefault();show(1,true);}});
+});
+/* ---------- exam questions ---------- */
+const L=$('xList'),TOTAL=QS.reduce((s,q)=>s+q.marks,0);
+const st=QS.map(()=>({got:0,marked:false}));
+function upd(){
+const s=st.reduce((a,x)=>a+x.got,0),m=st.filter(x=>x.marked).length;
+$('xScore').textContent='Score: '+s+' / '+TOTAL+' · '+m+' of '+QS.length+' questions marked';
+}
+const LET='ABCD';
+const near=(v,a,t)=>Math.abs(v-a)<=t+1e-9;
+function build(){
+L.innerHTML='';
+QS.forEach((q,i)=>{
+const c=document.createElement('article');c.className='xq';c.id='xq'+i;
+let h='<div class="xq-top"><span class="xq-ref">'+q.ref+'</span><span class="xq-marks">('+q.marks+' mark'+(q.marks>1?'s':'')+')</span></div>';
+if(q.ctx)h+='<div class="xq-ctx">'+q.ctx+'</div>';
+h+='<p class="xq-stem">'+q.stem+'</p>';
+if(q.type==='mcq'){
+h+='<div class="xopts" role="radiogroup" aria-label="'+q.ref+' options">'+q.opts.map((o,k)=>'<label class="xopt"><input type="radio" name="xr'+i+'" value="'+k+'"><span class="xl">'+LET[k]+'</span><span>'+o+'</span></label>').join('')+'</div><div class="xfb" hidden></div>';
+}else if(q.type==='calc'){
+h+='<div class="xcalc">'+q.inputs.map((p,k)=>'<div class="xin"><label for="xc'+i+'_'+k+'">'+p.label+'</label><input type="number" step="any" id="xc'+i+'_'+k+'"><span>'+p.unit+'</span></div>').join('')+
+'<div class="row"><button class="btn" type="button" data-chk>Check</button></div></div><div class="xfb" hidden></div><div class="xwork" hidden><b>Working</b><ol>'+q.work.map(w=>'<li>'+w+'</li>').join('')+'</ol></div>';
+}else{
+h+='<textarea aria-label="'+q.ref+' answer" placeholder="Write your answer here, then press Show mark scheme."></textarea><div class="row"><button class="btn" type="button" data-ms>Show mark scheme</button></div>'+
+'<div class="xms" hidden><div class="shelf-label">Tick each point you made</div>'+q.points.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+'<p class="note">Max '+q.marks+' mark'+(q.marks>1?'s':'')+'</p></div>';
+}
+c.innerHTML=h;L.appendChild(c);
+const fb=c.querySelector('.xfb');
+if(q.type==='mcq'){
+const box=c.querySelector('.xopts');
+box.addEventListener('change',e=>{
+if(st[i].marked)return;const k=+e.target.value,ok=k===q.ans;
+st[i]={got:ok?q.marks:0,marked:true};box.classList.add('locked');
+box.querySelectorAll('input').forEach(r=>r.disabled=true);
+const labs=box.querySelectorAll('.xopt');labs[q.ans].classList.add('right');if(!ok)labs[k].classList.add('wrongpick');
+fb.hidden=false;fb.className='xfb '+(ok?'good':'bad');fb.innerHTML='<b>'+(ok?'Correct.':'Not quite. The answer is '+LET[q.ans]+'.')+'</b> '+q.why;upd();
+});
+}else if(q.type==='calc'){
+const btn=c.querySelector('[data-chk]'),ins=q.inputs.map((p,k)=>$('xc'+i+'_'+k));
+ins.forEach(x=>x.addEventListener('keydown',e=>{if(e.key==='Enter')btn.click();}));
+btn.addEventListener('click',()=>{
+if(st[i].marked)return;
+const last=ins.length-1,v=ins.map(x=>x.value.trim()===''?null:+x.value);
+if(v[last]===null){fb.hidden=false;fb.className='xfb bad';fb.textContent='Type your final answer in the last box first.';return;}
+const ok=q.inputs.map((p,k)=>v[k]!==null&&near(v[k],p.ans,p.tol));
+let got=ok[last]?q.marks:q.inputs.reduce((s,p,k)=>s+(k<last&&ok[k]?p.m:0),0);
+ins.forEach((x,k)=>{x.disabled=true;x.classList.add(ok[k]||ok[last]?'ok':'wrong');});
+btn.disabled=true;st[i]={got,marked:true};
+fb.hidden=false;fb.className='xfb '+(got===q.marks?'good':'bad');
+fb.innerHTML='<b>'+got+' / '+q.marks+' marks.</b> '+(ok[last]?'Correct final answer.':'The answer is '+q.inputs[last].show+'.');
+c.querySelector('.xwork').hidden=false;upd();
+});
+}else{
+const btn=c.querySelector('[data-ms]'),ms=c.querySelector('.xms'),cbs=[...ms.querySelectorAll('input')];
+btn.addEventListener('click',()=>{ms.hidden=false;btn.disabled=true;st[i].marked=true;upd();});
+ms.addEventListener('change',()=>{
+const n=cbs.filter(x=>x.checked).length;st[i].got=Math.min(q.marks,n);
+cbs.forEach(x=>{const off=!x.checked&&n>=q.marks;x.disabled=off;x.parentElement.classList.toggle('off',off);});upd();
+});
+}
+});
+st.forEach(x=>{x.got=0;x.marked=false;});upd();
+}
+build();
+$('xReset').addEventListener('click',()=>{build();const top=$('xPanel2').getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:Math.max(0,top),behavior:RM?'auto':'smooth'});});
+})();
+</script>
+</body></html>

@@ -1,0 +1,767 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rate of Reaction Lab</title>
+<meta name="description" content="Virtual core practical: Rate of Reaction Lab. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp7-marble-chips-and-rate.html">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font:600 .85rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:8px 14px;max-width:70ch}
+details.safety summary{cursor:pointer;font:600 .95rem var(--display);color:var(--bad)}
+details.safety ul{margin:8px 0 4px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px}
+.bench{background:var(--bench);border-radius:12px;padding:14px 10px;display:flex;flex-direction:column;gap:12px}
+.label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible,.item:focus-visible,[data-target]:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.msg{padding:9px 12px;border-radius:10px;background:var(--sheet);border-left:4px solid var(--accent);font-size:.95rem;min-height:2.8em}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#ecf6f0}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font:inherit;min-width:92px}
+.item svg{width:54px;height:70px;display:block}
+.item .nm{font-size:.82rem;font-weight:700;line-height:1.2;text-align:center}
+.item .sub{font-size:.75rem;color:var(--muted)}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+[data-target]{border:2px dashed transparent;border-radius:12px}
+[data-target].over,.armed [data-target]:hover{border-color:var(--accent);background:var(--accent-soft)}
+.armed [data-target]{border-color:rgba(74,68,181,.4)}
+.pick{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.pick.done::after{content:" \2713";color:var(--good);font-weight:700}
+.pick:disabled{opacity:.5;cursor:not-allowed}
+ol.method{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:.92rem;counter-reset:m}
+ol.method li{display:flex;gap:8px;align-items:flex-start;color:var(--muted);counter-increment:m}
+ol.method li::before{content:counter(m);flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:var(--sheet);font:700 .75rem/18px var(--display);text-align:center;color:var(--muted)}
+ol.method li.done{color:var(--ink)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{border:1px solid var(--line);padding:5px 6px;text-align:center;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.8rem}
+tbody th{background:var(--accent-soft);font-weight:700;white-space:nowrap}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+td input{width:62px;font:inherit;font-size:.9rem;padding:3px 4px;border:1px solid var(--line);border-radius:6px;text-align:center;background:#fff;color:var(--ink)}
+.score{font-weight:700}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:72ch}
+select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
+select.ok{border-color:var(--good)} select.wrong{border-color:var(--bad)}
+.note{font-size:.88rem;color:var(--muted)}
+footer.toolbar{padding:4px 2px}
+.liquid{transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s ease}
+.glass{fill:none;stroke:var(--glass);stroke-width:3;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:4;stroke-linecap:round}
+/* lab specific */
+.benchgrid{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:start}
+.shelf{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+.shelf .items{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.balance{background:var(--sheet);padding:6px;display:flex;flex-direction:column;align-items:center;cursor:pointer}
+.balance svg{width:100%;max-width:170px;height:auto}
+.rig{background:rgba(255,255,255,.55);padding:4px;cursor:pointer;min-width:0}
+.rig svg{width:100%;height:auto;display:block}
+.readouts{display:flex;gap:10px;flex-wrap:wrap}
+.lcd{font:700 1.3rem/1 var(--display);font-variant-numeric:tabular-nums;background:#1f2a36;color:#b9f5c8;padding:8px 12px;border-radius:8px;min-width:110px;text-align:center}
+.lcd small{display:block;font:600 .65rem var(--body);color:#9fb3c6;letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}
+.two>*,.benchgrid>*{min-width:0}
+#book td.new{background:#fff6cc}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+canvas{width:100%;display:block;border:1px solid var(--line);border-radius:10px;background:#fff;touch-action:pan-y}
+.tick{font:10px var(--body);fill:var(--muted)}
+@media (max-width:640px){.benchgrid,.two{grid-template-columns:1fr}.shelf{flex-direction:row;flex-wrap:wrap;justify-content:center}.balance{flex:1;min-width:150px}}
+@media (max-width:520px){body{font-size:16px}}
+/* ---- tabs + exam practice ---- */
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{flex:1 1 220px;min-height:52px;font:700 1.05rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);color:#fff}
+.tab:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.panel{display:flex;flex-direction:column;gap:22px}
+.panel[hidden]{display:none}
+.ex-intro{display:flex;flex-direction:column;gap:8px}
+.ex-bar{position:sticky;top:0;z-index:5;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(28,39,54,.18)}
+#exList{display:flex;flex-direction:column;gap:16px}
+.ex-card{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,22px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .85rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:6px}
+.ex-marks{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx{font-size:.95rem;max-width:72ch}
+.ex-tbl{width:auto;min-width:100%}
+.ex-tbl th{white-space:nowrap}
+.ex-stem{font-weight:700;max-width:72ch}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.ex-let{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--accent);color:var(--accent);font:700 .9rem/24px var(--display);text-align:center}
+.locked .ex-opt{cursor:default}.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.right{border-color:var(--good);background:#ecf6f0}.ex-opt.right .ex-let{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.wrongpick{border-color:var(--bad);background:#fdf0ef}.ex-opt.wrongpick .ex-let{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;border-left:4px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.ex-fb.ok{border-left-color:var(--good);background:#ecf6f0}.ex-fb.no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-in{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.ex-in input{width:120px;font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.ex-in input.ok{border-color:var(--good)}.ex-in input.wrong{border-color:var(--bad)}
+.ex-unit{font-weight:700}
+.ex-work{background:var(--paper);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.ex-work ol{margin:6px 0;padding-left:1.3em}
+.ex-ta{width:100%;font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+.ex-ta:focus{outline:none;border-color:var(--accent)}
+.ex-ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ex-mshead{font:600 .9rem var(--display);color:var(--accent)}
+.ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.ex-max{font-size:.88rem;color:var(--muted)}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+
+<div class="wrap">
+<header>
+<h1>Rate of reaction: solids and acid</h1>
+<div class="ref">Core practical 3.15</div>
+<p><b>Aim:</b> Investigate the effect of changing the surface area of a solid and the concentration of hydrochloric acid on the rate of reaction, using marble chips, magnesium or zinc.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection. Dilute hydrochloric acid is an irritant to eyes and skin.</li>
+<li>Wash off any acid spills on skin with plenty of water.</li>
+<li>Make sure the delivery tube is not blocked, so pressure cannot build up in the flask.</li>
+<li>Hydrogen is flammable and magnesium powder can catch fire. Keep flames away, except a lighted splint to test a small tube of gas.</li></ul></details>
+</header>
+<div class="tabs" id="tabRow" role="tablist" aria-label="Sections"><button type="button" class="tab" role="tab" id="tabLab" aria-selected="true" aria-controls="panelLab">1 · The practical</button><button type="button" class="tab" role="tab" id="tabExam" aria-selected="false" aria-controls="panelExam" tabindex="-1">2 · Exam practice</button></div>
+<div class="panel" id="panelLab" role="tabpanel" aria-labelledby="tabLab">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<p>Do <b>Experiment A</b> (change the surface area of the solid) and <b>Experiment B</b> (change the acid concentration). Every run uses <b><span class="av">10</span> cm³ of acid</b> and <b class="massT">2.00 g of marble chips</b>.</p>
+<div>
+<div class="label">First, choose the solid</div>
+<div class="row" style="margin-top:6px"><button type="button" class="pick" id="s-marble" aria-pressed="false">Marble chips (CaCO<sub>3</sub>)</button><button type="button" class="pick" id="s-mg" aria-pressed="false">Magnesium (Mg)</button><button type="button" class="pick" id="s-zn" aria-pressed="false">Zinc (Zn)</button></div>
+<p class="msg" id="eqn" style="margin-top:8px;max-width:none"></p>
+</div>
+<div>
+<div class="label">Next, choose how to collect the gas</div>
+<div class="row" style="margin-top:6px"><button type="button" class="pick" id="mSyr" aria-pressed="false">Gas syringe</button><button type="button" class="pick" id="mCyl" aria-pressed="false">Upturned measuring cylinder over water</button></div>
+</div>
+<div>
+<div class="label">Then choose a run</div>
+<div class="row" style="margin-top:6px"><span class="note" style="min-width:12em">Experiment A: 1.0 mol/dm³ acid</span><span class="row" id="runsA"></span></div>
+<div class="row" style="margin-top:6px"><span class="note" style="min-width:12em" id="bNote">Experiment B: medium chips</span><span class="row" id="runsB"></span></div>
+</div>
+<div class="bench" id="bench">
+<div class="benchgrid">
+<div class="shelf">
+<div class="items">
+<button type="button" class="item" id="itAcid" data-item="acid" aria-label="Hydrochloric acid, 10 cm³ measured">
+<svg viewBox="0 0 54 70" aria-hidden="true"><rect x="21" y="2" width="12" height="10" rx="3" fill="#3a3f4a"/><rect x="18" y="10" width="18" height="7" rx="2" fill="#5a6070"/><path d="M10 23 Q10 17 16 17 L38 17 Q44 17 44 23 L44 62 Q44 68 38 68 L16 68 Q10 68 10 62 Z" fill="rgba(185,215,240,.6)" stroke="#7d8fa3" stroke-width="2.5"/><rect x="14" y="34" width="26" height="18" rx="2" fill="#fff" opacity=".95"/><text x="27" y="47" font-size="10" font-weight="700" text-anchor="middle" fill="#1c2736">HCl</text></svg>
+<span class="nm">hydrochloric acid</span><span class="sub" id="acidSub">choose a run</span></button>
+<button type="button" class="item" id="itChips" data-item="chips" aria-label="The solid">
+<svg viewBox="0 0 54 70" aria-hidden="true"><rect x="12" y="12" width="30" height="8" rx="2" fill="#5a6070"/><path d="M8 24 Q8 20 12 20 L42 20 Q46 20 46 24 L46 62 Q46 68 40 68 L14 68 Q8 68 8 62 Z" fill="rgba(235,240,245,.8)" stroke="#7d8fa3" stroke-width="2.5"/><g id="jar"></g></svg>
+<span class="nm" id="itName">solid</span><span class="sub" id="chipSub">CaCO<sub>3</sub></span></button>
+</div>
+<div class="balance" id="tBal" data-target="balance" role="button" tabindex="0" aria-label="Balance">
+<svg viewBox="0 0 170 92" aria-hidden="true"><rect x="10" y="40" width="150" height="46" rx="8" fill="#dfe5ec" stroke="#7d8fa3" stroke-width="2"/><rect x="45" y="30" width="80" height="8" rx="3" fill="#b8c2cd"/><ellipse cx="85" cy="28" rx="56" ry="6" fill="#c9d1da" stroke="#7d8fa3" stroke-width="2"/><g id="balChips" opacity="0"><path d="M60 24 h50 l-4 -6 h-42z" fill="#fff" stroke="#9aa4b0"/><g id="balChipShapes" fill="#e9e6df" stroke="#9a968c"></g></g><rect x="45" y="52" width="80" height="24" rx="4" fill="#1f2a36"/><text id="balTxt" x="85" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#b9f5c8" font-family="Lexend,system-ui,sans-serif">0.00 g</text></svg>
+<span class="note">balance</span>
+</div>
+</div>
+<div class="rig" id="tFlask" data-target="flask" role="button" tabindex="0" aria-label="Conical flask connected to measuring cylinder">
+<svg viewBox="0 0 440 270" aria-hidden="true">
+<defs><clipPath id="fclip"><path d="M66 70 L66 112 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 112 L94 70 Z"/></clipPath>
+<clipPath id="cclip"><rect x="332" y="20" width="36" height="220"/></clipPath></defs>
+<line x1="0" y1="256" x2="440" y2="256" stroke="#b8c2cd" stroke-width="3"/>
+<g clip-path="url(#fclip)"><rect class="liquid" id="acidLiq" x="0" y="214" width="160" height="40" fill="rgba(185,215,240,.7)" style="transform:scaleY(0)"/><g id="fChips"></g><g id="fBub"></g></g><text id="gasLbl" x="80" y="204" text-anchor="middle" class="tick" opacity="0"></text>
+<path class="glass" d="M66 70 L66 112 L26 236 Q22 250 36 250 L124 250 Q138 250 134 236 L94 112 L94 70"/>
+<path class="shine" d="M40 228 L58 180"/>
+<g id="cylAll">
+<rect x="230" y="172" width="192" height="82" fill="rgba(120,180,230,.35)"/>
+<path class="glass" d="M228 150 V250 Q228 255 233 255 H419 Q424 255 424 250 V150"/>
+<g id="cyl" opacity=".25">
+<g clip-path="url(#cclip)"><rect id="cylW" x="332" y="24" width="36" height="216" fill="rgba(90,160,225,.45)"/><g id="cBub"></g></g>
+<path class="glass" d="M330 240 V24 Q330 18 336 18 H364 Q370 18 370 24 V240"/>
+<g id="ticks"></g>
+<line id="cylLine" x1="326" x2="374" y1="24" y2="24" stroke="#b3261e" stroke-width="1.5" opacity="0"/>
+</g>
+<g id="tube" style="transition:transform .5s ease;transform:translateY(-22px)">
+<path d="M80 76 V36 Q80 26 90 26 H240 Q250 26 250 36 V232 Q250 244 262 244 H338 Q350 244 350 232 V224" fill="none" stroke="#7d8fa3" stroke-width="7" stroke-linejoin="round"/>
+<path d="M80 76 V36 Q80 26 90 26 H240 Q250 26 250 36 V232 Q250 244 262 244 H338 Q350 244 350 232 V224" fill="none" stroke="#f4f7fa" stroke-width="3" stroke-linejoin="round"/>
+<rect x="63" y="66" width="34" height="18" rx="3" fill="#444b55"/>
+</g>
+<text x="326" y="266" text-anchor="middle" class="tick" id="cylLbl">upturned 250 cm³ measuring cylinder in water</text>
+</g>
+<g id="syrAll" style="display:none">
+<rect x="170" y="49" width="10" height="10" fill="#7d8fa3"/>
+<rect id="sgas" x="182" y="40" width="0" height="28" fill="rgba(200,230,255,.6)"/>
+<path class="glass" d="M180 38 H404 M180 70 H404 M180 38 V70"/>
+<g id="sticks"></g>
+<g id="plunger"><rect x="183" y="39" width="8" height="30" fill="#5a6070"/><rect x="191" y="51" width="226" height="6" fill="#8d97a3"/><rect x="417" y="42" width="8" height="24" rx="2" fill="#5a6070"/></g>
+<text x="292" y="96" text-anchor="middle" class="tick">100 cm³ gas syringe</text>
+<g id="tubeS" style="transition:transform .5s ease;transform:translateY(-22px)">
+<path d="M80 76 V64 Q80 54 90 54 H172" fill="none" stroke="#7d8fa3" stroke-width="7"/>
+<path d="M80 76 V64 Q80 54 90 54 H172" fill="none" stroke="#f4f7fa" stroke-width="3"/>
+<rect x="63" y="66" width="34" height="18" rx="3" fill="#444b55"/>
+</g>
+</g>
+<text x="80" y="266" text-anchor="middle" class="tick">conical flask</text>
+</svg>
+</div>
+</div>
+<p class="note" id="hint" style="text-align:center">Drag the acid onto the flask and the solid onto the balance, or tap an item then tap where it goes.</p>
+<div class="toolbar">
+<div class="row">
+<button type="button" class="btn ghost" id="fillBtn">Set up gas collection</button>
+<button type="button" class="btn" id="startBtn">Start</button>
+<button type="button" class="btn ghost" id="washBtn">Wash out / reset bench</button>
+</div>
+<div class="readouts">
+<div class="lcd" id="watch">0:00<small>stopwatch (15× speed)</small></div>
+<div class="lcd" id="vol">0 cm³<small>gas collected</small></div>
+</div>
+</div>
+<p class="msg" id="msg" aria-live="polite">Choose how to collect the gas, then choose a run.</p>
+</div>
+<div class="two">
+<div><h3>Method</h3>
+<ol class="method" id="method" style="margin-top:8px">
+<li>Choose a run (which experiment, which variable).</li>
+<li><span>Measure <span class="av">10</span> cm³ of hydrochloric acid into the conical flask.</span></li>
+<li><span>Weigh <span class="massT">2.00 g of marble chips</span>.</span></li>
+<li id="m4">Fill the measuring cylinder with water and turn it upside down in the trough.</li>
+<li><span>Add the <span class="solN">solid</span> to the acid, put the bung in quickly and start the stopwatch.</span></li>
+<li>Read the volume of gas every 30 s for 5 minutes.</li>
+</ol>
+<p class="note" id="why" style="margin-top:10px"></p>
+</div>
+<div><h3>Your readings (copy these into Part 2)</h3>
+<div class="tbl-wrap" style="margin-top:8px"><table id="book"></table></div>
+</div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Type in your readings (volume of <span class="gasN">gas</span> in cm³). Fill in only the runs you did. Then work out an estimate of the initial rate: <b>volume at 30 s ÷ 30 s</b>, to 2 decimal places.</p>
+<div class="tbl-wrap"><table id="res"></table></div>
+<div class="toolbar"><button class="btn" type="button" id="checkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+<h3>Graph of your results</h3>
+<p class="note">The graph draws itself from the numbers you type in.</p>
+<canvas id="graph" height="340" aria-label="Graph of volume of gas against time" role="img"></canvas>
+<div class="legend" id="legend"></div>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>Complete the balanced equations:<br>Mg +
+<select data-a="2"><option value="">?</option><option>1</option><option>2</option><option>3</option></select> HCl →
+<select data-a="MgCl2"><option value="">choose…</option><option value="MgCl">MgCl</option><option value="MgCl2">MgCl₂</option><option value="MgO">MgO</option></select> + H<sub>2</sub><br>CaCO<sub>3</sub> + 2HCl → CaCl<sub>2</sub> + H<sub>2</sub>O +
+<select data-a="CO2"><option value="">choose…</option><option value="H2">H₂</option><option value="O2">O₂</option><option value="CO2">CO₂</option></select></li>
+<li>Experiment A: the powder reacts fastest because it has the
+<select data-a="largest"><option value="">choose…</option><option>largest</option><option>smallest</option></select> surface area. More particles of the solid are exposed to the acid, so there are
+<select data-a="more frequent collisions"><option value="">choose…</option><option>more frequent collisions</option><option>less frequent collisions</option><option>collisions with less energy</option></select>.</li>
+<li>Experiment B: a higher concentration of acid has
+<select data-a="more acid particles in the same volume"><option value="">choose…</option><option>more acid particles in the same volume</option><option>bigger acid particles</option><option>faster acid particles</option></select>, so the frequency of collisions
+<select data-a="increases"><option value="">choose…</option><option>increases</option><option>decreases</option><option>stays the same</option></select>.</li>
+<li>In Experiment B the independent variable is the
+<select data-a="concentration of acid"><option value="">choose…</option><option>concentration of acid</option><option>volume of gas</option><option>mass of the solid</option></select>. One variable that must be kept the same is the
+<select data-a="surface area (size of pieces) of the solid"><option value="">choose…</option><option>surface area (size of pieces) of the solid</option><option>volume of gas collected</option><option>time of each reading</option></select>. The bung must go in quickly so that
+<select data-a="no gas escapes"><option value="">choose…</option><option>no gas escapes</option><option>the acid does not get hot</option><option>the solid does not dissolve</option></select>.</li>
+<li>With magnesium or zinc the acid is in excess, so the reaction stops when the
+<select data-a="metal is used up"><option value="">choose…</option><option>metal is used up</option><option>acid is used up</option><option>gas is too heavy</option></select>. When each run has finished, the final volume of hydrogen in Experiment A is
+<select data-a="the same for every run"><option value="">choose…</option><option>the same for every run</option><option>largest for the powder</option><option>smallest for the powder</option></select>. With marble chips the marble is in excess, so 2.0 mol/dm³ acid gives about
+<select data-a="twice"><option value="">choose…</option><option>the same as</option><option>twice</option><option>half</option></select> the final volume of 1.0 mol/dm³ acid.</li>
+<li>To find the initial rate, draw a
+<select data-a="tangent"><option value="">choose…</option><option>tangent</option><option>bar</option><option>horizontal line</option></select> to the curve at time 0 and work out its
+<select data-a="gradient"><option value="">choose…</option><option>gradient</option><option>area</option><option>intercept</option></select>. The units are
+<select data-a="cm³/s"><option value="">choose…</option><option>cm³/s</option><option>s/cm³</option><option>cm³</option></select>.</li>
+<li>Comparing the two methods: the gas syringe is
+<select data-a="more precise"><option value="">choose…</option><option>more precise</option><option>less precise</option></select> than the measuring cylinder over water. With the cylinder, some carbon dioxide can
+<select data-a="dissolve in the water"><option value="">choose…</option><option>dissolve in the water</option><option>turn into oxygen</option><option>make the water boil</option></select>, so the volume is a little too
+<select data-a="small"><option value="">choose…</option><option>small</option><option>large</option></select>. This is not a problem for hydrogen, because hydrogen is
+<select data-a="almost insoluble in water"><option value="">choose…</option><option>almost insoluble in water</option><option>very soluble in water</option><option>lighter than air</option></select>.</li>
+<li>Comparing the solids: magnesium reacts faster than zinc because magnesium is
+<select data-a="more reactive (higher in the reactivity series)"><option value="">choose…</option><option>more reactive (higher in the reactivity series)</option><option>less reactive (lower in the reactivity series)</option><option>a heavier metal</option></select>. The gas from the metals is hydrogen. It
+<select data-a="burns with a squeaky pop with a lighted splint"><option value="">choose…</option><option>burns with a squeaky pop with a lighted splint</option><option>relights a glowing splint</option><option>turns limewater milky</option></select>. The gas from marble chips turns
+<select data-a="limewater milky"><option value="">choose…</option><option>limewater milky</option><option>damp blue litmus white</option><option>a lighted splint green</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="checkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<footer class="toolbar">
+<span class="note">Bigger surface area or higher concentration means more frequent collisions, so a faster rate.</span>
+<button class="btn ghost" type="button" id="resetAll">Start again</button>
+</footer>
+</div>
+<div class="panel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="ex-intro"><h2>Exam practice</h2><p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p></section>
+<div class="ex-bar" id="exBar" aria-live="polite"></div>
+<div id="exList"></div>
+<div class="toolbar"><button type="button" class="btn ghost" id="exReset">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+(function(){
+var $=function(id){return document.getElementById(id);};
+var NS='http://www.w3.org/2000/svg';
+var RM=false;
+var SPEED=15, TIMES=[0,30,60,90,120,150,180,210,240,270,300];
+/* form: [short name, full name, shape, count, size, colour] */
+var FORMS={large:['large chips','large marble chips','chip',3,13,'m'],medium:['medium chips','medium marble chips','chip',7,7.5,'m'],small:['small chips','small marble chips','chip',16,4,'m'],mpow:['powder','powdered marble','dot',70,1.4,'m'],
+ribbon:['ribbon','magnesium ribbon','strip',3,20,'g'],turn:['turnings','magnesium turnings','curl',10,4,'g'],gpow:['powder','magnesium powder','dot',70,1.1,'g'],
+gran:['granules','zinc granules','chip',6,5.5,'z'],foil:['foil pieces','zinc foil pieces','sq',9,4,'z'],zpow:['powder','zinc powder','dot',70,1.1,'z']};
+var CLR={m:['#e9e6df','#9a968c'],g:['#cdd3d9','#6b747f'],z:['#a1a9b2','#545e68']};
+var SOLS={
+marble:{nm:'marble chips',mass:2,A:['large','small','mpow'],kA:[.006,.022,.06],B:'medium',kB:function(c){return .010+.001*c;},gas:'CO₂',gasH:'CO<sub>2</sub>',gasW:'carbon dioxide',
+eq:'CaCO<sub>3</sub>(s) + 2HCl(aq) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>O(l) + CO<sub>2</sub>(g)'},
+mg:{nm:'magnesium',mass:.05,Ar:24.3,A:['ribbon','turn','gpow'],kA:[.03,.06,.12],B:'ribbon',kB:function(c){return .03*c;},gas:'H₂',gasH:'H<sub>2</sub>',gasW:'hydrogen',V:49,
+eq:'Mg(s) + 2HCl(aq) → MgCl<sub>2</sub>(aq) + H<sub>2</sub>(g)'},
+zn:{nm:'zinc',mass:.13,Ar:65.4,A:['gran','foil','zpow'],kA:[.003,.008,.02],B:'gran',kB:function(c){return .003*c;},gas:'H₂',gasH:'H<sub>2</sub>',gasW:'hydrogen',V:48,
+eq:'Zn(s) + 2HCl(aq) → ZnCl<sub>2</sub>(aq) + H<sub>2</sub>(g)'}};
+var RUNS=[{id:'A1',exp:'A',c:1,f:0},{id:'A2',exp:'A',c:1,f:1},{id:'A3',exp:'A',c:1,f:2},{id:'B05',exp:'B',c:.5},{id:'B10',exp:'B',c:1},{id:'B15',exp:'B',c:1.5},{id:'B20',exp:'B',c:2}];
+var COL=['#4a44b5','#c0392b','#1d7a46','#b86e00','#1f78b4','#8e44ad','#5a6878'];
+var DASH=[[],[9,5],[2,4],[12,4,3,4],[6,3],[16,6],[4,2,1,2]];
+var SOLID=null, METHOD=null, KEY='', saved={}, dataBy={}, data={}, AV=10, CAP=250, cur=null, st={}, simT=0, last=0, nextIdx=0, bubAcc=0, cBubAcc=0, raf=null;
+function SO(){return SOLS[SOLID||'marble'];}
+function metal(){return SOLID==='mg'||SOLID==='zn';}
+function formOf(r){var s=SO(); return r.exp==='A'?s.A[r.f]:s.B;}
+function short(r){return r.exp==='A'?FORMS[formOf(r)][0]:r.c.toFixed(1)+' mol/dm³';}
+function head(r){return r.exp+': '+short(r);}
+function kOf(r){var s=SO(); return r.exp==='A'?s.kA[r.f]:s.kB(r.c);}
+var WHYM={
+syr:'<b>Why only 4.0 cm³ of acid?</b> The gas syringe holds 100 cm³. The 2.00 g of marble is in <b>excess</b>, so the acid runs out first (it is the limiting reagent). 4.0 cm³ of 2.0 mol/dm³ acid makes about 96 cm³ of CO<sub>2</sub>, so every run fits in the syringe. Double the concentration means double the acid particles, so double the final volume of gas.',
+cyl:'<b>Why only 10 cm³ of acid?</b> The 2.00 g of marble is in <b>excess</b>. The acid runs out first (it is the limiting reagent), so all the gas fits in the 250 cm³ cylinder. Double the concentration means double the acid particles, so double the final volume of gas.'};
+function why(){
+if(!metal()) return WHYM[METHOD||'cyl'];
+var s=SO(), n=s.mass/s.Ar;
+return '<b>Why '+s.mass.toFixed(2)+' g of '+s.nm+' and 10 cm³ of acid?</b> The acid is in <b>excess</b>. '+s.mass.toFixed(2)+' g of '+s.nm+' is '+n.toFixed(4)+' mol, which needs only '+(2*n).toFixed(4)+' mol of HCl. Even 10 cm³ of 0.5 mol/dm³ acid contains 0.0050 mol of HCl. So the '+s.nm+' is the limiting reagent: when it has all reacted it makes about '+s.V+' cm³ of hydrogen in every run (slow runs may not finish within 5 minutes), which fits in the 100 cm³ '+(METHOD==='syr'?'gas syringe':'measuring cylinder')+'. Changing the surface area or the concentration changes the <b>rate</b>, not the final volume.';
+}
+function info(){
+if(!SOLID) return 'Choose a solid to see the equation and the test for the gas.';
+var h='<b>Equation:</b> '+SO().eq+'<br><b>Test for the gas:</b> ';
+if(!metal()) h+='carbon dioxide turns limewater milky (cloudy).<br><b>Note:</b> CO<sub>2</sub> is slightly soluble in water, so the measuring cylinder over water can give slightly low volumes. A gas syringe avoids this.';
+else h+='hydrogen burns with a squeaky pop when a lighted splint is held at the mouth of a tube of the gas.<br><b>Note:</b> the reaction is <b>exothermic</b>, so the flask gets warm. Hydrogen is almost insoluble in water, so the measuring cylinder gives the same volume as the syringe.';
+return h;
+}
+function setSolid(k){
+if(st.running){setMsg('Wait until this run has finished.','warn');return;}
+SOLID=k; apply();
+}
+function setMethod(m){
+if(st.running){setMsg('Wait until this run has finished.','warn');return;}
+METHOD=m; apply();
+}
+function apply(){
+var s=SO(), syr=METHOD==='syr';
+['marble','mg','zn'].forEach(function(x){$('s-'+x).setAttribute('aria-pressed',SOLID===x?'true':'false');});
+$('mSyr').setAttribute('aria-pressed',METHOD==='syr'?'true':'false'); $('mCyl').setAttribute('aria-pressed',METHOD==='cyl'?'true':'false');
+AV=(!metal()&&syr)?4:10; CAP=metal()?100:250; drawTicks();
+$('cylLbl').textContent='upturned '+CAP+' cm³ measuring cylinder in water';
+document.querySelectorAll('.av').forEach(function(e){e.textContent=AV===4?'4.0':'10';});
+document.querySelectorAll('.massT').forEach(function(e){e.textContent=s.mass.toFixed(2)+' g of '+s.nm;});
+document.querySelectorAll('.solN').forEach(function(e){e.textContent=SOLID?s.nm:'solid';});
+document.querySelectorAll('.gasN').forEach(function(e){e.innerHTML=SOLID?s.gasH:'gas';});
+$('m4').textContent=syr?'Push the syringe plunger fully in so it reads 0 cm³.':'Fill the measuring cylinder with water and turn it upside down in the trough.';
+$('fillBtn').textContent=syr?'Push plunger to 0':'Fill cylinder with water';
+$('why').innerHTML=why(); $('eqn').innerHTML=info();
+$('bNote').textContent='Experiment B: '+(metal()?s.nm+' '+FORMS[s.B][0]:'medium chips');
+$('itName').textContent=SOLID?s.nm:'solid';
+$('cylAll').style.display=syr?'none':''; $('syrAll').style.display=syr?'':'none';
+$('itAcid').setAttribute('aria-label','Hydrochloric acid, '+AV+' cm³ measured');
+$('graph').setAttribute('aria-label','Graph of volume of '+(SOLID?s.gasW:'gas')+' against time');
+RUNS.forEach(function(r){$('pk-'+r.id).textContent=short(r); $('rh-'+r.id).textContent=head(r);});
+swapKey();
+RUNS.forEach(function(r){$('pk-'+r.id).classList.toggle('done',!!(data[r.id]&&data[r.id].shown>=11));});
+washBench(true); showBook(); legend(); drawGraph();
+if(!SOLID) setMsg('Choose the solid, then how to collect the gas, then a run.');
+else if(!METHOD) setMsg('<b>'+s.nm.charAt(0).toUpperCase()+s.nm.slice(1)+'.</b> Now choose how to collect the gas.');
+else setMsg('<b>'+s.nm.charAt(0).toUpperCase()+s.nm.slice(1)+', '+(syr?'gas syringe':'measuring cylinder over water')+'.</b> Now choose a run.'+(Object.keys(data).length?' Your earlier readings for this solid and method are shown.':'')+' Part 2 is checked against this solid and method.');
+}
+function swapKey(){
+var nk=SOLID&&METHOD?SOLID+'|'+METHOD:''; if(nk===KEY) return;
+var ins=[].slice.call(document.querySelectorAll('#res input'));
+if(KEY) saved[KEY]=ins.map(function(x){return x.value;});
+var had=KEY; KEY=nk; data=KEY?(dataBy[KEY]=dataBy[KEY]||{}):{};
+if(had||saved[KEY]) ins.forEach(function(x,i){x.value=saved[KEY]?saved[KEY][i]:'';});
+document.querySelectorAll('#res td').forEach(function(td){td.classList.remove('ok','wrong');}); $('resScore').textContent='';
+}
+['marble','mg','zn'].forEach(function(x){$('s-'+x).addEventListener('click',function(){setSolid(x);});});
+$('mSyr').addEventListener('click',function(){setMethod('syr');});
+$('mCyl').addEventListener('click',function(){setMethod('cyl');});
+var stk='';
+for(var sv=0;sv<=100;sv+=5){var sx=182+sv*2.2, sb=sv%10===0; stk+='<line x1="'+sx+'" x2="'+sx+'" y1="38" y2="'+(sb?48:44)+'" stroke="#5a6878" stroke-width="'+(sb?1.2:.7)+'"/>'; if(sv%20===0) stk+='<text class="tick" x="'+sx+'" y="32" text-anchor="middle">'+sv+'</text>';}
+$('sticks').innerHTML=stk;
+function setSyr(vv){vv=Math.min(100,Math.max(0,vv)); $('plunger').style.transform='translateX('+(vv*2.2)+'px)'; $('sgas').setAttribute('width',vv*2.2+1);}
+function setGas(v){ if(METHOD==='syr') setSyr(v); else setCyl(v); }
+/* ---- run buttons ---- */
+RUNS.forEach(function(r){
+var b=document.createElement('button'); b.type='button'; b.className='pick'; b.id='pk-'+r.id; b.setAttribute('aria-pressed','false');
+b.addEventListener('click',function(){chooseRun(r);});
+$(r.exp==='A'?'runsA':'runsB').appendChild(b);
+});
+function setMsg(t,cls){var m=$('msg'); m.innerHTML=t; m.className='msg'+(cls?' '+cls:'');}
+function tick(n,on){var li=$('method').children[n-1]; if(li) li.classList.toggle('done',on!==false);}
+function chooseRun(r){
+if(st.running){setMsg('Wait until this run has finished.','warn');return;}
+if(!SOLID){setMsg('First choose the solid: marble chips, magnesium or zinc.','warn');return;}
+if(!METHOD){setMsg('Now choose how to collect the gas: gas syringe or measuring cylinder.','warn');return;}
+washBench(true);
+var s=SO(), j=1+(Math.random()-.5)*0.04;
+cur=r; cur.form=formOf(r); cur.Vf=metal()?s.V*j:(METHOD==='syr'?48*0.99:120*0.97)*r.c*j; cur.kk=kOf(r)*(1+(Math.random()-.5)*0.1);
+RUNS.forEach(function(x){$('pk-'+x.id).setAttribute('aria-pressed',x===r?'true':'false');});
+$('acidSub').textContent=r.c.toFixed(1)+' mol/dm³';
+$('chipSub').textContent=FORMS[cur.form][0]; $('jar').innerHTML=shapes(cur.form,27,64,26,.7);
+tick(1);
+setMsg('<b>Experiment '+r.exp+':</b> '+r.c.toFixed(1)+' mol/dm³ acid, '+FORMS[cur.form][1]+'.'+(data[r.id]?' (This will replace your earlier readings for this run.)':'')+' Now measure '+AV+' cm³ of acid into the flask.');
+}
+/* ---- drawing helpers ---- */
+function shapes(f,cx,by,sp,sc){
+var F=FORMS[f], cl=CLR[F[5]], n=F[3], s=F[4]*sc, o='', i, x, y, a, p;
+for(i=0;i<n;i++){
+x=cx+(((i*37)%100)/100-.5)*sp;
+if(F[2]==='dot'){y=by-((i*53)%7)*sc*.8-1.2; o+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+s.toFixed(2)+'" stroke-width=".4"/>'; continue;}
+y=by-((i*53)%(n>10?14:8))*sc-s*.6;
+if(F[2]==='chip'){p=[]; for(a=0;a<6;a++){var ang=a/6*Math.PI*2+i, rr=s*(0.75+((i+a)*29%10)/30); p.push((x+Math.cos(ang)*rr).toFixed(1)+','+(y+Math.sin(ang)*rr*.75).toFixed(1));} o+='<polygon points="'+p.join(' ')+'"/>';}
+else if(F[2]==='sq'){p=[]; for(a=0;a<4;a++){var g=a*Math.PI/2+i*.7; p.push((x+Math.cos(g)*s).toFixed(1)+','+(y+Math.sin(g)*s*.45).toFixed(1));} o+='<polygon points="'+p.join(' ')+'"/>';}
+else if(F[2]==='strip'){y=by-2.5*sc-(i*3%7)*sc; var hx=s/2; o+='<path d="M'+(x-hx).toFixed(1)+' '+y.toFixed(1)+' q'+(hx/2).toFixed(1)+' '+(-3*sc).toFixed(1)+' '+hx.toFixed(1)+' 0 t'+hx.toFixed(1)+' 0" fill="none" stroke="'+cl[1]+'" stroke-width="'+(4*sc).toFixed(1)+'" stroke-linecap="round"/><path d="M'+(x-hx).toFixed(1)+' '+y.toFixed(1)+' q'+(hx/2).toFixed(1)+' '+(-3*sc).toFixed(1)+' '+hx.toFixed(1)+' 0 t'+hx.toFixed(1)+' 0" fill="none" stroke="'+cl[0]+'" stroke-width="'+(2*sc).toFixed(1)+'" stroke-linecap="round"/>';}
+else {o+='<path d="M'+x.toFixed(1)+' '+y.toFixed(1)+' a'+s+' '+s+' 0 1 1 '+(s*1.2).toFixed(1)+' '+(-s*.4).toFixed(1)+' a'+(s*.6).toFixed(1)+' '+(s*.6).toFixed(1)+' 0 0 0 '+(-s*.5).toFixed(1)+' '+(s*.5).toFixed(1)+'" fill="none" stroke="'+cl[1]+'" stroke-width="'+(1.6*sc).toFixed(1)+'"/>';}
+}
+return '<g fill="'+cl[0]+'" stroke="'+cl[1]+'">'+o+'</g>';
+}
+function drawTicks(){var t='',sc=180/CAP; for(var v=0;v<=CAP;v+=CAP/25){var y=24+v*sc, big=v%(CAP/5)===0; t+='<line x1="'+(big?354:360)+'" x2="370" y1="'+y+'" y2="'+y+'" stroke="#5a6878" stroke-width="'+(big?1.4:.8)+'"/>'; if(big) t+='<text class="tick" x="376" y="'+(y+3.5)+'">'+v+'</text>';} $('ticks').innerHTML=t;}
+function setCyl(vv){var y=24+Math.min(CAP,vv)*180/CAP; var w=$('cylW'); w.setAttribute('y',y); w.setAttribute('height',240-y); var l=$('cylLine'); l.setAttribute('y1',y); l.setAttribute('y2',y); l.setAttribute('opacity',vv>0?1:0);}
+function bubble(g,x,y,yTop,r){
+if(RM) return; var c=document.createElementNS(NS,'circle');
+c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r); c.setAttribute('fill','rgba(255,255,255,.85)'); c.setAttribute('stroke','rgba(40,60,85,.85)'); c.setAttribute('stroke-width','1.1');
+g.appendChild(c);
+var an=c.animate([{transform:'translate(0,0)'},{transform:'translate('+((Math.random()-.5)*8)+'px,'+(yTop-y)+'px)'}],{duration:500+Math.random()*400,easing:'ease-in'});
+an.onfinish=function(){c.remove();};
+}
+function fmt(t){t=Math.floor(t);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');}
+/* ---- drag and tap ---- */
+var HINT='Drag the acid onto the flask and the solid onto the balance, or tap an item then tap where it goes.';
+var selected=null, drag=null, bench=$('bench');
+function clearSel(){selected=null; document.querySelectorAll('.item').forEach(function(b){b.classList.remove('selected');}); bench.classList.remove('armed');}
+function select(el){ if(selected===el.dataset.item){clearSel();return;} clearSel(); selected=el.dataset.item; el.classList.add('selected'); bench.classList.add('armed'); $('hint').textContent='Now tap where the '+(selected==='acid'?'acid':'solid')+' should go.'; }
+document.querySelectorAll('.item').forEach(function(el){
+el.addEventListener('pointerdown',function(e){drag={el:el,x:e.clientX,y:e.clientY,moved:false,ghost:null,over:null}; try{el.setPointerCapture(e.pointerId);}catch(_){}});
+el.addEventListener('pointermove',function(e){
+if(!drag||drag.el!==el) return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true; var g=document.createElement('div'); g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:54px;height:70px;opacity:.9'; g.innerHTML=el.querySelector('svg').outerHTML; drag.ghost=g; document.body.appendChild(g);}
+if(drag.moved){drag.ghost.style.transform='translate('+(e.clientX-27)+'px,'+(e.clientY-35)+'px) rotate(-20deg)';
+var u=document.elementFromPoint(e.clientX,e.clientY), t=u&&u.closest?u.closest('[data-target]'):null;
+if(drag.over&&drag.over!==t) drag.over.classList.remove('over'); if(t) t.classList.add('over'); drag.over=t;}
+});
+function end(cancel){ if(!drag) return; var d=drag; drag=null; if(d.ghost) d.ghost.remove(); if(d.over) d.over.classList.remove('over'); if(cancel) return;
+if(d.moved){ if(d.over){clearSel(); drop(el.dataset.item,d.over.dataset.target);} } else select(el); }
+el.addEventListener('pointerup',function(){end(false);});
+el.addEventListener('pointercancel',function(){end(true);});
+el.addEventListener('click',function(e){if(e.detail===0) select(el);});
+});
+document.querySelectorAll('[data-target]').forEach(function(t){
+function act(){ if(selected){var s=selected; clearSel(); $('hint').textContent=HINT; drop(s,t.dataset.target);} }
+t.addEventListener('click',act);
+t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+});
+/* ---- actions ---- */
+function guard(){
+if(!SOLID){setMsg('First choose the solid: marble chips, magnesium or zinc.','warn');return false;}
+if(!METHOD){setMsg('Choose how to collect the gas: gas syringe or measuring cylinder.','warn');return false;}
+if(!cur){setMsg('Choose a run first (the buttons above the bench).','warn');return false;}
+if(st.running){setMsg('The reaction is running. Watch the gas collect.','warn');return false;}
+if(st.done){setMsg('This run is finished. Wash out the flask and choose the next run.','warn');return false;}
+return true;
+}
+function drop(item,target){
+if(!guard()) return;
+var s=SO();
+if(item==='acid'&&target==='balance'){setMsg('The acid goes into the conical flask. Measure '+AV+' cm³ with a measuring cylinder and pour it in.','warn');return;}
+if(item==='acid'){
+if(st.acid){setMsg('There is already '+AV+' cm³ of acid in the flask.','warn');return;}
+st.acid=true; $('acidLiq').style.transform='scaleY('+(AV===4?.6:1)+')'; tick(2);
+setMsg(AV+' cm³ of '+cur.c.toFixed(1)+' mol/dm³ hydrochloric acid is in the flask.'+(st.weighed?'':' Next, weigh the '+s.nm+'.'),'ok'); return;
+}
+if(target==='balance'){
+if(st.weighed){setMsg('The '+s.nm+' is already weighed.','warn');return;}
+st.weighed=true; st.mass=s.mass+(metal()?0:Math.round((Math.random()-.5)*2)/100);
+$('balChipShapes').innerHTML=shapes(cur.form,85,20,40,1); $('balChips').setAttribute('opacity',1);
+$('balTxt').textContent=st.mass.toFixed(2)+' g'; tick(3);
+setMsg('You weighed '+st.mass.toFixed(2)+' g of '+FORMS[cur.form][1]+'.','ok'); return;
+}
+if(!st.weighed){setMsg('Weigh '+s.mass.toFixed(2)+' g of '+s.nm+' on the balance first, so every run uses the same mass.','warn');return;}
+start();
+}
+$('fillBtn').addEventListener('click',function(){
+if(!guard()) return;
+if(st.filled){setMsg(METHOD==='syr'?'The syringe already reads 0 cm³.':'The cylinder is already full of water.','warn');return;}
+st.filled=true; tick(4);
+if(METHOD==='syr'){setSyr(0); setMsg('The plunger is pushed fully in. The syringe reads 0 cm³.','ok');}
+else{$('cyl').setAttribute('opacity',1); setCyl(0); setMsg('The cylinder is full of water and upside down over the end of the delivery tube. It reads 0 cm³.','ok');}
+});
+$('startBtn').addEventListener('click',start);
+function start(){
+if(!guard()) return;
+var s=SO();
+if(!st.acid){setMsg('Measure '+AV+' cm³ of acid into the flask first.','warn');return;}
+if(!st.weighed){setMsg('Weigh '+s.mass.toFixed(2)+' g of '+s.nm+' first.','warn');return;}
+if(!st.filled){setMsg(METHOD==='syr'?'Push the syringe plunger in to 0 cm³ first, or your readings will be wrong.':'Fill the measuring cylinder with water and turn it upside down in the trough first. Otherwise you cannot collect the gas.','warn');return;}
+st.running=true; $('balChips').setAttribute('opacity',0); $('balTxt').textContent='0.00 g';
+$('fChips').innerHTML=shapes(cur.form,80,248,70,1); $('fChips').style.opacity=1;
+$('gasLbl').textContent='bubbles of '+s.gas; $('gasLbl').setAttribute('opacity',1);
+$(METHOD==='syr'?'tubeS':'tube').style.transform='translateY(0)'; tick(5);
+data[cur.id]=genReadings(cur); data[cur.id].shown=1; showBook();
+simT=0; nextIdx=1; last=performance.now(); RUNS.forEach(function(x){$('pk-'+x.id).disabled=true;});
+setMsg('Bung in and stopwatch started. Bubbles of '+s.gasW+' form'+(metal()?' on the '+s.nm:'')+(METHOD==='syr'?' and push the syringe plunger out.':' and push water out of the cylinder.')+(metal()?' The flask starts to feel warm.':''));
+raf=requestAnimationFrame(loop);
+}
+function genReadings(r){
+var prev=0; return TIMES.map(function(t){ if(t===0) return 0; var v=r.Vf*(1-Math.exp(-r.kk*t))+(Math.random()-.5)*1.2; v=Math.max(prev,Math.round(v)); prev=v; return v; });
+}
+function loop(ts){
+if(!st.running) return;
+var dt=Math.min(.1,(ts-last)/1000); last=ts; simT=Math.min(300,simT+dt*SPEED);
+var v=cur.Vf*(1-Math.exp(-cur.kk*simT)); setGas(v);
+if(metal()) $('fChips').style.opacity=1-0.9*v/cur.Vf;
+$('watch').firstChild.nodeValue=fmt(simT); $('vol').firstChild.nodeValue=Math.round(v)+' cm³';
+while(nextIdx<TIMES.length&&simT>=TIMES[nextIdx]){ data[cur.id].shown=nextIdx+1; showBook(nextIdx); nextIdx++; }
+var rate=cur.Vf*cur.kk*Math.exp(-cur.kk*simT);
+bubAcc+=(rate*.25+(v<cur.Vf*.98?.06:0))*dt*SPEED; cBubAcc+=rate*dt*SPEED*.18;
+while(bubAcc>1){bubAcc--; bubble($('fBub'),45+Math.random()*70,244,214,1.5+Math.random()*2);}
+while(cBubAcc>1){cBubAcc--; if(METHOD==='cyl') bubble($('cBub'),350,224,24+v*180/CAP+4,2.5+Math.random()*1.5);}
+if(simT>=300){finish();return;}
+raf=requestAnimationFrame(loop);
+}
+function finish(){
+st.running=false; st.done=true; tick(6);
+$('pk-'+cur.id).classList.add('done'); RUNS.forEach(function(x){$('pk-'+x.id).disabled=false;});
+var d=data[cur.id], s=SO(), obs;
+if(!metal()) obs='Some marble is left over (it is in excess). The gas turns limewater milky, so it is carbon dioxide.';
+else obs=(d[10]>=cur.Vf*0.95?'The '+s.nm+' has all reacted and disappeared.':'Some '+s.nm+' is still left: the reaction has not finished after 5 minutes.')+' The flask feels warm (the reaction is exothermic). A lighted splint gives a squeaky pop, so the gas is hydrogen.';
+$('gasLbl').setAttribute('opacity',0);
+setMsg('<b>Run finished.</b> Final volume '+d[10]+' cm³. '+obs+' Copy your readings into Part 2. Then wash out and choose the next run.','ok');
+drawGraph();
+}
+function washBench(silent){
+if(raf) cancelAnimationFrame(raf);
+if(st.running&&cur){delete data[cur.id]; showBook();}
+st={acid:false,weighed:false,filled:false,running:false,done:false};
+$('acidLiq').style.transform='scaleY(0)'; $('fChips').innerHTML=''; $('fBub').innerHTML=''; $('cBub').innerHTML=''; $('gasLbl').setAttribute('opacity',0);
+$('balChips').setAttribute('opacity',0); $('balTxt').textContent='0.00 g';
+$('cyl').setAttribute('opacity',.25); setCyl(0); $('cylLine').setAttribute('opacity',0);
+$('tube').style.transform='translateY(-22px)'; $('tubeS').style.transform='translateY(-22px)'; setSyr(20);
+$('watch').firstChild.nodeValue='0:00'; $('vol').firstChild.nodeValue='0 cm³';
+for(var i=1;i<=6;i++) tick(i,false);
+RUNS.forEach(function(x){var b=$('pk-'+x.id); b.disabled=false; b.setAttribute('aria-pressed','false');});
+cur=null; $('acidSub').textContent='choose a run';
+var s=SO(); $('chipSub').innerHTML=SOLID?(metal()?s.nm==='zinc'?'Zn':'Mg':'CaCO<sub>3</sub>'):'choose a solid'; $('jar').innerHTML=shapes(s.B,27,64,26,.7);
+if(!silent) setMsg('Bench washed and reset. Choose the next run.');
+}
+$('washBtn').addEventListener('click',function(){washBench(false);});
+/* ---- lab notebook ---- */
+function showBook(newIdx){
+var h='<thead><tr><th>time / s</th>'+RUNS.map(function(r){return '<th>'+head(r)+'</th>';}).join('')+'</tr></thead><tbody>';
+TIMES.forEach(function(t,i){
+h+='<tr><th>'+t+'</th>'+RUNS.map(function(r){var d=data[r.id]; var show=d&&i<(d.shown||11); var nw=(cur&&r===cur&&i===newIdx);
+return '<td'+(nw?' class="new"':'')+'>'+(show?d[i]:'–')+'</td>';}).join('')+'</tr>';
+});
+$('book').innerHTML=h+'</tbody>';
+}
+/* ---- results table ---- */
+(function(){
+var h='<thead><tr><th>time / s</th>'+RUNS.map(function(r){return '<th><span id="rh-'+r.id+'"></span><br>volume / cm³</th>';}).join('')+'</tr></thead><tbody>';
+TIMES.forEach(function(t,i){ h+='<tr><th>'+t+'</th>'+RUNS.map(function(r){return '<td id="c-'+r.id+'-'+i+'"><input type="number" inputmode="decimal" step="1" min="0" id="in-'+r.id+'-'+i+'" aria-label="Run '+r.id+', volume at '+t+' s"></td>';}).join('')+'</tr>'; });
+h+='<tr><th>initial rate<br>/ cm³/s</th>'+RUNS.map(function(r){return '<td id="c-'+r.id+'-r"><input type="number" inputmode="decimal" step="0.01" min="0" id="in-'+r.id+'-r" aria-label="Run '+r.id+', initial rate"></td>';}).join('')+'</tr>';
+$('res').innerHTML=h+'</tbody>';
+})();
+$('res').addEventListener('input',function(e){var td=e.target.closest('td'); if(td) td.classList.remove('ok','wrong'); drawGraph();});
+$('checkRes').addEventListener('click',function(){
+var right=0,total=0;
+RUNS.forEach(function(r){
+var d=data[r.id]; var done=d&&(d.shown||0)>=11;
+TIMES.concat(['r']).forEach(function(t,i){
+var key=t==='r'?'r':i, td=$('c-'+r.id+'-'+key); td.classList.remove('ok','wrong'); if(!done) return;
+var val=parseFloat($('in-'+r.id+'-'+key).value), ok;
+if(t==='r'){var ex=d[1]/30; ok=!isNaN(val)&&Math.abs(val-ex)<=Math.max(.011,ex*.05);} else ok=!isNaN(val)&&Math.abs(val-d[i])<=1;
+td.classList.add(ok?'ok':'wrong'); total++; if(ok) right++;
+});
+});
+var s=$('resScore');
+if(!total){s.textContent='Do at least one full run in Part 1 first (with this solid and method).';s.className='score bad';return;}
+s.textContent=right+' / '+total+' correct'+(right===total?'. Well done!':'. Check the red boxes against your readings.');
+s.className='score '+(right===total?'good':'bad');
+});
+/* ---- graph ---- */
+var cv=$('graph');
+function legend(){
+$('legend').innerHTML=RUNS.map(function(r,i){return '<span><svg width="34" height="10" aria-hidden="true"><line x1="0" y1="5" x2="34" y2="5" stroke="'+COL[i]+'" stroke-width="3" stroke-dasharray="'+DASH[i].join(' ')+'"/></svg>'+head(r)+'</span>';}).join('');
+}
+function drawGraph(){
+var w=cv.clientWidth||600, H=340, dpr=window.devicePixelRatio||1; cv.width=w*dpr; cv.height=H*dpr; cv.style.height=H+'px';
+var c=cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0); c.clearRect(0,0,w,H);
+var series=RUNS.map(function(r){return TIMES.map(function(t,i){var v=parseFloat($('in-'+r.id+'-'+i).value);return isNaN(v)?null:v;});});
+var mx=50; series.forEach(function(s){s.forEach(function(v){if(v!==null&&v>mx) mx=v;});}); mx=Math.ceil(mx/50)*50;
+var L=52,R=14,T=14,B=46, pw=w-L-R, ph=H-T-B;
+var X=function(t){return L+t/300*pw;}, Y=function(v){return T+ph-v/mx*ph;};
+c.font='12px "Atkinson Hyperlegible",system-ui,sans-serif'; c.fillStyle='#5a6878'; c.strokeStyle='#e3e8ee'; c.lineWidth=1;
+var step=mx<=100?10:mx<=200?25:50;
+for(var v=0;v<=mx;v+=step){c.beginPath();c.moveTo(L,Y(v));c.lineTo(L+pw,Y(v));c.stroke(); c.textAlign='right'; c.fillText(v,L-6,Y(v)+4);}
+for(var t=0;t<=300;t+=30){c.beginPath();c.moveTo(X(t),T);c.lineTo(X(t),T+ph);c.stroke(); c.textAlign='center'; if(w>420||t%60===0) c.fillText(t,X(t),T+ph+16);}
+c.strokeStyle='#1c2736'; c.lineWidth=1.5; c.beginPath(); c.moveTo(L,T); c.lineTo(L,T+ph); c.lineTo(L+pw,T+ph); c.stroke();
+c.fillStyle='#1c2736'; c.textAlign='center'; c.fillText('time / s',L+pw/2,H-8);
+c.save(); c.translate(14,T+ph/2); c.rotate(-Math.PI/2); c.fillText('volume of '+(SOLID?SO().gas:'gas')+' / cm³',0,0); c.restore();
+series.forEach(function(s,i){
+c.strokeStyle=COL[i]; c.fillStyle=COL[i]; c.lineWidth=2.5; c.setLineDash(DASH[i]); c.beginPath(); var on=false;
+s.forEach(function(v,j){ if(v===null){on=false;return;} if(!on){c.moveTo(X(TIMES[j]),Y(v));on=true;} else c.lineTo(X(TIMES[j]),Y(v)); });
+c.stroke(); c.setLineDash([]);
+s.forEach(function(v,j){ if(v!==null){c.beginPath(); c.arc(X(TIMES[j]),Y(v),3.2,0,Math.PI*2); c.fill();} });
+});
+}
+window.addEventListener('resize',drawGraph);
+apply();
+/* ---- questions ---- */
+$('checkQs').addEventListener('click',function(){
+var sels=[].slice.call(document.querySelectorAll('#qs select')), right=0;
+sels.forEach(function(s){var ok=s.value===s.dataset.a; s.classList.toggle('ok',ok); s.classList.toggle('wrong',!ok); if(ok) right++;});
+var q=$('qScore'); q.textContent=right+' / '+sels.length+' correct'+(right===sels.length?'. Excellent!':'.'); q.className='score '+(right===sels.length?'good':'bad');
+});
+$('qs').addEventListener('change',function(e){e.target.classList.remove('ok','wrong');});
+/* ---- start again ---- */
+$('resetAll').addEventListener('click',function(){
+washBench(true); SOLID=null; METHOD=null; KEY=''; saved={}; dataBy={}; data={};
+document.querySelectorAll('#res input').forEach(function(i){i.value='';});
+document.querySelectorAll('#qs select').forEach(function(s){s.value='';s.classList.remove('ok','wrong');});
+apply(); $('resScore').textContent=''; $('qScore').textContent=''; window.scrollTo(0,0);
+});
+})();
+</script>
+<script>
+window.EXAM_QS=[
+{ref:'Q1(a)',marks:1,type:'mcq',ctx:'A student investigates the reaction between marble chips (calcium carbonate) and dilute hydrochloric acid.',
+stem:'Which is the balanced equation for this reaction?',
+opts:['CaCO<sub>3</sub> + HCl → CaCl + H<sub>2</sub>O + CO<sub>2</sub>','CaCO<sub>3</sub> + 2HCl → CaCl<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub>','CaCO<sub>3</sub> + 2HCl → CaCl<sub>2</sub> + H<sub>2</sub> + CO<sub>2</sub>','CaCO<sub>3</sub> + 2HCl → CaO + Cl<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub>'],
+ans:1,why:'Calcium chloride is CaCl<sub>2</sub>, so 2HCl are needed. The products of an acid with a carbonate are a salt, water and carbon dioxide.'},
+{ref:'Q1(b)',marks:2,type:'written',stem:'Give <b>two</b> observations the student would make in the conical flask during the reaction.',
+points:['bubbles / fizzing / effervescence','the marble chips get smaller / dissolve / disappear','the flask feels (slightly) warm'],note:'Do not accept "a gas is given off" or "carbon dioxide is made" on its own: these are not observations'},
+{ref:'Q2',marks:2,type:'written',ctx:'The student wants to find out how the size of the marble chips affects the rate of reaction.',
+stem:'State <b>two</b> variables, other than the size of the chips, that the student must keep the same to make this a fair test.',
+points:['volume of hydrochloric acid','concentration of hydrochloric acid','mass of marble chips','temperature (of the acid)']},
+{ref:'Q3(a)',marks:2,type:'calc',
+ctx:'A student added 0.048 g of magnesium ribbon to 10 cm³ of 1.0 mol/dm³ hydrochloric acid (the acid is in excess). The hydrogen was collected in a gas syringe.<div class="tbl-wrap" style="margin-top:8px"><table class="ex-tbl"><tbody><tr><th>time / s</th><td>0</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td><td>60</td><td>70</td><td>80</td></tr><tr><th>volume of H<sub>2</sub> / cm³</th><td>0</td><td>15</td><td>27</td><td>35</td><td>41</td><td>45</td><td>47</td><td>48</td><td>48</td></tr></tbody></table></div>',
+stem:'Calculate the mean rate of reaction, in cm³/s, during the first 20 s.',
+inputs:[{lab:'volume of H<sub>2</sub> produced in 20 s =',unit:'cm³',ans:27,tol:0.5,m:1},{lab:'mean rate =',unit:'cm³/s',ans:1.35,tol:0.051,m:1}],
+work:'<ol><li>Volume produced = 27 − 0 = <b>27 cm³</b> (1 mark)</li><li>Mean rate = volume ÷ time = 27 ÷ 20 = <b>1.35 cm³/s</b> (1 mark; 1.3 or 1.4 also accepted)</li></ol><p class="note">Full marks are given for the correct final answer.</p>'},
+{ref:'Q3(b)',marks:2,type:'calc',ctx:'The student plotted a graph of these results and drew a tangent to the curve at 30 s. The tangent passes through the points (10 s, 21 cm³) and (50 s, 49 cm³).',
+stem:'Calculate the gradient of the tangent to find the rate of reaction at 30 s.',
+inputs:[{lab:'rate at 30 s =',unit:'cm³/s',ans:0.70,tol:0.03,m:2}],
+work:'<ol><li>Change in volume = 49 − 21 = 28 cm³; change in time = 50 − 10 = 40 s (1 mark)</li><li>Gradient = 28 ÷ 40 = <b>0.70 cm³/s</b> (1 mark)</li></ol><p class="note">The rate at 30 s is lower than the mean rate in the first 20 s, because the reaction slows down.</p>'},
+{ref:'Q3(c)',marks:2,type:'written',stem:'Explain, in terms of particles, why the rate of reaction decreases as the reaction goes on.',
+points:['the reactants are used up: the magnesium gets smaller (less surface area) / the acid concentration falls','so there are fewer collisions per second / the frequency of collisions decreases'],note:'"Fewer collisions" without a time reference is not enough for the second mark'},
+{ref:'Q4',marks:1,type:'mcq',ctx:'The student repeats the experiment in Q3 with 0.048 g of magnesium <b>powder</b> instead of ribbon. Everything else is the same.',stem:'Which statement about the final volume of hydrogen is correct?',
+opts:['It is larger, because the powder has a larger surface area.','It is the same, because the same amount of magnesium reacts and the acid is in excess.','It is smaller, because the reaction finishes sooner.','It is the same, because the magnesium is in excess.'],
+ans:1,why:'Surface area changes only the rate. The magnesium is the limiting reactant: 0.002 mol of Mg always makes 0.002 mol of H<sub>2</sub> (48 cm³). The curve is steeper but levels off at the same volume.'},
+{ref:'Q5',marks:3,type:'written',ctx:'Magnesium powder reacts with the acid much faster than the same mass of magnesium ribbon.',
+stem:'Explain, using collision theory, why magnesium powder reacts faster than magnesium ribbon.',
+points:['powder has a larger surface area (to volume ratio)','more magnesium particles/atoms are exposed to / in contact with the acid','so there are more frequent collisions / more collisions per second (between acid particles and magnesium)','so more successful collisions per second'],note:'"Collisions" must be linked to frequency or time'},
+{ref:'Q6',marks:2,type:'written',ctx:'Another student did the marble chip experiment from Q1 and collected the carbon dioxide in an upturned measuring cylinder filled with water. The total volume collected was smaller than with the gas syringe.',
+stem:'Suggest <b>one</b> reason for the smaller volume and <b>one</b> improvement to the method.',
+points:['reason: some carbon dioxide dissolves in the water / gas escapes before the bung is put in','improvement: use a gas syringe / put the chips in a small tube in the flask and tip it over after the bung is in']},
+{ref:'Q7',marks:6,type:'written',
+stem:'Describe how you would carry out an experiment to investigate the effect of the concentration of hydrochloric acid on the rate of its reaction with marble chips.',
+points:['measure a fixed volume of acid (e.g. 50 cm³) with a measuring cylinder and pour it into a conical flask','weigh a fixed mass of marble chips on a balance','connect the flask by a bung and delivery tube to a gas syringe / an upturned measuring cylinder full of water','add the chips, put the bung in immediately and start the stopwatch','record the volume of gas at regular time intervals (e.g. every 30 s)','repeat with different concentrations of acid','keep the volume of acid, mass and size of chips and the temperature the same','plot volume against time and compare the gradients / rate = volume ÷ time']}
+];
+(function(){
+var $=function(id){return document.getElementById(id);};
+/* ---- tabs ---- */
+var tabs=[$('tabLab'),$('tabExam')], panels=[$('panelLab'),$('panelExam')], tabRow=$('tabRow');
+function show(i){
+tabs.forEach(function(t,j){var on=j===i; t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; panels[j].hidden=!on;});
+var top=tabRow.getBoundingClientRect().top+window.scrollY-8;
+window.scrollTo(0,Math.max(0,Math.min(window.scrollY,top)));
+if(i===0) window.dispatchEvent(new Event('resize'));
+}
+tabs.forEach(function(t,i){
+t.addEventListener('click',function(){show(i);});
+t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault(); var n=(i+1)%2; tabs[n].focus(); show(n);}});
+});
+/* ---- exam practice ---- */
+var QS=window.EXAM_QS, S=[], host=$('exList');
+var L='ABCDEFGH';
+function upd(){
+var sc=0,T=0,N=0; QS.forEach(function(q,i){T+=q.marks; sc+=S[i].score; if(S[i].marked) N++;});
+$('exBar').textContent='Score: '+sc+' / '+T+' · '+N+' of '+QS.length+' questions marked';
+}
+function el(tag,cls,html){var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e;}
+function fb(box,ok,html){box.className='ex-fb '+(ok?'ok':'no'); box.innerHTML=html; box.hidden=false;}
+function render(){
+host.innerHTML=''; S=[];
+QS.forEach(function(q,i){
+var s={score:0,marked:false}; S.push(s);
+var c=el('article','ex-card'); c.setAttribute('aria-labelledby','exs'+i);
+var top=el('div','ex-top'); top.appendChild(el('span','ex-ref',q.ref)); top.appendChild(el('span','ex-marks','('+q.marks+' mark'+(q.marks>1?'s':'')+')')); c.appendChild(top);
+if(q.ctx) c.appendChild(el('div','ex-ctx',q.ctx));
+var stem=el('p','ex-stem',q.stem); stem.id='exs'+i; c.appendChild(stem);
+var box=el('div','ex-fb'); box.hidden=true; box.setAttribute('aria-live','polite');
+if(q.type==='mcq'){
+var g=el('div','ex-opts'); g.setAttribute('role','radiogroup'); g.setAttribute('aria-labelledby','exs'+i);
+var labs=[];
+q.opts.forEach(function(o,k){
+var lb=el('label','ex-opt'); var r=document.createElement('input'); r.type='radio'; r.name='exq'+i; r.value=k;
+lb.appendChild(r); lb.appendChild(el('span','ex-let',L[k])); lb.appendChild(el('span','',o)); g.appendChild(lb); labs.push(lb);
+r.addEventListener('change',function(){
+if(s.marked) return; s.marked=true; var ok=k===q.ans; s.score=ok?q.marks:0;
+g.querySelectorAll('input').forEach(function(x){x.disabled=true;}); g.classList.add('locked');
+labs[q.ans].classList.add('right'); if(!ok) lb.classList.add('wrongpick');
+fb(box,ok,(ok?'<b>Correct.</b> ':'<b>Not quite.</b> The answer is '+L[q.ans]+'. ')+q.why); upd();
+});
+});
+c.appendChild(g); c.appendChild(box);
+} else if(q.type==='calc'){
+var w=el('div','ex-calc'), ins=[];
+q.inputs.forEach(function(p){
+var row=el('label','ex-in'); row.appendChild(el('span','ex-inlab',p.lab));
+var inp=document.createElement('input'); inp.type='number'; inp.step='any'; inp.inputMode='decimal'; row.appendChild(inp);
+row.appendChild(el('span','ex-unit',p.unit)); w.appendChild(row); ins.push(inp);
+});
+var bt=el('button','btn','Check'); bt.type='button'; var bw=el('div','ex-act'); bw.appendChild(bt); w.appendChild(bw);
+var work=el('div','ex-work'); work.hidden=true;
+bt.addEventListener('click',function(){
+var vals=ins.map(function(x){return parseFloat(x.value);});
+if(vals.some(isNaN)){fb(box,false,'Enter '+(ins.length>1?'a number in each box':'a number')+' first.'); return;}
+var oks=vals.map(function(v,k){return Math.abs(v-q.inputs[k].ans)<=q.inputs[k].tol+1e-9;});
+var sc; if(oks[oks.length-1]) sc=q.marks; else {sc=0; oks.forEach(function(o,k){if(o&&k<oks.length-1) sc+=q.inputs[k].m;}); sc=Math.min(sc,q.marks-1);}
+s.score=sc; s.marked=true; ins.forEach(function(x,k){x.disabled=true; x.classList.add(oks[k]?'ok':'wrong');}); bt.disabled=true;
+fb(box,sc===q.marks,'<b>'+sc+' / '+q.marks+' marks.</b> '+(sc===q.marks?'Correct final answer.':'Compare your answer with the working below.'));
+work.innerHTML='<b>Working</b>'+q.work; work.hidden=false; upd();
+});
+c.appendChild(w); c.appendChild(box); c.appendChild(work);
+} else {
+var ta=document.createElement('textarea'); ta.className='ex-ta'; ta.placeholder='Write your answer here, then press Show mark scheme.'; ta.setAttribute('aria-labelledby','exs'+i); ta.rows=q.marks>3?7:4;
+var bt2=el('button','btn ghost','Show mark scheme'); bt2.type='button'; var bw2=el('div','ex-act'); bw2.appendChild(bt2);
+var ms=el('div','ex-ms'); ms.hidden=true;
+ms.appendChild(el('p','ex-mshead','Tick each point you made'));
+var cbs=[];
+q.points.forEach(function(p){var lb=el('label','ex-pt'); var cb=document.createElement('input'); cb.type='checkbox'; lb.appendChild(cb); lb.appendChild(el('span','',p)); ms.appendChild(lb); cbs.push(cb);
+cb.addEventListener('change',function(){var n=cbs.filter(function(x){return x.checked;}).length; s.score=Math.min(n,q.marks); upd();});});
+ms.appendChild(el('p','ex-max','Max '+q.marks+' mark'+(q.marks>1?'s':'')+(q.points.length>q.marks?' (any '+q.marks+' of the '+q.points.length+' points)':'')+(q.note?'. '+q.note+'.':'')));
+bt2.addEventListener('click',function(){ms.hidden=false; bt2.disabled=true; bt2.textContent='Mark scheme shown'; s.marked=true; upd();});
+c.appendChild(ta); c.appendChild(bw2); c.appendChild(ms);
+}
+host.appendChild(c);
+});
+upd();
+}
+render();
+$('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
+})();
+</script>
+</body></html>

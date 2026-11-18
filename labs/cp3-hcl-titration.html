@@ -1,0 +1,341 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hydrochloric Acid Titration</title>
+<meta name="description" content="Virtual core practical: Hydrochloric Acid Titration. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp3-hcl-titration.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);--good-soft:#e4f4ea;--bad-soft:#fbeae8;--warn-soft:#fff5de;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}h3{font-size:1rem;font-weight:600}p{margin:0;max-width:70ch}header{display:flex;flex-direction:column;gap:8px}.meta{font:600 .85rem var(--display);color:var(--muted)}details.safety{border:1px solid #e2c27c;background:var(--warn-soft);border-radius:10px;padding:8px 14px;max-width:70ch}details.safety summary{cursor:pointer;font:600 .95rem var(--display)}details.safety ul{margin:8px 0 4px;padding-left:1.2em;font-size:.93rem}section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}.bench{background:var(--bench);border-radius:12px;padding:12px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px}@media (max-width:720px){.bench{grid-template-columns:minmax(0,1fr)}}.scene{background:#fbfcfd;border-radius:10px;border:2px dashed transparent;min-width:0;outline:none;cursor:pointer}.scene.armed,.scene.over{border-color:var(--accent);background:var(--accent-soft)}.scene:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.scene svg{width:100%;height:auto;display:block}.side{display:flex;flex-direction:column;gap:10px;min-width:0}.panel{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}.panel h3{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}ol.method{margin:0;padding-left:1.6em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}ol.method li.done{color:var(--good)}ol.method li.now{font-weight:700;color:var(--accent)}.tick{font-weight:700}.tray{display:flex;flex-wrap:wrap;gap:8px}.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;display:flex;flex-direction:column;align-items:center;gap:2px;width:96px;padding:6px 4px;border:2px solid var(--line);border-radius:10px;background:var(--sheet);font:inherit;font-size:.74rem;line-height:1.15;color:var(--ink);text-align:center}.item svg{width:40px;height:44px;display:block}.item.selected{border-color:var(--accent);background:var(--accent-soft)}.item:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.dragghost{position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:44px;height:48px;opacity:.9}.dragghost svg{width:44px;height:48px}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.hintbox{min-height:2.8em;padding:8px 12px;border-radius:10px;background:var(--sheet);border-left:4px solid var(--accent);font-size:.92rem}.hintbox.warn{border-left-color:var(--bad);background:var(--bad-soft)}.hintbox.okay{border-left-color:var(--good);background:var(--good-soft)}.readout{font:700 1.05rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#b9f3c9;border-radius:8px;padding:3px 10px;display:inline-block;min-width:6.5em;text-align:right}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}.btn.ghost{background:transparent;color:var(--accent)}.btn.sm{font-size:.85rem;padding:6px 11px}.mini{font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}.mini:hover,.item:hover{border-color:var(--accent)}.mini.on{border-color:var(--accent);background:var(--accent-soft);font-weight:700}button:disabled,select:disabled{opacity:.45;cursor:not-allowed}.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}.tbl-wrap{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}tbody th{background:var(--accent-soft);font-weight:700;white-space:nowrap}td.num{font-variant-numeric:tabular-nums}input.n{font:inherit;font-size:.95rem;width:6.4em;padding:4px 6px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-variant-numeric:tabular-nums}input.ok,select.ok{border-color:var(--good);background:var(--good-soft)}input.wrong,select.wrong{border-color:var(--bad);background:var(--bad-soft)}select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}.calc{display:flex;flex-direction:column;gap:8px}.crow{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px}.crow .lab{flex:1 1 280px;font-size:.93rem}.crow .fb{font-size:.84rem;color:var(--bad)}.score{font-weight:700}.score.good{color:var(--good)} .score.bad{color:var(--bad)}ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}ol.qs li{max-width:72ch}.mcq{display:flex;flex-direction:column;gap:2px;margin-top:4px}.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;cursor:pointer}.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}.mcq label.ok{background:var(--good-soft)} .mcq label.wrong{background:var(--bad-soft)}.xq{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}.xq .qh{display:flex;justify-content:space-between;gap:12px}.xq .mk{color:var(--muted);font-weight:700;white-space:nowrap}.xq textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;padding:8px;border:2px solid var(--line);border-radius:8px;resize:vertical}.ms{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:.9rem}.ms label{display:flex;gap:8px;align-items:flex-start;padding:3px 0}.ms input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:none}.worked{background:var(--good-soft);border-radius:10px;padding:8px 12px;font-size:.9rem}.note{font-size:.86rem;color:var(--muted)}.foot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}canvas{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}svg text{font-family:var(--body)}.lbl{font-size:11px;fill:var(--muted)}.bub{animation:rise 1.1s linear infinite;transform-box:fill-box}@keyframes rise{from{transform:translateY(0);opacity:.95}to{transform:translateY(-34px);opacity:0}}.swirl{animation:swirl 1.6s ease;transform-box:fill-box;transform-origin:50% 100%}@keyframes swirl{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}}.fade{transition:opacity .5s}@media (max-width:520px){body{font-size:16px}.item{width:84px}}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style>
+<style>.zoom svg{width:100%;max-width:200px;height:auto;display:block;margin:0 auto}#nb td,#nb th{font-size:.8rem;padding:4px 6px}#res table{min-width:540px}.tap{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}.tap b{font-family:var(--display);font-size:.85rem}#res input[type=checkbox]{width:22px;height:22px;accent-color:var(--accent)}td.ok{box-shadow:inset 0 0 0 3px var(--good)}td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}</style>
+</head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>Finding the concentration of hydrochloric acid</h1>
+  <div class="meta">IAL Chemistry · Core Practical 3 · Unit 3</div>
+  <p><b>Aim:</b> To dilute a solution of hydrochloric acid accurately and then titrate it against standard sodium hydroxide solution, to find the concentration of the original acid.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li>Wear eye protection. Sodium hydroxide solution, even at 0.100 mol dm⁻³, is an irritant and can damage the eyes. Wash splashes with plenty of water.</li>
+    <li>The undiluted hydrochloric acid (about 2 mol dm⁻³) is an irritant. Handle it carefully.</li>
+    <li>Always use a pipette filler. Never pipette by mouth.</li>
+    <li>Fill the burette below eye level, with the burette removed from the clamp or the clamp low, using a funnel.</li>
+  </ul></details>
+</header>
+<div id="labArea"></div>
+<div id="qArea"></div>
+<div class="foot"><span class="note">Key fact: HCl(aq) + NaOH(aq) → NaCl(aq) + H<sub>2</sub>O(l). The acid and alkali react in a 1 : 1 ratio.</span><button class="btn ghost" id="again" type="button">Start again</button></div>
+</div>
+
+<template id="tplLab">
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p>First dilute the acid. Then do a rough titration and accurate titrations until you have <b>concordant</b> titres (within 0.10 cm³). Drag an item onto the bench picture, or tap the item and then tap the picture.</p>
+  <div class="row"><label>Indicator:
+    <select id="indSel"><option value="mo">methyl orange</option><option value="pp">phenolphthalein</option><option value="ui">universal indicator</option></select></label></div>
+  <div class="bench">
+    <div class="scene" id="scene" tabindex="0" role="button" aria-label="Bench: drop or place items here"><svg id="svg" viewBox="0 0 520 330" aria-hidden="true"></svg></div>
+    <div class="side">
+      <div class="panel"><h3 id="runLabel">Dilution</h3><ol class="method" id="method"></ol></div>
+      <div class="panel zoom"><h3>Burette close-up</h3><div id="zoom"></div><p style="text-align:center">Reading: <span class="readout" id="bread">-- cm³</span></p></div>
+    </div>
+  </div>
+  <div class="panel"><h3>Items</h3><div class="tray" id="tray"></div></div>
+  <div class="controls" id="ctl">
+    <button class="btn sm" type="button" data-a="invert">Stopper and invert</button>
+    <button class="btn sm" type="button" data-a="rinseBur">Rinse burette with NaOH</button>
+    <button class="btn sm" type="button" data-a="funnel">Remove funnel</button>
+    <button class="btn sm" type="button" data-a="bubble">Run a little out to clear air bubble</button>
+    <button class="btn sm" type="button" data-a="rinsePip">Rinse pipette with diluted acid</button>
+    <button class="btn sm" type="button" data-a="read1">Read initial burette reading</button>
+    <button class="btn sm" type="button" data-a="readF">Read final burette reading</button>
+    <button class="btn sm" type="button" data-a="wash">Wash flask, refill burette</button>
+    <button class="btn ghost sm" type="button" id="benchReset">Reset bench</button>
+  </div>
+  <div class="tap" id="tapBox"><b>Burette tap:</b>
+    <button class="mini on" type="button" data-t="0">Closed</button><button class="mini" type="button" data-t="2">Open (fast)</button><button class="mini" type="button" data-t="1">Dropwise</button><button class="mini" type="button" id="oneDrop">Add 1 drop</button><button class="mini" type="button" id="swirl">Swirl</button>
+    <span class="note" id="added"></span></div>
+  <div class="hintbox" id="hint" aria-live="polite">Start with step 1: dilute the acid.</div>
+  <div class="panel" id="nb"><h3>Lab notebook (your burette readings)</h3><div class="tbl-wrap"><table><thead><tr><th>Titration</th><th>final / cm³</th><th>initial / cm³</th></tr></thead><tbody id="nbBody"></tbody></table></div></div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <p>Copy the readings to 2 decimal places. Work out each titre. Tick the titres that are concordant (accurate titres within 0.10 cm³ of each other). Do not tick the rough titre.</p>
+  <div class="tbl-wrap" id="res"><table><thead><tr><th></th><th>final reading / cm³</th><th>initial reading / cm³</th><th>titre / cm³</th><th>concordant?</th></tr></thead><tbody id="resBody"></tbody></table></div>
+  <h3>Calculations</h3>
+  <p class="note">Concentration of NaOH = 0.100 mol dm⁻³. 10.0 cm³ of the original acid was made up to 250 cm³. 25.0 cm³ of diluted acid was titrated. Give answers to 3 significant figures (mean titre to 2 d.p.).</p>
+  <div class="calc" id="calc"></div>
+  <div class="toolbar"><button class="btn" type="button" id="checkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+</template>
+
+<template id="tplQ">
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs"></ol>
+  <div class="toolbar"><button class="btn" type="button" id="checkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <div id="exam" class="calc"></div>
+  <div class="toolbar"><button class="btn" type="button" id="examCheck">Mark my answers</button><span class="score" id="examScore" aria-live="polite"></span></div>
+</section>
+</template>
+
+<script>
+const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+let TIMERS=[];
+const later=(f,ms)=>{const t=setTimeout(f,RM?Math.min(ms,80):ms);TIMERS.push(t);return t};
+const every=(f,ms)=>{const t=setInterval(f,ms);TIMERS.push(t);return t};
+const stopTimers=()=>{TIMERS.forEach(t=>{clearTimeout(t);clearInterval(t)});TIMERS=[]};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const snap=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(Math.round(x*Math.pow(10,d))/Math.pow(10,d)).toFixed(d);
+function val(el){if(!el)return NaN;const s=String(el.value).trim().replace(/\s/g,'').replace(',','.').replace(/[−–]/g,'-');if(s===''||s==='-'||s==='+')return NaN;const v=Number(s);return isFinite(v)?v:NaN}
+function near(v,t,rel,abs){if(!isFinite(v)||!isFinite(t))return false;return Math.abs(v-t)<=Math.max(Math.abs(t)*(rel||0),abs||0)+1e-9}
+function setMark(el,ok){el.classList.remove('ok','wrong');if(ok!==null&&ok!==undefined)el.classList.add(ok?'ok':'wrong')}
+function score(el,r,t,unit){el.textContent=r+' / '+t+' '+(unit||'correct')+(r===t?'. Well done!':'. Red boxes need another look.');el.className='score '+(r===t?'good':'bad')}
+function hint(msg,kind){const h=$('#hint');if(!h)return;h.innerHTML=msg;h.className='hintbox'+(kind?' '+kind:'')}
+function clearMarks(root){const f=e=>{if(e.target.classList)e.target.classList.remove('ok','wrong')};root.addEventListener('input',f);root.addEventListener('change',f)}
+
+/* method checklist + order engine */
+function Method(steps,opt){
+  opt=opt||{};
+  const S={pos:0,run:1,busy:false,steps:steps};
+  S.render=function(){
+    $('#method').innerHTML=S.steps.map((s,i)=>`<li class="${i<S.pos?'done':i===S.pos?'now':''}">${i<S.pos?'<span class="tick" aria-hidden="true">&#10003;</span> ':''}${s.text}</li>`).join('');
+    const rl=$('#runLabel');if(rl&&opt.runLabel)rl.textContent=opt.runLabel(S.run,S.pos>=S.steps.length,S);
+  };
+  S.next=()=>S.steps[S.pos];
+  S.warn=function(id){const exp=S.steps[S.pos];const w=(opt.why&&opt.why[id])||'';
+    hint('<b>Not yet.</b> '+w+' Next step: <b>'+exp.text+'</b>'+(exp.why?'<br><span class="note">Why: '+exp.why+'</span>':''),'warn')};
+  S.go=function(id,fn){
+    if(S.busy){hint('Wait a moment: the last step is still happening.');return false}
+    const exp=S.steps[S.pos];
+    if(!exp){hint(opt.doneMsg||'Method complete.','okay');return false}
+    if(exp.id!==id){S.warn(id);return false}
+    const r=fn?fn():0;
+    if(r===false)return false;
+    const ms=typeof r==='number'?r:0;
+    S.busy=ms>0;
+    const fin=()=>{S.busy=false;S.pos++;
+      if(S.pos>=S.steps.length&&opt.cycleFrom!=null&&(!opt.canCycle||opt.canCycle(S.run))){S.pos=opt.cycleFrom;S.run++;opt.onCycle&&opt.onCycle(S.run)}
+      S.render();opt.after&&opt.after(id)};
+    if(ms>0)later(fin,ms);else fin();
+    return true};
+  S.render();return S;
+}
+
+/* drag-or-tap tray */
+function Tray(tray,scene,act){
+  let sel=null,drag=null;
+  const lab=id=>{const b=tray.querySelector('[data-act="'+id+'"]');return b?b.getAttribute('aria-label'):id};
+  const clear=()=>{sel=null;$$('.item',tray).forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed')};
+  const pick=id=>{if(sel===id){clear();return}clear();sel=id;tray.querySelector('[data-act="'+id+'"]').classList.add('selected');scene.classList.add('armed');hint('Now tap the bench picture (or press Enter on it) to use: <b>'+lab(id)+'</b>.')};
+  tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.item');if(!b)return;drag={id:b.dataset.act,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+  tray.addEventListener('pointermove',e=>{if(!drag)return;
+    if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=tray.querySelector('[data-act="'+drag.id+'"] svg').outerHTML;document.body.appendChild(g);drag.g=g}
+    if(drag.moved){drag.g.style.transform=`translate(${e.clientX-22}px,${e.clientY-24}px)`;const u=document.elementFromPoint(e.clientX,e.clientY);const ov=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',ov);drag.over=ov}});
+  const end=cancel=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(cancel)return;if(d.moved){if(d.over){clear();act(d.id)}}else pick(d.id)};
+  tray.addEventListener('pointerup',()=>end(false));tray.addEventListener('pointercancel',()=>end(true));
+  tray.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.item');if(b)pick(b.dataset.act)}});
+  scene.addEventListener('click',()=>{if(sel){const id=sel;clear();act(id)}});
+  scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&sel){e.preventDefault();const id=sel;clear();act(id)}});
+}
+function items(tray,list){tray.innerHTML=list.map(it=>`<button type="button" class="item" data-act="${it[0]}" aria-label="${it[1].replace(/<[^>]+>/g,'')}">${it[2]}<span>${it[1]}</span></button>`).join('')}
+
+/* calc rows */
+function calcRows(el,rows){el.innerHTML=rows.map(r=>`<div class="crow"><div class="lab">${r[1]}<div class="fb" id="fb-${r[0]}"></div></div><span><input class="n" type="text" inputmode="decimal" id="${r[0]}" aria-label="${r[1].replace(/<[^>]+>/g,'')}"> ${r[2]||''}</span></div>`).join('');clearMarks(el)}
+function markCalc(id,ok,tip){const i=$('#'+id);setMark(i,ok);const f=$('#fb-'+id);if(f)f.innerHTML=ok?'':(tip||'');return ok?1:0}
+
+/* part 3 */
+function selHtml(t){let a='';const o=t.split('|').map(x=>{if(x[0]==='*'){x=x.slice(1);a=x}return '<option>'+x+'</option>'}).join('');return '<select data-a="'+a+'" aria-label="choose an answer"><option value="">choose…</option>'+o+'</select>'}
+function renderQs(el,list){el.innerHTML=list.map((it,i)=>typeof it==='string'?'<li>'+it.replace(/\{\{(.+?)\}\}/g,(m,t)=>selHtml(t))+'</li>':'<li>'+it.s+'<div class="mcq" data-a="'+it.a+'">'+it.o.map((o,j)=>`<label><input type="radio" name="p3q${i}" value="${'ABCD'[j]}"><span><b>${'ABCD'[j]}</b>&nbsp; ${o}</span></label>`).join('')+'</div></li>').join('');
+  el.addEventListener('change',e=>{const t=e.target;t.classList.remove('ok','wrong');const l=t.closest('.mcq');if(l)$$('label',l).forEach(x=>x.classList.remove('ok','wrong'))})}
+function checkQs(el,out){let r=0,t=0;
+  $$('select[data-a]',el).forEach(s=>{t++;const ok=s.value===s.dataset.a;setMark(s,ok);if(ok)r++});
+  $$('.mcq[data-a]',el).forEach(g=>{t++;const c=g.querySelector('input:checked');$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===g.dataset.a;if(c)c.closest('label').classList.add(ok?'ok':'wrong');if(ok)r++});
+  score(out,r,t)}
+
+/* part 4 exam */
+function Exam(root,qs){
+  const L='ABCD';let auto=null;
+  root.innerHTML=qs.map((q,i)=>{let b='';
+    if(q.t==='mcq')b='<div class="mcq">'+q.o.map((o,j)=>`<label><input type="radio" name="x${i}" value="${L[j]}"><span><b>${L[j]}</b>&nbsp; ${o}</span></label>`).join('')+'</div>'+(q.w?'<div class="worked" hidden>'+q.w+'</div>':'');
+    if(q.t==='num')b=`<div class="row"><label>Answer: <input class="n" type="text" inputmode="decimal"></label><span>${q.u||''}</span></div><div class="worked" hidden><b>Worked answer</b><br>${q.w}</div>`;
+    if(q.t==='wr')b='<textarea aria-label="Your answer"></textarea><div><button class="mini" type="button" data-ms>Show mark scheme</button></div><div class="ms" hidden><b>Mark scheme</b> <span class="note">(tick each point your answer makes; max '+q.m+')</span>'+q.ms.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+(q.n?'<p class="note">'+q.n+'</p>':'')+'</div>';
+    return `<div class="xq" data-i="${i}"><div class="qh"><div><b>${i+1}</b>&nbsp; ${q.s}</div><span class="mk">(${q.m})</span></div>${b}</div>`}).join('');
+  const total=qs.reduce((a,q)=>a+q.m,0);
+  function tally(){const out=$('#examScore');let s=auto||0;
+    qs.forEach((q,i)=>{if(q.t==='wr'){const n=$$('.xq[data-i="'+i+'"] .ms input:checked',root).length;s+=Math.min(n,q.m)}});
+    out.textContent='Exam practice: '+s+' / '+total+' marks'+(auto===null?' (press "Mark my answers" for the auto-marked questions)':'');out.className='score'}
+  root.addEventListener('click',e=>{const b=e.target.closest('[data-ms]');if(!b)return;const ms=b.parentNode.nextElementSibling;ms.hidden=!ms.hidden;b.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'});
+  root.addEventListener('change',e=>{if(e.target.closest('.ms'))tally();const m=e.target.closest('.mcq');if(m)$$('label',m).forEach(l=>l.classList.remove('ok','wrong'))});
+  root.addEventListener('input',e=>{if(e.target.classList.contains('n'))setMark(e.target,null)});
+  $('#examCheck').addEventListener('click',()=>{auto=0;
+    qs.forEach((q,i)=>{const box=$('.xq[data-i="'+i+'"]',root);
+      if(q.t==='mcq'){const c=$('input:checked',box);$$('label',box).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===q.a;if(c)c.closest('label').classList.add(ok?'ok':'wrong');if(!ok)box.querySelector('input[value="'+q.a+'"]').closest('label').classList.add('ok');if(ok)auto+=q.m;const w=$('.worked',box);if(w)w.hidden=false}
+      if(q.t==='num'){const inp=$('input.n',box);const ok=near(val(inp),q.a,q.rel||0,q.abs||0);setMark(inp,ok);if(ok)auto+=q.m;$('.worked',box).hidden=false}});
+    tally()});
+  tally();
+}
+
+/* boot: Part 1+2 from #tplLab, Part 3+4 from #tplQ */
+function boot(o){
+  function lab(){stopTimers();const a=$('#labArea');a.innerHTML='';a.appendChild($('#tplLab').content.cloneNode(true));o.lab();const r=$('#benchReset');if(r)r.addEventListener('click',()=>{lab();hint('Bench reset. Start the method again from step 1.')})}
+  function q(){const a=$('#qArea');a.innerHTML='';a.appendChild($('#tplQ').content.cloneNode(true));o.q()}
+  lab();q();
+  $('#again').addEventListener('click',()=>{lab();q();window.scrollTo(0,0)});
+}
+
+let IND='mo';
+const COL={mo:{acid:'#e0412f',end:'#f08a24',alk:'#f0cf3a',name:'methyl orange',ch:'red to orange'},pp:{acid:'rgba(220,235,250,.7)',end:'#f6b3d3',alk:'#de4f9b',name:'phenolphthalein',ch:'colourless to pale pink'}};
+const CLEAR='rgba(200,222,245,.75)';
+let RUNS=[],C0=0,TT=0;
+const SV={
+ pip:'<svg viewBox="0 0 40 44"><path d="M20 1 L20 12 M20 30 L20 43" stroke="#7d8fa3" stroke-width="2"/><ellipse cx="20" cy="21" rx="5" ry="9" fill="#e3eefb" stroke="#7d8fa3" stroke-width="2"/><rect x="16" y="0" width="8" height="6" rx="2" fill="#2f6fb0"/></svg>',
+ wb:'<svg viewBox="0 0 40 44"><rect x="10" y="16" width="20" height="26" rx="5" fill="#e9f4ff" stroke="#7d8fa3" stroke-width="2"/><path d="M20 16 L20 8 L34 4" fill="none" stroke="#7d8fa3" stroke-width="2"/></svg>',
+ ind:'<svg viewBox="0 0 40 44"><rect x="12" y="14" width="16" height="28" rx="3" fill="#f08a24" stroke="#7d8fa3" stroke-width="2"/><rect x="16" y="4" width="8" height="10" fill="#3a3f4a"/></svg>',
+ tile:'<svg viewBox="0 0 40 44"><rect x="4" y="18" width="32" height="10" fill="#fff" stroke="#7d8fa3" stroke-width="2"/></svg>',
+ naoh:'<svg viewBox="0 0 40 44"><path d="M8 4 L32 4 L22 18 L22 24 L18 24 L18 18 Z" fill="none" stroke="#7d8fa3" stroke-width="2"/><rect x="11" y="28" width="18" height="15" rx="2" fill="#e9f4ff" stroke="#7d8fa3" stroke-width="2"/></svg>'
+};
+boot({lab:labInit,q:qInit});
+
+function labInit(){
+  RUNS=[];C0=snap(rnd(2.0,2.4),0.001);TT=C0*10;
+  $('#indSel').value=IND;$('#indSel').disabled=false;
+  $('#indSel').addEventListener('change',e=>{IND=e.target.value;if(IND==='ui')hint('<b>Universal indicator is not suitable.</b> It changes colour gradually over a wide pH range, so there is no sharp end point. Choose methyl orange or phenolphthalein.','warn');else hint('Indicator: '+COL[IND].name+' ('+COL[IND].ch+' at the end point).','okay')});
+  const steps=[
+   {id:'pip1',text:'Using a pipette and filler, transfer 10.0 cm³ of the acid into a 250 cm³ volumetric flask.'},
+   {id:'water',text:'Add distilled water until the bottom of the meniscus is on the line (eye level).',why:'the volume must be exactly 250 cm³.'},
+   {id:'invert',text:'Stopper the flask and invert it several times.',why:'the solution must be mixed so it has the same concentration everywhere.'},
+   {id:'rinseBur',text:'Rinse the burette with a little NaOH solution.',why:'water left in the burette would dilute the NaOH.'},
+   {id:'fillBur',text:'Fill the burette with 0.100 mol dm⁻³ NaOH using a funnel.'},
+   {id:'funnel',text:'Remove the funnel.',why:'drops from the funnel could fall into the burette and change the reading.'},
+   {id:'bubble',text:'Open the tap to fill the tip and remove the air bubble.',why:'an air bubble in the tip would make the titre wrong.'},
+   {id:'rinsePip',text:'Rinse the pipette with the diluted acid.',why:'water left in the pipette would dilute the acid.'},
+   {id:'tile',text:'Put a white tile under the burette.'},
+   {id:'pip2',text:'Pipette 25.0 cm³ of diluted acid into a conical flask.'},
+   {id:'ind',text:'Add 2–3 drops of indicator.'},
+   {id:'read1',text:'Read the initial burette reading (eye level, bottom of meniscus).'},
+   {id:'titrate',text:'Titrate: open the tap, swirl; go dropwise near the end point; close the tap when the colour changes.'},
+   {id:'readF',text:'Read the final burette reading.'},
+   {id:'wash',text:'Wash the flask with distilled water. Refill the burette.'}];
+  const M=Method(steps,{cycleFrom:9,canCycle:r=>r<6,
+    runLabel:(r,d,S)=>d?'All titrations done':(S.pos<9&&r===1?'Dilution and set-up':(r===1?'Rough titration':'Accurate titration '+(r-1))),
+    why:{titrate:'Use the burette tap only during the titration.',ind:'',pip2:'',wash:''},
+    onCycle:r=>{const c=conc();hint('Titration recorded. '+(r===2?'Now do accurate titrations. Add the NaOH dropwise when you are about 1 cm³ from the rough titre.':c?'<b>You have concordant titres</b> ('+c.map(x=>fx(x,2)).join(', ')+'). You may stop and go to Part 2, or do another.':'Not concordant yet. Do another accurate titration.'),'okay')},
+    doneMsg:'You have done the maximum number of titrations. Go to Part 2.'});
+  drawScene();
+  items($('#tray'),[['pip','Pipette + filler',SV.pip],['wb','Wash bottle (distilled water)',SV.wb],['naoh','Funnel + NaOH (0.100 mol dm⁻³)',SV.naoh],['tile','White tile',SV.tile],['ind','Indicator',SV.ind]]);
+  const show=(id,on)=>{const e=$('#'+id);if(e)e.style.display=on?'':'none'};
+  let lev=null,init=0,added=0,tap=0,flow=null,cur=null,endHit=false,flash=false;
+  function setBur(v){lev=v;const y=v==null?300:40+v*4.6;$('#bLiq').setAttribute('y',y);$('#bLiq').setAttribute('height',Math.max(0,276-y));zoom(v)}
+  function flaskCol(c){$('#fLiq').style.fill=c}
+  function log(){const all=RUNS.concat(cur?[cur]:[]);$('#nbBody').innerHTML=all.length?all.map((r,i)=>`<tr><td>${i?'Accurate '+i:'Rough'}</td><td class="num">${r.f!=null?fx(r.f,2):''}</td><td class="num">${r.i!=null?fx(r.i,2):''}</td></tr>`).join(''):'<tr><td colspan="3" class="note">No readings yet.</td></tr>'}
+  log();
+  function colour(){if(!cur)return;const over=added-cur.T;let c;
+    if(over<-1e-9)c=COL[IND].acid;else c=over<0.08?COL[IND].end:COL[IND].alk;flaskCol(c);
+    if(!endHit&&over>=-1e-9){endHit=true;stopFlow();if(tap===2){const ov=snap(rnd(0.4,0.9),0.05);added+=ov;setBur(lev+ov);flaskCol(COL[IND].alk)}hint('<b>End point!</b> The colour changed from '+COL[IND].ch.split(' to ')[0]+' and stays '+(over<0.08?COL[IND].ch.split(' to ')[1]:'darker')+' after swirling. Close the tap'+(tap===2?' (the tap was fully open, so you may have overshot)':'')+' and read the burette.','okay')}}
+  function addVol(v){if(!cur||lev==null)return;if(lev+v>50){v=50-lev;stopFlow();hint('The burette is empty. That should not happen with ~22 cm³ titres: refill before each titration.','warn')}
+    added+=v;setBur(lev+v);$('#added').textContent='';
+    const dr=$('#dropG');dr.innerHTML='<circle class="bdrop" cx="250" cy="246" r="3" fill="'+CLEAR+'" stroke="#7d8fa3"/>';
+    if(!endHit&&added>cur.T-0.6&&added<cur.T){flash=true;$('#flashC').style.opacity=1;$('#flashC').style.fill=COL[IND].alk}
+    colour()}
+  function stopFlow(){if(flow){clearInterval(flow);flow=null}}
+  function setTap(t){if(!M.next()||M.next().id!=='titrate'){if(t){M.warn('tap')}return}
+    tap=t;$$('#tapBox [data-t]').forEach(b=>b.classList.toggle('on',+b.dataset.t===t));stopFlow();
+    if(t)flow=every(()=>addVol(t===2?0.15:0.05),t===2?100:450);
+    if(t===0&&cur&&endHit){M.go('titrate',()=>{hint('Tap closed. Now read the final burette reading.','okay')})}
+    else if(t===0&&cur&&added>0)hint('Tap closed. Added so far: about '+fx(added,1)+' cm³. Swirl, then carry on.');}
+  $('#tapBox').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b)setTap(+b.dataset.t)});
+  $('#oneDrop').onclick=()=>{if(tap)setTap(0);if(!M.next()||M.next().id!=='titrate'){if(!cur||cur.f==null&&M.next().id!=='readF')M.warn('tap');return}addVol(0.05);if(endHit)M.go('titrate',()=>hint('One drop changed the colour permanently. That is the end point. Read the final burette reading.','okay'))};
+  $('#swirl').onclick=()=>{const g=$('#flaskG');g.classList.remove('swirl');void g.getBoundingClientRect();g.classList.add('swirl');if(flash){flash=false;later(()=>{$('#flashC').style.opacity=0},500);if(!endHit)hint('The colour flashed but disappeared on swirling. You are close to the end point: go dropwise.','okay')}};
+  function setTap0(){tap=0;stopFlow();$$('#tapBox [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t==='0'))}
+  const A={
+   pip1(){show('vfLiq',true);$('#vfLiq').setAttribute('y',214);hint('10.0 cm³ of acid is in the volumetric flask. Read the pipette at the bottom of the meniscus, on the line.','okay')},
+   water(){let y=214;const t=every(()=>{y-=4;$('#vfLiq').setAttribute('y',Math.max(y,118));if(y<=118)clearInterval(t)},40);hint('Water added. The last few cm³ added dropwise until the bottom of the meniscus sits on the line.','okay');return 1100},
+   invert(){const g=$('#vfG');g.classList.remove('swirl');void g.getBoundingClientRect();g.classList.add('swirl');show('stop',true);hint('Mixed. The diluted acid is now uniform.','okay');return 900},
+   rinseBur(){hint('Burette rinsed with NaOH and the rinsings thrown away.','okay')},
+   fillBur(){show('funnelG',true);setBur(snap(rnd(-1.6,-0.6),0.05));$('#bubbleT').style.display='';hint('Burette filled. The funnel is still in the top, and there is an air bubble in the tip.','okay')},
+   funnel(){show('funnelG',false);hint('Funnel removed.','okay')},
+   bubble(){$('#bubbleT').style.display='none';setBur(snap(rnd(0.05,1.5),0.05));hint('Air bubble gone. The tip is full of NaOH. Level is now just below 0.00.','okay')},
+   rinsePip(){hint('Pipette rinsed with diluted acid.','okay')},
+   tile(){show('tileR',true);hint('White tile in place. It makes the colour change easy to see.','okay')},
+   pip2(){show('fLiq',true);flaskCol(CLEAR);$('#indSel').disabled=true;hint('25.0 cm³ of diluted acid in the conical flask.','okay')},
+   ind(){if(IND==='ui'){hint('<b>Universal indicator is not suitable</b>: no sharp end point. Choose methyl orange or phenolphthalein from the list, then add it.','warn');$('#indSel').disabled=false;return false}
+     $('#indSel').disabled=true;flaskCol(COL[IND].acid);hint('2–3 drops of '+COL[IND].name+' added. Colour in acid: '+(IND==='mo'?'red':'colourless')+'.','okay')},
+   read1(){init=lev;cur={i:lev,f:null,T:TT+rnd(-0.06,0.06)};added=0;endHit=false;log();hint('Initial reading: <b>'+fx(lev,2)+' cm³</b>. Read to the nearest 0.05 cm³. Now use the burette tap to titrate.'+(RUNS.length===0?' This is the rough titration: run it in fast.':' Rough titre was '+fx(RUNS[0].f-RUNS[0].i,2)+' cm³: open fast up to about 1 cm³ before this, then go dropwise.'),'okay')},
+   readF(){setTap0();cur.f=snap(lev,0.05);RUNS.push(cur);const t=cur.f-cur.i;cur=null;log();hint('Final reading: <b>'+fx(RUNS[RUNS.length-1].f,2)+' cm³</b>. Titre = '+fx(t,2)+' cm³.','okay')},
+   wash(){flaskCol(CLEAR);show('fLiq',false);flash=false;$('#flashC').style.opacity=0;setBur(snap(rnd(0,1.5),0.05));hint('Flask washed with distilled water (this does not change the moles of acid). Burette refilled.','okay')}
+  };
+  function act(id){const n=(M.next()||{}).id;const s={pip:n==='pip2'?'pip2':n==='rinsePip'?'rinsePip':'pip1',wb:n==='wash'?'wash':'water',naoh:'fillBur',tile:'tile',ind:'ind'}[id];M.go(s,A[s])}
+  Tray($('#tray'),$('#scene'),act);
+  $('#ctl').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)M.go(b.dataset.a,A[b.dataset.a])});
+  zoom(null);
+  /* Part 2 */
+  $('#resBody').innerHTML=['Rough','Accurate 1','Accurate 2','Accurate 3','Accurate 4','Accurate 5'].map((n,i)=>`<tr><th>${n}</th><td><input class="n" id="f${i}" inputmode="decimal" aria-label="${n} final"></td><td><input class="n" id="i${i}" inputmode="decimal" aria-label="${n} initial"></td><td><input class="n" id="t${i}" inputmode="decimal" aria-label="${n} titre"></td><td id="cc${i}">${i?`<input type="checkbox" id="c${i}" aria-label="${n} concordant">`:'—'}</td></tr>`).join('');
+  clearMarks($('#resBody'));$('#resBody').addEventListener('change',e=>{const t=e.target.closest('td');if(t)t.classList.remove('ok','wrong')});
+  calcRows($('#calc'),[
+   ['mt','Mean titre (concordant titres only)','cm³'],['nn','Moles of NaOH = 0.100 × mean titre ÷ 1000','mol'],['nh','Moles of HCl in 25.0 cm³ (1 : 1 ratio)','mol'],
+   ['cd','Concentration of the diluted acid = moles ÷ 0.0250','mol dm⁻³'],['co','Concentration of the original acid (diluted 10.0 → 250 cm³, so × 25)','mol dm⁻³'],
+   ['pu','% uncertainty in your mean titre (burette ±0.05 cm³ per reading, two readings)','%']]);
+  $('#checkRes').onclick=checkRes;
+}
+function bestConc(ts){let best=[];for(let a=0;a<ts.length;a++){const g=ts.filter(x=>x>=ts[a]-1e-9&&x<=ts[a]+0.1+1e-9);if(g.length>best.length||(g.length===best.length&&g.length&&Math.max(...g)-Math.min(...g)<Math.max(...best)-Math.min(...best)))best=g}return best.length>=2?best:null}
+function conc(){const ts=RUNS.slice(1).map(r=>+(r.f-r.i).toFixed(2));return bestConc(ts)}
+function checkRes(){let r=0,t=0;const ts=[];
+  for(let i=0;i<6;i++){const run=RUNS[i],f=$('#f'+i),n=$('#i'+i),ti=$('#t'+i),c=$('#c'+i);
+    if(!run){[f,n,ti].forEach(x=>setMark(x,x.value?false:null));if(c){$('#cc'+i).classList.remove('ok','wrong');if(c.checked){t++;$('#cc'+i).classList.add('wrong')}}continue}
+    t+=3;const a=near(val(f),run.f,0,.006),b=near(val(n),run.i,0,.006),d=near(val(ti),val(f)-val(n),0,.006)&&/\.\d\d$/.test(ti.value.trim());
+    setMark(f,a);setMark(n,b);setMark(ti,d);r+=a+b+d;if(i)ts.push([i,run.f-run.i])}
+  const g=bestConc(ts.map(x=>+x[1].toFixed(2)));
+  ts.forEach(([i,v])=>{t++;const should=!!g&&g.some(x=>Math.abs(x-v)<1e-6);const ok=$('#c'+i).checked===should;const td=$('#cc'+i);td.classList.remove('ok','wrong');td.classList.add(ok?'ok':'wrong');if(ok)r++});
+  const c=id=>val($('#'+id));t+=6;
+  const mean=g?g.reduce((a,b)=>a+b,0)/g.length:NaN;
+  r+=markCalc('mt',g?near(c('mt'),mean,0,.006):false,g?'Average only the ticked concordant titres, to 2 d.p.':'You need at least two concordant accurate titres. Do more titrations.');
+  r+=markCalc('nn',near(c('nn'),0.1*c('mt')/1000,.01),'0.100 × mean ÷ 1000');
+  r+=markCalc('nh',near(c('nh'),c('nn'),.01),'Same as moles of NaOH (1 : 1).');
+  r+=markCalc('cd',near(c('cd'),c('nh')/0.025,.01),'moles ÷ 0.0250 dm³');
+  r+=markCalc('co',near(c('co'),c('cd')*25,.01),'× 250 ÷ 10.0 = × 25');
+  r+=markCalc('pu',near(c('pu'),0.1/c('mt')*100,.03),'(2 × 0.05) ÷ mean titre × 100');
+  score($('#resScore'),r,t)}
+function drawScene(){const g=[];
+  g.push('<path d="M0 316 L520 316" stroke="#b8c3cf" stroke-width="4"/>');
+  /* volumetric flask */
+  const VF='M58 70 L58 170 Q20 182 20 230 Q20 300 76 304 Q132 300 132 230 Q132 182 94 170 L94 70';
+  g.push('<defs><clipPath id="vc"><path d="'+VF+' Z"/></clipPath><clipPath id="cfc"><path d="M234 236 L234 262 L200 304 Q196 312 206 312 L294 312 Q304 312 300 304 L266 262 L266 236 Z"/></clipPath></defs>');
+  g.push('<g id="vfG"><g clip-path="url(#vc)"><rect id="vfLiq" x="10" y="214" width="140" height="100" fill="rgba(200,222,245,.75)" style="display:none"/></g><path class="glass" d="'+VF+'"/><path d="M58 104 L94 104" stroke="#1c2736" stroke-width="2"/><rect id="stop" x="62" y="56" width="28" height="16" rx="3" fill="#cfd6de" stroke="#7d8fa3" style="display:none"/><path class="shine" d="M34 210 L34 260"/></g><text class="lbl" x="76" y="326" text-anchor="middle">250 cm³ volumetric flask</text><text class="lbl" x="100" y="108">line</text>');
+  /* stand + burette */
+  g.push('<rect x="356" y="20" width="7" height="294" fill="#8a96a3"/><rect x="330" y="310" width="70" height="6" fill="#8a96a3"/><rect x="262" y="120" width="96" height="6" fill="#8a96a3"/>');
+  let sc='';for(let v=0;v<=50;v+=5){const y=40+v*4.6;sc+=`<path d="M244 ${y} L${v%10?236:232} ${y}" stroke="#5a6878"/>`+(v%10===0?`<text class="lbl" x="228" y="${y+4}" text-anchor="end">${v}</text>`:'')}
+  g.push('<rect id="bLiq" x="244" y="300" width="12" height="0" fill="'+CLEAR+'"/><path class="glass" d="M243 18 L243 276 L248 288 L248 236 M257 18 L257 276 L252 288"/><path class="glass" d="M243 276 L247 290 L253 290 L257 276"/><rect x="238" y="278" width="24" height="6" rx="2" fill="#3a3f4a"/><ellipse id="bubbleT" cx="250" cy="286" rx="2.5" ry="3" fill="#fff" stroke="#5a6878" style="display:none"/>'+sc+'<g id="dropG"></g>');
+  g.push('<g id="funnelG" style="display:none"><path d="M236 4 L264 4 L253 18 L253 26 L247 26 L247 18 Z" fill="none" stroke="#7d8fa3" stroke-width="2"/></g>');
+  g.push('<rect id="tileR" x="190" y="312" width="120" height="6" fill="#fff" stroke="#7d8fa3" style="display:none"/>');
+  g.push('<g id="flaskG"><g clip-path="url(#cfc)"><rect id="fLiq" x="190" y="280" width="120" height="40" style="display:none;transition:fill .6s"/><ellipse id="flashC" cx="250" cy="290" rx="14" ry="6" style="opacity:0;transition:opacity .5s"/></g><path class="glass" d="M234 236 L234 262 L200 304 Q196 312 206 312 L294 312 Q304 312 300 304 L266 262 L266 236"/><path class="shine" d="M214 298 L226 282"/></g><text class="lbl" x="250" y="230" text-anchor="middle"></text><text class="lbl" x="420" y="300">conical flask</text><text class="lbl" x="420" y="314">on white tile</text><text class="lbl" x="276" y="40">burette</text><text class="lbl" x="276" y="54">(0.00 at top)</text>');
+  $('#svg').innerHTML=g.join('')}
+function zoom(v){if(v==null){$('#zoom').innerHTML='<p class="note">Fill the burette to see the scale.</p>';$('#bread').textContent='-- cm³';return}
+  $('#bread').textContent=v<0?'above 0':fx(snap(v,0.05),2)+' cm³';
+  const k=60,c=60;let s='<svg viewBox="0 0 160 120"><rect x="50" y="0" width="60" height="120" fill="#fff"/><rect x="50" y="'+c+'" width="60" height="60" fill="'+CLEAR+'"/><path d="M50 '+(c-1)+' Q80 '+(c+7)+' 110 '+(c-1)+'" fill="none" stroke="#3b6ea5" stroke-width="2"/>';
+  for(let t=Math.floor((v-1)*10);t<=Math.ceil((v+1)*10);t++){const x=t/10,y=c+(x-v)*k;if(y<0||y>120||x<0||x>50)continue;const maj=t%10===0;s+=`<path d="M50 ${y} L${maj?82:t%5===0?72:64} ${y}" stroke="#1c2736"/>`;if(maj)s+=`<text x="114" y="${y+4}" style="font:12px sans-serif" fill="#1c2736">${t/10}</text>`}
+  $('#zoom').innerHTML=s+'<path d="M50 0 L50 120 M110 0 L110 120" stroke="#7d8fa3" stroke-width="2"/></svg>'}
+
+function qInit(){
+  renderQs($('#qs'),[
+   'The pipette is rinsed with the diluted acid, not with water, because water left inside would {{*dilute the acid|neutralise the acid|have no effect}} and make the titre too {{*small|large}}.',
+   'A white tile is put under the conical flask so that {{*the colour change is easier to see|the flask does not break|the solution stays cool}}.',
+   'Concordant titres are within {{*0.10 cm³|1.00 cm³|0.01 cm³}} of each other. Using only concordant titres makes the mean more {{*reliable, as anomalous results are left out|exact, as all errors are removed}}.',
+   'Universal indicator is not suitable because it {{*changes colour gradually, so there is no sharp end point|is too expensive|reacts with the acid}}.',
+   'Methyl orange and phenolphthalein are both suitable because, for a strong acid with a strong base, the pH changes {{*sharply over a wide range (about pH 3 to 11)|slowly around pH 7}} at the end point.',
+   {s:'10.0 cm³ of acid is diluted to 250 cm³. The diluted acid has a concentration of 0.0880 mol dm⁻³. What was the concentration of the original acid?',o:['0.00352 mol dm⁻³','0.880 mol dm⁻³','2.20 mol dm⁻³','22.0 mol dm⁻³'],a:'C'}
+  ]);
+  $('#checkQs').onclick=()=>checkQs($('#qs'),$('#qScore'));
+  Exam($('#exam'),[
+   {t:'mcq',m:1,s:'A student recorded these titres, in cm³:<br>rough 24.10 &nbsp; run 1: 23.45 &nbsp; run 2: 23.70 &nbsp; run 3: 23.35 &nbsp; run 4: 23.40<br>Which value should be used as the mean titre?',o:['23.40 cm³','23.48 cm³','23.53 cm³','23.60 cm³'],a:'A',w:'Concordant titres (within 0.10 cm³): 23.45, 23.35 and 23.40. Mean = 70.20 ÷ 3 = 23.40 cm³. Do not include the rough titre or 23.70.'},
+   {t:'num',m:1,s:'The mean titre is 23.40 cm³. Each burette reading has an uncertainty of ±0.05 cm³. Calculate the percentage uncertainty in the titre.',u:'%',a:0.427,abs:0.004,w:'Two readings: ±0.10 cm³. 0.10 ÷ 23.40 × 100 = 0.43%.'},
+   {t:'num',m:4,s:'10.0 cm³ of a hydrochloric acid solution was made up to 250 cm³ with distilled water. 25.0 cm³ of this diluted solution needed 21.85 cm³ of 0.0950 mol dm⁻³ sodium hydroxide for neutralisation. Calculate the concentration, in mol dm⁻³, of the original hydrochloric acid. Give your answer to 3 significant figures.',u:'mol dm⁻³',a:2.08,abs:0.006,w:'n(NaOH) = 0.0950 × 21.85 ÷ 1000 = 2.076 × 10⁻³ mol (1). n(HCl) in 25.0 cm³ = 2.076 × 10⁻³ mol (1:1) (1). Concentration of diluted acid = 2.076 × 10⁻³ ÷ 0.0250 = 0.0830 mol dm⁻³ (1). Original = 0.0830 × 25 = 2.08 mol dm⁻³ (1).'},
+   {t:'mcq',m:1,s:'Which error would give a titre that is too <b>high</b>?',o:['The burette was rinsed with distilled water, but not with NaOH, before filling.','The pipette was rinsed with distilled water, but not with the acid, before use.','The conical flask was wet with distilled water before the acid was added.','Four drops of indicator were added instead of three.'],a:'A',w:'Water in the burette dilutes the NaOH, so more NaOH solution is needed. B gives a low titre. C has no effect: the moles of acid do not change.'},
+   {t:'wr',m:2,s:'A student forgot to remove the air bubble from the tip of the burette. The bubble came out during the titration. Explain the effect on the titre.',ms:['The titre (volume recorded) is too high / larger than the true value.','Because some of the volume change in the burette is due to the air bubble leaving, not NaOH added to the flask.'],n:'Do not award "the titre is inaccurate" without a direction.'},
+   {t:'wr',m:2,s:'Explain why the volumetric flask must be inverted several times after making up to the mark.',ms:['To mix the solution / make it uniform (homogeneous).','So every 25.0 cm³ portion pipetted out has the same concentration (otherwise titres would not be concordant).'],n:'Do not award "to dissolve the acid".'}
+  ]);
+}
+</script>
+</body></html>

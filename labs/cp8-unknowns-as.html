@@ -1,0 +1,475 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AS Unknowns Detective</title>
+<meta name="description" content="Virtual core practical: AS Unknowns Detective. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp8-unknowns-as.html">
+<link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap"><style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.meta{font-family:var(--display);font-weight:500;font-size:.9rem;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:8px}
+details.safety{background:#fff8ec;border:1px solid #e8cf9c;border-radius:10px;padding:8px 14px}
+details.safety summary{cursor:pointer;font-family:var(--display);font-weight:600}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;font-size:.92rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.bench{background:var(--bench);border-radius:12px;padding:14px 10px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shelf-label{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.shelf{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 6px 5px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;font-size:.78rem;color:var(--ink);width:100px;line-height:1.2;text-align:center}
+.item svg{width:34px;height:46px;display:block}
+.item .sub{color:var(--muted);font-size:.7rem}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+.item:focus-visible,.tube:focus-visible,.zone:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{text-align:center;font-size:.88rem;color:var(--muted)}
+.zone{border:2px dashed transparent;border-radius:12px;cursor:pointer;min-width:0}
+.zone.armed{border-color:var(--accent)}
+.zone.over{border-color:var(--accent);background:var(--accent-soft)}
+.rig{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:12px;align-items:start}
+@media (max-width:720px){.rig{grid-template-columns:minmax(0,1fr)}}
+svg.app{width:100%;height:auto;display:block;background:#fbfcfd;border-radius:10px;overflow:visible}
+.side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.controls{display:flex;flex-wrap:wrap;gap:8px}
+.method{list-style:none;padding:0;margin:0;font-size:.86rem;display:flex;flex-direction:column;gap:3px;counter-reset:m}
+.method li{display:block;position:relative;padding:3px 6px 3px 32px;border-radius:6px;line-height:1.3}
+.method li::before{content:"";position:absolute;left:6px;top:4px;width:16px;height:16px;border:2px solid var(--line);border-radius:4px;margin-top:1px;background:#fff;font-size:12px;line-height:13px;text-align:center;color:#fff;font-weight:700}
+.method li.done{color:var(--muted)}
+.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good)}
+.method li.now{background:var(--accent-soft);font-weight:700;color:var(--ink)}
+.msg{min-height:2.8em;border-radius:10px;padding:8px 12px;background:var(--sheet);border-left:5px solid var(--accent);font-size:.92rem}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#eef8f2}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px}
+.readout div{background:#1c2736;color:#e8f0f8;font:600 1rem ui-monospace,Consolas,monospace;padding:6px 10px;border-radius:8px}
+.readout small{display:block;font:400 .72rem var(--body);color:#aab8c8}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px 10px 0 0;border:2px solid var(--accent);border-bottom:none;background:var(--sheet);color:var(--accent);cursor:pointer}
+.tab[aria-selected=true]{background:var(--accent);color:#fff}
+.mini{font:inherit;font-size:.8rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ctl{background:var(--sheet);color:var(--ink);border-color:var(--line)}
+.btn.ctl:hover{border-color:var(--accent)}
+.btn:focus-visible,.mini:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7.5em;max-width:100%;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.9rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
+select.ok,input.ok{border-color:var(--good);background:#eef8f2} select.wrong,input.wrong{border-color:var(--bad);background:#fdf0ef}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+.note{font-size:.88rem;color:var(--muted)}
+.calc{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:.92rem}
+.exq{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.exq .qh{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opts label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.opts label.ok{border-color:var(--good);background:#eef8f2} .opts label.wrong{border-color:var(--bad);background:#fdf0ef}
+.opts input{margin-top:5px;accent-color:var(--accent)}
+textarea{width:100%;min-height:76px;font:inherit;font-size:.95rem;padding:8px;border:2px solid var(--line);border-radius:8px;resize:vertical}
+.ms{background:#f4f6fa;border-radius:8px;padding:8px 12px;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+.ms label{display:flex;gap:8px;align-items:flex-start}
+.ms input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--good)}
+.ms .nb{color:var(--muted);font-size:.85rem}
+.total{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.racks{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px}
+.tube{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;background:rgba(255,255,255,.55)}
+.tube svg{width:52px;height:140px;display:block;overflow:visible}
+.tube .lbl{font-weight:700;font-family:var(--display)}
+.tube .obs{font-size:.8rem;text-align:center;min-height:4em;line-height:1.25}
+.liq{transition:fill 1.6s ease, transform .8s ease;transform-box:fill-box;transform-origin:50% 100%}
+.ppt{transition:fill 2.5s ease, opacity .8s ease}
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.lab{font:12px var(--body);fill:var(--muted)}
+.hid{display:none}
+.bub{animation:rise 1.1s linear infinite}
+@keyframes rise{from{transform:translateY(0);opacity:.95}to{transform:translateY(-46px);opacity:0}}
+.fume{animation:fume 2s ease-out infinite}
+@keyframes fume{from{transform:translateY(0);opacity:.8}to{transform:translateY(-26px);opacity:0}}
+.drip{animation:drip .9s ease-in infinite}
+@keyframes drip{from{transform:translateY(0);opacity:1}to{transform:translateY(24px);opacity:0}}
+.shake{animation:shake .18s linear 8}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-3px,-2px)}75%{transform:translate(3px,1px)}}
+.flick{animation:flick .35s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{from{transform:scaleY(1)}to{transform:scaleY(1.08) scaleX(.95)}}
+.pour{animation:pour .6s ease-in forwards}
+@keyframes pour{from{transform:translateY(-30px);opacity:1}to{transform:translateY(40px);opacity:0}}
+@media (max-width:520px){body{font-size:16px}.item{width:88px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>Analysis of some inorganic and organic unknowns</h1>
+  <p class="meta">IAL Chemistry · Core Practical 8 · Unit 3</p>
+  <p><b>Aim:</b> to identify four inorganic salts and three organic liquids, using test-tube tests for ions and functional groups.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li>Concentrated hydrochloric acid and phosphorus(V) chloride are corrosive. PCl<sub>5</sub> reacts violently with water and gives HCl fumes: use it in a fume cupboard, with gloves and eye protection.</li>
+    <li>Concentrated ammonia gives an irritant gas. Use small volumes in a fume cupboard.</li>
+    <li>Potassium dichromate(VI) is toxic and a carcinogen. Wear gloves.</li>
+    <li>The organic liquids are flammable and 1-bromobutane is harmful. Warm them in a water bath, never over a flame.</li>
+  </ul></details>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p>You are the detective. Each tube holds a mystery substance. Drag a reagent onto a tube, or tap a reagent and then tap a tube. Use <b>Fresh sample</b> to start a test again on new solution.</p>
+  <div class="rig">
+    <div class="side">
+      <div class="bench">
+        <div class="shelf-label">Inorganic tests</div>
+        <div class="shelf" id="iShelf"></div>
+        <div class="shelf-label">Inorganic unknowns</div>
+        <div class="racks" id="iRack"></div>
+      </div>
+      <div class="bench">
+        <div class="shelf-label">Organic tests</div>
+        <div class="shelf" id="oShelf"></div>
+        <div class="shelf-label">Organic unknowns</div>
+        <div class="racks" id="oRack"></div>
+      </div>
+      <p class="hint" id="hint">Drag a reagent onto a tube, or tap a reagent and then tap a tube.</p>
+    </div>
+    <div class="side">
+      <h3>Flame test</h3>
+      <svg class="app" viewBox="0 0 200 210" role="img" aria-label="Bunsen burner flame" style="max-width:240px;margin:0 auto">
+        <rect x="88" y="150" width="24" height="44" fill="#8b929c"/><rect x="66" y="192" width="68" height="10" rx="3" fill="#5a6070"/>
+        <path d="M100 150C80 125 84 95 100 62C116 95 120 125 100 150Z" fill="#9fc2ff" opacity=".55"/>
+        <path id="flame" class="flick" d="M100 150C72 120 78 70 100 18C122 70 128 120 100 150Z" fill="#9fc2ff" opacity=".35" style="transition:fill .5s,opacity .5s"/>
+        <path id="wire" d="M190 40L120 92" stroke="#8a8f98" stroke-width="3"/><circle id="loop" cx="116" cy="95" r="5" fill="none" stroke="#8a8f98" stroke-width="2.5"/>
+      </svg>
+      <div class="controls"><button type="button" class="btn ctl" id="clean">Clean wire in conc HCl</button></div>
+      <div class="msg" id="flameMsg" aria-live="polite">Clean the nichrome wire, then drag the <b>flame test</b> wire onto an inorganic tube.</div>
+      <div class="msg" id="msg" aria-live="polite">Detective tip: test for carbonate first, with dilute acid.</div>
+      <h3>Method</h3>
+      <ol class="method" id="meth">
+        <li>Flame test each inorganic unknown (clean wire each time)</li>
+        <li>Add dilute acid to test for carbonate</li>
+        <li>Halide: dilute HNO<sub>3</sub>, then AgNO<sub>3</sub>(aq)</li>
+        <li>Add dilute then conc NH<sub>3</sub> to any silver halide precipitate</li>
+        <li>Sulfate: dilute HCl, then BaCl<sub>2</sub>(aq)</li>
+        <li>Ammonium: warm with NaOH(aq), test gas with damp red litmus</li>
+        <li>Bromine water on each organic unknown</li>
+        <li>PCl<sub>5</sub> on each organic unknown (fume cupboard)</li>
+        <li>Warm with acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></li>
+        <li>Warm with ethanolic AgNO<sub>3</sub></li>
+        <li>Add NaHCO<sub>3</sub>(aq)</li>
+      </ol>
+      <button type="button" class="mini" id="newCase">New mystery (new unknowns)</button>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p" id="part2">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <p class="note">Choose what you saw for each test, then name each unknown. Use "not tested / not needed" only if you did not need that test.</p>
+  <h3>Inorganic unknowns</h3>
+  <div class="tbl-wrap"><table id="iT"></table></div>
+  <h3>Organic unknowns</h3>
+  <div class="tbl-wrap"><table id="oT"></table></div>
+  <div class="toolbar"><button class="btn" id="chk2" type="button">Check my results</button><span class="score" id="sc2" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs3"></ol>
+  <div class="toolbar"><button class="btn" id="chk3" type="button">Check my answers</button><span class="score" id="sc3" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <div id="exam"></div>
+  <p class="total" id="exTot" aria-live="polite"></p>
+</section>
+
+<div class="toolbar">
+  <span class="note">Always remove carbonate with acid before testing for halide (HNO<sub>3</sub>) or sulfate (HCl) ions.</span>
+  <button class="btn ghost" id="resetAll" type="button">Start again</button>
+</div>
+</div>
+
+<script>
+(function(){"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const rto=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(+x).toFixed(d);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const num=el=>{const v=String(el.value).trim().replace(',','.');return v===''?NaN:parseFloat(v);};
+const close=(v,t,tol)=>isFinite(v)&&isFinite(t)&&Math.abs(v-t)<=Math.max(Math.abs(t)*tol,1e-9);
+function say(el,html,kind){el.innerHTML=html;el.className='msg'+(kind?' '+kind:'');}
+function mark(el,ok){el.classList.toggle('ok',!!ok);el.classList.toggle('wrong',!ok);return ok?1:0;}
+function clearMarks(root){$$('.ok,.wrong',root).forEach(e=>e.classList.remove('ok','wrong'));}
+function setScore(el,r,t,extra){el.textContent=r+' / '+t+' correct'+(r===t?'. Excellent!':'. '+(extra||'Red boxes need another look.'));el.className='score '+(r===t?'good':'bad');}
+/* select builder: a = answer (string or array of accepted), opts = list */
+function sel(a,opts,keep){const acc=Array.isArray(a)?a:[a];const o=keep?opts:shuffle(opts);return '<select data-a="'+acc.join('|').replace(/"/g,'&quot;')+'"><option value="">choose…</option>'+o.map(x=>'<option>'+x+'</option>').join('')+'</select>';}
+function selOk(s){return s.value!==''&&s.dataset.a.split('|').includes(s.value);}
+function checkSelects(root,scoreEl){const ss=$$('select[data-a]',root);let r=0;ss.forEach(s=>r+=mark(s,selOk(s)));setScore(scoreEl,r,ss.length);return r;}
+let TIMERS=[];
+const later=(f,ms)=>{const t=setTimeout(f,ms);TIMERS.push(t);return t;};
+const every=(f,ms)=>{const t=setInterval(f,ms);TIMERS.push(t);return t;};
+function stopTimers(){TIMERS.forEach(t=>{clearTimeout(t);clearInterval(t);});TIMERS=[];}
+/* ---- drag or tap-then-tap (re-registering with the same key replaces the old one) ---- */
+const DTS={};
+function dragTap(o){
+  const key=o.key||('k'+Object.keys(DTS).length);
+  if(DTS[key]){DTS[key].o=o;DTS[key].bindShelf();DTS[key].clear();return DTS[key];}
+  const api={o,sel:null,drag:null};DTS[key]=api;
+  api.clear=function(){const o=api.o;api.sel=null;$$(o.item,o.shelf).forEach(b=>b.classList.remove('selected'));$$(o.target).forEach(t=>t.classList.remove('armed'));if(o.hint)o.hint.textContent=o.hintText;};
+  function choose(k,b){if(api.sel===k){api.clear();return;}Object.values(DTS).forEach(d=>d.clear());api.sel=k;b.classList.add('selected');$$(api.o.target).forEach(t=>t.classList.add('armed'));if(api.o.hint)api.o.hint.textContent='Now tap where you want to use: '+b.dataset.n+'.';}
+  api.bindShelf=function(){const o=api.o,sh=o.shelf;if(sh._dt)return;sh._dt=1;
+   sh.addEventListener('pointerdown',e=>{const b=e.target.closest(o.item);if(!b)return;api.drag={k:b.dataset.k,b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+   sh.addEventListener('pointermove',e=>{const d=api.drag;if(!d)return;
+    if(!d.moved&&Math.hypot(e.clientX-d.x,e.clientY-d.y)>8){d.moved=true;const g=d.b.cloneNode(true);g.classList.remove('selected');g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;opacity:.9;margin:0;box-shadow:0 6px 18px rgba(0,0,0,.2)';d.g=g;document.body.appendChild(g);}
+    if(d.moved){d.g.style.transform='translate('+(e.clientX-45)+'px,'+(e.clientY-30)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);const t=u&&u.closest?u.closest(api.o.target):null;if(d.over&&d.over!==t)d.over.classList.remove('over');if(t)t.classList.add('over');d.over=t;}});
+   const end=c=>{const d=api.drag;if(!d)return;api.drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(c)return;if(d.moved){if(d.over){api.clear();api.o.drop(d.k,d.over);}}else choose(d.k,d.b);};
+   sh.addEventListener('pointerup',()=>end(false));sh.addEventListener('pointercancel',()=>end(true));
+   sh.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest(o.item);if(b)choose(b.dataset.k,b);}});
+  };
+  api.bindShelf();
+  document.addEventListener('click',e=>{if(!api.sel)return;const t=e.target.closest(api.o.target);if(!t)return;const bt=e.target.closest('button');if(bt&&bt!==t)return;const k=api.sel;api.clear();api.o.drop(k,t);});
+  document.addEventListener('keydown',e=>{if(!api.sel||(e.key!=='Enter'&&e.key!==' '))return;const t=e.target.closest&&e.target.closest(api.o.target);if(!t||e.target!==t)return;e.preventDefault();const k=api.sel;api.clear();api.o.drop(k,t);});
+  return api;
+}
+/* bottle icon */
+function bottle(hex,cap){return '<svg viewBox="0 0 54 76" aria-hidden="true"><rect x="20" y="2" width="14" height="12" rx="3" fill="'+(cap||'#3a3f4a')+'"/><rect x="18" y="12" width="18" height="8" rx="2" fill="#5a6070"/><path d="M10 26Q10 20 16 20L38 20Q44 20 44 26L44 68Q44 74 38 74L16 74Q10 74 10 68Z" fill="'+hex+'" stroke="#7d8fa3" stroke-width="2.5"/><rect x="14" y="40" width="26" height="16" rx="2" fill="#fff" opacity=".9"/></svg>';}
+function itemBtn(k,name,sub,icon){return '<button type="button" class="item" data-k="'+k+'" data-n="'+name.replace(/<[^>]+>/g,'')+'">'+icon+'<span>'+name+'</span>'+(sub?'<span class="sub">'+sub+'</span>':'')+'</button>';}
+/* ---- test tube ---- */
+const CLEARL='rgba(190,215,238,.45)';
+function tubeSVG(id){return '<svg viewBox="0 0 60 160" aria-hidden="true"><defs><clipPath id="tc'+id+'"><path d="M15 6L15 136Q15 151 30 151Q45 151 45 136L45 6Z"/></clipPath></defs>'+
+ '<g class="t-fume hid">'+[0,1,2].map(i=>'<path class="fume" style="animation-delay:'+(i*.6)+'s" d="M'+(22+i*8)+' 4q-4 -6 0 -12q4 -6 0 -12" stroke="#c9ced6" stroke-width="4" fill="none" stroke-linecap="round"/>').join('')+'</g>'+
+ '<g clip-path="url(#tc'+id+')"><rect class="liq t-liq" x="0" y="70" width="60" height="90" fill="'+CLEARL+'"/>'+
+ '<rect class="t-top hid" x="0" y="70" width="60" height="9" fill="#7a4a1e" opacity=".85"/>'+
+ '<g class="t-ppt ppt" opacity="0"><ellipse cx="30" cy="144" rx="16" ry="9"/><circle cx="22" cy="132" r="2.2"/><circle cx="35" cy="128" r="2"/><circle cx="28" cy="122" r="1.8"/><circle cx="38" cy="137" r="2.2"/><circle cx="20" cy="140" r="2"/></g>'+
+ '<rect class="t-mirror hid" x="15" y="72" width="30" height="80" fill="url(#silv'+id+')"/>'+
+ '<g class="t-bub hid">'+[0,1,2,3,4].map(i=>'<circle class="bub" style="animation-delay:'+(i*.22)+'s" cx="'+(20+i*5)+'" cy="146" r="2.4" fill="#fff" stroke="#9fb2c6"/>').join('')+'</g></g>'+
+ '<defs><linearGradient id="silv'+id+'" x1="0" x2="1"><stop offset="0" stop-color="#8d949c"/><stop offset=".35" stop-color="#eef1f4"/><stop offset=".6" stop-color="#9aa1aa"/><stop offset="1" stop-color="#d9dde2"/></linearGradient></defs>'+
+ '<path class="glass" d="M15 6L15 136Q15 151 30 151Q45 151 45 136L45 6"/><path d="M11 6L49 6" class="glass"/><path class="shine" d="M20 30L20 120"/></svg>';}
+/* st: {liq, ppt (colour|null), bub, fume, mirror, top(colour|null), level} */
+function setTube(root,st){
+  const l=$('.t-liq',root);l.style.fill=st.liq||CLEARL;l.style.transform='scaleY('+(st.level||1)+')';
+  const p=$('.t-ppt',root);if(st.ppt){p.style.fill=st.ppt;p.setAttribute('opacity','1');}else p.setAttribute('opacity','0');
+  $('.t-bub',root).classList.toggle('hid',!st.bub);$('.t-fume',root).classList.toggle('hid',!st.fume);$('.t-mirror',root).classList.toggle('hid',!st.mirror);
+  const t=$('.t-top',root);t.classList.toggle('hid',!st.top);if(st.top){t.style.fill=st.top;t.setAttribute('y',160-90*(st.level||1));}
+}
+/* ---- exam engine ----
+ q: {t:'mcq',q,o:[..],a:index,m,why} | {t:'num',q,a,tol,unit,m,worked} | {t:'wr',q,m,ms:[..],nb} */
+function buildExam(root,qs,totalEl){
+  root.innerHTML='';const got=new Array(qs.length).fill(0);let tot=0;
+  const upd=()=>{totalEl.textContent='Exam practice: '+got.reduce((a,b)=>a+b,0)+' / '+tot+' marks';};
+  qs.forEach((q,i)=>{tot+=q.m;const d=document.createElement('div');d.className='exq';
+    let h='<div class="qh"><span>Question '+(i+1)+'</span><span>('+q.m+')</span></div><div>'+q.q+'</div>';
+    if(q.t==='mcq')h+='<div class="opts">'+q.o.map((o,j)=>'<label><input type="radio" name="ex'+i+'" value="'+j+'"><span><b>'+'ABCD'[j]+'</b>&nbsp; '+o+'</span></label>').join('')+'</div><div class="toolbar"><button type="button" class="btn ghost">Check</button><span class="score"></span></div><div class="ms hid">'+q.why+'</div>';
+    if(q.t==='num')h+='<div class="calc"><label>Answer: <input type="text" inputmode="decimal" aria-label="answer"></label> '+(q.unit||'')+'</div><div class="toolbar"><button type="button" class="btn ghost">Check</button><span class="score"></span></div><div class="ms hid"><b>Worked answer</b>'+q.worked+'</div>';
+    if(q.t==='wr')h+='<textarea aria-label="your answer" placeholder="Write your answer here…"></textarea><div class="toolbar"><button type="button" class="btn ghost">Show mark scheme</button><span class="score"></span></div><div class="ms hid"><b>Mark scheme — tick each point you made</b>'+q.ms.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+(q.nb?'<div class="nb">'+q.nb+'</div>':'')+'</div>';
+    d.innerHTML=h;root.appendChild(d);
+    const b=$('button',d),sc=$('.score',d),ms=$('.ms',d);
+    b.addEventListener('click',()=>{ms.classList.remove('hid');
+      if(q.t==='mcq'){const r=$('input:checked',d);$$('.opts label',d).forEach((l,j)=>{l.classList.remove('ok','wrong');if(j===q.a)l.classList.add('ok');});if(r&&+r.value!==q.a)r.closest('label').classList.add('wrong');got[i]=r&&+r.value===q.a?q.m:0;}
+      if(q.t==='num'){const inp=$('input',d);const ok=close(num(inp),q.a,q.tol);mark(inp,ok);got[i]=ok?q.m:0;}
+      if(q.t==='wr'){got[i]=Math.min(q.m,$$('.ms input:checked',d).length);}
+      sc.textContent=got[i]+' / '+q.m+' marks';sc.className='score '+(got[i]===q.m?'good':'bad');upd();});
+    if(q.t==='wr')$$('.ms input',d).forEach(c=>c.addEventListener('change',()=>{got[i]=Math.min(q.m,$$('.ms input:checked',d).length);sc.textContent=got[i]+' / '+q.m+' marks';sc.className='score '+(got[i]===q.m?'good':'bad');upd();}));
+  });
+  upd();
+}
+function mixHex(a,b,t){t=Math.max(0,Math.min(1,t));const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('');}
+function fmtClock(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+/* timer that fast-forwards until near the event, then runs in real time */
+function SimTimer(tEvent,onTick,speed){speed=speed||6;let t=0,last=null,raf=null,run=false;
+  function f(ts){if(!run)return;if(last==null)last=ts;const dt=(ts-last)/1000;last=ts;const sp=t<tEvent-6?speed:1;t+=dt*sp;onTick(t,sp>1);raf=requestAnimationFrame(f);}
+  return{start(){run=true;last=null;raf=requestAnimationFrame(f);},stop(){run=false;cancelAnimationFrame(raf);return t;},get t(){return t},get running(){return run}};}
+
+/* ---------- data ---------- */
+const FL={Li:['crimson red','#d6213a'],Na:['yellow-orange','#ffb000'],K:['lilac','#b48ce6'],Ca:['brick red (yellow-red)','#e2552a'],Sr:['red (crimson)','#d81b2c'],Ba:['pale green','#9fd36b'],Mg:['no characteristic colour',null],NH4:['no characteristic colour',null]};
+const SALTS=[
+ ['lithium chloride','Li','Cl'],['sodium iodide','Na','I'],['potassium bromide','K','Br'],['potassium carbonate','K','CO3'],['sodium sulfate','Na','SO4'],
+ ['magnesium sulfate','Mg','SO4'],['calcium chloride','Ca','Cl'],['strontium chloride','Sr','Cl'],['barium chloride','Ba','Cl'],['ammonium chloride','NH4','Cl'],['ammonium sulfate','NH4','SO4'],['sodium carbonate','Na','CO3'],['potassium iodide','K','I'],['lithium bromide','Li','Br']
+];
+const ORG=[
+ ['cyclohexene','alk','an alkene'],['hex-1-ene','alk','an alkene'],['ethanol','p','a primary or secondary alcohol'],['propan-2-ol','p','a primary or secondary alcohol'],['2-methylpropan-2-ol','t','a tertiary alcohol'],['1-bromobutane','hal','a halogenoalkane'],['ethanoic acid','acid','a carboxylic acid']
+];
+const CLASSES=['an alkene','a primary or secondary alcohol','a tertiary alcohol','a halogenoalkane','a carboxylic acid'];
+const INAMES=SALTS.map(s=>s[0]).sort();
+const AG={Cl:['white precipitate','#f4f4f2'],Br:['cream precipitate','#efe2b4'],I:['yellow precipitate','#f2d64b']};
+const NH3d={Cl:'precipitate dissolves in dilute NH<sub>3</sub>',Br:'precipitate does not dissolve in dilute NH<sub>3</sub>',I:'precipitate does not dissolve in dilute NH<sub>3</sub>'};
+const NH3c={Cl:'precipitate dissolves in conc NH<sub>3</sub>',Br:'precipitate dissolves in conc NH<sub>3</sub>',I:'precipitate does not dissolve in conc NH<sub>3</sub>'};
+const IR=[['flame','flame test','nichrome wire','<svg viewBox="0 0 54 76" aria-hidden="true"><path d="M48 6L14 56" stroke="#8a8f98" stroke-width="3"/><circle cx="12" cy="60" r="5" fill="none" stroke="#8a8f98" stroke-width="2.5"/><rect x="40" y="2" width="10" height="16" rx="3" fill="#5a6070" transform="rotate(34 45 10)"/></svg>'],
+ ['hno3','dilute HNO<sub>3</sub>','',bottle('#e4eef6')],['hcl','dilute HCl','',bottle('#e4eef6')],['ag','AgNO<sub>3</sub>(aq)','',bottle('#eceff2','#5b3b1c')],['nh3d','dilute NH<sub>3</sub>(aq)','',bottle('#e9f1f6','#2d6db5')],['nh3c','conc NH<sub>3</sub>(aq)','fume cupboard',bottle('#e9f1f6','#b3261e')],['ba','BaCl<sub>2</sub>(aq)','',bottle('#eceff2')],['naoh','NaOH(aq), warm','+ damp red litmus',bottle('#e9eef4','#1d7a46')]];
+const OR_=[['br2','bromine water','orange',bottle('#f2a43a')],['pcl5','PCl<sub>5</sub>','fume cupboard',bottle('#f3f0d8','#b3261e')],['dich','K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup>','warm',bottle('#e8820c')],['eag','ethanolic AgNO<sub>3</sub>','warm',bottle('#eceff2','#5b3b1c')],['hco3','NaHCO<sub>3</sub>(aq)','',bottle('#e4eef6')]];
+const ORANGE='#f2a43a';
+let IU=[],OU=[],ST={};
+function newCase(){
+ IU=shuffle(SALTS).slice(0,4);
+ let pool=shuffle(ORG),pick=[],cls=new Set();
+ for(const o of pool){const c=o[1]==='p'||o[1]==='t'?'alc'+o[1]:o[1];if(cls.has(o[1]))continue;if(pick.length<3){pick.push(o);cls.add(o[1]);}}
+ OU=pick;ST={};
+}
+const ILBL=['A','B','C','D'],OLBL=['P','Q','R'];
+/* tube state */
+function base(){return {liq:CLEARL,level:.5,acid:null,carb:false,ag:false,agD:false,done:new Set(),obs:[]};}
+function tubeHTML(id,lbl,kind){return `<div class="tube zone ${kind}" id="tb${id}" data-id="${id}" tabindex="0" role="button" aria-label="Unknown ${lbl}">${tubeSVG(id)}<span class="lbl">Unknown ${lbl}</span><span class="obs" id="ob${id}">Mystery sample.</span><button type="button" class="mini" data-fresh="${id}">Fresh sample</button></div>`;}
+function build(){
+ $('#iShelf').innerHTML=IR.map(r=>itemBtn(r[0],r[1],r[2],r[3])).join('');
+ $('#oShelf').innerHTML=OR_.map(r=>itemBtn(r[0],r[1],r[2],r[3])).join('');
+ $('#iRack').innerHTML=ILBL.map((l,i)=>tubeHTML('i'+i,l,'inorg')).join('');
+ $('#oRack').innerHTML=OLBL.map((l,i)=>tubeHTML('o'+i,l,'org')).join('');
+ [...ILBL.map((l,i)=>'i'+i),...OLBL.map((l,i)=>'o'+i)].forEach(id=>{ST[id]=base();draw(id);});
+}
+function draw(id){const s=ST[id];setTube($('#tb'+id),{liq:s.liq,level:s.level,ppt:s.ppt,bub:s.bub,fume:s.fume,top:s.top});}
+function obs(id,t){$('#ob'+id).innerHTML=t;}
+const msg=(t,k)=>say($('#msg'),t,k);
+let wireClean=false;
+$('#clean').addEventListener('click',()=>{wireClean=true;$('#flame').style.fill='#9fc2ff';$('#flame').style.opacity='.35';$('#loop').setAttribute('stroke','#8a8f98');say($('#flameMsg'),'Wire dipped in conc HCl and held in the flame until it gave no colour. It is clean.','ok');});
+const DONE={};
+function tick(k,id){ (DONE[k]=DONE[k]||new Set()).add(id); const all=(k<6?ILBL.map((l,i)=>'i'+i):OLBL.map((l,i)=>'o'+i));
+ $$('#meth li').forEach((li,i)=>{const d=DONE[i];const n=(i<6?4:3);li.classList.toggle('done',!!d&&d.size>=n);});
+ let now=false;$$('#meth li').forEach(li=>{const n=!li.classList.contains('done')&&!now;li.classList.toggle('now',n);if(n)now=true;});}
+function fresh(id){ST[id]=base();draw(id);obs(id,'Fresh sample.');}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-fresh]');if(b){e.stopPropagation();fresh(b.dataset.fresh);}},true);
+
+function inorg(k,id){
+ const i=+id.slice(1),[name,cat,an]=IU[i],s=ST[id],L='Unknown '+ILBL[i];
+ if(k==='flame'){
+  if(!wireClean)return say($('#flameMsg'),'Clean the wire first. Dip it in conc HCl and heat it until there is no colour, or the last sample will contaminate this test.','warn');
+  wireClean=false;const [c,hex]=FL[cat];$('#flame').style.fill=hex||'#9fc2ff';$('#flame').style.opacity=hex?'.9':'.35';$('#loop').setAttribute('stroke','#5a4a3a');
+  say($('#flameMsg'),'<b>'+L+'</b>: flame colour is <b>'+c+'</b>.'+(hex?'':' (Magnesium and ammonium ions do not colour the flame.)'),'ok');tick(0,id);return;
+ }
+ if(k==='hno3'||k==='hcl'){
+  if(s.ag||s.ppt)return msg('Use a fresh sample for this test.','warn');
+  const wasC=an==='CO3'&&!s.acid;s.acid=k;s.level=Math.min(.85,s.level+.12);
+  if(wasC){s.bub=true;draw(id);obs(id,'<b>Effervescence.</b> The gas turns limewater milky: CO<sub>2</sub>.');msg('Fizzing means <b>carbonate</b> ions. Keep adding acid until the fizzing stops. Now the carbonate has gone, it will not interfere with the later tests.','ok');later(()=>{s.bub=false;draw(id);},2600);}
+  else{draw(id);obs(id,'Dilute '+(k==='hno3'?'nitric':'hydrochloric')+' acid added: <b>no effervescence</b>.'+(s.acid?'':''));msg((k==='hno3'?'Acidified with dilute nitric acid. You can now add silver nitrate.':'Acidified with dilute hydrochloric acid. You can now add barium chloride.')+' No fizzing, so no carbonate.','ok');}
+  tick(1,id);return;
+ }
+ if(k==='ag'){
+  if(!s.acid)return msg('<b>Acidify first.</b> Add dilute nitric acid before silver nitrate. It removes carbonate ions, which would also give a precipitate with Ag<sup>+</sup>.','warn');
+  if(s.acid==='hcl')return msg('You acidified this sample with hydrochloric acid, which adds Cl<sup>−</sup> ions. Every sample would give a white precipitate! Take a fresh sample and use dilute <b>nitric</b> acid.','warn');
+  if(s.ag)return msg('Silver nitrate already added.','warn');
+  s.ag=true;s.level=Math.min(.9,s.level+.1);
+  if(AG[an]){s.ppt=AG[an][1];s.liq='rgba(235,235,230,.7)';s.hal=an;draw(id);obs(id,'Silver nitrate: <b>'+AG[an][0]+'</b>.');msg('A precipitate of a silver halide formed. Add ammonia to tell chloride, bromide and iodide apart.','ok');}
+  else{draw(id);obs(id,'Silver nitrate: <b>no precipitate</b>. No halide ions.');msg('No halide. Try the sulfate test on a fresh sample.');}
+  tick(2,id);return;
+ }
+ if(k==='nh3d'||k==='nh3c'){
+  if(!s.ag||!s.hal)return msg('Ammonia is used to test a silver halide <b>precipitate</b>. Make one first: dilute HNO<sub>3</sub> then AgNO<sub>3</sub>.','warn');
+  if(s.gone)return msg('The precipitate has already dissolved.','warn');
+  const T=k==='nh3d'?NH3d:NH3c,dis=(k==='nh3d'?s.hal==='Cl':s.hal!=='I');
+  if(dis){s.gone=true;s.ppt=null;s.liq=CLEARL;}draw(id);obs(id,'Silver nitrate: '+AG[s.hal][0]+'. Then '+(k==='nh3d'?'dilute':'conc')+' ammonia: <b>'+T[s.hal]+'</b>.');
+  msg(dis?'The precipitate dissolved: it forms a soluble complex ion with ammonia.':'The precipitate did not dissolve.'+(k==='nh3d'?' Try concentrated ammonia on a fresh precipitate.':''));tick(3,id);return;
+ }
+ if(k==='ba'){
+  if(!s.acid)return msg('<b>Acidify first.</b> Add dilute hydrochloric acid before barium chloride. It removes carbonate (and sulfite) ions, which would give a white precipitate of barium carbonate.','warn');
+  if(s.ag)return msg('Use a fresh sample for the sulfate test.','warn');
+  if(s.bdone)return msg('Barium chloride already added.','warn');
+  s.bdone=true;s.level=Math.min(.9,s.level+.1);
+  if(an==='SO4'){s.ppt='#f7f7f7';s.liq='rgba(240,240,240,.85)';draw(id);obs(id,'Barium chloride: <b>white precipitate</b>. Sulfate present.');msg('White precipitate of barium sulfate, BaSO<sub>4</sub>(s).','ok');}
+  else{draw(id);obs(id,'Barium chloride: <b>no precipitate</b>. No sulfate.');msg('No sulfate ions.');}
+  tick(4,id);return;
+ }
+ if(k==='naoh'){
+  if(s.acid||s.ag)return msg('Use a fresh sample for the ammonium test.','warn');
+  if(s.ndone)return msg('Already tested.','warn');
+  s.ndone=true;s.level=Math.min(.85,s.level+.15);
+  let t;
+  if(cat==='NH4'){s.fume=true;t='Warm with NaOH: <b>gas turns damp red litmus blue</b>. Ammonia, so NH<sub>4</sub><sup>+</sup> present.';msg('NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup> → NH<sub>3</sub> + H<sub>2</sub>O. Ammonia is alkaline.','ok');}
+  else if(cat==='Mg'){s.ppt='#f4f4f4';t='Warm with NaOH: <b>white precipitate</b>; litmus stays red.';msg('White precipitate of magnesium hydroxide. No ammonia.');}
+  else if(cat==='Ca'){s.ppt='rgba(245,245,245,.7)';t='Warm with NaOH: <b>slight white precipitate</b>; litmus stays red.';msg('Calcium hydroxide is only slightly soluble. No ammonia.');}
+  else{t='Warm with NaOH: <b>no change</b>; litmus stays red.';msg('No ammonia, so no ammonium ions.');}
+  draw(id);obs(id,t);if(cat==='NH4')later(()=>{s.fume=false;draw(id);},3000);tick(5,id);return;
+ }
+}
+function org(k,id){
+ const i=+id.slice(1),[name,c]=OU[i],s=ST[id];
+ if(s.used)return msg('Use a fresh sample for each organic test.','warn');
+ s.used=true;s.level=.75;
+ if(k==='br2'){if(c==='alk'){s.liq=ORANGE;draw(id);later(()=>{s.liq='rgba(240,240,240,.6)';draw(id);},700);obs(id,'Bromine water: <b>orange to colourless</b>.');msg('Decolourised: a C=C double bond is present.','ok');}
+  else{s.liq=ORANGE;draw(id);obs(id,'Bromine water: <b>stays orange</b>.');msg('No C=C.');} tick(6,id);}
+ if(k==='pcl5'){if(c==='p'||c==='t'||c==='acid'){s.fume=true;draw(id);obs(id,'PCl<sub>5</sub>: <b>steamy fumes that turn damp blue litmus red</b>.');msg('The fumes are hydrogen chloride. An –OH group is present.','ok');later(()=>{s.fume=false;draw(id);},3200);}
+  else{draw(id);obs(id,'PCl<sub>5</sub>: <b>no steamy fumes</b>.');msg('No –OH group.');} tick(7,id);}
+ if(k==='dich'){s.liq='#e8820c';draw(id);if(c==='p'){later(()=>{s.liq='#3e8c4c';draw(id);},700);obs(id,'Warm acidified dichromate: <b>orange to green</b>.');msg('Oxidised: a primary or secondary alcohol (Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> reduced to Cr<sup>3+</sup>).','ok');}
+  else{obs(id,'Warm acidified dichromate: <b>stays orange</b>.');msg('Not oxidised.'+(c==='t'?' A tertiary alcohol has no H on the carbon bonded to OH.':''));} tick(8,id);}
+ if(k==='eag'){if(c==='hal'){draw(id);later(()=>{s.ppt='#efe2b4';s.liq='rgba(235,230,210,.7)';draw(id);},1200);obs(id,'Warm ethanolic AgNO<sub>3</sub>: <b>cream precipitate forms slowly</b>.');msg('Hydrolysis releases Br<sup>−</sup> ions, which give AgBr. A halogenoalkane.','ok');}
+  else{draw(id);obs(id,'Warm ethanolic AgNO<sub>3</sub>: <b>no precipitate</b>.');msg('Not a halogenoalkane.');} tick(9,id);}
+ if(k==='hco3'){if(c==='acid'){s.bub=true;draw(id);obs(id,'NaHCO<sub>3</sub>: <b>effervescence</b>; gas turns limewater milky.');msg('CO<sub>2</sub> is given off: a carboxylic acid.','ok');later(()=>{s.bub=false;draw(id);},2600);}
+  else{draw(id);obs(id,'NaHCO<sub>3</sub>: <b>no effervescence</b>.');msg('Not an acid.');} tick(10,id);}
+}
+function drop(k,el){
+ const id=el.dataset.id,isI=id[0]==='i',kI=IR.some(r=>r[0]===k);
+ if(isI!==kI)return msg(kI?'That is a test for <b>ions</b>. Use it on the inorganic unknowns A–D.':'That is a test for <b>functional groups</b>. Use it on the organic unknowns P–R.','warn');
+ isI?inorg(k,id):org(k,id);
+}
+dragTap({key:'i',shelf:$('#iShelf'),item:'.item',target:'.tube.inorg, .tube.org',hint:$('#hint'),hintText:'Drag a reagent onto a tube, or tap a reagent and then tap a tube.',drop});
+dragTap({key:'o',shelf:$('#oShelf'),item:'.item',target:'.tube.inorg, .tube.org',hint:$('#hint'),hintText:'Drag a reagent onto a tube, or tap a reagent and then tap a tube.',drop});
+
+/* ---------- Part 2 ---------- */
+const NT='not tested / not needed';
+const IC=[
+ ['Flame colour',u=>FL[u[1]][0],['crimson red','yellow-orange','lilac','brick red (yellow-red)','red (crimson)','pale green','no characteristic colour']],
+ ['Dilute acid',u=>u[2]==='CO3'?'effervescence, limewater milky':'no effervescence',['effervescence, limewater milky','no effervescence']],
+ ['HNO<sub>3</sub> then AgNO<sub>3</sub>',u=>AG[u[2]]?AG[u[2]][0]:'no precipitate',['white precipitate','cream precipitate','yellow precipitate','no precipitate']],
+ ['Ammonia on the precipitate',u=>({Cl:'dissolves in dilute NH3',Br:'dissolves only in conc NH3',I:'insoluble in conc NH3'})[u[2]]||NT,['dissolves in dilute NH3','dissolves only in conc NH3','insoluble in conc NH3',NT]],
+ ['HCl then BaCl<sub>2</sub>',u=>u[2]==='SO4'?'white precipitate':'no precipitate',['white precipitate','no precipitate']],
+ ['Warm NaOH, damp red litmus',u=>u[1]==='NH4'?'litmus turns blue':(u[1]==='Mg'?'white precipitate, litmus red':(u[1]==='Ca'?'slight white precipitate, litmus red':'no change')),['litmus turns blue','white precipitate, litmus red','slight white precipitate, litmus red','no change']]
+];
+const OC=[
+ ['Bromine water',u=>u[1]==='alk'?'orange to colourless':'stays orange',['orange to colourless','stays orange']],
+ ['PCl<sub>5</sub>',u=>['p','t','acid'].includes(u[1])?'steamy fumes, blue litmus red':'no fumes',['steamy fumes, blue litmus red','no fumes']],
+ ['Warm K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup>',u=>u[1]==='p'?'orange to green':'stays orange',['orange to green','stays orange']],
+ ['Warm ethanolic AgNO<sub>3</sub>',u=>u[1]==='hal'?'cream precipitate':'no precipitate',['cream precipitate','no precipitate']],
+ ['NaHCO<sub>3</sub>(aq)',u=>u[1]==='acid'?'effervescence':'no effervescence',['effervescence','no effervescence']]
+];
+function buildP2(){
+ $('#iT').innerHTML='<thead><tr><th>Unknown</th>'+IC.map(c=>'<th>'+c[0]+'</th>').join('')+'<th>Identity</th></tr></thead><tbody>'+IU.map((u,i)=>'<tr><th>'+ILBL[i]+'</th>'+IC.map(c=>{const a=c[1](u);return '<td>'+sel(a===NT?[NT]:a,c[2].concat(c[2].includes(NT)?[]:[]),true)+'</td>';}).join('')+'<td>'+sel(u[0],INAMES,true)+'</td></tr>').join('')+'</tbody>';
+ $('#oT').innerHTML='<thead><tr><th>Unknown</th>'+OC.map(c=>'<th>'+c[0]+'</th>').join('')+'<th>Identity</th></tr></thead><tbody>'+OU.map((u,i)=>'<tr><th>'+OLBL[i]+'</th>'+OC.map(c=>'<td>'+sel(c[1](u),c[2],true)+'</td>').join('')+'<td>'+sel(u[2],CLASSES,true)+'</td></tr>').join('')+'</tbody>';
+ $$('#part2 select').forEach(s=>{s.dataset.a=s.dataset.a.replace(/<[^>]+>/g,'');});
+}
+$('#chk2').addEventListener('click',()=>{const r=checkSelects($('#part2'),$('#sc2'));});
+$('#part2').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+
+/* ---------- Part 3 ---------- */
+$('#qs3').innerHTML=[
+ 'Dilute nitric acid is added before silver nitrate to '+sel('remove carbonate ions, which would also form a precipitate with Ag+',['remove carbonate ions, which would also form a precipitate with Ag+','make the precipitate dissolve','add halide ions to the solution','neutralise the silver nitrate'])+'.',
+ 'Hydrochloric acid must <b>not</b> be used to acidify before silver nitrate because '+sel('it adds chloride ions, which give a white precipitate',['it adds chloride ions, which give a white precipitate','it reacts with the flame','it is too weak an acid','it dissolves silver halides'])+'.',
+ 'Dilute hydrochloric acid is added before barium chloride to remove '+sel('carbonate (and sulfite) ions',['carbonate (and sulfite) ions','sulfate ions','chloride ions','ammonium ions'])+', which would give a white precipitate of '+sel('barium carbonate',['barium carbonate','barium sulfate','silver chloride'])+'.',
+ 'The carbonate test is done '+sel('first',['first','last'])+', because carbonate ions interfere with the halide and sulfate tests.',
+ 'A cream precipitate with silver nitrate that dissolves only in concentrated ammonia shows '+sel('bromide',['chloride','bromide','iodide'])+' ions.',
+ 'The steamy fumes with PCl<sub>5</sub> are '+sel('hydrogen chloride',['hydrogen chloride','chlorine','steam','ammonia'])+'. Silver nitrate for halogenoalkanes is dissolved in ethanol because '+sel('halogenoalkanes do not mix with water, but both mix with ethanol',['halogenoalkanes do not mix with water, but both mix with ethanol','ethanol is a catalyst','ethanol makes the precipitate cream','water would react with silver nitrate'])+'.'
+].map(x=>'<li>'+x+'</li>').join('');
+$('#chk3').addEventListener('click',()=>checkSelects($('#qs3'),$('#sc3')));
+$('#qs3').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+
+/* ---------- Part 4 ---------- */
+const EXAM=[
+ {t:'wr',m:3,q:'A white solid <b>X</b> gives these results.<ul style="margin:4px 0"><li>Flame test: lilac.</li><li>Dilute nitric acid: no effervescence.</li><li>Then silver nitrate solution: cream precipitate.</li><li>The precipitate is insoluble in dilute ammonia but dissolves in concentrated ammonia.</li></ul>Identify <b>X</b>. Justify your answer using the results.',ms:['Lilac flame shows K<sup>+</sup> ions (1)','Cream precipitate (insoluble in dilute, soluble in conc NH<sub>3</sub>) shows Br<sup>−</sup> ions / AgBr formed (1)','X is potassium bromide, KBr (1)'],nb:'No effervescence shows no carbonate. Allow full name or formula for the final mark.'},
+ {t:'wr',m:2,q:'Write the ionic equation, with state symbols, for the reaction of silver nitrate solution with sodium chloride solution.',ms:['Ag<sup>+</sup> + Cl<sup>−</sup> → AgCl (1)','State symbols: Ag<sup>+</sup>(aq) + Cl<sup>−</sup>(aq) → AgCl(s) (1)'],nb:'Do not award the state symbol mark if the equation is incorrect. Ignore spectator ions shown on both sides.'},
+ {t:'mcq',m:1,q:'A solid gives a brick-red (yellow-red) flame. Its solution, acidified with dilute nitric acid, gives a white precipitate with silver nitrate. The solid is',o:['calcium chloride','strontium sulfate','sodium chloride','calcium bromide'],a:0,why:'<b>A.</b> Brick-red flame = Ca<sup>2+</sup>. White precipitate with Ag<sup>+</sup> = Cl<sup>−</sup>. Strontium gives a crimson flame; sodium is yellow; bromide gives a cream precipitate.'},
+ {t:'wr',m:2,q:'2-methylpropan-2-ol is warmed with acidified potassium dichromate(VI). Explain why the colour stays orange.',ms:['It is a tertiary alcohol / the carbon bonded to the OH has no hydrogen atom (1)','So it is not oxidised, and Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> is not reduced to (green) Cr<sup>3+</sup> (1)'],nb:'Allow "oxidation would need a C–C bond to break". Do not award "it is not reactive" alone.'},
+ {t:'num',m:3,q:'0.500 g of a Group 2 carbonate, MCO<sub>3</sub>, reacted completely with excess dilute hydrochloric acid. 120 cm<sup>3</sup> of carbon dioxide was collected at room temperature and pressure.<br>Calculate the relative formula mass of MCO<sub>3</sub>. [Molar gas volume = 24.0 dm<sup>3</sup> mol<sup>−1</sup>]',a:100,tol:0.015,unit:'',worked:'<div>moles CO<sub>2</sub> = 120 ÷ 24 000 = 0.00500 mol (1)</div><div>MCO<sub>3</sub> : CO<sub>2</sub> = 1 : 1, so 0.00500 mol MCO<sub>3</sub> (1)</div><div>M<sub>r</sub> = 0.500 ÷ 0.00500 = <b>100</b>, so the carbonate is CaCO<sub>3</sub> (1)</div>'},
+ {t:'mcq',m:1,q:'Which observation shows that a solution contains ammonium ions?',o:['A white precipitate forms with barium chloride solution','The gas from warming with NaOH(aq) turns damp red litmus paper blue','A lilac flame is seen in a flame test','Steamy fumes form with phosphorus(V) chloride'],a:1,why:'<b>B.</b> NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup> → NH<sub>3</sub> + H<sub>2</sub>O. Ammonia is the only common alkaline gas.'}
+];
+/* ---------- reset ---------- */
+function all(){stopTimers();newCase();build();buildP2();Object.keys(DONE).forEach(k=>delete DONE[k]);tick(-1,'');wireClean=false;
+ $('#flame').style.fill='#9fc2ff';$('#flame').style.opacity='.35';$('#loop').setAttribute('stroke','#8a8f98');
+ say($('#flameMsg'),'Clean the nichrome wire, then drag the <b>flame test</b> wire onto an inorganic tube.');msg('Detective tip: test for carbonate first, with dilute acid.');$('#sc2').textContent='';}
+all();
+$('#newCase').addEventListener('click',()=>{all();msg('New mystery! The unknowns have changed. Your Part 2 table has been cleared.');});
+$('#resetAll').addEventListener('click',()=>{all();$$('#qs3 select').forEach(s=>{s.value='';s.classList.remove('ok','wrong');});$('#sc3').textContent='';buildExam($('#exam'),EXAM,$('#exTot'));window.scrollTo({top:0,behavior:'smooth'});});
+buildExam($('#exam'),EXAM,$('#exTot'));
+
+})();
+</script></body></html>

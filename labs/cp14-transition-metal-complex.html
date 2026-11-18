@@ -1,0 +1,627 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Transition Metal Complex</title>
+<meta name="description" content="Virtual core practical: Transition Metal Complex. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp14-transition-metal-complex.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;600;700&display=swap">
+<style>
+:root{
+  --paper:#f2f5f8; --sheet:#ffffff; --ink:#1c2736; --muted:#5a6878; --line:#cdd6df;
+  --bench:#e4eaf0; --accent:#4a44b5; --accent-soft:#e7e6fb; --good:#1d7a46; --bad:#b3261e;
+  --glass:#7d8fa3; --glass-hi:rgba(255,255,255,.75); --good-soft:#e3f3ea; --bad-soft:#fbe9e7;
+  --display:"Lexend","Segoe UI",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.6rem,4.5vw,2.3rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.course{font:600 .9rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:10px}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-left:5px solid #d08a00;border-radius:10px;padding:10px 14px}
+details.safety summary{font:600 1rem var(--display);cursor:pointer}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.eqn{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.95rem;overflow-x:auto}
+.eqn div{white-space:nowrap}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{font:600 .92rem var(--display);padding:8px 14px;border-radius:999px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{border-color:var(--accent);background:var(--accent);color:#fff}
+/* Bench */
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:12px}
+@media (max-width:720px){.bench{grid-template-columns:minmax(0,1fr)}}
+.scene{align-self:start;background:#fbfcfd;border:2px dashed transparent;border-radius:12px;cursor:pointer;display:block;width:100%;min-width:0}
+.scene svg{display:block;width:100%;height:auto}
+.scene.armed{border-color:var(--accent)} .scene.over{border-color:var(--accent);background:var(--accent-soft)}
+.scene:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.panel h3{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+ol.method{margin:0;padding-left:1.5em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}
+ol.method li.done{color:var(--good)} ol.method li.done::marker{content:"\2713  "}
+ol.method li.now{font-weight:700}
+.readings{display:flex;flex-direction:column;gap:4px;font-size:.88rem}
+.readings div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding-bottom:2px}
+.readings b{font-family:var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.msg{grid-column:1/-1;background:var(--sheet);border-radius:10px;padding:10px 14px;border-left:5px solid var(--accent);min-height:3.2em;font-size:.95rem}
+.msg.no{border-left-color:var(--bad);background:var(--bad-soft)} .msg.yes{border-left-color:var(--good)}
+.tray{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:6px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font:inherit;font-size:.76rem;line-height:1.2;text-align:center;min-width:0}
+.tool svg{width:40px;height:40px;display:block}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.tool:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.benchbar{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:.88rem;color:var(--muted)}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.mini{font:inherit;font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.btn:focus-visible,.mini:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+/* SVG bits */
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.lbl{font:12px var(--body);fill:var(--muted);text-anchor:middle}
+.lcd{font:700 15px var(--display);fill:#173b1f;text-anchor:middle}
+.fadein{animation:fadein 1.6s ease both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.fadeout{animation:fadein 1.4s ease reverse both}
+.drop{animation:fall .7s ease-in infinite}
+@keyframes fall{from{transform:translateY(0);opacity:1}to{transform:translateY(46px);opacity:0}}
+.bub{animation:rise 1.2s ease-in infinite}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(-40px);opacity:0}}
+.stir{transform-box:fill-box;transform-origin:50% 0;animation:stir .6s ease-in-out infinite alternate}
+@keyframes stir{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+.flow{stroke-dasharray:6 6;animation:flow .5s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-12}}
+.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.6s ease both}
+@keyframes grow{from{transform:scale(0)}to{transform:scale(1)}}
+/* Results */
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.85rem}
+tbody th{font-weight:400}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:8.5em;max-width:100%;padding:5px 7px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink)}
+input.ok,select.ok{border-color:var(--good)} input.wrong,select.wrong{border-color:var(--bad)}
+.unit{color:var(--muted);font-size:.85rem;margin-left:4px}
+.score{font-weight:700}
+.score.good{color:var(--good)} .score.bad{color:var(--bad)}
+.calc{display:flex;flex-direction:column;gap:10px}
+.calc label{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.calc label > span:first-child{flex:1 1 300px}
+/* Questions */
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px 2px;max-width:100%}
+.note{font-size:.88rem;color:var(--muted)}
+/* Exam */
+.exq{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.exq .qh{display:flex;justify-content:space-between;gap:10px;font-family:var(--display);font-weight:600}
+.exq .mk{color:var(--muted);white-space:nowrap}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts label{display:flex;gap:10px;align-items:flex-start;padding:6px 10px;border:2px solid var(--line);border-radius:10px;cursor:pointer}
+.opts label.ok{border-color:var(--good);background:var(--good-soft)} .opts label.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opts input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:90px;padding:8px;border-radius:8px;border:2px solid var(--line);resize:vertical}
+.ms{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.92rem;display:flex;flex-direction:column;gap:6px}
+.ms label{display:flex;gap:8px;align-items:flex-start}
+.ms input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.work{background:#f6f8fa;border-left:4px solid var(--accent);border-radius:8px;padding:8px 12px;font-size:.92rem}
+.total{font:700 1.15rem var(--display);color:var(--accent)}
+footer.toolbar{padding:0 4px}
+@media (max-width:520px){body{font-size:16px}.tool svg{width:34px;height:34px}}
+@media (prefers-reduced-motion: reduce){
+  .fadein,.fadeout,.drop,.bub,.stir,.flow,.grow,.tool.shake{animation:none!important}
+}
+.swirl{transform-box:fill-box;transform-origin:50% 100%;animation:swirl 1.1s ease-in-out infinite}
+@keyframes swirl{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.mpctl{display:none;flex-direction:column;gap:6px;margin-top:8px}
+.mpctl.on{display:flex}
+.mpctl .row{display:flex;flex-wrap:wrap;gap:6px}
+.chart{width:100%;height:190px;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+@media (prefers-reduced-motion: reduce){.swirl{animation:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>The preparation of a transition metal complex</h1>
+  <p class="course">IAL Chemistry · Core Practical 14 · Unit 6</p>
+  <p><b>Aim:</b> To prepare crystals of tetraamminecopper(II) sulfate monohydrate, [Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub>·H<sub>2</sub>O, from copper(II) sulfate and calculate the percentage yield.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li><b>Concentrated ammonia</b> is corrosive and gives off toxic, pungent ammonia gas that irritates the eyes and lungs. Use it only in a fume cupboard. Wear goggles and gloves.</li>
+    <li><b>Copper(II) sulfate</b> is harmful if swallowed and an eye irritant. It is toxic to aquatic life: do not pour the filtrate down the sink in large amounts.</li>
+    <li><b>Ethanol</b> is highly flammable. Keep it away from naked flames. Only warm the copper sulfate solution gently, before any ethanol is used.</li>
+    <li>Wash hands after handling the product. Do not taste or touch it.</li>
+  </ul></details>
+  <div class="eqn" aria-label="Equations">
+    <div>[Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>(aq) + 2NH<sub>3</sub>(aq) → [Cu(H<sub>2</sub>O)<sub>4</sub>(OH)<sub>2</sub>](s) + 2NH<sub>4</sub><sup>+</sup>(aq) &nbsp;<span class="note">pale blue precipitate</span></div>
+    <div>[Cu(H<sub>2</sub>O)<sub>4</sub>(OH)<sub>2</sub>](s) + 4NH<sub>3</sub>(aq) → [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>(aq) + 2OH<sup>−</sup>(aq) + 2H<sub>2</sub>O(l) &nbsp;<span class="note">deep blue solution</span></div>
+  </div>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p>Follow the method in the right order. Use the tray items and the action buttons. Copy every reading you see into Part 2.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" type="button" id="tabA" aria-selected="true" aria-controls="pA">Copper ammine complex</button>
+    <button class="tab" role="tab" type="button" id="tabB" aria-selected="false" aria-controls="pB">Optional: iron(II) ethanedioate</button>
+  </div>
+  <div id="pA" role="tabpanel" aria-labelledby="tabA"><div id="benchA"></div></div>
+  <div id="pB" role="tabpanel" aria-labelledby="tabB" hidden>
+    <p class="note" style="margin-bottom:8px">Fe<sup>2+</sup>(aq) + H<sub>2</sub>C<sub>2</sub>O<sub>4</sub>(aq) + 2H<sub>2</sub>O(l) → FeC<sub>2</sub>O<sub>4</sub>·2H<sub>2</sub>O(s) + 2H<sup>+</sup>(aq) &nbsp; (ammonium iron(II) sulfate, (NH<sub>4</sub>)<sub>2</sub>Fe(SO<sub>4</sub>)<sub>2</sub>·6H<sub>2</sub>O, M = 392.1; product M = 179.9). Ethanedioic acid is toxic: wear gloves.</p>
+    <div id="benchB"></div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <p>Type your readings from Part 1 (2 d.p.). Then do the calculations. M(CuSO<sub>4</sub>·5H<sub>2</sub>O) = 249.7 g mol<sup>−1</sup>; M([Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub>·H<sub>2</sub>O) = 245.7 g mol<sup>−1</sup>.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Measurement</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><th>Mass of weighing bottle + CuSO<sub>4</sub>·5H<sub>2</sub>O</th><td><input type="number" step="0.01" id="r1"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of weighing bottle after tipping</th><td><input type="number" step="0.01" id="r2"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of CuSO<sub>4</sub>·5H<sub>2</sub>O used</th><td><input type="number" step="0.01" id="r3"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of watch glass</th><td><input type="number" step="0.01" id="r4"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of watch glass + dry crystals</th><td><input type="number" step="0.01" id="r5"><span class="unit">g</span></td></tr>
+      <tr><th>Mass of product</th><td><input type="number" step="0.01" id="r6"><span class="unit">g</span></td></tr>
+      <tr><th>Observation: first few drops of ammonia</th><td><select id="o1" data-a="p"><option value="">choose…</option><option value="d">deep blue solution</option><option value="p">pale blue precipitate</option><option value="w">white precipitate</option><option value="g">green solution</option></select></td></tr>
+      <tr><th>Observation: excess ammonia</th><td><select id="o2" data-a="d"><option value="">choose…</option><option value="p">pale blue precipitate stays</option><option value="d">precipitate dissolves, deep blue solution</option><option value="c">colourless solution</option><option value="y">yellow solution</option></select></td></tr>
+      <tr><th>Observation: after adding ethanol</th><td><select id="o3" data-a="v"><option value="">choose…</option><option value="v">deep blue / violet crystals form</option><option value="w">white crystals form</option><option value="n">no change</option><option value="l">two colourless layers</option></select></td></tr>
+    </tbody></table></div>
+  <div class="calc">
+    <label><span>Amount of CuSO<sub>4</sub>·5H<sub>2</sub>O = mass ÷ 249.7</span><input type="text" inputmode="decimal" id="c1"><span class="unit">mol (3 s.f.)</span></label>
+    <label><span>Amount of complex expected (1 : 1 ratio)</span><input type="text" inputmode="decimal" id="c2"><span class="unit">mol</span></label>
+    <label><span>Theoretical yield = amount × 245.7</span><input type="text" inputmode="decimal" id="c3"><span class="unit">g (3 s.f.)</span></label>
+    <label><span>Percentage yield = (mass of product ÷ theoretical yield) × 100</span><input type="text" inputmode="decimal" id="c4"><span class="unit">% (3 s.f.)</span></label>
+  </div>
+  <div class="toolbar"><button class="btn" type="button" id="chkR">Check my results</button><span class="score" id="sR" aria-live="polite"></span></div>
+
+  <details class="panel"><summary style="font-family:var(--display);font-weight:600;cursor:pointer">Optional: iron(II) ethanedioate results</summary>
+  <div class="calc" style="margin-top:10px">
+    <label><span>Mass of ammonium iron(II) sulfate used</span><input type="text" inputmode="decimal" id="f1"><span class="unit">g</span></label>
+    <label><span>Mass of dry product</span><input type="text" inputmode="decimal" id="f2"><span class="unit">g</span></label>
+    <label><span>Colour of the precipitate</span><select id="fo" data-a="y"><option value="">choose…</option><option value="y">yellow</option><option value="g">pale green</option><option value="b">brown</option><option value="w">white</option></select></label>
+    <label><span>Theoretical yield = (mass ÷ 392.1) × 179.9</span><input type="text" inputmode="decimal" id="f3"><span class="unit">g (3 s.f.)</span></label>
+    <label><span>Percentage yield</span><input type="text" inputmode="decimal" id="f4"><span class="unit">% (3 s.f.)</span></label>
+  </div>
+  <div class="toolbar" style="margin-top:8px"><button class="btn" type="button" id="chkF">Check iron results</button><span class="score" id="sF" aria-live="polite"></span></div>
+  </details>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs">
+    <li>The first drops of ammonia act as a
+      <select data-a="base"><option value="">choose…</option><option>base</option><option>ligand</option><option>catalyst</option></select>.
+      They remove H<sup>+</sup> ions from water ligands. This is called
+      <select data-a="deprotonation"><option value="">choose…</option><option>deprotonation</option><option>oxidation</option><option>hydration</option></select>.
+      In excess, ammonia molecules replace four water ligands. This is
+      <select data-a="ligand exchange"><option value="">choose…</option><option>ligand exchange</option><option>reduction</option><option>neutralisation</option></select>.</li>
+    <li>Ethanol is added because the complex is
+      <select data-a="less soluble in ethanol than in water"><option value="">choose…</option><option>less soluble in ethanol than in water</option><option>more soluble in ethanol than in water</option><option>oxidised by ethanol</option></select>,
+      so the crystals come out of solution.</li>
+    <li>Concentrated ammonia is used in a fume cupboard because
+      <select data-a="it releases toxic, pungent ammonia gas"><option value="">choose…</option><option>it releases toxic, pungent ammonia gas</option><option>it is highly flammable</option><option>it reacts explosively with water</option></select>.</li>
+    <li>Filtration under reduced pressure (Büchner funnel and pump) is used because it is
+      <select data-a="faster and leaves the crystals drier"><option value="">choose…</option><option>faster and leaves the crystals drier</option><option>the only way to remove water of crystallisation</option><option>a way to make larger crystals</option></select>.</li>
+    <li>The crystals are washed with cold ethanol, not water, because
+      <select data-a="water would dissolve the product"><option value="">choose…</option><option>water would dissolve the product</option><option>water would react with ammonia gas</option><option>ethanol is a better ligand</option></select>.
+      The ethanol is cold so that
+      <select data-a="as little product as possible dissolves"><option value="">choose…</option><option>as little product as possible dissolves</option><option>the ethanol does not catch fire</option><option>the crystals melt</option></select>.</li>
+    <li>In [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup> the coordination number is
+      <select data-a="6"><option value="">choose…</option><option>2</option><option>4</option><option>6</option></select>
+      and the shape is
+      <select data-a="octahedral"><option value="">choose…</option><option>tetrahedral</option><option>square planar</option><option>octahedral</option></select>.
+      Each ligand forms a
+      <select data-a="dative covalent"><option value="">choose…</option><option>dative covalent</option><option>ionic</option><option>hydrogen</option></select>
+      bond to Cu<sup>2+</sup>.</li>
+  </ol>
+  <div class="toolbar"><button class="btn" type="button" id="chkQ">Check my answers</button><span class="score" id="sQ" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <p class="note">Answer in the style of WCH16. Multiple choice and calculations are marked for you. For written answers, press "Show mark scheme" and tick the points you made.</p>
+  <div id="exam" style="display:flex;flex-direction:column;gap:14px"></div>
+</section>
+
+<footer class="toolbar">
+  <span class="note">NH<sub>3</sub> is first a base (pale blue Cu(OH)<sub>2</sub>), then a ligand: [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup> is deep blue and octahedral.</span>
+  <button class="btn ghost" type="button" id="resetAll">Start again</button>
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const RND=(a,b)=>a+Math.random()*(b-a);
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS='http://www.w3.org/2000/svg';
+/* ---------- tray icons (40x40) ---------- */
+const IC={
+ bottle:c=>`<path d="M16 3h8v5h-8z" fill="#3a3f4a"/><path d="M11 12q0-4 4-4h10q4 0 4 4v23q0 3-3 3H14q-3 0-3-3z" fill="${c}" stroke="#7d8fa3" stroke-width="2"/><rect x="14" y="19" width="12" height="9" fill="#fff" opacity=".9"/>`,
+ wbottle:c=>`<rect x="11" y="9" width="18" height="5" rx="1.5" fill="#9aa6b4"/><path d="M12 14h16v20q0 3-3 3H15q-3 0-3-3z" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M13.5 24h13v10q0 2-2 2h-9q-2 0-2-2z" fill="${c}"/>`,
+ beaker:c=>`<path d="M9 22h22v12q0 2-2 2H11q-2 0-2-2z" fill="${c}"/><path d="M7 6l2 2v26q0 2 2 2h18q2 0 2-2V6" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ flask:c=>`<path d="M9 34 L17 18 L23 18 L31 34z" fill="${c}"/><path d="M17 4v12L7 34q-1 3 2 3h22q3 0 2-3L23 16V4" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ pear:c=>`<path d="M12 27a8 8 0 0 0 16 0z" fill="${c}"/><path d="M18 4v11a10 10 0 1 0 4 0V4" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ cyl:c=>`<path d="M15 18h10v16h-10z" fill="${c}"/><path d="M14 4v31h12V4M10 37h20" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M14 12h4M14 20h4M14 28h4" stroke="#7d8fa3"/>`,
+ dropper:c=>`<rect x="15" y="2" width="10" height="11" rx="5" fill="#c0392b"/><path d="M17 13h6v14l-3 8-3-8z" fill="${c}" stroke="#7d8fa3" stroke-width="1.6"/>`,
+ ice:()=>`<path d="M4 18h32v14q0 4-4 4H8q-4 0-4-4z" fill="#d6ecf8" stroke="#7d8fa3" stroke-width="2"/><rect x="8" y="12" width="9" height="9" rx="2" fill="#fff" stroke="#9cc4dd" transform="rotate(-12 12 16)"/><rect x="22" y="13" width="9" height="9" rx="2" fill="#fff" stroke="#9cc4dd" transform="rotate(10 26 17)"/>`,
+ bath:()=>`<rect x="4" y="12" width="32" height="24" rx="3" fill="#b9c3cd" stroke="#7d8fa3" stroke-width="2"/><path d="M6 17q4-3 8 0t8 0 8 0 6 0" fill="none" stroke="#5aa0d0" stroke-width="2"/><rect x="11" y="24" width="18" height="8" rx="1.5" fill="#cfe8c8"/>`,
+ buch:()=>`<path d="M8 4h24v8l-9 6v5h-6v-5l-9-6z" fill="#f2f2ee" stroke="#8a96a3" stroke-width="1.8"/><path d="M17 24v4L9 36q-1 2 1 2h20q2 0 1-2l-8-8v-4M23 27h9" fill="none" stroke="#7d8fa3" stroke-width="2"/>`,
+ paper:()=>`<circle cx="20" cy="20" r="15" fill="#fff" stroke="#9aa6b4" stroke-width="2"/><circle cx="20" cy="20" r="9" fill="none" stroke="#dde3ea"/>`,
+ burner:()=>`<path d="M20 4q6 8 0 14q-6-6 0-14z" fill="#4f7df0" opacity=".85"/><rect x="17" y="18" width="6" height="14" fill="#8a96a3"/><rect x="10" y="32" width="20" height="5" rx="2" fill="#5a6878"/>`,
+ mp:()=>`<rect x="5" y="8" width="30" height="27" rx="3" fill="#dfe4ea" stroke="#7d8fa3" stroke-width="2"/><rect x="9" y="12" width="13" height="8" rx="1" fill="#c9ecc3"/><circle cx="28" cy="16" r="4" fill="#3a3f4a"/><path d="M15 24v9" stroke="#7d8fa3" stroke-width="2"/>`,
+ tubes:c=>`<path d="M10 6v24a4 4 0 0 0 8 0V6M22 6v24a4 4 0 0 0 8 0V6" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M11 22h6v8a3 3 0 0 1-6 0zM23 22h6v8a3 3 0 0 1-6 0z" fill="${c}"/>`,
+ rod:()=>`<path d="M12 36L30 4" stroke="#7d8fa3" stroke-width="3" stroke-linecap="round"/>`,
+ watch:c=>`<path d="M5 22q15 10 30 0" fill="${c}" stroke="#7d8fa3" stroke-width="2"/>`
+};
+/* ---------- scene helpers (viewBox 520 x 300, bench at y=272) ---------- */
+let CLIP=0,PFX='a';
+function liq(x,y,w,h,fill,prev){ if(h<=0) return '';
+ return (prev?`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${prev}"/>`:'')+`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${prev?'class="fadein"':''}/>`;}
+function beakerG(cx,by,w,h,o={}){
+ const x0=cx-w/2,x1=cx+w/2,t=by-h,lh=(o.lev||0)*h;
+ return `<g>${liq(x0+2,by-lh,w-4,lh-2,o.fill,o.prev)}${o.inner||''}
+ <path class="glass" d="M${x0-5} ${t} L${x0} ${t+4} L${x0} ${by-5} Q${x0} ${by} ${x0+5} ${by} L${x1-5} ${by} Q${x1} ${by} ${x1} ${by-5} L${x1} ${t}"/>
+ <path class="shine" d="M${x0+7} ${t+14} L${x0+7} ${by-12}"/>
+ <path d="M${x1} ${by-h*.25}h-7M${x1} ${by-h*.45}h-10M${x1} ${by-h*.65}h-7" stroke="var(--glass)" stroke-width="1.2"/></g>`;}
+function conicalG(cx,by,w,h,o={}){
+ const nw=w*.3,nh=h*.32,t=by-h,id='cl'+PFX+(CLIP++),lh=(o.lev||0)*h;
+ const d=`M${cx-nw/2} ${t} L${cx-nw/2} ${t+nh} L${cx-w/2} ${by-7} Q${cx-w/2-1} ${by} ${cx-w/2+7} ${by} L${cx+w/2-7} ${by} Q${cx+w/2+1} ${by} ${cx+w/2} ${by-7} L${cx+nw/2} ${t+nh} L${cx+nw/2} ${t}`;
+ return `<g><defs><clipPath id="${id}"><path d="${d}Z"/></clipPath></defs><g clip-path="url(#${id})">${liq(cx-w/2,by-lh,w,lh,o.fill,o.prev)}${o.inner||''}</g>
+ <path class="glass" d="${d}"/>${o.arm?`<path class="glass" d="M${cx+nw/2} ${t+10} l22 -6"/>`:''}<path class="shine" d="M${cx-w/2+16} ${by-14} L${cx-nw/2+3} ${t+nh+10}"/></g>`;}
+function pearG(cx,by,r,o={}){
+ const cy=by-r,id='cl'+PFX+(CLIP++),nt=cy-r-48,lh=(o.lev||0)*2*r;
+ const d=`M${cx-7} ${nt} L${cx-7} ${cy-r+3} A${r} ${r} 0 1 0 ${cx+7} ${cy-r+3} L${cx+7} ${nt}`;
+ return `<g><defs><clipPath id="${id}"><path d="${d}Z"/></clipPath></defs><g clip-path="url(#${id})">${liq(cx-r,by-lh,2*r,lh,o.fill,o.prev)}${o.inner||''}</g><path class="glass" d="${d}"/><path class="shine" d="M${cx-r*.6} ${cy+r*.2} A${r*.7} ${r*.7} 0 0 1 ${cx-r*.2} ${cy-r*.6}"/></g>`;}
+function balanceG(cx,by,read,top=''){
+ return `<g><rect x="${cx-58}" y="${by-36}" width="116" height="36" rx="6" fill="#dfe4ea" stroke="#7d8fa3" stroke-width="2"/>
+ <rect x="${cx-34}" y="${by-27}" width="68" height="20" rx="3" fill="#c9ecc3" stroke="#6b8f6a"/><text class="lcd" x="${cx}" y="${by-12}">${read}</text>
+ <rect x="${cx-40}" y="${by-44}" width="80" height="6" rx="2" fill="#b7c0ca" stroke="#7d8fa3"/><text class="lbl" x="${cx}" y="${by+16}">balance (2 d.p.)</text>${top}</g>`;}
+function wbottleG(cx,by,c,full){
+ return `<g><rect x="${cx-15}" y="${by-38}" width="30" height="6" rx="2" fill="#9aa6b4"/><path d="M${cx-13} ${by-32}h26v28q0 4-4 4h-18q-4 0-4-4z" fill="rgba(255,255,255,.5)" stroke="var(--glass)" stroke-width="2"/>${full?`<path d="M${cx-11} ${by-17}h22v11q0 3-3 3h-16q-3 0-3-3z" fill="${c}"/>`:`<path d="M${cx-11} ${by-5}h22" stroke="${c}" stroke-width="2" opacity=".6"/>`}</g>`;}
+function dropperG(cx,y,c,drip){
+ return `<g class="fadein"><rect x="${cx-7}" y="${y}" width="14" height="22" rx="7" fill="#c0392b"/><path d="M${cx-4} ${y+22}h8v38l-4 10-4-10z" fill="${c}" stroke="var(--glass)" stroke-width="1.5"/>${drip?`<circle class="drop" cx="${cx}" cy="${y+76}" r="3.5" fill="${c}" stroke="rgba(0,0,0,.2)"/><circle class="drop" style="animation-delay:.35s" cx="${cx}" cy="${y+76}" r="3.5" fill="${c}" stroke="rgba(0,0,0,.2)"/>`:''}</g>`;}
+function pourG(x,y,c,txt){ // tilted measuring cylinder pouring down
+ return `<g class="fadein"><g transform="rotate(-130 ${x} ${y})"><rect x="${x-8}" y="${y}" width="16" height="64" rx="2" fill="rgba(255,255,255,.75)" stroke="var(--glass)" stroke-width="2"/><rect x="${x-6}" y="${y+2}" width="12" height="16" fill="${c}"/></g><path class="flow" d="M${x} ${y} q-3 18 -2 44" stroke="${c}" stroke-width="3" fill="none"/>${txt?`<text class="lbl" x="${x+30}" y="${y-48}">${txt}</text>`:''}</g>`;}
+function rodG(cx,y0,len,stir){ return `<g class="${stir?'stir':''}"><path d="M${cx} ${y0} l12 ${len}" stroke="#a9b8c7" stroke-width="4" stroke-linecap="round"/></g>`;}
+function hotplateG(cx,by,on){ return `<g><rect x="${cx-48}" y="${by-16}" width="96" height="16" rx="3" fill="#5a6878"/><rect x="${cx-44}" y="${by-20}" width="88" height="5" rx="2" fill="${on?'#e2583e':'#9aa6b4'}" ${on?'class="fadein"':''}/><circle cx="${cx+34}" cy="${by-8}" r="4" fill="${on?'#ffb199':'#cdd6df'}"/></g>`;}
+function bunsenG(cx,by,on){ return `<g><path d="M${cx-40} ${by} L${cx-30} ${by-70} M${cx+40} ${by} L${cx+30} ${by-70}" stroke="#4a5563" stroke-width="3"/><rect x="${cx-46}" y="${by-74}" width="92" height="5" fill="#8a96a3" stroke="#5a6878"/><path d="M${cx-46} ${by-72}h92" stroke="#b9c3cd" stroke-dasharray="2 2"/>
+ <rect x="${cx-5}" y="${by-44}" width="10" height="38" fill="#8a96a3"/><rect x="${cx-16}" y="${by-7}" width="32" height="7" rx="2" fill="#5a6878"/>${on?`<path class="fadein" d="M${cx} ${by-72} q11 14 0 28 q-11 -14 0 -28z" fill="#4f7df0" opacity=".8"/><path d="M${cx} ${by-60} q5 7 0 14 q-5 -7 0 -14z" fill="#9fd0ff"/>`:''}</g>`;}
+function iceG(cx,by,w,h,inner){ const x0=cx-w/2;
+ return `<g><rect x="${x0}" y="${by-h}" width="${w}" height="${h}" rx="6" fill="#eef7fc" stroke="var(--glass)" stroke-width="2"/>${inner}
+ <rect x="${x0+3}" y="${by-h*.7}" width="${w-6}" height="${h*.7-3}" rx="4" fill="rgba(160,210,240,.45)"/>
+ ${[[.12,.62,-12],[.82,.55,14],[.22,.3,8],[.74,.25,-6],[.5,.15,20]].map(([a,b,r])=>`<rect x="${x0+w*a-9}" y="${by-h*b-9}" width="18" height="18" rx="3" fill="#fff" stroke="#9cc4dd" transform="rotate(${r} ${x0+w*a} ${by-h*b})"/>`).join('')}
+ <text class="lbl" x="${cx}" y="${by+16}">ice bath</text></g>`;}
+function bathG(cx,by,w,h,T,inner){ const x0=cx-w/2;
+ return `<g><rect x="${x0}" y="${by-h}" width="${w}" height="${h}" rx="5" fill="#cdd5dd" stroke="#7d8fa3" stroke-width="2"/><rect x="${x0+4}" y="${by-h+6}" width="${w-8}" height="${h-10}" fill="#d4ebf8"/>${inner}
+ <rect x="${x0}" y="${by-h*.62}" width="${w}" height="${h*.62}" rx="5" fill="#b9c3cd" stroke="#7d8fa3" stroke-width="2"/>
+ <rect x="${cx-30}" y="${by-h*.45}" width="60" height="20" rx="3" fill="#c9ecc3" stroke="#6b8f6a"/><text class="lcd" x="${cx}" y="${by-h*.45+15}">${T}</text><text class="lbl" x="${cx}" y="${by+16}">water bath</text></g>`;}
+function buchnerG(cx,by,o={}){
+ const ft=by-118;
+ return `<g>${conicalG(cx,by,92,96,{lev:o.flev||0,fill:o.ffill||'rgba(185,215,240,.4)',arm:1})}
+ <rect x="${cx-12}" y="${by-104}" width="24" height="12" rx="2" fill="#3a3f4a"/>
+ <path d="M${cx-34} ${ft-34}h68v26l-28 12v26h-12v-26l-28-12z" fill="#f4f4ef" stroke="#8a96a3" stroke-width="2"/>
+ <path d="M${cx-30} ${ft-12}h60" stroke="#c9ced3" stroke-width="3" stroke-dasharray="3 3"/>
+ ${o.paper?`<path d="M${cx-30} ${ft-14}h60" stroke="#fff" stroke-width="3"/>`:''}
+ ${o.liqF?`<rect x="${cx-31}" y="${ft-30}" width="62" height="15" fill="${o.liqF}" class="fadein"/>`:''}
+ ${o.cake?`<g class="${o.cakeNew?'grow':''}">${crystalsG(cx,ft-16,54,o.cake,12)}</g>`:''}
+ <path class="${o.pump?'flow':''}" d="M${cx+34} ${by-87} h28 q12 0 12 12 V${by-40}" fill="none" stroke="#c46a3a" stroke-width="5" stroke-linecap="round"/>
+ <text class="lbl" x="${cx+86}" y="${by-22}" style="text-anchor:end">to pump</text>
+ ${o.pump&&o.drip?`<circle class="drop" cx="${cx}" cy="${by-94}" r="3" fill="${o.ffill||'#cde'}"/>`:''}
+ <text class="lbl" x="${cx}" y="${by+16}">Büchner funnel, filter flask</text></g>`;}
+const CRY=[[-.42,0,1],[-.3,-1,.8],[-.18,0,1.1],[-.05,-1,.9],[.08,0,1],[.2,-1,1.1],[.33,0,.9],[.44,-1,.8],[-.36,-2,.7],[-.1,-2,.9],[.15,-2,.8],[.38,-2,.7],[0,0,1],[.27,-3,.6],[-.24,-3,.7]];
+function crystalsG(cx,y,w,c,n=15,needle){
+ return CRY.slice(0,n).map(([a,b,s])=>{const x=cx+a*w,yy=y+b*6;
+  return needle?`<path d="M${x-7*s} ${yy+3} L${x+7*s} ${yy-3}" stroke="${c}" stroke-width="2.4" stroke-linecap="round"/>`:
+  `<path d="M${x} ${yy-6*s}l5 ${5*s}-5 ${5*s}-5 ${-5*s}z" fill="${c}" stroke="rgba(0,0,0,.25)" stroke-width=".8"/>`;}).join('');}
+const SPK=[[.1,.2],[.3,.6],[.5,.3],[.7,.7],[.9,.4],[.2,.85],[.6,.9],[.8,.15],[.4,.5],[.15,.45],[.55,.65],[.85,.8],[.35,.15],[.65,.45],[.25,.7],[.75,.3],[.45,.8],[.95,.6],[.05,.65],[.5,.1]];
+function speckG(x,y,w,h,c){ return `<g class="fadein">${SPK.map(([a,b])=>`<circle cx="${x+a*w}" cy="${y+b*h}" r="2.6" fill="${c}"/>`).join('')}</g>`;}
+function fumeG(x0,x1){ return `<g class="fadein"><rect x="${x0}" y="8" width="${x1-x0}" height="262" rx="6" fill="rgba(231,230,251,.35)" stroke="#8a96a3" stroke-width="3"/>
+ <rect x="${x0}" y="8" width="${x1-x0}" height="30" rx="6" fill="#dfe4ea" stroke="#8a96a3" stroke-width="2"/><text class="lbl" x="${(x0+x1)/2}" y="28" style="font-weight:700">fume cupboard</text>
+ <rect x="${x0+4}" y="40" width="${x1-x0-8}" height="70" fill="rgba(200,225,240,.35)" stroke="#a9b8c7"/><path class="bub" d="M${x0+20} 70 v-14 l-5 5 m5 -5 5 5M${x1-20} 70 v-14 l-5 5 m5 -5 5 5" stroke="#8a96a3" stroke-width="2" fill="none"/></g>`;}
+function bubblesG(cx,y,w){ return `<g>${[-.35,-.1,.15,.38].map((a,i)=>`<circle class="bub" style="animation-delay:${i*.3}s" cx="${cx+a*w}" cy="${y}" r="3" fill="none" stroke="#fff" stroke-width="1.5"/>`).join('')}</g>`;}
+function steamG(cx,y){ return `<g>${[-10,0,10].map((d,i)=>`<path class="bub" style="animation-delay:${i*.4}s" d="M${cx+d} ${y} q-5 -8 0 -16 q5 -8 0 -16" fill="none" stroke="#c4ccd6" stroke-width="2.5" stroke-linecap="round"/>`).join('')}</g>`;}
+/* ---------- bench engine ---------- */
+function Bench(cfg){
+ const el=cfg.el; let st,idx,busy,sel,timers=[];
+ el.innerHTML=`<div class="bench"><div class="scene" role="button" tabindex="0" aria-label="Bench. After choosing an item, press here to use it."><svg viewBox="0 0 520 300" role="img" aria-label="${cfg.label}"></svg></div>
+ <div class="side"><div class="panel"><h3>Method</h3><ol class="method" style="max-height:290px;overflow:auto"></ol></div><div class="panel"><h3>Readings</h3><div class="readings"></div></div></div>
+ <div class="msg" aria-live="polite"></div>
+ <div class="benchbar"><span class="note">Actions:</span><span class="acts" style="display:flex;flex-wrap:wrap;gap:6px;flex:1"></span><button class="mini rs" type="button">Reset bench</button></div>
+ <div class="benchbar"><span class="note">Apparatus and chemicals. Drag one onto the bench, or tap it and then tap the bench.</span></div>
+ <div class="tray"></div></div>`;
+ const svg=el.querySelector('svg'),scene=el.querySelector('.scene'),mEl=el.querySelector('.method'),rEl=el.querySelector('.readings'),msg=el.querySelector('.msg'),tray=el.querySelector('.tray'),acts=el.querySelector('.acts');
+ cfg.tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.id=t.id;
+  b.innerHTML=`<svg viewBox="0 0 40 40" aria-hidden="true">${IC[t.ic](t.c||'#cfe3f3')}</svg><span>${t.name}</span>`;tray.appendChild(b);});
+ cfg.acts.forEach(a=>{const b=document.createElement('button');b.type='button';b.className='mini';b.dataset.a=a.id;b.textContent=a.name;acts.appendChild(b);
+  b.addEventListener('click',()=>apply('a',a.id,b));});
+ const later=(f,ms)=>{timers.push(setTimeout(f,RM?Math.min(ms,250):ms));};
+ const every=(f,ms)=>{const h=setInterval(f,ms);timers.push(h);return h;};
+ function say(h,c){msg.innerHTML=h;msg.className='msg'+(c?' '+c:'');}
+ function draw(){CLIP=0;PFX=cfg.pfx||'a';svg.innerHTML=cfg.render(st);st.fx={};rEl.innerHTML=cfg.readings(st).map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('');}
+ function meth(){mEl.innerHTML=cfg.steps.map((s,i)=>`<li class="${i<idx?'done':i===idx?'now':''}">${s.m}</li>`).join('');
+  const n=mEl.children[idx]; if(n) mEl.scrollTop=Math.max(0,n.offsetTop-mEl.offsetTop-60);}
+ function reset(){timers.forEach(h=>{clearTimeout(h);clearInterval(h);});timers=[];st=cfg.init();st.fx={};idx=0;busy=false;unsel();draw();meth();say(cfg.intro);}
+ function unsel(){sel=null;tray.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed');}
+ function done(s){st.prev=null;st.anim=null;idx++;busy=false;meth();say(typeof s.say==='function'?s.say(st):s.say,'yes');draw();
+  if(idx>=cfg.steps.length){say((typeof s.say==='function'?s.say(st):s.say)+' <b>Practical complete.</b> Copy your readings into Part 2.','yes');}}
+ function apply(kind,id,btn){
+  if(busy) return; if(idx>=cfg.steps.length){say('You have finished. Press <b>Reset bench</b> to do it again.');return;}
+  const s=cfg.steps[idx];
+  if((s.t&&kind==='t'&&s.t===id)||(s.a&&kind==='a'&&s.a===id)){
+   busy=true; if(s.run) s.run(st); draw();
+   if(s.live){say(s.during||'Working…');s.live(st,{draw,later,every,end:()=>done(s),el,say});}
+   else if(s.dur){say(s.during||'Working…');later(()=>{if(s.then) s.then(st);done(s);},s.dur);}
+   else done(s);
+  } else {
+   const th=(kind==='t'?cfg.tools:cfg.acts).find(x=>x.id===id);
+   say('<b>Not yet.</b> '+((s.bad&&s.bad[id])||th.why||'That is not the next step.')+' <span class="note">Look at the highlighted step in the Method list.</span>','no');
+   if(btn){btn.classList.remove('shake');void btn.offsetWidth;btn.classList.add('shake');}
+  }
+ }
+ tray.addEventListener('click',e=>{const b=e.target.closest('.tool');if(!b||e.detail!==0&&dragJust)return;
+  if(sel===b.dataset.id){unsel();return;} unsel();sel=b.dataset.id;b.classList.add('selected');scene.classList.add('armed');});
+ scene.addEventListener('click',()=>{if(sel){const id=sel,b=tray.querySelector(`[data-id="${id}"]`);unsel();apply('t',id,b);}});
+ scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&sel){e.preventDefault();scene.click();}});
+ let drag=null,dragJust=false;
+ tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b)return;dragJust=false;drag={id:b.dataset.id,b,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+ tray.addEventListener('pointermove',e=>{if(!drag)return;
+  if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');
+   g.style.cssText='position:fixed;left:0;top:0;width:48px;height:48px;pointer-events:none;z-index:50';g.innerHTML=drag.b.querySelector('svg').outerHTML;g.firstChild.style.cssText='width:48px;height:48px';drag.g=g;document.body.appendChild(g);}
+  if(drag.moved){drag.g.style.transform=`translate(${e.clientX-24}px,${e.clientY-24}px)`;const u=document.elementFromPoint(e.clientX,e.clientY);drag.over=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',drag.over);}});
+ const end=(e,c)=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(c||!d.moved)return;dragJust=true;setTimeout(()=>dragJust=false,50);if(d.over){unsel();apply('t',d.id,d.b);}};
+ tray.addEventListener('pointerup',e=>end(e,false));tray.addEventListener('pointercancel',e=>end(e,true));
+ el.querySelector('.rs').addEventListener('click',reset);
+ reset();
+ return {reset,get st(){return st;}};
+}
+/* ---------- marking helpers ---------- */
+function num(id){const e=document.getElementById(id);return e?parseFloat(String(e.value).replace(',','.')):NaN;}
+function mark(id,ok){const e=document.getElementById(id);if(!e)return ok;e.classList.toggle('ok',ok);e.classList.toggle('wrong',!ok);const td=e.closest('td');if(td){td.classList.toggle('ok',ok);td.classList.toggle('wrong',!ok);}return ok;}
+const near=(a,b,rel,abs=0)=>isFinite(a)&&isFinite(b)&&Math.abs(a-b)<=Math.abs(b)*rel+abs+1e-9;
+function showScore(id,r,n,extra=''){const s=document.getElementById(id);s.textContent=`${r} / ${n} correct.`+(r===n?' Well done!':' '+extra);s.className='score '+(r===n?'good':'bad');}
+function checkQs(boxId,scoreId){const box=document.getElementById(boxId);let r=0,n=0;
+ box.querySelectorAll('select[data-a]').forEach(s=>{n++;const ok=s.value===s.dataset.a;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);if(ok)r++;});
+ box.querySelectorAll('.opts[data-a]').forEach(g=>{n++;const c=g.querySelector('input:checked');g.querySelectorAll('label').forEach(l=>l.classList.remove('ok','wrong'));
+  if(c){const ok=c.value===g.dataset.a;c.closest('label').classList.add(ok?'ok':'wrong');if(ok)r++;}});
+ showScore(scoreId,r,n,'Look again at the red ones.');}
+function mcHTML(name,opts,a){return `<div class="opts" data-a="${a}">${opts.map((o,i)=>`<label><input type="radio" name="${name}" value="${'ABCD'[i]}"><span><b>${'ABCD'[i]}</b>&nbsp; ${o}</span></label>`).join('')}</div>`;}
+/* ---------- exam engine ---------- */
+function Exam(boxId,EX){
+ const box=document.getElementById(boxId);let marked=false;
+ box.innerHTML=EX.map((q,i)=>`<div class="exq" id="ex${i}"><div class="qh"><span>Question ${i+1}</span><span class="mk">(${q.mk} mark${q.mk>1?'s':''})</span></div><div>${q.q}</div>
+ ${q.type==='mc'?mcHTML('exr'+i,q.opts,q.a):q.type==='num'?`<label>Answer: <input type="text" inputmode="decimal" id="exn${i}"><span class="unit">${q.unit||''}</span></label>`:`<textarea id="ext${i}" aria-label="Your answer to question ${i+1}"></textarea><div><button type="button" class="mini msb" data-i="${i}">Show mark scheme</button></div>
+ <div class="ms" hidden><b>Mark scheme</b>${q.ms.map(p=>`<label><input type="checkbox" class="sm"> <span>${p}</span></label>`).join('')}${q.note?`<span class="note">${q.note}</span>`:''}<span class="note">Tick each point you made. Max ${q.mk}.</span></div>`}
+ ${q.work?`<div class="work" hidden>${q.work}</div>`:''}</div>`).join('')+`<div class="toolbar"><button class="btn" type="button" id="${boxId}-mark">Mark my exam answers</button><span class="total" id="${boxId}-tot" aria-live="polite"></span></div>`;
+ function total(){let s=0,t=0;EX.forEach((q,i)=>{t+=q.mk;const d=document.getElementById('ex'+i);
+  if(q.type==='w'){const ms=d.querySelector('.ms');if(!ms.hidden)s+=Math.min(q.mk,ms.querySelectorAll('.sm:checked').length);}
+  else if(marked&&d.dataset.ok==='1')s+=q.mk;});
+  document.getElementById(boxId+'-tot').textContent=`Exam practice: ${s} / ${t} marks`;}
+ box.addEventListener('click',e=>{const b=e.target.closest('.msb');if(!b)return;const d=document.getElementById('ex'+b.dataset.i);d.querySelector('.ms').hidden=false;b.hidden=true;total();});
+ box.addEventListener('change',e=>{if(e.target.classList.contains('sm'))total();});
+ document.getElementById(boxId+'-mark').addEventListener('click',()=>{marked=true;
+  EX.forEach((q,i)=>{const d=document.getElementById('ex'+i);let ok=false;
+   if(q.type==='mc'){const c=d.querySelector('input:checked');d.querySelectorAll('.opts label').forEach(l=>l.classList.remove('ok','wrong'));
+    d.querySelectorAll('.opts input').forEach(inp=>{if(inp.value===q.a)inp.closest('label').classList.add('ok');});
+    if(c){ok=c.value===q.a;if(!ok)c.closest('label').classList.add('wrong');}}
+   else if(q.type==='num'){const v=num('exn'+i);ok=near(v,q.a,q.tol||.01);mark('exn'+i,ok);}
+   else{const b=d.querySelector('.msb');if(b&&!b.hidden)b.click();}
+   d.dataset.ok=ok?'1':'0';const w=d.querySelector('.work');if(w)w.hidden=false;});
+  total();});
+ total();
+ return {reset(){marked=false;box.querySelectorAll('.ms,.work').forEach(m=>m.hidden=true);box.querySelectorAll('.msb').forEach(b=>b.hidden=false);box.querySelectorAll('.exq').forEach(d=>d.dataset.ok='0');total();}};
+}
+function resetPage(benches,exams,extra){
+ benches.forEach(b=>b.reset());
+ $$('.wrap input[type=text],.wrap input[type=number],.wrap textarea').forEach(e=>e.value='');
+ $$('.wrap input[type=checkbox],.wrap input[type=radio]').forEach(e=>e.checked=false);
+ $$('.wrap select').forEach(e=>e.value='');
+ $$('.wrap .ok,.wrap .wrong').forEach(e=>e.classList.remove('ok','wrong'));
+ $$('.wrap .score').forEach(e=>e.textContent='');
+ exams.forEach(x=>x.reset()); if(extra) extra();
+ window.scrollTo({top:0,behavior:RM?'auto':'smooth'});
+}
+
+const f2=v=>(Math.round(v*100)/100).toFixed(2);
+
+/* ===== CP14 copper ammine bench ===== */
+const g2=v=>Math.round(v*100)/100;
+const BENCH='<rect x="0" y="272" width="520" height="28" fill="#d5dde5"/><path d="M0 272h520" stroke="#aab6c2" stroke-width="2"/>';
+function wbot(cx,top,fill,empty){return `<g><rect x="${cx-11}" y="${top}" width="22" height="6" rx="2" fill="#9aa6b4"/><rect x="${cx-12}" y="${top+6}" width="24" height="28" rx="3" fill="rgba(255,255,255,.6)" stroke="var(--glass)" stroke-width="2"/>${empty?`<circle cx="${cx-4}" cy="${top+31}" r="1.6" fill="${fill}"/><circle cx="${cx+5}" cy="${top+31}" r="1.6" fill="${fill}"/>`:`<rect x="${cx-10}" y="${top+18}" width="20" height="14" rx="2" fill="${fill}"/>`}</g>`;}
+function watchG(cx,y,c){return `<g><path d="M${cx-30} ${y-6} q30 14 60 0" fill="none" stroke="var(--glass)" stroke-width="2.5"/>${c?`<g class="fadein">${crystalsG(cx,y-1,40,c,9)}</g>`:''}</g>`;}
+const CU={pale:'#9cd3f0',dis:'#cfe9f8',ppt:'#aed2ea',deep:'#2340b8',ethl:'#6f7fd8',cry:'#3a2a9a',sol:'#3d8fd6'};
+function cuRender(st){
+ let s=BENCH; const bx=252,by=272;
+ if(st.fume) s+=fumeG(165,340);
+ const top=st.bal==='cu'?wbot(82,194,CU.sol):st.bal==='cu2'?wbot(82,194,CU.sol,1):st.bal==='wg'?watchG(82,226):st.bal==='wgc'?watchG(82,226,CU.cry):'';
+ s+=balanceG(82,by,st.balR||'0.00 g',top);
+ if(st.bk){
+  let o={},inner='';
+  const c=st.c;
+  if(c==='solid') inner=crystalsG(bx,264,46,CU.sol,10);
+  if(c==='sol'){o={lev:.3,fill:CU.dis};inner=crystalsG(bx,264,40,CU.sol,6);}
+  if(c==='dis') o={lev:.3,fill:CU.pale,prev:st.prev};
+  if(c==='ppt'){o={lev:.38,fill:CU.ppt,prev:st.prev};inner=speckG(bx-30,by-30,60,26,'#5f9fd2');}
+  if(c==='deep') o={lev:.44,fill:CU.deep,prev:st.prev};
+  if(c==='eth'){o={lev:.44,fill:CU.deep};inner=`<rect class="fadein" x="${bx-33}" y="${by-60}" width="66" height="23" fill="${CU.ethl}" opacity=".85"/>`+speckG(bx-30,by-42,60,10,'#2a1f86');}
+  if(c==='cry'){o={lev:.7,fill:'#4f62c9',prev:st.prev};inner=`<g class="grow">${crystalsG(bx,262,48,CU.cry,15)}</g>`;}
+  if(c==='gone') inner=crystalsG(bx,264,30,CU.cry,3);
+  if(st.anim==='stir') inner+=rodG(bx-14,by-100,92,1);
+  const bk=beakerG(bx,by,70,84,{...o,inner});
+  s+=st.ice?iceG(bx,by,124,56,bk):bk;
+  if(st.anim==='tip') s+=`<g class="fadein" transform="rotate(115 ${bx+6} ${by-104})">${wbot(bx+6,by-120,CU.sol)}</g>`+speckG(bx-8,by-80,16,60,CU.sol);
+  if(st.anim==='water') s+=pourG(bx+4,by-150,'#d8eef9','distilled water');
+  if(st.anim==='nh3') s+=dropperG(bx,by-176,'#eef6fb',1)+`<text class="lbl" x="${bx+48}" y="${by-160}">conc. NH₃</text>`;
+  if(st.anim==='eth') s+=pourG(bx+26,by-150,'#f1f3f6','ethanol, down the side');
+  if(st.anim==='stir'&&st.warm) s+=steamG(bx,by-96);
+ }
+ if(st.f) s+=buchnerG(425,by,{paper:1,pump:st.anim==='filter'||st.anim==='wash',drip:1,liqF:st.anim==='filter'?'#4f62c9':st.anim==='wash'?'#eef2ff':'',cake:st.f>=2&&!st.dryd?CU.cry:'',cakeNew:st.anim==='filter',ffill:'#5d70d0',flev:st.f>=2?.16:0});
+ if(st.anim==='wash') s+=pourG(445,110,'#f1f3f6','cold ethanol');
+ if(st.anim==='dry') s+=`<g class="fadein"><rect x="372" y="60" width="106" height="12" rx="3" fill="#fff" stroke="#9aa6b4"/><rect x="372" y="74" width="106" height="12" rx="3" fill="#fff" stroke="#9aa6b4"/>${crystalsG(425,72,60,CU.cry,12)}<text class="lbl" x="425" y="50">pressing dry between filter papers</text></g>`;
+ return s;
+}
+const cuCfg={
+ label:'Bench with balance, beaker, fume cupboard and filtration apparatus', pfx:'cu', render:cuRender,
+ intro:'Start by weighing the copper(II) sulfate. Drag the <b>weighing bottle of CuSO<sub>4</sub>·5H<sub>2</sub>O</b> onto the bench (it goes on the balance).',
+ init(){const mcu=RND(2.44,2.56),bot=RND(11.6,13.4),res=RND(.01,.03),m1=g2(bot+mcu),m2=g2(bot+res),used=m1-m2,
+  w=g2(RND(18.2,23.8)),prod=g2(used/249.7*245.7*RND(.67,.92));
+  return {bal:null,bk:0,c:'',f:0,R:{},V:{m1,m2,w,w2:g2(w+prod)},obs:'—'};},
+ tools:[{id:'cuso4',ic:'wbottle',c:'#3d8fd6',name:'CuSO₄·5H₂O in weighing bottle',why:'You have already weighed the copper(II) sulfate.'},
+  {id:'beaker',ic:'beaker',c:'none',name:'small beaker',why:'The beaker is already on the bench.'},
+  {id:'water',ic:'wbottle',c:'#d8eef9',name:'distilled water',why:'You do not need more water now. Extra water makes the complex harder to crystallise.'},
+  {id:'nh3',ic:'dropper',c:'#eef6fb',name:'conc. ammonia (dropper)',why:'Not now.'},
+  {id:'eth',ic:'bottle',c:'#f1f3f6',name:'ethanol',why:'Not now.'},
+  {id:'ice',ic:'ice',name:'ice bath',why:'Not now. Cooling comes after the crystals start to form.'},
+  {id:'buch',ic:'buch',name:'Büchner funnel + filter flask',why:'Not yet. Filter after the crystals have formed and cooled.'},
+  {id:'paper',ic:'paper',name:'filter papers',why:'Not yet.'},
+  {id:'watch',ic:'watch',c:'none',name:'watch glass',why:'Not yet. You weigh the watch glass when the crystals are dry.'},
+  {id:'burner',ic:'burner',name:'Bunsen burner',why:'Do not use a naked flame: ethanol is highly flammable. Warm gently with the stir action only if needed.'}],
+ acts:[{id:'tip',name:'Tip into beaker',why:'Not now.'},{id:'reweigh',name:'Reweigh bottle',why:'Not now.'},{id:'stir',name:'Stir / warm gently',why:'Not now.'},
+  {id:'fume',name:'Move to fume cupboard',why:'Not now.'},{id:'more',name:'Add excess ammonia',why:'Not now.'},{id:'pump',name:'Pump on, pour mixture',why:'Not now.'},
+  {id:'transfer',name:'Transfer crystals and weigh',why:'Not now.'}],
+ steps:[
+  {t:'cuso4',m:'Weigh weighing bottle + about 2.50 g CuSO<sub>4</sub>·5H<sub>2</sub>O.',run:s=>{s.bal='cu';s.R.m1=s.V.m1;s.balR=f2(s.V.m1)+' g';},say:s=>`Balance reads <b>${f2(s.V.m1)} g</b>. Record it. Now put a small beaker on the bench.`},
+  {t:'beaker',m:'Put a small beaker on the bench.',run:s=>{s.bk=1;s.c='empty';},say:'Now tip the crystals into the beaker.'},
+  {a:'tip',m:'Tip the crystals into the beaker.',run:s=>{s.anim='tip';s.bal=null;s.balR='0.00 g';},dur:1500,during:'Tipping the blue crystals into the beaker…',then:s=>{s.c='solid';},bad:{reweigh:'Tip the crystals out first, then reweigh the bottle.'},say:'Now reweigh the empty weighing bottle. This is weighing by difference.'},
+  {a:'reweigh',m:'Reweigh the "empty" bottle (weighing by difference).',run:s=>{s.bal='cu2';s.R.m2=s.V.m2;s.balR=f2(s.V.m2)+' g';},say:s=>`Balance reads <b>${f2(s.V.m2)} g</b>. Mass used = ${f2(s.V.m1)} − ${f2(s.V.m2)} = <b>${f2(s.V.m1-s.V.m2)} g</b>. A few grains stay in the bottle: that is why we weigh by difference.`,bad:{water:'Reweigh the bottle first, so you know the exact mass used.'}},
+  {t:'water',m:'Add the minimum distilled water (about 5 cm<sup>3</sup>).',run:s=>{s.anim='water';s.bal=null;s.balR='0.00 g';},dur:1500,then:s=>{s.c='sol';s.R.w=1;},during:'Adding about 5 cm³ of distilled water…',bad:{nh3:'Dissolve the copper(II) sulfate in water first.'},say:'Some crystals have not dissolved yet. Stir, and warm gently if needed.'},
+  {a:'stir',m:'Stir (warm gently) until all the solid dissolves.',run:s=>{s.anim='stir';s.warm=1;s.prev=CU.dis;s.c='dis';},dur:2200,during:'Stirring and warming gently…',bad:{nh3:'Some solid has not dissolved. Stir first.',fume:'Dissolve all the solid first.'},say:'A clear pale blue solution of [Cu(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>. Concentrated ammonia is next. Where must you use it?'},
+  {a:'fume',m:'Move the beaker into the fume cupboard.',run:s=>{s.fume=1;},say:'Good. Ammonia gas is toxic and pungent, so you work in the fume cupboard. Now add concentrated ammonia dropwise.',bad:{nh3:'Concentrated ammonia gives off toxic, pungent ammonia gas. Move the beaker into the fume cupboard first.'}},
+  {t:'nh3',m:'Add conc. ammonia dropwise, stirring.',run:s=>{s.anim='nh3';s.prev=CU.pale;s.c='ppt';},dur:2400,during:'Adding ammonia drop by drop…',then:s=>{s.obs='pale blue ppt';},bad:{eth:'Make the complex first: add ammonia.',more:'Start with a few drops so you can see the first change.'},say:'A <b>pale blue precipitate</b> forms: [Cu(H<sub>2</sub>O)<sub>4</sub>(OH)<sub>2</sub>]. Ammonia is acting as a base. Keep adding ammonia.'},
+  {a:'more',m:'Keep adding ammonia until the precipitate dissolves.',run:s=>{s.anim='nh3';s.prev=CU.ppt;s.c='deep';},dur:2600,during:'Adding more ammonia, stirring…',then:s=>{s.obs='deep blue solution';},bad:{eth:'There is still a pale blue precipitate. Add more ammonia until it all dissolves.',nh3:'Use the "Add excess ammonia" button to keep adding.'},say:'The precipitate dissolves to give a <b>deep blue solution</b> of [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>. This is ligand exchange. Now add about 8 cm³ of ethanol slowly.'},
+  {t:'eth',m:'Add about 8 cm<sup>3</sup> ethanol slowly down the side.',run:s=>{s.anim='eth';s.c='eth';},dur:1900,during:'Pouring ethanol slowly down the side of the beaker…',then:s=>{s.obs='violet crystals';s.R.e=1;},bad:{ice:'Add ethanol first. The complex is very soluble in water but less soluble in ethanol.'},say:'Ethanol forms a layer. The complex is less soluble in ethanol, so <b>deep blue-violet crystals</b> start to form. Now cool the beaker.'},
+  {t:'ice',m:'Cool in an ice bath until crystals form.',run:s=>{s.ice=1;s.prev='#2340b8';s.c='cry';},dur:2600,during:'Cooling in the ice bath. Crystals are growing…',bad:{buch:'Cool first. The complex is less soluble when cold, so more crystals form.'},say:'Lots of crystals. Now set up the Büchner funnel and filter flask.'},
+  {t:'buch',m:'Set up the Büchner funnel with damp filter paper.',run:s=>{s.f=1;},say:'Filter paper is in place. Turn on the pump and pour in the mixture.',bad:{paper:'Set up the Büchner funnel first. The filter paper goes inside it.'}},
+  {a:'pump',m:'Filter under reduced pressure.',run:s=>{s.anim='filter';s.c='gone';},dur:2600,then:s=>{s.f=2;},during:'Pump on. The filtrate is sucked into the flask…',say:'The crystals are on the paper. Now wash them with a small volume of cold ethanol.'},
+  {t:'eth',m:'Wash the crystals with a little cold ethanol.',run:s=>{s.anim='wash';},dur:2000,during:'Washing with cold ethanol…',bad:{water:'Water would dissolve your product. Wash with a little cold ethanol.',paper:'Wash the crystals first to remove the solution on them.'},say:'Washed. Now dry the crystals between filter papers.'},
+  {t:'paper',m:'Dry the crystals between filter papers.',run:s=>{s.anim='dry';s.dryd=1;},dur:2000,during:'Pressing the crystals dry…',say:'Dry. Now weigh an empty watch glass on the balance.'},
+  {t:'watch',m:'Weigh an empty watch glass.',run:s=>{s.bal='wg';s.R.w=s.V.w;s.balR=f2(s.V.w)+' g';s.dried=1;},say:s=>`Watch glass = <b>${f2(s.V.w)} g</b>. Now transfer the dry crystals onto it.`},
+  {a:'transfer',m:'Transfer the dry crystals and weigh.',run:s=>{s.bal='wgc';s.R.w2=s.V.w2;s.balR=f2(s.V.w2)+' g';},say:s=>`Watch glass + crystals = <b>${f2(s.V.w2)} g</b>. Mass of product = <b>${f2(s.V.w2-s.V.w)} g</b>.`}
+ ],
+ readings(st){const R=st.R,f=k=>R[k]!==undefined?f2(R[k])+' g':'—';
+  return [['Bottle + CuSO₄·5H₂O',f('m1')],['Bottle after tipping',f('m2')],['Water added',st.c&&st.c!=='empty'&&st.c!=='solid'?'≈ 5 cm³':'—'],['Ethanol added',R.e?'≈ 8 cm³':'—'],['Watch glass',f('w')],['Watch glass + crystals',f('w2')],['Last observation',st.obs]];}
+};
+/* ===== optional iron(II) ethanedioate bench ===== */
+const FE={sol:'#c9e6a8',gr:'#dcefc4',mix:'#e3f1d1',yel:'#e3b81c',sup:'#f1f4dc'};
+function feRender(st){
+ let s=BENCH; const bx=250, on=st.heat, by=on?198:272;
+ const top=st.bal==='a'?wbot(82,194,FE.sol):st.bal==='a2'?wbot(82,194,FE.sol,1):st.bal==='wg'?watchG(82,226):st.bal==='wgc'?watchG(82,226,FE.yel):'';
+ s+=balanceG(82,272,st.balR||'0.00 g',top);
+ if(on) s+=bunsenG(bx,272,st.flame);
+ if(st.bk){let o={},inner='';const c=st.c;
+  if(c==='solid') inner=crystalsG(bx,by-8,56,'#9fd07a',10);
+  if(c==='sol'){o={lev:.25,fill:FE.mix};inner=crystalsG(bx,by-8,50,'#9fd07a',6);}
+  if(c==='gr') o={lev:.25,fill:FE.gr,prev:st.prev};
+  if(c==='mix') o={lev:.5,fill:FE.mix,prev:st.prev};
+  if(c==='boil'){o={lev:.5,fill:'#efe7a4',prev:FE.mix};inner=speckG(bx-38,by-46,76,40,'#d7a900')+bubblesG(bx,by-12,70);}
+  if(c==='set'){o={lev:.5,fill:FE.sup};inner=`<rect class="grow" x="${bx-44}" y="${by-14}" width="88" height="12" fill="${FE.yel}"/>`;}
+  if(c==='dec'){o={lev:.08,fill:FE.yel};}
+  if(c==='wash'){o={lev:.35,fill:'#f4f0cc'};inner=speckG(bx-38,by-34,76,28,'#d7a900');}
+  if(c==='gone') inner='';
+  if(st.anim==='stir') inner+=rodG(bx-16,by-112,104,1);
+  s+=beakerG(bx,by,90,100,{...o,inner});
+  if(c==='boil') s+=steamG(bx,by-104);
+  if(st.anim==='tip') s+=`<g class="fadein" transform="rotate(115 ${bx+6} ${by-118})">${wbot(bx+6,by-134,FE.sol)}</g>`;
+  if(st.anim==='acid') s+=pourG(bx+6,by-160,'#e6eef5','water + dil. H₂SO₄');
+  if(st.anim==='oxa') s+=pourG(bx+6,by-160,'#eef3f7','ethanedioic acid(aq)');
+  if(st.anim==='dec') s+=`<g class="fadein"><path class="flow" d="M${bx+46} ${by-96} q30 0 34 70" stroke="${FE.sup}" stroke-width="4" fill="none"/><text class="lbl" x="${bx+100}" y="${by-110}">pour off the liquid</text></g>`;
+  if(st.anim==='water') s+=pourG(bx+6,by-160,'#d8eef9','hot water');
+ }
+ if(st.f) s+=buchnerG(425,272,{paper:1,pump:st.anim==='filter',drip:1,liqF:st.anim==='filter'?'#f4f0cc':'',cake:FE.yel,cakeNew:st.anim==='filter',ffill:'#eef0d8',flev:.12});
+ return s;
+}
+const feCfg={
+ label:'Bench for preparing iron(II) ethanedioate', pfx:'fe', render:feRender,
+ intro:'Put a 100 cm³ beaker on the bench first.',
+ init(){const m=RND(4.92,5.08),bot=RND(11.6,13.4),m1=g2(bot+m),m2=g2(bot+RND(.01,.03)),w=g2(RND(18.2,23.8)),p=g2((m1-m2)/392.1*179.9*RND(.72,.9));
+  return {bal:null,bk:0,c:'',f:0,R:{},V:{m1,m2,w,w2:g2(w+p)},obs:'—'};},
+ tools:[{id:'beaker',ic:'beaker',c:'none',name:'100 cm³ beaker',why:'The beaker is already on the bench.'},
+  {id:'ais',ic:'wbottle',c:'#c9e6a8',name:'ammonium iron(II) sulfate, ≈ 5 g',why:'Already weighed.'},
+  {id:'acid',ic:'bottle',c:'#e6eef5',name:'water + dil. H₂SO₄',why:'Not now.'},
+  {id:'oxa',ic:'bottle',c:'#eef3f7',name:'ethanedioic acid(aq)',why:'Not now. Dissolve the iron(II) salt first.'},
+  {id:'burner',ic:'burner',name:'Bunsen, tripod, gauze',why:'Not now.'},
+  {id:'water',ic:'wbottle',c:'#d8eef9',name:'hot distilled water',why:'Not now.'},
+  {id:'buch',ic:'buch',name:'Büchner funnel + filter flask',why:'Not yet.'},
+  {id:'watch',ic:'watch',c:'none',name:'watch glass',why:'Not yet.'}],
+ acts:[{id:'tip',name:'Tip in, reweigh bottle'},{id:'stir',name:'Stir to dissolve'},{id:'off',name:'Heat off, let settle'},{id:'dec',name:'Decant liquid'},{id:'transfer',name:'Dry, transfer and weigh'}],
+ steps:[
+  {t:'beaker',m:'Put a 100 cm<sup>3</sup> beaker on the bench.',run:s=>{s.bk=1;},say:'Now weigh the weighing bottle of ammonium iron(II) sulfate.'},
+  {t:'ais',m:'Weigh bottle + about 5 g ammonium iron(II) sulfate.',run:s=>{s.bal='a';s.R.m1=s.V.m1;s.balR=f2(s.V.m1)+' g';},say:s=>`Balance reads <b>${f2(s.V.m1)} g</b>. Tip the solid into the beaker and reweigh the bottle.`},
+  {a:'tip',m:'Tip the solid into the beaker. Reweigh the bottle.',run:s=>{s.anim='tip';s.bal=null;s.balR='0.00 g';},dur:1400,then:s=>{s.c='solid';s.bal='a2';s.R.m2=s.V.m2;s.balR=f2(s.V.m2)+' g';},during:'Tipping…',say:s=>`Bottle now <b>${f2(s.V.m2)} g</b>. Mass used = <b>${f2(s.V.m1-s.V.m2)} g</b>. Add about 15 cm³ water and a few drops of dilute sulfuric acid.`},
+  {t:'acid',m:'Add 15 cm<sup>3</sup> water and a few drops of dilute H<sub>2</sub>SO<sub>4</sub>.',run:s=>{s.anim='acid';},dur:1400,then:s=>{s.c='sol';},during:'Adding acidified water…',say:'The acid stops Fe<sup>2+</sup> being oxidised or hydrolysed. Stir to dissolve.'},
+  {a:'stir',m:'Stir until dissolved (pale green solution).',run:s=>{s.anim='stir';s.prev=FE.mix;s.c='gr';},dur:1800,during:'Stirring…',say:'Pale green [Fe(H<sub>2</sub>O)<sub>6</sub>]<sup>2+</sup>(aq). Now add 25 cm³ of ethanedioic acid solution.'},
+  {t:'oxa',m:'Add 25 cm<sup>3</sup> ethanedioic acid solution.',run:s=>{s.anim='oxa';s.prev=FE.gr;s.c='mix';},dur:1500,during:'Adding ethanedioic acid…',say:'Now heat the mixture to boiling, stirring.'},
+  {t:'burner',m:'Heat to boiling, stirring.',run:s=>{s.heat=1;s.flame=1;s.c='boil';},dur:3000,during:'Heating to boiling…',then:s=>{s.obs='yellow ppt';},say:'A <b>yellow precipitate</b> of FeC<sub>2</sub>O<sub>4</sub>·2H<sub>2</sub>O forms. Turn off the heat and let it settle.'},
+  {a:'off',m:'Turn off the heat. Let the precipitate settle.',run:s=>{s.flame=0;s.c='set';},dur:1800,during:'Settling…',say:'The yellow solid is at the bottom. Decant (pour off) the liquid.'},
+  {a:'dec',m:'Decant the liquid.',run:s=>{s.anim='dec';},dur:1600,then:s=>{s.c='dec';},during:'Decanting carefully…',say:'Now wash the solid with hot water, stir and let it settle again.'},
+  {t:'water',m:'Wash with hot distilled water, then decant again.',run:s=>{s.anim='water';s.c='wash';},dur:1800,during:'Washing with hot water…',say:'Washed. Filter under reduced pressure.'},
+  {t:'buch',m:'Filter under reduced pressure.',run:s=>{s.anim='filter';s.f=1;s.c='gone';s.heat=0;},dur:2400,during:'Filtering with the pump on…',say:'The yellow solid is on the filter paper. Weigh an empty watch glass.'},
+  {t:'watch',m:'Weigh an empty watch glass.',run:s=>{s.bal='wg';s.R.w=s.V.w;s.balR=f2(s.V.w)+' g';},say:s=>`Watch glass = <b>${f2(s.V.w)} g</b>.`},
+  {a:'transfer',m:'Dry the solid, transfer and weigh.',run:s=>{s.bal='wgc';s.R.w2=s.V.w2;s.balR=f2(s.V.w2)+' g';s.f=0;},say:s=>`Watch glass + product = <b>${f2(s.V.w2)} g</b>. Mass of product = <b>${f2(s.V.w2-s.V.w)} g</b>.`}
+ ],
+ readings(st){const R=st.R,f=k=>R[k]!==undefined?f2(R[k])+' g':'—';
+  return [['Bottle + iron(II) salt',f('m1')],['Bottle after tipping',f('m2')],['Watch glass',f('w')],['Watch glass + product',f('w2')],['Observation',st.obs]];}
+};
+const BA=Bench({...cuCfg,el:$('#benchA')}), BB=Bench({...feCfg,el:$('#benchB')});
+/* tabs */
+const tabs=[$('#tabA'),$('#tabB')],pans=[$('#pA'),$('#pB')];
+tabs.forEach((t,i)=>t.addEventListener('click',()=>{tabs.forEach((x,j)=>x.setAttribute('aria-selected',i===j));pans.forEach((p,j)=>p.hidden=i!==j);}));
+/* Part 2 */
+$('#chkR').addEventListener('click',()=>{
+ const R=BA.st.R; let r=0,n=0;
+ const t=(id,ok)=>{n++;if(mark(id,ok))r++;};
+ const has=R.w2!==undefined;
+ t('r1',has?near(num('r1'),R.m1,0,.005):false);t('r2',has?near(num('r2'),R.m2,0,.005):false);
+ const used=num('r1')-num('r2');t('r3',near(num('r3'),used,0,.006)&&used>0);
+ t('r4',has?near(num('r4'),R.w,0,.005):false);t('r5',has?near(num('r5'),R.w2,0,.005):false);
+ const prod=num('r5')-num('r4');t('r6',near(num('r6'),prod,0,.006)&&prod>0);
+ ['o1','o2','o3'].forEach(id=>{const e=$('#'+id);t(id,e.value===e.dataset.a);});
+ const n1=num('r3')/249.7;t('c1',near(num('c1'),n1,.006));t('c2',near(num('c2'),num('c1'),.006)&&isFinite(num('c1')));
+ const th=num('c2')*245.7;t('c3',near(num('c3'),th,.006));t('c4',near(num('c4'),num('r6')/num('c3')*100,.008));
+ showScore('sR',r,n,has?'Red boxes need another look. Calculations are checked against your own numbers.':'Finish Part 1 first so your readings can be checked.');});
+$('#chkF').addEventListener('click',()=>{
+ const R=BB.st.R,has=R.w2!==undefined;let r=0,n=0;const t=(id,ok)=>{n++;if(mark(id,ok))r++;};
+ t('f1',has&&near(num('f1'),R.m1-R.m2,0,.006));t('f2',has&&near(num('f2'),R.w2-R.w,0,.006));
+ t('fo',$('#fo').value==='y');t('f3',near(num('f3'),num('f1')/392.1*179.9,.006));t('f4',near(num('f4'),num('f2')/num('f3')*100,.008));
+ showScore('sF',r,n,has?'Check the red boxes.':'Do the optional iron(II) bench first.');});
+/* Part 3 */
+$('#chkQ').addEventListener('click',()=>checkQs('qs','sQ'));
+$('#qs').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+/* Part 4 */
+const EX=[
+ {type:'num',mk:3,q:'A student dissolved 3.12 g of CuSO<sub>4</sub>·5H<sub>2</sub>O in water and made [Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub>·H<sub>2</sub>O as in this practical. The mass of dry crystals was 2.41 g.<br>Calculate the percentage yield. Give your answer to <b>three</b> significant figures.<br><span class="note">[M: CuSO<sub>4</sub>·5H<sub>2</sub>O = 249.7; [Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub>·H<sub>2</sub>O = 245.7]</span>',a:78.5,tol:.004,unit:'%',
+  work:'<b>Worked answer</b><br>n(CuSO<sub>4</sub>·5H<sub>2</sub>O) = 3.12 ÷ 249.7 = 0.012495 mol (1)<br>theoretical mass = 0.012495 × 245.7 = 3.070 g (1)<br>% yield = 2.41 ÷ 3.070 × 100 = <b>78.5 %</b> (1)'},
+ {type:'mc',mk:1,q:'What are the shape and the coordination number of the complex ion [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>?',
+  opts:['tetrahedral, 4','square planar, 4','octahedral, 6','octahedral, 4'],a:'C',work:'<b>C</b>. There are six ligands (4 NH<sub>3</sub> + 2 H<sub>2</sub>O), each forming one dative covalent bond, so the coordination number is 6 and the shape is octahedral.'},
+ {type:'w',mk:3,q:'Explain why a solution of [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup> ions is coloured.',
+  ms:['The ligands cause the d-orbitals (of Cu<sup>2+</sup>) to split into two energy levels.','Electrons absorb energy from (some frequencies of) visible light and are promoted to the higher d-orbital level.','The remaining frequencies are transmitted (or reflected), so the solution appears (deep) blue / the colour seen is the complementary colour.'],
+  note:'Allow "d-d transition" for the second point. Do not award "emits light" or "electrons fall back and give out blue light".'},
+ {type:'num',mk:3,q:'Another student wants to make 3.00 g of [Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub>·H<sub>2</sub>O. They expect a yield of 80.0 %.<br>Calculate the minimum mass of CuSO<sub>4</sub>·5H<sub>2</sub>O they should use. Give your answer to <b>three</b> significant figures.',a:3.81,tol:.004,unit:'g',
+  work:'<b>Worked answer</b><br>mass needed at 100 % = 3.00 ÷ 0.800 = 3.75 g (1)<br>n = 3.75 ÷ 245.7 = 0.015263 mol (1)<br>mass CuSO<sub>4</sub>·5H<sub>2</sub>O = 0.015263 × 249.7 = <b>3.81 g</b> (1)'},
+ {type:'w',mk:2,q:'The percentage yield in this practical is always less than 100 %. Suggest <b>two</b> reasons for this.',
+  ms:['Some of the complex stays dissolved in the filtrate (it is still slightly soluble in the water / ethanol mixture).','Product is lost on transfer, e.g. left in the beaker or on the filter paper, or some dissolves when the crystals are washed.'],
+  note:'Allow "not enough time or cooling for all the crystals to form". Do not award vague answers such as "human error" or "the reaction did not go well".'},
+ {type:'w',mk:4,q:'Concentrated ammonia solution is added dropwise until in excess to aqueous copper(II) sulfate. Describe what is seen and explain the observations. Include the type of reaction at each stage.',
+  ms:['A pale blue precipitate forms first.','Ammonia acts as a base and removes H<sup>+</sup> from water ligands (deprotonation / acid–base), forming [Cu(H<sub>2</sub>O)<sub>4</sub>(OH)<sub>2</sub>].','In excess ammonia the precipitate dissolves to give a deep blue solution.','Ligand exchange: four NH<sub>3</sub> ligands replace ligands to form [Cu(NH<sub>3</sub>)<sub>4</sub>(H<sub>2</sub>O)<sub>2</sub>]<sup>2+</sup>.'],
+  note:'Allow "dark blue" or "royal blue" for deep blue. Do not award "blue precipitate" for the first point without "pale" or "light". Allow correct equations for the explanation marks.'}
+];
+const EXM=Exam('exam',EX);
+$('#resetAll').addEventListener('click',()=>resetPage([BA,BB],[EXM],()=>tabs[0].click()));
+
+})();
+</script>
+</body></html>

@@ -1,0 +1,599 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Making 2-Chloro-2-methylpropane</title>
+<meta name="description" content="Virtual core practical: Making 2-Chloro-2-methylpropane. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp6-chlorination-2-methylpropan-2-ol.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.45rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:70ch}
+.lede{color:var(--muted)}
+.meta{font:600 .88rem var(--display);color:var(--muted);letter-spacing:.02em}
+header{display:flex;flex-direction:column;gap:8px}
+details.safety{border:1px solid #e2c27d;background:#fff8e7;border-radius:10px;padding:8px 14px;max-width:760px}
+details.safety summary{cursor:pointer;font:600 .95rem var(--display);color:#7a4a00}
+details.safety ul{margin:8px 0 4px;padding-left:1.2em;font-size:.93rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;align-items:start}
+@media(max-width:760px){.lab{grid-template-columns:minmax(0,1fr)}}
+.stage{background:var(--bench);border-radius:12px;padding:8px;border:2px dashed transparent;position:relative;outline:none}
+.stage.armed{border-color:var(--accent)}
+.stage.over{border-color:var(--accent);background:var(--accent-soft)}
+.stage:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.stage svg{width:100%;height:auto;display:block;overflow:visible}
+.stage .tag{position:absolute;left:10px;top:8px;font:700 .72rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.shelf{display:flex;flex-direction:column;gap:6px}
+.shelf-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;font:inherit;font-size:.78rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-radius:10px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);width:92px;line-height:1.15;text-align:center}
+.tool svg{width:38px;height:38px;flex:none}
+.tool:hover{border-color:var(--accent)}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{font-size:.88rem;color:var(--muted)}
+.side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.box{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--sheet)}
+.box h3{font-size:.9rem;margin-bottom:6px}
+.method ol{margin:0;padding-left:1.4em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}
+.method li.done{color:var(--good)}
+.method li.done::marker{content:"\2713  "}
+.method li.now{font-weight:700;color:var(--accent)}
+.say{min-height:3.2em;border-radius:10px;padding:10px 12px;background:var(--sheet);border:2px solid var(--line);font-size:.92rem}
+.say.bad{border-color:var(--bad);background:#fdf1f0}
+.say.good{border-color:var(--good);background:#eef8f2}
+.nb{width:100%;min-width:0;font-size:.86rem;border-collapse:collapse}
+.nb td{border:none;border-bottom:1px solid var(--line);padding:4px 2px}
+.nb td:last-child{text-align:right;font:700 .92rem var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.readout{font:700 1rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#a6f3c0;border-radius:8px;padding:3px 10px;display:inline-block;min-width:5em;text-align:center}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:0}
+.controls:empty{display:none}
+.controls .lbl{font-size:.88rem;color:var(--muted)}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mini{font:inherit;font-size:.82rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.on{background:var(--accent-soft);border-color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.res{min-width:520px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+td.ok,td.wrong{position:relative}
+input[type=number],input[type=text]{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.ok{border-color:var(--good)!important}
+.wrong{border-color:var(--bad)!important}
+.score{font-weight:700}
+.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.calc{display:flex;flex-direction:column;gap:10px}
+.calc .row{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--paper)}
+.calc .row>span:first-child{flex:1 1 260px}
+.unit{color:var(--muted);font-size:.9rem}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
+ol.qs li{max-width:74ch}
+.mcq{display:flex;flex-direction:column;gap:4px;margin-top:6px}
+.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.xq{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.xq .qt{max-width:none}
+.xq .mk{font-weight:700;white-space:nowrap}
+.xq textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;padding:8px;border-radius:8px;border:2px solid var(--line);resize:vertical}
+.ms,.worked{border-radius:10px;padding:10px 14px;font-size:.92rem}
+.ms{background:var(--accent-soft)}
+.ms label{display:flex;gap:8px;align-items:flex-start;margin:4px 0;cursor:pointer}
+.ms input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}
+.ms .allow{color:var(--muted);font-size:.86rem;margin:2px 0 2px 26px}
+.worked{background:#eef8f2;border:1px solid #bfe0cc}
+.total{font:700 1.1rem var(--display);color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff;display:block}
+.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.glass-f{fill:rgba(255,255,255,.35);stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round}
+.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}
+.stand{fill:#6b7684}
+.lbl-s{font:12px var(--body);fill:var(--muted)}
+.mv{transition:transform .9s ease}
+.fade{transition:opacity .8s ease}
+@keyframes rise{from{transform:translateY(0);opacity:.9}to{transform:translateY(-40px);opacity:0}}
+@keyframes drip{from{transform:translateY(0);opacity:1}to{transform:translateY(34px);opacity:0}}
+@keyframes jig{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@media(max-width:520px){body{font-size:16px}.tool{width:84px;font-size:.74rem}.tool svg{width:32px;height:32px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.big{font:700 18px var(--display);fill:#a6f3c0}
+.tapg{cursor:pointer;touch-action:none}
+.tapg:focus-visible{outline:3px solid var(--accent)}
+.bub{animation:rise 1.2s linear infinite}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+<header>
+<h1>Chlorination of 2-methylpropan-2-ol with concentrated hydrochloric acid</h1>
+<p class="meta">IAL Chemistry · Core Practical 6 · Unit 3</p>
+<p><b>Aim:</b> To make 2-chloro-2-methylpropane from 2-methylpropan-2-ol, purify it by washing, drying and distillation, and find the percentage yield.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Concentrated hydrochloric acid is <b>corrosive</b> and gives off an irritating gas. Use it in a <b>fume cupboard</b>. Wear eye protection and gloves.</li>
+<li>2-methylpropan-2-ol and 2-chloro-2-methylpropane are <b>highly flammable</b>. No naked flames: heat with an electric heater or a water bath.</li>
+<li>Pressure builds up in the separating funnel. Release it often by opening the tap, with the funnel upside down and pointing away from people.</li>
+</ul></details>
+<p class="lede">(CH<sub>3</sub>)<sub>3</sub>COH(l) + HCl(aq) → (CH<sub>3</sub>)<sub>3</sub>CCl(l) + H<sub>2</sub>O(l)</p>
+</header>
+
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<p class="hint">Drag items onto the bench, or tap an item and then tap the bench. You can tap the funnel tap on the drawing, or use the <b>Turn tap</b> button.</p>
+<div class="lab">
+<div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+<div class="stage" id="stage" tabindex="0" aria-label="Lab bench in fume cupboard. Tap here to use the selected item."><span class="tag" id="phaseTag">Fume cupboard</span>
+<svg viewBox="0 0 640 420" role="img" aria-label="Apparatus">
+<defs>
+<clipPath id="cpSF"><path d="M210 30 V60 C160 85 150 150 175 195 L216 240 V268 H224 V240 L265 195 C290 150 280 85 230 60 V30 Z"/></clipPath>
+<clipPath id="cpBk"><path d="M180 344 V396 Q180 402 186 402 H254 Q260 402 260 396 V344Z"/></clipPath>
+<clipPath id="cpCF"><path d="M300 150 V200 L240 330 Q234 344 250 344 H390 Q406 344 400 330 L340 200 V150Z"/></clipPath>
+<clipPath id="cpRB"><circle cx="140" cy="300" r="40"/></clipPath>
+<clipPath id="cpRx"><path d="M462 300 V372 Q470 382 478 372 V300Z"/></clipPath>
+</defs>
+<rect x="0" y="404" width="640" height="16" fill="#cfd8e1"/>
+<!-- PHASE A separating funnel -->
+<g id="phA" class="fade">
+ <rect x="80" y="20" width="8" height="384" class="stand"/><rect x="40" y="396" width="200" height="8" class="stand"/>
+ <rect x="88" y="200" width="100" height="5" class="stand"/>
+ <g id="sf" style="transform-origin:220px 170px;transition:transform .5s ease">
+  <g clip-path="url(#cpSF)"><rect id="lqAq" x="140" y="400" width="160" height="0" fill="#cfe6f7"/><rect id="lqOrg" x="140" y="400" width="160" height="0" fill="#fff0b8"/><rect id="lqMix" x="140" y="400" width="160" height="0" fill="#e6ebe2" opacity="0"/><g id="bubs"></g></g>
+  <path class="glass" d="M210 30 V60 C160 85 150 150 175 195 L216 240 V330 M230 30 V60 C280 85 290 150 265 195 L224 240 V330"/>
+  <rect id="stem" x="217" y="272" width="6" height="0" fill="#cfe6f7"/>
+  <path class="shine" d="M182 110 Q172 150 188 182"/>
+  <g id="stp" style="opacity:0" class="fade"><path d="M208 14 H232 L230 36 H210Z" fill="#c9ced6" stroke="#7d8fa3" stroke-width="1.5"/></g>
+  <g class="tapg" id="tapg" data-ui="1" tabindex="-1"><circle cx="220" cy="268" r="9" fill="#e9eef3" stroke="#7d8fa3" stroke-width="2"/><rect id="tapH" x="200" y="264" width="40" height="8" rx="3" fill="#4a5568" style="transform-origin:220px 268px;transition:transform .3s"/><rect x="186" y="250" width="68" height="36" fill="transparent"/></g>
+ </g>
+ <text id="tapLbl" x="262" y="292" class="lbl-s"></text>
+ <ellipse cx="220" cy="205" rx="36" ry="6" fill="none" stroke="#6b7684" stroke-width="4"/>
+ <text id="lyU" x="300" y="0" class="lbl-s"></text><text id="lyL" x="300" y="0" class="lbl-s"></text>
+ <g id="stream" style="opacity:0"><rect x="218" y="330" width="4" height="64" fill="#cfe6f7"/></g>
+ <g id="bk" class="fade"><g clip-path="url(#cpBk)"><rect id="bkLq" x="176" y="402" width="90" height="0" fill="#cfe6f7"/></g><path class="glass" d="M176 340 L180 344 V396 Q180 402 186 402 H254 Q260 402 260 396 V344 L264 340"/><text x="270" y="398" class="lbl-s">beaker (waste)</text></g>
+ <g id="puff" style="opacity:0"><circle cx="220" cy="54" r="7" fill="#dfe6ee"/><circle cx="210" cy="40" r="9" fill="#e8edf3"/><circle cx="232" cy="34" r="10" fill="#eef2f6"/></g>
+ <g transform="translate(420,40)"><rect width="190" height="140" rx="10" fill="#fff" stroke="#cdd6df"/><text x="12" y="24" class="lbl-s" style="font-weight:700">Pressure in funnel</text>
+  <rect x="12" y="34" width="166" height="16" rx="8" fill="#e4eaf0"/><rect id="pBar" x="12" y="34" width="0" height="16" rx="8" fill="#1d7a46"/>
+  <text x="12" y="80" class="lbl-s" style="font-weight:700">Shaking time</text><rect x="12" y="88" width="120" height="34" rx="6" fill="#1c2736"/><text id="shT" x="72" y="112" text-anchor="middle" class="big">0 min</text></g>
+</g>
+<!-- PHASE B drying -->
+<g id="phB" class="fade" style="opacity:0;display:none">
+ <g clip-path="url(#cpCF)"><rect id="cfLq" x="230" y="290" width="180" height="60" fill="#fff0b8"/><rect id="cfCl" x="230" y="290" width="180" height="60" fill="#ffffff" opacity=".75"/><g id="solid"></g></g>
+ <path class="glass" d="M300 150 V200 L240 330 Q234 344 250 344 H390 Q406 344 400 330 L340 200 V150"/><path class="shine" d="M258 324 L284 270"/>
+ <text x="320" y="370" text-anchor="middle" class="lbl-s">small conical flask with organic layer</text>
+ <text id="dryTxt" x="320" y="120" text-anchor="middle" class="lbl-s" style="font-weight:700;font-size:14px"></text>
+</g>
+<!-- PHASE C distillation -->
+<g id="phC" class="fade" style="opacity:0;display:none">
+ <rect x="86" y="340" width="108" height="56" rx="8" fill="#5a6070"/><rect id="heatGlow" x="96" y="340" width="88" height="6" fill="#e0473a" opacity="0"/><text x="140" y="378" text-anchor="middle" fill="#fff" font-size="12">heating mantle</text>
+ <g clip-path="url(#cpRB)"><rect id="rbLq" x="96" y="290" width="90" height="60" fill="#fff0b8"/></g>
+ <g id="gran" style="opacity:0"></g>
+ <circle cx="140" cy="300" r="40" class="glass"/><path d="M130 262 V140 M150 262 V200" class="glass"/>
+ <path d="M150 188 L170 188 M150 200 L170 210" class="glass"/>
+ <path d="M130 140 H150 V188" class="glass"/>
+ <g id="thm" style="opacity:0" class="fade"><rect x="136" y="40" width="8" height="160" rx="4" fill="#fff" stroke="#7d8fa3" stroke-width="1.5" id="thmBody"/><circle id="thmBulb" cx="140" cy="200" r="5" fill="#d23"/></g>
+ <g transform="rotate(20 170 196)">
+  <rect x="170" y="180" width="280" height="34" rx="10" fill="rgba(207,230,247,.35)" stroke="#7d8fa3" stroke-width="2.5"/>
+  <path d="M160 192 H470 M160 202 H470" stroke="#7d8fa3" stroke-width="2"/>
+  <g id="wIn" style="opacity:0"><path id="hoseIn" d="" fill="none" stroke="#2f6fb5" stroke-width="5" stroke-linecap="round"/></g>
+  <g id="wOut" style="opacity:0"><path id="hoseOut" d="" fill="none" stroke="#2f6fb5" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 0"/></g>
+  <rect x="200" y="176" width="10" height="6" fill="#7d8fa3"/><rect x="410" y="212" width="10" height="6" fill="#7d8fa3"/>
+ </g>
+ <text id="wLbl" x="430" y="140" class="lbl-s"></text>
+ <path d="M462 292 Q470 300 470 312" class="glass"/>
+ <circle id="dDrip" cx="470" cy="314" r="2.6" fill="#fff0b8" stroke="#c9a94a" style="opacity:0"/>
+ <rect x="436" y="330" width="70" height="72" rx="4" fill="rgba(207,230,247,.5)" stroke="#7d8fa3" stroke-width="2"/>
+ <g clip-path="url(#cpRx)"><rect id="rxLq" x="460" y="380" width="20" height="0" fill="#fff0b8"/></g>
+ <path class="glass" d="M462 300 V372 Q470 384 478 372 V300"/>
+ <text id="rxLbl" x="470" y="418" text-anchor="middle" class="lbl-s">receiver in ice</text>
+ <g transform="translate(250,24)"><rect width="140" height="40" rx="8" fill="#1c2736"/><text id="tRead" x="70" y="27" text-anchor="middle" class="big">— °C</text><text x="70" y="56" text-anchor="middle" class="lbl-s">thermometer</text></g>
+ <g transform="translate(530,340)"><rect width="100" height="40" rx="6" fill="#dfe4ea" stroke="#8a95a3" stroke-width="2"/><rect x="10" y="10" width="80" height="22" rx="3" fill="#1c2736"/><text id="balR" x="50" y="27" text-anchor="middle" font-family="Lexend,sans-serif" font-weight="700" font-size="14" fill="#a6f3c0">0.00 g</text><text x="50" y="56" text-anchor="middle" class="lbl-s">balance</text></g>
+</g>
+</svg></div>
+<div class="controls" id="controls"></div>
+<div class="say" id="say" aria-live="polite"></div>
+<div class="shelf"><span class="shelf-label">Apparatus and chemicals</span><div class="tools" id="shelf"></div></div>
+<div class="controls" id="acts"></div>
+</div>
+<div class="side">
+<div class="box method"><h3>Method</h3><ol id="method"></ol></div>
+<div class="box"><h3>Lab notebook (your readings)</h3><table class="nb" id="nb"></table></div>
+<button class="btn ghost" type="button" id="benchReset">Reset bench</button>
+</div></div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<p>Data: volume of 2-methylpropan-2-ol = 6.0 cm³; density = 0.79 g cm⁻³; M = 74.0 g mol⁻¹. M of 2-chloro-2-methylpropane = 92.5 g mol⁻¹.</p>
+<h3>Observations</h3>
+<div class="tbl-wrap"><table class="res" id="obs"><tbody>
+<tr><th>The upper layer in the separating funnel was</th><td><select id="o1" data-a="org"><option value="">choose…</option><option value="org">2-chloro-2-methylpropane (organic)</option><option value="aq">the aqueous layer</option></select></td></tr>
+<tr><th>When NaHCO<sub>3</sub>(aq) was added I saw</th><td><select id="o2" data-a="co2"><option value="">choose…</option><option value="co2">effervescence (CO<sub>2</sub> gas)</option><option value="ppt">a white precipitate</option><option value="col">a colour change</option></select></td></tr>
+<tr><th>After adding anhydrous Na<sub>2</sub>SO<sub>4</sub> and swirling, the liquid changed from</th><td><select id="o3" data-a="cc"><option value="">choose…</option><option value="cc">cloudy to clear</option><option value="cl">clear to cloudy</option><option value="cb">colourless to blue</option></select></td></tr>
+<tr><th>I collected the fraction that boiled between</th><td><select id="o4" data-a="49"><option value="">choose…</option><option value="49">49 °C and 53 °C</option><option value="78">78 °C and 82 °C</option><option value="100">98 °C and 102 °C</option></select></td></tr>
+</tbody></table></div>
+<h3>Masses</h3>
+<div class="tbl-wrap"><table class="res" style="min-width:420px"><tbody>
+<tr><th>Mass of empty sample tube / g</th><td><input type="text" inputmode="decimal" id="mE"></td></tr>
+<tr><th>Mass of sample tube + product / g</th><td><input type="text" inputmode="decimal" id="mF"></td></tr>
+<tr><th>Mass of 2-chloro-2-methylpropane / g</th><td><input type="text" inputmode="decimal" id="mP"></td></tr>
+</tbody></table></div>
+<h3>Calculations</h3>
+<div class="calc">
+<div class="row"><span>1. Mass of 2-methylpropan-2-ol used = 6.0 × 0.79</span><input type="text" inputmode="decimal" id="c1"><span class="unit">g</span></div>
+<div class="row"><span>2. Moles of 2-methylpropan-2-ol (3 s.f.)</span><input type="text" inputmode="decimal" id="c2"><span class="unit">mol</span></div>
+<div class="row"><span>3. Theoretical mass of 2-chloro-2-methylpropane (1 : 1 ratio)</span><input type="text" inputmode="decimal" id="c3"><span class="unit">g</span></div>
+<div class="row"><span>4. Percentage yield (using your mass of product)</span><input type="text" inputmode="decimal" id="c4"><span class="unit">%</span></div>
+</div>
+<div class="toolbar"><button class="btn" type="button" id="chkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>You open the tap of the inverted funnel often while shaking, because
+<select data-a="p"><option value="">choose…</option><option value="p">pressure builds up (from HCl vapour and, later, CO<sub>2</sub>) and could push the stopper out</option><option value="a">air must get in for the reaction</option><option value="l">the lower layer must be removed</option></select>.</li>
+<li>2-chloro-2-methylpropane (density 0.84 g cm⁻³) forms the
+<select data-a="u"><option value="">choose…</option><option value="u">upper</option><option value="l">lower</option></select>
+layer because it is <select data-a="less"><option value="">choose…</option><option value="less">less dense than</option><option value="more">more dense than</option></select> the aqueous layer, and it does not mix with water.</li>
+<li>The organic layer is shaken with sodium hydrogencarbonate solution to
+<select data-a="n"><option value="">choose…</option><option value="n">neutralise and remove any acid (HCl) left in it</option><option value="d">dry the product</option><option value="r">speed up the reaction</option></select>.</li>
+<li>Anhydrous sodium sulfate is added to <select data-a="w"><option value="">choose…</option><option value="w">remove water</option><option value="a">remove acid</option><option value="c">act as a catalyst</option></select>.
+You know the liquid is dry when it is <select data-a="c"><option value="">choose…</option><option value="c">clear, and some solid moves freely when swirled</option><option value="k">cloudy</option><option value="b">bubbling</option></select>.</li>
+<li>The thermometer bulb is placed level with the side arm so that it
+<select data-a="v"><option value="">choose…</option><option value="v">measures the temperature of the vapour going into the condenser</option><option value="l">measures the temperature of the boiling liquid</option><option value="s">does not break</option></select>.</li>
+<li>Cooling water goes in at the bottom of the condenser so that
+<select data-a="f"><option value="">choose…</option><option value="f">the jacket is completely full of water and cooling is efficient</option><option value="q">the water flows faster</option><option value="h">the water heats up less</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="chkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" aria-labelledby="h4p">
+<h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+<div id="exam" style="display:flex;flex-direction:column;gap:14px"></div>
+<p class="total" id="xTotal" aria-live="polite"></p>
+</section>
+
+<div class="toolbar"><span class="note">Tertiary alcohols react with concentrated HCl at room temperature by an S<sub>N</sub>1 mechanism. 2-chloro-2-methylpropane boils at 51 °C.</span><button class="btn ghost" type="button" id="resetAll">Start again</button></div>
+</div>
+<script>
+"use strict";
+const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RESET={reset:1}; let GEN=0; const TIMERS=[];
+const sleep=ms=>new Promise(r=>setTimeout(r,RM?Math.min(ms,60):ms));
+const W=ms=>{const g=GEN;return sleep(ms).then(()=>{if(g!==GEN)throw RESET;});};
+const every=(ms,fn)=>{const id=setInterval(fn,ms);TIMERS.push(id);return id;};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const snap=(x,s)=>Math.round(x/s)*s;
+const f2=x=>(+x).toFixed(2), f1=x=>(+x).toFixed(1);
+const NS='http://www.w3.org/2000/svg';
+const num=s=>{if(s==null)return NaN;s=String(s).trim().replace(/\s/g,'').replace(',','.').replace(/[x×*]10\^?([-−+]?\d+)/,(m,e)=>'e'+e.replace('−','-'));return s===''?NaN:Number(s);};
+const sf=(x,n)=>{if(!isFinite(x))return '';return Number(x).toPrecision(n).replace(/e([+-]\d+)/,'e$1');};
+const S=id=>document.getElementById(id);
+function at(e,o){if(typeof e==='string')e=S(e);if(!e)return e;for(const k in o)e.setAttribute(k,o[k]);return e;}
+function show(id,on){const e=typeof id==='string'?S(id):id;if(e)e.style.opacity=on?1:0;}
+function tween(ms,f){const g=GEN;return new Promise((res,rej)=>{if(RM||ms<=0){f(1);res();return;}const t0=performance.now();(function k(t){if(g!==GEN){rej(RESET);return;}const p=Math.min(1,Math.max(0,(t-t0)/ms));f(p);if(p<1)requestAnimationFrame(k);else res();})(t0);});}
+const lerp=(a,b,p)=>a+(b-a)*p;
+function mark(e,ok){e.classList.toggle('ok',!!ok);e.classList.toggle('wrong',!ok);}
+function setScore(e,r,n,extra){e.textContent=r+' / '+n+' correct'+(r===n?'. Excellent!':'.')+(extra&&r<n?' '+extra:'');e.className='score '+(r===n?'good':'bad');}
+function btn(parent,label,fn,cls){const b=document.createElement('button');b.type='button';b.className=cls||'btn';b.innerHTML=label;b.addEventListener('click',fn);parent.appendChild(b);return b;}
+
+/* ---------- interactive bench engine ---------- */
+function Bench(o){
+  const B={i:0,busy:false,sel:null,o};
+  const nm=t=>{const x=o.tools.find(z=>z.id===t)||(o.actions||[]).find(z=>z.id===t);return x?x.name:t;};
+  B.say=(m,k)=>{o.say.innerHTML=m;o.say.className='say'+(k?' '+k:'');};
+  B.cur=()=>o.steps[B.i];
+  function renderShelf(){
+    o.shelf.innerHTML='';
+    o.tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.t=t.id;b.innerHTML=t.icon+'<span>'+t.name+'</span>';o.shelf.appendChild(b);});
+    o.acts.innerHTML='';
+    (o.actions||[]).forEach(a=>btn(o.acts,a.name,()=>B.use(a.id),'btn ghost'));
+  }
+  function renderMethod(){o.method.innerHTML=o.steps.map((s,k)=>`<li class="${k<B.i?'done':k===B.i?'now':''}">${s.label}</li>`).join('');}
+  B.ctl=()=>{o.controls.innerHTML='';return o.controls;};
+  B.use=async t=>{
+    const s=B.cur();clearSel();
+    if(B.busy){B.say('Wait for this step to finish, or use the buttons under the bench.','bad');return;}
+    if(!s){B.say(o.finishedMsg,'good');return;}
+    const want=[].concat(s.t||[]);
+    if(want.includes(t)){
+      B.busy=true;const g=GEN;
+      try{const msg=s.run?await s.run(t):'';if(g!==GEN)return;B.busy=false;B.next(msg);}
+      catch(e){if(e!==RESET){B.busy=false;console.error(e);}}
+    }else if(s.start&&s.accept&&s.accept(t)){/* handled */}
+    else{B.say((o.hint&&o.hint(t,s,B))||(s.start?'Finish this step first, using the buttons under the bench.':'Not yet. Think about what must happen first. Look at the method list.'),'bad');}
+  };
+  B.next=msg=>{
+    B.i++;renderMethod();o.controls.innerHTML='';const s=B.cur();
+    if(!s){B.say((msg?msg+'<br>':'')+o.finishedMsg,'good');o.onFinish&&o.onFinish();return;}
+    B.say((msg?msg+'<br>':'')+'<b>What next?</b> Check the method list.','good');
+    if(s.start)s.start(B);
+  };
+  B.reset=()=>{GEN++;TIMERS.splice(0).forEach(clearInterval);B.i=0;B.busy=false;clearSel();o.controls.innerHTML='';renderMethod();o.onReset&&o.onReset();B.say(o.intro);const s=B.cur();if(s&&s.start)s.start(B);};
+  function clearSel(){B.sel=null;$$('.tool',o.shelf).forEach(b=>b.classList.remove('selected'));o.stage.classList.remove('armed');}
+  function choose(t){if(B.sel===t){clearSel();return;}clearSel();B.sel=t;o.shelf.querySelector(`[data-t="${t}"]`).classList.add('selected');o.stage.classList.add('armed');B.say('Now tap the apparatus on the bench to use <b>'+nm(t)+'</b>.');}
+  let drag=null;
+  o.shelf.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b)return;drag={t:b.dataset.t,x:e.clientX,y:e.clientY,moved:false,ghost:null,over:false,el:b};try{b.setPointerCapture(e.pointerId);}catch(_){}});
+  o.shelf.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.style.cssText='position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:48px;height:48px;';g.innerHTML=drag.el.querySelector('svg').outerHTML;g.firstChild.style.cssText='width:48px;height:48px';drag.ghost=g;document.body.appendChild(g);}
+    if(drag.moved){drag.ghost.style.transform=`translate(${e.clientX-24}px,${e.clientY-24}px) rotate(-15deg)`;const u=document.elementFromPoint(e.clientX,e.clientY);const ov=!!(u&&o.stage.contains(u));drag.over=ov;o.stage.classList.toggle('over',ov);}
+  });
+  function end(cancel){if(!drag)return;const d=drag;drag=null;if(d.ghost)d.ghost.remove();o.stage.classList.remove('over');if(cancel)return;if(d.moved){if(d.over)B.use(d.t);}else choose(d.t);}
+  o.shelf.addEventListener('pointerup',()=>end(false));
+  o.shelf.addEventListener('pointercancel',()=>end(true));
+  o.shelf.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b)choose(b.dataset.t);}});
+  o.stage.addEventListener('click',e=>{if(e.target.closest('[data-ui]'))return;if(B.sel)B.use(B.sel);});
+  o.stage.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&B.sel){e.preventDefault();B.use(B.sel);}});
+  renderShelf();
+  return B;
+}
+
+/* ---------- Part 3 questions ---------- */
+function checkQs(root,scoreEl){
+  let r=0,n=0;
+  $$('select[data-a]',root).forEach(s=>{n++;const ok=s.value===s.dataset.a;mark(s,ok);if(ok)r++;});
+  $$('.mcq[data-a]',root).forEach(g=>{n++;const c=g.querySelector('input:checked');$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===g.dataset.a;if(c)mark(c.closest('label'),ok);if(ok)r++;});
+  setScore(scoreEl,r,n,'Red answers need another look.');
+}
+
+/* ---------- Part 4 exam practice ---------- */
+function Exam(root,qs,totalEl){
+  const got=qs.map(()=>0), max=qs.reduce((a,q)=>a+q.m,0);
+  root.innerHTML=qs.map((q,k)=>{
+    let h=`<div class="xq"><p class="qt"><b>${k+1}.</b> ${q.q} <span class="mk">(${q.m})</span></p>`;
+    if(q.type==='mcq')h+=`<div class="mcq">${q.o.map((t,j)=>`<label><input type="radio" name="xq${k}" value="${j}"><span><b>${'ABCD'[j]}</b>&nbsp; ${t}</span></label>`).join('')}</div><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="mcq">Check</button><span class="score" id="xs${k}"></span></div>`;
+    if(q.type==='num')h+=`<div class="calc"><div class="row"><span>Your answer</span><input type="text" inputmode="decimal" id="xn${k}" aria-label="Answer to question ${k+1}"><span class="unit">${q.u}</span></div></div><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="num">Check</button><span class="score" id="xs${k}"></span></div><div class="worked" id="xw${k}" hidden><b>Worked answer</b><br>${q.w}</div>`;
+    if(q.type==='text')h+=`<textarea id="xt${k}" aria-label="Your answer to question ${k+1}" placeholder="Write your answer here…"></textarea><div class="toolbar"><button class="btn ghost" type="button" data-k="${k}" data-act="ms">Show mark scheme</button><span class="score" id="xs${k}"></span></div><div class="ms" id="xm${k}" hidden><b>Mark scheme</b> — tick each point you made (max ${q.m})${q.ms.map(p=>`<label><input type="checkbox" data-k="${k}"><span>${p}</span></label>`).join('')}${(q.notes||[]).map(t=>`<p class="allow">${t}</p>`).join('')}</div>`;
+    return h+'</div>';
+  }).join('');
+  const total=()=>{const t=got.reduce((a,b)=>a+b,0);totalEl.textContent=`Exam practice: ${t} / ${max} marks`;};
+  root.addEventListener('click',e=>{
+    const b=e.target.closest('button[data-act]');if(!b)return;const k=+b.dataset.k,q=qs[k],s=S('xs'+k);
+    if(b.dataset.act==='mcq'){const c=root.querySelector(`input[name="xq${k}"]:checked`);$$(`input[name="xq${k}"]`,root).forEach(i=>i.closest('label').classList.remove('ok','wrong'));if(!c){s.textContent='Choose an answer first.';s.className='score bad';return;}const ok=+c.value===q.a;mark(c.closest('label'),ok);if(!ok)mark(root.querySelector(`input[name="xq${k}"][value="${q.a}"]`).closest('label'),true);got[k]=ok?q.m:0;s.innerHTML=(ok?'Correct. ':'Not this time. The answer is '+'ABCD'[q.a]+'. ')+(q.why||'');s.className='score '+(ok?'good':'bad');}
+    if(b.dataset.act==='num'){const i=S('xn'+k),v=num(i.value);const ok=isFinite(v)&&Math.abs(v-q.a)<=q.tol;mark(i,ok);got[k]=ok?q.m:0;s.textContent=ok?`Correct: ${q.m} / ${q.m} marks.`:'Not quite. Read the worked answer.';s.className='score '+(ok?'good':'bad');S('xw'+k).hidden=false;}
+    if(b.dataset.act==='ms'){const m=S('xm'+k);m.hidden=!m.hidden;b.textContent=m.hidden?'Show mark scheme':'Hide mark scheme';}
+    total();
+  });
+  root.addEventListener('change',e=>{const c=e.target;if(c.type==='checkbox'&&c.dataset.k){const k=+c.dataset.k;const n=$$(`#xm${k} input:checked`,root).length;got[k]=Math.min(n,qs[k].m);const s=S('xs'+k);s.textContent=`You gave yourself ${got[k]} / ${qs[k].m}`;s.className='score';total();}});
+  total();
+  return {reset(){got.fill(0);total();}};
+}
+
+function resetForms(){
+  $$('input[type=text],input[type=number],textarea').forEach(i=>i.value='');
+  $$('input[type=radio],input[type=checkbox]').forEach(i=>i.checked=false);
+  $$('select').forEach(s=>s.selectedIndex=0);
+  $$('.ok,.wrong').forEach(e=>e.classList.remove('ok','wrong'));
+  $$('.ms,.worked').forEach(e=>e.hidden=true);
+  $$('button[data-act="ms"]').forEach(b=>b.textContent='Show mark scheme');
+  $$('.score').forEach(e=>{e.textContent='';e.className='score';});
+}
+document.addEventListener('input',e=>{if(e.target.matches('input,select,textarea'))e.target.classList.remove('ok','wrong');});
+document.addEventListener('change',e=>{if(e.target.type==='radio'){const g=e.target.closest('.mcq');if(g)$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));}});
+
+/* ---------- icons ---------- */
+const IC={
+  bottle:(c,l)=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="16" y="2" width="8" height="6" rx="1.5" fill="#3a3f4a"/><path d="M12 12 Q12 9 15 9 H25 Q28 9 28 12 V36 Q28 38 26 38 H14 Q12 38 12 36Z" fill="${c}" stroke="#7d8fa3" stroke-width="1.6"/><rect x="14" y="20" width="12" height="9" fill="#fff" opacity=".9"/>${l?`<text x="20" y="27" font-size="6" text-anchor="middle" font-family="sans-serif" fill="#333">${l}</text>`:''}</svg>`,
+  beaker:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 6 V34 Q9 37 12 37 H28 Q31 37 31 34 V6" fill="none" stroke="#7d8fa3" stroke-width="1.8"/><rect x="10" y="20" width="20" height="16" fill="${c}"/></svg>`,
+  cyl:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M15 3 V34 H25 V3" fill="none" stroke="#7d8fa3" stroke-width="1.8"/><path d="M10 37 H30" stroke="#7d8fa3" stroke-width="2.5"/><rect x="16" y="18" width="8" height="16" fill="${c}"/><path d="M25 10h-3M25 16h-3M25 22h-3M25 28h-3" stroke="#7d8fa3"/></svg>`,
+  wash:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M14 14 H26 V36 H14Z" fill="#dff0fb" stroke="#7d8fa3" stroke-width="1.6"/><path d="M19 14 V8 L32 4" fill="none" stroke="#7d8fa3" stroke-width="1.6"/></svg>`,
+  rod:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 34 L30 6" stroke="#7d8fa3" stroke-width="3" stroke-linecap="round"/></svg>`,
+  funnel:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 8 H34 L22 22 V36 H18 V22Z" fill="none" stroke="#7d8fa3" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+  stopper:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 12 H28 L25 30 H15Z" fill="#c9ced6" stroke="#7d8fa3" stroke-width="1.6"/><rect x="10" y="9" width="20" height="5" rx="2" fill="#aeb5bf"/></svg>`,
+  pipette:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 V13 M20 25 V38" stroke="#7d8fa3" stroke-width="2"/><ellipse cx="20" cy="19" rx="4" ry="6" fill="#e9f3fb" stroke="#7d8fa3" stroke-width="1.6"/><path d="M17 6 H23" stroke="#b3261e" stroke-width="1.5"/></svg>`,
+  dropper:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15" y="3" width="10" height="10" rx="4" fill="#3a3f4a"/><path d="M17 13 H23 L21 36 H19Z" fill="${c}" stroke="#7d8fa3" stroke-width="1.4"/></svg>`,
+  tile:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 26 L14 18 H36 L26 26Z" fill="#fff" stroke="#7d8fa3" stroke-width="1.6"/><path d="M4 26 V29 H26 L36 21 V18" fill="none" stroke="#7d8fa3" stroke-width="1.2"/></svg>`,
+  powder:c=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 L22 22 L34 26" stroke="#7d8fa3" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M8 30 Q12 24 18 26 Q16 30 8 30Z" fill="${c}" stroke="#9aa"/><path d="M8 36 H32" stroke="#9aa"/><path d="M14 36 Q20 28 26 36Z" fill="${c}" stroke="#9aa" stroke-width=".8"/></svg>`,
+  flame:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="15" y="24" width="10" height="12" fill="#8a929c"/><path d="M20 4 Q28 14 24 22 Q20 26 16 22 Q12 14 20 4Z" fill="#6aa5ff" opacity=".85"/><rect x="10" y="35" width="20" height="3" fill="#6b7684"/></svg>`,
+  therm:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="17" y="3" width="6" height="28" rx="3" fill="#fff" stroke="#7d8fa3" stroke-width="1.5"/><circle cx="20" cy="33" r="5" fill="#d23" /><rect x="19" y="14" width="2" height="18" fill="#d23"/></svg>`,
+  tubes:c=>`<svg viewBox="0 0 40 40" aria-hidden="true">${[9,20,31].map(x=>`<path d="M${x-4} 6 V30 Q${x-4} 35 ${x} 35 Q${x+4} 35 ${x+4} 30 V6" fill="none" stroke="#7d8fa3" stroke-width="1.5"/><rect x="${x-3}" y="22" width="6" height="9" fill="${c}"/>`).join('')}</svg>`,
+  granules:()=>`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 14 H30 V36 H10Z" fill="none" stroke="#7d8fa3" stroke-width="1.6"/>${[[15,30],[21,32],[26,29],[18,25],[24,24]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#8b929d"/>`).join('')}</svg>`
+};
+
+(function(){
+const TH=6.0*0.79/74.0*92.5;
+let D,aq=0,org=0,mix=false,tapOpen=true,press=0;
+const nb=S('nb');
+function note(){let h='';
+ if(D.e!=null)h+=`<tr><td>Empty sample tube</td><td>${f2(D.e)} g</td></tr>`;
+ if(D.f!=null)h+=`<tr><td>Sample tube + product</td><td>${f2(D.f)} g</td></tr>`;
+ if(D.range)h+=`<tr><td>Fraction collected</td><td>${D.range}</td></tr>`;
+ nb.innerHTML=h||'<tr><td class="note">Your readings will appear here.</td><td></td></tr>';}
+const yv=v=>240-v*4.4;
+function drawSF(){
+ const tot=aq+org;
+ if(mix){at('lqMix',{y:yv(tot),height:400});S('lqMix').setAttribute('opacity',1);at('lqAq',{height:0});at('lqOrg',{height:0});}
+ else{S('lqMix').setAttribute('opacity',0);
+  if(aq>0){at('lqAq',{y:yv(aq),height:400});at('lqOrg',{y:yv(tot),height:Math.max(0,yv(aq)-yv(tot))});}
+  else{at('lqAq',{height:0});at('lqOrg',{y:yv(tot),height:org>0?400:0});}}
+ const top=tot>0, lab=!mix&&org>0&&aq>0;
+ at('lyU',{y:yv(tot)+(yv(aq)-yv(tot))/2+4,x:290});S('lyU').textContent=lab?'upper layer':'';S('lyU').style.opacity=1;
+ at('lyL',{y:(yv(aq)+240)/2+4,x:290});S('lyL').textContent=lab?'lower layer':'';
+}
+function setTap(o){tapOpen=o;S('tapH').style.transform=o?'rotate(90deg)':'';S('tapLbl').textContent='tap '+(o?'OPEN':'closed');}
+function setP(p){press=Math.max(0,p);S('pBar').setAttribute('width',Math.min(166,press*33));S('pBar').setAttribute('fill',press>=4?'#b3261e':press>=3?'#d98a1a':'#1d7a46');}
+function bubbles(on,n){S('bubs').innerHTML=on?Array.from({length:n||10},(_,i)=>`<circle class="bub" cx="${185+Math.random()*70}" cy="${yv(aq)+8+Math.random()*30}" r="${2+Math.random()*2}" fill="#fff" stroke="#9cc6e6" style="animation-delay:${(Math.random()*1.2).toFixed(2)}s"/>`).join(''):'';}
+function phase(p){['phA','phB','phC'].forEach(id=>{const on=id===p;S(id).style.display=on?'':'none';S(id).style.opacity=on?1:0;});S('phaseTag').textContent={phA:'Fume cupboard: separating funnel',phB:'Drying the product',phC:'Simple distillation'}[p];}
+
+/* tap control */
+let tapHandler=null;
+function tapClick(){if(tapHandler){tapHandler();return;}
+ B.say(aq+org>0?'<b>Keep the tap closed now.</b> Opening it would let liquid run out.':'The tap is not needed at this point.','bad');}
+S('tapg').addEventListener('click',e=>{e.stopPropagation();tapClick();});
+
+const tools=[
+ {id:'alc',name:'2-methyl­propan-2-ol (10 cm³ cylinder)',icon:IC.cyl('#f4f7fb')},
+ {id:'hcl',name:'Conc. HCl (25 cm³ cylinder)',icon:IC.cyl('#e9f5e0')},
+ {id:'stopper',name:'Stopper',icon:IC.stopper()},
+ {id:'nahco3',name:'NaHCO₃(aq)',icon:IC.bottle('#eef4fb','NaHCO₃')},
+ {id:'naoh',name:'Conc. NaOH(aq)',icon:IC.bottle('#eef4fb','NaOH')},
+ {id:'cflask',name:'Small dry conical flask',icon:IC.beaker('#fff')},
+ {id:'na2so4',name:'Anhydrous Na₂SO₄',icon:IC.powder('#ffffff')},
+ {id:'rbf',name:'Round-bottomed flask',icon:`<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="26" r="11" fill="#fff" stroke="#7d8fa3" stroke-width="1.8"/><path d="M17 15 V4 M23 15 V4" stroke="#7d8fa3" stroke-width="1.8"/></svg>`},
+ {id:'gran',name:'Anti-bumping granules',icon:IC.granules()},
+ {id:'therm',name:'Thermo­meter',icon:IC.therm()},
+ {id:'water',name:'Condenser water hoses',icon:`<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 30 Q14 10 24 24 T38 10" fill="none" stroke="#2f6fb5" stroke-width="4" stroke-linecap="round"/></svg>`},
+ {id:'bal',name:'Balance + sample tube',icon:`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="26" width="32" height="10" rx="2" fill="#dfe4ea" stroke="#8a95a3"/><rect x="10" y="29" width="20" height="5" fill="#1c2736"/><path d="M17 6 V22 Q20 26 23 22 V6" fill="none" stroke="#7d8fa3" stroke-width="1.6"/></svg>`},
+ {id:'mantle',name:'Electric heating mantle',icon:`<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="20" width="30" height="16" rx="4" fill="#5a6070"/><path d="M10 20 Q20 8 30 20" fill="none" stroke="#e0473a" stroke-width="2"/></svg>`},
+ {id:'bunsen',name:'Bunsen burner',icon:IC.flame()}
+];
+const actions=[{id:'stand',name:'Put funnel back in ring, remove stopper, let layers settle'}];
+
+function shakeStep(B,opt){
+ return new Promise(res=>{const g=GEN;const c=B.ctl();let n=0,busy=false;const need=opt.need;
+  btn(c,opt.gas?'Shake gently':'Shake (2 min)',async()=>{if(g!==GEN||busy)return;busy=true;S('sf').style.transform='rotate(-12deg)';await sleep(250);S('sf').style.transform='rotate(12deg)';await sleep(250);S('sf').style.transform='';await sleep(300);busy=false;if(g!==GEN)return;
+    n++;if(!opt.gas){mix=true;drawSF();S('shT').textContent=Math.min(20,n*2)+' min';}
+    setP(press+(opt.gas?(n<4?2:0.5):1.2));if(opt.gas)bubbles(n<4,n<2?14:6);
+    if(press>=4){B.say('<b>Danger!</b> The pressure is too high. The stopper could fly out and spray acid. Invert the funnel and release the pressure now.','bad');}
+    else B.say(opt.gas?(n<4?'Fizzing: CO<sub>2</sub> is made. Release the pressure.':'Hardly any fizzing now.'):'Shaken for '+Math.min(20,n*2)+' min (time-lapse). Release the pressure often.');
+    if(n>=need&&press<1){c.innerHTML='';res(opt.done);}},'btn ghost');
+  btn(c,'Invert and open tap to release pressure',async()=>{if(g!==GEN||busy)return;busy=true;S('sf').style.transform='rotate(180deg)';await sleep(500);setTap(true);S('puff').style.opacity=press>0.5?1:0;await sleep(500);S('puff').style.opacity=0;setTap(false);const had=press;setP(0);S('sf').style.transform='';await sleep(500);busy=false;if(g!==GEN)return;
+    B.say(had>0.5?'Hiss! Gas escaped through the tap. Pressure released. Point the tap away from people.':'Nothing escaped. There was no pressure yet.');
+    if(n>=need){c.innerHTML='';bubbles(false);res(opt.done);}},'btn ghost');
+  B.say(opt.intro);});
+}
+function drainStep(B,o){
+ return new Promise(res=>{const g=GEN;const c=B.ctl();let id=null,lost=0;
+  S('bk').style.opacity=1;
+  const tb=btn(c,'Turn tap (open / close)',()=>tapHandler(),'btn ghost');
+  const db=btn(c,'Done: layer removed',()=>{if(g!==GEN)return;if(tapOpen){B.say('Close the tap first.','bad');return;}
+    if(aq>0.4){B.say('There is still some aqueous (lower) layer in the funnel. Open the tap again and run it off carefully.','bad');return;}
+    tapHandler=null;c.innerHTML='';S('stream').style.opacity=0;at('stem',{height:0});
+    if(lost>0.05)D.loss+=lost*0.84;
+    res(lost>0.05?'Lower layer removed, but about '+f1(lost)+' cm³ of your organic layer went into the waste beaker too. Your yield will be lower.':'Lower layer removed. The organic layer is left in the funnel. Good control!');},'btn');
+  tapHandler=()=>{if(g!==GEN)return;setTap(!tapOpen);
+   if(tapOpen){S('stream').style.opacity=1;at('stem',{height:58});let bkV=+S('bkLq').dataset.v||0;
+     id=every(80,()=>{if(g!==GEN){clearInterval(id);return;}const r=RM?0.6:0.22;
+       if(aq>0){aq=Math.max(0,aq-r*(aq<3?0.5:1));}else if(org>0){org=Math.max(0,org-r*0.5);lost+=r*0.5;S('stem').setAttribute('fill','#fff0b8');}
+       if(aq>0)S('stem').setAttribute('fill','#cfe6f7');
+       bkV+=r;S('bkLq').dataset.v=bkV;at('bkLq',{y:402-Math.min(55,bkV*1.6),height:60});drawSF();
+       if(aq<=0&&lost>0.4)B.say('<b>Close the tap!</b> The organic layer is running out.','bad');else if(aq<2)B.say('Nearly there. Close the tap when the boundary reaches the tap.');});
+   }else{clearInterval(id);S('stream').style.opacity=0;at('stem',{height:0});}};
+  B.say(o);});
+}
+const steps=[
+ {label:'Check the separating funnel tap is closed.',h:'Close the tap first, or the liquids will run straight out.',start:B=>{const c=B.ctl();tapHandler=()=>{setTap(!tapOpen);if(!tapOpen){tapHandler=null;c.innerHTML='';B.next('Tap closed.');}};btn(c,'Turn tap',()=>tapHandler&&tapHandler(),'btn ghost');B.say('The tap is OPEN. Tap the tap on the funnel, or press <b>Turn tap</b>, to close it.');}},
+ {t:'alc',label:'Add 6.0 cm³ of 2-methylpropan-2-ol to the funnel.',h:'Add the alcohol to the funnel.',
+  run:async()=>{await tween(900,p=>{org=6*p;drawSF();});return '6.0 cm³ of 2-methylpropan-2-ol added. It is a colourless liquid.';}},
+ {t:'hcl',label:'Add 20 cm³ of concentrated hydrochloric acid (in the fume cupboard).',h:'Add the concentrated hydrochloric acid next.',
+  run:async()=>{await tween(1200,p=>{aq=20*p;mix=true;drawSF();});return '20 cm³ of conc. HCl added. Fumes stay in the fume cupboard.';}},
+ {t:'stopper',label:'Stopper the funnel.',h:'Put the stopper in before shaking.',run:async()=>{S('stp').style.opacity=1;await W(500);return 'Stopper in.';}},
+ {label:'Shake for 20 minutes. Invert and open the tap often to release pressure.',h:'Use the buttons above to shake and release pressure.',
+  start:B=>shakeStep(B,{need:10,intro:'Shake gently. Each shake = 2 minutes (time-lapse). Watch the pressure bar.',done:'20 minutes of shaking done. The reaction is complete.'}).then(m=>{org=6.7;aq=19.3;B.next(m);})},
+ {t:'stand',label:'Put the funnel back in the ring, remove the stopper and let the two layers separate.',h:'Stand the funnel in the ring and let the layers separate.',
+  run:async()=>{S('stp').style.opacity=0;await W(400);mix=false;drawSF();S('lqMix').setAttribute('opacity',1);await tween(1800,p=>S('lqMix').setAttribute('opacity',1-p));
+   return 'Two layers! Which one is the product (density 0.84 g cm⁻³)?';}},
+ {label:'Decide which layer is the organic product.',h:'Answer the question above first.',start:B=>{const c=B.ctl();
+   btn(c,'Upper layer is the product',()=>{c.innerHTML='';B.next('Correct. 2-chloro-2-methylpropane (0.84 g cm⁻³) is less dense than the aqueous layer, so it floats on top.');},'btn ghost');
+   btn(c,'Lower layer is the product',()=>B.say('No. The aqueous layer (mostly water and HCl, density above 1 g cm⁻³) is denser. The product, 0.84 g cm⁻³, floats on top.','bad'),'btn ghost');B.say('Which layer is the product?');}},
+ {label:'Run off and discard the lower aqueous layer.',h:'Use the tap to remove the lower layer.',start:B=>drainStep(B,'Put a beaker under the funnel. Open the tap and run off the lower (aqueous) layer. Close the tap at the boundary.').then(m=>{S('bkLq').dataset.v=0;at('bkLq',{y:402,height:0});B.next(m);})},
+ {t:'nahco3',label:'Add about 10 cm³ of sodium hydrogencarbonate solution to the organic layer.',h:'Wash the product with sodium hydrogencarbonate solution next, to remove acid.',
+  run:async()=>{await tween(1000,p=>{aq=10*p;drawSF();});bubbles(true,16);S('stp').style.opacity=1;return 'Effervescence! CO<sub>2</sub> forms as the acid is neutralised. The stopper is in.';}},
+ {label:'Shake gently, releasing the pressure (CO₂) often, until no more gas is made.',h:'Shake gently and release the CO₂ pressure.',
+  start:B=>shakeStep(B,{need:5,gas:true,intro:'Shake gently. Release pressure after each shake: CO<sub>2</sub> builds up fast.',done:'No more gas. All the acid has been neutralised.'}).then(m=>{S('stp').style.opacity=0;bubbles(false);B.next(m);})},
+ {label:'Run off and discard the lower aqueous layer again.',h:'Remove the aqueous layer again with the tap.',start:B=>drainStep(B,'Run off the lower (aqueous) layer again. Close the tap at the boundary.').then(m=>B.next(m))},
+ {t:'cflask',label:'Run the organic layer into a small dry conical flask.',h:'Next, put the organic layer into a small dry flask.',
+  run:async()=>{setTap(true);S('stream').style.opacity=1;S('stream').querySelector('rect').setAttribute('fill','#fff0b8');await tween(1200,p=>{org=6.7*(1-p);drawSF();});setTap(false);S('stream').style.opacity=0;S('stream').querySelector('rect').setAttribute('fill','#cfe6f7');
+   await W(300);phase('phB');S('cfCl').setAttribute('opacity',.75);S('dryTxt').textContent='Cloudy: the liquid contains water';return 'The organic layer is cloudy. It still contains droplets of water.';}},
+ {t:'na2so4',label:'Add anhydrous sodium sulfate. Swirl until the liquid is clear.',h:'Add the drying agent to the organic layer.',
+  run:()=>new Promise(res=>{const g=GEN;let n=0;
+   S('solid').innerHTML=Array.from({length:14},(_,i)=>`<circle cx="${270+Math.random()*100}" cy="${334+Math.random()*8}" r="${3+Math.random()*3}" fill="#f4f4f4" stroke="#bbb"/>`).join('');
+   const c=B.ctl();btn(c,'Swirl',async()=>{if(g!==GEN)return;S('phB').style.transformOrigin='320px 340px';S('phB').style.animation='jig .5s 2';await sleep(1000);S('phB').style.animation='';if(g!==GEN)return;n++;S('cfCl').setAttribute('opacity',Math.max(0,.75-n*.25));
+     if(n>=3){S('dryTxt').textContent='Clear: the liquid is dry';S('solid').innerHTML+=Array.from({length:10},()=>`<circle cx="${260+Math.random()*120}" cy="${300+Math.random()*30}" r="2" fill="#fff" stroke="#aaa"/>`).join('');}
+     B.say(n<3?'Still a bit cloudy. The solid is clumping as it takes up water. Swirl again.':'The liquid is now clear and some solid swirls freely (it is not all clumped). The product is dry.');},'btn ghost');
+   btn(c,'It is dry',()=>{if(g!==GEN)return;if(n<3){B.say('Not yet. The liquid is still cloudy, so there is still water.','bad');return;}c.innerHTML='';res('Product dried.');},'btn');B.say('Swirl the flask. Watch the cloudiness.');})},
+ {t:'rbf',label:'Decant the dry liquid into a round-bottomed flask (leave the solid behind).',h:'Put the dry liquid into the distillation flask. Leave the drying agent behind.',
+  run:async()=>{phase('phC');at('rbLq',{y:310});return 'Liquid decanted into the round-bottomed flask. The solid stays behind.';}},
+ {t:'gran',label:'Add a few anti-bumping granules.',h:'Add anti-bumping granules before heating, for smooth boiling.',
+  run:async()=>{S('gran').innerHTML=[[128,330],[140,334],[152,329]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3" fill="#8b929d"/>`).join('');S('gran').style.opacity=1;return 'Granules added. They make the liquid boil smoothly.';}},
+ {label:'Fit the thermometer with its bulb level with the side arm.',h:'Choose the thermometer position first.',start:B=>{const c=B.ctl();S('thm').style.opacity=1;
+   const pos=(y,ok,msg)=>btn(c,msg,()=>{at('thmBody',{height:y-40});at('thmBulb',{cy:y});if(ok){c.innerHTML='';B.next('Correct. The bulb is level with the side arm, so it reads the temperature of the vapour going into the condenser.');}else B.say(y>250?'No. In the liquid, it reads the temperature of the boiling liquid, not of the vapour that is collected.':'No. Above the side arm, the bulb is not in the vapour that goes into the condenser. It will read too low.','bad');},'btn ghost');
+   pos(310,false,'Bulb in the liquid');pos(198,true,'Bulb level with the side arm');pos(150,false,'Bulb near the top');B.say('Where should the thermometer bulb go?');}},
+ {label:'Connect the condenser water: in at the bottom, out at the top.',h:'Connect the condenser water first.',start:B=>{const c=B.ctl();
+   const draw=(good)=>{S('wIn').style.opacity=1;S('wOut').style.opacity=1;S('hoseIn').setAttribute('d',good?'M415 218 V260 H470':'M205 176 V130 H150');S('hoseOut').setAttribute('d',good?'M205 176 V130 H150':'M415 218 V260 H470');};
+   btn(c,'Water in at the lower end',()=>{draw(true);S('wLbl').textContent='water in (bottom) → out (top)';c.innerHTML='';B.next('Correct. Water in at the bottom fills the jacket completely, so cooling is efficient.');},'btn ghost');
+   btn(c,'Water in at the upper end',()=>{draw(false);B.say('No. Water in at the top drains out without filling the jacket. Air pockets mean poor cooling.','bad');},'btn ghost');B.say('Which end of the condenser should the water go in?');}},
+ {t:'bal',label:'Weigh a clean, dry sample tube. Use it as the receiver.',h:'Weigh the empty sample tube before you collect the product.',
+  run:async()=>{D.e=+f2(snap(rnd(13.5,17.5),0.01));S('balR').textContent=f2(D.e)+' g';note();await W(600);S('balR').textContent='0.00 g';return 'Empty sample tube: <b>'+f2(D.e)+' g</b>. A different beaker is under the condenser for now, to catch the first drops.';}},
+ {t:'mantle',label:'Heat gently with the heating mantle.',h:'Now heat the flask. Use the electric heater.',run:async()=>{S('heatGlow').setAttribute('opacity',1);return 'Heating. Watch the thermometer.';}},
+ {label:'Collect the fraction boiling between 49 °C and 53 °C in the weighed sample tube. Stop heating above 53 °C.',h:'Use the buttons to change receiver and stop heating.',start:distil},
+ {t:'bal',label:'Weigh the sample tube with the product.',h:'Weigh the tube with your product.',
+  run:async()=>{S('balR').textContent=f2(D.f)+' g';note();return 'Sample tube + product: <b>'+f2(D.f)+' g</b>.';}}
+];
+function distil(B){
+ const g=GEN,c=B.ctl();let T=21,stage=0,swapped=false,col=0,pre=0,stopped=false,imp=0,swapT=null;
+ const P=Math.max(1.2,TH*rnd(0.46,0.64)-D.loss);let left=P;
+ const read=()=>S('tRead').textContent=f1(snap(T,0.5))+' °C';
+ const sw=btn(c,'Change to the weighed sample tube',()=>{if(g!==GEN||swapped)return;if(T<48.9){B.say('Not yet. Below 49 °C the liquid coming over is not pure product.','bad');return;}swapped=true;swapT=snap(T,0.5);sw.disabled=true;S('rxLbl').textContent='weighed sample tube';at('rxLq',{y:380,height:0});col=0;B.say('Collecting in the weighed sample tube at '+f1(swapT)+' °C.');},'btn ghost');
+ const st=btn(c,'Stop heating',()=>{if(g!==GEN)return;if(!swapped){B.say('You have not collected the product yet.','bad');return;}if(T<53&&left>0.15){B.say('Product is still distilling at a steady temperature. Keep going.','bad');return;}finish();},'btn');
+ const id=every(100,()=>{if(g!==GEN||stopped)return;const k=RM?3:1;
+   if(T<44){T+=0.9*k;}else if(T<49&&pre<0.25){T+=0.12*k;pre+=0.01*k;drip();}
+   else if(left>0){T=50.5+Math.random()*1;const d=Math.min(left,0.035*k*TH/4);left-=d;if(swapped)col+=d;else pre+=d;drip();}
+   else{T+=0.35*k;if(T<54){}else if(T<82&&swapped){imp+=0.02*k;col+=0.02*k;drip();}}
+   read();at('rxLq',{y:380-Math.min(70,col*14),height:Math.min(70,col*14)});
+   if(T>53.5&&swapped)B.say('<b>Above 53 °C!</b> Stop heating now, or impurities will be collected.','bad');
+   if(T>60)finish();});
+ function drip(){const d=S('dDrip');d.style.opacity=1;d.style.animation='none';void d.getBBox();d.style.animation='drip .6s';}
+ function finish(){if(stopped)return;stopped=true;clearInterval(id);S('heatGlow').setAttribute('opacity',0);c.innerHTML='';
+   D.f=+f2(D.e+snap(col,0.01));D.range=f1(swapT)+'–'+f1(Math.min(snap(T,0.5),53))+' °C';note();
+   B.next('Heating stopped at '+f1(snap(T,0.5))+' °C.'+(imp>0.05?' Some liquid boiling above 53 °C was collected, so the product is impure (unreacted alcohol or water).':'')+(pre>0.6?' Some product was lost into the first beaker because you changed receivers late.':''));}
+ read();B.say('Watch the thermometer. Change to the weighed sample tube when it reaches 49 °C.');
+}
+const B=Bench({stage:S('stage'),shelf:S('shelf'),acts:S('acts'),controls:S('controls'),say:S('say'),method:S('method'),tools,actions,steps,
+ intro:'Start with the first step in the method list.',finishedMsg:'<b>Experiment complete.</b> Now fill in Part 2.',
+ hint:(t,s)=>{if(t==='bunsen')return '<b>No naked flames!</b> The product and alcohol are highly flammable. Use the electric heating mantle.';
+   if(t==='naoh')return '<b>No.</b> Concentrated NaOH would react with the halogenoalkane (hydrolysis or elimination). Use mild sodium hydrogencarbonate solution.';
+   if(t==='mantle'&&B.i<18)return '<b>Not yet.</b> Set up the distillation apparatus fully (granules, thermometer, water, receiver) before you heat.';
+   return s.h?'<b>Not yet.</b> '+s.h:null;},
+ onReset:()=>{D={e:null,f:null,range:null,loss:0};note();aq=0;org=0;mix=false;setP(0);drawSF();setTap(true);tapHandler=null;phase('phA');
+   S('stp').style.opacity=0;S('sf').style.transform='';S('shT').textContent='0 min';S('stream').style.opacity=0;at('stem',{height:0});S('bkLq').dataset.v=0;at('bkLq',{y:402,height:0});bubbles(false);
+   S('solid').innerHTML='';S('dryTxt').textContent='';S('gran').style.opacity=0;S('thm').style.opacity=0;at('thmBody',{height:160});at('thmBulb',{cy:200});S('wIn').style.opacity=0;S('wOut').style.opacity=0;S('wLbl').textContent='';
+   S('tRead').textContent='— °C';S('balR').textContent='0.00 g';at('rxLq',{y:380,height:0});S('rxLbl').textContent='receiver in ice';S('heatGlow').setAttribute('opacity',0);}});
+S('benchReset').addEventListener('click',()=>B.reset());
+
+/* Part 2 */
+const close=(v,e,rel,abs)=>isFinite(v)&&Math.abs(v-e)<=Math.max(Math.abs(e)*(rel||0),abs||0);
+S('chkRes').addEventListener('click',()=>{const sc=S('resScore');
+ if(D.f==null){sc.textContent='Finish the experiment in Part 1 first.';sc.className='score bad';return;}
+ let r=0,n=0;const ck=(id,ok)=>{n++;mark(S(id),ok);if(ok)r++;};const v=id=>num(S(id).value);
+ ['o1','o2','o3','o4'].forEach(id=>ck(id,S(id).value===S(id).dataset.a));
+ ck('mE',close(v('mE'),D.e,0,0.001));ck('mF',close(v('mF'),D.f,0,0.001));
+ const mp=+(D.f-D.e).toFixed(2);ck('mP',close(v('mP'),mp,0,0.006));
+ ck('c1',close(v('c1'),4.74,0,0.006));
+ const m1=isFinite(v('c1'))?v('c1'):4.74;ck('c2',close(v('c2'),m1/74,0.006)||close(v('c2'),4.74/74,0.006));
+ const n2=isFinite(v('c2'))?v('c2'):4.74/74;ck('c3',close(v('c3'),n2*92.5,0.006)||close(v('c3'),TH,0.006));
+ const t3=isFinite(v('c3'))?v('c3'):TH,mm=isFinite(v('mP'))?v('mP'):mp;ck('c4',close(v('c4'),mm/t3*100,0.01,0.15));
+ setScore(sc,r,n,'Red boxes need another look. Later calculations use your own earlier answers.');});
+S('chkQs').addEventListener('click',()=>checkQs(S('qs'),S('qScore')));
+
+const X=Exam(S('exam'),[
+ {type:'mcq',m:1,q:'Which substance is the most suitable drying agent for 2-chloro-2-methylpropane?',o:['Concentrated sulfuric acid','Anhydrous calcium chloride','Sodium hydroxide pellets','Sodium hydrogencarbonate solution'],a:1,why:'Anhydrous CaCl₂ (or Na₂SO₄ / MgSO₄) absorbs water but does not react with the product. NaOH would react with it, and a solution cannot dry anything.'},
+ {type:'mcq',m:1,q:'A halogenoalkane has a density of 1.27 g cm⁻³. It is shaken with water in a separating funnel. Which row is correct?',o:['Organic layer on top; it is run off first.','Organic layer at the bottom; it is run off first.','Aqueous layer at the bottom; it is run off first.','The two liquids mix, so only one layer forms.'],a:1,why:'It is denser than water (about 1.0 g cm⁻³), so it forms the lower layer and leaves through the tap first.'},
+ {type:'num',m:3,u:'%',q:'A student reacted 8.0 cm³ of 2-methylpropan-2-ol (density 0.79 g cm⁻³, M = 74.0 g mol⁻¹) with excess concentrated hydrochloric acid. The student obtained 4.15 g of 2-chloro-2-methylpropane (M = 92.5 g mol⁻¹). Calculate the percentage yield. Give your answer to 3 significant figures.',a:52.5,tol:0.3,
+  w:'Mass of alcohol = 8.0 × 0.79 = 6.32 g<br>Moles = 6.32 ÷ 74.0 = 0.08541 mol (= moles of product, 1 : 1)<br>Theoretical mass = 0.08541 × 92.5 = 7.900 g<br>% yield = 4.15 ÷ 7.900 × 100 = <b>52.5 %</b>'},
+ {type:'text',m:2,q:'Describe a chemical test to show that the product contains chlorine. Give the result.',
+  ms:['Warm with (ethanol and) aqueous silver nitrate solution.','White precipitate (of AgCl) forms.'],notes:['Allow: then add dilute ammonia solution and the precipitate dissolves.','Do not award the result mark if the reagent is wrong (e.g. AgNO₃ added directly without hydrolysis is allowed; chlorine water is not).']},
+ {type:'text',m:3,q:'The percentage yield is much less than 100%. Give three different reasons why.',
+  ms:['Product lost during transfers between apparatus / left on glassware or the drying agent.','The product is volatile (bp 51 °C), so some evaporates.','The reaction is reversible / incomplete, or a side reaction (elimination) forms 2-methylpropene.'],notes:['Allow: some product lost when running off the aqueous layer.','Do not award: "human error" or "the reaction was not done properly".']},
+ {type:'text',m:2,q:'Explain why the stopper is removed from the separating funnel before the tap is opened to run off the lower layer.',
+  ms:['Otherwise a partial vacuum forms above the liquid / air cannot get in.','So the liquid will not run out (or runs out unevenly).'],notes:['Allow: "pressure inside becomes lower than outside" for the first mark.']}
+],S('xTotal'));
+
+S('resetAll').addEventListener('click',()=>{resetForms();X.reset();B.reset();window.scrollTo({top:0,behavior:RM?'auto':'smooth'});});
+B.reset();
+})();
+</script>
+</body></html>

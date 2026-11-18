@@ -1,0 +1,358 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Molar Volume of a Gas</title>
+<meta name="description" content="Virtual core practical: Molar Volume of a Gas. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp1-molar-volume.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);--good-soft:#e4f4ea;--bad-soft:#fbeae8;--warn-soft:#fff5de;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}h1{font-size:clamp(1.5rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}h3{font-size:1rem;font-weight:600}p{margin:0;max-width:70ch}header{display:flex;flex-direction:column;gap:8px}.meta{font:600 .85rem var(--display);color:var(--muted)}details.safety{border:1px solid #e2c27c;background:var(--warn-soft);border-radius:10px;padding:8px 14px;max-width:70ch}details.safety summary{cursor:pointer;font:600 .95rem var(--display)}details.safety ul{margin:8px 0 4px;padding-left:1.2em;font-size:.93rem}section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}.bench{background:var(--bench);border-radius:12px;padding:12px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:12px}@media (max-width:720px){.bench{grid-template-columns:minmax(0,1fr)}}.scene{background:#fbfcfd;border-radius:10px;border:2px dashed transparent;min-width:0;outline:none;cursor:pointer}.scene.armed,.scene.over{border-color:var(--accent);background:var(--accent-soft)}.scene:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.scene svg{width:100%;height:auto;display:block}.side{display:flex;flex-direction:column;gap:10px;min-width:0}.panel{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}.panel h3{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}ol.method{margin:0;padding-left:1.6em;font-size:.86rem;display:flex;flex-direction:column;gap:3px}ol.method li.done{color:var(--good)}ol.method li.now{font-weight:700;color:var(--accent)}.tick{font-weight:700}.tray{display:flex;flex-wrap:wrap;gap:8px}.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;display:flex;flex-direction:column;align-items:center;gap:2px;width:96px;padding:6px 4px;border:2px solid var(--line);border-radius:10px;background:var(--sheet);font:inherit;font-size:.74rem;line-height:1.15;color:var(--ink);text-align:center}.item svg{width:40px;height:44px;display:block}.item.selected{border-color:var(--accent);background:var(--accent-soft)}.item:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.dragghost{position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:44px;height:48px;opacity:.9}.dragghost svg{width:44px;height:48px}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.hintbox{min-height:2.8em;padding:8px 12px;border-radius:10px;background:var(--sheet);border-left:4px solid var(--accent);font-size:.92rem}.hintbox.warn{border-left-color:var(--bad);background:var(--bad-soft)}.hintbox.okay{border-left-color:var(--good);background:var(--good-soft)}.readout{font:700 1.05rem var(--display);font-variant-numeric:tabular-nums;background:#1c2736;color:#b9f3c9;border-radius:8px;padding:3px 10px;display:inline-block;min-width:6.5em;text-align:right}.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}.btn.ghost{background:transparent;color:var(--accent)}.btn.sm{font-size:.85rem;padding:6px 11px}.mini{font:inherit;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}.mini:hover,.item:hover{border-color:var(--accent)}.mini.on{border-color:var(--accent);background:var(--accent-soft);font-weight:700}button:disabled,select:disabled{opacity:.45;cursor:not-allowed}.btn:focus-visible,.mini:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}.tbl-wrap{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}tbody th{background:var(--accent-soft);font-weight:700;white-space:nowrap}td.num{font-variant-numeric:tabular-nums}input.n{font:inherit;font-size:.95rem;width:6.4em;padding:4px 6px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-variant-numeric:tabular-nums}input.ok,select.ok{border-color:var(--good);background:var(--good-soft)}input.wrong,select.wrong{border-color:var(--bad);background:var(--bad-soft)}select{font:inherit;font-size:.93rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}.calc{display:flex;flex-direction:column;gap:8px}.crow{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px}.crow .lab{flex:1 1 280px;font-size:.93rem}.crow .fb{font-size:.84rem;color:var(--bad)}.score{font-weight:700}.score.good{color:var(--good)} .score.bad{color:var(--bad)}ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}ol.qs li{max-width:72ch}.mcq{display:flex;flex-direction:column;gap:2px;margin-top:4px}.mcq label{display:flex;gap:8px;align-items:flex-start;padding:4px 8px;border-radius:8px;cursor:pointer}.mcq input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent);flex:none}.mcq label.ok{background:var(--good-soft)} .mcq label.wrong{background:var(--bad-soft)}.xq{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}.xq .qh{display:flex;justify-content:space-between;gap:12px}.xq .mk{color:var(--muted);font-weight:700;white-space:nowrap}.xq textarea{width:100%;min-height:84px;font:inherit;font-size:.95rem;padding:8px;border:2px solid var(--line);border-radius:8px;resize:vertical}.ms{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:.9rem}.ms label{display:flex;gap:8px;align-items:flex-start;padding:3px 0}.ms input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent);flex:none}.worked{background:var(--good-soft);border-radius:10px;padding:8px 12px;font-size:.9rem}.note{font-size:.86rem;color:var(--muted)}.foot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}canvas{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}.glass{fill:none;stroke:var(--glass);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}.shine{fill:none;stroke:var(--glass-hi);stroke-width:3;stroke-linecap:round}svg text{font-family:var(--body)}.lbl{font-size:11px;fill:var(--muted)}.bub{animation:rise 1.1s linear infinite;transform-box:fill-box}@keyframes rise{from{transform:translateY(0);opacity:.95}to{transform:translateY(-34px);opacity:0}}.swirl{animation:swirl 1.6s ease;transform-box:fill-box;transform-origin:50% 100%}@keyframes swirl{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}}.fade{transition:opacity .5s}@media (max-width:520px){body{font-size:16px}.item{width:84px}}@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}</style>
+<style>.zoom svg{width:100%;max-width:220px;height:auto;display:block;margin:0 auto}#nb td,#nb th{font-size:.8rem;padding:4px 6px}#nb table{min-width:0}#res table{min-width:420px}</style>
+</head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a>
+<div class="wrap">
+<header>
+  <h1>Measuring the molar volume of a gas</h1>
+  <div class="meta">IAL Chemistry · Core Practical 1 · Unit 3</div>
+  <p><b>Aim:</b> To find the volume occupied by one mole of carbon dioxide at room temperature and pressure, by reacting known masses of calcium carbonate with excess ethanoic acid.</p>
+  <details class="safety"><summary>Safety</summary><ul>
+    <li>Wear eye protection. Ethanoic acid at 1.0 mol dm⁻³ is low hazard but can irritate the eyes and skin. Wash splashes off with water.</li>
+    <li>Calcium carbonate is low hazard. Avoid making dust.</li>
+    <li>Push the bung in gently with a twisting action and hold the boiling tube near the top, so the glass does not break.</li>
+    <li>Wipe up spilt water from the trough at once so nobody slips.</li>
+  </ul></details>
+</header>
+<div id="labArea"></div>
+<div id="qArea"></div>
+<div class="foot"><span class="note">Key fact: one mole of any gas occupies about 24.0 dm³ at room temperature and pressure.</span><button class="btn ghost" id="again" type="button">Start again</button></div>
+</div>
+
+<template id="tplLab">
+<section class="sheet" aria-labelledby="h1p">
+  <h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+  <p>Do each step in the right order. Drag an item onto the bench picture, or tap the item and then tap the picture. Use the buttons for the other steps. Use at least five different masses.</p>
+  <div class="row"><label>Collect the gas with:
+    <select id="mode"><option value="cyl">measuring cylinder over water</option><option value="syr">gas syringe</option></select></label>
+    <label>Mass of CaCO<sub>3</sub> to use:
+    <select id="mass"><option value="">choose…</option><option>0.05</option><option>0.10</option><option>0.15</option><option>0.20</option><option>0.25</option><option>0.30</option><option>0.35</option><option>0.40</option></select> g</label></div>
+  <div class="bench">
+    <div class="scene" id="scene" tabindex="0" role="button" aria-label="Bench: drop or place items here"><svg id="svg" viewBox="0 0 540 300" aria-hidden="true"></svg></div>
+    <div class="side">
+      <div class="panel"><h3 id="runLabel">Run 1</h3><ol class="method" id="method"></ol></div>
+      <div class="panel zoom" id="zoomP"><h3>Close-up reading</h3><div id="zoom"><p class="note">Press "Read volume" to see the scale.</p></div><p style="text-align:center">Gas volume: <span class="readout" id="vread">-- cm³</span></p></div>
+    </div>
+  </div>
+  <div class="panel"><h3>Items</h3><div class="tray" id="tray"></div></div>
+  <div class="controls">
+    <button class="btn sm" type="button" id="bSwirl">Swirl</button>
+    <button class="btn sm" type="button" id="bRead">Read volume</button>
+    <button class="btn sm" type="button" id="bWash">Empty and rinse tube</button>
+    <button class="btn ghost sm" type="button" id="benchReset">Reset bench</button>
+  </div>
+  <div class="hintbox" id="hint" aria-live="polite">Start with step 1. Choose how to collect the gas first if you want the gas syringe.</div>
+  <div class="panel" id="nb"><h3>Lab notebook (your readings)</h3><div class="tbl-wrap"><table><thead><tr><th>Run</th><th>boat + CaCO<sub>3</sub> / g</th><th>boat after tipping / g</th><th>gas volume / cm³</th></tr></thead><tbody id="nbBody"><tr><td colspan="4" class="note">No readings yet.</td></tr></tbody></table></div></div>
+</section>
+
+<section class="sheet" aria-labelledby="h2p">
+  <h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+  <p>Copy your readings into the table. Work out each mass by difference: mass of CaCO<sub>3</sub> = (boat + CaCO<sub>3</sub>) − (boat after tipping). Use one row per run, in order.</p>
+  <div class="tbl-wrap" id="res"><table><thead><tr><th>Run</th><th>mass of CaCO<sub>3</sub> / g</th><th>volume of CO<sub>2</sub> / cm³</th></tr></thead><tbody id="resBody"></tbody></table></div>
+  <div class="row"><button class="btn sm" type="button" id="bGraph">Draw my graph</button><span class="note" id="gNote">You need at least 3 rows filled in.</span></div>
+  <canvas id="graph" width="640" height="400" aria-label="Graph of volume of carbon dioxide against mass of calcium carbonate"></canvas>
+  <p class="note">The line of best fit goes through the origin (0 g gives 0 cm³). Gradient = volume ÷ mass.</p>
+  <h3>Calculations</h3>
+  <div class="calc" id="calc"></div>
+  <p class="note">Use M(CaCO<sub>3</sub>) = 100.1 g mol⁻¹. Give answers to 3 significant figures.</p>
+  <div class="toolbar"><button class="btn" type="button" id="checkRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+</template>
+
+<template id="tplQ">
+<section class="sheet" aria-labelledby="h3p">
+  <h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+  <ol class="qs" id="qs"></ol>
+  <div class="toolbar"><button class="btn" type="button" id="checkQs">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<section class="sheet" aria-labelledby="h4p">
+  <h2 id="h4p"><span class="step">Part 4</span>Exam practice</h2>
+  <p class="note">Data: M(CaCO<sub>3</sub>) = 100.1 g mol⁻¹. Molar volume of a gas = 24.0 dm³ mol⁻¹ at RTP.</p>
+  <div id="exam" class="calc"></div>
+  <div class="toolbar"><button class="btn" type="button" id="examCheck">Mark my answers</button><span class="score" id="examScore" aria-live="polite"></span></div>
+</section>
+</template>
+
+<script>
+const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+let TIMERS=[];
+const later=(f,ms)=>{const t=setTimeout(f,RM?Math.min(ms,80):ms);TIMERS.push(t);return t};
+const every=(f,ms)=>{const t=setInterval(f,ms);TIMERS.push(t);return t};
+const stopTimers=()=>{TIMERS.forEach(t=>{clearTimeout(t);clearInterval(t)});TIMERS=[]};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const snap=(x,s)=>Math.round(x/s)*s;
+const fx=(x,d)=>(Math.round(x*Math.pow(10,d))/Math.pow(10,d)).toFixed(d);
+function val(el){if(!el)return NaN;const s=String(el.value).trim().replace(/\s/g,'').replace(',','.').replace(/[−–]/g,'-');if(s===''||s==='-'||s==='+')return NaN;const v=Number(s);return isFinite(v)?v:NaN}
+function near(v,t,rel,abs){if(!isFinite(v)||!isFinite(t))return false;return Math.abs(v-t)<=Math.max(Math.abs(t)*(rel||0),abs||0)+1e-9}
+function setMark(el,ok){el.classList.remove('ok','wrong');if(ok!==null&&ok!==undefined)el.classList.add(ok?'ok':'wrong')}
+function score(el,r,t,unit){el.textContent=r+' / '+t+' '+(unit||'correct')+(r===t?'. Well done!':'. Red boxes need another look.');el.className='score '+(r===t?'good':'bad')}
+function hint(msg,kind){const h=$('#hint');if(!h)return;h.innerHTML=msg;h.className='hintbox'+(kind?' '+kind:'')}
+function clearMarks(root){const f=e=>{if(e.target.classList)e.target.classList.remove('ok','wrong')};root.addEventListener('input',f);root.addEventListener('change',f)}
+
+/* method checklist + order engine */
+function Method(steps,opt){
+  opt=opt||{};
+  const S={pos:0,run:1,busy:false,steps:steps};
+  S.render=function(){
+    $('#method').innerHTML=S.steps.map((s,i)=>`<li class="${i<S.pos?'done':i===S.pos?'now':''}">${i<S.pos?'<span class="tick" aria-hidden="true">&#10003;</span> ':''}${s.text}</li>`).join('');
+    const rl=$('#runLabel');if(rl&&opt.runLabel)rl.textContent=opt.runLabel(S.run,S.pos>=S.steps.length,S);
+  };
+  S.next=()=>S.steps[S.pos];
+  S.warn=function(id){const exp=S.steps[S.pos];const w=(opt.why&&opt.why[id])||'';
+    hint('<b>Not yet.</b> '+w+' Next step: <b>'+exp.text+'</b>'+(exp.why?'<br><span class="note">Why: '+exp.why+'</span>':''),'warn')};
+  S.go=function(id,fn){
+    if(S.busy){hint('Wait a moment: the last step is still happening.');return false}
+    const exp=S.steps[S.pos];
+    if(!exp){hint(opt.doneMsg||'Method complete.','okay');return false}
+    if(exp.id!==id){S.warn(id);return false}
+    const r=fn?fn():0;
+    if(r===false)return false;
+    const ms=typeof r==='number'?r:0;
+    S.busy=ms>0;
+    const fin=()=>{S.busy=false;S.pos++;
+      if(S.pos>=S.steps.length&&opt.cycleFrom!=null&&(!opt.canCycle||opt.canCycle(S.run))){S.pos=opt.cycleFrom;S.run++;opt.onCycle&&opt.onCycle(S.run)}
+      S.render();opt.after&&opt.after(id)};
+    if(ms>0)later(fin,ms);else fin();
+    return true};
+  S.render();return S;
+}
+
+/* drag-or-tap tray */
+function Tray(tray,scene,act){
+  let sel=null,drag=null;
+  const lab=id=>{const b=tray.querySelector('[data-act="'+id+'"]');return b?b.getAttribute('aria-label'):id};
+  const clear=()=>{sel=null;$$('.item',tray).forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed')};
+  const pick=id=>{if(sel===id){clear();return}clear();sel=id;tray.querySelector('[data-act="'+id+'"]').classList.add('selected');scene.classList.add('armed');hint('Now tap the bench picture (or press Enter on it) to use: <b>'+lab(id)+'</b>.')};
+  tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.item');if(!b)return;drag={id:b.dataset.act,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+  tray.addEventListener('pointermove',e=>{if(!drag)return;
+    if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=tray.querySelector('[data-act="'+drag.id+'"] svg').outerHTML;document.body.appendChild(g);drag.g=g}
+    if(drag.moved){drag.g.style.transform=`translate(${e.clientX-22}px,${e.clientY-24}px)`;const u=document.elementFromPoint(e.clientX,e.clientY);const ov=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',ov);drag.over=ov}});
+  const end=cancel=>{if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(cancel)return;if(d.moved){if(d.over){clear();act(d.id)}}else pick(d.id)};
+  tray.addEventListener('pointerup',()=>end(false));tray.addEventListener('pointercancel',()=>end(true));
+  tray.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.item');if(b)pick(b.dataset.act)}});
+  scene.addEventListener('click',()=>{if(sel){const id=sel;clear();act(id)}});
+  scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&sel){e.preventDefault();const id=sel;clear();act(id)}});
+}
+function items(tray,list){tray.innerHTML=list.map(it=>`<button type="button" class="item" data-act="${it[0]}" aria-label="${it[1].replace(/<[^>]+>/g,'')}">${it[2]}<span>${it[1]}</span></button>`).join('')}
+
+/* calc rows */
+function calcRows(el,rows){el.innerHTML=rows.map(r=>`<div class="crow"><div class="lab">${r[1]}<div class="fb" id="fb-${r[0]}"></div></div><span><input class="n" type="text" inputmode="decimal" id="${r[0]}" aria-label="${r[1].replace(/<[^>]+>/g,'')}"> ${r[2]||''}</span></div>`).join('');clearMarks(el)}
+function markCalc(id,ok,tip){const i=$('#'+id);setMark(i,ok);const f=$('#fb-'+id);if(f)f.innerHTML=ok?'':(tip||'');return ok?1:0}
+
+/* part 3 */
+function selHtml(t){let a='';const o=t.split('|').map(x=>{if(x[0]==='*'){x=x.slice(1);a=x}return '<option>'+x+'</option>'}).join('');return '<select data-a="'+a+'" aria-label="choose an answer"><option value="">choose…</option>'+o+'</select>'}
+function renderQs(el,list){el.innerHTML=list.map((it,i)=>typeof it==='string'?'<li>'+it.replace(/\{\{(.+?)\}\}/g,(m,t)=>selHtml(t))+'</li>':'<li>'+it.s+'<div class="mcq" data-a="'+it.a+'">'+it.o.map((o,j)=>`<label><input type="radio" name="p3q${i}" value="${'ABCD'[j]}"><span><b>${'ABCD'[j]}</b>&nbsp; ${o}</span></label>`).join('')+'</div></li>').join('');
+  el.addEventListener('change',e=>{const t=e.target;t.classList.remove('ok','wrong');const l=t.closest('.mcq');if(l)$$('label',l).forEach(x=>x.classList.remove('ok','wrong'))})}
+function checkQs(el,out){let r=0,t=0;
+  $$('select[data-a]',el).forEach(s=>{t++;const ok=s.value===s.dataset.a;setMark(s,ok);if(ok)r++});
+  $$('.mcq[data-a]',el).forEach(g=>{t++;const c=g.querySelector('input:checked');$$('label',g).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===g.dataset.a;if(c)c.closest('label').classList.add(ok?'ok':'wrong');if(ok)r++});
+  score(out,r,t)}
+
+/* part 4 exam */
+function Exam(root,qs){
+  const L='ABCD';let auto=null;
+  root.innerHTML=qs.map((q,i)=>{let b='';
+    if(q.t==='mcq')b='<div class="mcq">'+q.o.map((o,j)=>`<label><input type="radio" name="x${i}" value="${L[j]}"><span><b>${L[j]}</b>&nbsp; ${o}</span></label>`).join('')+'</div>'+(q.w?'<div class="worked" hidden>'+q.w+'</div>':'');
+    if(q.t==='num')b=`<div class="row"><label>Answer: <input class="n" type="text" inputmode="decimal"></label><span>${q.u||''}</span></div><div class="worked" hidden><b>Worked answer</b><br>${q.w}</div>`;
+    if(q.t==='wr')b='<textarea aria-label="Your answer"></textarea><div><button class="mini" type="button" data-ms>Show mark scheme</button></div><div class="ms" hidden><b>Mark scheme</b> <span class="note">(tick each point your answer makes; max '+q.m+')</span>'+q.ms.map(p=>'<label><input type="checkbox"><span>'+p+'</span></label>').join('')+(q.n?'<p class="note">'+q.n+'</p>':'')+'</div>';
+    return `<div class="xq" data-i="${i}"><div class="qh"><div><b>${i+1}</b>&nbsp; ${q.s}</div><span class="mk">(${q.m})</span></div>${b}</div>`}).join('');
+  const total=qs.reduce((a,q)=>a+q.m,0);
+  function tally(){const out=$('#examScore');let s=auto||0;
+    qs.forEach((q,i)=>{if(q.t==='wr'){const n=$$('.xq[data-i="'+i+'"] .ms input:checked',root).length;s+=Math.min(n,q.m)}});
+    out.textContent='Exam practice: '+s+' / '+total+' marks'+(auto===null?' (press "Mark my answers" for the auto-marked questions)':'');out.className='score'}
+  root.addEventListener('click',e=>{const b=e.target.closest('[data-ms]');if(!b)return;const ms=b.parentNode.nextElementSibling;ms.hidden=!ms.hidden;b.textContent=ms.hidden?'Show mark scheme':'Hide mark scheme'});
+  root.addEventListener('change',e=>{if(e.target.closest('.ms'))tally();const m=e.target.closest('.mcq');if(m)$$('label',m).forEach(l=>l.classList.remove('ok','wrong'))});
+  root.addEventListener('input',e=>{if(e.target.classList.contains('n'))setMark(e.target,null)});
+  $('#examCheck').addEventListener('click',()=>{auto=0;
+    qs.forEach((q,i)=>{const box=$('.xq[data-i="'+i+'"]',root);
+      if(q.t==='mcq'){const c=$('input:checked',box);$$('label',box).forEach(l=>l.classList.remove('ok','wrong'));const ok=!!c&&c.value===q.a;if(c)c.closest('label').classList.add(ok?'ok':'wrong');if(!ok)box.querySelector('input[value="'+q.a+'"]').closest('label').classList.add('ok');if(ok)auto+=q.m;const w=$('.worked',box);if(w)w.hidden=false}
+      if(q.t==='num'){const inp=$('input.n',box);const ok=near(val(inp),q.a,q.rel||0,q.abs||0);setMark(inp,ok);if(ok)auto+=q.m;$('.worked',box).hidden=false}});
+    tally()});
+  tally();
+}
+
+/* boot: Part 1+2 from #tplLab, Part 3+4 from #tplQ */
+function boot(o){
+  function lab(){stopTimers();const a=$('#labArea');a.innerHTML='';a.appendChild($('#tplLab').content.cloneNode(true));o.lab();const r=$('#benchReset');if(r)r.addEventListener('click',()=>{lab();hint('Bench reset. Start the method again from step 1.')})}
+  function q(){const a=$('#qArea');a.innerHTML='';a.appendChild($('#tplQ').content.cloneNode(true));o.q()}
+  lab();q();
+  $('#again').addEventListener('click',()=>{lab();q();window.scrollTo(0,0)});
+}
+
+let MODE='cyl';
+const MR=100.1;
+let RUNS=[];
+const SV={
+ boat:'<svg viewBox="0 0 40 44"><path d="M4 26 L36 26 L31 36 L9 36 Z" fill="#f4f6f8" stroke="#7d8fa3" stroke-width="2"/><path d="M12 26 Q20 16 28 26 Z" fill="#fff" stroke="#bbb"/></svg>',
+ acid:'<svg viewBox="0 0 40 44"><path d="M14 4 L14 40 L26 40 L26 4" fill="none" stroke="#7d8fa3" stroke-width="2"/><rect x="15" y="14" width="10" height="25" fill="#e9f1fb"/><path d="M10 40 L30 40" stroke="#7d8fa3" stroke-width="3"/></svg>',
+ cyl:'<svg viewBox="0 0 40 44"><path d="M15 4 L15 40 L25 40 L25 4" fill="#cfe2f5" stroke="#7d8fa3" stroke-width="2"/><path d="M11 40 L29 40" stroke="#7d8fa3" stroke-width="3"/><path d="M17 10h4M17 18h4M17 26h4M17 34h4" stroke="#7d8fa3"/></svg>',
+ syr:'<svg viewBox="0 0 40 44"><rect x="4" y="17" width="26" height="10" fill="none" stroke="#7d8fa3" stroke-width="2"/><path d="M30 22 L38 22 M1 22 L4 22" stroke="#7d8fa3" stroke-width="2"/></svg>',
+ tube:'<svg viewBox="0 0 40 44"><path d="M8 40 L8 8 L32 8 L32 30" fill="none" stroke="#7d8fa3" stroke-width="3"/><rect x="3" y="34" width="10" height="8" fill="#3a3f4a"/></svg>',
+ bung:'<svg viewBox="0 0 40 44"><path d="M10 16 L30 16 L27 32 L13 32 Z" fill="#3a3f4a"/><path d="M20 4 L20 16" stroke="#7d8fa3" stroke-width="3"/></svg>'
+};
+boot({lab:labInit,q:qInit});
+
+function labInit(){
+  RUNS=[];
+  $('#mode').value=MODE;
+  $('#mode').addEventListener('change',e=>{MODE=e.target.value;$('#benchReset').click();hint('Gas collection changed to '+(MODE==='cyl'?'measuring cylinder over water':'gas syringe')+'. Start again from step 1.')});
+  const syr=MODE==='syr';
+  const steps=[
+   {id:'acid',text:'Measure 50 cm³ of 1.0 mol dm⁻³ ethanoic acid in a measuring cylinder and pour it into the boiling tube.',why:'the acid must be ready in the tube before the solid goes in.'},
+   syr?{id:'fill',text:'Push the gas syringe plunger fully in, to 0 cm³.',why:'the syringe must start empty.'}:{id:'fill',text:'Fill the 100 cm³ measuring cylinder with water and invert it in the trough.',why:'the cylinder must be full of water so gas can push water out.'},
+   syr?{id:'tube',text:'Connect the delivery tube to the gas syringe.'}:{id:'tube',text:'Put the end of the delivery tube under the mouth of the cylinder.',why:'all the gas must go into the cylinder.'},
+   {id:'weigh1',text:'Choose a mass. Put the weighing boat with CaCO₃ on the balance and note the mass.',why:'you weigh by difference: before and after tipping.'},
+   {id:'tip',text:'Tip the CaCO₃ into the acid.'},
+   {id:'bung',text:'Quickly insert the bung.',why:'gas escapes until the bung is in.'},
+   {id:'swirl',text:'Swirl the tube until the fizzing stops.'},
+   {id:'read',text:'Read the volume of gas collected.'},
+   {id:'weigh2',text:'Reweigh the empty boat.',why:'some solid may stay in the boat, so mass used = mass before − mass after.'},
+   {id:'wash',text:'Empty and rinse the tube, ready for the next mass.'}];
+  const M=Method(steps,{cycleFrom:0,canCycle:r=>r<8,runLabel:(r,d)=>d?'All 8 runs done':'Run '+r+' of up to 8',
+    why:{bung:'Put the bung in only after the solid is in the acid.',boat:'Not the weighing boat yet.',swirl:'Nothing to swirl yet.',read:'There is no gas to read yet.',wash:'Finish this run first.'},
+    onCycle:r=>hint('Run '+(r-1)+' done. Choose a new mass for run '+r+'. Start again at step 1.','okay'),
+    doneMsg:'You have done 8 runs. Go to Part 2.'});
+  drawScene(syr);
+  items($('#tray'),[['acid','Ethanoic acid, 50 cm³',SV.acid],[syr?'syr':'cyl',syr?'Gas syringe':'100 cm³ measuring cylinder',syr?SV.syr:SV.cyl],['tube','Delivery tube',SV.tube],['boat','Weighing boat + CaCO₃',SV.boat],['bung','Bung',SV.bung]]);
+  let cur=null,t0=0,gasV=0;
+  const show=(id,on)=>{const e=$('#'+id);if(e)e.style.display=on?'':'none'};
+  const bal=v=>$('#bal').textContent=fx(v,2)+' g';
+  function setGas(v){gasV=v;
+    if(syr){const x=344+v*1.52;$('#sGas').setAttribute('width',Math.max(0,x-344));$('#plg').setAttribute('transform','translate('+(x-344)+',0)')}
+    else{const y=40+v*2;$('#cGas').setAttribute('height',Math.max(0,y-38));}}
+  function anim(to,ms){const from=gasV,st=performance.now();const t=every(()=>{let k=Math.min(1,(performance.now()-st)/(RM?60:ms));setGas(from+(to-from)*k);if(k>=1)clearInterval(t)},40)}
+  function bubbles(where,on){const g=$('#'+where);if(!g)return;g.innerHTML='';if(!on)return;
+    const pts=where==='tb'?[[203,255],[212,250],[218,258],[207,240]]:syr?[]:[[388,252],[396,248],[392,244]];
+    g.innerHTML=pts.map((p,i)=>`<circle class="bub" cx="${p[0]}" cy="${p[1]}" r="${2+i%2}" fill="#fff" stroke="#9db4cc" style="animation-delay:${i*0.27}s"/>`).join('')}
+  function log(){const b=$('#nbBody');const all=RUNS.concat(cur&&!cur.saved?[cur]:[]);
+    b.innerHTML=all.length?all.map((r,i)=>`<tr><td>${i+1}</td><td class="num">${r.m1!=null?fx(r.m1,2):''}</td><td class="num">${r.m2!=null?fx(r.m2,2):''}</td><td class="num">${r.V!=null?fx(r.V,1):''}</td></tr>`).join(''):'<tr><td colspan="4" class="note">No readings yet.</td></tr>'}
+  const A={
+   acid(){show('acidL',true);hint('50 cm³ of ethanoic acid is in the boiling tube. It is in excess.','okay')},
+   fill(){if(syr){$('#plg').setAttribute('transform','translate(0,0)');setGas(0);hint('Plunger at 0 cm³.','okay')}else{show('cyl',true);setGas(0);hint('The cylinder is full of water with no air bubble at the top.','okay')}},
+   tube(){show('dt',true);hint(syr?'Delivery tube connected to the syringe. The bung is ready above the tube.':'Delivery tube end is under the cylinder. The bung is ready above the tube.','okay')},
+   weigh1(){const t=+$('#mass').value;if(!t){hint('<b>Choose a mass first</b> from the "Mass of CaCO₃" list above the bench.','warn');return false}
+     if(RUNS.some(r=>Math.abs(r.target-t)<1e-6))hint('You have used '+t+' g already. A different mass gives a better graph.');
+     const mass=Math.max(0.03,snap(t+rnd(-0.012,0.012),0.01)),boat=snap(rnd(1.12,1.58),0.01),res=Math.random()<0.35?0.01:0;
+     cur={target:t,mass,res,m1:boat+mass+res,m2:null,V:null,loss:syr?rnd(.006,.018):rnd(.02,.045)};
+     show('boatB',true);bal(cur.m1);log();$('#mass').disabled=true;$('#mode').disabled=true;
+     hint('Balance reading: <b>'+fx(cur.m1,2)+' g</b>. It is in your lab notebook.','okay')},
+   tip(){show('boatB',false);bal(0);show('solid',true);$('#solid').style.opacity=1;bubbles('tb',true);t0=performance.now();hint('<b>Quick!</b> Insert the bung now. Gas is escaping from the open tube.','warn')},
+   bung(){const d=(performance.now()-t0)/1000;const ex=Math.min(.2,Math.max(0,d-3)*0.02);cur.loss+=ex;
+     $('#dt').setAttribute('transform','translate(0,0)');bubbles('cb',true);
+     cur.V=Math.min(99.5,snap(cur.mass/MR*rnd(23900,24150)*(1-cur.loss),0.5));
+     anim(cur.V*0.55,2000);
+     hint(ex>0?'Bung in, but you took '+Math.round(d)+' s. Some CO₂ escaped, so this volume will be low.':'Bung in quickly. Gas collects. The reaction is slow because ethanoic acid is a weak acid.',ex>0?'warn':'okay');return 2100},
+   swirl(){const g=$('#tubeG');g.classList.remove('swirl');void g.getBoundingClientRect();g.classList.add('swirl');anim(cur.V,2400);
+     later(()=>{$('#solid').style.opacity=0;bubbles('tb',false);bubbles('cb',false);hint('Effervescence has stopped. All the CaCO₃ has reacted. Read the volume.','okay')},2400);return 2500},
+   read(){zoom(cur.V,syr);$('#vread').textContent=fx(cur.V,1)+' cm³';log();hint('Gas volume: <b>'+fx(cur.V,1)+' cm³</b>. Read '+(syr?'the syringe scale at the plunger.':'at the water level, with your eye level with it.'),'okay')},
+   weigh2(){show('boatB',true);$('#heap').style.display=cur.res>0?'':'none';cur.m2=cur.m1-cur.mass;bal(cur.m2);log();
+     hint((cur.res>0?'A little solid stayed in the boat. That is why you weigh by difference. ':'')+'Empty boat: <b>'+fx(cur.m2,2)+' g</b>. Mass used = '+fx(cur.m1,2)+' − '+fx(cur.m2,2)+'.','okay')},
+   wash(){cur.saved=true;RUNS.push(cur);cur=null;log();show('boatB',false);bal(0);show('acidL',false);show('solid',false);show('dt',false);$('#dt').setAttribute('transform','translate(0,-26)');
+     if(!syr)show('cyl',false);setGas(syr?0:0);$('#vread').textContent='-- cm³';$('#zoom').innerHTML='<p class="note">Press "Read volume" to see the scale.</p>';$('#mass').disabled=false;$('#mass').value=''}
+  };
+  function act(id){let s=id;if(id==='boat'){const n=M.next();s=n&&['weigh1','tip','weigh2'].includes(n.id)?n.id:'boat'}if(id==='cyl'||id==='syr')s='fill';M.go(s,A[s])}
+  Tray($('#tray'),$('#scene'),act);
+  $('#bSwirl').onclick=()=>M.go('swirl',A.swirl);$('#bRead').onclick=()=>M.go('read',A.read);$('#bWash').onclick=()=>M.go('wash',A.wash);
+  if(syr)setGas(20);
+  /* Part 2 */
+  $('#resBody').innerHTML=[1,2,3,4,5,6,7,8].map(i=>`<tr><th>${i}</th><td><input class="n" id="rm${i}" inputmode="decimal" aria-label="run ${i} mass"></td><td><input class="n" id="rv${i}" inputmode="decimal" aria-label="run ${i} volume"></td></tr>`).join('');
+  clearMarks($('#resBody'));
+  calcRows($('#calc'),[
+   ['cg','Gradient of your line of best fit (read it from the graph)','cm³ g⁻¹'],
+   ['cvg','Molar volume from the gradient: V<sub>m</sub> = gradient × 100.1 ÷ 1000','dm³ mol⁻¹'],
+   ['cn','For your <b>largest</b> mass: moles of CaCO<sub>3</sub> = mass ÷ 100.1','mol'],
+   ['cn2','Moles of CO<sub>2</sub> made in that run (1 : 1 ratio)','mol'],
+   ['cvm','Molar volume from that run = volume (dm³) ÷ moles','dm³ mol⁻¹'],
+   ['cu','% uncertainty in your <b>smallest</b> mass (balance ±0.005 g, two readings)','%'],
+   ['cd','% difference between your gradient value and 24.0 dm³ mol⁻¹','%']]);
+  $('#bGraph').onclick=graph;$('#checkRes').onclick=checkRes;graph();
+}
+function rows(){const o=[];for(let i=1;i<=8;i++){const m=val($('#rm'+i)),v=val($('#rv'+i));if(isFinite(m)&&isFinite(v)&&m>0)o.push([m,v])}return o}
+function grad(d){let a=0,b=0;d.forEach(p=>{a+=p[0]*p[1];b+=p[0]*p[0]});return b?a/b:NaN}
+function graph(){const c=$('#graph'),x=c.getContext('2d'),W=640,H=400,L=70,R=20,T=20,B=56;x.clearRect(0,0,W,H);
+  const d=rows();const X=v=>L+v/0.45*(W-L-R),Y=v=>H-B-v/110*(H-T-B);
+  x.strokeStyle='#e4eaf0';x.lineWidth=1;x.font='13px Atkinson Hyperlegible, sans-serif';x.fillStyle='#5a6878';
+  for(let i=0;i<=9;i++){const v=i*0.05;x.beginPath();x.moveTo(X(v),T);x.lineTo(X(v),H-B);x.stroke();x.textAlign='center';x.fillText(v.toFixed(2),X(v),H-B+18)}
+  for(let i=0;i<=11;i++){const v=i*10;x.beginPath();x.moveTo(L,Y(v));x.lineTo(W-R,Y(v));x.stroke();x.textAlign='right';x.fillText(v,L-8,Y(v)+4)}
+  x.strokeStyle='#1c2736';x.lineWidth=1.5;x.beginPath();x.moveTo(L,T);x.lineTo(L,H-B);x.lineTo(W-R,H-B);x.stroke();
+  x.fillStyle='#1c2736';x.textAlign='center';x.fillText('mass of CaCO₃ / g',(L+W-R)/2,H-14);
+  x.save();x.translate(18,(T+H-B)/2);x.rotate(-Math.PI/2);x.fillText('volume of CO₂ / cm³',0,0);x.restore();
+  const n=$('#gNote');
+  if(d.length<3){n.textContent='You need at least 3 rows filled in. ('+d.length+' so far)';return}
+  const k=grad(d);x.strokeStyle='#4a44b5';x.lineWidth=2;x.beginPath();x.moveTo(X(0),Y(0));const xe=Math.min(0.45,105/k);x.lineTo(X(xe),Y(k*xe));x.stroke();
+  x.fillStyle='#b3261e';d.forEach(p=>{x.save();x.translate(X(p[0]),Y(p[1]));x.strokeStyle='#b3261e';x.lineWidth=2;x.beginPath();x.moveTo(-5,-5);x.lineTo(5,5);x.moveTo(5,-5);x.lineTo(-5,5);x.stroke();x.restore()});
+  x.fillStyle='#4a44b5';x.textAlign='left';x.font='600 15px Lexend, sans-serif';x.fillText('gradient = '+Math.round(k)+' cm³ g⁻¹',L+14,T+22);
+  n.textContent='Graph drawn from '+d.length+' points. Line of best fit through the origin.'}
+function checkRes(){let r=0,t=0;
+  for(let i=1;i<=8;i++){const run=RUNS[i-1],m=$('#rm'+i),v=$('#rv'+i);
+    if(!run){if(m.value||v.value){t+=2;setMark(m,false);setMark(v,false)}else{setMark(m,null);setMark(v,null)}continue}
+    t+=2;const a=near(val(m),run.mass,0,0.006),b=near(val(v),run.V,0,0.06);setMark(m,a);setMark(v,b);r+=a+b}
+  graph();const d=rows();
+  if(d.length>=3){const k=grad(d),vg=k*MR/1000;
+    t+=2;r+=markCalc('cg',near(val($('#cg')),k,0.015,1),'Read the gradient from the graph.');
+    r+=markCalc('cvg',near(val($('#cvg')),val($('#cg'))*MR/1000,0.015),'gradient × 100.1 ÷ 1000');
+    const big=d.reduce((a,p)=>p[0]>a[0]?p:a),sm=d.reduce((a,p)=>p[0]<a[0]?p:a),nn=big[0]/MR;
+    t+=5;r+=markCalc('cn',near(val($('#cn')),nn,0.01),'mass ÷ 100.1 using '+big[0]+' g.');
+    r+=markCalc('cn2',near(val($('#cn2')),nn,0.01),'1 mol CaCO₃ gives 1 mol CO₂.');
+    r+=markCalc('cvm',near(val($('#cvm')),big[1]/1000/nn,0.015),'Change cm³ to dm³ (÷1000), then divide by moles.');
+    r+=markCalc('cu',near(val($('#cu')),0.01/sm[0]*100,0.02),'(2 × 0.005) ÷ '+sm[0]+' × 100');
+    r+=markCalc('cd',near(Math.abs(val($('#cd'))),Math.abs(24-val($('#cvg')))/24*100,0.05,0.15),'(24.0 − your value) ÷ 24.0 × 100');
+  } else {$('#resScore').textContent='Fill in at least 3 rows of the table first.';$('#resScore').className='score bad';return}
+  score($('#resScore'),r,t)}
+function drawScene(syr){
+  const g=[];
+  g.push('<path d="M0 282 L540 282" stroke="#b8c3cf" stroke-width="4"/>');
+  g.push('<rect x="18" y="234" width="132" height="46" rx="6" fill="#dfe5ec" stroke="#7d8fa3" stroke-width="2"/><rect x="38" y="222" width="92" height="8" rx="3" fill="#c9d2dc" stroke="#7d8fa3"/><rect x="58" y="230" width="52" height="4" fill="#7d8fa3"/><rect x="38" y="246" width="92" height="26" rx="4" fill="#1c2736"/><text id="bal" x="122" y="265" fill="#b9f3c9" text-anchor="end" style="font:700 16px Lexend,sans-serif">0.00 g</text><text class="lbl" x="84" y="296" text-anchor="middle">balance (2 d.p.)</text>');
+  g.push('<g id="boatB" style="display:none"><path d="M56 208 L112 208 L104 222 L64 222 Z" fill="#f4f6f8" stroke="#7d8fa3" stroke-width="2"/><path id="heap" d="M72 208 Q84 196 96 208 Z" fill="#fff" stroke="#aab"/></g>');
+  g.push('<rect x="232" y="40" width="6" height="242" fill="#8a96a3"/><rect x="200" y="276" width="80" height="6" fill="#8a96a3"/><rect x="214" y="118" width="22" height="8" fill="#8a96a3"/>');
+  const TP='M196 90 L196 252 Q196 270 210 270 Q224 270 224 252 L224 90';
+  g.push('<defs><clipPath id="tc"><path d="'+TP+' Z"/></clipPath></defs>');
+  g.push('<g id="tubeG"><g clip-path="url(#tc)"><rect id="acidL" x="190" y="118" width="40" height="160" fill="#e3eefb" style="display:none"/><ellipse id="solid" cx="210" cy="264" rx="10" ry="5" fill="#fff" stroke="#aab" style="display:none" class="fade"/><g id="tb"></g></g><path class="glass" d="'+TP+'"/><path d="M192 90 L228 90" class="glass"/><path class="shine" d="M201 110 L201 240"/></g><text class="lbl" x="210" y="296" text-anchor="middle">boiling tube</text>');
+  if(syr){
+    g.push('<g id="dt" style="display:none" transform="translate(0,-26)"><path d="M210 92 L210 22 Q210 14 218 14 L300 14 Q312 14 312 26 L312 114 L334 114" fill="none" stroke="#9fb0c2" stroke-width="5"/><path d="M198 84 L222 84 L219 104 L201 104 Z" fill="#3a3f4a" id="bung"/></g>');
+    g.push('<path class="glass" d="M334 108 L344 108 L344 104 L498 104 L498 126 L344 126 L344 120 L334 120"/><rect id="sGas" x="344" y="105" width="0" height="20" fill="#eef5fb"/>');
+    let t='';for(let v=0;v<=100;v+=10){const x=344+v*1.52;t+=`<path d="M${x} 126 L${x} 132" stroke="#5a6878"/>`+(v%20===0?`<text class="lbl" x="${x}" y="144" text-anchor="middle">${v}</text>`:'')}
+    g.push(t+'<g id="plg"><rect x="342" y="105" width="5" height="20" fill="#3a3f4a"/><rect x="346" y="112" width="160" height="6" fill="#aab6c3"/><rect x="504" y="100" width="6" height="30" fill="#3a3f4a"/></g><text class="lbl" x="420" y="164" text-anchor="middle">gas syringe / cm³</text><rect x="330" y="132" width="180" height="8" fill="#8a96a3" opacity=".0"/>');
+  } else {
+    g.push('<path class="glass" d="M310 192 L310 280 L534 280 L534 192"/><rect x="312" y="202" width="220" height="77" fill="rgba(120,170,220,.32)"/><text class="lbl" x="490" y="296" text-anchor="middle">trough of water</text>');
+    let t='';for(let v=0;v<=100;v+=10){const y=40+v*2;t+=`<path d="M412 ${y} L404 ${y}" stroke="#5a6878"/>`+(v%20===0?`<text class="lbl" x="418" y="${y+4}">${v}</text>`:'')}
+    g.push('<g id="cyl" style="display:none"><rect x="373" y="38" width="38" height="222" fill="rgba(120,170,220,.42)"/><rect id="cGas" x="373" y="38" width="38" height="0" fill="#f6fafd"/><path class="glass" d="M372 262 L372 36 L412 36 L412 262"/><rect x="362" y="28" width="60" height="8" rx="2" fill="none" stroke="#7d8fa3" stroke-width="2"/>'+t+'<g id="cb"></g></g><text class="lbl" x="392" y="20" text-anchor="middle">100 cm³ cylinder</text>');
+    g.push('<g id="dt" style="display:none" transform="translate(0,-26)"><path d="M210 92 L210 22 Q210 14 218 14 L292 14 Q300 14 300 22 L300 262 Q300 270 308 270 L384 270 Q392 270 392 262 L392 250" fill="none" stroke="#9fb0c2" stroke-width="5"/><path d="M198 84 L222 84 L219 104 L201 104 Z" fill="#3a3f4a" id="bung"/></g>');
+  }
+  $('#svg').innerHTML=g.join('');
+}
+function zoom(V,syr){let s='';
+  if(!syr){const k=8,c=60,y0=c-V*k;s='<svg viewBox="0 0 160 120"><rect x="40" y="0" width="80" height="120" fill="#f6fafd"/><rect x="40" y="'+c+'" width="80" height="60" fill="rgba(120,170,220,.45)"/><path d="M40 '+c+' Q80 '+(c+6)+' 120 '+c+'" fill="none" stroke="#3b6ea5" stroke-width="2"/>';
+    for(let v=Math.floor(V)-8;v<=Math.ceil(V)+8;v++){if(v<0||v>100)continue;const y=c+(v-V)*k;if(y<0||y>120)continue;s+=`<path d="M120 ${y} L${v%5?108:100} ${y}" stroke="#1c2736"/>`;if(v%5===0)s+=`<text x="126" y="${y+4}" style="font:12px sans-serif" fill="#1c2736">${v}</text>`}
+    s+='<path d="M40 0 L40 120 M120 0 L120 120" stroke="#7d8fa3" stroke-width="2"/><text x="4" y="'+(c-4)+'" style="font:10px sans-serif" fill="#5a6878">gas</text><text x="4" y="'+(c+16)+'" style="font:10px sans-serif" fill="#5a6878">water</text></svg>'}
+  else{const k=10,c=80;s='<svg viewBox="0 0 160 90"><rect x="0" y="20" width="'+c+'" height="34" fill="#eef5fb"/><rect x="'+(c-3)+'" y="20" width="6" height="34" fill="#3a3f4a"/>';
+    for(let v=Math.floor(V)-8;v<=Math.ceil(V)+8;v++){const x=c+(v-V)*k;if(x<0||x>160)continue;s+=`<path d="M${x} 54 L${x} ${v%5?62:68}" stroke="#1c2736"/>`;if(v%5===0)s+=`<text x="${x}" y="82" text-anchor="middle" style="font:12px sans-serif" fill="#1c2736">${v}</text>`}
+    s+='<path d="M0 20 L160 20 M0 54 L160 54" stroke="#7d8fa3" stroke-width="2"/></svg>'}
+  $('#zoom').innerHTML=s}
+
+function qInit(){
+  renderQs($('#qs'),[
+   'Ethanoic acid is used because it is {{*in excess|the limiting reagent}}, so all the calcium carbonate reacts. It is a {{*weak|strong}} acid, so the reaction is {{*slower|faster}} and less gas escapes before the bung is put in.',
+   {s:'Which is the correct equation for the reaction?',o:['CaCO<sub>3</sub> + CH<sub>3</sub>COOH → CH<sub>3</sub>COOCa + CO<sub>2</sub> + H<sub>2</sub>O','CaCO<sub>3</sub> + 2CH<sub>3</sub>COOH → (CH<sub>3</sub>COO)<sub>2</sub>Ca + CO<sub>2</sub> + H<sub>2</sub>O','CaCO<sub>3</sub> + 2CH<sub>3</sub>COOH → (CH<sub>3</sub>COO)<sub>2</sub>Ca + H<sub>2</sub>','CaCO<sub>3</sub> + 2CH<sub>3</sub>COOH → (CH<sub>3</sub>COO)<sub>2</sub>Ca + CO + H<sub>2</sub>O<sub>2</sub>'],a:'B'},
+   'Some CO<sub>2</sub> escapes before the bung is inserted, and some {{*dissolves in the water|reacts with the glass|turns into steam}}. Both make the measured volume too {{*small|large}}, so the molar volume is too {{*low|high}}.',
+   'The balance reads to 0.01 g, so each reading is ±0.005 g. Mass by difference uses two readings. For 0.05 g the % uncertainty is {{2%|10%|*20%|0.5%}}. With a 100 cm³ cylinder (±0.5 cm³) and about 12 cm³ of gas, the cylinder uncertainty is about 4%. The bigger uncertainty comes from the {{*balance|measuring cylinder}}.',
+   'To improve the experiment: use a balance reading to {{*3 decimal places|1 decimal place}}, use {{*larger|smaller}} masses (keeping the gas below 100 cm³), and collect the gas in a {{*gas syringe|beaker}} so that CO<sub>2</sub> cannot dissolve in water.',
+   'Conclusion: the graph is a straight line through the origin, so the volume of CO<sub>2</sub> is {{*directly proportional|inversely proportional}} to the mass of CaCO<sub>3</sub>. The molar volume of a gas at RTP is about {{*24 dm³ mol⁻¹|22.4 cm³ mol⁻¹|2.4 dm³ mol⁻¹}}.'
+  ]);
+  $('#checkQs').onclick=()=>checkQs($('#qs'),$('#qScore'));
+  Exam($('#exam'),[
+   {t:'mcq',m:1,s:'A student reacts 0.20 g of calcium carbonate with excess acid and collects 45.0 cm³ of carbon dioxide. What is the molar volume of the gas from these results?',o:['22.5 dm³ mol⁻¹','2.25 dm³ mol⁻¹','0.0444 dm³ mol⁻¹','24.0 dm³ mol⁻¹'],a:'A',w:'n = 0.20 ÷ 100.1 = 2.00 × 10⁻³ mol. V<sub>m</sub> = 0.0450 dm³ ÷ 2.00 × 10⁻³ = 22.5 dm³ mol⁻¹.'},
+   {t:'num',m:2,s:'A mass of 0.15 g of calcium carbonate is found by difference using a balance that reads to two decimal places. Calculate the percentage uncertainty in the mass.',u:'%',a:6.67,abs:0.05,w:'Uncertainty of each reading = ±0.005 g; two readings so ±0.01 g (1). % uncertainty = 0.01 ÷ 0.15 × 100 = 6.67% (1). Allow 6.7%.'},
+   {t:'num',m:3,s:'A student wants to use hydrochloric acid instead of ethanoic acid.<br>CaCO<sub>3</sub>(s) + 2HCl(aq) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>O(l) + CO<sub>2</sub>(g)<br>Calculate the <b>minimum</b> volume, in cm³, of 1.00 mol dm⁻³ HCl needed to react completely with 0.35 g of CaCO<sub>3</sub>. Hence state whether 10.0 cm³ of the acid would be in excess.',u:'cm³',a:6.99,abs:0.06,w:'n(CaCO<sub>3</sub>) = 0.35 ÷ 100.1 = 3.50 × 10⁻³ mol (1). n(HCl) = 2 × 3.50 × 10⁻³ = 6.99 × 10⁻³ mol (1). Volume = 6.99 × 10⁻³ ÷ 1.00 × 1000 = 6.99 cm³ (1). 10.0 cm³ is more than 6.99 cm³, so the acid is in excess. Allow 7.0 cm³.'},
+   {t:'wr',m:2,s:'A student obtained a molar volume of 22.8 dm³ mol⁻¹ using a measuring cylinder over water. Suggest <b>two</b> reasons why this value is lower than 24.0 dm³ mol⁻¹.',ms:['Some carbon dioxide escaped before the bung was inserted.','Carbon dioxide is (slightly) soluble in water, so some dissolved.'],n:'Allow: gas leaking from the apparatus / bung not tight. Allow: room temperature below 25 °C. Do not award "human error" or "measurement error" with no detail.'},
+   {t:'wr',m:2,s:'Explain why ethanoic acid is used rather than hydrochloric acid of the same concentration.',ms:['Ethanoic acid is a weak acid / only partially dissociates, so the concentration of H⁺ ions is lower.','So the reaction is slower and less CO<sub>2</sub> is lost before the bung is inserted.'],n:'Do not award "ethanoic acid is safer" on its own.'},
+   {t:'wr',m:2,s:'Suggest how the percentage uncertainty in the mass of calcium carbonate could be reduced. Explain your answer.',ms:['Use a larger mass of calcium carbonate / use a balance reading to 3 d.p.','The (absolute) uncertainty of the balance stays the same, so it is a smaller fraction of the mass. (For larger masses, use a larger cylinder or syringe so the gas volume fits.)'],n:'Do not award "repeat the experiment": this does not reduce the uncertainty of one reading.'}
+  ]);
+}
+</script>
+</body></html>

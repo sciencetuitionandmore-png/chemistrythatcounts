@@ -1,0 +1,512 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metal Oxide Formula Lab</title>
+<meta name="description" content="Virtual core practical: Metal Oxide Formula Lab. Free Pearson Edexcel International GCSE Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/igcse-cp2-formula-of-a-metal-oxide.html">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.55rem,4.5vw,2.2rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:68ch}
+header{display:flex;flex-direction:column;gap:8px}
+.ref{font-weight:700;color:var(--muted);font-size:.92rem}
+details.safety{background:#fff8e8;border:1px solid #e6c67a;border-radius:10px;padding:8px 14px;max-width:68ch}
+details.safety summary{cursor:pointer;font-family:var(--display);font-weight:600}
+details.safety ul{margin:6px 0 2px;padding-left:1.2em}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(14px,3vw,26px);display:flex;flex-direction:column;gap:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+.tab{font:600 .92rem var(--display);padding:8px 14px;border:2px solid var(--line);border-bottom:none;border-radius:10px 10px 0 0;background:var(--paper);color:var(--muted);cursor:pointer;margin-bottom:-2px}
+.tab[aria-selected="true"]{background:var(--sheet);color:var(--accent);border-color:var(--accent)}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:14px;align-items:start}
+@media (max-width:760px){.lab{grid-template-columns:1fr}}
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shelf{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.tray{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.tool{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px 4px 5px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;color:var(--ink);min-width:0}
+.tool svg{width:42px;height:42px;display:block}
+.tool .nm{font-size:.74rem;font-weight:700;line-height:1.15;text-align:center}
+.tool.selected{border-color:var(--accent);background:var(--accent-soft)}
+.tool:focus-visible,.scene:focus-visible,.btn:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.dragghost{position:fixed;left:0;top:0;width:56px;height:56px;pointer-events:none;z-index:50;opacity:.9}
+.dragghost svg{width:56px;height:56px}
+.scene{background:var(--sheet);border:2px dashed transparent;border-radius:12px;cursor:pointer;padding:4px}
+.scene.armed,.scene.over{border-color:var(--accent);background:#fbfbff}
+.scene svg{width:100%;height:auto;display:block}
+.msg{min-height:3em;padding:8px 12px;border-radius:10px;background:var(--sheet);border-left:5px solid var(--accent);font-size:.95rem}
+.msg.warn{border-left-color:var(--bad);background:#fdf0ef}
+.msg.ok{border-left-color:var(--good);background:#eef8f2}
+.side{display:flex;flex-direction:column;gap:12px}
+.box{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--sheet)}
+ol.method{margin:8px 0 0;padding:0;list-style:none;counter-reset:m;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+ol.method li{counter-increment:m;display:flex;gap:8px;color:var(--muted)}
+ol.method li::before{content:counter(m);flex:none;width:22px;height:22px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font:700 .75rem var(--display);color:var(--muted)}
+ol.method li.now{color:var(--ink);font-weight:700}
+ol.method li.now::before{border-color:var(--accent);color:var(--accent)}
+ol.method li.done{color:var(--good)}
+ol.method li.done::before{content:"\2713";background:var(--good);border-color:var(--good);color:#fff}
+dl.rd{margin:8px 0 0;display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:.9rem}
+dl.rd dt{color:var(--muted)} dl.rd dd{margin:0;font:700 .95rem var(--display);font-variant-numeric:tabular-nums;text-align:right}
+.btn{font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
+tbody th{background:#f6f6fd;font-weight:400}
+td{width:11em}
+td input,td select{width:100%;font:inherit;font-size:.95rem;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+td.ok input,td.ok select{border-color:var(--good);background:#eef8f2} td.wrong input,td.wrong select{border-color:var(--bad);background:#fdf0ef}
+.calc{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.score{font-weight:700} .score.good{color:var(--good)} .score.bad{color:var(--bad)}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+ol.qs select{font:inherit;font-size:.95rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+select.ok{border-color:var(--good)!important} select.wrong{border-color:var(--bad)!important}
+.note{font-size:.88rem;color:var(--muted)}
+.hid{display:none!important}
+.mv{transition:transform 1s ease}
+.fd{transition:opacity .6s ease,fill 2.5s ease}
+.puff{animation:puff 1.6s ease-out forwards}
+@keyframes puff{from{transform:translate(0,0) scale(.6);opacity:.9}to{transform:translate(14px,-70px) scale(1.8);opacity:0}}
+.flick{animation:flick .25s infinite alternate}
+@keyframes flick{from{transform:scaleY(1)}to{transform:scaleY(.9)}}
+.flame{transform-box:fill-box;transform-origin:50% 100%}
+@media (max-width:520px){body{font-size:16px}.tool svg{width:36px;height:36px}}
+@media (prefers-reduced-motion:reduce){.mv,.fd{transition:none}.puff,.flick{animation:none}}
+/* ---------- page tabs + exam practice ---------- */
+.ppanel[hidden],.ex-q [hidden]{display:none!important}
+.ptabs{display:flex;gap:10px;flex-wrap:wrap}
+.ptab{flex:1 1 200px;min-height:50px;font:700 1rem var(--display);padding:12px 22px;border-radius:999px;border:2px solid var(--accent);background:var(--sheet);color:var(--accent);cursor:pointer}
+.ptab:not([aria-selected="true"]):hover{background:var(--accent-soft)}
+.ptab[aria-selected="true"]{background:var(--accent);color:#fff}
+.ptab:focus-visible,.ex-btn:focus-visible,.ex-opt:focus-within,.ex-in:focus-visible,.ex-ta:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ppanel{display:flex;flex-direction:column;gap:22px;min-width:0}
+.ex-bar{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;font:600 1rem var(--display);padding:10px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(28,39,54,.18);font-variant-numeric:tabular-nums}
+.ex-list{display:flex;flex-direction:column;gap:16px}
+.ex-q{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:16px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ex-ref{font:700 .88rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--muted)}
+.ex-mk{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.ex-ctx,.ex-stem{max-width:72ch}
+.ex-stem{font-weight:700}
+.ex-opts{display:grid;gap:8px}
+.ex-opt{position:relative;display:flex;gap:10px;align-items:flex-start;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--sheet)}
+.ex-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.ex-opt .lt{flex:none;width:28px;height:28px;border:2px solid var(--accent);border-radius:6px;display:grid;place-items:center;font:700 .9rem var(--display);color:var(--accent)}
+.ex-opt:hover{border-color:var(--accent)}
+.ex-q.locked .ex-opt{cursor:default}.ex-q.locked .ex-opt:hover{border-color:var(--line)}
+.ex-opt.ex-ok,.ex-q.locked .ex-opt.ex-ok:hover{border-color:var(--good);background:#eef8f2}.ex-opt.ex-ok .lt{background:var(--good);border-color:var(--good);color:#fff}
+.ex-opt.ex-no,.ex-q.locked .ex-opt.ex-no:hover{border-color:var(--bad);background:#fdf0ef}.ex-opt.ex-no .lt{background:var(--bad);border-color:var(--bad);color:#fff}
+.ex-fb{padding:8px 12px;border-radius:10px;font-size:.95rem;border-left:5px solid var(--accent);background:var(--accent-soft)}
+.ex-fb.ex-ok{border-left-color:var(--good);background:#eef8f2}.ex-fb.ex-no{border-left-color:var(--bad);background:#fdf0ef}
+.ex-fb p+p{margin-top:4px}
+.ex-calc{display:flex;flex-direction:column;gap:8px}
+.ex-row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.ex-in{width:8em;font:inherit;padding:6px 8px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+.ex-in.ex-ok{border-color:var(--good);background:#eef8f2}.ex-in.ex-no{border-color:var(--bad);background:#fdf0ef}
+.ex-btn{align-self:flex-start;font:600 .95rem var(--display);padding:9px 16px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.ex-btn.ghost{background:transparent;color:var(--accent)}
+.ex-btn:disabled{opacity:.5;cursor:default}
+.ex-ta{width:100%;min-height:110px;font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
+.ex-ms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fafafe;display:flex;flex-direction:column;gap:6px}
+.ex-ms h3{font-size:.95rem;color:var(--accent)}
+.ex-ms label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.ex-ms input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.ex-max{font-size:.88rem;color:var(--muted)}
+.ex-foot{display:flex;justify-content:flex-end}
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+
+<div class="wrap">
+<header>
+<h1>Finding the formula of a metal oxide</h1>
+<p class="ref">Core practical 1.36</p>
+<p><b>Aim:</b> to find the formula of a metal oxide by burning magnesium in air (combustion) or by reducing copper(II) oxide.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection. Do not look straight at burning magnesium: the white light can hurt your eyes.</li>
+<li>The crucible and pipeclay triangle get very hot. Use tongs and let them cool on a heatproof mat.</li>
+<li>Methane (natural gas) is flammable. Burn off the excess gas at the hole in the tube.</li>
+<li>Tie back long hair and keep the Bunsen burner away from the edge of the bench.</li>
+</ul></details>
+</header>
+<div class="ptabs" id="ptabs" role="tablist" aria-label="Sections">
+<button class="ptab" role="tab" type="button" id="tabLab" aria-controls="panelLab" aria-selected="true">1 · The practical</button>
+<button class="ptab" role="tab" type="button" id="tabExam" aria-controls="panelExam" aria-selected="false" tabindex="-1">2 · Exam practice</button>
+</div>
+<div class="ppanel" id="panelLab" role="tabpanel" aria-labelledby="tabLab">
+<section class="sheet" aria-labelledby="h1p">
+<h2 id="h1p"><span class="step">Part 1</span>Do the experiment</h2>
+<div class="tabs" role="tablist" aria-label="Method">
+<button class="tab" role="tab" type="button" data-tab="mg" aria-selected="true">Magnesium (combustion)</button>
+<button class="tab" role="tab" type="button" data-tab="cu" aria-selected="false">Copper(II) oxide (reduction)</button>
+</div>
+<p>Drag equipment onto the bench, or tap it and then tap the bench. Follow the method in order.</p>
+<div class="lab" data-panel="mg">
+<div class="bench">
+<div class="shelf">Equipment</div>
+<div class="tray" id="trayMg"></div>
+<div class="scene" id="sceneMg" tabindex="0" role="button" aria-label="Bench with balance and tripod. Use the selected item here.">
+<svg viewBox="0 0 600 300" aria-hidden="true">
+<rect x="0" y="284" width="600" height="16" fill="#cfd8e1"/>
+<rect x="40" y="246" width="160" height="38" rx="6" fill="#e9edf2" stroke="#7d8fa3" stroke-width="2"/>
+<rect x="72" y="255" width="96" height="22" rx="3" fill="#1c2736"/>
+<text id="balMg" x="160" y="271" text-anchor="end" fill="#9ef0b5" font-family="Lexend,sans-serif" font-size="14">0.00 g</text>
+<rect x="55" y="238" width="130" height="8" rx="3" fill="#b8c3cf"/>
+<text x="120" y="296" text-anchor="middle" font-size="11" fill="#5a6878">balance</text>
+<g stroke="#5a6878" stroke-width="5" stroke-linecap="round"><line x1="380" y1="170" x2="366" y2="282"/><line x1="500" y1="170" x2="514" y2="282"/><line x1="440" y1="172" x2="440" y2="190"/></g>
+<line x1="372" y1="170" x2="508" y2="170" stroke="#5a6878" stroke-width="5" stroke-linecap="round"/>
+<path d="M400 168 L480 168 L440 160 Z" fill="none" stroke="#e7d7c4" stroke-width="5" stroke-linejoin="round"/>
+<g id="burnMg"><rect x="430" y="224" width="20" height="56" fill="#8a96a3"/><rect x="410" y="276" width="60" height="8" rx="2" fill="#5a6878"/>
+<g id="flameMg" class="hid"><path class="flame flick" d="M440 224 Q424 200 440 176 Q456 200 440 224 Z" fill="#7fb0ff" opacity=".85"/><path class="flame" d="M440 224 Q433 210 440 196 Q447 210 440 224 Z" fill="#2e5fd0"/></g></g>
+<g id="ribbon" class="hid"><rect id="ribbonStrip" class="fd" x="236" y="268" width="96" height="6" rx="1" fill="#7e837a"/><text x="284" y="296" text-anchor="middle" font-size="11" fill="#5a6878">magnesium ribbon</text></g>
+<g id="cru" class="mv hid" style="transform:translate(120px,238px)">
+<circle id="glow" class="fd" cx="0" cy="-30" r="34" fill="#fffbe0" opacity="0"/>
+<path id="cruBody" class="fd" d="M-28 -42 L28 -42 L19 0 L-19 0 Z" fill="#ece7df" stroke="#9a8f80" stroke-width="2"/>
+<path id="coil" class="hid" d="M-16 -10 q4 -10 8 0 q4 10 8 0 q4 -10 8 0 q4 10 8 0" fill="none" stroke="#a7afb8" stroke-width="3"/>
+<ellipse id="mgo" class="fd" cx="0" cy="-8" rx="18" ry="6" fill="#f7f7f7" stroke="#c8c8c8" opacity="0"/>
+<g id="lidMg" class="mv"><rect x="-32" y="-48" width="64" height="7" rx="2" fill="#e2dcd2" stroke="#9a8f80" stroke-width="2"/><rect x="-5" y="-54" width="10" height="6" rx="2" fill="#9a8f80"/></g>
+<g id="smoke"></g>
+</g>
+</svg>
+</div>
+<div class="msg" id="msgMg" aria-live="polite">Start with step 1: weigh the empty crucible and lid.</div>
+<div class="toolbar"><span class="note">Mg = 24, O = 16</span><button class="btn ghost" id="resetMg" type="button">Reset</button></div>
+</div>
+<div class="side">
+<div class="box"><h3>Method</h3><ol class="method" id="methodMg"></ol></div>
+<div class="box"><h3>Balance readings</h3><dl class="rd" id="rdMg"><dt>none yet</dt><dd></dd></dl></div>
+</div>
+</div>
+<div class="lab hid" data-panel="cu">
+<div class="bench">
+<div class="shelf">Equipment</div>
+<div class="tray" id="trayCu"></div>
+<div class="scene" id="sceneCu" tabindex="0" role="button" aria-label="Bench with balance, clamp and burner. Use the selected item here.">
+<svg viewBox="0 0 600 300" aria-hidden="true">
+<rect x="0" y="284" width="600" height="16" fill="#cfd8e1"/>
+<rect x="40" y="246" width="160" height="38" rx="6" fill="#e9edf2" stroke="#7d8fa3" stroke-width="2"/>
+<rect x="72" y="255" width="96" height="22" rx="3" fill="#1c2736"/>
+<text id="balCu" x="160" y="271" text-anchor="end" fill="#9ef0b5" font-family="Lexend,sans-serif" font-size="14">0.00 g</text>
+<rect x="55" y="238" width="130" height="8" rx="3" fill="#b8c3cf"/>
+<text x="120" y="296" text-anchor="middle" font-size="11" fill="#5a6878">balance</text>
+<rect x="560" y="60" width="8" height="224" fill="#8a96a3"/><rect x="530" y="276" width="60" height="8" fill="#5a6878"/>
+<rect x="500" y="140" width="64" height="8" fill="#8a96a3"/>
+<g id="gasPipe" class="hid"><path d="M260 284 L260 150 L318 150" fill="none" stroke="#e08a2e" stroke-width="7" stroke-linecap="round"/><text x="268" y="276" font-size="11" fill="#5a6878">gas in</text></g>
+<g id="burnCu"><rect x="400" y="226" width="20" height="54" fill="#8a96a3"/><rect x="380" y="276" width="60" height="8" rx="2" fill="#5a6878"/>
+<g id="flameCu" class="hid"><path class="flame flick" d="M410 226 Q394 204 410 176 Q426 204 410 226 Z" fill="#7fb0ff" opacity=".85"/><path class="flame" d="M410 226 Q403 212 410 198 Q417 212 410 226 Z" fill="#2e5fd0"/></g></g>
+<g id="tube" class="mv hid" style="transform:translate(120px,222px)">
+<rect x="-92" y="-14" width="184" height="28" rx="14" fill="rgba(200,225,245,.35)" stroke="#7d8fa3" stroke-width="2.5"/>
+<rect x="-96" y="-4" width="10" height="8" fill="#7d8fa3"/>
+<circle cx="80" cy="-14" r="3" fill="#fff" stroke="#7d8fa3" stroke-width="1.5"/>
+<path id="powder" class="fd hid" d="M-30 10 Q0 -2 30 10 Z" fill="#1d1d1d"/>
+<g id="holeFlame" class="hid"><path class="flame flick" d="M80 -16 Q72 -30 80 -46 Q88 -30 80 -16 Z" fill="#f6b73c" opacity=".9"/></g>
+</g>
+</svg>
+</div>
+<div class="msg" id="msgCu" aria-live="polite">Start with step 1: weigh the empty reduction tube.</div>
+<div class="toolbar"><span class="note">Cu = 63.5, O = 16</span><button class="btn ghost" id="resetCu" type="button">Reset</button></div>
+</div>
+<div class="side">
+<div class="box"><h3>Method</h3><ol class="method" id="methodCu"></ol></div>
+<div class="box"><h3>Balance readings</h3><dl class="rd" id="rdCu"><dt>none yet</dt><dd></dd></dl></div>
+</div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h2p">
+<h2 id="h2p"><span class="step">Part 2</span>Record your results</h2>
+<div class="tabs" role="tablist" aria-label="Results">
+<button class="tab" role="tab" type="button" data-tab="mg" aria-selected="true">Magnesium</button>
+<button class="tab" role="tab" type="button" data-tab="cu" aria-selected="false">Copper(II) oxide</button>
+</div>
+<div data-panel="mg" class="res">
+<div class="calc">Mass of oxygen = mass gained. Moles = mass &divide; A<sub>r</sub>. Divide the moles of O by the moles of Mg to find the ratio. Give moles to 3 significant figures.</div>
+<div class="tbl-wrap"><table><tbody id="tbMg"></tbody></table></div>
+<div class="toolbar"><button class="btn" type="button" data-check="mg">Check my results</button><span class="score" id="scMg" aria-live="polite"></span></div>
+</div>
+<div data-panel="cu" class="res hid">
+<div class="calc">Mass of oxygen = mass lost. Moles = mass &divide; A<sub>r</sub>. Divide the moles of O by the moles of Cu to find the ratio.</div>
+<div class="tbl-wrap"><table><tbody id="tbCu"></tbody></table></div>
+<div class="toolbar"><button class="btn" type="button" data-check="cu">Check my results</button><span class="score" id="scCu" aria-live="polite"></span></div>
+</div>
+</section>
+<section class="sheet" aria-labelledby="h3p">
+<h2 id="h3p"><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>The magnesium ribbon is cleaned with emery paper to
+<select data-a="a"><option value="">choose…</option><option value="a">remove the layer of magnesium oxide on its surface</option><option value="b">make it react more slowly</option><option value="c">make it heavier</option></select>.</li>
+<li>The lid is lifted a little now and then to
+<select data-a="a"><option value="">choose…</option><option value="a">let oxygen in</option><option value="b">let the heat out</option><option value="c">let water vapour in</option></select>.
+It is not taken off completely so that
+<select data-a="b"><option value="">choose…</option><option value="a">the flame does not go out</option><option value="b">magnesium oxide smoke does not escape</option><option value="c">the crucible does not crack</option></select>.</li>
+<li>The crucible is heated, cooled and weighed again until the mass is constant. This makes sure
+<select data-a="a"><option value="">choose…</option><option value="a">all the magnesium has reacted</option><option value="b">the crucible is clean</option><option value="c">the balance is working</option></select>.</li>
+<li>Some white magnesium oxide smoke escapes. The mass of oxygen worked out will be
+<select data-a="lo"><option value="">choose…</option><option value="hi">too high</option><option value="lo">too low</option><option value="ok">correct</option></select>,
+so the ratio of moles of O to moles of Mg will be
+<select data-a="lt"><option value="">choose…</option><option value="gt">more than 1</option><option value="lt">less than 1</option><option value="eq">exactly 1</option></select>.</li>
+<li>0.36 g of magnesium reacts with 0.24 g of oxygen. Moles of Mg =
+<select data-a="a"><option value="">choose…</option><option value="a">0.015</option><option value="b">0.024</option><option value="c">8.6</option></select>,
+moles of O =
+<select data-a="a"><option value="">choose…</option><option value="a">0.015</option><option value="b">0.010</option><option value="c">3.8</option></select>.
+So the formula is
+<select data-a="a"><option value="">choose…</option><option value="a">MgO</option><option value="b">MgO₂</option><option value="c">Mg₂O</option></select>
+and the equation is <select data-a="2"><option value="">choose…</option><option>1</option><option>2</option><option>3</option></select>Mg + O<sub>2</sub> → 2MgO.</li>
+<li>When copper(II) oxide is reduced, the powder turns from black to
+<select data-a="a"><option value="">choose…</option><option value="a">pink-brown</option><option value="b">white</option><option value="c">blue</option></select>.
+The gas is kept on while the tube cools to stop
+<select data-a="b"><option value="">choose…</option><option value="a">the tube cracking</option><option value="b">the hot copper reacting with oxygen in the air</option><option value="c">the copper melting</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" id="checkQs" type="button">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+<div class="toolbar">
+<span class="note">Moles of each element = mass &divide; A<sub>r</sub>. The simplest whole-number ratio of moles gives the empirical formula: MgO and CuO.</span>
+<button class="btn ghost" id="resetAll" type="button">Start again</button>
+</div>
+</div>
+<div class="ppanel" id="panelExam" role="tabpanel" aria-labelledby="tabExam" hidden>
+<section class="sheet" aria-labelledby="exH">
+<h2 id="exH">Exam practice</h2>
+<p>Exam-style questions on this practical. Multiple-choice and calculation questions are marked for you. For written answers, write your answer first, then press Show mark scheme and tick each point you made.</p>
+</section>
+<div class="ex-bar" id="exBar" role="status" aria-live="polite"></div>
+<div class="ex-list" id="exList"></div>
+<div class="ex-foot"><button class="ex-btn ghost" id="exReset" type="button">Reset exam practice</button></div>
+</div>
+</div>
+<script>
+(function(){
+const RM=false;
+const $=id=>document.getElementById(id);
+const wait=ms=>new Promise(r=>setTimeout(r,RM?Math.min(ms,80):ms));
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const r2=x=>Math.round(x*100)/100, f2=x=>x.toFixed(2);
+const NS='http://www.w3.org/2000/svg';
+const sayer=el=>(t,k)=>{el.innerHTML=t;el.className='msg'+(k?' '+k:'');};
+const show=(id,on=true)=>$(id).classList.toggle('hid',!on);
+/* ---------- generic bench: drag or tap-then-tap ---------- */
+function makeBench(tray,scene,tools,onUse,say){
+let sel=null,drag=null;
+const nameOf=id=>tools.find(t=>t.id===id).name;
+tools.forEach(t=>{const b=document.createElement('button');b.type='button';b.className='tool';b.dataset.t=t.id;b.innerHTML=t.svg+'<span class="nm">'+t.name+'</span>';tray.appendChild(b);});
+function clear(){sel=null;tray.querySelectorAll('.tool').forEach(b=>b.classList.remove('selected'));scene.classList.remove('armed');}
+function choose(id){if(sel===id){clear();return;}clear();sel=id;tray.querySelector('[data-t="'+id+'"]').classList.add('selected');scene.classList.add('armed');say('Now tap the bench to use: <b>'+nameOf(id)+'</b>.');}
+tray.addEventListener('pointerdown',e=>{const b=e.target.closest('.tool');if(!b||e.button>0)return;drag={id:b.dataset.t,x:e.clientX,y:e.clientY,moved:false,g:null,over:false};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+tray.addEventListener('pointermove',e=>{if(!drag)return;
+if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;const g=document.createElement('div');g.className='dragghost';g.innerHTML=tools.find(t=>t.id===drag.id).svg;document.body.appendChild(g);drag.g=g;}
+if(drag.moved){drag.g.style.transform='translate('+(e.clientX-28)+'px,'+(e.clientY-28)+'px)';const u=document.elementFromPoint(e.clientX,e.clientY);drag.over=!!(u&&u.closest&&u.closest('.scene')===scene);scene.classList.toggle('over',drag.over);}});
+function end(cancel){if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();scene.classList.remove('over');if(cancel)return;if(d.moved){if(d.over){clear();onUse(d.id);}}else choose(d.id);}
+tray.addEventListener('pointerup',()=>end(false));tray.addEventListener('pointercancel',()=>end(true));
+tray.addEventListener('click',e=>{if(e.detail===0){const b=e.target.closest('.tool');if(b)choose(b.dataset.t);}});
+scene.addEventListener('click',()=>{if(sel){const s=sel;clear();onUse(s);}else say('First pick something from the tray.');});
+scene.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===scene){e.preventDefault();if(sel){const s=sel;clear();onUse(s);}}});
+return {clear};
+}
+/* ---------- method steps (list may grow while running) ---------- */
+function makeSteps(ol,list,say){
+let i=0,busy=false;const base=list.length;
+function render(){ol.innerHTML=list.map((s,k)=>'<li class="'+(k<i?'done':k===i?'now':'')+'">'+s.text+'</li>').join('');}
+render();
+return {get busy(){return busy},list,render,
+async use(id){
+if(busy)return;const s=list[i];
+if(!s){say('The experiment is finished. Copy your balance readings into Part 2.');return;}
+if(![].concat(s.tool).includes(id)){
+const later=list.findIndex((x,k)=>k>i&&[].concat(x.tool).includes(id));
+say((s.wrong&&s.wrong[id])||((later>i?'That comes later. ':'Not now. ')+s.hint),'warn');return;}
+busy=true;let r;try{r=await s.run(id);}finally{busy=false;}
+if(r!==false){i++;render();}
+},
+reset(){i=0;busy=false;list.length=base;render();}};
+}
+const ic=b=>'<svg viewBox="0 0 44 44" aria-hidden="true">'+b+'</svg>';
+const IC={
+cru:ic('<path d="M8 14 L36 14 L31 38 L13 38 Z" fill="#ece7df" stroke="#9a8f80" stroke-width="2"/><rect x="6" y="8" width="32" height="5" rx="2" fill="#e2dcd2" stroke="#9a8f80" stroke-width="1.5"/>'),
+emery:ic('<rect x="6" y="10" width="32" height="24" rx="2" fill="#c9a36b" stroke="#8a6a3a" stroke-width="1.5"/><g fill="#8a6a3a"><circle cx="12" cy="16" r="1"/><circle cx="20" cy="22" r="1"/><circle cx="30" cy="15" r="1"/><circle cx="26" cy="28" r="1"/><circle cx="14" cy="28" r="1"/></g>'),
+mg:ic('<path d="M6 30 q4 -12 8 0 q4 12 8 0 q4 -12 8 0 q4 12 8 0" fill="none" stroke="#a7afb8" stroke-width="3.5"/>'),
+burner:ic('<path d="M22 22 Q14 12 22 2 Q30 12 22 22 Z" fill="#7fb0ff"/><rect x="18" y="22" width="8" height="16" fill="#8a96a3"/><rect x="10" y="37" width="24" height="5" rx="1" fill="#5a6878"/>'),
+tongs:ic('<path d="M8 40 L26 8 M18 40 L30 8" stroke="#5a6878" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M24 8 Q28 2 32 8" stroke="#5a6878" stroke-width="3" fill="none"/>'),
+balance:ic('<rect x="4" y="24" width="36" height="14" rx="3" fill="#e9edf2" stroke="#7d8fa3" stroke-width="2"/><rect x="11" y="28" width="22" height="6" fill="#1c2736"/><rect x="8" y="19" width="28" height="4" rx="1" fill="#b8c3cf"/>'),
+tube:ic('<rect x="3" y="16" width="38" height="12" rx="6" fill="rgba(200,225,245,.5)" stroke="#7d8fa3" stroke-width="2"/>'),
+cuo:ic('<path d="M10 14 L34 14 L32 38 L12 38 Z" fill="#fff" stroke="#7d8fa3" stroke-width="2"/><rect x="12" y="22" width="20" height="15" fill="#1d1d1d"/><rect x="14" y="6" width="16" height="8" fill="#3a3f4a"/>'),
+gas:ic('<rect x="6" y="18" width="20" height="8" fill="#e08a2e"/><rect x="26" y="12" width="10" height="20" rx="2" fill="#5a6878"/><rect x="29" y="4" width="4" height="10" fill="#d33"/>')
+};
+const tl=(id,name,icon)=>({id,name,svg:IC[icon||id]});
+/* ================= MAGNESIUM ================= */
+const sayMg=sayer($('msgMg'));
+let M;
+function dataMg(){const A=r2(rnd(22,30)),m=r2(rnd(.2,.28)),lf=rnd(.9,.98),fin=r2(A+m+m*16/24*lf);
+M={A,B:r2(A+m),fin,C1:r2(fin-rnd(.02,.045)),lifts:0,reheats:0,last:null};}
+function rdAdd(dl,label,val){if(dl.dataset.n!=='1'){dl.innerHTML='';dl.dataset.n='1';}dl.insertAdjacentHTML('beforeend','<dt>'+label+'</dt><dd>'+f2(val)+' g</dd>');}
+const cru=$('cru');
+const toBal=()=>cru.style.transform='translate(120px,238px)', toTri=()=>cru.style.transform='translate(440px,170px)';
+function hot(on){$('cruBody').style.fill=on?'#f4a06a':'#ece7df';show('flameMg',on);}
+function puff(){const g=$('smoke');for(let k=0;k<3;k++){const c=document.createElementNS(NS,'circle');c.setAttribute('cx',-6+k*8);c.setAttribute('cy',-50);c.setAttribute('r',7);c.setAttribute('fill','#eceff2');c.setAttribute('class','puff');c.style.animationDelay=(k*.15)+'s';c.style.transformBox='fill-box';c.style.transformOrigin='center';g.appendChild(c);setTimeout(()=>c.remove(),2200);}}
+function balMg(v){$('balMg').textContent=f2(v)+' g';}
+const heatAgainStep={tool:'burner',text:'Heat strongly again for a few minutes.',hint:'Heat the crucible again.',run:async()=>{
+toTri();balMg(0);await wait(1000);hot(true);await wait(800);
+$('lidMg').style.transform='translate(8px,-20px)';$('glow').style.opacity=.4;await wait(700);$('lidMg').style.transform='';$('glow').style.opacity=0;await wait(600);
+sayMg('Heated again. Lifting the lid gave almost no glow now.','ok');}};
+const weighAgainStep={tool:'balance',text:'Cool and weigh again.',hint:'Let it cool, then weigh it again.',run:async()=>{
+hot(false);await wait(900);toBal();await wait(1000);const v=M.fin;M.reheats++;
+const prev=M.last;M.last=v;balMg(v);rdAdd($('rdMg'),'after heating '+(M.reheats+1)+' times',v);
+const diff=r2(v-prev);
+if(Math.abs(diff)>.01){sayMg('The mass went up by '+f2(diff)+' g. Some magnesium had not reacted yet. Heat and weigh again until the mass stops changing.','warn');stepsMg.list.push(heatAgainStep,weighAgainStep);stepsMg.render();}
+else{sayMg('The mass is the same as last time: <b>constant mass</b>. All the magnesium has reacted. Use '+f2(v)+' g in Part 2.','ok');}}};
+const stepsMg=makeSteps($('methodMg'),[
+{tool:'cru',text:'Weigh an empty crucible and lid.',hint:'First weigh the empty crucible and lid.',run:async()=>{show('cru');await wait(500);balMg(M.A);rdAdd($('rdMg'),'crucible + lid',M.A);sayMg('Empty crucible and lid: <b>'+f2(M.A)+' g</b>. Write it down.','ok');}},
+{tool:'emery',text:'Clean the magnesium ribbon with emery paper.',hint:'Clean the magnesium ribbon first.',wrong:{mg:'Clean the ribbon first. It has a dull layer of magnesium oxide on it.'},
+run:async()=>{show('ribbon');await wait(400);$('ribbonStrip').style.fill='#cfd6dd';await wait(1200);sayMg('The ribbon is now shiny. The oxide layer is gone, so you only weigh magnesium.','ok');}},
+{tool:'mg',text:'Coil the ribbon into the crucible. Put the lid on and weigh.',hint:'Put the clean magnesium in the crucible and weigh it.',run:async()=>{
+show('ribbon',false);show('coil');await wait(500);balMg(M.B);rdAdd($('rdMg'),'crucible + lid + Mg',M.B);sayMg('Crucible, lid and magnesium: <b>'+f2(M.B)+' g</b>.','ok');}},
+{tool:'burner',text:'Put the crucible on a pipeclay triangle. Heat strongly.',hint:'Heat the crucible strongly.',run:async()=>{
+toTri();balMg(0);await wait(1100);hot(true);await wait(1000);sayMg('The crucible is red hot. The magnesium needs oxygen. Use the tongs to lift the lid a little.');}},
+{tool:'tongs',text:'Lift the lid a little with tongs, now and then.',hint:'Lift the lid a little with the tongs.',wrong:{balance:'Not yet. The magnesium has not all reacted. Lift the lid to let oxygen in.'},
+run:async()=>{M.lifts++;$('lidMg').style.transform='translate(10px,-24px)';await wait(250);
+$('glow').style.opacity=M.lifts<3?.95:.4;puff();await wait(900);$('lidMg').style.transform='';await wait(500);$('glow').style.opacity=0;
+if(M.lifts>=3){$('coil').classList.add('hid');$('mgo').style.opacity=1;sayMg('Lift '+M.lifts+': only a faint glow now. The ribbon has turned into white powder.','ok');return true;}
+if(M.lifts===1)$('mgo').style.opacity=.5;
+sayMg('Lift '+M.lifts+': a bright white glow as oxygen gets in. A little white smoke appears, so put the lid back quickly. Lift again later.');return false;}},
+{tool:'balance',text:'Stop heating. Let it cool. Weigh.',hint:'Let the crucible cool and weigh it.',run:async()=>{
+hot(false);await wait(1000);toBal();await wait(1000);M.last=M.C1;balMg(M.C1);rdAdd($('rdMg'),'after heating once',M.C1);
+sayMg('Crucible, lid and product: <b>'+f2(M.C1)+' g</b>. Is all the magnesium used up? Heat again to check.','ok');}},
+heatAgainStep, weighAgainStep
+],sayMg);
+makeBench($('trayMg'),$('sceneMg'),[tl('cru','Crucible and lid'),tl('emery','Emery paper'),tl('mg','Magnesium ribbon'),tl('burner','Bunsen burner'),tl('tongs','Tongs'),tl('balance','Balance')],id=>stepsMg.use(id),sayMg);
+/* ================= COPPER(II) OXIDE ================= */
+const sayCu=sayer($('msgCu'));
+let C;
+function dataCu(){const A=r2(rnd(16,22)),x=r2(rnd(1.5,2.5)),cu=x*63.5/79.5*rnd(1,1.012);C={A,B:r2(A+x),C:r2(A+cu)};}
+const tube=$('tube');
+function balCu(v){$('balCu').textContent=f2(v)+' g';}
+const stepsCu=makeSteps($('methodCu'),[
+{tool:'tube',text:'Weigh an empty reduction tube.',hint:'First weigh the empty tube.',run:async()=>{show('tube');await wait(500);balCu(C.A);rdAdd($('rdCu'),'empty tube',C.A);sayCu('Empty tube: <b>'+f2(C.A)+' g</b>.','ok');}},
+{tool:'cuo',text:'Add copper(II) oxide. Weigh again.',hint:'Put copper(II) oxide into the tube and weigh it.',run:async()=>{show('powder');await wait(500);balCu(C.B);rdAdd($('rdCu'),'tube + copper(II) oxide',C.B);sayCu('Tube and black copper(II) oxide: <b>'+f2(C.B)+' g</b>.','ok');}},
+{tool:'gas',text:'Clamp the tube. Turn on the gas. Light the gas at the small hole.',hint:'Clamp the tube and turn on the gas.',wrong:{burner:'Turn the gas on first. It pushes the air out of the tube. Heating with air inside could cause a small explosion.'},
+run:async()=>{tube.style.transform='translate(410px,150px)';balCu(0);await wait(1100);show('gasPipe');await wait(500);show('holeFlame');sayCu('Methane flows over the powder and pushes out the air. The extra gas burns at the hole, so it does not escape.','ok');}},
+{tool:'burner',text:'Heat the copper(II) oxide strongly.',hint:'Heat the powder strongly.',run:async()=>{show('flameCu');await wait(500);$('powder').style.fill='#c0643e';await wait(2600);sayCu('The black powder glows and turns <b>pink-brown</b>. This is copper. The oxygen has been removed.','ok');}},
+{tool:'burner',text:'Stop heating. Keep the gas on while the tube cools.',hint:'Turn off the Bunsen burner.',wrong:{gas:'Keep the gas flowing while the tube cools. Hot copper would react with oxygen in the air and turn back into black copper(II) oxide.'},
+run:async()=>{show('flameCu',false);await wait(800);sayCu('Burner off. The gas is still on, so no air can reach the hot copper.','ok');}},
+{tool:'gas',text:'When the tube is cool, turn off the gas.',hint:'Turn off the gas now that it is cool.',run:async()=>{show('holeFlame',false);await wait(500);show('gasPipe',false);sayCu('Gas off. The tube is cool.','ok');}},
+{tool:'balance',text:'Weigh the tube and copper.',hint:'Weigh the tube and copper.',run:async()=>{tube.style.transform='translate(120px,222px)';await wait(1000);C.done=true;balCu(C.C);rdAdd($('rdCu'),'tube + copper',C.C);sayCu('Tube and copper: <b>'+f2(C.C)+' g</b>. Now fill in Part 2.','ok');}}
+],sayCu);
+makeBench($('trayCu'),$('sceneCu'),[tl('tube','Reduction tube'),tl('cuo','Copper(II) oxide'),tl('gas','Gas tap'),tl('burner','Bunsen burner'),tl('balance','Balance')],id=>stepsCu.use(id),sayCu);
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{const k=t.dataset.tab;
+document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x.dataset.tab===k));
+document.querySelectorAll('[data-panel]').forEach(p=>p.classList.toggle('hid',p.dataset.panel!==k));}));
+/* ---------- results tables ---------- */
+const sel=(id,opts)=>'<select id="'+id+'"><option value="">choose…</option>'+opts.map(o=>'<option>'+o+'</option>').join('')+'</select>';
+const num=id=>'<input type="number" inputmode="decimal" step="any" id="'+id+'">';
+const ROWS={
+mg:[['a','mass of crucible + lid / g'],['b','mass of crucible + lid + magnesium / g'],['c','mass of crucible + lid + magnesium oxide (constant mass) / g'],['d','mass of magnesium = b − a / g'],['e','mass of oxygen = c − b / g'],['f','moles of Mg = d ÷ 24'],['g','moles of O = e ÷ 16'],['h','moles of O ÷ moles of Mg'],['i','simplest whole-number ratio Mg : O','1 : 1|1 : 2|2 : 1'],['j','formula of magnesium oxide','MgO|MgO₂|Mg₂O']],
+cu:[['a','mass of empty tube / g'],['b','mass of tube + copper(II) oxide / g'],['c','mass of tube + copper / g'],['d','mass of copper = c − a / g'],['e','mass of oxygen = b − c / g'],['f','moles of Cu = d ÷ 63.5'],['g','moles of O = e ÷ 16'],['h','moles of O ÷ moles of Cu'],['i','formula of copper oxide','CuO|CuO₂|Cu₂O']]};
+['mg','cu'].forEach(k=>{const tb=$(k==='mg'?'tbMg':'tbCu');
+tb.innerHTML=ROWS[k].map(([c,l,o])=>'<tr><th><label for="'+k+c+'">'+l+'</label></th><td id="td'+k+c+'">'+(o?sel(k+c,o.split('|')):num(k+c))+'</td></tr>').join('');
+tb.addEventListener('input',e=>{const t=e.target.closest('td');if(t)t.classList.remove('ok','wrong');});});
+function expected(k){
+if(k==='mg'){if(!M||M.reheats<2)return null;const d=M.B-M.A,e=M.fin-M.B,f=d/24,g=e/16;return {a:M.A,b:M.B,c:M.fin,d,e,f,g,h:g/f,i:'1 : 1',j:'MgO'};}
+if(!C.done)return null;
+const d=C.C-C.A,e=C.B-C.C,f=d/63.5,g=e/16;return {a:C.A,b:C.B,c:C.C,d,e,f,g,h:g/f,i:'CuO'};
+}
+document.querySelectorAll('[data-check]').forEach(b=>b.addEventListener('click',()=>{
+const k=b.dataset.check,sc=$(k==='mg'?'scMg':'scCu'),E=expected(k);
+if(!E){sc.textContent='Finish Part 1 first (heat to constant mass and weigh).';sc.className='score bad';return;}
+let right=0;const n=ROWS[k].length;
+ROWS[k].forEach(([c,,o])=>{const v=$(k+c).value;let ok;
+if(o)ok=v===E[c];
+else{const x=parseFloat(v);
+if('abcde'.includes(c))ok=Math.abs(x-E[c])<=.006;
+else if(c==='h'){const fu=parseFloat($(k+'f').value),gu=parseFloat($(k+'g').value);ok=Math.abs(x-E.h)<=.04||(fu>0&&Math.abs(x-gu/fu)<=.02&&Math.abs(x-E.h)<=.08);}
+else ok=Math.abs(x-E[c])<=E[c]*.03;}
+const td=$('td'+k+c);td.classList.toggle('ok',!!ok);td.classList.toggle('wrong',!ok);if(ok)right++;});
+sc.textContent=right+' / '+n+' correct.'+(right===n?' Well done!':' Check the red boxes. Copy readings exactly, to 2 decimal places.');sc.className='score '+(right===n?'good':'bad');
+}));
+/* ---------- questions ---------- */
+$('checkQs').addEventListener('click',()=>{const sels=[...document.querySelectorAll('#qs select')];let right=0;
+sels.forEach(s=>{const ok=s.value===s.dataset.a;s.classList.toggle('ok',ok);s.classList.toggle('wrong',!ok);if(ok)right++;});
+const q=$('qScore');q.textContent=right+' / '+sels.length+' correct'+(right===sels.length?'. Excellent!':'.');q.className='score '+(right===sels.length?'good':'bad');});
+$('qs').addEventListener('change',e=>e.target.classList.remove('ok','wrong'));
+/* ---------- reset ---------- */
+function resetMg(){dataMg();stepsMg.reset();show('cru',false);toBal();hot(false);show('ribbon',false);$('ribbonStrip').style.fill='#7e837a';show('coil',false);$('mgo').style.opacity=0;$('glow').style.opacity=0;$('lidMg').style.transform='';$('smoke').innerHTML='';balMg(0);
+const d=$('rdMg');d.dataset.n='';d.innerHTML='<dt>none yet</dt><dd></dd>';sayMg('Start with step 1: weigh the empty crucible and lid.');}
+function resetCu(){dataCu();stepsCu.reset();show('tube',false);tube.style.transform='translate(120px,222px)';show('powder',false);$('powder').style.fill='#1d1d1d';['gasPipe','holeFlame','flameCu'].forEach(i=>show(i,false));balCu(0);
+const d=$('rdCu');d.dataset.n='';d.innerHTML='<dt>none yet</dt><dd></dd>';sayCu('Start with step 1: weigh the empty reduction tube.');}
+$('resetMg').addEventListener('click',()=>{if(!stepsMg.busy)resetMg();});
+$('resetCu').addEventListener('click',()=>{if(!stepsCu.busy)resetCu();});
+$('resetAll').addEventListener('click',()=>{if(stepsMg.busy||stepsCu.busy)return;resetMg();resetCu();
+document.querySelectorAll('.res input,.res select').forEach(el=>el.value='');document.querySelectorAll('.res td').forEach(td=>td.classList.remove('ok','wrong'));
+document.querySelectorAll('#qs select').forEach(s=>{s.value='';s.classList.remove('ok','wrong');});
+['scMg','scCu','qScore'].forEach(i=>$(i).textContent='');window.scrollTo({top:0,behavior:RM?'auto':'smooth'});});
+resetMg();resetCu();
+})();
+</script>
+<script>
+(function(){
+const RM=false;
+const Q=[{"ref": "Q1(a)", "marks": 1, "type": "mcq", "ctx": "A student heats magnesium ribbon in a crucible to find the formula of magnesium oxide.", "stem": "Why is the magnesium ribbon rubbed with emery paper before it is weighed?", "opts": ["To make the ribbon easier to coil.", "To remove the layer of oxide on its surface.", "To add a catalyst to the surface.", "To make the magnesium react more slowly."], "ans": 1, "why": "Old magnesium has a coating of magnesium oxide. Removing it means the mass weighed is only magnesium."}, {"ref": "Q1(b)", "marks": 1, "type": "mcq", "stem": "Why does the student lift the lid of the crucible slightly from time to time during heating?", "opts": ["To let oxygen in while keeping most of the magnesium oxide inside.", "To let the carbon dioxide escape.", "To cool the crucible down.", "To check the colour of the flame."], "ans": 0, "why": "The magnesium needs oxygen to burn, but if the lid is fully off, white magnesium oxide smoke escapes and mass is lost."}, {"ref": "Q2", "marks": 2, "type": "calc", "ctx": "The student's results: mass of crucible and lid = 24.18 g; mass of crucible, lid and magnesium = 24.54 g; mass of crucible, lid and magnesium oxide after heating = 24.78 g.", "stem": "Calculate the mass of magnesium used and the mass of oxygen that combined with it.", "inputs": [{"label": "Mass of magnesium =", "unit": "g", "ans": 0.36, "tol": 0.005, "m": 1}, {"label": "Mass of oxygen =", "unit": "g", "ans": 0.24, "tol": 0.005, "m": 1}], "working": "<p>mass of Mg = 24.54 &minus; 24.18 = <b>0.36 g</b> (1)</p><p>mass of O = 24.78 &minus; 24.54 = <b>0.24 g</b> (1)</p>"}, {"ref": "Q3", "marks": 3, "type": "calc", "ctx": "Use your answers to Q2. (A<sub>r</sub>: Mg = 24, O = 16)", "stem": "Calculate the empirical formula of magnesium oxide. Give the number of moles of each element and the number of oxygen atoms for every magnesium atom.", "inputs": [{"label": "Moles of Mg =", "unit": "mol", "ans": 0.015, "tol": 0.0005, "m": 1}, {"label": "Moles of O =", "unit": "mol", "ans": 0.015, "tol": 0.0005, "m": 1}, {"label": "Ratio Mg : O = 1 :", "unit": "", "ans": 1, "tol": 0.05, "m": 1}], "working": "<p>moles of Mg = 0.36 &divide; 24 = 0.015 mol (1)</p><p>moles of O = 0.24 &divide; 16 = 0.015 mol (1)</p><p>ratio Mg : O = 0.015 : 0.015 = 1 : 1, so the empirical formula is <b>MgO</b> (1)</p>"}, {"ref": "Q4", "marks": 1, "type": "mcq", "stem": "Which is the balanced equation for the reaction of magnesium with oxygen?", "opts": ["Mg + O<sub>2</sub> &rarr; MgO", "Mg + O &rarr; MgO", "2Mg + O<sub>2</sub> &rarr; 2MgO", "Mg<sub>2</sub> + O<sub>2</sub> &rarr; 2MgO"], "ans": 2, "why": "Oxygen is diatomic (O<sub>2</sub>), so two magnesium atoms react with one oxygen molecule to make 2MgO."}, {"ref": "Q5", "marks": 2, "type": "text", "ctx": "Another student's results gave a smaller mass of oxygen than expected.", "stem": "Suggest two reasons for this.", "points": ["Some magnesium oxide (white smoke) escaped when the lid was lifted.", "Not all of the magnesium reacted / the crucible was not heated for long enough.", "Some magnesium reacted with nitrogen in the air instead of oxygen."]}, {"ref": "Q6", "marks": 2, "type": "text", "stem": "Describe how the student could make sure that all of the magnesium had reacted.", "points": ["Heat again, let it cool and reweigh.", "Repeat until the mass stays the same (constant mass)."]}, {"ref": "Q7(a)", "marks": 3, "type": "calc", "ctx": "Copper(II) oxide can be reduced by heating it in a stream of methane. Results: mass of empty tube = 30.50 g; mass of tube and copper(II) oxide = 33.68 g; mass of tube and copper after reduction = 33.04 g. (A<sub>r</sub>: Cu = 63.5, O = 16)", "stem": "Calculate the mass of oxygen removed, the moles of copper and the moles of oxygen. Use your answers to show the formula of copper(II) oxide is CuO.", "inputs": [{"label": "Mass of oxygen removed =", "unit": "g", "ans": 0.64, "tol": 0.005, "m": 1}, {"label": "Moles of Cu =", "unit": "mol", "ans": 0.04, "tol": 0.0006, "m": 1}, {"label": "Moles of O =", "unit": "mol", "ans": 0.04, "tol": 0.0006, "m": 1}], "working": "<p>mass of O = 33.68 &minus; 33.04 = 0.64 g; mass of Cu = 33.04 &minus; 30.50 = 2.54 g (1)</p><p>moles of Cu = 2.54 &divide; 63.5 = 0.040 mol (1)</p><p>moles of O = 0.64 &divide; 16 = 0.040 mol, so Cu : O = 1 : 1 and the formula is <b>CuO</b> (1)</p>"}, {"ref": "Q7(b)", "marks": 1, "type": "mcq", "ctx": "The equation for the reaction is: 4CuO + CH<sub>4</sub> &rarr; 4Cu + CO<sub>2</sub> + 2H<sub>2</sub>O", "stem": "Which statement about this reaction is correct?", "opts": ["Copper(II) oxide is oxidised because it gains oxygen.", "Methane is reduced because it loses hydrogen.", "Copper(II) oxide is reduced because it loses oxygen.", "Copper is formed by thermal decomposition of copper(II) oxide."], "ans": 2, "why": "Reduction is loss of oxygen. The black copper(II) oxide loses oxygen and becomes pink-brown copper."}, {"ref": "Q8", "marks": 6, "type": "text", "stem": "Describe how you would carry out an experiment to find the empirical formula of magnesium oxide by burning magnesium. Include the measurements you would make and how you would use them.", "note": "Award one mark for each point, up to 6", "points": ["Weigh an empty crucible and lid.", "Add a coil of clean magnesium ribbon and weigh again.", "Heat the crucible strongly on a pipeclay triangle over a Bunsen burner.", "Lift the lid a little from time to time with tongs to let air in.", "When the magnesium stops glowing, take off the lid and heat strongly for a few more minutes.", "Let it cool, then weigh the crucible, lid and contents.", "Heat, cool and reweigh until the mass is constant.", "Mass of oxygen = final mass &minus; mass of crucible, lid and magnesium.", "Divide each mass by its A<sub>r</sub> to find moles, then find the simplest whole-number ratio."]}];
+const $=id=>document.getElementById(id);
+const tabs=[...document.querySelectorAll('.ptab')];
+function toTop(){const y=$('ptabs').getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:Math.max(0,y),behavior:RM?'auto':'smooth'});}
+function pick(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on;});toTop();}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(t));
+t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+if(j!==null){e.preventDefault();tabs[j].focus();pick(tabs[j]);}});});
+const state=[],L='ABCD',total=Q.reduce((s,q)=>s+q.marks,0);
+function upd(){const sc=state.reduce((s,x)=>s+(x.marked?x.score:0),0),n=state.filter(x=>x.marked).length;
+$('exBar').textContent='Score: '+sc+' / '+total+' · '+n+' of '+Q.length+' questions marked';}
+const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;};
+const num=s=>{s=String(s).trim().replace(',','.');return s===''||isNaN(+s)?null:+s;};
+const mk=n=>n+' mark'+(n>1?'s':'');
+function build(){const list=$('exList');list.innerHTML='';state.length=0;
+Q.forEach((q,qi)=>{const st={marked:false,score:0};state.push(st);
+const c=el('article','ex-q');c.setAttribute('aria-labelledby','exr'+qi);
+const h=el('div','ex-head');const r=el('span','ex-ref',q.ref);r.id='exr'+qi;h.append(r,el('span','ex-mk','('+mk(q.marks)+')'));c.append(h);
+if(q.ctx)c.append(el('p','ex-ctx',q.ctx));
+c.append(el('p','ex-stem',q.stem));
+const fb=el('div','ex-fb');fb.hidden=true;fb.setAttribute('aria-live','polite');
+if(q.type==='mcq'){const g=el('div','ex-opts');g.setAttribute('role','radiogroup');g.setAttribute('aria-labelledby','exr'+qi);
+q.opts.forEach((o,oi)=>{const lab=el('label','ex-opt');const ri=el('input');ri.type='radio';ri.name='exq'+qi;ri.value=oi;
+lab.append(ri,el('span','lt',L[oi]),el('span','',o));g.append(lab);
+ri.addEventListener('change',()=>{if(st.marked)return;const ok=oi===q.ans;st.marked=true;st.score=ok?q.marks:0;c.classList.add('locked');
+g.querySelectorAll('input').forEach(x=>x.disabled=true);
+g.children[q.ans].classList.add('ex-ok');if(!ok)lab.classList.add('ex-no');
+fb.className='ex-fb '+(ok?'ex-ok':'ex-no');fb.innerHTML='<p><b>'+(ok?'Correct.':'Not quite. The answer is '+L[q.ans]+'.')+'</b> '+q.why+'</p>';fb.hidden=false;upd();});});
+c.append(g,fb);}
+else if(q.type==='calc'){const w=el('div','ex-calc');const ins=[];
+q.inputs.forEach((p,pi)=>{const row=el('div','ex-row');const id='exi'+qi+'_'+pi;const lb=el('label','',p.label);lb.htmlFor=id;
+const i=el('input','ex-in');i.id=id;i.type='text';i.inputMode='decimal';i.autocomplete='off';ins.push(i);
+row.append(lb,i);if(p.unit)row.append(el('span','',p.unit));w.append(row);});
+const b=el('button','ex-btn','Check');b.type='button';
+ins.forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')b.click();}));
+b.addEventListener('click',()=>{if(st.marked)return;const vals=ins.map(i=>num(i.value));
+if(vals.some(v=>v===null)){fb.className='ex-fb ex-no';fb.innerHTML='<p>Type a number in every box first.</p>';fb.hidden=false;return;}
+const ok=q.inputs.map((p,pi)=>Math.abs(vals[pi]-p.ans)<=p.tol+1e-9),last=ok.length-1;
+const s=ok[last]?q.marks:Math.min(q.marks,q.inputs.reduce((a,p,pi)=>a+(ok[pi]?p.m:0),0));
+ins.forEach((i,pi)=>{i.classList.add(ok[pi]?'ex-ok':'ex-no');i.readOnly=true;});
+st.marked=true;st.score=s;b.disabled=true;
+fb.className='ex-fb '+(s===q.marks?'ex-ok':'ex-no');fb.innerHTML='<p><b>'+s+' / '+mk(q.marks)+'.</b> Working:</p>'+q.working;fb.hidden=false;upd();});
+w.append(b);c.append(w,fb);}
+else{const ta=el('textarea','ex-ta');ta.placeholder='Write your answer here, then press Show mark scheme.';ta.setAttribute('aria-label','Your answer to '+q.ref);
+const b=el('button','ex-btn ghost','Show mark scheme');b.type='button';
+const ms=el('div','ex-ms');ms.hidden=true;ms.append(el('h3','','Tick each point you made'));
+q.points.forEach(p=>{const lab=el('label');const cb=el('input');cb.type='checkbox';lab.append(cb,el('span','',p));ms.append(lab);
+cb.addEventListener('change',()=>{st.score=Math.min(q.marks,ms.querySelectorAll('input:checked').length);upd();});});
+ms.append(el('p','ex-max','Max '+mk(q.marks)+(q.note?'. '+q.note+'.':'')));
+b.addEventListener('click',()=>{if(st.marked)return;st.marked=true;st.score=0;ms.hidden=false;b.disabled=true;upd();});
+c.append(ta,b,ms);}
+list.append(c);});
+upd();}
+$('exReset').addEventListener('click',()=>{build();toTop();});
+build();
+})();
+</script>
+</body></html>

@@ -1,0 +1,504 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Redox Titrations Lab</title>
+<meta name="description" content="Virtual core practical: Redox Titrations Lab. Free Pearson Edexcel International A Level Chemistry revision from Chemistry That Counts.">
+<link rel="canonical" href="https://chemistrythatcounts.com/labs/cp13-redox-titrations.html">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;600;700&display=swap">
+<style>
+:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--warn:#a85d00;--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.2}
+h1{font-size:clamp(1.4rem,4.2vw,2.1rem);font-weight:700;color:var(--accent)}
+h2{font-size:1.3rem;font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+h2 .step{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:70ch}
+header{display:flex;flex-direction:column;gap:8px}
+.meta{font:600 .9rem var(--display);color:var(--muted)}
+details.safety{background:var(--sheet);border:1px solid var(--line);border-left:5px solid var(--warn);border-radius:10px;padding:8px 14px;max-width:72ch}
+details.safety summary{cursor:pointer;font:600 1rem var(--display);color:var(--warn)}
+details.safety ul{margin:8px 0 2px;padding-left:1.2em;font-size:.93rem}
+section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:20px clamp(12px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+.tab{font:600 .9rem var(--display);padding:8px 14px;border:2px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;background:var(--bench);color:var(--muted);cursor:pointer;margin-bottom:-2px}
+.tab[aria-selected=true]{background:var(--sheet);color:var(--accent);border-color:var(--accent)}
+[hidden]{display:none!important}
+.bench{background:var(--bench);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shelf-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;text-align:center}
+.shelf{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.item{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;background:var(--sheet);border:2px solid var(--line);border-radius:12px;padding:6px;display:flex;flex-direction:column;align-items:center;gap:2px;font:inherit;font-size:.74rem;line-height:1.2;text-align:center;color:var(--ink);width:104px}
+.item svg{width:40px;height:54px;display:block}
+.item.selected{border-color:var(--accent);background:var(--accent-soft)}
+.item:focus-visible,.btn:focus-visible,.mini:focus-visible,.tab:focus-visible,.slot:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.slot.armed,.slot.over{outline:3px dashed var(--accent);outline-offset:2px}
+.target .hl{fill:transparent;stroke:none}
+.target.armed .hl,.target.over .hl{stroke:#4a44b5;stroke-width:3;stroke-dasharray:7 5;fill:rgba(74,68,181,.06)}
+g.target{cursor:pointer}
+.hint{text-align:center;font-size:.88rem;color:var(--muted);margin:0 auto}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:12px}
+@media (max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}
+.scene{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;min-width:0}
+.scene svg{width:100%;height:auto;display:block}
+.slots{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.slot{font:inherit;font-size:.78rem;padding:5px 8px;border:2px dashed var(--line);border-radius:8px;background:var(--paper);color:var(--muted);cursor:pointer;flex:1 1 90px}
+.side{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.86rem;line-height:1.3}
+.checklist li{position:relative;padding-left:26px;color:var(--muted)}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:18px;height:18px;border:2px solid var(--line);border-radius:5px;background:#fff;font-size:13px;line-height:15px;text-align:center;color:#fff;box-sizing:border-box}
+.checklist li.now{color:var(--ink);font-weight:700}
+.checklist li.done{color:var(--ink)}
+.checklist li.done::before{content:"✓";background:var(--good);border-color:var(--good)}
+.msg{min-height:2.6em;padding:8px 12px;border-radius:10px;background:var(--sheet);border:1px solid var(--line);font-size:.92rem}
+.msg.warn{border-color:var(--warn);background:#fff5e6}
+.msg.ok{border-color:var(--good);background:#e9f6ee}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:600 .92rem var(--display);padding:8px 14px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.btn.ghost{background:var(--sheet);color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.mini{font:inherit;font-size:.82rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.readbox{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.92rem}
+.readout{font:700 1.05rem var(--display);font-variant-numeric:tabular-nums;color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.tbl-wrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:#fff}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:middle}
+thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
+tbody th{background:var(--accent-soft);font-weight:700}
+input.n{font:inherit;font-size:.95rem;width:7em;padding:4px 6px;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+input.n.ok,select.ok{border-color:var(--good)} input.n.wrong,select.wrong{border-color:var(--bad)}
+td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;font-size:.93rem;max-width:720px}
+.calc label{min-width:0}
+select{font:inherit;font-size:.93rem;padding:3px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
+.score{font-weight:700}.score.good{color:var(--good)}.score.bad{color:var(--bad)}
+.note{font-size:.86rem;color:var(--muted)}
+.data{background:var(--paper);border-radius:10px;padding:8px 12px;font-size:.9rem}
+ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:14px}
+ol.qs li{max-width:72ch}
+.xq{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.xq>*{max-width:100%}
+.mk{font-weight:700;white-space:nowrap}
+.opts label{display:block;padding:4px 8px;border-radius:8px;border:2px solid transparent}
+.opts label.ok{border-color:var(--good)} .opts label.wrong{border-color:var(--bad)}
+textarea{font:inherit;font-size:.95rem;width:100%;min-height:4.5em;padding:6px 8px;border:2px solid var(--line);border-radius:8px;resize:vertical}
+.ms,.worked{background:#f6f6fd;border:1px solid var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:.9rem;width:100%}
+.ms>*{margin:4px 0}
+.ms label{display:block;padding-left:26px;text-indent:-26px}
+.ms input{width:18px;height:18px;vertical-align:-3px;margin:0 8px 0 0}
+.lbl{font:13px var(--body);fill:#5a6878}
+.drop{animation:fall .5s ease-in forwards}
+@keyframes fall{from{transform:translateY(0);opacity:1}to{transform:translateY(34px);opacity:0}}
+.flash{animation:flash 1s ease-out forwards}
+@keyframes flash{from{opacity:.85}to{opacity:0}}
+.swirl{animation:swirl .9s ease}
+@keyframes swirl{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}65%{transform:rotate(2deg)}}
+.cf{transform-box:fill-box;transform-origin:50% 100%}
+@media (max-width:520px){body{font-size:16px}.item{width:90px}.calc{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+
+<header>
+<h1>Redox titrations: iron(II) with manganate(VII), and iodine with thiosulfate</h1>
+<p class="meta">IAL Chemistry · Core Practical 13 · Unit 6</p>
+<p><b>Aim:</b> To use redox titrations to find the value of x in FeSO<sub>4</sub>·xH<sub>2</sub>O and the percentage by mass of copper in copper(II) sulfate crystals.</p>
+<details class="safety"><summary>Safety</summary><ul>
+<li>Wear eye protection throughout. Dilute sulfuric acid (1 mol dm<sup>−3</sup>) irritates eyes and skin.</li>
+<li>Copper(II) sulfate is harmful if swallowed, causes serious eye irritation and is toxic to aquatic life: put residues in the waste bottle. Iron(II) sulfate is harmful if swallowed.</li>
+<li>Always use a pipette filler. Never pipette by mouth.</li>
+<li>Potassium manganate(VII) and iodine stain skin and clothes. Wipe up spills at once. Fill the burette below eye level and remove the funnel before titrating.</li>
+</ul></details>
+</header>
+
+<section class="sheet">
+<h2><span class="step">Part 1</span>Do the experiment</h2>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-tab="fe" type="button">(i) Iron(II) + manganate(VII)</button>
+<button class="tab" role="tab" aria-selected="false" data-tab="cu" type="button">(ii) Iodine + thiosulfate</button>
+</div>
+<div data-pane="fe" id="pane-fe"></div>
+<div data-pane="cu" id="pane-cu" hidden></div>
+</section>
+
+<section class="sheet">
+<h2><span class="step">Part 2</span>Record your results</h2>
+<p class="note">Use the readings from Part 1. Tick the titres that are concordant (within 0.10 cm<sup>3</sup> of each other). Do not include the rough titre. Answers to calculations are marked against your own data. Standard form: type 5.04e-4 or 5.04x10-4.</p>
+<h3>A. Iron(II) with manganate(VII): finding x in FeSO<sub>4</sub>·xH<sub>2</sub>O</h3>
+<div class="data">MnO<sub>4</sub><sup>−</sup>(aq) + 8H<sup>+</sup>(aq) + 5Fe<sup>2+</sup>(aq) → Mn<sup>2+</sup>(aq) + 5Fe<sup>3+</sup>(aq) + 4H<sub>2</sub>O(l) · M(FeSO<sub>4</sub>) = 151.9 g mol<sup>−1</sup> · M(H<sub>2</sub>O) = 18.0 g mol<sup>−1</sup></div>
+<div id="rec-fe"></div>
+<h3>B. Iodine with thiosulfate: percentage of copper in CuSO<sub>4</sub>·5H<sub>2</sub>O</h3>
+<div class="data">2Cu<sup>2+</sup>(aq) + 4I<sup>−</sup>(aq) → 2CuI(s) + I<sub>2</sub>(aq) · I<sub>2</sub>(aq) + 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup>(aq) → 2I<sup>−</sup>(aq) + S<sub>4</sub>O<sub>6</sub><sup>2−</sup>(aq) · A<sub>r</sub>(Cu) = 63.5</div>
+<div id="rec-cu"></div>
+<div class="toolbar"><button class="btn" type="button" id="bCheckRes">Check my results</button><span class="score" id="resScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet">
+<h2><span class="step">Part 3</span>What does it tell us?</h2>
+<ol class="qs" id="qs">
+<li>No indicator is needed in titration (i). MnO<sub>4</sub><sup>−</sup>(aq) is
+<select data-a="a"><option value="">choose…</option><option value="a">purple</option><option value="b">colourless</option><option value="c">orange</option></select>
+and Mn<sup>2+</sup>(aq) is
+<select data-a="b"><option value="">choose…</option><option value="a">purple</option><option value="b">almost colourless</option><option value="c">green</option></select>,
+so the end point is the first
+<select data-a="c"><option value="">choose…</option><option value="a">colourless solution</option><option value="b">brown precipitate</option><option value="c">permanent pale pink</option></select>.</li>
+<li>Excess dilute sulfuric acid is added because
+<select data-a="a"><option value="">choose…</option><option value="a">H⁺ ions are needed to reduce MnO₄⁻ to Mn²⁺</option><option value="b">it oxidises the Fe²⁺ ions</option><option value="c">it acts as the indicator</option></select>.
+Hydrochloric acid is not used because Cl<sup>−</sup> is
+<select data-a="b"><option value="">choose…</option><option value="a">reduced to Cl₂</option><option value="b">oxidised to Cl₂ by MnO₄⁻</option><option value="c">a precipitate</option></select>,
+so the titre would be too
+<select data-a="a"><option value="">choose…</option><option value="a">large</option><option value="b">small</option></select>.
+Nitric acid is not used because it is
+<select data-a="b"><option value="">choose…</option><option value="a">a weak acid</option><option value="b">an oxidising agent that oxidises Fe²⁺</option><option value="c">too dilute</option></select>.</li>
+<li>The acid used to dissolve the iron(II) salt is boiled and cooled to remove dissolved
+<select data-a="b"><option value="">choose…</option><option value="a">carbon dioxide</option><option value="b">oxygen</option><option value="c">nitrogen</option></select>,
+which would
+<select data-a="a"><option value="">choose…</option><option value="a">oxidise some Fe²⁺ to Fe³⁺, giving a titre that is too small</option><option value="b">reduce Fe³⁺ to Fe²⁺</option><option value="c">react with MnO₄⁻</option></select>.</li>
+<li>The KMnO<sub>4</sub> burette is read at the
+<select data-a="a"><option value="">choose…</option><option value="a">top</option><option value="b">bottom</option></select>
+of the meniscus because the solution is
+<select data-a="b"><option value="">choose…</option><option value="a">colourless</option><option value="b">so dark that the bottom cannot be seen</option><option value="c">denser than water</option></select>.</li>
+<li>Starch is added when the solution is
+<select data-a="b"><option value="">choose…</option><option value="a">dark brown</option><option value="b">pale yellow (straw)</option><option value="c">blue-black</option></select>.
+If added too early, a lot of iodine
+<select data-a="a"><option value="">choose…</option><option value="a">binds strongly to the starch and is released slowly, so the end point is not sharp</option><option value="b">evaporates</option><option value="c">turns the precipitate white</option></select>.
+At the end point the colour changes from blue-black to
+<select data-a="c"><option value="">choose…</option><option value="a">colourless with a blue precipitate</option><option value="b">pale pink</option><option value="c">off-white (cream) precipitate</option></select>.</li>
+<li>Mole ratios: MnO<sub>4</sub><sup>−</sup> : Fe<sup>2+</sup> =
+<select data-a="c"><option value="">choose…</option><option value="a">1 : 1</option><option value="b">1 : 2</option><option value="c">1 : 5</option><option value="d">5 : 1</option></select>
+and Cu<sup>2+</sup> : S<sub>2</sub>O<sub>3</sub><sup>2−</sup> =
+<select data-a="a"><option value="">choose…</option><option value="a">1 : 1</option><option value="b">1 : 2</option><option value="c">2 : 1</option><option value="d">4 : 1</option></select>.</li>
+</ol>
+<div class="toolbar"><button class="btn" type="button" id="bCheckQ">Check my answers</button><span class="score" id="qScore" aria-live="polite"></span></div>
+</section>
+
+<section class="sheet" id="exam">
+<h2><span class="step">Part 4</span>Exam practice</h2>
+<p class="note">Type numbers only. Written answers: write first, then open the mark scheme and tick the points you made.</p>
+<div class="xq" data-type="num" data-a="4" data-tol="0.01" data-m="3">
+<p><b>1</b> 5.60 g of a partly dehydrated sample of FeSO<sub>4</sub>·xH<sub>2</sub>O was dissolved in dilute sulfuric acid and made up to 250.0 cm<sup>3</sup>. 25.0 cm<sup>3</sup> portions were titrated with 0.0200 mol dm<sup>−3</sup> KMnO<sub>4</sub>. The mean titre was 25.00 cm<sup>3</sup>. Calculate the value of x, to the nearest whole number. <span class="mk">(3)</span></p>
+<label>x = <input class="n" inputmode="decimal"></label>
+<div class="worked" hidden>n(MnO<sub>4</sub><sup>−</sup>) = 0.0200 × 25.00/1000 = 5.00 × 10<sup>−4</sup> mol (1)<br>n(Fe<sup>2+</sup>) in 250 cm<sup>3</sup> = 5.00 × 10<sup>−4</sup> × 5 × 10 = 0.0250 mol; M = 5.60 ÷ 0.0250 = 224 g mol<sup>−1</sup> (1)<br>x = (224 − 151.9) ÷ 18.0 = 4.0, so <b>x = 4</b> (1)</div></div>
+<div class="xq" data-type="num" data-a="95.3" data-tol="0.3" data-m="3">
+<p><b>2</b> 6.50 g of impure copper(II) sulfate crystals, CuSO<sub>4</sub>·5H<sub>2</sub>O (M = 249.7 g mol<sup>−1</sup>), was dissolved and made up to 250.0 cm<sup>3</sup>. A 25.0 cm<sup>3</sup> portion was added to excess KI(aq). The iodine released needed 24.80 cm<sup>3</sup> of 0.100 mol dm<sup>−3</sup> Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>. Calculate the percentage purity of the crystals, to 3 significant figures. <span class="mk">(3)</span></p>
+<label>Purity = <input class="n" inputmode="decimal"> %</label>
+<div class="worked" hidden>n(S<sub>2</sub>O<sub>3</sub><sup>2−</sup>) = 0.100 × 24.80/1000 = 2.48 × 10<sup>−3</sup> mol = n(Cu<sup>2+</sup>) in 25.0 cm<sup>3</sup> (1)<br>In 250 cm<sup>3</sup>: 0.0248 mol; mass = 0.0248 × 249.7 = 6.19 g (1)<br>Purity = 6.19 ÷ 6.50 × 100 = <b>95.3%</b> (1)</div></div>
+<div class="xq" data-type="mcq" data-a="C" data-m="1">
+<p><b>3</b> Why is hydrochloric acid <b>not</b> used to acidify the iron(II) solution before titration with KMnO<sub>4</sub>? <span class="mk">(1)</span></p>
+<div class="opts"><label><input type="radio" name="x3" value="A"> A Hydrochloric acid oxidises Fe<sup>2+</sup> to Fe<sup>3+</sup>, so the titre is too small.</label><label><input type="radio" name="x3" value="B"> B Chloride ions form a precipitate with Mn<sup>2+</sup> ions.</label><label><input type="radio" name="x3" value="C"> C Chloride ions are oxidised by MnO<sub>4</sub><sup>−</sup> ions, so the titre is too large.</label><label><input type="radio" name="x3" value="D"> D Hydrochloric acid is too weak to supply enough H<sup>+</sup> ions.</label></div>
+<div class="worked" hidden>C. E<sup>⦵</sup>(MnO<sub>4</sub><sup>−</sup>/Mn<sup>2+</sup>) = +1.51 V is more positive than E<sup>⦵</sup>(Cl<sub>2</sub>/Cl<sup>−</sup>) = +1.36 V, so MnO<sub>4</sub><sup>−</sup> oxidises Cl<sup>−</sup> to Cl<sub>2</sub>. Extra KMnO<sub>4</sub> is used up.</div></div>
+<div class="xq" data-type="mcq" data-a="B" data-m="1">
+<p><b>4</b> 0.0100 mol of Cu<sup>2+</sup> ions reacts with excess iodide ions. What amount of thiosulfate ions reacts with the iodine released? <span class="mk">(1)</span></p>
+<div class="opts"><label><input type="radio" name="x4" value="A"> A 0.00500 mol</label><label><input type="radio" name="x4" value="B"> B 0.0100 mol</label><label><input type="radio" name="x4" value="C"> C 0.0200 mol</label><label><input type="radio" name="x4" value="D"> D 0.0400 mol</label></div>
+<div class="worked" hidden>B. 2Cu<sup>2+</sup> → 1 I<sub>2</sub> → 2S<sub>2</sub>O<sub>3</sub><sup>2−</sup>, so Cu<sup>2+</sup> : S<sub>2</sub>O<sub>3</sub><sup>2−</sup> = 1 : 1.</div></div>
+<div class="xq" data-type="wr" data-m="3">
+<p><b>5</b> Write the half-equations for the oxidation of iron(II) ions and for the reduction of manganate(VII) ions in acid solution. Use them to construct the overall ionic equation. <span class="mk">(3)</span></p>
+<textarea aria-label="Answer 5"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><label><input type="checkbox"> Fe<sup>2+</sup> → Fe<sup>3+</sup> + e<sup>−</sup> (1)</label><label><input type="checkbox"> MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5e<sup>−</sup> → Mn<sup>2+</sup> + 4H<sub>2</sub>O (1)</label><label><input type="checkbox"> MnO<sub>4</sub><sup>−</sup> + 8H<sup>+</sup> + 5Fe<sup>2+</sup> → Mn<sup>2+</sup> + 5Fe<sup>3+</sup> + 4H<sub>2</sub>O (1)</label><p class="note">Allow equilibrium signs in half-equations. Ignore state symbols. Do not award the third mark if electrons remain.</p></div></div>
+<div class="xq" data-type="num" data-a="0.80" data-tol="0.01" data-m="1">
+<p><b>6 (a)</b> A burette has an uncertainty of ±0.05 cm<sup>3</sup> for each reading. A titre was 12.50 cm<sup>3</sup>. Calculate the percentage uncertainty in the titre. <span class="mk">(1)</span></p>
+<label>Percentage uncertainty = <input class="n" inputmode="decimal"> %</label>
+<div class="worked" hidden>Two readings: 2 × 0.05 = 0.10 cm<sup>3</sup>. 0.10 ÷ 12.50 × 100 = <b>0.80%</b></div></div>
+<div class="xq" data-type="wr" data-m="1">
+<p><b>6 (b)</b> Suggest how the percentage uncertainty in the titre could be reduced, using the same burette. <span class="mk">(1)</span></p>
+<textarea aria-label="Answer 6b"></textarea><button class="mini msbtn" type="button">Show mark scheme</button>
+<div class="ms" hidden><label><input type="checkbox"> Increase the titre: use a more dilute titrant / a larger volume or more concentrated sample in the flask (1)</label><p class="note">Do not award "repeat the titration" or "use a more accurate burette".</p></div></div>
+<div class="toolbar"><button class="btn" type="button" id="bCheckX">Check my exam answers</button><span class="score" id="xScore" aria-live="polite">Exam practice: 0 / 13 marks</span></div>
+</section>
+
+<div class="toolbar"><span class="note">Redox titrations: find moles of titrant, use the mole ratio from the equation, then scale up from 25.0 cm<sup>3</sup> to 250 cm<sup>3</sup>.</span><button class="btn ghost" type="button" id="bReset">Start again</button></div>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const r2=x=>Math.round(x*100)/100,f2=x=>x.toFixed(2);
+const num=v=>{v=String(v==null?'':v).trim().replace(/[−–]/g,'-').replace(/\s*[x×*]\s*10\s*\^?\s*(-?\d+)/,'e$1').replace(',','.');return v===''?NaN:Number(v)};
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const gauss=()=>{let u=0;for(let i=0;i<6;i++)u+=Math.random();return u-3};
+function mix(a,b,t){t=Math.max(0,Math.min(1,t));const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('')}
+
+/* ---------- configuration ---------- */
+const CFG={
+ fe:{salt:'FeSO₄·7H₂O',M:277.9,mass:[6.90,7.10],tit:{nm:'KMnO₄(aq)',c:0.0200,col:'#5b1660',read:'top'},sol:'#e3efcf',vol:'#edf5e0',
+  items:[['sample','FeSO₄·7H₂O','in weighing bottle','wb','#d9ecc0'],['h2so4b','Dilute H₂SO₄','boiled and cooled','bt','#eef3f8'],['h2so4','Dilute H₂SO₄','not boiled','bt','#eef3f8'],['hcl','Dilute HCl','','bt','#eef3f8'],['hno3','Dilute HNO₃','','bt','#eef3f8'],['funnel','Funnel + wash bottle','distilled water','fn',''],['pipette','25.0 cm³ pipette','with filler','pp',''],['kmno4','KMnO₄(aq)','0.0200 mol dm⁻³','bt','#5b1660']],
+  steps:[
+   {i:'sample',t:'balance',txt:'Weigh the weighing bottle containing about 7 g of FeSO₄·7H₂O.'},
+   {i:'sample',t:'beaker',txt:'Tip the solid into a beaker.'},
+   {i:'sample',t:'balance',txt:'Reweigh the empty weighing bottle.'},
+   {i:'h2so4b',t:'beaker',txt:'Dissolve the solid in dilute H₂SO₄ that was boiled and cooled.'},
+   {i:'funnel',t:'volflask',txt:'Transfer to a 250 cm³ volumetric flask with rinsings, make up to the mark, invert.'},
+   {i:'pipette',t:'volflask',txt:'Rinse the pipette with the solution, then fill to the mark.'},
+   {i:'pipette',t:'conical',txt:'Run 25.0 cm³ into a conical flask.'},
+   {i:'h2so4b',alt:['h2so4'],t:'conical',txt:'Add about 20 cm³ of dilute H₂SO₄ (excess).'},
+   {i:'kmno4',t:'burette',txt:'Rinse and fill the burette with KMnO₄(aq). Read the top of the meniscus.'}],
+  last:'Titrate to the first permanent pale pink: one rough, then accurate titres until two are concordant.',
+  hints:{hcl:'Not hydrochloric acid. MnO₄⁻ oxidises Cl⁻ ions to chlorine, so extra KMnO₄ is used and the titre is too large.',
+   hno3:'Not nitric acid. It is an oxidising agent: it would oxidise some Fe²⁺ to Fe³⁺ before you titrate, so the titre is too small.',
+   'h2so4@beaker':'Use acid that was boiled and cooled. Boiling removes dissolved oxygen, which would oxidise some Fe²⁺ to Fe³⁺. The acid also stops Fe²⁺ being oxidised by air.'}},
+ cu:{salt:'CuSO₄·5H₂O',M:249.7,mass:[5.90,6.10],tit:{nm:'Na₂S₂O₃(aq)',c:0.100,col:'#e9f1f8',read:'bottom'},sol:'#8fc1ec',vol:'#a9d0f2',
+  items:[['sample','CuSO₄·5H₂O','in weighing bottle','wb','#5aa0e0'],['water','Distilled water','','bt','#eef3f8'],['funnel','Funnel + wash bottle','distilled water','fn',''],['pipette','25.0 cm³ pipette','with filler','pp',''],['ki','KI(aq)','excess','bt','#eef3f8'],['starch','Starch solution','indicator','bt','#f3f1ea'],['thio','Na₂S₂O₃(aq)','0.100 mol dm⁻³','bt','#eef3f8']],
+  steps:[
+   {i:'sample',t:'balance',txt:'Weigh the weighing bottle containing about 6 g of CuSO₄·5H₂O.'},
+   {i:'sample',t:'beaker',txt:'Tip the solid into a beaker.'},
+   {i:'sample',t:'balance',txt:'Reweigh the empty weighing bottle.'},
+   {i:'water',t:'beaker',txt:'Dissolve the solid in distilled water.'},
+   {i:'funnel',t:'volflask',txt:'Transfer to a 250 cm³ volumetric flask with rinsings, make up to the mark, invert.'},
+   {i:'pipette',t:'volflask',txt:'Rinse the pipette with the solution, then fill to the mark.'},
+   {i:'pipette',t:'conical',txt:'Run 25.0 cm³ into a conical flask.'},
+   {i:'ki',t:'conical',txt:'Add excess KI(aq): white CuI precipitate and brown iodine form.'},
+   {i:'thio',t:'burette',txt:'Rinse and fill the burette with Na₂S₂O₃(aq).'}],
+  last:'Titrate to pale yellow, add starch, then go dropwise until the blue-black disappears. One rough, then accurate titres until two are concordant.',
+  hints:{starch:'Not yet. Add starch only near the end point, when the iodine colour is pale yellow (straw).'}}
+};
+const TG={balance:'balance',beaker:'beaker',volflask:'volumetric flask',conical:'conical flask',burette:'burette'};
+
+/* ---------- state ---------- */
+const ST={};
+function fresh(k){const c=CFG[k],m=r2(rnd(c.mass[0],c.mass[1])),wb=r2(rnd(11.2,13.8)),res=r2(rnd(.01,.04));
+ ST[k]={k,step:0,m1:r2(wb+m+res),m2:r2(wb+res),bal:null,beaker:0,vf:0,pip:0,cf:0,acid:0,bur:false,run:null,log:[],ready:false,msg:null};
+ const S=ST[k];S.mass=r2(S.m1-S.m2);S.Vtrue=k==='fe'?S.mass/c.M/10/5/c.tit.c*1000:S.mass/c.M/10/c.tit.c*1000}
+
+/* ---------- icons ---------- */
+function icon(kind,col){
+ if(kind==='wb')return `<svg viewBox="0 0 40 54" aria-hidden="true"><rect x="10" y="10" width="20" height="5" rx="2" fill="#7d8fa3"/><path d="M8 16H32V46Q32 50 28 50H12Q8 50 8 46Z" fill="#f4f7fa" stroke="#7d8fa3" stroke-width="2"/><path d="M10 34H30V46Q30 48 28 48H12Q10 48 10 46Z" fill="${col}"/></svg>`;
+ if(kind==='pp')return `<svg viewBox="0 0 40 54" aria-hidden="true"><path d="M20 2V18M20 36V52" stroke="#7d8fa3" stroke-width="3"/><ellipse cx="20" cy="27" rx="6" ry="9" fill="#f4f7fa" stroke="#7d8fa3" stroke-width="2"/><path d="M16 8H24" stroke="#b3261e" stroke-width="1.5"/><circle cx="20" cy="4" r="4" fill="#c62828"/></svg>`;
+ if(kind==='fn')return `<svg viewBox="0 0 40 54" aria-hidden="true"><path d="M4 8H26L18 22V36" fill="none" stroke="#7d8fa3" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 30H38V50Q38 52 36 52H30Q28 52 28 50Z" fill="#e6f0fa" stroke="#7d8fa3" stroke-width="2"/><path d="M33 30V24L24 20" fill="none" stroke="#7d8fa3" stroke-width="2"/></svg>`;
+ return `<svg viewBox="0 0 40 54" aria-hidden="true"><rect x="15" y="2" width="10" height="8" rx="2" fill="#3a3f4a"/><path d="M6 16Q6 10 12 10H28Q34 10 34 16V48Q34 52 30 52H10Q6 52 6 48Z" fill="${col}" stroke="#7d8fa3" stroke-width="2"/><rect x="10" y="26" width="20" height="12" rx="1" fill="#fff" opacity=".9"/></svg>`;
+}
+
+/* ---------- pane build ---------- */
+function buildPane(k){
+ const c=CFG[k],el=$('#pane-'+k);
+ el.innerHTML=`<div class="bench">
+ <div class="shelf-label">Apparatus and reagents</div><div class="shelf">${c.items.map(a=>`<button type="button" class="item" data-id="${a[0]}" data-k="${k}">${icon(a[3],a[4])}<span>${a[1]}</span>${a[2]?`<small class="note" style="font-size:.68rem">${a[2]}</small>`:''}</button>`).join('')}</div>
+ <p class="hint">Drag an item onto the apparatus, or tap it and then tap the apparatus.</p>
+ <div class="layout"><div class="scene"><svg id="svg-${k}" viewBox="0 0 640 400" role="img" aria-label="Titration bench"></svg>
+ <div class="slots">${Object.keys(TG).map(t=>`<button type="button" class="slot target" data-t="${t}" data-k="${k}">${TG[t]}</button>`).join('')}</div></div>
+ <div class="side"><h3>Method</h3><ol class="checklist" id="ck-${k}">${c.steps.map(s=>`<li>${s.txt}</li>`).join('')}<li>${c.last}</li></ol></div></div>
+ <div class="msg" id="msg-${k}" aria-live="polite"></div>
+ <div class="controls"><button class="btn" type="button" id="fast-${k}" title="Hold down">Fast (hold)</button><button class="btn ghost" type="button" id="half-${k}">Add 0.50 cm³</button><button class="btn ghost" type="button" id="drop-${k}">Add 1 drop</button><button class="btn" type="button" id="stop-${k}">Stop and record</button><button class="btn ghost" type="button" id="next-${k}">Set up next titration</button></div>
+ <div class="readbox"><span>Balance: <b class="readout" id="bal-${k}">–</b></span><span>Burette: <b class="readout" id="br-${k}">–</b> <span class="note">(read the ${c.tit.read} of the meniscus)</span></span><span>Added this titration: <b id="add-${k}">–</b></span></div>
+ <h3>Your readings (copy these into Part 2)</h3>
+ <div class="readbox" id="wlog-${k}">Weighings will appear here.</div>
+ <div class="tbl-wrap"><table><thead><tr><th>Titration</th><th>Final reading / cm³</th><th>Initial reading / cm³</th><th>Titre / cm³</th></tr></thead><tbody id="tlog-${k}"><tr><td colspan="4" class="note">None yet.</td></tr></tbody></table></div></div>`;
+ const fast=$('#fast-'+k);let iv=null;const stopF=()=>{if(iv){clearInterval(iv);iv=null;draw(k)}};
+ fast.addEventListener('pointerdown',e=>{if(!canTit(k))return;e.preventDefault();stopF();iv=setInterval(()=>{if(!add(k,0.20,true))stopF()},70)});
+ ['pointerup','pointerleave','pointercancel'].forEach(ev=>fast.addEventListener(ev,stopF));
+ fast.addEventListener('click',e=>{if(e.detail===0&&canTit(k)){add(k,1.00,true);draw(k)}});
+ fast.addEventListener('contextmenu',e=>e.preventDefault());
+ $('#half-'+k).onclick=()=>{if(canTit(k))add(k,0.50,false)};
+ $('#drop-'+k).onclick=()=>{if(canTit(k))add(k,0.05,false)};
+ $('#stop-'+k).onclick=()=>stopRec(k);
+ $('#next-'+k).onclick=()=>nextTit(k);
+}
+
+/* ---------- drawing ---------- */
+function flaskCol(k){const S=ST[k],c=CFG[k],R=S.run;
+ if(!S.cf)return null;
+ if(k==='fe'){if(!R)return c.sol;const ex=R.d-R.V;return ex<0?c.sol:mix('#f5cfe3','#8e1a66',(ex+.05)/.6)}
+ if(!S.acid)return c.sol;
+ const f=R?Math.max(0,1-R.d/R.V):1;
+ if(R&&R.starch&&f>0)return mix('#3b4f9c','#141b44',f/.2);
+ if(f>.25)return mix('#e8cf6a','#7a4517',(f-.25)/.75);
+ return mix('#f3ecd9','#e8cf6a',f/.25)}
+function draw(k){
+ const S=ST[k],c=CFG[k],R=S.run;let s='';
+ s+='<rect x="0" y="388" width="640" height="12" rx="3" fill="#d5dde5"/>';
+ // balance
+ s+=`<g class="target" data-t="balance" data-k="${k}"><rect class="hl" x="6" y="286" width="128" height="104" rx="8"/>
+ <rect x="14" y="340" width="112" height="46" rx="6" fill="#dfe5ec" stroke="#7d8fa3" stroke-width="2"/><rect x="30" y="352" width="80" height="24" rx="3" fill="#1f2a36"/>
+ <text x="70" y="370" text-anchor="middle" font-family="monospace" font-size="16" fill="#9fe39a">${S.bal==null?'0.00':f2(S.bal)} g</text><rect x="24" y="330" width="92" height="8" rx="3" fill="#b8c4cf"/>
+ ${S.bal!=null?`<g transform="translate(52,${292})">${icon('wb',S.step===1?c.items[0][4]:'#f4f7fa').replace('<svg','<svg width="36" height="40"')}</g>`:''}
+ <text x="70" y="300" text-anchor="middle" class="lbl">${S.bal==null?'balance':''}</text></g>`;
+ // beaker
+ s+=`<g class="target" data-t="beaker" data-k="${k}"><rect class="hl" x="140" y="286" width="96" height="104" rx="8"/>`;
+ if(S.beaker)s+=`<rect x="156" y="${S.beaker>1?336:372}" width="64" height="${S.beaker>1?48:12}" fill="${S.beaker>1?c.sol:'#cfd9e2'}"/>`;
+ s+=`<path d="M148 318L152 322V380Q152 386 158 386H218Q224 386 224 380V322L228 318" fill="none" stroke="#7d8fa3" stroke-width="2.5" stroke-linejoin="round"/><text x="188" y="306" text-anchor="middle" class="lbl">beaker</text></g>`;
+ // volumetric flask
+ s+=`<g class="target" data-t="volflask" data-k="${k}"><rect class="hl" x="244" y="196" width="100" height="194" rx="8"/>`;
+ if(S.vf)s+=`<circle cx="294" cy="350" r="35" fill="${c.vol}"/><rect x="288" y="250" width="12" height="80" fill="${c.vol}"/>`;
+ s+=`<path d="M288 212V318A36 36 0 1 0 300 318V212" fill="none" stroke="#7d8fa3" stroke-width="2.5"/><path d="M284 250H304" stroke="#1c2736" stroke-width="1.5"/><rect x="286" y="202" width="16" height="10" rx="2" fill="#b8c4cf"/>
+ <text x="294" y="363" text-anchor="middle" font-size="11" fill="#1c2736">250 cm³</text><text x="315" y="254" class="lbl">mark</text></g>`;
+ // stand + burette
+ const rd=S.bur?R?R.i+R.d:S.init:null,yL=y=>40+y/50*240;
+ s+=`<rect x="396" y="378" width="150" height="10" rx="2" fill="#5a6878"/><rect x="408" y="20" width="7" height="360" fill="#7d8fa3"/><path d="M412 100H452M412 230H452" stroke="#5a6878" stroke-width="5"/>`;
+ s+=`<g class="target" data-t="burette" data-k="${k}"><rect class="hl" x="440" y="8" width="44" height="300" rx="8"/>`;
+ if(S.bur)s+=`<rect x="456" y="${yL(rd)}" width="12" height="${280-yL(rd)}" fill="${c.tit.col}"/><rect x="460" y="280" width="4" height="22" fill="${c.tit.col}"/>`;
+ s+=`<path d="M455 24V280M469 24V280" stroke="#7d8fa3" stroke-width="2"/><path d="M455 280L460 286V302M469 280L464 286V302" fill="none" stroke="#7d8fa3" stroke-width="2"/><rect x="450" y="288" width="24" height="6" rx="2" fill="#3a3f4a"/>`;
+ for(let v=0;v<=50;v+=5)s+=`<path d="M455 ${yL(v)}H461" stroke="#1c2736"/>${v%10===0?`<text x="476" y="${yL(v)+4}" font-size="9" fill="#5a6878">${v}</text>`:''}`;
+ if(S.tick&&!RM)s+=`<circle class="drop" cx="462" cy="304" r="3.5" fill="${k==='fe'?'#7b2a7e':'#cfdbe6'}" stroke="rgba(0,0,0,.2)"/>`;
+ s+=`<text x="462" y="18" text-anchor="middle" class="lbl">burette</text></g>`;
+ // conical
+ const col=flaskCol(k);
+ s+=`<g class="target" data-t="conical" data-k="${k}"><rect class="hl" x="404" y="306" width="116" height="84" rx="8"/><g class="cf${S.swirl?' swirl':''}">`;
+ if(col){s+=`<path d="M432 346L414 378Q411 386 420 386H504Q513 386 510 378L492 346Z" fill="${col}"/>`;
+  if(k==='cu'&&S.acid){for(let i=0;i<14;i++)s+=`<circle cx="${422+(i*37)%82}" cy="${380-(i*7)%7}" r="2.4" fill="#f7f3e8" stroke="#c9bfa5" stroke-width=".6"/>`}
+  if(S.flash&&!RM)s+=`<ellipse class="flash" cx="462" cy="352" rx="18" ry="5" fill="${k==='fe'?'#a33a8c':'#3b4f9c'}"/>`}
+ s+=`<path d="M452 312V336L414 378Q410 388 422 388H502Q514 388 510 378L472 336V312" fill="none" stroke="#7d8fa3" stroke-width="2.5" stroke-linejoin="round"/></g><text x="520" y="370" class="lbl">conical</text><text x="520" y="384" class="lbl">flask</text></g>`;
+ // zoom
+ if(S.bur){const top=c.tit.read==='top',Y=v=>110+(v-rd)*110;let z=`<clipPath id="zc-${k}"><rect x="554" y="20" width="80" height="180" rx="6"/></clipPath><rect x="554" y="20" width="80" height="180" rx="6" fill="#f8fafc" stroke="#7d8fa3"/><g clip-path="url(#zc-${k})">`;
+  const yr=Y(rd),edge=top?yr:yr-9,mid=top?yr+9:yr;
+  z+=`<path d="M566 ${edge}Q594 ${mid+(mid-edge)} 622 ${edge}V210H566Z" fill="${c.tit.col}" stroke="${k==='fe'?'#3d0d40':'#8aa0b5'}" stroke-width="1.5"/>`;
+  for(let v=Math.ceil((rd-1)*10)/10;v<=rd+1.0001;v=Math.round((v+.1)*10)/10){const y=Y(v),maj=Math.abs(v-Math.round(v))<1e-6;z+=`<path d="M566 ${y}H${maj?600:584}" stroke="${k==='fe'&&y>edge?'#fff':'#1c2736'}" stroke-width="1.2"/>${maj?`<text x="604" y="${y+4}" font-size="11" fill="${k==='fe'&&y>edge?'#fff':'#1c2736'}">${Math.round(v)}</text>`:''}`}
+  z+=`<path d="M556 ${yr}H632" stroke="#b3261e" stroke-dasharray="4 3"/></g><text x="594" y="216" text-anchor="middle" class="lbl">read ${c.tit.read}</text>`;s+=z}
+ $('#svg-'+k).innerHTML=s;
+ S.tick=S.flash=S.swirl=false;
+ $('#bal-'+k).textContent=S.bal==null?'–':f2(S.bal)+' g';
+ $('#br-'+k).textContent=rd==null?'–':f2(rd)+' cm³';
+ $('#add-'+k).textContent=R?f2(R.d)+' cm³':'–';
+ const titOn=canTit(k,1);['fast','half','drop','stop'].forEach(b=>$(`#${b}-${k}`).disabled=!titOn);
+ $('#next-'+k).disabled=!(S.step>=9&&!R&&S.log.length<6);
+ const steps=CFG[k].steps.length;
+ $$(`#ck-${k} li`).forEach((li,i)=>{const d=i<steps?S.step>i:concordSet(S.log).length>=2;li.classList.toggle('done',d);li.classList.toggle('now',!d&&(i===S.step||(i===steps&&S.step>=steps)))});
+}
+function say(k,h,cls){const m=$('#msg-'+k);m.innerHTML=h;m.className='msg'+(cls?' '+cls:'')}
+function logW(k){const S=ST[k];const p=[];if(S.step>0)p.push(`Mass of bottle + solid = <b>${f2(S.m1)} g</b>`);if(S.step>2)p.push(`Mass of empty bottle = <b>${f2(S.m2)} g</b>`);$('#wlog-'+k).innerHTML=p.join(' · ')||'Weighings will appear here.'}
+
+/* ---------- actions ---------- */
+function act(k,id,t){
+ const S=ST[k],c=CFG[k],st=c.steps[S.step];
+ if(k==='cu'&&id==='starch'&&t==='conical'&&S.run){const f=1-S.run.d/S.run.V;
+  if(S.run.starch)return say(k,'Starch is already in the flask.','warn');
+  if(f>.25)return say(k,'Not yet. The iodine colour is still too dark. Add thiosulfate until the solution is pale yellow (straw), then add starch.','warn');
+  S.run.starch=true;S.swirl=true;draw(k);
+  return say(k,f>0?'Starch added: blue-black colour. Now add thiosulfate one drop at a time, swirling, until the blue-black just disappears.':'Starch added but there is no blue-black colour: you have already passed the end point.','ok')}
+ if(S.step>=c.steps.length)return say(k,'Everything is set up. Use the burette buttons to titrate.','warn');
+ const ok=(id===st.i||(st.alt||[]).includes(id))&&t===st.t;
+ if(!ok){
+  const h=c.hints[id+'@'+t]||c.hints[id];
+  if(h&&!(id===st.i&&t===st.t))return say(k,h,'warn');
+  if(id===st.i)return say(k,`Right item, wrong place. ${st.txt}`,'warn');
+  return say(k,'Not yet. Next step: '+st.txt,'warn')}
+ let m='';
+ switch(S.step){
+  case 0:S.bal=S.m1;m=`Bottle + solid: ${f2(S.m1)} g. Record it, then tip the solid into the beaker.`;break;
+  case 1:S.bal=null;S.beaker=1;m='Solid tipped into the beaker. A few crystals stay in the bottle, so reweigh it (weighing by difference).';break;
+  case 2:S.bal=S.m2;m=`Empty bottle: ${f2(S.m2)} g. Mass of solid used = ${f2(S.m1)} − ${f2(S.m2)} g.`;break;
+  case 3:S.bal=null;S.beaker=2;m=k==='fe'?'The solid dissolves to give a very pale green solution of Fe²⁺(aq).':'The solid dissolves to give a blue solution of Cu²⁺(aq).';break;
+  case 4:S.beaker=0;S.vf=1;m='Solution and all the rinsings transferred. Made up with distilled water until the bottom of the meniscus is on the mark. Stoppered and inverted to mix.';break;
+  case 5:S.pip=1;m='Pipette rinsed with the solution, then filled using a pipette filler until the bottom of the meniscus is on the mark.';break;
+  case 6:S.pip=0;S.cf=1;S.swirl=true;m='25.0 cm³ run into the conical flask. The last drop is left in the tip: the pipette is calibrated for this.';break;
+  case 7:S.acid=1;S.swirl=true;m=k==='fe'?'About 20 cm³ of dilute H₂SO₄ added. Excess H⁺ is needed for MnO₄⁻ → Mn²⁺.':'Excess KI added. An off-white precipitate of CuI forms and the solution turns brown because iodine is released.';break;
+  case 8:S.bur=true;S.init=r2(Math.round(rnd(0,1.6)*20)/20);startRun(k);m=`Burette rinsed and filled; funnel removed; tip filled. Initial reading ${f2(S.init)} cm³ (${c.tit.read} of the meniscus). Now titrate. Start with a rough titration.`;break;
+ }
+ S.step++;draw(k);say(k,m,'ok');logW(k);
+}
+function startRun(k){const S=ST[k];S.run={i:S.init,d:0,V:S.Vtrue+gauss()*0.025,starch:false}}
+function canTit(k,quiet){const S=ST[k];if(S.run&&S.step>=9)return true;if(!quiet)say(k,S.step<9?'Set up the titration first. Next step: '+CFG[k].steps[Math.min(S.step,8)].txt:'Press "Set up next titration" first.','warn');return false}
+function add(k,v,fast){
+ const S=ST[k],R=S.run;if(R.i+R.d+v>50.0001){say(k,'The burette is nearly empty. Stop and record, then refill.','warn');return false}
+ const wasBefore=R.d<R.V;R.d=r2(R.d+v);S.tick=true;S.swirl=!fast;
+ if(k==='fe'&&R.d<R.V)S.flash=true;
+ if(k==='cu'&&R.starch&&R.d<R.V)S.flash=!fast;
+ if(!fast||!wasBefore||R.d>=R.V)draw(k);else if(Math.round(R.d*100)%60===0)draw(k);
+ const ex=R.d-R.V;
+ if(k==='fe'){
+  if(ex<0)say(k,R.V-R.d<1.2?'The pink colour now takes longer to fade. You are close: add one drop at a time and swirl.':'Each drop of purple KMnO₄ is decolourised as it reacts with Fe²⁺. Swirl the flask.');
+  else say(k,ex<0.06?'<b>First permanent pale pink.</b> This is the end point. Press "Stop and record".':'The solution is deep pink-purple: you have gone past the end point (overshoot). Record it, but this titre is too large.',ex<0.06?'ok':'warn')}
+ else{const f=1-R.d/R.V;
+  if(!R.starch)say(k,f>.6?'Brown iodine is being reduced to colourless iodide ions. Keep adding thiosulfate.':f>.25?'The brown colour is fading. Go more slowly.':f>0?'<b>Pale yellow (straw)</b>. Add the starch now.':'The yellow colour has gone, but without starch you cannot see the exact end point. This can only be a rough value.',f>0&&f<=.25?'ok':(f<=0?'warn':''));
+  else say(k,f>0?(f<.06?'Blue-black still there, but fading fast. One drop at a time.':'Blue-black. Keep adding thiosulfate dropwise, swirling.'):(ex<0.06?'<b>The blue-black colour has just disappeared</b>, leaving an off-white (cream) precipitate. End point. Press "Stop and record".':'Off-white precipitate, but you added more than needed after the colour went (overshoot). This titre is too large.'),f<=0?(ex<0.06?'ok':'warn'):'')}
+ return true}
+function stopRec(k){
+ const S=ST[k],R=S.run;if(!canTit(k))return;
+ if(R.d<R.V)return say(k,k==='fe'?'Not at the end point yet: the pink colour still disappears on swirling.':(R.starch?'Not yet: the blue-black colour is still there.':'Not yet: the iodine colour is still there.'),'warn');
+ const fin=r2(R.i+R.d),n=S.log.length;S.log.push({lab:n?String(n):'Rough',i:R.i,f:fin,t:r2(fin-R.i)});
+ S.run=null;S.init=fin;draw(k);
+ $('#tlog-'+k).innerHTML=S.log.map(e=>`<tr><th>${e.lab}</th><td>${f2(e.f)}</td><td>${f2(e.i)}</td><td><b>${f2(e.t)}</b></td></tr>`).join('');
+ addRecRow(k);
+ const cs=concordSet(S.log);
+ say(k,`${n?'Titration '+n:'Rough titration'} recorded: titre ${f2(fin-R.i)} cm³. `+(cs.length>=2?'You now have concordant titres. You can stop, or do one more.':n?'Do another accurate titration until two titres agree within 0.10 cm³.':'Now do accurate titrations. Add quickly to about 1 cm³ below the rough titre, then dropwise.'),'ok');
+}
+function nextTit(k){const S=ST[k];if(S.run||S.step<9)return;
+ if(S.log.length>=6)return say(k,'That is enough titrations. Fill in Part 2.','warn');
+ if(S.init>50-S.Vtrue-2)S.init=r2(Math.round(rnd(0,1.6)*20)/20);
+ S.cf=1;S.acid=1;S.swirl=true;startRun(k);draw(k);
+ say(k,`Conical flask washed with distilled water. New 25.0 cm³ portion pipetted in and ${k==='fe'?'about 20 cm³ dilute H₂SO₄':'excess KI'} added. Burette refilled: initial reading ${f2(S.init)} cm³.`,'ok')}
+function concordSet(log){const a=log.slice(1).map(e=>e.t).sort((x,y)=>x-y);let best=[];
+ for(let i=0;i<a.length;i++){const w=a.filter(v=>v>=a[i]-1e-9&&v<=a[i]+0.10+1e-9);if(w.length>best.length)best=w}return best}
+
+/* ---------- drag / tap engine ---------- */
+let sel=null,drag=null;
+function unsel(){if(sel)sel.classList.remove('selected');sel=null;$$('.armed').forEach(t=>t.classList.remove('armed'))}
+function pick(b){if(sel===b){unsel();return}unsel();sel=b;b.classList.add('selected');$$(`.target[data-k="${b.dataset.k}"]`).forEach(t=>t.classList.add('armed'))}
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('.item');if(!b)return;drag={b,x:e.clientX,y:e.clientY,moved:false,g:null,over:null};try{b.setPointerCapture(e.pointerId)}catch(_){}});
+document.addEventListener('pointermove',e=>{if(!drag)return;
+ if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;unsel();const g=document.createElement('div');g.style.cssText='position:fixed;left:0;top:0;width:40px;height:54px;pointer-events:none;z-index:99;opacity:.9';g.innerHTML=drag.b.querySelector('svg').outerHTML;g.firstChild.style.width='100%';g.firstChild.style.height='100%';document.body.appendChild(g);drag.g=g}
+ if(drag.moved){drag.g.style.transform=`translate(${e.clientX-20}px,${e.clientY-27}px) rotate(-20deg)`;const u=document.elementFromPoint(e.clientX,e.clientY),t=u&&u.closest&&u.closest('.target');
+  if(drag.over&&drag.over!==t)drag.over.classList.remove('over');if(t)t.classList.add('over');drag.over=t||null}});
+function endDrag(cancel){if(!drag)return;const d=drag;drag=null;if(d.g)d.g.remove();if(d.over)d.over.classList.remove('over');if(cancel)return;
+ if(d.moved){if(d.over&&d.over.dataset.k===d.b.dataset.k)act(d.b.dataset.k,d.b.dataset.id,d.over.dataset.t)}else pick(d.b)}
+document.addEventListener('pointerup',()=>endDrag(false));
+document.addEventListener('pointercancel',()=>endDrag(true));
+document.addEventListener('click',e=>{const b=e.target.closest('.item');if(b){if(e.detail===0)pick(b);return}
+ const t=e.target.closest('.target');if(t&&sel){const id=sel.dataset.id,k=sel.dataset.k;unsel();if(t.dataset.k===k)act(k,id,t.dataset.t)}});
+
+/* ---------- tabs ---------- */
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));$$('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab);unsel()}));
+
+/* ---------- Part 2 ---------- */
+const CALC={
+ fe:[['m','Mass of FeSO₄·xH₂O used / g'],['mean','Mean of concordant titres / cm³'],['pu','Percentage uncertainty in mean titre (±0.05 cm³ per reading) / %'],['n1','Amount of MnO₄⁻ in mean titre / mol'],['n2','Amount of Fe²⁺ in 25.0 cm³ / mol'],['n3','Amount of Fe²⁺ in 250 cm³ / mol'],['M','Molar mass of FeSO₄·xH₂O / g mol⁻¹'],['x','x (1 d.p.)'],['xw','x to the nearest whole number']],
+ cu:[['m','Mass of CuSO₄·5H₂O used / g'],['mean','Mean of concordant titres / cm³'],['pu','Percentage uncertainty in mean titre (±0.05 cm³ per reading) / %'],['n1','Amount of S₂O₃²⁻ in mean titre / mol'],['n2','Amount of Cu²⁺ in 25.0 cm³ / mol'],['n3','Amount of Cu²⁺ in 250 cm³ / mol'],['mc','Mass of copper in the sample / g'],['pc','Percentage by mass of copper / %']]};
+function buildRec(k){$('#rec-'+k).innerHTML=`<div class="calc"><label>Mass of weighing bottle + solid / g</label><input class="n" data-c="m1" inputmode="decimal"><label>Mass of empty weighing bottle / g</label><input class="n" data-c="m2" inputmode="decimal"></div>
+ <div class="tbl-wrap" style="margin:10px 0"><table><thead><tr><th>Titration</th><th>Final reading / cm³</th><th>Initial reading / cm³</th><th>Titre / cm³</th><th>Concordant?</th></tr></thead><tbody id="rt-${k}"><tr class="empty"><td colspan="5" class="note">Do a titration in Part 1 first.</td></tr></tbody></table></div>
+ <div class="calc">${CALC[k].map(a=>`<label>${a[1]}</label><input class="n" data-c="${a[0]}" inputmode="decimal">`).join('')}</div>`}
+function addRecRow(k){const S=ST[k],tb=$('#rt-'+k),em=tb.querySelector('.empty');if(em)em.remove();
+ for(let i=tb.querySelectorAll('tr').length;i<S.log.length;i++){const tr=document.createElement('tr');tr.dataset.i=i;
+  tr.innerHTML=`<th>${S.log[i].lab}</th><td><input class="n" data-r="f" inputmode="decimal" aria-label="final"></td><td><input class="n" data-r="i" inputmode="decimal" aria-label="initial"></td><td><input class="n" data-r="t" inputmode="decimal" aria-label="titre"></td><td><input type="checkbox" aria-label="concordant"></td>`;tb.appendChild(tr)}}
+function mark(el,ok){el.classList.toggle('ok',ok);el.classList.toggle('wrong',!ok);return ok?1:0}
+const near=(a,b,rel)=>isFinite(a)&&isFinite(b)&&Math.abs(a-b)<=Math.abs(b)*rel+1e-9;
+function checkTab(k){
+ const S=ST[k],c=CFG[k],box=$('#rec-'+k),g=n=>box.querySelector(`[data-c="${n}"]`),v=n=>num(g(n).value);let got=0,tot=0;
+ const T=(el,ok)=>{tot++;got+=mark(el,ok)};
+ if(!S.log.length&&S.step<3)return [0,0];
+ T(g('m1'),Math.abs(v('m1')-S.m1)<.005);T(g('m2'),Math.abs(v('m2')-S.m2)<.005);
+ const ticked=[];
+ $$(`#rt-${k} tr[data-i]`).forEach(tr=>{const e=S.log[+tr.dataset.i],q=s=>tr.querySelector(`[data-r=${s}]`);
+  T(q('f'),Math.abs(num(q('f').value)-e.f)<.005);T(q('i'),Math.abs(num(q('i').value)-e.i)<.005);T(q('t'),Math.abs(num(q('t').value)-e.t)<.005);
+  if(tr.querySelector('[type=checkbox]').checked)ticked.push([+tr.dataset.i,e.t,tr])});
+ const ts=ticked.map(a=>a[1]),cOK=ticked.length>=2&&!ticked.some(a=>a[0]===0)&&Math.max(...ts)-Math.min(...ts)<=0.10+1e-9;
+ if(S.log.length){tot++;got+=cOK?1:0;ticked.forEach(a=>a[2].lastChild.classList.toggle('ok',cOK));ticked.forEach(a=>a[2].lastChild.classList.toggle('wrong',!cOK))}
+ const m=v('m'),mean=v('mean');
+ T(g('m'),Math.abs(m-S.mass)<.005);
+ T(g('mean'),cOK&&Math.abs(mean-ts.reduce((a,b)=>a+b,0)/ts.length)<.006);
+ T(g('pu'),near(v('pu'),10/mean,.02));
+ const n1=c.tit.c*mean/1000;T(g('n1'),near(v('n1'),n1,.01));
+ const n2=k==='fe'?5*n1:n1;T(g('n2'),near(v('n2'),n2,.01));T(g('n3'),near(v('n3'),10*n2,.01));
+ if(k==='fe'){const M=m/(10*n2),x=(M-151.9)/18;T(g('M'),near(v('M'),M,.01));T(g('x'),Math.abs(v('x')-x)<=.15);T(g('xw'),v('xw')===Math.round(x))}
+ else{const mc=10*n2*63.5;T(g('mc'),near(v('mc'),mc,.01));T(g('pc'),Math.abs(v('pc')-mc/m*100)<=.2)}
+ return [got,tot]}
+$('#bCheckRes').onclick=()=>{const a=checkTab('fe'),b=checkTab('cu'),g=a[0]+b[0],t=a[1]+b[1],s=$('#resScore');
+ if(!t){s.textContent='Do the experiments in Part 1 first.';s.className='score bad';return}
+ s.textContent=`${g} / ${t} correct`+(g===t?'. Excellent!':'. Red boxes need another look. Later answers are marked using your own earlier values.');s.className='score '+(g===t?'good':'bad')};
+document.addEventListener('input',e=>e.target.classList.remove('ok','wrong'));
+document.addEventListener('change',e=>{e.target.classList.remove('ok','wrong');if(e.target.type==='checkbox'&&e.target.parentNode.tagName==='TD')$$(`#${e.target.closest('tbody').id} td`).forEach(td=>td.classList.remove('ok','wrong'))});
+
+/* ---------- Part 3 ---------- */
+$('#bCheckQ').onclick=()=>{const ss=$$('#qs select');let r=0;ss.forEach(s=>r+=mark(s,s.value===s.dataset.a));const q=$('#qScore');q.textContent=r+' / '+ss.length+' correct'+(r===ss.length?'. Excellent!':'.');q.className='score '+(r===ss.length?'good':'bad')};
+
+/* ---------- Part 4 ---------- */
+$$('#exam .msbtn').forEach(b=>b.addEventListener('click',()=>{const m=b.nextElementSibling;m.hidden=!m.hidden;b.textContent=m.hidden?'Show mark scheme':'Hide mark scheme'}));
+$('#exam').addEventListener('change',e=>{if(e.target.closest('.ms'))tallyX()});
+function tallyX(){let g=0,t=0;$$('#exam .xq').forEach(q=>{const m=+q.dataset.m;t+=m;if(q.dataset.type==='wr')g+=Math.min(m,q.querySelectorAll('.ms input:checked').length);else if(q.dataset.ok==='1')g+=m});$('#xScore').textContent='Exam practice: '+g+' / '+t+' marks'}
+$('#bCheckX').onclick=()=>{$$('#exam .xq').forEach(q=>{const ty=q.dataset.type;if(ty==='wr')return;let ok=false;
+ if(ty==='num'){const i=q.querySelector('input');ok=Math.abs(num(i.value)-(+q.dataset.a))<=+q.dataset.tol;mark(i,ok)}
+ else{const c=q.querySelector('input:checked');q.querySelectorAll('.opts label').forEach(l=>l.classList.remove('ok','wrong'));if(c){ok=c.value===q.dataset.a;c.parentNode.classList.add(ok?'ok':'wrong')}}
+ q.dataset.ok=ok?'1':'0';q.querySelector('.worked').hidden=false});tallyX()};
+
+/* ---------- reset ---------- */
+function resetAll(){unsel();
+ ['fe','cu'].forEach(k=>{fresh(k);buildPane(k);buildRec(k);draw(k);logW(k);say(k,'Start by weighing: drag the weighing bottle onto the balance, or tap it and then tap the balance.')});
+ $$('#qs select').forEach(s=>{s.value='';s.classList.remove('ok','wrong')});
+ $$('#exam input').forEach(i=>{if(i.type==='radio'||i.type==='checkbox')i.checked=false;else i.value='';i.classList.remove('ok','wrong')});
+ $$('#exam textarea').forEach(t=>t.value='');$$('#exam .ok,#exam .wrong').forEach(e=>e.classList.remove('ok','wrong'));
+ $$('#exam .worked,#exam .ms').forEach(e=>e.hidden=true);$$('.msbtn').forEach(b=>b.textContent='Show mark scheme');$$('#exam .xq').forEach(q=>delete q.dataset.ok);
+ $('#resScore').textContent=$('#qScore').textContent='';tallyX()}
+$('#bReset').onclick=()=>{resetAll();window.scrollTo({top:0,behavior:RM?'auto':'smooth'})};
+resetAll();
+})();
+</script>
+</body></html>
