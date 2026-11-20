@@ -218,6 +218,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
 footer a{color:var(--on-brand)}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 </style>
+<style>
+.ask{margin-top:40px;padding:22px clamp(16px,3vw,28px);border-radius:14px;border:2px solid var(--line);background:var(--surface)}
+.ask h2{margin-top:0}
+.ask form{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.ask label{display:block;font-weight:700}
+.ask .opt{font-weight:400;opacity:.75}
+.ask input,.ask textarea,.ask select{display:block;margin-top:6px;font:inherit;font-weight:400;padding:10px 12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.ask textarea{resize:vertical;min-height:120px}
+.ask input:focus-visible,.ask textarea:focus-visible,.ask select:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.ask .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.ask .two{grid-template-columns:1fr}}
+.ask .small{font-size:.92rem;opacity:.85;margin:0}
+.ask button{align-self:flex-start}
+.qa-list details{border-top:1px solid var(--line);padding:14px 0}
+.qa-list summary{cursor:pointer;font-weight:700}
+.qa-list .who{font-size:.9rem;opacity:.75;margin:4px 0 0}
+.tablewrap{overflow-x:auto;margin-top:12px}
+</style>
+
 </head>
 <body>
 
@@ -229,6 +248,7 @@ footer a{color:var(--on-brand)}
       <a href="#teachers">Teachers</a>
       <a class="opt" href="#videos">Videos</a>
       <a href="#blog">Blog</a>
+      <a class="opt" href="/qa.html">Q&amp;A</a>
     </nav>
   </div>
 </header>
@@ -1391,6 +1411,7 @@ function route(){
         `<a class="back" href="#blog">← All posts</a>
          <div class="meta"><span class="pill ${p.tag}">${p.course}</span><span>${p.date}</span><span>· ${p.mins} min read</span></div>
          ${p.series ? `<p class="series">${p.series}</p>` : ""}<h1>${p.title}</h1>${p.body}
+         <div class="ask"><h2>Got a question about this?</h2><p>Ask it on the Q&amp;A page. I read every one and answer the most useful.</p><p style="margin-top:12px"><a class="btn dark" href="/qa.html?about=${encodeURIComponent(p.title)}#ask">Ask a question</a></p></div>
          <p style="margin-top:32px"><a class="btn dark" href="#blog">More posts</a></p>`;
       document.title = p.title + " | Chemistry That Counts";
       home.hidden = true; list.hidden = true; single.hidden = false; navBlog.setAttribute("aria-current","page"); window.scrollTo(0,0); return;

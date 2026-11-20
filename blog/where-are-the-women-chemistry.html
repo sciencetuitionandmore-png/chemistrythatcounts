@@ -224,6 +224,25 @@ article.post table.data td{text-align:left;vertical-align:top}
 article.post .btn{margin-top:8px}
 article.post ul.sources li{font-size:.95rem}
 </style>
+
+<style>
+.ask{margin-top:40px;padding:22px clamp(16px,3vw,28px);border-radius:14px;border:2px solid var(--line);background:var(--surface)}
+.ask h2{margin-top:0}
+.ask form{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.ask label{display:block;font-weight:700}
+.ask .opt{font-weight:400;opacity:.75}
+.ask input,.ask textarea,.ask select{display:block;margin-top:6px;font:inherit;font-weight:400;padding:10px 12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.ask textarea{resize:vertical;min-height:120px}
+.ask input:focus-visible,.ask textarea:focus-visible,.ask select:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.ask .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.ask .two{grid-template-columns:1fr}}
+.ask .small{font-size:.92rem;opacity:.85;margin:0}
+.ask button{align-self:flex-start}
+.qa-list details{border-top:1px solid var(--line);padding:14px 0}
+.qa-list summary{cursor:pointer;font-weight:700}
+.qa-list .who{font-size:.9rem;opacity:.75;margin:4px 0 0}
+.tablewrap{overflow-x:auto;margin-top:12px}
+</style>
 </head>
 <body>
 
@@ -235,6 +254,7 @@ article.post ul.sources li{font-size:.95rem}
       <a href="/#teachers">Teachers</a>
       <a class="opt" href="/#videos">Videos</a>
       <a href="/#blog">Blog</a>
+      <a class="opt" href="/qa.html">Q&amp;A</a>
     </nav>
   </div>
 </header>
@@ -348,6 +368,25 @@ article.post ul.sources li{font-size:.95rem}
 <li><a href="https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/chemistry-2027.html" target="_blank" rel="noopener">Pearson Edexcel IAL Chemistry (2027)</a></li>
 </ul>
 
+
+<section class="ask" id="ask" aria-labelledby="ask-h">
+<h2 id="ask-h">Ask a question about this post</h2>
+<p>Stuck on something, or want to know more? Ask here. I read every question, and I answer the most useful ones on the <a href="/qa.html">Q&amp;A page</a>.</p>
+<form name="question" method="POST" action="/qa-thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="question">
+<input type="hidden" name="page" value="Blog: 17 scientists. 17 men. Here’s what I’m doing about it">
+<p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+<label>Your question<textarea name="question" required maxlength="2000" rows="5"></textarea></label>
+<label>What is it about? <span class="opt">(optional, e.g. a topic or page)</span><input name="about" maxlength="120" value="17 scientists. 17 men. Here’s what I’m doing about it"></label>
+<div class="two">
+<label>First name <span class="opt">(optional)</span><input name="first-name" maxlength="40" autocomplete="given-name"></label>
+<label>I am a…<select name="who"><option>Student</option><option>Teacher or tutor</option><option>Parent</option><option>Other</option></select></label>
+</div>
+<label>Email <span class="opt">(optional: only if you'd like a private reply. Never published.)</span><input type="email" name="email" maxlength="120" autocomplete="email"></label>
+<p class="small">If you're under 16, please leave out your surname, school and email. I only publish the question, and your first name if you give one.</p>
+<button class="btn dark" type="submit">Send my question</button>
+</form>
+</section>
 <p style="margin-top:32px"><a class="btn dark" href="/#blog">More posts</a></p>
   </article></div>
 </section>
@@ -355,7 +394,7 @@ article.post ul.sources li{font-size:.95rem}
 <footer>
   <div class="wrap">
     <span><b style="color:var(--on-brand)">chemistry</b> <span class="gold">that counts</span> · Ms C. Gilding</span>
-    <span><a href="https://www.tes.com/teaching-resources/shop/chemistrythatcounts" target="_blank" rel="noopener">TES shop</a> · <a href="https://www.youtube.com/channel/UCKzE4hqDHofROOCt3EmEOhQ" target="_blank" rel="noopener">YouTube</a> · <a href="/#blog">Blog</a></span>
+    <span><a href="https://www.tes.com/teaching-resources/shop/chemistrythatcounts" target="_blank" rel="noopener">TES shop</a> · <a href="https://www.youtube.com/channel/UCKzE4hqDHofROOCt3EmEOhQ" target="_blank" rel="noopener">YouTube</a> · <a href="/#blog">Blog</a> · <a href="/qa.html">Q&amp;A</a></span>
     <span>Written for Pearson Edexcel International GCSE and IAL Chemistry. Not endorsed by Pearson.</span>
   </div>
 </footer>
