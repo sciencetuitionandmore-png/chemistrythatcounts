@@ -403,15 +403,15 @@ title:'Making phenylamine from benzene',
 q:'<p><span class="mk">(4)</span><mark>Plan</mark> the synthesis of phenylamine from benzene. Give <mark>reagents</mark>, <mark>conditions</mark> and the <mark>intermediate</mark>.</p>',
 diag:function(){var s=DEFS;
   s+=box2(10,20,80,34,'card t')+T(50,42,'C₆H₆','hd','text-anchor="middle"');
-  s+=G(1,arr(90,37,118,37,'dp')+box2(120,20,96,34,'card')+T(168,42,'C₆H₅NO₂','hd','text-anchor="middle"')+T(104,76,'conc HNO₃ + conc H₂SO₄','sm')+T(104,90,'50 °C','sm'));
+  s+=G(1,arr(90,37,118,37,'dp')+box2(120,20,96,34,'card')+T(168,42,'C₆H₅NO₂','hd','text-anchor="middle"')+T(104,76,'conc HNO₃ + conc H₂SO₄','sm')+T(104,90,'below 55 °C','sm'));
   s+=G(2,arr(216,37,234,37,'dp')+box2(236,20,90,34,'card g')+T(281,42,'C₆H₅NH₂','hd','text-anchor="middle"')+T(236,110,'Sn + conc HCl, reflux;','sm')+T(236,124,'then NaOH','sm'));
   return svg(330,136,s)},
 lines:plan(['step 1: nitration','intermediate','step 2: reduction','free the amine'])+
- ans(1,'','','Step 1: <span class="hl">concentrated nitric and sulfuric acids</span>, at <span class="hl">50 °C</span> or below.','M1')+
+ ans(1,'','','Step 1: <span class="hl">concentrated nitric and sulfuric acids</span>, <span class="hl">below 55 °C</span>.','M1')+
  ans(1,'','','Intermediate: <span class="hl">nitrobenzene</span>.','M2')+
  ans(2,'Reduce with LiAlH₄.','The standard route is tin and concentrated HCl.','Step 2: heat under reflux with <span class="hl">tin and concentrated HCl</span>,','M3')+
  ans(2,'','','then add <span class="hl">NaOH</span> to release phenylamine.','M4'),
-chips:[['M1','nitrating mixture, 50 °C',1],['M2','nitrobenzene',1],['M3','Sn/conc HCl',2],['M4','then NaOH',2]],
+chips:[['M1','nitrating mixture, below 55 °C',1],['M2','nitrobenzene',1],['M3','Sn/conc HCl',2],['M4','then NaOH',2]],
 steps:[
 {t:'Read and plan',x:'You cannot add NH<sub>2</sub> to benzene directly. Add NO<sub>2</sub> by electrophilic substitution, then reduce it.',tip:'Work backwards from the target if you are stuck.'},
 {t:'Nitration',x:'NO<sub>2</sub><sup>+</sup> is the electrophile. Keep the temperature low to avoid more than one nitro group.',tip:'Mixed acid is very corrosive.'},
