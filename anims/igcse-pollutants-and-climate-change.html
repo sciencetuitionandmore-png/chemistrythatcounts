@@ -195,7 +195,7 @@ ol.qs label{display:block;padding:2px 0;cursor:pointer}
 <g class="lab2"><text x="74" y="364" text-anchor="middle" class="t-s">power station</text><text x="74" y="378" text-anchor="middle" class="t-s">(burns coal)</text><text x="196" y="364" text-anchor="middle" class="t-s">car engine</text>
 <text id="phl" x="450" y="126" text-anchor="middle" class="t-b"></text>
 <g id="efl"><text x="306" y="358" text-anchor="middle" class="t-r">trees damaged</text><text x="423" y="244" text-anchor="middle" class="t-r">limestone</text><text x="423" y="358" text-anchor="middle" class="t-r">corrodes</text><text x="545" y="424" text-anchor="middle" class="t-r">lake acidic: fish die</text></g></g>
-<rect x="8" y="8" width="256" height="112" rx="10" fill="#fff" stroke="#cdd6df" stroke-width="1.5"/><text x="18" y="26" class="t-b">Particle view</text>
+<rect x="8" y="8" width="290" height="118" rx="10" fill="#fff" stroke="#cdd6df" stroke-width="1.5"/><text x="18" y="26" class="t-b">Particle view</text>
 <g id="ins"></g>
 </svg>
 <div class="legend" id="lg2" style="padding:4px 8px 6px"></div></div>
@@ -374,7 +374,7 @@ function buildIns(){ins.textContent='';insI=[];let e1,e2;
   [-22,0,20].forEach((dx,j)=>{const b=E('circle',{r:4,fill:'none',stroke:'#3b78b8','stroke-width':1.5},ins);insI.push({g:b,a:[180+dx,62],b:[184+dx,30-j*5],mv:[.45,1],vis:[.45,1]})});
   e1='acid + limestone → fizzing (CO_2)';e2='acid rain reacts with limestone and with metals'}
  E('path',{d:'M128 52h18',stroke:'#1c2736','stroke-width':2,'marker-end':'url(#ar)'},ins).style.display=stg<2?'':'none';
- F(18,98,e1,'t-b',ins);T(18,112,e2,'t-s',ins)}
+ F(18,96,e1,'t-b',ins);T(18,115,e2,'t-s',ins)}
 function updIns(dt){insT+=dt;const p=(insT%3.6)/3.6;insI.forEach(o=>{const q=cl((p-o.mv[0])/(o.mv[1]-o.mv[0]),0,1),e=q*q*(3-2*q);
  o.g.style.display=p>=o.vis[0]&&p<o.vis[1]?'':'none';if(o.drop){o.g.setAttribute('fill',lc('#bcd9f2','#f2b08a',cl((p-.5)*3,0,1)));return}
  if(o.a[0]||o.b[0])tf(o.g,lerp(o.a[0],o.b[0],e),lerp(o.a[1],o.b[1],e),o.s*(o.vis[0]>=.5?.6+.4*cl((p-.5)*8,0,1):1))})}

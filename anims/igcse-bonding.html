@@ -296,7 +296,7 @@ function drawIonic(){
     h+=tx(40,30,'Giant ionic lattice'+(A.lat==='solid'?' (solid)':A.lat==='molten'?': molten (liquid)':': dissolved in water'),'font-size="17" font-weight="700" fill="#0b5d75" font-family="Lexend,sans-serif"');
     h+=`<circle cx="60" cy="362" r="9" fill="#7a4fd0"/>`+`<text x="76" y="367" font-size="14">${ms}${sup(ION[ms][0])} (small, positive)</text><circle cx="270" cy="362" r="12" fill="#2f9e6a"/><text x="290" y="367" font-size="14">${ns}${sup(ION[ns][0])} (large, negative)</text>`;
     if(A.lat==='solution')h+=`<circle cx="480" cy="362" r="5" fill="#8cc4ea"/>`+tx(492,367,'water','font-size="14"');
-    if(!rock&&$('labs0').checked)h+=tx(40,52,'(sodium chloride shown: '+P.nm+' has a different ratio of ions)','font-size="13" fill="#5a6878"');
+    if(!rock&&$('labs0').checked)h+=(A.lat==='solid'?'':`<rect x="36" y="40" width="450" height="18" rx="4" fill="${A.lat==='molten'?'#fff3e3':'#e3f1fb'}" opacity=".92"/>`)+tx(40,52,'(sodium chloride shown: '+P.nm+' has a different ratio of ions)','font-size="13" fill="#5a6878"');
     h+='</g>';
   }
   $('sv0').innerHTML=h;
