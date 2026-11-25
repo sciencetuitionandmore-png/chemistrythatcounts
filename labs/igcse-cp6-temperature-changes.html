@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
 :root{
---paper:#f2f5f8; --sheet:#ffffff; --ink:#1c2736; --muted:#5a6878; --line:#cdd6df;
---bench:#e4eaf0; --accent:#4a44b5; --accent-soft:#e7e6fb; --good:#1d7a46; --bad:#b3261e;
+--paper:#eef2f4; --sheet:#ffffff; --ink:#14313d; --muted:#5b7380; --line:#c9d5db;
+--bench:#e6ecef; --accent:#0b5d75; --accent-soft:#e3eff3; --good:#1f7a4a; --bad:#b3261e;
 --glass:#7d8fa3; --glass-hi:rgba(255,255,255,.75);
 --display:"Lexend","Segoe UI",system-ui,sans-serif;
 --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
@@ -91,7 +91,7 @@ section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:middle}
 thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.84rem}
-tbody th{background:#f6f6fd;font-weight:700}
+tbody th{background:#f1f5f7;font-weight:700}
 input[type=number]{font:inherit;font-size:.95rem;width:6.5em;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink)}
 select{font:inherit;font-size:.92rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:var(--sheet);color:var(--ink);margin:2px;max-width:100%}
 .ok{border-color:var(--good)!important;box-shadow:0 0 0 2px var(--good)}
@@ -163,7 +163,7 @@ ol.qs li{max-width:72ch}
 .exwork{margin-top:6px;line-height:1.6}
 </style>
 </head>
-<body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+<body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
 
 <div class="wrap">
 <header>
@@ -633,7 +633,7 @@ for(let t=0;t<=xmax;t+=xs){g.beginPath();g.moveTo(X(t),T);g.lineTo(X(t),H-B);g.s
 g.strokeStyle='#1c2736';g.beginPath();g.moveTo(L,T);g.lineTo(L,H-B);g.lineTo(W-R,H-B);g.stroke();
 g.fillStyle='#1c2736';g.textAlign='center';g.fillText('Time (s)',L+(W-L-R)/2,H-6);
 g.save();g.translate(14,T+(H-T-B)/2);g.rotate(-Math.PI/2);g.fillText('Temperature (°C)',0,0);g.restore();
-if(p.length>1){g.strokeStyle='#4a44b5';g.lineWidth=2.5;g.beginPath();p.forEach((q,i)=>{i?g.lineTo(X(q[0]),Y(q[1])):g.moveTo(X(q[0]),Y(q[1]));});g.stroke();}
+if(p.length>1){g.strokeStyle='#0b5d75';g.lineWidth=2.5;g.beginPath();p.forEach((q,i)=>{i?g.lineTo(X(q[0]),Y(q[1])):g.moveTo(X(q[0]),Y(q[1]));});g.stroke();}
 if(!p.length){g.fillStyle='#5a6878';g.fillText('The graph draws itself as the temperature changes.',L+(W-L-R)/2,T+(H-T-B)/2);}
 }
 /* Part 2 */
@@ -802,6 +802,5 @@ $('exReset').addEventListener('click',()=>{render();pick(1);});
 render();
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body>
 </html>

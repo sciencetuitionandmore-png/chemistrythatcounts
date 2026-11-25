@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--water:#cfe6f7;--brom:#e9821c;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;--water:#cfe6f7;--brom:#e9821c;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -118,7 +118,7 @@ ol.qs input{margin-top:5px;accent-color:var(--accent)}
 .ex-max{font-size:.88rem;color:var(--muted)}
 .ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
 .ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 
 <div class="wrap">
 <header>
@@ -290,7 +290,7 @@ tabs.forEach((t,i)=>{t.onclick=()=>showTab(i);t.onkeydown=e=>{if(e.key==='ArrowR
 const S1=(()=>{
  const F=[['Refinery gases','C1–C4',3,5,2],['Petrol (gasoline)','C5–C10',15,30,15],['Kerosene','C10–C16',12,12,0],['Diesel','C14–C20',20,18,-2],['Fuel oil','C20–C40',30,18,-12],['Bitumen','over C40',20,7,-13],['Alkenes','for polymers',0,10,10]];
  const sv=$('sv0'),X0=190,SC=10,Y0=72,RH=44;let c=0,play=false,stopAt=1,dots=[],acc=0;
- el('rect',{x:X0,y:14,width:16,height:12,fill:'#4a44b5'},sv);el('text',{x:X0+22,y:25,'font-size':14},sv).textContent='Supply (from distillation)';
+ el('rect',{x:X0,y:14,width:16,height:12,fill:'#0b5d75'},sv);el('text',{x:X0+22,y:25,'font-size':14},sv).textContent='Supply (from distillation)';
  el('rect',{x:X0+210,y:14,width:16,height:12,fill:'#f7d9a8',stroke:'#c06d12','stroke-width':2},sv);el('text',{x:X0+232,y:25,'font-size':14},sv).textContent='Demand';
  el('line',{x1:X0,y1:40,x2:X0,y2:Y0+RH*7-10,stroke:'#8a97a5','stroke-width':2},sv);
  el('line',{x1:8,y1:Y0+RH*6-24,x2:592,y2:Y0+RH*6-24,stroke:'#b9c4cf','stroke-dasharray':'5 5'},sv);
@@ -298,7 +298,7 @@ const S1=(()=>{
   const t=el('text',{x:8,y:y-2,'font-size':15,'font-weight':700},sv);t.textContent=f[0];
   const tc=el('text',{x:8,y:y+15,class:'t-s'},sv);
   const d=el('rect',{x:X0,y:y+2,height:13,width:f[3]*SC,fill:'#f7d9a8',stroke:'#c06d12','stroke-width':2,rx:2},sv);
-  const s=el('rect',{x:X0,y:y-14,height:14,width:0,fill:'#4a44b5',rx:2},sv);
+  const s=el('rect',{x:X0,y:y-14,height:14,width:0,fill:'#0b5d75',rx:2},sv);
   const vs=el('text',{x:0,y:y-3,'font-size':12,class:'lb'},sv),vd=el('text',{x:X0+f[3]*SC+6,y:y+13,'font-size':12,class:'lb'},sv);vd.textContent=f[3]+'%';
   return {f,y,s,vs,tc}});
  el('text',{x:300,y:Y0+RH*7-6,'font-size':13,'text-anchor':'middle',class:'t-s'},sv).textContent='longer chains lower down: higher boiling point';
@@ -315,7 +315,7 @@ const S1=(()=>{
  const src=[3,4,5],dst=[0,1,6],pick=(ix)=>{let tot=ix.reduce((a,i)=>a+Math.abs(F[i][4]),0),r=Math.random()*tot;for(const i of ix){r-=Math.abs(F[i][4]);if(r<=0)return i}return ix[0]};
  function tick(dt){if(play){const dc=Math.min(dt/5,stopAt-c);c+=dc;acc+=dc*60;while(acc>1){acc--;const a=R[pick(src)],b=R[pick(dst)];dots.push({x0:X0+sup(a)*SC,y0:a.y-7,x1:X0+sup(b)*SC,y1:b.y-7,t:0,e:el('circle',{r:4,fill:'#b5651d'},dg)})}
    if(c>=stopAt-1e-6){play=false;pb.textContent='Play'}}
-  dots=dots.filter(d=>{d.t+=dt/1.1;if(d.t>=1){d.e.remove();return false}const k=ease(d.t);d.e.setAttribute('cx',lerp(d.x0,d.x1,k)+Math.sin(k*Math.PI)*40);d.e.setAttribute('cy',lerp(d.y0,d.y1,k));d.e.setAttribute('fill',k>.5?'#4a44b5':'#b5651d');return true});
+  dots=dots.filter(d=>{d.t+=dt/1.1;if(d.t>=1){d.e.remove();return false}const k=ease(d.t);d.e.setAttribute('cx',lerp(d.x0,d.x1,k)+Math.sin(k*Math.PI)*40);d.e.setAttribute('cy',lerp(d.y0,d.y1,k));d.e.setAttribute('fill',k>.5?'#0b5d75':'#b5651d');return true});
   draw()}
  function go(to){if(c>=.999)c=0;stopAt=to;play=true;pb.textContent='Pause'}
  pb.onclick=()=>{if(play){play=false;pb.textContent='Play'}else go(1)};
@@ -658,5 +658,4 @@ render();
 $('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

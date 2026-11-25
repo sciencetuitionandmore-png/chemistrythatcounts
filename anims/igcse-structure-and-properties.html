@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -52,7 +52,7 @@ input[type=range]{accent-color:var(--accent);width:100%}
 table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:620px}
 th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
 thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
-tbody th{background:#f6f6fd}
+tbody th{background:#f1f5f7}
 td.y{color:var(--good);font-weight:700} td.n{color:var(--bad);font-weight:700}
 ul.kp{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
 ol.qs{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px}
@@ -116,7 +116,7 @@ svg text{font-family:var(--body)}
 .ex-pt{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
 .ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
 .ex-max{font-size:.88rem;color:var(--muted)}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 <div class="wrap">
 <header>
 <div class="kicker">IGCSE Chemistry · Bonding and structure</div>
@@ -205,7 +205,7 @@ const R=Math.random;
 function tx(x,y,s,a){return `<text x="${x}" y="${y}" ${a||''}>${s}</text>`}
 const sup=s=>`<tspan baseline-shift="super" font-size="70%">${s}</tspan>`;
 const fsv=s=>s.replace(/<sub>(\d+)<\/sub>/g,'<tspan baseline-shift="sub" font-size="75%">$1</tspan>');
-const TT='font-size="17" font-weight="700" fill="#4a44b5" font-family="Lexend,sans-serif"';
+const TT='font-size="17" font-weight="700" fill="#0b5d75" font-family="Lexend,sans-serif"';
 const neg=v=>(v<0?'−'+(-v):''+v);
 function mv(p,dt,sp,b){p.vx+=(R()-.5)*600*dt;p.vy+=(R()-.5)*600*dt;const s=Math.hypot(p.vx,p.vy);if(s>sp){p.vx*=sp/s;p.vy*=sp/s}
   p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.x<b[0]){p.x=b[0];p.vx=Math.abs(p.vx)}if(p.x>b[1]){p.x=b[1];p.vx=-Math.abs(p.vx)}if(p.y<b[2]){p.y=b[2];p.vy=Math.abs(p.vy)}if(p.y>b[3]){p.y=b[3];p.vy=-Math.abs(p.vy)}}
@@ -329,7 +329,7 @@ function stat1(){const S=SM[C.sub],st=stOf(C.T);let h=`<p><b>${S.nm}, ${S.f}</b>
 function syncT(){const v=Math.round(C.T);$('temp').value=v;$('tRead').textContent=neg(v)+' °C';$('sRead').textContent=stOf(C.T)}
 (function(){const D=[['methane',16,-162],['butane',58,-1],['octane',114,126]];let h='<line x1="40" y1="20" x2="40" y2="140" stroke="#5a6878"/><line x1="40" y1="140" x2="290" y2="140" stroke="#5a6878"/>';
   const y=v=>140-(v+200)*120/340;[-200,-100,0,100].forEach(v=>{h+=`<line x1="36" y1="${f(y(v))}" x2="290" y2="${f(y(v))}" stroke="#e4eaf0"/>`+tx(32,f(y(v)+4),neg(v),'font-size="11" text-anchor="end" fill="#5a6878"')});
-  D.forEach((d,i)=>{const x=70+i*78,yy=y(d[2]);h+=`<rect x="${x}" y="${f(yy)}" width="46" height="${f(140-yy)}" rx="3" fill="${['#9fb7e8','#6f8fd8','#4a44b5'][i]}"/>`+tx(x+23,f(yy-5),neg(d[2])+' °C','text-anchor="middle" font-size="12" font-weight="700"')+tx(x+23,155,d[0],'text-anchor="middle" font-size="12"')+tx(x+23,169,'M'+'<tspan baseline-shift="sub" font-size="80%">r</tspan> = '+d[1],'text-anchor="middle" font-size="12" fill="#5a6878"')});
+  D.forEach((d,i)=>{const x=70+i*78,yy=y(d[2]);h+=`<rect x="${x}" y="${f(yy)}" width="46" height="${f(140-yy)}" rx="3" fill="${['#9fb7e8','#6f8fd8','#0b5d75'][i]}"/>`+tx(x+23,f(yy-5),neg(d[2])+' °C','text-anchor="middle" font-size="12" font-weight="700"')+tx(x+23,155,d[0],'text-anchor="middle" font-size="12"')+tx(x+23,169,'M'+'<tspan baseline-shift="sub" font-size="80%">r</tspan> = '+d[1],'text-anchor="middle" font-size="12" fill="#5a6878"')});
   h+=tx(8,12,'boiling point / °C','font-size="11" fill="#5a6878"');$('bpc').innerHTML=h})();
 
 /* ---------- TAB 3: GIANT COVALENT ---------- */
@@ -353,9 +353,9 @@ function draw2(){
   if(s==='diamond'){const ca=Math.cos(G.ang),sa=Math.sin(G.ang),ph=0.38,cp=Math.cos(ph),spp=Math.sin(ph);
     const P=DA.map(p=>{const x=p[0]-1,y=p[1]-1,z=p[2]-1,x1=x*ca+z*sa,z1=-x*sa+z*ca,y2=y*cp-z1*spp,z2=y*spp+z1*cp,k=4/(4+z2);return [313+sk+x1*130*k,200+y2*130*k,z2,k]});
     const it=[];DB.forEach(([i,j])=>it.push({z:(P[i][2]+P[j][2])/2+.01,b:[i,j]}));P.forEach((p,i)=>it.push({z:p[2],a:i}));it.sort((a,b)=>b.z-a.z);
-    it.forEach(o=>{if(o.b){const [i,j]=o.b,hl=i===DC||j===DC;h+=`<line x1="${f(P[i][0])}" y1="${f(P[i][1])}" x2="${f(P[j][0])}" y2="${f(P[j][1])}" stroke="${hl?'#4a44b5':'#6b7787'}" stroke-width="${hl?5:3.2}"/>`}
-      else{const p=P[o.a],sh=Math.round(150-60*(p[3]-0.8)/0.5),hl=o.a===DC;h+=`<circle cx="${f(p[0])}" cy="${f(p[1])}" r="${f(10*p[3])}" fill="${hl?'#4a44b5':`rgb(${sh-40},${sh-30},${sh-15})`}" stroke="#1c2736" stroke-width="1"/>`}});
-    if(lb){const p=P[DC];h+=`<line x1="${f(p[0]-8)}" y1="${f(p[1]-8)}" x2="160" y2="112" stroke="#4a44b5" stroke-width="1.4"/>`+tx(90,92,'each C atom','font-size="14" font-weight="700" fill="#4a44b5"')+tx(90,108,'bonded to 4 others','font-size="14" font-weight="700" fill="#4a44b5"');}
+    it.forEach(o=>{if(o.b){const [i,j]=o.b,hl=i===DC||j===DC;h+=`<line x1="${f(P[i][0])}" y1="${f(P[i][1])}" x2="${f(P[j][0])}" y2="${f(P[j][1])}" stroke="${hl?'#0b5d75':'#6b7787'}" stroke-width="${hl?5:3.2}"/>`}
+      else{const p=P[o.a],sh=Math.round(150-60*(p[3]-0.8)/0.5),hl=o.a===DC;h+=`<circle cx="${f(p[0])}" cy="${f(p[1])}" r="${f(10*p[3])}" fill="${hl?'#0b5d75':`rgb(${sh-40},${sh-30},${sh-15})`}" stroke="#1c2736" stroke-width="1"/>`}});
+    if(lb){const p=P[DC];h+=`<line x1="${f(p[0]-8)}" y1="${f(p[1]-8)}" x2="160" y2="112" stroke="#0b5d75" stroke-width="1.4"/>`+tx(90,92,'each C atom','font-size="14" font-weight="700" fill="#0b5d75"')+tx(90,108,'bonded to 4 others','font-size="14" font-weight="700" fill="#0b5d75"');}
     h+=`<text x="96" y="352" ${TT}>Diamond: carbon, C</text>`;}
   else if(s==='graphite'){
     for(let L=2;L>=0;L--){let g=`<g stroke="#4b5563" stroke-width="2.4">`;GE.forEach(([i,j])=>{const a=gp(L,...GL[i]),b=gp(L,...GL[j]);g+=`<line x1="${f(a[0])}" y1="${f(a[1])}" x2="${f(b[0])}" y2="${f(b[1])}"/>`});g+='</g><g fill="#2b3442">';GL.forEach(q=>{const a=gp(L,...q);g+=`<circle cx="${f(a[0])}" cy="${f(a[1])}" r="3.6"/>`});h+=g+'</g>';
@@ -370,9 +370,9 @@ function draw2(){
     for(let r=0;r<4;r++)for(let c=0;c<7;c++){const [x,y]=SX(c,r),j=1.5*Math.sin(G.ct*8+c+r*2);
       [[35,(c+r)%2?7:-7,c<6||1],[(c+r)%2?7:-7,34,r<3||1]].forEach(([dx,dy],q)=>{if((q===0&&c===6)||(q===1&&r===3))return;const ox=x+dx+j,oy=y+dy;b+=`<line x1="${x}" y1="${y}" x2="${f(ox)}" y2="${f(oy)}"/>`;const x2=q===0?x+70:x,y2=q===0?y:y+68;b+=`<line x1="${f(ox)}" y1="${f(oy)}" x2="${x2}" y2="${y2}"/>`;a+=`<circle cx="${f(ox)}" cy="${f(oy)}" r="8" fill="#d9433b" stroke="#1c2736" stroke-width="1"/>`});
       if(c===0||c===6||r===0||r===3){[[c===0,-22,0],[c===6,22,0],[r===0,0,-22],[r===3,0,22]].forEach(([ok,dx,dy])=>{if(ok)b+=`<line x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}" stroke-dasharray="3 3"/>`})}
-      a+=`<circle cx="${x}" cy="${y}" r="12" fill="${c===3&&r===1?'#4a44b5':'#e0a030'}" stroke="#1c2736" stroke-width="1.2"/>`}
+      a+=`<circle cx="${x}" cy="${y}" r="12" fill="${c===3&&r===1?'#0b5d75':'#e0a030'}" stroke="#1c2736" stroke-width="1.2"/>`}
     h+=`<g stroke="#4b5563" stroke-width="3">${b}</g>${a}`;
-    if(lb)h+=`<line x1="322" y1="183" x2="336" y2="336" stroke="#4a44b5" stroke-width="1.4"/>`+tx(300,352,'each Si: 4 O · each O: 2 Si','font-size="14" font-weight="700" fill="#4a44b5"');
+    if(lb)h+=`<line x1="322" y1="183" x2="336" y2="336" stroke="#0b5d75" stroke-width="1.4"/>`+tx(300,352,'each Si: 4 O · each O: 2 Si','font-size="14" font-weight="700" fill="#0b5d75"');
     h+=`<text x="96" y="352" ${TT}>Silicon dioxide, SiO<tspan baseline-shift="sub" font-size="75%">2</tspan></text>`;}
   if(s!=='graphite'&&G.shake>0)h+=pushArrow(200,cl(G.shake*2))+(lb?tx(320,62,'nothing slides: every atom is held by strong covalent bonds','text-anchor="middle" font-size="14" font-weight="700" fill="#b3261e"'):'');
   const lg=s==='silica'?`<circle cx="30" cy="370" r="8" fill="#e0a030" stroke="#1c2736"/>`+tx(44,375,'Si atom','font-size="14"')+`<circle cx="120" cy="370" r="6" fill="#d9433b" stroke="#1c2736"/>`+tx(132,375,'O atom','font-size="14"')+`<line x1="200" y1="370" x2="230" y2="370" stroke="#4b5563" stroke-width="3"/>`+tx(236,375,'strong covalent bond','font-size="14"')
@@ -562,5 +562,4 @@ function render(){
 render();
 $('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
 })();
-</script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+</script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

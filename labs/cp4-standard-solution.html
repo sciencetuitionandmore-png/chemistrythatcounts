@@ -4,7 +4,7 @@
 <link rel="icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+<style>:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{overflow-x:hidden}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
@@ -113,7 +113,7 @@ canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);borde
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 #burIn text{font:600 13px var(--display);fill:#1c2736}
-</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
 <header>
 <h1>Making a standard solution and using it to find the concentration of sodium hydroxide</h1>
 <p class="meta">IAL Chemistry · Core Practical 4 · Unit 3</p>
@@ -180,11 +180,11 @@ canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);borde
  <g id="jet" style="opacity:0" class="fade"><path d="M370 60 h18 v34 h-18z" fill="#dff0fb" stroke="#7d8fa3" stroke-width="1.6"/><path d="M379 60 V48 L420 40" fill="none" stroke="#7d8fa3" stroke-width="2"/><path id="jetW" d="M420 40 Q450 46 470 80" fill="none" stroke="#7fb8e6" stroke-width="2" stroke-dasharray="4 4"/></g>
  <g id="dropper" style="opacity:0" class="fade"><rect x="474" y="34" width="12" height="14" rx="5" fill="#3a3f4a"/><path d="M476 48 H484 L481 90 H479Z" fill="#dff0fb" stroke="#7d8fa3" stroke-width="1.4"/><circle id="dDrop" cx="480" cy="94" r="2.5" fill="#7fb8e6" style="opacity:0"/></g>
  <g id="zoom" style="opacity:0" class="fade">
-  <rect x="548" y="110" width="84" height="130" rx="8" fill="#fff" stroke="#4a44b5" stroke-width="2"/>
+  <rect x="548" y="110" width="84" height="130" rx="8" fill="#fff" stroke="#0b5d75" stroke-width="2"/>
   <g clip-path="url(#cpZoom)"><rect id="zLiq" x="572" y="200" width="36" height="60" fill="#cfe6f7"/><path id="zMen" d="" fill="#cfe6f7" stroke="#5b8fbf" stroke-width="2"/>
   <path d="M572 110 V240 M608 110 V240" stroke="#7d8fa3" stroke-width="3"/><path d="M564 175 H616" stroke="#1c2736" stroke-width="2"/></g>
   <text x="590" y="255" text-anchor="middle" class="lbl-s">eye level view</text>
-  <path d="M630 175 l8 -5 v10z" fill="#4a44b5"/>
+  <path d="M630 175 l8 -5 v10z" fill="#0b5d75"/>
  </g>
 </g>
 <!-- PHASE B -->
@@ -201,9 +201,9 @@ canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);borde
  <g id="tile" style="opacity:0" class="fade"><path d="M250 384 L272 374 H420 L398 384Z" fill="#fff" stroke="#9aa6b2"/></g>
  <g id="cf" class="mv"><g clip-path="url(#cpCf)"><rect id="cfLiq" x="270" y="376" width="120" height="0" fill="#e8f3fb" style="transition:fill .5s"/></g>
   <path class="glass" d="M318 266 V302 L282 368 Q278 376 288 376 H372 Q382 376 378 368 L342 302 V266"/><path class="shine" d="M296 360 L312 330"/></g>
- <g id="burIn"><rect x="452" y="40" width="116" height="160" rx="8" fill="#fff" stroke="#4a44b5" stroke-width="2"/>
+ <g id="burIn"><rect x="452" y="40" width="116" height="160" rx="8" fill="#fff" stroke="#0b5d75" stroke-width="2"/>
   <g clip-path="url(#cpBurIn)"><rect id="biLiq" x="486" y="120" width="48" height="90" fill="#dceefb"/><path id="biMen" fill="#dceefb" stroke="#5b8fbf" stroke-width="2"/><path d="M486 40 V200 M534 40 V200" stroke="#7d8fa3" stroke-width="3"/><g id="biTicks"></g></g>
-  <path d="M452 120 h-8 M568 120 h8" stroke="#4a44b5" stroke-width="2"/>
+  <path d="M452 120 h-8 M568 120 h8" stroke="#0b5d75" stroke-width="2"/>
   <text x="510" y="218" text-anchor="middle" class="lbl-s">burette (magnified)</text>
   <text id="burTxt" x="510" y="236" text-anchor="middle" font-family="Lexend,sans-serif" font-weight="700" font-size="15" fill="#1c2736"></text></g>
  <text x="330" y="396" text-anchor="middle" class="lbl-s">conical flask</text>
@@ -610,5 +610,4 @@ S('resetAll').addEventListener('click',()=>{resetForms();X.reset();B.reset();win
 B.reset();
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

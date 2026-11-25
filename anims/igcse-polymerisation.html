@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -105,7 +105,7 @@ ol.qs input{margin-top:5px;accent-color:var(--accent)}
 .ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
 .ex-max{font-size:.88rem;color:var(--muted)}
 [hidden]{display:none!important}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 
 <div class="wrap">
 <header>
@@ -241,7 +241,7 @@ function molStr(A,B,o={}){const fs=o.fs||18,bg=o.bg||'#e4eaf0',w=o.w||2.6,d=o.d|
   if(a.t==='CH3'){s+=`<rect x="${f1(a.x-fs*.5)}" y="${f1(a.y-fs*.65)}" width="${f1(fs*2)}" height="${f1(fs*1.35)}" rx="5" fill="${bg}" opacity="${op}"/><text x="${f1(a.x-fs*.36)}" y="${f1(a.y+fs*.35)}" font-size="${fs}" font-weight="700" opacity="${op}">CH<tspan font-size="${f1(fs*.7)}" dy="${f1(fs*.22)}">3</tspan></text>`;continue}
   s+=`<circle cx="${f1(a.x)}" cy="${f1(a.y)}" r="${f1(fs*(a.t.length>1?.78:.6))}" fill="${bg}" opacity="${op}"/><text x="${f1(a.x)}" y="${f1(a.y+fs*.35)}" text-anchor="middle" font-size="${f1(a.t==='H'?fs*.9:fs)}" font-weight="700" opacity="${op}" style="fill:${ACOL[a.t]}">${a.t}</text>`}
  return s}
-const brk=(x,y1,y2,dir,o,w=9)=>o>.01?`<path d="M${f1(x+dir*w)} ${f1(y1)}H${f1(x)}V${f1(y2)}H${f1(x+dir*w)}" fill="none" stroke="#4a44b5" stroke-width="3" opacity="${f2(o)}"/>`:'';
+const brk=(x,y1,y2,dir,o,w=9)=>o>.01?`<path d="M${f1(x+dir*w)} ${f1(y1)}H${f1(x)}V${f1(y2)}H${f1(x+dir*w)}" fill="none" stroke="#0b5d75" stroke-width="3" opacity="${f2(o)}"/>`:'';
 
 /* ---------- TAB 1: making poly(ethene) ---------- */
 let clk=0;
@@ -264,10 +264,10 @@ const S1=(()=>{
   A.push({t:'',x:A[0].x-s*.75,y:A[0].y},{t:'',x:A[last].x+s*.75,y:A[last].y});
   B.push({a:0,b:A.length-2,o:eo,f:eo},{a:last,b:A.length-1,o:eo,f:eo});
   const bo=ease(cl((t-PH[3]-.2)/1)),j=Math.floor((N-1)/2),bx=M[j].ex,y1=Yc-h-14,y2=Yc+h+14;
-  let s0=bo>.01?`<rect x="${f1(bx-s*.5)}" y="${f1(y1)}" width="${f1(s*2)}" height="${f1(y2-y1)}" rx="6" fill="#e7e6fb" opacity="${f2(bo)}"/>`:'';
+  let s0=bo>.01?`<rect x="${f1(bx-s*.5)}" y="${f1(y1)}" width="${f1(s*2)}" height="${f1(y2-y1)}" rx="6" fill="#e3eff3" opacity="${f2(bo)}"/>`:'';
   s0+=molStr(A,B,{fs});
   s0+=brk(bx-s*.5,y1,y2,1,bo)+brk(bx+s*1.5,y1,y2,-1,bo);
-  if(bo>.01)s0+=`<text x="${f1(bx+s*1.5+5)}" y="${f1(y2+8)}" font-size="20" font-style="italic" font-weight="700" opacity="${f2(bo)}" style="fill:#4a44b5">n</text><text class="lb" x="${f1(bx+s*.5)}" y="${f1(y1-8)}" text-anchor="middle" font-size="14" font-weight="700" opacity="${f2(bo)}" style="fill:#4a44b5">repeat unit</text>`;
+  if(bo>.01)s0+=`<text x="${f1(bx+s*1.5+5)}" y="${f1(y2+8)}" font-size="20" font-style="italic" font-weight="700" opacity="${f2(bo)}" style="fill:#0b5d75">n</text><text class="lb" x="${f1(bx+s*.5)}" y="${f1(y1-8)}" text-anchor="middle" font-size="14" font-weight="700" opacity="${f2(bo)}" style="fill:#0b5d75">repeat unit</text>`;
   if(eo>.5)s0+=`<text class="lb t-s" x="${f1(A[0].x-s*.75)}" y="${f1(Yc+5)}" text-anchor="end">…</text><text class="lb t-s" x="${f1(A[last].x+s*.8)}" y="${f1(Yc+5)}">…</text>`;
   g.innerHTML=s0;
   top.textContent=p<2?'Ethene monomers: each has a C=C double bond':p<3?'One bond of each C=C opens':p<4?'The monomers join with new C–C single bonds':'Poly(ethene): a long saturated chain';
@@ -300,7 +300,7 @@ function unitStr(sub,u,o={}){const X1=o.x1??255,X2=o.x2??345,Y=o.y??165,V=o.v??5
  const B=[{a:0,b:1,o:1,dbl:1-op,hl:op>0&&op<1},{a:0,b:2,o:1},{a:0,b:3,o:1},{a:1,b:4,o:1},{a:1,b:5,o:1},{a:0,b:6,o:ex>0?1:0,f:ex,hl:ex<1},{a:1,b:7,o:ex>0?1:0,f:ex,hl:ex<1}];
  const bx1=X1-E*.55,bx2=X2+E*.55,y1=Y-V-fs,y2=Y+V+fs;
  let s=molStr(A,B,{fs,bg:o.bg,w:o.w})+brk(bx1,y1,y2,1,br,fs*.45)+brk(bx2,y1,y2,-1,br,fs*.45);
- if(br>.01)s+=`<text x="${f1(bx2+5)}" y="${f1(y2+fs*.4)}" font-size="${fs}" font-style="italic" font-weight="700" opacity="${f2(br)}" style="fill:#4a44b5">n</text>`;
+ if(br>.01)s+=`<text x="${f1(bx2+5)}" y="${f1(y2+fs*.4)}" font-size="${fs}" font-style="italic" font-weight="700" opacity="${f2(br)}" style="fill:#0b5d75">n</text>`;
  return s}
 const S2=(()=>{
  const sv=$('sv1'),g=el('g',{},sv),tg=el('g',{class:'lb'},sv),PH=[0,1.2,2.4,3.6,4.8],pb=$('pl1');
@@ -319,8 +319,8 @@ const S2=(()=>{
  function u(){return rev?(t<PH[1]?PH[4]:t>=PH[4]-1e-3?0:6-t):t}
  function frame(p){const m=MON[mi];g.innerHTML=unitStr(m.s,u());const q0=rev&&!guessed&&t<1e-3,pn=m.p.split(',')[0];
   const TT=rev?[,q0?'Repeat unit: which monomer?':'Repeat unit of '+pn,'Step 1: remove the brackets and n','Step 2: remove the extension bonds','Step 3: put the C=C back','Monomer: '+m.n]:[,'Monomer: '+m.n,'Step 1: C=C becomes C–C','Step 2: draw the extension bonds','Step 3: brackets and n','Repeat unit of '+pn];
-  T1.textContent=TT[p];T1.style.fill=p>1&&p<5?'#b3261e':(rev?p===1:p===5)?'#4a44b5':'';
-  T2.textContent=q0?'?':p===1?usub(rev?m.r:m.m):p===5?usub(rev?m.m:m.r):'';T2.style.fill=q0?'#4a44b5':''}
+  T1.textContent=TT[p];T1.style.fill=p>1&&p<5?'#b3261e':(rev?p===1:p===5)?'#0b5d75':'';
+  T2.textContent=q0?'?':p===1?usub(rev?m.r:m.m):p===5?usub(rev?m.m:m.r):'';T2.style.fill=q0?'#0b5d75':''}
  function msg(p){const m=MON[mi];let h,cls='msg';
   if(!rev){h=[,'<span>This is the monomer, <b>'+m.n+'</b> ('+m.m+').</span><span>It is an alkene: it has a <b>C=C double bond</b>.</span>',
    '<span><b>Step 1:</b> change the C=C double bond into a C–C <b>single bond</b>.</span>',
@@ -447,8 +447,8 @@ const S3=(()=>{
  function recFrame(p){const st=rt<=1e-3?1:Math.min(6,Math.ceil(rt/3-1e-6)),lt=rt-RPH[st-1];let s='';
   /* progress strip */
   ['Collect','Sort','Wash','Shred','Melt','Remould'].forEach((n,i)=>{const done=i+1<st||p===7,on=i+1===st&&p<7,x=11+i*118;
-   s+=`<rect x="${x}" y="12" width="108" height="36" rx="18" fill="${on?'#4a44b5':done?'#e6f4ec':'#fff'}" stroke="${on?'#4a44b5':done?'#1d7a46':'#cdd6df'}" stroke-width="2"/><text x="${x+54}" y="36" text-anchor="middle" font-size="15" font-weight="700" style="fill:${on?'#fff':done?'#1d7a46':'#5a6878'}">${i+1} ${n}</text>`});
-  s+=`<text class="lb" x="360" y="80" text-anchor="middle" font-size="17" font-weight="700" style="fill:#4a44b5">${RCAP[p===7?6:st-1]}</text>`;
+   s+=`<rect x="${x}" y="12" width="108" height="36" rx="18" fill="${on?'#0b5d75':done?'#e6f4ec':'#fff'}" stroke="${on?'#0b5d75':done?'#1d7a46':'#cdd6df'}" stroke-width="2"/><text x="${x+54}" y="36" text-anchor="middle" font-size="15" font-weight="700" style="fill:${on?'#fff':done?'#1d7a46':'#5a6878'}">${i+1} ${n}</text>`});
+  s+=`<text class="lb" x="360" y="80" text-anchor="middle" font-size="17" font-weight="700" style="fill:#0b5d75">${RCAP[p===7?6:st-1]}</text>`;
   if(st<=2){s+=`<rect x="270" y="122" width="180" height="82" rx="6" fill="#cfe0d4" stroke="#1d7a46" stroke-width="2.5"/><text class="lb" x="360" y="221" text-anchor="middle" font-size="14" font-weight="700" style="fill:#1d7a46">collection box</text>`;
    if(st===2){const bo=cl(lt/.4);for(const k in RT){const x=RT[k].x;s+=`<g opacity="${f2(bo)}"><path d="M${x-75} 242V345H${x+75}V242" fill="#fff" stroke="#7d8fa3" stroke-width="3"/>${tri(RT[k].c,x,316,16)}<text class="lb" x="${x}" y="372" text-anchor="middle" font-size="15" font-weight="700">${RT[k].c} · ${RT[k].n}</text></g>`}}
    [...TY].forEach((k,i)=>{const a=st===1?SP[i]:pile(i),b=st===1?pile(i):slot(i),q=ease(cl((lt-.2-i*.18)/1.1));s+=itm(k,lerp(a[0],b[0],q),lerp(a[1],b[1],q)-Math.sin(q*Math.PI)*40,1,1)})}
@@ -588,5 +588,4 @@ render();
 $('exReset').addEventListener('click',()=>{render();const top=topRow.getBoundingClientRect().top+window.scrollY-8;window.scrollTo(0,Math.max(0,top))});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

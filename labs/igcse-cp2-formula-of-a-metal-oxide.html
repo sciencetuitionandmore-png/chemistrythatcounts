@@ -5,7 +5,7 @@
 <link rel="icon" href="/favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -39,7 +39,7 @@ section.sheet{background:var(--sheet);border:1px solid var(--line);border-radius
 .dragghost{position:fixed;left:0;top:0;width:56px;height:56px;pointer-events:none;z-index:50;opacity:.9}
 .dragghost svg{width:56px;height:56px}
 .scene{background:var(--sheet);border:2px dashed transparent;border-radius:12px;cursor:pointer;padding:4px}
-.scene.armed,.scene.over{border-color:var(--accent);background:#fbfbff}
+.scene.armed,.scene.over{border-color:var(--accent);background:#f7fafb}
 .scene svg{width:100%;height:auto;display:block}
 .msg{min-height:3em;padding:8px 12px;border-radius:10px;background:var(--sheet);border-left:5px solid var(--accent);font-size:.95rem}
 .msg.warn{border-left-color:var(--bad);background:#fdf0ef}
@@ -62,7 +62,7 @@ dl.rd dt{color:var(--muted)} dl.rd dd{margin:0;font:700 .95rem var(--display);fo
 table{border-collapse:collapse;width:100%;min-width:440px;font-size:.92rem}
 th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
 thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
-tbody th{background:#f6f6fd;font-weight:400}
+tbody th{background:#f1f5f7;font-weight:400}
 td{width:11em}
 td input,td select{width:100%;font:inherit;font-size:.95rem;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
 td.ok input,td.ok select{border-color:var(--good);background:#eef8f2} td.wrong input,td.wrong select{border-color:var(--bad);background:#fdf0ef}
@@ -118,13 +118,13 @@ select.ok{border-color:var(--good)!important} select.wrong{border-color:var(--ba
 .ex-btn.ghost{background:transparent;color:var(--accent)}
 .ex-btn:disabled{opacity:.5;cursor:default}
 .ex-ta{width:100%;min-height:110px;font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
-.ex-ms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fafafe;display:flex;flex-direction:column;gap:6px}
+.ex-ms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#f7fafb;display:flex;flex-direction:column;gap:6px}
 .ex-ms h3{font-size:.95rem;color:var(--accent)}
 .ex-ms label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
 .ex-ms input{margin-top:4px;width:18px;height:18px;accent-color:var(--accent);flex:none}
 .ex-max{font-size:.88rem;color:var(--muted)}
 .ex-foot{display:flex;justify-content:flex-end}
-</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
 
 <div class="wrap">
 <header>
@@ -509,5 +509,4 @@ $('exReset').addEventListener('click',()=>{build();toTop();});
 build();
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

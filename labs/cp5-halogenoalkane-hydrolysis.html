@@ -4,7 +4,7 @@
 <link rel="icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<style>:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
+<style>:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.8);--display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{overflow-x:hidden}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px}
@@ -116,7 +116,7 @@ canvas{width:100%;max-width:640px;height:auto;border:1px solid var(--line);borde
 .tl{font:600 13px var(--display);fill:#1c2736;text-anchor:middle}
 .big{font:700 22px var(--display);fill:#a6f3c0}
 .sw{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid #999;vertical-align:middle;margin-right:4px}
-</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
+</style></head><body><a href="../index.html#ial" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL labs</a><div class="wrap">
 <header>
 <h1>Investigating the rates of hydrolysis of halogenoalkanes</h1>
 <p class="meta">IAL Chemistry · Core Practical 5 · Unit 3</p>
@@ -469,10 +469,10 @@ function drawChart(bars){
   for(let i=0;i<=5;i++){const y=H-Bm-(H-Bm-T)*i/5;x.beginPath();x.moveTo(L,y);x.lineTo(Wd-R,y);x.stroke();x.fillText((max*i/5).toPrecision(2),L-8,y+5);}
   x.save();x.translate(24,(H-Bm+T)/2);x.rotate(-Math.PI/2);x.textAlign='center';x.fillText('1/t  / s⁻¹',0,0);x.restore();
   const bw=(Wd-L-R)/bars.length;
-  bars.forEach((b,i)=>{const h=(H-Bm-T)*b[1]/max,X=L+i*bw+bw*.18;x.fillStyle=i<3?'#4a44b5':'#1d7a46';x.fillRect(X,H-Bm-h,bw*.64,h);
+  bars.forEach((b,i)=>{const h=(H-Bm-T)*b[1]/max,X=L+i*bw+bw*.18;x.fillStyle=i<3?'#0b5d75':'#1d7a46';x.fillRect(X,H-Bm-h,bw*.64,h);
     x.save();x.translate(L+i*bw+bw/2,H-Bm+12);x.rotate(-0.5);x.textAlign='right';x.fillStyle='#1c2736';x.font='15px sans-serif';x.fillText(b[0].replace(' (',' ('),0,8);x.restore();
     if(b[2]){x.fillStyle='#5a6878';x.textAlign='center';x.fillText('< 0.0017',L+i*bw+bw/2,H-Bm-h-8);}});
-  x.textAlign='left';x.fillStyle='#4a44b5';x.fillText('■ Experiment A',Wd-300,28);x.fillStyle='#1d7a46';x.fillText('■ Experiment B',Wd-160,28);
+  x.textAlign='left';x.fillStyle='#0b5d75';x.fillText('■ Experiment A',Wd-300,28);x.fillStyle='#1d7a46';x.fillText('■ Experiment B',Wd-160,28);
 }
 S('chkQs').addEventListener('click',()=>checkQs(S('qs'),S('qScore')));
 
@@ -494,5 +494,4 @@ $$('.mini',setsEl)[0].classList.add('on');
 B.reset();note();
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -127,7 +127,7 @@ svg text{font-family:var(--body)}
 .ex-pt input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--accent)}
 .ex-max{font-size:.88rem;color:var(--muted)}
 .ex-foot{display:flex;gap:10px;flex-wrap:wrap}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 <div class="wrap">
 <header>
 <div class="kick">IGCSE CHEMISTRY · METALS: RUSTING</div>
@@ -273,7 +273,7 @@ const t=['The nail touches <b>air (oxygen)</b> and <b>water</b>. Both are presen
 msg('#st0',`<div><b>Tube ${words[sel]}.</b> After ${day.toFixed(0)} day${day.toFixed(0)=='1'?'':'s'}: <b>${amt}</b>.</div><div>${t}</div><div><b>Conclusion:</b> iron needs both oxygen and water to rust.</div><div class="eq">iron + oxygen + water → hydrated iron(III) oxide (rust)</div>`,lvl(sel)>0?'warn':(sel==1||sel==2)?'ok':'')}
 function draw(){let h='';
 cx.forEach((c,i)=>{const hi=i==sel;
-h+=`<rect x="${c-62}" y="18" width="124" height="378" rx="10" fill="${hi?'#f1f0fc':'none'}" stroke="${hi?'#4a44b5':'none'}" stroke-width="2"/>`;
+h+=`<rect x="${c-62}" y="18" width="124" height="378" rx="10" fill="${hi?'#e3eff3':'none'}" stroke="${hi?'#0b5d75':'none'}" stroke-width="2"/>`;
 h+=`<clipPath id="cp${i}"><path d="${tube(c)}Z"/></clipPath><g clip-path="url(#cp${i})">`;
 if(i==0)h+=`<rect x="${c-30}" y="220" width="60" height="120" fill="#cfe6f7"/>`;
 if(i==3)h+=`<rect x="${c-30}" y="220" width="60" height="120" fill="#d5e3ea"/>`;
@@ -328,7 +328,7 @@ if(scr){h+=seg(X0,G0)+seg(G1,X0+w);h+=`<path d="M${G0} ${y}L300 262L${G1} ${y}" 
 const r=Math.min(1,scrT/5);if(Math.min(bins[13].o,bins[13].w,bins[12].o,bins[12].w)>0||scrT>2)h+=`<ellipse cx="300" cy="252" rx="${(4+r*8).toFixed(1)}" ry="${(3+r*5).toFixed(1)}" fill="${RUST}"/>`}
 else h+=seg(X0,X0+w);
 h+=L(X0+4,y-6,nm[coat],'t')}
-fl=fl.filter(f=>(f.t-=1/60)>0);fl.forEach(f=>h+=`<circle cx="${f.x.toFixed(1)}" cy="${f.y}" r="${(10-f.t*20).toFixed(1)}" fill="none" stroke="#4a44b5" opacity="${(f.t*2).toFixed(2)}"/>`);
+fl=fl.filter(f=>(f.t-=1/60)>0);fl.forEach(f=>h+=`<circle cx="${f.x.toFixed(1)}" cy="${f.y}" r="${(10-f.t*20).toFixed(1)}" fill="none" stroke="#0b5d75" opacity="${(f.t*2).toFixed(2)}"/>`);
 parts.forEach(p=>h+=mol(p));
 h+=L(300,300,'steel (mostly iron)','tb','middle')+L(14,30,'air: oxygen and water vapour','t');
 if(scr)h+=L(300,350,'scratch: barrier broken','t','middle');
@@ -378,7 +378,7 @@ if(mode=='mg'){h+=`<rect x="0" y="0" width="600" height="168" fill="#f7fbff"/><r
 h+=`<path d="M30 14H570L530 150H80Z" fill="#7d8794" stroke="#3f4752" stroke-width="2"/><rect x="30" y="14" width="540" height="22" fill="#5c6570"/>`;
 const w=60*(1-mgUse*.55);h+=`<rect x="${380+(60-w)/2}" y="112" width="${w}" height="24" rx="3" fill="${C.mg}" stroke="#4b5563"/><circle cx="410" cy="124" r="3" fill="#3f4752"/>`;
 h+=L(14,60,'sea water','t')+L(84,96,'steel hull','tb')+L(450,108,'magnesium block','t')+L(450,122,'(bolted on)','tm');
-h+=`<path d="M378 138L15 180M442 138L585 180" stroke="#4a44b5" stroke-dasharray="4 3"/>`;return h}
+h+=`<path d="M378 138L15 180M442 138L585 180" stroke="#0b5d75" stroke-dasharray="4 3"/>`;return h}
 h+=`<rect x="0" y="0" width="600" height="168" fill="#f7fbff"/>`;
 h+=`<rect x="40" y="110" width="520" height="46" fill="#a7b0ba" stroke="#5d6773"/>`;
 const cc=mode=='paint'?C.paint:C[mode];
@@ -388,9 +388,9 @@ else h+=`<rect x="40" y="96" width="520" height="14" fill="${cc}"/>`;
 h+=`<path d="M215 96Q300 30 385 96Z" fill="#cfe6f7" opacity=".85" stroke="#7fb2dc"/>`;
 h+=L(300,62,'water droplet','tm','middle')+L(44,90,(mode=='zn'?'zinc coating':mode=='sn'?'tin coating':'paint')+(mode=='zn'?' (galvanised)':''),'t')+L(60,140,'steel (iron)','tb');
 if(scr)h+=L(340,140,'scratch','t');
-h+=`<path d="M270 124L15 180M330 124L585 180" stroke="#4a44b5" stroke-dasharray="4 3"/>`;return h}
+h+=`<path d="M270 124L15 180M330 124L585 180" stroke="#0b5d75" stroke-dasharray="4 3"/>`;return h}
 function draw(){let h=macro();
-h+=`<rect x="15" y="180" width="570" height="232" rx="10" fill="#fff" stroke="#4a44b5" stroke-width="2"/><clipPath id="pv"><rect x="16" y="181" width="568" height="230" rx="9"/></clipPath><g clip-path="url(#pv)">`;
+h+=`<rect x="15" y="180" width="570" height="232" rx="10" fill="#fff" stroke="#0b5d75" stroke-width="2"/><clipPath id="pv"><rect x="16" y="181" width="568" height="230" rx="9"/></clipPath><g clip-path="url(#pv)">`;
 h+=`<rect x="16" y="181" width="568" height="110" fill="#e3f0fa"/>`;
 const fe=mode=='mg'?XS.filter(x=>x<=375):XS;
 const rows=mode=='mg'?[305,335,365,395]:[335,365,395];
@@ -635,5 +635,4 @@ render();
 $('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

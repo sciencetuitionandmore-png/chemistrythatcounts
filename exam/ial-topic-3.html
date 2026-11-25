@@ -159,7 +159,7 @@ sub,sup{line-height:0}
 .side .ctrl{margin-top:0;gap:6px}.side .ctrl .btn{padding:7px 10px}
 .side .ctrl .pri{margin-left:auto}.side .dots{margin-left:0;width:100%;order:9}
 .side .chips{margin:10px 0 0}.side .narr{margin-top:10px}
-@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.picker{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{display:contents}.ctl{order:-2}.chips{order:-1}.stage{order:0}.nar{order:1}.sc,#sx,.yt{order:2}.picker{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:720px){.play .stage{grid-template-columns:1fr}}
 .spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
 .spd button{font:600 12px var(--h);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
@@ -197,7 +197,7 @@ sub,sup{line-height:0}
 #diag .sea{fill:#e8f1f4}
 </style>
 </head>
-<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
 
 <div class="wrap">
 <div class="top"><h1>Bonding and structure: how to answer exam questions</h1>
@@ -327,17 +327,17 @@ your:{kind:'text',marks:4,q:'Calcium oxide, CaO, melts at 2613 °C. Potassium ch
  warn:[[/molecul|intermolecular/i,'CaO and KCl are ionic. They have ions, not molecules or intermolecular forces.'],[/covalent/i,'No covalent bonds are broken. Melting overcomes the attraction between ions.']]}
 });
 /* ---------- 2 isoelectronic radii ---------- */
-var RAD=[['N³⁻',171,7],['O²⁻',140,8],['F⁻',133,9],['Na⁺',102,11],['Mg²⁺',72,12],['Al³⁺',53,13]];
+var RAD=[['N³⁻',171,7],['O²⁻',140,8],['F⁻',133,9],['Na⁺',102,11],['Mg²⁺',72,12],['Al³⁺',54,13]];
 W.push({btn:'Ionic radii: N³⁻ to Al³⁺',spec:[["3.7","trends in ionic radii"]],type:'Explain',marks:3,
 title:'The decrease in ionic radius from N<sup>3−</sup> to Al<sup>3+</sup>',
-q:'<p><span class="mk">(3)</span>The ionic radii of six ions are shown in the stage below, from N<sup>3−</sup> (<mark>171 pm</mark>) to Al<sup>3+</sup> (<mark>53 pm</mark>).</p><p><mark>Explain</mark> the <mark>decrease</mark> in ionic radius from the nitride ion to the aluminium ion.</p>',
+q:'<p><span class="mk">(3)</span>The ionic radii of six ions are shown in the stage below, from N<sup>3−</sup> (<mark>171 pm</mark>) to Al<sup>3+</sup> (<mark>54 pm</mark>).</p><p><mark>Explain</mark> the <mark>decrease</mark> in ionic radius from the nitride ion to the aluminium ion.</p>',
 diag:function(){var s='',L=40,B=200,Tp=20;
   for(var t=0;t<=180;t+=60){var y=B-t/180*(B-Tp);s+='<line class="grid" x1="'+L+'" x2="325" y1="'+y+'" y2="'+y+'"/>'+T(L-6,y+4,t,'sm','text-anchor="end"')}
   s+='<path class="ax" d="M'+L+' '+Tp+'V'+B+'H325"/>';
   RAD.forEach(function(r,i){var x=L+12+i*47,h=r[1]/180*(B-Tp);s+='<rect class="bar" data-hot="1" x="'+x+'" y="'+(B-h)+'" width="30" height="'+h+'"/>'+T(x+15,B-h-5,r[1],'sm','text-anchor="middle"')+T(x+15,B+15,r[0],'','text-anchor="middle"');
    s+='<g'+A(2)+'>'+T(x+15,B+31,r[2]+' p','an','text-anchor="middle"')+'</g>'});
   s+='<g'+A(1)+'>'+T(250,40,'all have 10 electrons:','an','text-anchor="middle"')+T(250,56,'1s² 2s² 2p⁶','an','text-anchor="middle"')+'</g>';
-  s+='<path class="anl"'+A(3)+' d="M70 '+(B-171/180*(B-Tp)-16)+'L300 '+(B-53/180*(B-Tp)-16)+'"/>';
+  s+='<path class="anl"'+A(3)+' d="M70 '+(B-171/180*(B-Tp)-16)+'L300 '+(B-54/180*(B-Tp)-16)+'"/>';
   s+=T(12,110,'radius / pm','sm','text-anchor="middle" transform="rotate(-90 12 110)"');
   return svg(330,240,s)},
 lines:plan(['same electrons (isoelectronic)','protons 7 → 13','stronger pull → smaller'])+
@@ -663,6 +663,5 @@ sum();
 load(0);
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body>
 </html>

@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
@@ -107,7 +107,7 @@ ol.qs label{display:block;padding:2px 0;cursor:pointer}
 .ex-max{font-size:.88rem;color:var(--muted)}
 .ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
 .ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 <div class="wrap">
 <header>
 <div class="kicker">IGCSE Chemistry · Organic chemistry: crude oil</div>
@@ -177,7 +177,7 @@ ol.qs label{display:block;padding:2px 0;cursor:pointer}
 <!-- TAB 3 -->
 <div class="layout" id="p3" role="tabpanel" aria-labelledby="tb3" hidden>
 <div class="stage"><svg id="pv" viewBox="0 0 640 400" role="img" aria-label="Particle view of short and long alkane molecules being heated"></svg>
-<div class="legend" style="padding:4px 8px 6px"><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#5a6878" stroke-width="3"/><circle cx="4" cy="6" r="4" fill="#3a4656"/><circle cx="30" cy="6" r="4" fill="#3a4656"/></svg>carbon atoms joined by covalent bonds</span><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#4a44b5" stroke-width="2.5" stroke-dasharray="3 3"/></svg>intermolecular forces (attractions between molecules)</span></div></div>
+<div class="legend" style="padding:4px 8px 6px"><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#5a6878" stroke-width="3"/><circle cx="4" cy="6" r="4" fill="#3a4656"/><circle cx="30" cy="6" r="4" fill="#3a4656"/></svg>carbon atoms joined by covalent bonds</span><span><svg width="34" height="12"><line x1="2" y1="6" x2="32" y2="6" stroke="#0b5d75" stroke-width="2.5" stroke-dasharray="3 3"/></svg>intermolecular forces (attractions between molecules)</span></div></div>
 <div class="side">
 <div class="card"><div class="lbl">Controls</div>
 <label class="lbl" for="tmp3">Temperature: <span class="readout" id="tval">20 °C</span></label>
@@ -296,7 +296,7 @@ const mini=FR.map((f,i)=>{const y=34+i*62;const g=E('g',{tabindex:0,role:'button
 T(68,18,'TOP (cool)','t-s',tr,{'text-anchor':'middle'});T(68,424,'BOTTOM (hot)','t-s',tr,{'text-anchor':'middle'});
 const bars=[['Number of carbon atoms',f=>f.cn/50,f=>'about '+f.cn+' ('+f.s+')'],['Boiling point',f=>f.bpv/400,f=>f.bp],['Viscosity (how thick)',(f,i)=>[.03,.12,.28,.45,.72,1][i],f=>f.vis],['Ease of ignition',(f,i)=>[1,.92,.72,.5,.3,.12][i],f=>f.ign]];
 const barEl=bars.map((b,j)=>{const y=30+j*48;T(140,y,b[0],'t-b',tr);E('rect',{x:140,y:y+6,width:480,height:16,rx:8,fill:'#e4eaf0'},tr);
- return{r:E('rect',{x:140,y:y+6,width:10,height:16,rx:8,fill:j==3?'#d6542b':'#4a44b5'},tr),v:T(620,y,'','t-s',tr,{'text-anchor':'end'}),w:0}});
+ return{r:E('rect',{x:140,y:y+6,width:10,height:16,rx:8,fill:j==3?'#d6542b':'#0b5d75'},tr),v:T(620,y,'','t-s',tr,{'text-anchor':'end'}),w:0}});
 // panels
 [['Colour',140],['Pouring (viscosity)',300],['Burning',470]].forEach(([t,x])=>{E('rect',{x,y:226,width:x==140?150:160,height:196,rx:10,fill:'#f6f8fb',stroke:'#cdd6df'},tr);T(x+8,244,t,'t-b',tr)});
 // colour bottle
@@ -320,7 +320,7 @@ const fO=E('path',{fill:'#4f8ff7'},tr),fI=E('path',{fill:'#cfe0ff'},tr);
 const ignTxt=T(550,418,'','t-s',tr,{'text-anchor':'middle'});
 const smokeG=E('g',{},tr);let smoke=[],ignT=0,t2=0,dropT=0,smT=0;
 function set2(i){fi2=Math.max(0,Math.min(5,i));$('frs').value=fi2;const f=FR[fi2];$('frn').textContent=f.n;
- mini.forEach((r,j)=>{r.setAttribute('stroke',j==fi2?'#4a44b5':'#cdd6df');r.setAttribute('stroke-width',j==fi2?3:1);r.setAttribute('opacity',j==fi2?1:.7)});
+ mini.forEach((r,j)=>{r.setAttribute('stroke',j==fi2?'#0b5d75':'#cdd6df');r.setAttribute('stroke-width',j==fi2?3:1);r.setAttribute('opacity',j==fi2?1:.7)});
  bars.forEach((b,j)=>barEl[j].v.textContent=b[2](f,fi2));
  const c=f.col;bottleFill.setAttribute('fill',fi2==0?'#ffffff':c);colTxt.textContent=f.cw;
  [beakLiq,str,drp,pool].forEach(e=>{e.setAttribute('fill',c);e.setAttribute('stroke',e===str?c:'#00000033')});
@@ -358,7 +358,7 @@ boxes.forEach((B,bi)=>{const W=300;E('rect',{x:B.x,y:46,width:W,height:262,rx:10
  let low=false;parts.forEach(([s,sub])=>{const sp=E('tspan',{'font-size':sub?10:13,dy:sub&&!low?4:!sub&&low?-4:0},t);sp.textContent=s;low=!!sub});
  T(B.x+8,38,`${B.lab}, boiling point ${B.bp} °C`,'t-s',pv);
  B.state=T(B.x+W-8,38,'liquid','t-b',pv,{'text-anchor':'end'});
- B.imf=E('path',{fill:'none',stroke:'#4a44b5','stroke-width':2,'stroke-dasharray':'3 3'},pv);
+ B.imf=E('path',{fill:'none',stroke:'#0b5d75','stroke-width':2,'stroke-dasharray':'3 3'},pv);
  B.ch=[];const sp=15,len=(B.n-1)*sp;
  for(let r=0;r<4;r++){const g=E('g',{},pv);const pts=[];for(let j=0;j<B.n;j++)pts.push([j*sp-len/2,j%2?3:-3]);
   const bl=E('polyline',{points:pts.join(' '),fill:'none',stroke:'#5a6878','stroke-width':3},g);
@@ -370,7 +370,7 @@ boxes.forEach((B,bi)=>{const W=300;E('rect',{x:B.x,y:46,width:W,height:262,rx:10
  T(B.x+8,374,bi?'Many contact points → strong attractions':'Few contact points → weak attractions','t-s',pv);
  T(B.x+8,392,`${B.n} attractions between each pair of neighbours here`,'t-s',pv)});
 const thermo=T(320,392,'','t-b',pv,{'text-anchor':'middle'});thermo.style.display='none';
-const callout=E('g',{},pv);E('path',{d:'M520 205 L560 150',stroke:'#4a44b5','stroke-width':1.5,'marker-end':''},callout);T(560,132,'intermolecular','t-s',callout,{'text-anchor':'middle',style:'fill:#4a44b5;font-weight:700'});T(560,145,'forces','t-s',callout,{'text-anchor':'middle',style:'fill:#4a44b5;font-weight:700'});
+const callout=E('g',{},pv);E('path',{d:'M520 205 L560 150',stroke:'#0b5d75','stroke-width':1.5,'marker-end':''},callout);T(560,132,'intermolecular','t-s',callout,{'text-anchor':'middle',style:'fill:#0b5d75;font-weight:700'});T(560,145,'forces','t-s',callout,{'text-anchor':'middle',style:'fill:#0b5d75;font-weight:700'});
 const callB=E('g',{},pv);E('path',{d:'M480 214 L470 150',stroke:'#b3261e','stroke-width':1.5},callB);T(470,132,'covalent bonds','t-s',callB,{'text-anchor':'middle',style:'fill:#b3261e;font-weight:700'});T(470,145,'(not broken)','t-s',callB,{'text-anchor':'middle',style:'fill:#b3261e;font-weight:700'});
 function upd3(dt){t3+=dt;if(heating){T3=Math.min(350,T3+35*dt);if(T3>=350){heating=false;$('play3').textContent='Heat'}syncT()}
  boxes.forEach(B=>{const boil=T3>=B.bp;let d='';let liq=0;
@@ -576,5 +576,4 @@ render();
 $('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

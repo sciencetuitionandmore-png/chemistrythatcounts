@@ -145,13 +145,13 @@ table.t td.rl{text-align:left;color:var(--muted);font-size:.7rem}
 .side .ctl{margin-top:0;gap:6px}.side .ctl button{padding:8px 10px}
 .side .ctl button.pri{margin-left:auto}.side .dots{order:9;width:100%}
 .side .chips{margin:10px 0 0}.side .nar{margin-top:10px}
-@media (max-width:860px){.play{grid-template-columns:1fr}.side{order:-1}.pick{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.play{grid-template-columns:1fr}.side{display:contents}.ctl{order:-2}.chips{order:-1}.stage{order:0}.nar{order:1}.sc,#sx,.yt{order:2}.pick{grid-template-columns:repeat(2,1fr)}}
 .spd{order:10;width:100%;display:flex;gap:4px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px}
 .spd button{font:600 12px var(--fh);border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer;min-height:28px}
 .spd button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:#fff}
 </style>
 </head>
-<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
+<body><a href="../index.html#ial-exam" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IAL exam walkthroughs</a>
 
 <div class="wrap" id="wrap">
  <div class="top">
@@ -277,7 +277,7 @@ yt:{q:'A volatile liquid is vaporised. 0.250 g of the liquid forms 98.5 cm<sup>3
 /* ---------- 5 YIELD & ATOM ECONOMY ---------- */
 {btn:"Percentage yield & atom economy",spec:[["1.9", "% yield & atom economy"]],marks:4,title:"Making ethyl ethanoate",
 q:'<p>Ethyl ethanoate is made from ethanoic acid and ethanol.</p><p class="eq">CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH → CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O</p><p>A student used <mark data-f="ma">6.00 g</mark> of ethanoic acid with excess ethanol and obtained <mark data-f="act">5.72 g</mark> of ethyl ethanoate.</p><p><b>(a)</b> <mark>Calculate</mark> the percentage yield. (3) <b>(b)</b> <mark>Calculate</mark> the atom economy by mass for making ethyl ethanoate. (1)</p><p class="dat">[M<sub>r</sub>: CH<sub>3</sub>COOH <mark data-f="m1">60.0</mark>; C<sub>2</sub>H<sub>5</sub>OH <mark data-f="m2">46.0</mark>; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> <mark data-f="m3">88.0</mark>; H<sub>2</sub>O 18.0]</p>',
-diag:'<svg viewBox="0 0 260 120" role="img" aria-label="Bars comparing actual and theoretical mass"><text x="0" y="12" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="1">(a) yield</text><g data-s="1" data-h="1"><rect x="0" y="18" width="240" height="18" rx="3" fill="#d4ecf5"/><text x="6" y="31" font-family="JetBrains Mono,monospace" font-size="10" fill="#14313d">theoretical 8.80 g</text></g><g data-s="2" data-h="2"><rect x="0" y="40" width="156" height="18" rx="3" fill="#e08a00"/><text x="6" y="53" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">actual 5.72 g = 65.0%</text></g><text x="0" y="78" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="3">(b) atom economy</text><g data-s="3" data-h="3"><rect x="0" y="84" width="240" height="20" rx="3" fill="#c9d5db"/><rect x="0" y="84" width="199" height="20" rx="3" fill="#1f7a4a"/><text x="6" y="98" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">ester 88.0 (83.0%)</text><text x="204" y="98" font-family="JetBrains Mono,monospace" font-size="9" fill="#14313d">H₂O</text><text x="0" y="117" font-family="JetBrains Mono,monospace" font-size="9" fill="#5b7380">total reactants 106.0</text></g></svg><div class="card" data-s="4" data-h="4"><div><span>% yield</span><b>depends on the experiment</b></div><div><span>atom economy</span><b>depends on the equation</b></div></div>',
+diag:'<svg viewBox="0 0 260 120" role="img" aria-label="Bars comparing actual and theoretical mass"><text x="0" y="12" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="1">(a) yield</text><g data-s="1" data-h="1"><rect x="0" y="18" width="240" height="18" rx="3" fill="#d4ecf5"/><text x="6" y="31" font-family="JetBrains Mono,monospace" font-size="10" fill="#14313d">theoretical 8.80 g</text></g><g data-s="2" data-h="2"><rect x="0" y="40" width="156" height="18" rx="3" fill="#e08a00"/><text x="6" y="53" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">actual 5.72 g = 65.0%</text></g><text x="0" y="78" font-family="Lexend,sans-serif" font-size="11" fill="#14313d" data-s="3">(b) atom economy</text><g data-s="3" data-h="3"><rect x="0" y="84" width="240" height="20" rx="3" fill="#c9d5db"/><rect x="0" y="84" width="199" height="20" rx="3" fill="#1f7a4a"/><text x="6" y="98" font-family="JetBrains Mono,monospace" font-size="10" fill="#fff">ester 88.0 (83.0%)</text><text x="204" y="98" font-family="JetBrains Mono,monospace" font-size="9" fill="#14313d">H₂O</text><text x="0" y="117" font-family="JetBrains Mono,monospace" font-size="9" fill="#5b7380">total products 106.0</text></g></svg><div class="card" data-s="4" data-h="4"><div><span>% yield</span><b>depends on the experiment</b></div><div><span>atom economy</span><b>depends on the equation</b></div></div>',
 chips:[["M1","mol acid = 0.100"],["M2","theoretical 8.80 g"],["M3","yield 65.0%"],["M4","atom economy 83.0%"]],
 steps:[
 {t:"Moles of the limiting reactant",x:"Ethanol is in excess, so ethanoic acid controls how much ester can form. Change its mass to moles.",tip:"Only use the reactant that is NOT in excess.",e:["M1"],
@@ -286,12 +286,12 @@ steps:[
  l:[L("(a) Step 2  theoretical mass"),'n(ester) = 0.100 mol (1 : 1)','mass = 0.100 × '+v("m3","88.0")+' = '+r("8.80 g")+M("M2")]},
 {t:"Percentage yield",x:"Percentage yield = actual mass ÷ theoretical mass × 100.",tip:"Actual goes on top. A yield above 100% means you have made a mistake (or the product is wet).",e:["M3"],
  l:[L("(a) Step 3  % yield"),'= '+v("act","5.72")+' ÷ 8.80 × 100 = '+A("65.0%")+M("M3")]},
-{t:"Atom economy",x:"Atom economy = M<sub>r</sub> of the wanted product ÷ total M<sub>r</sub> of all reactants × 100. Use the equation, not the masses from the experiment.",tip:"Include every reactant in the bottom line, multiplied by its number in the equation.",e:["M4"],
- l:[L("(b) atom economy"),'= '+v("m3","88.0")+' ÷ ('+v("m1","60.0")+' + '+v("m2","46.0")+') × 100','= 88.0 ÷ 106.0 × 100 = '+A("83.0%")+M("M4")]},
+{t:"Atom economy",x:"Atom economy = M<sub>r</sub> of the wanted product ÷ total M<sub>r</sub> of all products × 100. Use the equation, not the masses from the experiment.",tip:"Include every product in the bottom line (the ester and the water), multiplied by its number in the equation.",e:["M4"],
+ l:[L("(b) atom economy"),'= '+v("m3","88.0")+' ÷ ('+v("m3","88.0")+' + 18.0) × 100','= 88.0 ÷ 106.0 × 100 = '+A("83.0%")+M("M4")]},
 {t:"Know the difference",x:"Percentage yield tells you how well the experiment worked. Atom economy tells you how much of the reactants end up in the product. A reaction can have a high atom economy but a low yield.",tip:"6-mark questions sometimes ask why a high atom economy is good: less waste, fewer raw materials, more sustainable.",
  l:[]},
 {fin:1,t:"Check against the mark scheme",x:"All four marks are earned: three for the yield, one for atom economy.",tip:"Give percentages to 3 significant figures, like the data.",
- mis:["Dividing 5.72 by 6.00 (mass of reactant): gives 95.3%.","Putting the theoretical mass on top (gives 154%).","Using the masses 5.72 and 6.00 for atom economy.","Leaving out ethanol from the bottom of the atom economy: gives 147%."]}
+ mis:["Dividing 5.72 by 6.00 (mass of reactant): gives 95.3%.","Putting the theoretical mass on top (gives 154%).","Using the masses 5.72 and 6.00 for atom economy.","Leaving water out of the bottom of the atom economy: gives 100%."]}
 ],
 yt:{q:'Cyclohexene is made by dehydrating cyclohexanol: C<sub>6</sub>H<sub>11</sub>OH → C<sub>6</sub>H<sub>10</sub> + H<sub>2</sub>O. A student heated 10.0 g of cyclohexanol and obtained 5.33 g of cyclohexene. Calculate the <b>percentage yield</b>. [M<sub>r</sub>: C<sub>6</sub>H<sub>11</sub>OH 100.0, C<sub>6</sub>H<sub>10</sub> 82.0]',
  u:"%",a:65.0,tol:0.15,
@@ -526,6 +526,5 @@ sum();
 load(0);
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body>
 </html>

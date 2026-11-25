@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--paper);color:var(--ink);font:17px/1.5 var(--body);padding:20px 16px 48px;overflow-x:hidden}
@@ -106,7 +106,7 @@ ol.qs label{display:block;padding:2px 0;cursor:pointer}
 .ex-max{font-size:.88rem;color:var(--muted)}
 .ex-toolbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
 .ex-card .btn:disabled{opacity:.45;cursor:not-allowed}
-</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
+</style></head><body><a href="../index.html#igcse-animations" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE animations</a>
 <div class="wrap">
 
 <header>
@@ -344,7 +344,7 @@ const lossT=T(20,110,'','t-b',lab2,{style:'fill:#b3401b'});
 // graph
 const GX=360,GW=262,GY=330,GH=250;let gT0=10,gT1=30;
 const gAx=E('g',{},gG),gLine=E('polyline',{fill:'none',stroke:'#d33a2c','stroke-width':3,'stroke-linejoin':'round'},gG);
-const d0=E('circle',{r:5,fill:'#4a44b5'},gG),dP=E('circle',{r:6,fill:'none',stroke:'#1d7a46','stroke-width':3},gG),dPt=T(0,0,'','t-s',gG,{style:'fill:#1d7a46;font-weight:700'});
+const d0=E('circle',{r:5,fill:'#0b5d75'},gG),dP=E('circle',{r:6,fill:'none',stroke:'#1d7a46','stroke-width':3},gG),dPt=T(0,0,'','t-s',gG,{style:'fill:#1d7a46;font-weight:700'});
 const gyy=t=>GY-(t-gT0)/(gT1-gT0)*GH,gxx=s=>GX+s/250*GW;
 function axes(){gAx.innerHTML='';E('rect',{x:GX,y:GY-GH,width:GW,height:GH,fill:'#fbfcfe',stroke:'#cdd6df'},gAx);
  for(let t=gT0;t<=gT1;t+=5){const y=gyy(t);E('line',{x1:GX,x2:GX+GW,y1:y,y2:y,stroke:'#e4eaf0'},gAx);T(GX-6,y+4,t,'t-s',gAx,{'text-anchor':'end'})}
@@ -451,7 +451,7 @@ const col3=E('rect',{x:152,y:200,width:6,height:140,fill:'#d33a2c'},s3);
 const m3T=T(36,236,'','t-b',s3),c3T=T(36,256,'c = 4.2 J/g/°C','t-s',s3);
 const ta3=T(105,388,'','t-s',s3,{'text-anchor':'middle'});
 E('rect',{x:120,y:30,width:70,height:28,rx:7,fill:'#1c2736'},s3);const rd3=T(155,50,'','t-b',s3,{'text-anchor':'middle',style:'fill:#fff;font-size:15px'});
-const hl3=E('rect',{x:220,width:414,height:52,rx:9,fill:'#e7e6fb',stroke:'#4a44b5','stroke-width':1.5},s3);
+const hl3=E('rect',{x:220,width:414,height:52,rx:9,fill:'#e3eff3',stroke:'#0b5d75','stroke-width':1.5},s3);
 const L3=[0,1,2,3,4,5].map(i=>{const y=26+i*62;return{h:T(232,y+14,'','t-s',s3),b:T(232,y+36,'','t-b',s3,{style:'font-size:16px'}),y}});
 const sf=(x,n)=>String(Number(x.toPrecision(n)));
 function lines3(){const up=d3>0,a=Math.abs(d3),Te=20+d3,Q=Math.round(m3*4.2*a*10)/10,Qk=Q/1000,dH=Qk/n3,s=up?'−':'+';
@@ -651,5 +651,4 @@ render();
 $('exReset').addEventListener('click',function(){render(); var top=tabRow.getBoundingClientRect().top+window.scrollY-8; window.scrollTo(0,Math.max(0,top));});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>

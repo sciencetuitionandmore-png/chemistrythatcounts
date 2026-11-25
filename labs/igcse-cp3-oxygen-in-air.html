@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@600;700&display=swap">
 <style>
-:root{--paper:#f2f5f8;--sheet:#fff;--ink:#1c2736;--muted:#5a6878;--line:#cdd6df;--bench:#e4eaf0;--accent:#4a44b5;--accent-soft:#e7e6fb;--good:#1d7a46;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
+:root{--paper:#eef2f4;--sheet:#fff;--ink:#14313d;--muted:#5b7380;--line:#c9d5db;--bench:#e6ecef;--accent:#0b5d75;--accent-soft:#e3eff3;--good:#1f7a4a;--bad:#b3261e;--glass:#7d8fa3;--glass-hi:rgba(255,255,255,.75);
 --display:"Lexend","Segoe UI",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -70,7 +70,7 @@ svg text{font-family:var(--body)}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{border:1px solid var(--line);padding:7px;text-align:left;vertical-align:middle}
 thead th{background:var(--accent-soft);font-family:var(--display);font-weight:600;font-size:.82rem}
-tbody th{background:#f6f6fd;font-weight:700}
+tbody th{background:#f1f5f7;font-weight:700}
 td.ok{box-shadow:inset 0 0 0 3px var(--good)} td.wrong{box-shadow:inset 0 0 0 3px var(--bad)}
 input[type=number]{font:inherit;font-size:.95rem;width:6.2em;padding:5px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink)}
 select{font:inherit;font-size:.92rem;padding:4px 6px;border-radius:8px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:2px;max-width:100%}
@@ -79,7 +79,7 @@ select.ok,input.ok{border-color:var(--good);background:#eef8f2} select.wrong,inp
 .score.good{color:var(--good)} .score.bad{color:var(--bad)}
 ol.qs{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:16px}
 ol.qs li{max-width:72ch}
-.calc{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.calc{background:#f1f5f7;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
 footer{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
 footer .fact{font-weight:700;max-width:60ch}
 input[type=range]{accent-color:var(--accent);width:100%}
@@ -129,17 +129,17 @@ canvas{width:100%;height:auto;display:block;background:#fff;border:1px solid var
 .xcalc{display:flex;flex-direction:column;gap:8px}
 .xin{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
 .xin input[type=number]{width:7.5em}
-.xwork{background:#f6f6fd;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
+.xwork{background:#f1f5f7;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.95rem}
 .xwork ol{margin:4px 0 0;padding-left:1.3em}
 .xq textarea{font:inherit;font-size:.95rem;width:100%;min-height:5.5em;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:#fff;color:var(--ink);resize:vertical}
 .xq textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.xms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fbfbff;display:flex;flex-direction:column;gap:6px}
+.xms{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#f7fafb;display:flex;flex-direction:column;gap:6px}
 .xms .shelf-label{color:var(--accent)}
 .xms label{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;cursor:pointer}
 .xms input[type=checkbox]{accent-color:var(--accent);width:18px;height:18px;margin-top:3px;flex:none}
 .xms label.off{opacity:.55;cursor:default}
 .xq [hidden]{display:none!important}
-</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Nunito,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
+</style></head><body><a href="../index.html#igcse-labs" style="position:sticky;top:0;z-index:9999;display:block;padding:8px 16px;background:#1F5E66;color:#fff;font:700 15px Lexend,Arial,sans-serif;text-decoration:none">← chemistry <span style="color:#F7B3A2">that counts</span> · All IGCSE labs</a>
 <div class="wrap">
 <header>
 <h1>Percentage of oxygen in air</h1>
@@ -422,8 +422,8 @@ for(let v=lo;v<=hi;v+=2){g.beginPath();g.moveTo(l,Y(v));g.lineTo(W-r,Y(v));g.str
 g.textAlign='center';g.fillText('time / days',l+(W-l-r)/2,H-10);
 g.save();g.translate(16,t+(H-t-b)/2);g.rotate(-Math.PI/2);g.fillText('volume of air / cm³',0,0);g.restore();
 if(!A.pts.length){g.fillText('Points appear here each day.',l+(W-l-r)/2,t+(H-t-b)/2);return;}
-g.strokeStyle='#4a44b5';g.lineWidth=2.5;g.beginPath();A.pts.forEach((p,i)=>i?g.lineTo(X(p[0]),Y(p[1])):g.moveTo(X(p[0]),Y(p[1])));g.stroke();
-g.fillStyle='#4a44b5';A.pts.forEach(p=>{g.beginPath();g.arc(X(p[0]),Y(p[1]),5,0,7);g.fill();});
+g.strokeStyle='#0b5d75';g.lineWidth=2.5;g.beginPath();A.pts.forEach((p,i)=>i?g.lineTo(X(p[0]),Y(p[1])):g.moveTo(X(p[0]),Y(p[1])));g.stroke();
+g.fillStyle='#0b5d75';A.pts.forEach(p=>{g.beginPath();g.arc(X(p[0]),Y(p[1]),5,0,7);g.fill();});
 }
 function resetA(){cancelAnimationFrame(ffRaf);newA();mA.reset();$('rA0').textContent='–';$('rA1').textContent='–';$('days').disabled=true;$('ff').disabled=true;
 say($('msgA'),'Start with step 1: wet the iron wool.','');drawA();}
@@ -630,5 +630,4 @@ build();
 $('xReset').addEventListener('click',()=>{build();const top=$('xPanel2').getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:Math.max(0,top),behavior:RM?'auto':'smooth'});});
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics -->
-</body></html>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "929baccc464547199f036c627800920a"}'></script><!-- End Cloudflare Web Analytics --></body></html>
