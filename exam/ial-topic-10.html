@@ -572,7 +572,7 @@ W.push({btn:'Infrared spectra',spec:[["10.22","infrared spectra"],["10.23","CP8"
 title:'Using an IR spectrum to identify a compound',
 q:'<p><span class="mk">(3)</span>The IR spectrum of a compound C<sub>3</sub>H<sub>6</sub>O<sub>2</sub> is shown in the stage.</p><p>Use the <mark>absorptions</mark> to show that it is <mark>propanoic acid</mark> and not propan-1-ol or propanal.</p>',
 diag:function(){var r=irs([[3000,260,110],[1715,45,120],[2950,40,40],[1250,40,50]]),X=r.X,s=r.s;
-  s+=G(1,T(X(2450),100,'broad O–H','an')+T(X(2450),114,'2500–3300','sm'));
+  s+=G(1,T(X(2330),76,'broad O–H','an','text-anchor="middle"')+T(X(2330),90,'2500–3300','sm','text-anchor="middle"'));
   s+=G(2,T(X(1715)+6,150,'C=O 1715','an'));
   return svg(330,212,s)},
 lines:plan(['broad O–H','C=O','rule out the others'])+

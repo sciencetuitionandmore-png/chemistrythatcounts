@@ -257,7 +257,7 @@ const banner=(s)=>T(320,26,s,'tb mid');
 root.innerHTML=`
 <g id="scEq" class="s">${banner('2NO_2(g) ⇌ N_2O_4(g)')}
 ${flask(120,300,'fl1')}${mols(120,240)}
-${T(120,326,'closed flask: nothing gets in or out','tm mid')}
+${T(120,114,'closed flask: nothing gets in or out','tm mid')}
 ${T(40,62,'brown','tm')}${T(150,62,'colourless','tm')}
 <g id="eqBal" class="s">${T(120,92,'forward rate = backward rate','t mid','style="font-weight:700"')}</g>
 <g id="gR" class="s"><path class="ax" d="M300 44V160H620"/>${T(286,102,'Rate','tm','text-anchor="end"')}${T(460,178,'Time / s','tm mid')}
@@ -276,15 +276,15 @@ ${T(330,206,'Position moves to the RIGHT →','dirR')}${T(330,238,'Dashed outlin
 <g id="pP" class="s">${T(330,80,'Increase the pressure','th')}
 <rect x="330" y="98" width="130" height="58" rx="8" fill="#e3eff3"/>${T(395,122,'N_2 + 3H_2','tb mid')}${T(395,145,'4 mol of gas','tm mid')}
 <rect x="490" y="98" width="130" height="58" rx="8" fill="#e3f3e9"/>${T(555,122,'2NH_3','tb mid')}${T(555,145,'2 mol of gas','tm mid')}
-${T(475,132,'⇌','tb mid')}${T(330,188,'The position moves to the side with')}${T(330,210,'fewer gas molecules, to reduce the pressure.')}
-${T(330,250,'Position moves to the RIGHT →','dirR')}</g>
+${T(475,132,'⇌','tb mid')}${T(330,188,'The position moves to the side with')}${T(330,210,'fewer gas molecules,')}${T(330,232,'to reduce the pressure.')}
+${T(330,266,'Position moves to the RIGHT →','dirR')}</g>
 <g id="pT" class="s">${T(330,80,'Increase the temperature','th')}${T(330,112,'The forward reaction is exothermic.')}${T(330,134,'The position moves in the endothermic')}${T(330,156,'direction, to take in the extra heat.')}
 ${T(330,206,'← Position moves to the LEFT','dirL')}${T(330,238,'Less NH_3 at equilibrium (lower yield).','t')}</g>
 <g id="pK" class="s">${T(330,80,'Add a catalyst','th')}${T(330,108,'Forward and backward rates increase')}${T(330,128,'by the same amount.')}
 <path class="ax" d="M340 150V282H610"/>${T(475,300,'Time / s','tm mid')}${T(332,216,'[NH_3]','tm','text-anchor="end"')}
 <path class="cv" stroke="#1d7a46" stroke-dasharray="7 5" d="${curve(340,600,280,180,12)}"/><path class="cv" stroke="#1d7a46" d="${curve(340,600,280,180,4)}"/>
 ${T(392,172,'with catalyst','tm','style="fill:#1d7a46"')}${T(520,230,'without','tm','style="fill:#1d7a46"')}
-${T(330,330,'No shift: same position, reached faster','dirN')}</g>
+${T(330,324,'No shift: same position,','dirN')}${T(330,346,'reached faster','dirN')}</g>
 </g>
 <g id="scN" class="s">${banner('2NO_2(g) ⇌ N_2O_4(g)\u00a0\u00a0\u00a0ΔH = −57 kJ mol^−1')}${T(160,52,'brown','tm mid')}${T(470,52,'colourless','tm mid')}
 <g id="nT" class="s">

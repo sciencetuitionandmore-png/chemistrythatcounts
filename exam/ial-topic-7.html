@@ -429,12 +429,12 @@ W.push({btn:'Drawing a hydrogen bond',spec:[["7.1 iii","hydrogen bonds"],["7.2",
 title:'Drawing hydrogen bonding between two water molecules',
 q:'<p><span class="mk">(3)</span><mark>Draw</mark> a diagram to show a <mark>hydrogen bond</mark> between two water molecules. Include <mark>partial charges</mark>, <mark>lone pairs</mark> and the <mark>bond angle</mark> of the hydrogen bond.</p>',
 diag:function(){var s='';
-  s+=AT(70,90,'O','at2')+L(80,96,104,112,'bd')+AT(114,120,'H','at2')+L(62,96,40,114,'bd')+AT(32,122,'H','at2');
-  s+=G(1,T(56,78,'δ−','dl')+T(118,140,'δ+','dl')+T(22,140,'δ+','dl'));
-  s+=AT(230,120,'O','at2')+L(240,126,262,144,'bd')+AT(272,152,'H','at2')+L(232,110,240,84,'bd')+AT(244,74,'H','at2');
+  s+=AT(70,120,'O','at2')+L(82,120,104,120,'bd')+AT(114,120,'H','at2')+L(62,112,46,98,'bd')+AT(38,92,'H','at2');
+  s+=G(1,T(66,146,'δ−','dl')+T(108,142,'δ+','dl')+T(22,84,'δ+','dl'));
+  s+=AT(230,120,'O','at2')+L(240,112,258,100,'bd')+AT(268,94,'H','at2')+L(240,128,258,140,'bd')+AT(268,148,'H','at2');
   s+=G(2,X(214,114)+X(214,126));
-  s+=G(1,T(234,100,'δ−','dl'));
-  s+=G(2,'<line class="imf hot" x1="124" y1="120" x2="210" y2="120"/>'+T(166,112,'hydrogen bond','an','text-anchor="middle"'));
+  s+=G(1,T(226,150,'δ−','dl'));
+  s+=G(2,'<line class="imf hot" x1="124" y1="120" x2="210" y2="120"/>'+T(160,106,'hydrogen bond','an','text-anchor="middle"'));
   s+=G(3,T(166,178,'O–H····O in a straight line: 180°','sm','text-anchor="middle"'));
   return svg(330,188,s)},
 lines:plan(['δ+ on H, δ− on O','lone pair on the second O','straight line, 180°'])+

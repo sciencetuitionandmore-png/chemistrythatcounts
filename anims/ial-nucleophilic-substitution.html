@@ -257,8 +257,8 @@ ${Tx(150,120,'carbocation','tb','t_carb','text-anchor="middle" style="fill:#0b5d
 ${Tx(320,320,'Product: 2-methylpropan-2-ol + Br^−','tb','t_p1','text-anchor="middle"')}
 </g>
 <g id="scBE" class="s">${Tx(320,32,'Bond enthalpy and rate of hydrolysis','tb','','text-anchor="middle"')}
-${[['C–Cl',346],['C–Br',290],['C–I',228]].map(([n,v],k)=>`<text x="110" y="${100+k*70}" class="tb" text-anchor="end">${n}</text><rect x="125" y="${80+k*70}" width="${v*1.1}" height="36" fill="#0b5d75" opacity="${.9-k*.25}"/><text x="${135+v*1.1}" y="${104+k*70}" class="t">${v} kJ mol<tspan dy="-6" font-size="11">−1</tspan></text>`).join('')}
-<line x1="560" y1="85" x2="560" y2="245" stroke="#1d7a46" stroke-width="4" marker-end="url(#ah2)"/><text x="575" y="160" class="tb" style="fill:#1d7a46">faster</text>
+${[['C–Cl',346],['C–Br',290],['C–I',228]].map(([n,v],k)=>`<text x="110" y="${100+k*70}" class="tb" text-anchor="end">${n}</text><rect x="125" y="${80+k*70}" width="${v*0.9}" height="36" fill="#0b5d75" opacity="${.9-k*.25}"/><text x="${135+v*0.9}" y="${104+k*70}" class="t">${v} kJ mol<tspan dy="-6" font-size="11">−1</tspan></text>`).join('')}
+<line x1="566" y1="85" x2="566" y2="245" stroke="#1d7a46" stroke-width="4" marker-end="url(#ah2)"/><text x="578" y="160" class="tb" style="fill:#1d7a46">faster</text>
 ${Tx(320,300,'Weaker bond → less energy needed to break it → faster reaction.','t','','text-anchor="middle"')}
 ${Tx(320,324,'C–Cl is the most polar bond, but bond enthalpy matters more.','tm','','text-anchor="middle"')}</g>
 <g id="scNu" class="s">${Tx(20,32,'Other nucleophiles: each has a lone pair','tb')}

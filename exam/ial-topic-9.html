@@ -432,8 +432,8 @@ q:'<p><span class="mk">(3)</span><mark>Draw</mark> a <mark>reaction profile</mar
 diag:function(){var s=DEFS,g=gax({x0:0,x1:10,y0:0,y1:10,xl:'progress of reaction',yl:'enthalpy',h:220,L:34,noxl:true}),X=g.X,Y=g.Y;s+=g.s;
   var c=function(h){return 'M'+X(0.4)+' '+Y(6)+'H'+X(2.4)+'C'+X(3.8)+' '+Y(6)+' '+X(3.8)+' '+Y(h)+' '+X(5)+' '+Y(h)+'C'+X(6.2)+' '+Y(h)+' '+X(6.2)+' '+Y(2)+' '+X(7.6)+' '+Y(2)+'H'+X(9.6)};
   s+=G(1,PL(c(9.4),'ln')+T(X(0.4),Y(6)+14,'reactants','sm')+T(X(7.6),Y(2)+14,'products','sm'));
-  s+=G(2,'<path class="dp" d="M'+X(2)+' '+Y(6)+'V'+Y(9.2)+'"/>'+T(X(1.8),Y(8),'Ea','an','text-anchor="end"')+'<path class="po" d="M'+X(9)+' '+Y(6)+'V'+Y(2.2)+'"/><path class="anl" d="M'+X(2.4)+' '+Y(6)+'H'+X(9.4)+'"/>'+T(X(9)+4,Y(4),'ΔH','an'));
-  s+=G(3,PL(c(7.6),'ln2')+T(X(5),Y(7.6)-8,'catalysed','an','text-anchor="middle"'));
+  s+=G(2,'<path class="anl" d="M'+X(2)+' '+Y(9.4)+'H'+X(5)+'"/><path class="dp" d="M'+X(2)+' '+Y(6)+'V'+Y(9.3)+'"/>'+T(X(1.8),Y(8),'Ea','an','text-anchor="end"')+'<path class="po" d="M'+X(9)+' '+Y(6)+'V'+Y(2.2)+'"/><path class="anl" d="M'+X(2.4)+' '+Y(6)+'H'+X(9.4)+'"/>'+T(X(9)+4,Y(4),'ΔH','an'));
+  s+=G(3,PL(c(7.6),'ln2')+T(X(6.3),Y(8),'catalysed','an','text-anchor="start"'));
   return svg(330,220,s)},
 lines:plan(['products below reactants','Ea and ΔH arrows','lower hump for the catalyst'])+
  ans(1,'','','Products drawn <span class="hl">lower than the reactants</span> (exothermic).','M1')+

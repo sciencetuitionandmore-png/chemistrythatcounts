@@ -244,7 +244,7 @@ const lpx=(x,y,a,d)=>`<g transform="translate(${x} ${y})">${lp(a,d||17)}</g>`;
 const dlt=(x,y,s)=>`<text x="${x}" y="${y}" class="dl">δ${s}</text>`;
 /* water molecule: O at x,y, a = direction (deg, screen: 0 right, 90 down) the H atoms point */
 function water(x,y,a,o){o=o||{};const r=Math.PI/180;let s='';const H=[];[a-52,a+52].forEach(t=>{const hx=x+42*Math.cos(t*r),hy=y+42*Math.sin(t*r);H.push([hx,hy,t]);s+=ln(x+12*Math.cos(t*r),y+12*Math.sin(t*r),hx-9*Math.cos(t*r),hy-9*Math.sin(t*r))+atom(hx,hy,'H')});
- s+=atom(x,y,'O');[a+180-55,a+180+55].forEach(t=>{s+=lpx(x,y,t+90,19)});if(o.d){s+=`<text x="${x-20}" y="${y-24}" class="dl">δ−</text>`;H.forEach(h=>s+=`<text x="${h[0]+14*Math.cos(h[2]*r)+6}" y="${h[1]+14*Math.sin(h[2]*r)-14}" class="dl">δ+</text>`)}
+ s+=atom(x,y,'O');[a+180-55,a+180+55].forEach(t=>{s+=lpx(x,y,t+90,19)});if(o.d){s+=`<text x="${x-20}" y="${y-24}" class="dl">δ−</text>`;H.forEach(h=>{const c=Math.cos(h[2]*r),sn=Math.sin(h[2]*r);const tx=Math.abs(sn)<0.5?h[0]-4:h[0]-30,ty=Math.abs(sn)<0.5?h[1]-16:h[1]+6;s+=`<text x="${tx}" y="${ty}" class="dl">δ+</text>`})}
  return{s,H,lp:[a+180-55,a+180+55].map(t=>[x+24*Math.cos(t*r),y+24*Math.sin(t*r)])}}
 function cloud(id,cx,cy){return `<g transform="translate(${cx} ${cy})"><g class="cl" id="${id}"><ellipse rx="62" ry="54" fill="url(#cg)"/></g><circle r="7" fill="#1c2736"/><text y="1" class="chg" style="fill:#fff;font-size:12px">+</text></g>`}
 /* hydride data, °C */
@@ -253,7 +253,7 @@ const HC={'14':'#7d8fa3','15':'#1d7a46','16':'#0b5d75','17':'#d17a00'};
 function hydGraph(){const X=p=>150+(p-2)*130,Y=t=>290-(t+180)/300*250;let s=`<path class="ax" d="M110 30V290H560"/>`;
  [-150,-100,-50,0,50,100].forEach(t=>s+=`<line x1="104" x2="110" y1="${Y(t)}" y2="${Y(t)}" class="bl"/>`+T(100,Y(t)+5,String(t).replace('-','−'),'tm','text-anchor="end"'));
  [2,3,4,5].forEach(p=>s+=T(X(p),310,String(p),'tm mid'));s+=T(335,334,'Period','t mid')+`<text transform="translate(44 160) rotate(-90)" class="t mid">Boiling temperature / °C</text>`;
- for(const g in HY){const d=HY[g];s+=`<polyline fill="none" stroke="${HC[g]}" stroke-width="2.6" points="${d.map((v,i)=>X(i+2)+','+Y(v[1])).join(' ')}"/>`;d.forEach((v,i)=>{s+=`<circle cx="${X(i+2)}" cy="${Y(v[1])}" r="5" fill="${HC[g]}"/>`;if(i===0||g==='14'&&i===3)s+=T(X(i+2)+(i?10:-10),Y(v[1])+(g==='14'?18:-8),v[0],'tb',`text-anchor="${i?'start':'end'}" style="fill:${HC[g]};font-size:15px"`)})}
+ for(const g in HY){const d=HY[g];s+=`<polyline fill="none" stroke="${HC[g]}" stroke-width="2.6" points="${d.map((v,i)=>X(i+2)+','+Y(v[1])).join(' ')}"/>`;d.forEach((v,i)=>{s+=`<circle cx="${X(i+2)}" cy="${Y(v[1])}" r="5" fill="${HC[g]}"/>`;if(i===0||g==='14'&&i===3){const st=i||g==='14';s+=T(X(i+2)+(st?10:-10),Y(v[1])+(g==='14'?(i?18:-8):-8),v[0],'tb',`text-anchor="${st?'start':'end'}" style="fill:${HC[g]};font-size:15px"`)}})}
  s+=T(575,40,'Group','tm')+['14','15','16','17'].map((g,k)=>`<rect x="575" y="${52+k*22}" width="14" height="4" fill="${HC[g]}"/>`+T(596,58+k*22,g,'tm')).join('');
  s+=`<rect x="300" y="36" width="230" height="44" rx="8" fill="#fff8e7"/>`+T(415,54,'H_2O, HF and NH_3 are much','tm mid')+T(415,72,'higher: hydrogen bonds','tm mid');return s}
 /* ice: central water with four neighbours */
@@ -288,7 +288,7 @@ ${ln(173,110,286,110,'imf')}${ln(173,230,286,230,'imf')}${T(230,170,'δ+ attract
 ${T(530,120,'butane','tb mid')}${T(530,142,'non-polar: b.t. −1 °C','tm mid')}${T(530,190,'propanone','tb mid')}${T(530,212,'polar C=O: b.t. 56 °C','tm mid')}${T(530,250,'dipole–dipole adds on','tm mid')}
 ${T(220,300,'Permanent dipoles: Cl is more electronegative than H','t mid')}</g>
 <g id="scHB" class="s"><g transform="translate(-48 -95) scale(1.5)">${W1.s}${W2.s}
-<line x1="150" y1="170" x2="340" y2="170" stroke="#9aa6b2" stroke-dasharray="2 6" opacity=".6"/><line x1="224" y1="170" x2="294" y2="170" class="hb"/></g>${T(337,128,'hydrogen bond','tb mid','style="fill:#c4421a"')}
+<line x1="150" y1="170" x2="340" y2="170" stroke="#9aa6b2" stroke-dasharray="2 6" opacity=".6"/><line x1="224" y1="170" x2="294" y2="170" class="hb"/></g>${T(337,96,'hydrogen bond','tb mid','style="fill:#c4421a"')}
 ${T(320,268,'O–H···O in a straight line (180°)','tb mid')}${T(320,292,'Needs: H bonded to N, O or F, and a lone pair on N, O or F in the other molecule.','tm mid')}
 ${T(320,318,'The hydrogen bond goes from the δ+ H to a lone pair on the δ− O.','t mid')}</g>
 <g id="scIce" class="s">${ice()}${T(20,40,'Ice','th')}${T(20,66,'Each molecule forms up to','tm')}${T(20,84,'4 hydrogen bonds.','tm')}
