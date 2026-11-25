@@ -211,7 +211,7 @@ s+=G(6,7,T(200,50,'Sc^{3+}  [Ar] 3d^{0}','ti')+split(110,90,[0,0],[0,0,0],34)+tu
 T(600,50,'Zn^{2+}  [Ar] 3d^{10}','ti')+split(510,90,[2,2],[2,2,2],34)+tube(730,90,40,150,'#f6f8fb')+T(600,300,'upper level full: no space','lk')+T(600,326,'colourless','lb')+Ln(400,40,400,340,'bd',' style="stroke:#cdd6df"'));
 // step 7
 const TB=[['[Cu(H_{2}O)_{6}]^{2+}','','#8ec5ee','pale blue','starting complex'],['[Cu(NH_{3})_{4}','(H_{2}O)_{2}]^{2+}','#2443b8','deep blue','new ligand'],['[CuCl_{4}]^{2−}','','#c8cc3a','yellow-green','4 ligands, tetrahedral'],['[Fe(H_{2}O)_{6}]^{2+}','','#c3e0a8','pale green','Fe(II)'],['[Fe(H_{2}O)_{6}]^{3+}','','#d9a441','yellow-brown','Fe(III)']];
-s+=G(7,0,T(400,36,'Different ligand, coordination number or oxidation state: different ΔE, different colour','lk')+TB.map((t,i)=>{const x=90+i*155;return T(x,t[1]?78:96,t[0],'lk')+(t[1]?T(x,98,t[1],'lk'):'')+tube(x-22,110,44,170,t[2])+T(x,310,t[3],'ti')+T(x,334,t[4],'lb')}).join('')+'<path class="bd" d="M548,352 v10 H717 v-10" style="stroke:#8a96a3"/>'+T(632,384,'change of oxidation state','lb'));
+s+=G(7,0,T(400,36,'Different ligand, coordination number or oxidation state: different ΔE, different colour','lk')+TB.map((t,i)=>{const x=90+i*155;return T(x,t[1]?72:96,t[0],'lk')+(t[1]?T(x,100,t[1],'lk'):'')+tube(x-22,110,44,170,t[2])+T(x,310,t[3],'ti')+T(x,334,t[4],'lb')}).join('')+'<path class="bd" d="M548,352 v10 H717 v-10" style="stroke:#8a96a3"/>'+T(632,384,'change of oxidation state','lb'));
 return s}
 const ION={Cu:['Cu<sup>2+</sup>',9],Co:['Co<sup>2+</sup>',7],Ni:['Ni<sup>2+</sup>',8],Fe:['Fe<sup>2+</sup>',6],Cr:['Cr<sup>3+</sup>',3],Sc:['Sc<sup>3+</sup>',0],Zn:['Zn<sup>2+</sup>',10]};
 const LIG={w:'H<sub>2</sub>O',a:'NH<sub>3</sub> (excess)',c:'Cl<sup>−</sup> (conc. HCl)'};

@@ -322,7 +322,7 @@ function scene(st,isExt){
    const negL=HC[st.L].E<HC[st.R].E,p=negL?'M121 90V66H441V90':'M441 90V66H121V90';
    s+=`<text x="${negL?150:450}" y="58" class="lbl" text-anchor="middle">${negL?'e⁻ →':'← e⁻'}</text>`;
    if(!RM)for(let i=0;i<4;i++)s+=`<circle r="4" fill="#f2b705" stroke="#8a6a00"><animateMotion dur="3s" repeatCount="indefinite" begin="-${i*0.75}s" path="${p}"/></circle>`;}
-  s+=`<rect x="235" y="8" width="130" height="72" rx="8" fill="#2b3340"/><rect x="250" y="16" width="100" height="34" rx="3" fill="#cfe3c6"/><text x="300" y="42" text-anchor="middle" font-family="monospace" font-weight="700" font-size="22" fill="#1c2a1c">${conn?(rd<0?'-':'')+Math.abs(rd).toFixed(2):'– – –'}</text><text x="300" y="72" text-anchor="middle" font-size="11" fill="#cdd6df">V</text>`;
+  s+=`<rect x="235" y="8" width="130" height="72" rx="8" fill="#2b3340"/><rect x="250" y="16" width="100" height="34" rx="3" fill="#cfe3c6"/><text x="294" y="42" text-anchor="middle" font-family="monospace" font-weight="700" font-size="22" fill="#1c2a1c">${conn?(rd<0?'-':'')+Math.abs(rd).toFixed(2):'– – –'}</text><text x="344" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#1c2a1c">V</text>`;
   const lt=st.leads==='L'?['#c62828','V']:['#222','COM'],rt=st.leads==='L'?['#222','COM']:['#c62828','V'];
   s+=`<circle cx="250" cy="66" r="6" fill="${lt[0]}" stroke="#999"/><circle cx="350" cy="66" r="6" fill="${rt[0]}" stroke="#999"/><text x="266" y="70" font-size="10" fill="#fff">${lt[1]}</text><text x="334" y="70" font-size="10" fill="#fff" text-anchor="end">${rt[1]}</text>`;}
  return s}

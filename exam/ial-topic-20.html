@@ -404,7 +404,7 @@ q:'<p><span class="mk">(4)</span><mark>Plan</mark> the synthesis of phenylamine 
 diag:function(){var s=DEFS;
   s+=box2(10,20,80,34,'card t')+T(50,42,'C₆H₆','hd','text-anchor="middle"');
   s+=G(1,arr(90,37,118,37,'dp')+box2(120,20,96,34,'card')+T(168,42,'C₆H₅NO₂','hd','text-anchor="middle"')+T(104,76,'conc HNO₃ + conc H₂SO₄','sm')+T(104,90,'below 55 °C','sm'));
-  s+=G(2,arr(216,37,234,37,'dp')+box2(236,20,90,34,'card g')+T(281,42,'C₆H₅NH₂','hd','text-anchor="middle"')+T(236,110,'Sn + conc HCl, reflux;','sm')+T(236,124,'then NaOH','sm'));
+  s+=G(2,arr(216,37,234,37,'dp')+box2(236,20,90,34,'card g')+T(281,42,'C₆H₅NH₂','hd','text-anchor="middle"')+T(222,110,'Sn + conc HCl,','sm')+T(222,124,'reflux; then NaOH','sm'));
   return svg(330,136,s)},
 lines:plan(['step 1: nitration','intermediate','step 2: reduction','free the amine'])+
  ans(1,'','','Step 1: <span class="hl">concentrated nitric and sulfuric acids</span>, <span class="hl">below 55 °C</span>.','M1')+
@@ -428,7 +428,7 @@ W.push({btn:'Core Practical 16: recrystallisation',spec:[["20.3","practical tech
 title:'Purifying aspirin by recrystallisation',
 q:'<p><span class="mk">(4)</span>Crude aspirin is purified by <mark>recrystallisation</mark>. <mark>Describe</mark> the method and explain how a <mark>melting point</mark> shows the product is pure.</p>',
 diag:function(){var s='';
-  ['1 dissolve in minimum hot solvent','2 filter hot (remove insoluble impurities)','3 cool slowly: crystals form','4 filter under reduced pressure, wash with cold solvent','5 dry; measure melting point'].forEach(function(t,i){s+=G(i+1,box2(10,8+i*38,310,30,'card')+T(20,28+i*38,t,'hd'))});
+  ['1 dissolve in minimum hot solvent','2 filter hot (remove insoluble impurities)','3 cool slowly: crystals form','4 suction filter; wash with cold solvent','5 dry; measure melting point'].forEach(function(t,i){s+=G(i+1,box2(10,8+i*38,310,30,'card')+T(20,28+i*38,t,'hd'))});
   return svg(330,200,s)},
 lines:plan(['minimum hot solvent','hot filtration','cool and filter','melting point'])+
  ans(1,'','','Dissolve in the <span class="hl">minimum volume of hot solvent</span> (e.g. hot ethanol/water).','M1')+
@@ -454,7 +454,7 @@ W.push({btn:'Choosing practical techniques',spec:[["20.3","reflux, distillation,
 title:'When to use reflux, distillation and steam distillation',
 q:'<p><span class="mk">(3)</span><mark>Explain</mark> why heating under <mark>reflux</mark> is used to oxidise propan-2-ol to propanone, why the product is then separated by <mark>distillation</mark>, and how its <mark>purity</mark> can be checked.</p>',
 diag:function(){var s='';
-  s+=card(10,44,'reflux','vapours condense and return: no loss, long heating','card t',1);
+  s+=card(10,44,'reflux','vapours condense and return','card t',1);
   s+=card(64,44,'distillation','separates liquids by boiling point','card',2);
   s+=card(118,44,'check purity','boiling point; IR (C=O, no O–H)','card g',3);
   return svg(330,170,s)},

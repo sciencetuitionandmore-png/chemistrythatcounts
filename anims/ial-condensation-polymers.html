@@ -198,8 +198,8 @@ M={};o=fx(260,220,['H_{3}C','-',{mk:'a'},{a:'C',u2:'O'},'-',{a:'N',d:'H'},{mk:'b
 s+=G(2,3,T(400,60,'CH_{3}COCl + CH_{3}NH_{2} → CH_{3}CONHCH_{3} + HCl','lk')+T(400,86,'acyl chloride + amine → amide + HCl','lb')+hlr(M.a-8,M.b+8,160,290)+o+T(400,330,'amide link: –CONH–','ti')+T(400,354,'N-methylethanamide','lb'));
 // 3 amino acids
 const R=(x,a,b)=>fx(x,180,[a,'-',{a:'C',u:'H',d:'R'},'-',b]);
-s+=G(3,4,T(400,48,'Amino acid: H_{2}N–CHR–COOH','ti')+R(40,'H_{3}N^{+}','COOH')+R(300,'H_{3}N^{+}','COO^{−}')+R(565,'H_{2}N','COO^{−}')+
-T(125,280,'low pH (acid)','lk')+T(125,302,'overall charge +1','lb')+hlr(290,490,110,315,' style="fill:#e3eff3;stroke:#0b5d75"')+T(390,280,'isoelectric point','lk')+T(390,302,'zwitterion: charge 0','lb')+T(650,280,'high pH (alkali)','lk')+T(650,302,'overall charge −1','lb')+
+s+=G(3,4,T(400,48,'Amino acid: H_{2}N–CHR–COOH','ti')+hlr(290,490,110,315,' style="fill:#e3eff3;stroke:#0b5d75"')+R(40,'H_{3}N^{+}','COOH')+R(300,'H_{3}N^{+}','COO^{−}')+R(565,'H_{2}N','COO^{−}')+
+T(125,280,'low pH (acid)','lk')+T(125,302,'overall charge +1','lb')+T(390,280,'isoelectric point','lk')+T(390,302,'zwitterion: charge 0','lb')+T(650,280,'high pH (alkali)','lk')+T(650,302,'overall charge −1','lb')+
 '<path class="bd" d="M70,360 H730 M720,354 l10,6 l-10,6"/>'+T(400,385,'pH increases','lb'));
 // 4-5 polyester formation
 const WX=330,WY=300;

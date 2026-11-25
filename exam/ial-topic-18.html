@@ -411,9 +411,9 @@ diag:function(){var s=DEFS2;
   s+=G(1,T(20,22,'HNO₃ + 2H₂SO₄ → NO₂⁺ + H₃O⁺ + 2HSO₄⁻','sm'));
   s+=ring(70,110,36,1)+AT(160,70,'NO₂⁺','at2');
   s+=G(2,CA('M70 92C84 70 116 64 140 68',2));
-  s+=G(3,ring(220,110,36,1,1)+T(220,124,'+','plus','text-anchor="middle"')+L(246,80,262,56,'bd')+AT(272,48,'NO₂','at2s')+L(236,82,248,64,'bd')+AT(252,58,'H','at2s'));
+  s+=G(3,ring(220,110,36,1,1)+T(220,124,'+','plus','text-anchor="middle"')+L(220,74,240,50,'bd')+AT(252,42,'NO₂','at2s')+L(220,74,200,50,'bd')+AT(192,42,'H','at2s'));
   s+=G(3,T(220,170,'intermediate: ring partly broken','an','text-anchor="middle"'));
-  s+=G(4,CA('M248 70C246 86 232 92 224 100',4)+T(20,196,'H⁺ lost, ring restored → C₆H₅NO₂','an'));
+  s+=G(4,CA('M207 60C190 74 200 92 212 98',4)+T(20,196,'H⁺ lost, ring restored → C₆H₅NO₂','an'));
   return svg(330,206,s)},
 lines:plan(['make NO₂⁺','arrow from ring to NO₂⁺','intermediate','C–H bond to ring'])+
  ans(1,'','','<span class="hl">HNO<sub>3</sub> + 2H<sub>2</sub>SO<sub>4</sub> → NO<sub>2</sub><sup>+</sup> + H<sub>3</sub>O<sup>+</sup> + 2HSO<sub>4</sub><sup>−</sup></span>','M1')+
