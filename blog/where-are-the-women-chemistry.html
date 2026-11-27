@@ -372,17 +372,17 @@ article.post ul.sources li{font-size:.95rem}
 <section class="ask" id="ask" aria-labelledby="ask-h">
 <h2 id="ask-h">Ask a question about this post</h2>
 <p>Stuck on something, or want to know more? Ask here. I read every question, and I answer the most useful ones on the <a href="/qa.html">Q&amp;A page</a>.</p>
-<form name="question" method="POST" action="/qa-thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="question">
-<input type="hidden" name="page" value="Blog: 17 scientists. 17 men. Here’s what I’m doing about it">
+<iframe name="gf-sink" title="" hidden style="display:none"></iframe>
+<form name="ask" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSce-jIEIbFG_EaVoHW4CJPN-3baowu-QOUSIziVwe87Z-qaZQ/formResponse" target="gf-sink" onsubmit="if(this.querySelector('[name=bot-field]').value){return false}var f=document.querySelector('iframe[name=gf-sink]');f.onload=function(){location.href='/qa-thanks.html'};setTimeout(function(){location.href='/qa-thanks.html'},4000);">
+<input type="hidden" name="entry.625020971" value="Blog: 17 scientists. 17 men. Here’s what I’m doing about it">
 <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
-<label>Your question<textarea name="question" required maxlength="2000" rows="5"></textarea></label>
-<label>What is it about? <span class="opt">(optional, e.g. a topic or page)</span><input name="about" maxlength="120" value="17 scientists. 17 men. Here’s what I’m doing about it"></label>
+<label>Your question<textarea name="entry.840287499" required maxlength="2000" rows="5"></textarea></label>
+<label>What is it about? <span class="opt">(optional, e.g. a topic or page)</span><input name="entry.137001960" maxlength="120" value="17 scientists. 17 men. Here’s what I’m doing about it"></label>
 <div class="two">
-<label>First name <span class="opt">(optional)</span><input name="first-name" maxlength="40" autocomplete="given-name"></label>
-<label>I am a…<select name="who"><option>Student</option><option>Teacher or tutor</option><option>Parent</option><option>Other</option></select></label>
+<label>First name <span class="opt">(optional)</span><input name="entry.1382573366" maxlength="40" autocomplete="given-name"></label>
+<label>I am a…<select name="entry.1735825610"><option>Student</option><option>Teacher or tutor</option><option>Parent</option><option>Other</option></select></label>
 </div>
-<label>Email <span class="opt">(optional: only if you'd like a private reply. Never published.)</span><input type="email" name="email" maxlength="120" autocomplete="email"></label>
+<label>Email <span class="opt">(optional: only if you'd like a private reply. Never published.)</span><input type="email" name="entry.915663407" maxlength="120" autocomplete="email"></label>
 <p class="small">If you're under 16, please leave out your surname, school and email. I only publish the question, and your first name if you give one.</p>
 <button class="btn dark" type="submit">Send my question</button>
 </form>
